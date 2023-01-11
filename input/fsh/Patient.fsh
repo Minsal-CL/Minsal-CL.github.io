@@ -1,5 +1,5 @@
 Profile: PacienteLP
-Parent: Patient
+Parent: PatientCL
 Id: PacienteLP
 Title: "PacienteLP"
 Description: "PacienteLP"
@@ -9,7 +9,10 @@ Description: "PacienteLP"
 * extension contains PaisOrigenNacionalidadCl named paisOrigen 1..1 MS
 * extension contains IdentidadGenero named IdentidadGenero 1..1 MS
 * extension contains PertenecienteEtnia named PertenecienteEtnia 1..1 MS
-* extension contains etnia named etnia 1..1 MS
+* extension contains Etnia named Etnia 1..1 MS
+* extension contains Etniatexto named Etniatexto 1..1 MS
+* extension contains Afrodescendiente named Afrodescendiente 1..1 MS
+
 // FIN EXTENSIONES
 
 
@@ -45,3 +48,14 @@ Description: "PacienteLP"
   * text 1..1 MS
 * name.use = #official  
 * birthDate 1..1 MS
+
+* telecom ^slicing.discriminator.type = #value
+* telecom ^slicing.discriminator.path = "use"
+* telecom ^slicing.rules = #open
+* telecom ^slicing.description = "Slice creado para almacenar diferentes contactos"
+* telecom contains contacto1 1..1 MS and contacto2 1..1 MS and contacto3 1..1 MS
+
+* telecom[contacto1].rank = 1
+* telecom[contacto1].system = #hone  
+* telecom[contacto2].rank = 2
+* telecom[contacto3].rank = 3

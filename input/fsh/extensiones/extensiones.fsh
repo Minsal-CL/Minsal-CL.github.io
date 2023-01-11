@@ -30,9 +30,9 @@ Title:       "PertenecienteEtnia"
 Description: "PertenecienteEtnia"
 * value[x] only boolean
 
-Extension: etnia 
-Id: etnia          
-Title:       "Etnia a la cual pertenece"
+Extension: Etnia
+Id: Etnia
+Title: "Etnia a la cual pertenece"
 Description: "Etnia a la cual pertenece"
 * value[x] only CodeableConcept
 * value[x] ^short = "Codigo de la etnia"
@@ -42,12 +42,20 @@ Description: "Etnia a la cual pertenece"
   //* code from CodPais
   * system 0..1 MS
   * display 0..1 MS
+* valueCodeableConcept.text MS
 
-Extension: etniatexto 
-Id: etniatexto
-Title:       "etniatexto"
-Description: "etniatexto"
+Extension: Etniatexto
+Id: Etniatexto
+Title: "Etniatexto"
+Description: "Etniatexto"
 * value[x] only string
+
+Extension: Afrodescendiente 
+Id: Afrodescendiente
+Title:       "Afrodescendiente"
+Description: "paciente pertenece a un Pueblo Afrodescendiente chileno"
+* value[x] only boolean
+
 /*
 Extension:   
 Id:          
