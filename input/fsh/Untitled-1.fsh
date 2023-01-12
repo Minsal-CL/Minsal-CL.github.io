@@ -1,6 +1,6 @@
-Profile: PacienteLP
+Profile: PacienteLP-
 Parent: Patient
-Id: PacienteLP
+Id: PacienteLP-
 Title: "PacienteLP"
 Description: "PacienteLP"
 
@@ -82,7 +82,7 @@ Description: "PacienteLP"
 * telecom ^slicing.discriminator.path = "use"
 * telecom ^slicing.rules = #open
 * telecom ^slicing.description = "Slice creado para almacenar diferentes contactos"
-* telecom contains contacto1 1..1 MS and contacto2 1..1 MS and contacto3 1..1 MS and contacto4 0..1 MS and contacto5 0..1 MS
+* telecom contains contacto1 1..1 MS and contacto2 1..1 MS and contacto3 1..1 MS
 
 * telecom[contacto1].rank = 1
 * telecom[contacto1].system = #phone
@@ -93,7 +93,3 @@ Description: "PacienteLP"
 * telecom[contacto3].rank = 3
 * telecom[contacto3].system = #phone 
 * telecom[contacto3].use = #mobile
-* telecom[contacto4].system = #phone 
-* telecom[contacto4].use = #temp
-* telecom[contacto5].system = #email 
-* telecom[contacto5].use = #home
