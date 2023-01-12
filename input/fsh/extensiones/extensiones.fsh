@@ -56,6 +56,12 @@ Title:       "Afrodescendiente"
 Description: "paciente pertenece a un Pueblo Afrodescendiente chileno"
 * value[x] only boolean
 
+Extension: SegundoApellido
+Id: SegundoApellido
+Title: "Segundo Apellido"
+Description: "Segundo Apellido"
+* value[x] only string
+
 /*
 Extension:   
 Id:          

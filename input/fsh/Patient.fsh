@@ -54,10 +54,14 @@ Description: "PacienteLP"
 * name[Nombres].use = #official  
 * name[Nombres].family ^short = "Primer Apellido"
 * name[Nombres].family ^definition = "Se debe ingresar el primer apellido, segun indica su identificacion personal"
-* name[Nombres].family.extension contains http://hl7.org/fhir/StructureDefinition/humanname-mothers-family named mothers-family 0..1 MS
-* name[Nombres].family.extension ^short = "Extensión para apellido materno"
-* name[Nombres].family.extension contains http://hl7.org/fhir/StructureDefinition/humanname-fathers-family named fathers-family 0..1 MS
-* name[Nombres].family.extension ^short = "Extensión para apellido paterno"
+* name[Nombres].family.extension contains SegundoApellido named SegundoApellido 0..1 MS
+
+
+
+//* name[Nombres].family.extension contains http://hl7.org/fhir/StructureDefinition/humanname-mothers-family named mothers-family 0..1 MS
+//* name[Nombres].family.extension ^short = "Extensión para apellido materno"
+//* name[Nombres].family.extension contains http://hl7.org/fhir/StructureDefinition/humanname-fathers-family named fathers-family 0..1 MS
+//* name[Nombres].family.extension ^short = "Extensión para apellido paterno"
 
 * name[NombresSocial] 0..1 MS
   * text 0..1 MS  

@@ -1,6 +1,6 @@
-Profile: PacienteLP-
+Profile: PacienteLPP
 Parent: Patient
-Id: PacienteLP-
+Id: PacienteLPP
 Title: "PacienteLP"
 Description: "PacienteLP"
 
