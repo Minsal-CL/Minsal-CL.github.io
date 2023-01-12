@@ -24,12 +24,6 @@ Description: "Identidad de genero"
   * system 0..1 MS
   * display 0..1 MS
 
-Extension: PertenecienteEtnia 
-Id: PertenecienteEtnia
-Title:       "PertenecienteEtnia"
-Description: "PertenecienteEtnia"
-* value[x] only boolean
-
 Extension: Etnia
 Id: Etnia
 Title: "Etnia a la cual pertenece"
@@ -38,17 +32,11 @@ Description: "Etnia a la cual pertenece"
 * value[x] ^short = "Codigo de la etnia"
 * url 1..1 MS
 * valueCodeableConcept.coding 1..1 MS
-  * code 1..1 MS
+  * code 0..1 MS
   //* code from CodPais
   * system 0..1 MS
-  * display 0..1 MS
+  * display 1..1 MS
 * valueCodeableConcept.text MS
-
-Extension: Etniatexto
-Id: Etniatexto
-Title: "Etniatexto"
-Description: "Etniatexto"
-* value[x] only string
 
 Extension: Afrodescendiente 
 Id: Afrodescendiente

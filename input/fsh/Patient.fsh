@@ -1,23 +1,16 @@
 Profile: PacienteLP
-Parent: Patient
+Parent: PacienteCl
 Id: PacienteLP
 Title: "PacienteLP"
 Description: "PacienteLP"
 
 // EXTESIONES
-* extension contains PaisOrigenNacionalidadCl named nacionalidad 1..1 MS
 * extension contains PaisOrigenNacionalidadCl named paisOrigen 1..1 MS
 * extension contains IdentidadGenero named IdentidadGenero 1..1 MS
-* extension contains PertenecienteEtnia named PertenecienteEtnia 1..1 MS
-* extension contains Etnia named Etnia 1..1 MS
-* extension contains Etniatexto named Etniatexto 1..1 MS
+* extension contains Etnia named Etnia 0..1 MS
 * extension contains Afrodescendiente named Afrodescendiente 1..1 MS
 
 // FIN EXTENSIONES
-
-
-
-
 
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "use"
@@ -37,6 +30,7 @@ Description: "PacienteLP"
 * identifier[otraIdentificacion].type 1..1 MS
 * identifier[otraIdentificacion].value 1..1 MS
 
+/*
 * name ^slicing.discriminator.type = #value
 * name ^slicing.discriminator.path = "use"
 * name ^slicing.rules = #open
@@ -77,6 +71,9 @@ Description: "PacienteLP"
 
 
 * name.use = #official  
+
+*/
+
 * birthDate 1..1 MS
 
 

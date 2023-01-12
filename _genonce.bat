@@ -24,4 +24,7 @@ IF EXIST "%input_cache_path%\%publisher_jar%" (
 	ECHO IG Publisher NOT FOUND in input-cache or parent folder.  Please run _updatePublisher.  Aborting...
 )
 
+REN output GENERATED
+
+
 PAUSE
