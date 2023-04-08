@@ -1,8 +1,9 @@
 ---
 layout: default
 title: EMPI
-parent: componentes-de-la-arquitectura
+parent: Componentes de la Arquitectura
 nav_order: 1
 ---
 
 # EMPI
+Uno de los Componentes de la Arquitectura es el EMPI. 
