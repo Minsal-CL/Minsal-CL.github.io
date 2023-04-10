@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Especificacion de la Arquitectura
+title: Especificación de la Arquitectura
 nav_order: 2
 has_children: true
 permalink: /docs/especificacion-de-la-arquitectura
