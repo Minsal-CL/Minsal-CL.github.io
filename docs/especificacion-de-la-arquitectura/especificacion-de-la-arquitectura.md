@@ -8,6 +8,4 @@ permalink: /docs/especificacion-de-la-arquitectura
 
 # Especificación de la Arquitectura
 
-To make it as easy as possible to write documentation in plain Markdown, most UI components are styled using default Markdown elements with few additional CSS classes needed.
-{: .fs-6 .fw-300 }
-
+La especificación de la arquitectura busca definir un marco de acuerdo mínimo para el intercambio de información.

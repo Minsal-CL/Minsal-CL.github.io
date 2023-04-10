@@ -3,31 +3,23 @@ title: Inicio
 layout: home
 nav_order: 1    
 ---
+# Introducción
+El [Ministerio de Salud de Chile] ha decidido impulsar una estrategia de interoperabilidad para todo el sector salud del país, con la convicción de mejorar la calidad y oportunidad de la atención de salud, mediante un sistema más integrado y transparente en el flujo y manejo de la información por todos los actores involucrados, manteniendo al paciente como eje central de es te esfuerzo. El proyecto de interoperabilidad es una iniciativa que busca lograr la comunicación y el intercambio de información entre diferentes sistemas o plataformas tecnológicas, de manera que los datos puedan ser compartidos y utilizados de manera efectiva y eficiente.
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+El objetivo principal de este proyecto es mejorar la interoperabilidad entre los sistemas de información y los procesos de negocio, lo que permitirá una mayor eficiencia en la gestión de los datos y una mejor toma de decisiones.
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+Para lograr este objetivo, se requiere la implementación de estándares y protocolos comunes que permitan la comunicación entre sistemas heterogéneos. También es necesario el desarrollo de interfaces y aplicaciones que faciliten la integración de los sistemas y la interoperabilidad de los datos.
 
-More specifically, the created site:
+En conclusión, el proyecto de interoperabilidad es una iniciativa importante para mejorar la eficiencia y la efectividad de la comunicación y el intercambio de información entre diferentes sistemas. Su implementación requiere de la adopción de estándares y protocolos comunes, así como del desarrollo de interfaces y aplicaciones que faciliten la integración de los sistemas y la interoperabilidad de los datos.
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+El propósito de este documento es servir de esquema general de las decisiones arquitecturales para los sistemas de información en salud del país. Este documento está pensado en estar en constante evolución a medida que los estándares y políticas en este ámbito van madurando en el tiempo.
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+## Propósito de la especificación
+- Dar una mirada general a la arquitectura de Sistemas de información de salud en Chile
+- Articular los requerimientos de los componentes de dicha arquitectura
+- Articular los flujos de trabajo actualmente identificados y los patrones que estos siguen
+- Proveer una referencia a los implementadores para su uso 
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
 
-To get started with creating a site, just click "[use this template]"!
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
-
-----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+[Ministerio de Salud de Chile]: https://minsal.cl
