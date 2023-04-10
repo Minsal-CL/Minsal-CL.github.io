@@ -5,5 +5,6 @@ parent: Componentes de la Arquitectura
 nav_order: 3
 ---
 
-# EMPI
+# Servicios Terminológicos
+
 Uno de los Componentes de la Arquitectura son los Servicios Terminológicos. 

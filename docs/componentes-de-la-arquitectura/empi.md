@@ -6,4 +6,5 @@ nav_order: 1
 ---
 
 # EMPI
+
 Uno de los Componentes de la Arquitectura es el EMPI. 
