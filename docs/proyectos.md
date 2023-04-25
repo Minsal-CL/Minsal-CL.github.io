@@ -12,7 +12,7 @@ El proyecto tiene su documentación oficial [aqui]
 
 ## Receta electrónica Interoperable
 
-El proyecto tiene su documentación oficial [aqui](https://link-url-here.org)
+El proyecto tiene su documentación oficial [aqui](https://minsal-cl.github.io/SNRE/)
 
 
 
