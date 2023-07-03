@@ -48,8 +48,7 @@ The version-less request for the conceptmap returns `most recent released versio
 
 `GET /orgs/PEPFAR-Test10/ConceptMap/MER`
 
-<details>
-<summary><b>Example response</summary>
+#### Example response
 
 ```json
 {
@@ -159,8 +158,8 @@ The version-less request for the conceptmap returns `most recent released versio
 }
 
 ```
-</details>
-<br />
+
+
 
 By default, first `100` mappings are returned for a conceptmap. If user wants to get more mappings, OCL FHIR service provides pagination support for a resource. The default page value is `page=1` and this number can be incremented to retrieve more mappings.
 
@@ -187,8 +186,8 @@ By default, first `100` mappings are returned for a conceptmap. If user wants to
 
 `GET /orgs/:org/ConceptMap/MER/version/v2.0`
 
-<details>
-<summary><b>Example response</summary>
+
+#### Example Response
 
 ```json
 {
@@ -297,8 +296,7 @@ By default, first `100` mappings are returned for a conceptmap. If user wants to
     ]
 }
 ```
-</details>
-<br />
+
 
 ## Get list of ConceptMap versions
 
@@ -328,8 +326,7 @@ This request returns all `released` versions for a given conceptmap. Note that t
 
 `GET /orgs/PEPFAR-Test10/ConceptMap/MER/version/*`
 
-<details>
-<summary><b>Example response</summary>
+#### Example Response
 
 ```json
 {
@@ -411,8 +408,6 @@ This request returns all `released` versions for a given conceptmap. Note that t
 }
 ```
 
-</details>
-<br />
 
 
 ## Get a list of conceptmaps
@@ -437,8 +432,7 @@ This request returns list of most recent released versions of all conceptmaps.
 
 `GET /orgs/PEPFAR-Test10/ConceptMap/`
 
-<details>
-<summary><b>Example response</summary>
+#### Example Response
 
 ```json
 {
@@ -519,8 +513,6 @@ This request returns list of most recent released versions of all conceptmaps.
     ]
 }
 ```
-</details>
-<br />
 
 
 ## FHIR Operations
@@ -554,7 +546,7 @@ As per mSVCM profile, following FHIR operations are supported for a conceptmap:
 
 #### Request body (POST)
 
-```
+```json
 {
     "resourceType":"Parameters",
     "parameter": [
@@ -618,8 +610,8 @@ As per mSVCM profile, following FHIR operations are supported for a conceptmap:
 
 `GET /orgs/PEPFAR-Test10/ConceptMap/$translate/?url=https://datim.org/CodeSystem/MER&system=/orgs/PEPFAR-Test10/sources/MER/&code=025M3T2Hsh2`
 
-<details>
-<summary><b>Example response</summary>
+
+#### Example Response
 
 ```json
 {
@@ -748,6 +740,3 @@ As per mSVCM profile, following FHIR operations are supported for a conceptmap:
     ]
 }
 ```
-</details>
-<br />
-<br />
