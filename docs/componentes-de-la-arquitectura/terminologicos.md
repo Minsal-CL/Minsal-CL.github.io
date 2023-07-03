@@ -3,6 +3,7 @@ layout: default
 title: Servicios Terminológicos
 parent: Componentes de la Arquitectura
 nav_order: 3
+has_children: true
 ---
 
 # Servicios Terminológicos
