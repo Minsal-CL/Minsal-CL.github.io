@@ -3,6 +3,7 @@ layout: default
 title: Codesystem
 parent: Servicios Terminológicos
 nav_order: 1
+grand_parent: Componentes de la Arquitectura
 ---
 
 # Codesystem

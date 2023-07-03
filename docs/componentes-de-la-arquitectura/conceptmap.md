@@ -1,7 +1,9 @@
+---
 layout: default
 title: Conceptmap
 parent: Servicios Terminológicos
 nav_order: 3
+grand_parent: Componentes de la Arquitectura
 ---
 
 # ConceptMap

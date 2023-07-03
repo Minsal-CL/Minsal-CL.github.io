@@ -1,6 +1,8 @@
-layout: default
+---
 title: ValueSet
+layout: default
 parent: Servicios Terminológicos
+grand_parent: Componentes de la Arquitectura
 nav_order: 2
 ---
 
