@@ -27,173 +27,161 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
 
 #### URL de Solicitud
 
-`GET /fhir/CodeSystem/?url=:url`
+`GET /fhir/CodeSystem?url=:url&version=:version`
 
 #### Parámetros de Solicitud
 
 |  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
-| url | The canonical url of the codesystem |
-| org | The id of OCL organization          |
-| id  | The id of OCL Source                |
+| url | La URL canónica del codesystem      |
+
 
 #### Solicitud de ejemplo
 
-`GET /fhir/CodeSystem/?url=https://datim.org/CodeSystem/MER`
 
-`GET /orgs/PEPFAR/CodeSystem/MER`
+`GET /fhir/CodeSystem?url=http://snomed.info/sct`
+
 
 #### Respuesta de Ejemplo
 
 ```json
 {
     "resourceType": "Bundle",
-    "id": "e689d8a8-462a-426e-bb74-cb36c1be6938",
+    "id": "e9a91ae0-5adb-4611-9c58-07370ab28439",
     "meta": {
-        "lastUpdated": "2020-12-14T13:38:22.667-05:00"
+        "lastUpdated": "2023-07-04T02:38:19.125+00:00"
     },
     "type": "searchset",
-    "total": 1,
+    "total": 7,
     "link": [
         {
             "relation": "self",
-            "url": "http://localhost:8080/fhir/CodeSystem/?_format=json&url=https://datim.org/CodeSystem/MER"
+            "url": "http://192.168.10.187:8080/fhir/CodeSystem?url=http%3A%2F%2Fsnomed.info%2Fsct"
         }
     ],
     "entry": [
         {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20220131",
             "resource": {
                 "resourceType": "CodeSystem",
-                "id": "MER",
-                "language": "en",
-                "url": "https://datim.org/CodeSystem/MER",
-                "identifier": [
-                    {
-                        "use": "usual",
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/CodeSystem/MER/version/v2.0/"
-                    }
-                ],
-                "version": "v2.0",
-                "name": "MER Source",
-                "title": "DATIM Monitoring, Evaluation & Results Metadata",
+                "id": "sct_900000000000207008_20220131",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20220131",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2022-01-31",
                 "status": "active",
-                "date": "2020-12-01T00:00:00-05:00",
-                "publisher": "PEPFAR",
-                "contact": [
-                    {
-                        "name": "Jon Doe 1",
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "jondoe1@gmail.com",
-                                "use": "work",
-                                "rank": 1,
-                                "period": {
-                                    "start": "2020-10-29T10:26:15-04:00",
-                                    "end": "2025-10-29T10:26:15-04:00"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "jurisdiction": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
-                                "code": "USA",
-                                "display": "United States of America"
-                            }
-                        ]
-                    }
-                ],
-                "purpose": "Test code system",
-                "copyright": "This is the test source and copyright protected.",
-                "content": "example",
-                "count": 20751,
-                "property": [
-                    {
-                        "code": "conceptclass",
-                        "uri": "https://api.openconceptlab.org/orgs/OCL/sources/Classes/concepts",
-                        "description": "Standard list of concept classes.",
-                        "type": "string"
-                    },
-                    {
-                        "code": "datatype",
-                        "uri": "https://api.openconceptlab.org/orgs/OCL/sources/Datatypes/concepts",
-                        "description": "Standard list of concept datatypes.",
-                        "type": "string"
-                    },
-                    {
-                        "code": "inactive",
-                        "uri": "http://hl7.org/fhir/concept-properties",
-                        "description": "True if the concept is not considered active.",
-                        "type": "Coding"
-                    }
-                ],
-                "concept": [
-                    {
-                        "code": "A08J7tE7g4m",
-                        "display": "TB_SCREEN (N, DSD, Age): PLHIV Screened",
-                        "designation": [
-                            {
-                                "language": "en",
-                                "use": {
-                                    "code": "Short"
-                                },
-                                "value": "TB_SCREEN (N, DSD, Age)"
-                            },
-                            {
-                                "language": "en",
-                                "use": {
-                                    "code": "Fully Specified"
-                                },
-                                "value": "TB_SCREEN (N, DSD, Age): PLHIV Screened"
-                            },
-                            {
-                                "language": "en",
-                                "use": {
-                                    "code": "Code"
-                                },
-                                "value": "TB_SCREEN_N_DSD_Age"
-                            }
-                        ],
-                        "property": [
-                            {
-                                "code": "conceptclass",
-                                "valueString": "Data Element"
-                            },
-                            {
-                                "code": "datatype",
-                                "valueString": "Numeric"
-                            },
-                            {
-                                "code": "inactive",
-                                "valueBoolean": false
-                            }
-                        ]
-                    }
-                ]
+                "date": "2022-01-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20220731",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_900000000000207008_20220731",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20220731",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2022-07-31",
+                "status": "active",
+                "date": "2022-07-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20221031",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_449081005_20221031",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/449081005/version/20221031",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2022-10-31",
+                "status": "active",
+                "date": "2022-10-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20221031",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_900000000000207008_20221031",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20221031",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2022-10-31",
+                "status": "active",
+                "date": "2022-10-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20230331",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_900000000000207008_20230331",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20230331",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2023-03-31",
+                "status": "active",
+                "date": "2023-03-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20230430",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_449081005_20230430",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/449081005/version/20230430",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2023-04-30",
+                "status": "active",
+                "date": "2023-04-30T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20230430",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_900000000000207008_20230430",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20230430",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2023-04-30",
+                "status": "active",
+                "date": "2023-04-30T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
             }
         }
     ]
 }
-
 ```
-
-
-By default, first `100` concepts are returned for a code system. If user wants to get more concepts, OCL FHIR service provides pagination support for a resource. The default page value is `page=1` and this number can be incremented to retrieve more concepts.
 
 
 ## Obtener versión de un CodeSystem 
@@ -201,172 +189,59 @@ By default, first `100` concepts are returned for a code system. If user wants t
 
 `GET /fhir/CodeSystem/?url=:url&version=:version`
 
-`GET /orgs/:org/CodeSystem/:id/version/:version`
 
 #### Parámetros de Solicitud
 
 |  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
-|url | The canonical url of the codesystem|
-|org | The id of OCL organization|
-|id | The id of OCL Source|
-|version | The version of code system|
+| url | La URL canónica del codesystem      |
+| version | La versión del codesystem       |
+
 
 #### Solicitud de ejemplo
 
-`GET /fhir/CodeSystem/?url=https://datim.org/CodeSystem/MER&version=v1.0`
-
-`GET /orgs/:org/CodeSystem/MER/version/v1.0`
+`GET /fhir/CodeSystem?url=http://snomed.info/sct&version=http://snomed.info/sct/449081005/version/20230430`
 
 #### Respuesta de Ejemplo
 
 ```json
 {
     "resourceType": "Bundle",
-    "id": "e689d8a8-462a-426e-bb74-cb36c1be6938",
+    "id": "d5b1c5f1-a8eb-492e-a41d-b30b4996538c",
     "meta": {
-        "lastUpdated": "2020-12-14T13:38:22.667-05:00"
+        "lastUpdated": "2023-07-04T02:29:34.237+00:00"
     },
     "type": "searchset",
     "total": 1,
     "link": [
         {
             "relation": "self",
-            "url": "http://localhost:8080/fhir/CodeSystem/?_format=json&url=https://datim.org/CodeSystem/MER"
+            "url": "http://192.168.10.187:8080/fhir/CodeSystem?url=http%3A%2F%2Fsnomed.info%2Fsct&version=http%3A%2F%2Fsnomed.info%2Fsct%2F449081005%2Fversion%2F20230430"
         }
     ],
     "entry": [
         {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20230430",
             "resource": {
                 "resourceType": "CodeSystem",
-                "id": "MER",
-                "language": "en",
-                "url": "https://datim.org/CodeSystem/MER",
-                "identifier": [
-                    {
-                        "use": "usual",
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/CodeSystem/MER/version/v1.0/"
-                    }
-                ],
-                "version": "v1.0",
-                "name": "MER Source",
-                "title": "DATIM Monitoring, Evaluation & Results Metadata",
+                "id": "sct_449081005_20230430",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/449081005/version/20230430",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2023-04-30",
                 "status": "active",
-                "date": "2020-12-01T00:00:00-05:00",
-                "publisher": "PEPFAR",
-                "contact": [
-                    {
-                        "name": "Jon Doe 1",
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "jondoe1@gmail.com",
-                                "use": "work",
-                                "rank": 1,
-                                "period": {
-                                    "start": "2020-10-29T10:26:15-04:00",
-                                    "end": "2025-10-29T10:26:15-04:00"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "jurisdiction": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
-                                "code": "USA",
-                                "display": "United States of America"
-                            }
-                        ]
-                    }
-                ],
-                "purpose": "Test code system",
-                "copyright": "This is the test source and copyright protected.",
-                "content": "example",
-                "count": 20751,
-                "property": [
-                    {
-                        "code": "conceptclass",
-                        "uri": "https://api.openconceptlab.org/orgs/OCL/sources/Classes/concepts",
-                        "description": "Standard list of concept classes.",
-                        "type": "string"
-                    },
-                    {
-                        "code": "datatype",
-                        "uri": "https://api.openconceptlab.org/orgs/OCL/sources/Datatypes/concepts",
-                        "description": "Standard list of concept datatypes.",
-                        "type": "string"
-                    },
-                    {
-                        "code": "inactive",
-                        "uri": "http://hl7.org/fhir/concept-properties",
-                        "description": "True if the concept is not considered active.",
-                        "type": "Coding"
-                    }
-                ],
-                "concept": [
-                    {
-                        "code": "A08J7tE7g4m",
-                        "display": "TB_SCREEN (N, DSD, Age): PLHIV Screened",
-                        "designation": [
-                            {
-                                "language": "en",
-                                "use": {
-                                    "code": "Short"
-                                },
-                                "value": "TB_SCREEN (N, DSD, Age)"
-                            },
-                            {
-                                "language": "en",
-                                "use": {
-                                    "code": "Fully Specified"
-                                },
-                                "value": "TB_SCREEN (N, DSD, Age): PLHIV Screened"
-                            },
-                            {
-                                "language": "en",
-                                "use": {
-                                    "code": "Code"
-                                },
-                                "value": "TB_SCREEN_N_DSD_Age"
-                            }
-                        ],
-                        "property": [
-                            {
-                                "code": "conceptclass",
-                                "valueString": "Data Element"
-                            },
-                            {
-                                "code": "datatype",
-                                "valueString": "Numeric"
-                            },
-                            {
-                                "code": "inactive",
-                                "valueBoolean": false
-                            }
-                        ]
-                    }
-                ]
+                "date": "2023-04-30T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
             }
         }
     ]
 }
 ```
 
-## Obtener una lista de las versiones de un CodeSystem
+<!-- ## Obtener una lista de las versiones de un CodeSystem
 
 This request returns all `released` versions for a given code system. Note that this request only returns code system definitions and does not populate concepts.
 
@@ -547,219 +422,173 @@ This request returns all `released` versions for a given code system. Note that 
         }
     ]
 }
-```
+``` -->
 
 
 
-## Get a list of codesystems
+## Obtener una lista de los CodeSystem
 
-This request returns most recent released versions of all code systems.
+Esta solicitud devuelve las versiones más recientes de todos los Code System.
 
 #### URL de Solicitud
 
 `GET /fhir/CodeSystem/`
 
-`GET /orgs/:org/CodeSystem/`
 
 #### Parámetros de Solicitud
 
 |  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
-|org | The id of OCL organization |
+|_count | Conteo de las respuestas  |
 
 #### Solicitud de ejemplo
 
 `GET /fhir/CodeSystem/`
 
-`GET /orgs/PEPFAR/CodeSystem`
+`GET /fhir/CodeSystem?_count=10`
 
 #### Respuesta de Ejemplo
 
 ```json
 {
     "resourceType": "Bundle",
-    "id": "c260abd6-4c35-4b1d-8f43-d269e1f6f543",
+    "id": "6577a2f5-dcea-4fc0-9159-761c3929b4ed",
     "meta": {
-        "lastUpdated": "2020-12-14T16:43:29.773-05:00"
+        "lastUpdated": "2023-07-04T02:42:30.095+00:00"
     },
     "type": "searchset",
-    "total": 1,
+    "total": 7,
     "link": [
         {
             "relation": "self",
-            "url": "http://localhost:8080/fhir/CodeSystem"
+            "url": "http://192.168.10.187:8080/fhir/CodeSystem?_count=10"
         }
     ],
     "entry": [
         {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20220131",
             "resource": {
                 "resourceType": "CodeSystem",
-                "id": "MER1",
-                "language": "en",
-                "url": "https://datim.org/CodeSystem/MER1",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/CodeSystem/MER1/version/v1.0/"
-                    }
-                ],
-                "version": "v1.0",
-                "name": "MER1 Source",
-                "title": "DATIM Monitoring, Evaluation & Results Metadata",
+                "id": "sct_900000000000207008_20220131",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20220131",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2022-01-31",
                 "status": "active",
-                "date": "2020-11-01T00:00:00-05:00",
-                "publisher": "PEPFAR",
-                "contact": [
-                    {
-                        "name": "Jon Doe 1",
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "jondoe1@gmail.com",
-                                "use": "work",
-                                "rank": 1,
-                                "period": {
-                                    "start": "2020-10-29T10:26:15-04:00",
-                                    "end": "2025-10-29T10:26:15-04:00"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "jurisdiction": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
-                                "code": "USA",
-                                "display": "United States of America"
-                            }
-                        ]
-                    }
-                ],
-                "purpose": "Test code system",
-                "copyright": "This is the test source and copyright protected.",
-                "content": "example",
-                "count": 20751,
-                "property": [
-                    {
-                        "code": "conceptclass",
-                        "uri": "https://api.openconceptlab.org/orgs/OCL/sources/Classes/concepts",
-                        "description": "Standard list of concept classes.",
-                        "type": "string"
-                    },
-                    {
-                        "code": "datatype",
-                        "uri": "https://api.openconceptlab.org/orgs/OCL/sources/Datatypes/concepts",
-                        "description": "Standard list of concept datatypes.",
-                        "type": "string"
-                    },
-                    {
-                        "code": "inactive",
-                        "uri": "http://hl7.org/fhir/concept-properties",
-                        "description": "True if the concept is not considered active.",
-                        "type": "Coding"
-                    }
-                ]
+                "date": "2022-01-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
             }
         },
         {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20220731",
             "resource": {
                 "resourceType": "CodeSystem",
-                "id": "MER2",
-                "language": "en",
-                "url": "https://datim.org/CodeSystem/MER2",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/CodeSystem/MER2/version/v2.0/"
-                    }
-                ],
-                "version": "v2.0",
-                "name": "MER2 Source",
-                "title": "DATIM Monitoring, Evaluation & Results Metadata",
+                "id": "sct_900000000000207008_20220731",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20220731",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2022-07-31",
                 "status": "active",
-                "date": "2020-12-01T00:00:00-05:00",
-                "publisher": "PEPFAR",
-                "contact": [
-                    {
-                        "name": "Jon Doe 2",
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "jondoe2@gmail.com",
-                                "use": "work",
-                                "rank": 1,
-                                "period": {
-                                    "start": "2020-10-29T10:26:15-04:00",
-                                    "end": "2025-10-29T10:26:15-04:00"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "jurisdiction": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
-                                "code": "USA",
-                                "display": "United States of America"
-                            }
-                        ]
-                    }
-                ],
-                "purpose": "Test code system",
-                "copyright": "This is the test source and copyright protected.",
-                "content": "example",
-                "count": 20751,
-                "property": [
-                    {
-                        "code": "conceptclass",
-                        "uri": "https://api.openconceptlab.org/orgs/OCL/sources/Classes/concepts",
-                        "description": "Standard list of concept classes.",
-                        "type": "string"
-                    },
-                    {
-                        "code": "datatype",
-                        "uri": "https://api.openconceptlab.org/orgs/OCL/sources/Datatypes/concepts",
-                        "description": "Standard list of concept datatypes.",
-                        "type": "string"
-                    },
-                    {
-                        "code": "inactive",
-                        "uri": "http://hl7.org/fhir/concept-properties",
-                        "description": "True if the concept is not considered active.",
-                        "type": "Coding"
-                    }
-                ]
+                "date": "2022-07-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20221031",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_900000000000207008_20221031",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20221031",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2022-10-31",
+                "status": "active",
+                "date": "2022-10-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20221031",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_449081005_20221031",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/449081005/version/20221031",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2022-10-31",
+                "status": "active",
+                "date": "2022-10-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20230331",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_900000000000207008_20230331",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20230331",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2023-03-31",
+                "status": "active",
+                "date": "2023-03-31T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20230430",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_900000000000207008_20230430",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/900000000000207008/version/20230430",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2023-04-30",
+                "status": "active",
+                "date": "2023-04-30T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20230430",
+            "resource": {
+                "resourceType": "CodeSystem",
+                "id": "sct_449081005_20230430",
+                "url": "http://snomed.info/sct",
+                "version": "http://snomed.info/sct/449081005/version/20230430",
+                "name": "SNOMED_CT",
+                "title": "SNOMED CT release 2023-04-30",
+                "status": "active",
+                "date": "2023-04-30T00:00:00+00:00",
+                "publisher": "SNOMED International",
+                "hierarchyMeaning": "is-a",
+                "compositional": true,
+                "content": "complete"
             }
         }
     ]
 }
 ```
 
-## Create CodeSystem
+<!-- ## Create CodeSystem
 
 The CodeSystem can be created in two ways either using global namespace or owner namespace. The server returns HTTP `201 Created` on succussful operation. 
 
@@ -1055,11 +884,11 @@ The CodeSystem's concept can only be deleted using Global Namespace. The server 
 
 `DELETE /orgs/:org/CodeSystem/:id/version/:version/concepts/:concept-code`
 
-`DELETE /users/:user/CodeSystem/:id/version/:version/concepts/:concept-code`
+`DELETE /users/:user/CodeSystem/:id/version/:version/concepts/:concept-code` -->
 
-## FHIR Operations
+## Operaciones FHIR 
 
-As per mSVCM profile, following FHIR operations are supported for a code system:
+Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas para un CodeSystem:
 1. $lookup
 2. $validate-code
 
@@ -1069,53 +898,48 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
 
 `GET /fhir/CodeSystem/$lookup/?system=:system&code=:code`
 
-`GET /orgs/:org/CodeSystem/$lookup/?system=:system&code=:code`
 
 `POST /fhir/CodeSystem/$lookup`
 
-`POST /orgs/:org/CodeSystem/$lookup`
 
 #### Parámetros de Solicitud (GET)
 
 |  Parameter   |            Description     |
 |-----|-------------------------------------|
-|system | (M) The canonical url of the codesystem|
-|code | (M) The concept code|
-|version | (O) The version of the codesystem|
-|displayLanguage | (O) The requested language for display|
-|org | The id of OCL organization|
+|system | (M) La URL canónica del codesystem|
+|code | (M) El código del concepto|
+|version | (O) La version del codesystem|
+|displayLanguage | (O) El idioma solicitado para mostrar|
 
 #### Request body (POST)
 
-```
+```json
 {
-    "resourceType":"Parameters",
-    "parameter": [
-        {
-            "name":"system",
-            "valueUri":"<system_url>"
-        },
-        {
-            "name":"code",
-            "valueCode":"<code>"
-        },
-        {
-            "name":"version",
-            "valueString":"<system_version>"
-        },
-        {
-            "name":"displayLanguage",
-            "valueCode":"<display_language>"
-        }
-    ]
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "coding",
+      "valueCoding": {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/449081005/version/20230430",
+        "displayLanguage": "es",
+        "code": "425615007"
+
+      }
+    },
+    {
+      "name": "property",
+      "valueString": "inactive"
+    }
+  ]
 }
 ```
 
 #### Solicitud de ejemplo
 
-`GET /fhir/CodeSystem/$lookup/?system=https://datim.org/CodeSystem/MER&code=vpvjaSZxlaA`
+`GET /fhir/CodeSystem/$lookup?system=http://snomed.info/sct&code=74400008&displayLanguage=es`
 
-`GET /orgs/PEPFAR/CodeSystem/$lookup/?system=https://datim.org/CodeSystem/MER&code=vpvjaSZxlaA`
+`GET /fhir/CodeSystem/$lookup?system=http://snomed.info/sct&code=74400008&version=http://snomed.info/sct/449081005/version/20230430&displayLanguage=es`
 
 #### Respuesta de Ejemplo
 
@@ -1124,56 +948,216 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
     "resourceType": "Parameters",
     "parameter": [
         {
-            "name": "name",
-            "valueString": "MER Source"
-        },
-        {
-            "name": "version",
-            "valueString": "v2.0"
+            "name": "code",
+            "valueString": "74400008"
         },
         {
             "name": "display",
-            "valueString": "EA_HSS_NATIONAL_SUB_UNIT"
+            "valueString": "apendicitis"
         },
         {
-            "name": "designation",
+            "name": "name",
+            "valueString": "SNOMED CT release 2023-04-30"
+        },
+        {
+            "name": "system",
+            "valueString": "http://snomed.info/sct"
+        },
+        {
+            "name": "version",
+            "valueString": "http://snomed.info/sct/449081005/version/20230430"
+        },
+        {
+            "name": "active",
+            "valueBoolean": true
+        },
+        {
+            "name": "property",
             "part": [
                 {
-                    "name": "language",
-                    "valueCode": "en"
+                    "name": "code",
+                    "valueString": "effectiveTime"
                 },
                 {
-                    "name": "use",
-                    "valueCoding": {
-                        "display": "Short"
-                    }
-                },
-                {
-                    "name": "value",
-                    "valueString": "EA_HSS_NATIONAL_SUB_UNIT"
+                    "name": "valueString",
+                    "valueString": "20020131"
                 }
             ]
         },
         {
-            "name": "designation",
+            "name": "property",
             "part": [
                 {
-                    "name": "language",
-                    "valueCode": "en"
-                },
-                {
-                    "name": "use",
-                    "valueCoding": {
-                        "display": "Code"
-                    }
+                    "name": "code",
+                    "valueString": "moduleId"
                 },
                 {
                     "name": "value",
-                    "valueString": "EA_HSS_NATIONAL_SUB_UNIT"
+                    "valueCode": "900000000000207008"
                 }
             ]
         },
         {
+            "extension": [
+                {
+                    "url": "http://snomed.info/fhir/StructureDefinition/designation-use-context",
+                    "extension": [
+                        {
+                            "url": "context",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "450828004"
+                            }
+                        },
+                        {
+                            "url": "role",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000548007",
+                                "display": "PREFERRED"
+                            }
+                        },
+                        {
+                            "url": "type",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000013009",
+                                "display": "Synonym"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "name": "designation",
+            "part": [
+                {
+                    "name": "language",
+                    "valueCode": "es"
+                },
+                {
+                    "name": "use",
+                    "valueCoding": {
+                        "system": "http://snomed.info/sct",
+                        "code": "900000000000013009",
+                        "display": "Synonym"
+                    }
+                },
+                {
+                    "name": "value",
+                    "valueString": "apendicitis"
+                }
+            ]
+        },
+        {
+            "extension": [
+                {
+                    "url": "http://snomed.info/fhir/StructureDefinition/designation-use-context",
+                    "extension": [
+                        {
+                            "url": "context",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "450828004"
+                            }
+                        },
+                        {
+                            "url": "role",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000549004",
+                                "display": "ACCEPTABLE"
+                            }
+                        },
+                        {
+                            "url": "type",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000013009",
+                                "display": "Synonym"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "name": "designation",
+            "part": [
+                {
+                    "name": "language",
+                    "valueCode": "es"
+                },
+                {
+                    "name": "use",
+                    "valueCoding": {
+                        "system": "http://snomed.info/sct",
+                        "code": "900000000000013009",
+                        "display": "Synonym"
+                    }
+                },
+                {
+                    "name": "value",
+                    "valueString": "inflamación aguda del apéndice"
+                }
+            ]
+        },
+        {
+            "extension": [
+                {
+                    "url": "http://snomed.info/fhir/StructureDefinition/designation-use-context",
+                    "extension": [
+                        {
+                            "url": "context",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000509007"
+                            }
+                        },
+                        {
+                            "url": "role",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000548007",
+                                "display": "PREFERRED"
+                            }
+                        },
+                        {
+                            "url": "type",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000013009",
+                                "display": "Synonym"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "url": "http://snomed.info/fhir/StructureDefinition/designation-use-context",
+                    "extension": [
+                        {
+                            "url": "context",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000508004"
+                            }
+                        },
+                        {
+                            "url": "role",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000548007",
+                                "display": "PREFERRED"
+                            }
+                        },
+                        {
+                            "url": "type",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000013009",
+                                "display": "Synonym"
+                            }
+                        }
+                    ]
+                }
+            ],
             "name": "designation",
             "part": [
                 {
@@ -1183,12 +1167,365 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
                 {
                     "name": "use",
                     "valueCoding": {
-                        "display": "Fully Specified"
+                        "system": "http://snomed.info/sct",
+                        "code": "900000000000013009",
+                        "display": "Synonym"
                     }
                 },
                 {
                     "name": "value",
-                    "valueString": "EA_HSS_NATIONAL_SUB_UNIT"
+                    "valueString": "Appendicitis"
+                }
+            ]
+        },
+        {
+            "extension": [
+                {
+                    "url": "http://snomed.info/fhir/StructureDefinition/designation-use-context",
+                    "extension": [
+                        {
+                            "url": "context",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000509007"
+                            }
+                        },
+                        {
+                            "url": "role",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000548007",
+                                "display": "PREFERRED"
+                            }
+                        },
+                        {
+                            "url": "type",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000003001",
+                                "display": "Fully specified name"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "url": "http://snomed.info/fhir/StructureDefinition/designation-use-context",
+                    "extension": [
+                        {
+                            "url": "context",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000508004"
+                            }
+                        },
+                        {
+                            "url": "role",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000548007",
+                                "display": "PREFERRED"
+                            }
+                        },
+                        {
+                            "url": "type",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000003001",
+                                "display": "Fully specified name"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "name": "designation",
+            "part": [
+                {
+                    "name": "language",
+                    "valueCode": "en"
+                },
+                {
+                    "name": "use",
+                    "valueCoding": {
+                        "system": "http://snomed.info/sct",
+                        "code": "900000000000003001",
+                        "display": "Fully specified name"
+                    }
+                },
+                {
+                    "name": "value",
+                    "valueString": "Appendicitis (disorder)"
+                }
+            ]
+        },
+        {
+            "extension": [
+                {
+                    "url": "http://snomed.info/fhir/StructureDefinition/designation-use-context",
+                    "extension": [
+                        {
+                            "url": "context",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "450828004"
+                            }
+                        },
+                        {
+                            "url": "role",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000548007",
+                                "display": "PREFERRED"
+                            }
+                        },
+                        {
+                            "url": "type",
+                            "valueCoding": {
+                                "system": "http://snomed.info/sct",
+                                "code": "900000000000003001",
+                                "display": "Fully specified name"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "name": "designation",
+            "part": [
+                {
+                    "name": "language",
+                    "valueCode": "es"
+                },
+                {
+                    "name": "use",
+                    "valueCoding": {
+                        "system": "http://snomed.info/sct",
+                        "code": "900000000000003001",
+                        "display": "Fully specified name"
+                    }
+                },
+                {
+                    "name": "value",
+                    "valueString": "apendicitis (trastorno)"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "parent"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "302168000"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "parent"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "18526009"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "67365005"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "85189001"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "9124008"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "418171008"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "25598004"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "26826005"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "42640003"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "91313006"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "58997001"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "32084004"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "8744003"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "123601005"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "1145117000"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "733157003"
+                }
+            ]
+        },
+        {
+            "name": "property",
+            "part": [
+                {
+                    "name": "code",
+                    "valueString": "child"
+                },
+                {
+                    "name": "value",
+                    "valueCode": "5596004"
                 }
             ]
         }
@@ -1199,88 +1536,28 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
 
 ### $validate-code
 
-### Request url
+### URL de Solicitud
 
 `GET /fhir/CodeSystem/$validate-code/?url=:url&code=:code`
 
-`GET /orgs/:org/CodeSystem/$validate-code/?url=:url&code=:code`
-
-`POST /fhir/CodeSystem/$validate-code`
-
-`POST /orgs/:org/CodeSystem/$validate-code`
-
 #### Parámetros de Solicitud (GET)
 
-|  Parameter   |            Description     |
+|  Parámetros   |            Descripción     |
 |-----|-------------------------------------|
-|url | (M) The canonical url of the codesystem|
-|code | (M) The concept code|
-|version | (O) The version of the codesystem|
-|display | (O) The display associated with the code|
-|displayLanguage | (O) Specifies the language to be used for description when validating the display property|
-|coding | (O) A coding to validate (Alternate way to provide url, code, version and display) (only valid in POST request)|
-|org | The id of OCL organization|
+|url | (M) La URL canónica del codesystem|
+|code | (M) El código del concepto|
+|version | (O) La version del codesystem|
+|displayLanguage | (O) El idioma solicitado para mostrar |
+|display | (O) El texto asociado al código|
 
-#### Request body (POST)
 
-```
-{
-    "resourceType":"Parameters",
-    "parameter": [
-        {
-            "name":"url",
-            "valueUri":"<system_url>"
-        },
-        {
-            "name":"code",
-            "valueCode":"<code>"
-        },
-        {
-            "name":"version",
-            "valueString":"<system_version>"
-        },
-        {
-            "name":"display",
-            "valueString":"<display>"
-        },
-        {
-            "name":"displayLanguage",
-            "valueCode":"<display_language>"
-        }
-    ]
-}
+**NOTA:**
+1. displayLanguage actualmente no es soportado para la operación $validate-code
 
-{
-    "resourceType":"Parameters",
-    "parameter": [
-        {
-            "name":"coding",
-            "valueCoding": {
-                "system" : "<system_url>",
-                "code" : "<code>",
-                "version": "<system_version>",
-                "display":"<display>"
-            }
-        },
-        {
-            "name":"displayLanguage",
-            "valueCode":"<display_language>"
-        }
-    ]
-}
-
-```
-
-**NOTE:**
-1. displayLanguage is ignored when display is not provided or empty
-2. If coding is provided then system_url, code and system_version values are overridden with the values of
-  coding.system, coding.code and coding.version respectively.
 
 #### Solicitud de ejemplo
 
-`GET /fhir/CodeSystem/$validate-code/?url=https://datim.org/CodeSystem/MER&code=vpvjaSZxlaA`
-
-`GET /orgs/:org/CodeSystem/$validate-code/?url=https://datim.org/CodeSystem/MER&code=vpvjaSZxlaA`
+`GET /fhir/CodeSystem/$validate-code?url=http://snomed.info/sct&version=http://snomed.info/sct/449081005/version/20230430&code=181216001`
 
 #### Respuesta de Ejemplo
 
@@ -1291,6 +1568,18 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
         {
             "name": "result",
             "valueBoolean": true
+        },
+        {
+            "name": "display",
+            "valueString": "Entire lung"
+        },
+        {
+            "name": "system",
+            "valueString": "http://snomed.info/sct"
+        },
+        {
+            "name": "version",
+            "valueString": "http://snomed.info/sct/449081005/version/20230430"
         }
     ]
 }
