@@ -1,52 +1,49 @@
 ---
 layout: default
-title: Codesystem
+title: CodeSystem
 parent: Servicios Terminológicos
 nav_order: 1
 grand_parent: Componentes de la Arquitectura
 ---
 
-# Codesystem
+# CodeSystem
 
-## Introduction
+## Introducción
 
-The OCL FHIR service converts OCL's Source into FHIR's CodeSystem resource and provides ability to interact with OCL resources in FHIR format. 
-The CodeSystem can be retrieved using two type of identifiers:
-1. Using Global Namespace (canonical url)
-2. Using Owner Namespace (Id)
+El servicio terminológico FHIR MINSAL convierte las fuentes terminológicas en recursos CodeSystem y provee la posibilidad de interactuar con estos en el formato FHIR. 
 
-Links:
-* [FHIR CodeSystem spec](https://www.hl7.org/fhir/codesystem.html#resource)
-* [FHIR CodeSystem $lookup spec](https://www.hl7.org/fhir/codesystem-operation-lookup.html)
-* [FHIR CodeSystem $validate-code spec](https://www.hl7.org/fhir/codesystem-operation-validate-code.html)
+Los Codesystem pueden ser recuperados usando su Namespace Global (url canónica).
+
+Vínculos:
+* [Especificación FHIR CodeSystem](https://www.hl7.org/fhir/codesystem.html#resource)
+* [Especificación FHIR de $lookup CodeSystem](https://www.hl7.org/fhir/codesystem-operation-lookup.html)
+* [Especificación FHIR de $validate-code CodeSystem](https://www.hl7.org/fhir/codesystem-operation-validate-code.html)
 
 
-## Get a single CodeSystem
+## Obtener un único CodeSystem
 
-The version-less request for the code system returns `most recent released version`. If none of the version is released then empty response will be returned.
+La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más reciente`. Si no existe una versión liberada, entonces se devolverá una respuesta vacía.
 
-#### Request url
+
+#### URL de Solicitud
 
 `GET /fhir/CodeSystem/?url=:url`
 
-`GET /orgs/:org/CodeSystem/:id`
+#### Parámetros de Solicitud
 
-#### Request Parameters
-
-|  Parameter   |            Description     |
+|  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
 | url | The canonical url of the codesystem |
 | org | The id of OCL organization          |
 | id  | The id of OCL Source                |
 
-#### Example Request
+#### Solicitud de ejemplo
 
 `GET /fhir/CodeSystem/?url=https://datim.org/CodeSystem/MER`
 
 `GET /orgs/PEPFAR/CodeSystem/MER`
 
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de Ejemplo
 
 ```json
 {
@@ -194,36 +191,34 @@ The version-less request for the code system returns `most recent released versi
 }
 
 ```
-</details>
-<br />
+
 
 By default, first `100` concepts are returned for a code system. If user wants to get more concepts, OCL FHIR service provides pagination support for a resource. The default page value is `page=1` and this number can be incremented to retrieve more concepts.
 
 
-## Get a CodeSystem version
-#### Request url
+## Obtener versión de un CodeSystem 
+#### URL de Solicitud
 
 `GET /fhir/CodeSystem/?url=:url&version=:version`
 
 `GET /orgs/:org/CodeSystem/:id/version/:version`
 
-#### Request Parameters
+#### Parámetros de Solicitud
 
-|  Parameter   |            Description     |
+|  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
 |url | The canonical url of the codesystem|
 |org | The id of OCL organization|
 |id | The id of OCL Source|
 |version | The version of code system|
 
-#### Example Request
+#### Solicitud de ejemplo
 
 `GET /fhir/CodeSystem/?url=https://datim.org/CodeSystem/MER&version=v1.0`
 
 `GET /orgs/:org/CodeSystem/MER/version/v1.0`
 
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de Ejemplo
 
 ```json
 {
@@ -370,13 +365,12 @@ By default, first `100` concepts are returned for a code system. If user wants t
     ]
 }
 ```
-</details>
-<br />
 
-## Get list of CodeSystem versions
+## Obtener una lista de las versiones de un CodeSystem
 
 This request returns all `released` versions for a given code system. Note that this request only returns code system definitions and does not populate concepts.
-#### Request url
+
+#### URL de Solicitud
 
 `GET /fhir/CodeSystem/?url=:url&version=*`
 
@@ -384,7 +378,7 @@ This request returns all `released` versions for a given code system. Note that 
 
 `GET /orgs/:org/CodeSystem/:id/version/*`
 
-#### Request Parameters
+#### Parámetros de Solicitud
 
 |  Parameter   |            Description     |
 |-----|-------------------------------------|
@@ -393,7 +387,7 @@ This request returns all `released` versions for a given code system. Note that 
 |id | The id of OCL Source |
 |version | '*' value indicates all versions |
 
-#### Example Request
+#### Solicitud de ejemplo
 
 `GET /fhir/CodeSystem/?url=https://datim.org/CodeSystem/MER&version=*`
 
@@ -401,8 +395,7 @@ This request returns all `released` versions for a given code system. Note that 
 
 `GET /orgs/PEPFAR/CodeSystem/MER/version/*`
 
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de Ejemplo
 
 ```json
 {
@@ -556,34 +549,31 @@ This request returns all `released` versions for a given code system. Note that 
 }
 ```
 
-</details>
-<br />
 
 
 ## Get a list of codesystems
 
 This request returns most recent released versions of all code systems.
 
-#### Request url
+#### URL de Solicitud
 
 `GET /fhir/CodeSystem/`
 
 `GET /orgs/:org/CodeSystem/`
 
-#### Request Parameters
+#### Parámetros de Solicitud
 
-|  Parameter   |            Description     |
+|  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
 |org | The id of OCL organization |
 
-#### Example Request
+#### Solicitud de ejemplo
 
 `GET /fhir/CodeSystem/`
 
 `GET /orgs/PEPFAR/CodeSystem`
 
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de Ejemplo
 
 ```json
 {
@@ -768,14 +758,12 @@ This request returns most recent released versions of all code systems.
     ]
 }
 ```
-</details>
-<br />
 
 ## Create CodeSystem
 
 The CodeSystem can be created in two ways either using global namespace or owner namespace. The server returns HTTP `201 Created` on succussful operation. 
 
-<b>Create Accession identifier</b>
+#### Crear identificador de sesión
 
 ```
 {
@@ -812,12 +800,11 @@ The CodeSystem can be created in two ways either using global namespace or owner
 
 #### Using global namespace
 
-#### Request url
+#### URL de Solicitud
 
 `POST /fhir/CodeSystem/`
 
-<details>
-<summary><b>Example request</summary>
+#### Solicitud de ejemplo
 
 ```json
 {
@@ -906,19 +893,17 @@ The CodeSystem can be created in two ways either using global namespace or owner
 }
 
 ```
-</details>
-<br />
+
 
 #### Using owner namespace
 
-#### Request url
+#### URL de Solicitud
 
 `POST /orgs/:org/CodeSystem/`
 
 `POST /users/:user/CodeSystem/`
 
-<details>
-<summary><b>Example request</summary>
+#### Solicitud de ejemplo
 
 ```json
 {
@@ -990,8 +975,6 @@ The CodeSystem can be created in two ways either using global namespace or owner
 }
 
 ```
-</details>
-<br />
 
 ## Update CodeSystem
 The CodeSystem can only be updated using Gloabl Namespace. The server returns HTTP `200 Ok` on succussful operation.
@@ -999,14 +982,13 @@ The CodeSystem can only be updated using Gloabl Namespace. The server returns HT
 **NOTE:**
 1. In order to add `new` concept in CodeSystem, user needs to populate the `CodeSystem.concept.*`. If the concept included is already exist in CodeSystem then it will be ignored. In order to update existing concept, user should delete the concept first and then add new concept with updated information.
 2. The Both CodeSystem.id and CodeSystem.version is required to successfully update CodeSystem.
-#### Request url
+#### URL de Solicitud
 
 `PUT /orgs/:org/CodeSystem/:id/version/:version`
 
 `PUT /users/:user/CodeSystem/:id/version/:version`
 
-<details>
-<summary><b>Example request</summary>
+#### Solicitud de ejemplo
 
 ```json
 {
@@ -1055,13 +1037,12 @@ The CodeSystem can only be updated using Gloabl Namespace. The server returns HT
 
 
 ```
-</details>
-<br />
+
 
 ## Delete CodeSystem
 The CodeSystem can only be deleted using Gloabl Namespace. The server returns HTTP `204 No Content` on succussful operation.
 
-#### Request url
+#### URL de Solicitud
 
 `DELETE /orgs/:org/CodeSystem/:id/version/:version`
 
@@ -1070,7 +1051,7 @@ The CodeSystem can only be deleted using Gloabl Namespace. The server returns HT
 ## Delete Concept from CodeSystem
 The CodeSystem's concept can only be deleted using Global Namespace. The server returns HTTP `204 No Content` on succussful operation.
 
-#### Request url
+#### URL de Solicitud
 
 `DELETE /orgs/:org/CodeSystem/:id/version/:version/concepts/:concept-code`
 
@@ -1084,7 +1065,7 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
 
 ### $lookup
 
-#### Request url
+#### URL de Solicitud
 
 `GET /fhir/CodeSystem/$lookup/?system=:system&code=:code`
 
@@ -1094,7 +1075,7 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
 
 `POST /orgs/:org/CodeSystem/$lookup`
 
-#### Request parameters (GET)
+#### Parámetros de Solicitud (GET)
 
 |  Parameter   |            Description     |
 |-----|-------------------------------------|
@@ -1130,14 +1111,13 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
 }
 ```
 
-#### Example request
+#### Solicitud de ejemplo
 
 `GET /fhir/CodeSystem/$lookup/?system=https://datim.org/CodeSystem/MER&code=vpvjaSZxlaA`
 
 `GET /orgs/PEPFAR/CodeSystem/$lookup/?system=https://datim.org/CodeSystem/MER&code=vpvjaSZxlaA`
 
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de Ejemplo
 
 ```json
 {
@@ -1215,8 +1195,7 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
     ]
 }
 ```
-</details>
-<br />
+
 
 ### $validate-code
 
@@ -1230,7 +1209,7 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
 
 `POST /orgs/:org/CodeSystem/$validate-code`
 
-#### Request Parameters (GET)
+#### Parámetros de Solicitud (GET)
 
 |  Parameter   |            Description     |
 |-----|-------------------------------------|
@@ -1297,14 +1276,13 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
 2. If coding is provided then system_url, code and system_version values are overridden with the values of
   coding.system, coding.code and coding.version respectively.
 
-#### Example Request
+#### Solicitud de ejemplo
 
 `GET /fhir/CodeSystem/$validate-code/?url=https://datim.org/CodeSystem/MER&code=vpvjaSZxlaA`
 
 `GET /orgs/:org/CodeSystem/$validate-code/?url=https://datim.org/CodeSystem/MER&code=vpvjaSZxlaA`
 
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de Ejemplo
 
 ```json
 {
@@ -1317,6 +1295,3 @@ As per mSVCM profile, following FHIR operations are supported for a code system:
     ]
 }
 ```
-</details>
-<br />
-<br />
