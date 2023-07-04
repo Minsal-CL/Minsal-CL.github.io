@@ -8,915 +8,211 @@ nav_order: 2
 
 # Valueset
 
-## Introduction
+## Introducción
 
-The OCL FHIR service converts OCL's Collection into FHIR's ValueSet resource and provides ability to interact with OCL resources in FHIR format. 
-The ValueSet can be retrieved using two type of identifiers:
-1. canonical url
-2. Id
+El servicio FHIR MINSAL convierte conjuntos de valores en recursos ValueSet de FHIR y provee la posibilidad de interactuar con ellos en formato FHIR.
+
+Los ValueSet pueden ser recuperados usando sus url canónicas.
 
 Links:
-* [FHIR ValueSet spec](https://www.hl7.org/fhir/valueset.html#resource)
-* [FHIR ValueSet $validate-code spec](https://www.hl7.org/fhir/valueset-operation-validate-code.html)
-* [FHIR ValueSet $expand spec](https://www.hl7.org/fhir/valueset-operation-expand.html)
+* [Especificación FHIR ValueSet](https://www.hl7.org/fhir/valueset.html#resource)
+* [Especificación FHIR ValueSet $validate-code](https://www.hl7.org/fhir/valueset-operation-validate-code.html)
+* [Especificación FHIR ValueSet $expand](https://www.hl7.org/fhir/valueset-operation-expand.html)
 
-## Get a single ValueSet
+## Obtener un único ValueSet
 
-The version-less request for the valueset returns `most recent released version`. If none of the version is released then empty response will be returned.
+La solicitud sin versión de un ValueSet devuelve `la versión más reciente liberada`. 
 
-#### Request url
+#### URL de Solicitud
 
 `GET /fhir/ValueSet/?url=:url`
 
-`GET /orgs/:org/ValueSet/:id`
 
-#### Request Parameters
+#### Parámetros de la Solicitud
 
-|  Parameter   |            Description     |
+|  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
-|url | The canonical url of the valueset|
-|org | The id of OCL organization|
-|id | The id of OCL Collection|
+|url  |URL canónica del Valueset |
 
-#### Example Request
+#### Solicitud de ejemplo
 
-`GET /fhir/ValueSet/?url=https://www.state.gov/pepfar/mer_reference_indicators_fy19`
+`GET /fhir/ValueSet/?url=http://minsal.com/fhir/vs/sexo_biologico`
 
-`GET /orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19`
-
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de ejemplo
 
 ```json
 {
     "resourceType": "Bundle",
-    "id": "62cde6c4-41e6-4d8a-9603-b320cde57940",
+    "id": "d9ad7aa5-42b8-496a-937a-17bfa19d7df7",
     "meta": {
-        "lastUpdated": "2020-12-15T13:48:25.048-05:00"
+        "lastUpdated": "2023-07-04T14:19:23.688+00:00"
     },
     "type": "searchset",
     "total": 1,
     "link": [
         {
             "relation": "self",
-            "url": "http://localhost:8080/fhir/ValueSet/?_format=json&page=1&url=https%3A%2F%2Fwww.state.gov%2Fpepfar%2Fmer_reference_indicators_fy19"
+            "url": "http://192.168.10.187:8080/fhir/ValueSet/?url=http%3A%2F%2Fminsal.com%2Ffhir%2Fvs%2Fsexo_biologico"
         }
     ],
     "entry": [
         {
+            "fullUrl": "http://192.168.10.187:8080/fhir/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
             "resource": {
                 "resourceType": "ValueSet",
-                "id": "MER_REFERENCE_INDICATORS_FY19",
-                "url": "https://www.state.gov/pepfar/mer_reference_indicators_fy19",
-                "identifier": [
-                    {
-                        "use": "usual",
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19/version/v12.0/"
-                    }
-                ],
-                "version": "v12.0",
-                "name": "MER_REFERENCE_INDICATORS_FY19",
-                "title": "MER_REFERENCE_INDICATORS_FY19",
-                "status": "active",
-                "date": "2020-12-02T00:00:00-05:00",
-                "publisher": "PEPFAR",
-                "contact": [
-                    {
-                        "name": "Jon Doe 1",
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "jondoe1@gmail.com",
-                                "use": "work",
-                                "rank": 1,
-                                "period": {
-                                    "start": "2020-10-29T10:26:15-04:00",
-                                    "end": "2025-10-29T10:26:15-04:00"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "jurisdiction": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
-                                "code": "USA",
-                                "display": "United States of America"
-                            }
-                        ]
-                    }
-                ],
-                "immutable": true,
-                "purpose": "Test value set",
-                "copyright": "This is the test collection and copyright protected.",
-                "compose": {
-                    "include": [
-                        {
-                            "system": "https://www.state.gov/pepfar",
-                            "version": "HEAD",
-                            "concept": [
-                                {
-                                    "code": "AGYW_PREV",
-                                    "display": "AGYW_PREV"
-                                },
-                                {
-                                    "code": "CXCA_SCRN",
-                                    "display": "CXCA_SCRN"
-                                },
-                                {
-                                    "code": "CXCA_TX",
-                                    "display": "CXCA_TX"
-                                },
-                                {
-                                    "code": "DIAGNOSED_NAT",
-                                    "display": "DIAGNOSED_NAT"
-                                },
-                                {
-                                    "code": "EMR_SITE",
-                                    "display": "EMR_SITE"
-                                },
-                                {
-                                    "code": "FPINT_SITE",
-                                    "display": "FPINT_SITE"
-                                },
-                                {
-                                    "code": "GEND_GBV",
-                                    "display": "GEND_GBV"
-                                },
-                                {
-                                    "code": "HRH_CURR",
-                                    "display": "HRH_CURR"
-                                },
-                                {
-                                    "code": "HRH_PRE",
-                                    "display": "HRH_PRE"
-                                },
-                                {
-                                    "code": "HRH_STAFF_NAT",
-                                    "display": "HRH_STAFF_NAT"
-                                },
-                                {
-                                    "code": "HTS_INDEX",
-                                    "display": "HTS_INDEX"
-                                },
-                                {
-                                    "code": "HTS_RECENT",
-                                    "display": "HTS_RECENT"
-                                },
-                                {
-                                    "code": "HTS_SELF",
-                                    "display": "HTS_SELF"
-                                },
-                                {
-                                    "code": "HTS_TST",
-                                    "display": "HTS_TST"
-                                },
-                                {
-                                    "code": "KP_MAT",
-                                    "display": "KP_MAT"
-                                },
-                                {
-                                    "code": "KP_MAT_NAT",
-                                    "display": "KP_MAT_NAT"
-                                },
-                                {
-                                    "code": "KP_PREV",
-                                    "display": "KP_PREV"
-                                },
-                                {
-                                    "code": "LAB_PTCQI",
-                                    "display": "LAB_PTCQI"
-                                },
-                                {
-                                    "code": "OVC_HIVSTAT",
-                                    "display": "OVC_HIVSTAT"
-                                },
-                                {
-                                    "code": "OVC_SERV",
-                                    "display": "OVC_SERV"
-                                },
-                                {
-                                    "code": "PMTCT_ART",
-                                    "display": "PMTCT_ART"
-                                },
-                                {
-                                    "code": "PMTCT_ART_NAT",
-                                    "display": "PMTCT_ART_NAT"
-                                },
-                                {
-                                    "code": "PMTCT_EID",
-                                    "display": "PMTCT_EID"
-                                },
-                                {
-                                    "code": "PMTCT_FO",
-                                    "display": "PMTCT_FO"
-                                },
-                                {
-                                    "code": "PMTCT_HEI_POS",
-                                    "display": "PMTCT_HEI_POS"
-                                },
-                                {
-                                    "code": "PMTCT_STAT",
-                                    "display": "PMTCT_STAT"
-                                },
-                                {
-                                    "code": "PMTCT_STAT_NAT",
-                                    "display": "PMTCT_STAT_NAT"
-                                },
-                                {
-                                    "code": "PP_PREV",
-                                    "display": "PP_PREV"
-                                },
-                                {
-                                    "code": "PREP_NEW",
-                                    "display": "PrEP_NEW"
-                                },
-                                {
-                                    "code": "PrEP_CURR",
-                                    "display": "PrEP_CURR"
-                                },
-                                {
-                                    "code": "SC_STOCK",
-                                    "display": "SC_STOCK"
-                                },
-                                {
-                                    "code": "TB_ART",
-                                    "display": "TB_ART"
-                                },
-                                {
-                                    "code": "TB_PREV",
-                                    "display": "TB_PREV"
-                                },
-                                {
-                                    "code": "TB_STAT",
-                                    "display": "TB_STAT"
-                                },
-                                {
-                                    "code": "TX_CURR",
-                                    "display": "TX_CURR"
-                                },
-                                {
-                                    "code": "TX_CURR_NAT",
-                                    "display": "TX_CURR_NAT"
-                                },
-                                {
-                                    "code": "TX_ML",
-                                    "display": "TX_ML"
-                                },
-                                {
-                                    "code": "TX_NEW",
-                                    "display": "TX_NEW"
-                                },
-                                {
-                                    "code": "TX_PVLS",
-                                    "display": "TX_PVLS"
-                                },
-                                {
-                                    "code": "TX_TB",
-                                    "display": "TX_TB"
-                                },
-                                {
-                                    "code": "VL_SUPPRESSION_NAT",
-                                    "display": "VL_SUPPRESSION_NAT"
-                                },
-                                {
-                                    "code": "VMMC_CIRC",
-                                    "display": "VMMC_CIRC"
-                                },
-                                {
-                                    "code": "VMMC_CIRC_NAT",
-                                    "display": "VMMC_CIRC_NAT"
-                                },
-                                {
-                                    "code": "VMMC_TOTALCIRC_NAT",
-                                    "display": "VMMC_TOTALCIRC_NAT"
-                                }
-                            ]
-                        }
-                    ]
-                }
+                "id": "7b6217e8-42e8-461a-ae29-53b2b0352805",
+                "url": "http://minsal.com/fhir/vs/sexo_biologico",
+                "version": "0.1",
+                "name": "Sexo biologico",
+                "status": "draft",
+                "experimental": true,
+                "description": "Lista de los posibles sexos para captura de detalle de pacicentes.",
+                "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement."
             }
         }
     ]
 }
 ```
-</details>
-<br />
 
-By default, first `100` concepts are returned for a value set. If user wants to get more concepts, OCL FHIR service provides pagination support for a resource. The default page value is `page=1` and this number can be incremented to retrieve more concepts.
+## Obtener versión de un ValueSet
 
-## Get a ValueSet version
-
-#### Request url
+#### URL de Solicitud
 
 `GET /fhir/ValueSet/?url=:url&version=:version`
 
-`GET /orgs/:org/ValueSet/:id/version/:version`
+#### Parámetros de Solicitud
 
-#### Request Parameters
-
-|  Parameter   |            Description     |
+|  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
-|url | The canonical url of the valueset|
-|org | The id of OCL organization|
-|id | The id of OCL Collection|
-|version | The version of valueset|
+|url | URL canónica del ValueSet|
+|version | La versión del ValueSet|
 
-#### Example Request
+#### Solicitud de ejemplo
 
-`GET /fhir/ValueSet/?url=https://www.state.gov/pepfar/mer_reference_indicators_fy19&version=v11.0`
+`GET /fhir/ValueSet/?url=http://minsal.com/fhir/vs/sexo_biologico&version=0.1`
 
-`GET /orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19/version/v11.0`
-
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de ejemplo
 
 ```json
 {
     "resourceType": "Bundle",
-    "id": "010272a2-fdff-4b10-9152-3315f27d2eba",
+    "id": "87cb3db8-bea0-4ba0-b2d1-fb9e4e9c9ccd",
     "meta": {
-        "lastUpdated": "2020-12-15T15:17:43.245-05:00"
+        "lastUpdated": "2023-07-04T14:22:56.674+00:00"
     },
     "type": "searchset",
     "total": 1,
     "link": [
         {
             "relation": "self",
-            "url": "http://localhost:8080/fhir/ValueSet/?_format=json&url=https%3A%2F%2Fwww.state.gov%2Fpepfar%2Fmer_reference_indicators_fy19&version=v11.0"
+            "url": "http://192.168.10.187:8080/fhir/ValueSet/?url=http%3A%2F%2Fminsal.com%2Ffhir%2Fvs%2Fsexo_biologico&version=0.1"
         }
     ],
     "entry": [
         {
+            "fullUrl": "http://192.168.10.187:8080/fhir/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
             "resource": {
                 "resourceType": "ValueSet",
-                "id": "MER_REFERENCE_INDICATORS_FY19",
-                "url": "https://www.state.gov/pepfar/mer_reference_indicators_fy19",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19/version/v11.0/"
-                    }
-                ],
-                "version": "v11.0",
-                "name": "MER_REFERENCE_INDICATORS_FY19",
-                "title": "MER_REFERENCE_INDICATORS_FY19",
-                "status": "active",
-                "immutable": false,
-                "compose": {
-                    "include": [
-                        {
-                            "system": "https://www.state.gov/pepfar",
-                            "version": "HEAD",
-                            "concept": [
-                                {
-                                    "code": "AGYW_PREV",
-                                    "display": "AGYW_PREV"
-                                },
-                                {
-                                    "code": "CXCA_SCRN",
-                                    "display": "CXCA_SCRN"
-                                },
-                                {
-                                    "code": "CXCA_TX",
-                                    "display": "CXCA_TX"
-                                },
-                                {
-                                    "code": "DIAGNOSED_NAT",
-                                    "display": "DIAGNOSED_NAT"
-                                },
-                                {
-                                    "code": "EMR_SITE",
-                                    "display": "EMR_SITE"
-                                },
-                                {
-                                    "code": "FPINT_SITE",
-                                    "display": "FPINT_SITE"
-                                },
-                                {
-                                    "code": "GEND_GBV",
-                                    "display": "GEND_GBV"
-                                },
-                                {
-                                    "code": "HRH_CURR",
-                                    "display": "HRH_CURR"
-                                },
-                                {
-                                    "code": "HRH_PRE",
-                                    "display": "HRH_PRE"
-                                },
-                                {
-                                    "code": "HRH_STAFF_NAT",
-                                    "display": "HRH_STAFF_NAT"
-                                },
-                                {
-                                    "code": "HTS_INDEX",
-                                    "display": "HTS_INDEX"
-                                },
-                                {
-                                    "code": "HTS_RECENT",
-                                    "display": "HTS_RECENT"
-                                },
-                                {
-                                    "code": "HTS_SELF",
-                                    "display": "HTS_SELF"
-                                },
-                                {
-                                    "code": "HTS_TST",
-                                    "display": "HTS_TST"
-                                },
-                                {
-                                    "code": "KP_MAT",
-                                    "display": "KP_MAT"
-                                },
-                                {
-                                    "code": "KP_MAT_NAT",
-                                    "display": "KP_MAT_NAT"
-                                },
-                                {
-                                    "code": "KP_PREV",
-                                    "display": "KP_PREV"
-                                },
-                                {
-                                    "code": "LAB_PTCQI",
-                                    "display": "LAB_PTCQI"
-                                },
-                                {
-                                    "code": "OVC_HIVSTAT",
-                                    "display": "OVC_HIVSTAT"
-                                },
-                                {
-                                    "code": "OVC_SERV",
-                                    "display": "OVC_SERV"
-                                },
-                                {
-                                    "code": "PMTCT_ART",
-                                    "display": "PMTCT_ART"
-                                },
-                                {
-                                    "code": "PMTCT_ART_NAT",
-                                    "display": "PMTCT_ART_NAT"
-                                },
-                                {
-                                    "code": "PMTCT_EID",
-                                    "display": "PMTCT_EID"
-                                },
-                                {
-                                    "code": "PMTCT_FO",
-                                    "display": "PMTCT_FO"
-                                },
-                                {
-                                    "code": "PMTCT_HEI_POS",
-                                    "display": "PMTCT_HEI_POS"
-                                },
-                                {
-                                    "code": "PMTCT_STAT",
-                                    "display": "PMTCT_STAT"
-                                },
-                                {
-                                    "code": "PMTCT_STAT_NAT",
-                                    "display": "PMTCT_STAT_NAT"
-                                },
-                                {
-                                    "code": "PP_PREV",
-                                    "display": "PP_PREV"
-                                },
-                                {
-                                    "code": "PREP_NEW",
-                                    "display": "PrEP_NEW"
-                                },
-                                {
-                                    "code": "PrEP_CURR",
-                                    "display": "PrEP_CURR"
-                                },
-                                {
-                                    "code": "SC_STOCK",
-                                    "display": "SC_STOCK"
-                                },
-                                {
-                                    "code": "TB_ART",
-                                    "display": "TB_ART"
-                                },
-                                {
-                                    "code": "TB_PREV",
-                                    "display": "TB_PREV"
-                                },
-                                {
-                                    "code": "TB_STAT",
-                                    "display": "TB_STAT"
-                                },
-                                {
-                                    "code": "TX_CURR",
-                                    "display": "TX_CURR"
-                                },
-                                {
-                                    "code": "TX_CURR_NAT",
-                                    "display": "TX_CURR_NAT"
-                                },
-                                {
-                                    "code": "TX_ML",
-                                    "display": "TX_ML"
-                                },
-                                {
-                                    "code": "TX_NEW",
-                                    "display": "TX_NEW"
-                                },
-                                {
-                                    "code": "TX_PVLS",
-                                    "display": "TX_PVLS"
-                                },
-                                {
-                                    "code": "TX_TB",
-                                    "display": "TX_TB"
-                                },
-                                {
-                                    "code": "VL_SUPPRESSION_NAT",
-                                    "display": "VL_SUPPRESSION_NAT"
-                                },
-                                {
-                                    "code": "VMMC_CIRC",
-                                    "display": "VMMC_CIRC"
-                                },
-                                {
-                                    "code": "VMMC_CIRC_NAT",
-                                    "display": "VMMC_CIRC_NAT"
-                                },
-                                {
-                                    "code": "VMMC_TOTALCIRC_NAT",
-                                    "display": "VMMC_TOTALCIRC_NAT"
-                                }
-                            ]
-                        }
-                    ]
-                }
+                "id": "7b6217e8-42e8-461a-ae29-53b2b0352805",
+                "url": "http://minsal.com/fhir/vs/sexo_biologico",
+                "version": "0.1",
+                "name": "Sexo biologico",
+                "status": "draft",
+                "experimental": true,
+                "description": "Lista de los posibles sexos para captura de detalle de pacicentes.",
+                "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement."
             }
         }
     ]
 }
 ```
-</details>
-<br />
 
 
-## Get list of ValueSet versions
+## Obtener una lista de ValueSets
 
-This request returns all `released` versions for a given valueset. Note that this request only returns valueset definitions and does not populate concepts.
+Esta solicitud devuelve las versiones más recientes de todos los ValueSets.
 
-#### Request url
 
-`GET /fhir/ValueSet/?url=:url&version=*`
+#### URL de Solicitud
 
-`GET /orgs/:org/ValueSet/:id/version`
+`GET /fhir/ValueSet/`
 
-`GET /orgs/:org/ValueSet/:id/version/*`
 
-#### Request Parameters
+#### Parámetros de Solicitud
 
-|  Parameter   |            Description     |
+|  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
-|url | The canonical url of the valueset|
-|org | The id of OCL organization|
-|id | The id of OCL Collection|
-|version | '*' value indicates all versions|
+|_count | Conteo de respuestas|
 
-#### Example Request
+#### Solicitud de ejemplo
 
-`GET /fhir/ValueSet/?url=https://www.state.gov/pepfar&version=*`
+`GET /fhir/ValueSet/`
 
-`GET /orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19/version`
-
-`GET /orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19/version/*`
-
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de ejemplo
 
 ```json
 {
     "resourceType": "Bundle",
-    "id": "f38f18ce-d24c-49fe-8184-7e27e9a2fec8",
+    "id": "c25c2819-0607-4f8f-917c-20239e0ce6c5",
     "meta": {
-        "lastUpdated": "2020-12-15T15:24:08.502-05:00"
+        "lastUpdated": "2023-07-04T15:15:26.493+00:00"
     },
     "type": "searchset",
-    "total": 2,
+    "total": 3,
     "link": [
         {
             "relation": "self",
-            "url": "http://localhost:8080/fhir/ValueSet/?_format=json&url=https%3A%2F%2Fwww.state.gov%2Fpepfar%2Fmer_reference_indicators_fy19&version=*"
+            "url": "http://192.168.10.187:8080/fhir/ValueSet/"
         }
     ],
     "entry": [
         {
+            "fullUrl": "http://192.168.10.187:8080/fhir/ValueSet/122f0f73-812f-455d-91ca-8f842251ed0a",
             "resource": {
                 "resourceType": "ValueSet",
-                "id": "MER_REFERENCE_INDICATORS_FY19",
-                "url": "https://www.state.gov/pepfar/mer_reference_indicators_fy19",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19/version/v11.0/"
-                    }
-                ],
-                "version": "v11.0",
-                "name": "MER_REFERENCE_INDICATORS_FY19",
-                "title": "MER_REFERENCE_INDICATORS_FY19",
-                "status": "active",
-                "immutable": false
+                "id": "122f0f73-812f-455d-91ca-8f842251ed0a",
+                "url": "http://example.com/fhir/vs/sex_es",
+                "version": "0.1",
+                "name": "Sexo",
+                "status": "draft",
+                "experimental": true,
+                "description": "Lista de los posibles sexos para captura de detalle de pacicentes.",
+                "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement."
             }
         },
         {
+            "fullUrl": "http://192.168.10.187:8080/fhir/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
             "resource": {
                 "resourceType": "ValueSet",
-                "id": "MER_REFERENCE_INDICATORS_FY19",
-                "url": "https://www.state.gov/pepfar/mer_reference_indicators_fy19",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19/version/v12.0/"
-                    }
-                ],
-                "version": "v12.0",
-                "name": "MER_REFERENCE_INDICATORS_FY19",
-                "title": "MER_REFERENCE_INDICATORS_FY19",
-                "status": "active",
-                "date": "2020-12-02T00:00:00-05:00",
-                "publisher": "PEPFAR",
-                "contact": [
-                    {
-                        "name": "Jon Doe 1",
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "jondoe1@gmail.com",
-                                "use": "work",
-                                "rank": 1,
-                                "period": {
-                                    "start": "2020-10-29T10:26:15-04:00",
-                                    "end": "2025-10-29T10:26:15-04:00"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "jurisdiction": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
-                                "code": "USA",
-                                "display": "United States of America"
-                            }
-                        ]
-                    }
-                ],
-                "immutable": true,
-                "purpose": "Test value set",
-                "copyright": "This is the test collection and copyright protected."
+                "id": "7b6217e8-42e8-461a-ae29-53b2b0352805",
+                "url": "http://minsal.com/fhir/vs/sexo_biologico",
+                "version": "0.1",
+                "name": "Sexo biologico",
+                "status": "draft",
+                "experimental": true,
+                "description": "Lista de los posibles sexos para captura de detalle de pacicentes.",
+                "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement."
+            }
+        },
+        {
+            "fullUrl": "http://192.168.10.187:8080/fhir/ValueSet/bc4b4694-2021-4179-997b-c31556679a18",
+            "resource": {
+                "resourceType": "ValueSet",
+                "id": "bc4b4694-2021-4179-997b-c31556679a18",
+                "url": "http://minsal.com/fhir/vs/servicios_de_referencia",
+                "version": "0.1",
+                "name": "Servicios de Referencia",
+                "status": "draft",
+                "experimental": true,
+                "description": "Lista de los posibles Servicios de Destino de una Interconsulta.",
+                "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement."
             }
         }
     ]
 }
 ```
 
-</details>
-<br />
-
-## Get a list of valuesets
-
-This request returns most recent released versions of all valuesets.
-
-#### Request url
-
-`GET /fhir/ValueSet/`
-
-`GET /orgs/:org/ValueSet/`
-
-#### Request Parameters
-
-|  Parameter   |            Description     |
-|-----|-------------------------------------|
-|org | The id of OCL organization|
-
-#### Example Request
-
-`GET /fhir/ValueSet/`
-
-`GET /orgs/PEPFAR-Test8/ValueSet`
-
-<details>
-<summary><b>Example response</summary>
-
-```json
-{
-    "resourceType": "Bundle",
-    "id": "a856c93f-f0f3-4384-ac18-45fc30ee8fd5",
-    "meta": {
-        "lastUpdated": "2020-12-15T15:29:25.095-05:00"
-    },
-    "type": "searchset",
-    "total": 4,
-    "link": [
-        {
-            "relation": "self",
-            "url": "http://localhost:8080/fhir/ValueSet/?_format=json"
-        }
-    ],
-    "entry": [
-        {
-            "resource": {
-                "resourceType": "ValueSet",
-                "id": "MER_REFERENCE_INDICATORS_FY17",
-                "url": "https://www.state.gov/pepfar/mer_reference_indicators_fy17",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY17/version/v12.0/"
-                    }
-                ],
-                "version": "v12.0",
-                "name": "MER_REFERENCE_INDICATORS_FY17",
-                "title": "MER_REFERENCE_INDICATORS_FY17",
-                "status": "active",
-                "immutable": false
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "ValueSet",
-                "id": "MER_REFERENCE_INDICATORS_FY18",
-                "url": "https://www.state.gov/pepfar/mer_reference_indicators_fy18",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY18/version/v12.0/"
-                    }
-                ],
-                "version": "v12.0",
-                "name": "MER_REFERENCE_INDICATORS_FY18",
-                "title": "MER_REFERENCE_INDICATORS_FY18",
-                "status": "active",
-                "immutable": false
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "ValueSet",
-                "id": "MER_REFERENCE_INDICATORS_FY19",
-                "url": "https://www.state.gov/pepfar/mer_reference_indicators_fy19",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY19/version/v12.0/"
-                    }
-                ],
-                "version": "v12.0",
-                "name": "MER_REFERENCE_INDICATORS_FY19",
-                "title": "MER_REFERENCE_INDICATORS_FY19",
-                "status": "active",
-                "date": "2020-12-02T00:00:00-05:00",
-                "publisher": "PEPFAR",
-                "contact": [
-                    {
-                        "name": "Jon Doe 1",
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "jondoe1@gmail.com",
-                                "use": "work",
-                                "rank": 1,
-                                "period": {
-                                    "start": "2020-10-29T10:26:15-04:00",
-                                    "end": "2025-10-29T10:26:15-04:00"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "jurisdiction": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
-                                "code": "USA",
-                                "display": "United States of America"
-                            }
-                        ]
-                    }
-                ],
-                "immutable": true,
-                "purpose": "Test value set",
-                "copyright": "This is the test collection and copyright protected."
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "ValueSet",
-                "id": "MER_REFERENCE_INDICATORS_FY20",
-                "url": "https://www.state.gov/pepfar/mer_reference_indicators_fy20",
-                "identifier": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/v2/0203",
-                                    "code": "ACSN",
-                                    "display": "Accession ID"
-                                }
-                            ],
-                            "text": "Accession ID"
-                        },
-                        "system": "https://fhir.qa.aws.openconceptlab.org",
-                        "value": "/orgs/PEPFAR-Test8/ValueSet/MER_REFERENCE_INDICATORS_FY20/version/v12.0/"
-                    }
-                ],
-                "version": "v12.0",
-                "name": "MER_REFERENCE_INDICATORS_FY20",
-                "title": "MER_REFERENCE_INDICATORS_FY20",
-                "status": "active",
-                "immutable": false
-            }
-        }
-    ]
-}
-```
-
-</details>
-<br />
-
-## Create ValueSet
+<!-- ## Create ValueSet
 
 The ValueSet can be created in two ways either using global namespace or owner namespace. The server returns HTTP `201 Created` on succussful operation. 
 
@@ -960,7 +256,7 @@ The ValueSet can be created in two ways either using global namespace or owner n
 
 #### Using global namespace
 
-#### Request url
+#### URL de Solicitud
 
 `POST /fhir/ValueSet/`
 
@@ -1036,14 +332,12 @@ The ValueSet can be created in two ways either using global namespace or owner n
 }
 
 ```
-</details>
-<br />
+
 
 #### Using owner namespace
 
-#### Request url
+#### URL de Solicitud
 
-`POST /orgs/:org/ValueSet/`
 
 `POST /users/:user/ValueSet/`
 
@@ -1103,15 +397,12 @@ The ValueSet can be created in two ways either using global namespace or owner n
 }
 
 ```
-</details>
-<br />
+
 
 ## Delete ValueSet
 The ValueSet can only be deleted using Gloabl Namespace. The server returns HTTP `204 No Content` on succussful operation.
 
-#### Request url
-
-`DELETE /orgs/:org/ValueSet/:id/version/:version`
+#### URL de Solicitud
 
 `DELETE /users/:user/ValueSet/:id/version/:version`
 
@@ -1127,15 +418,11 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
 
 `GET /fhir/ValueSet/$validate-code/?url=:url&system=:system&code=:code`
 
-`GET /orgs/:org/ValueSet/$validate-code/?url=:url&system=:system&code=:code`
-
 `POST /fhir/ValueSet/$validate-code`
 
-`POST /orgs/:org/ValueSet/$validate-code`
+#### Parámetros de Solicitud (GET)
 
-#### Request Parameters (GET)
-
-|  Parameter   |            Description     |
+|  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
 |url | (M) The canonical url of the valueset|
 |code | (M) The concept code, the code that is to be validated|
@@ -1225,11 +512,9 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
 
 `GET /fhir/ValueSet/$validate-code/?url=https://www.state.gov/pepfar/mer_reference_indicators_fy19&system=https://www.state.gov/pepfar&code=DIAGNOSED_NAT `
 
-`GET /orgs/:org/ValueSet/$validate-code/?url=https://www.state.gov/pepfar/mer_reference_indicators_fy19&system=https://www.state.gov/pepfar&code=DIAGNOSED_NAT `
 
 
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de ejemplo
 
 ```json
 {
@@ -1241,37 +526,31 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
         }
     ]
 }
-```
-</details>
+``` -->
 
 ### $expand
 
-### Request url
+### URL de solicitud
 
 `GET /fhir/ValueSet/$expand/?url=:url`
 
-`GET /orgs/:org/ValueSet/$expand/?url=:url`
-
 `POST /fhir/ValueSet/$expand`
 
-`POST /orgs/:org/ValueSet/$expand`
+#### Parámetros de Solicitud (GET)
 
-#### Request Parameters (GET)
-
-|  Parameter   |            Description     |
+|  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
-|url | (M) The canonical url of the valueset|
-|valueSetVersion | (O) The version of the valueset|
-|offset | (O) Starting point if subset is desired (default 0)|
-|count | (O) Desired number of codes to be returned (default 100)|
-|includeDesignations | (O) Controls whether concept designations are to be included or excluded in value set expansions (default true)|
+|url | (M) URL canonica del ValueSet|
+|displayLanguage | (O) El idioma que será usado para los ValueSet.expansion.contains.display|
+|valueSetVersion | (O) La versión del valueset|
+|offset | (O) Punto de inicio para el subconjunto deseado (defecto 0)|
+|count | (O) Número deseado de códigos a ser devueltos (defecto 100)|
+<!-- |includeDesignations | (O) Controls whether concept designations are to be included or excluded in value set expansions (default true)| 
 |includeDefinition | (O) Controls whether the value set definition is included or excluded in value set expansions (default false)|
 |activeOnly | (O) Controls whether inactive(retired) concepts are included or excluded in value set expansions (default true)|
-|displayLanguage | (O) The language to be used for ValueSet.expansion.contains.display|
 |exclude-system | (O) Code system, or a particular version of a code system to be excluded from the value set expansion, example - http://loinc.org\|2.56 |
-|system-version | (O) Specifies a version to use for a system, if the value set does not specify which one to use, example - http://loinc.org\|2.56 |
+|system-version | (O) Specifies a version to use for a system, if the value set does not specify which one to use, example - http://loinc.org\|2.56 |-->
 |filter | (O) The <b>case-sensitive</b> code filter to be used to control codes included in valueSet expansion. If multiple filters are needed then each code filter should be separated by <b>double underscore "\_\_"</b>, for example - <b>EMR\_\_HRP\_\_KP (EMR or HRP or KP)</b>. If the filter itself includes "\_", then the filter should be surrounded in double quotes. For example, if user wants to filter on "HRH_" then the multi filter string should be <b>EMR\_\_"HRH_"\_\_KP (EMR or HRH_ or KP) </b>. |
-|org | The id of OCL organization |
 
 
 #### Request body (POST)
@@ -1324,14 +603,11 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
 }
 ```
 
-#### Example Request
+#### Solicitud de ejemplo
 
 `GET /fhir/ValueSet/$expand/?url=https://www.state.gov/pepfar/mer_reference_indicators_fy19`
 
-`GET /orgs/PEPFAR-Test8/ValueSet/$expand/?url=https://www.state.gov/pepfar/mer_reference_indicators_fy19`
-
-<details>
-<summary><b>Example response</summary>
+#### Respuesta de ejemplo
 
 ```json
 {
@@ -1418,6 +694,5 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
     }
 }
 ```
-</details>
-<br />
+
 <br />
