@@ -545,13 +545,6 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
 |valueSetVersion | (O) La versión del valueset|
 |offset | (O) Punto de inicio para el subconjunto deseado (defecto 0)|
 |count | (O) Número deseado de códigos a ser devueltos (defecto 100)|
-<!-- 
-|includeDesignations | (O) Controls whether concept designations are to be included or excluded in value set expansions (default true)| 
-|includeDefinition | (O) Controls whether the value set definition is included or excluded in value set expansions (default false)|
-|activeOnly | (O) Controls whether inactive(retired) concepts are included or excluded in value set expansions (default true)|
-|exclude-system | (O) Code system, or a particular version of a code system to be excluded from the value set expansion, example - http://loinc.org\|2.56 |
-|system-version | (O) Specifies a version to use for a system, if the value set does not specify which one to use, example - http://loinc.org\|2.56 |
--->
 |filter | (O) 
 La cadena de caracteres que actúa de filtro puede ser usado para controlar los códigos incluidos en la expansión del ValueSet. Para usar múltiples filtros, cada cadena debe ser separada por espacios y el servicio lo reconocerá como filtros combinados de intersección.
 
