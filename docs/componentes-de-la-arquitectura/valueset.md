@@ -545,154 +545,64 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
 |valueSetVersion | (O) La versión del valueset|
 |offset | (O) Punto de inicio para el subconjunto deseado (defecto 0)|
 |count | (O) Número deseado de códigos a ser devueltos (defecto 100)|
-<!-- |includeDesignations | (O) Controls whether concept designations are to be included or excluded in value set expansions (default true)| 
+<!-- 
+|includeDesignations | (O) Controls whether concept designations are to be included or excluded in value set expansions (default true)| 
 |includeDefinition | (O) Controls whether the value set definition is included or excluded in value set expansions (default false)|
 |activeOnly | (O) Controls whether inactive(retired) concepts are included or excluded in value set expansions (default true)|
 |exclude-system | (O) Code system, or a particular version of a code system to be excluded from the value set expansion, example - http://loinc.org\|2.56 |
-|system-version | (O) Specifies a version to use for a system, if the value set does not specify which one to use, example - http://loinc.org\|2.56 |-->
-|filter | (O) The <b>case-sensitive</b> code filter to be used to control codes included in valueSet expansion. If multiple filters are needed then each code filter should be separated by <b>double underscore "\_\_"</b>, for example - <b>EMR\_\_HRP\_\_KP (EMR or HRP or KP)</b>. If the filter itself includes "\_", then the filter should be surrounded in double quotes. For example, if user wants to filter on "HRH_" then the multi filter string should be <b>EMR\_\_"HRH_"\_\_KP (EMR or HRH_ or KP) </b>. |
+|system-version | (O) Specifies a version to use for a system, if the value set does not specify which one to use, example - http://loinc.org\|2.56 |
+-->
+|filter | (O) 
+La cadena de caracteres que actúa de filtro puede ser usado para controlar los códigos incluidos en la expansión del ValueSet. Para usar múltiples filtros, cada cadena debe ser separada por espacios y el servicio lo reconocerá como filtros combinados de intersección.
 
-
-#### Request body (POST)
-
-```
-{
-    "resourceType":"Parameters",
-    "parameter": [
-        {
-            "name":"url",
-            "valueUri":"<valueset_url>"
-        },
-        {
-            "name":"valueSetVersion",
-            "valueString":"<valueset_version>"
-        },
-        {
-            "name":"offset",
-            "valueInteger":0
-        },
-        {
-            "name":"count",
-            "valueInteger":100
-        },
-        {
-            "name":"includeDesignations",
-            "valueBoolean": false
-        },
-        {
-            "name":"includeDefinition",
-            "valueBoolean": false
-        },
-        {
-            "name":"activeOnly",
-            "valueBoolean": false
-        },
-        {
-            "name":"displayLanguage",
-            "valueCode":"<display_language>"
-        },
-        {
-            "name":"exclude-system",
-            "valueCanonical":"<system_canonical_url>"
-        },
-        {
-            "name":"system-version",
-            "valueCanonical":"<system_canonical_url>"
-        }
-    ]
-}
-```
 
 #### Solicitud de ejemplo
 
-`GET /fhir/ValueSet/$expand/?url=https://www.state.gov/pepfar/mer_reference_indicators_fy19`
+`GET /fhir/ValueSet/$expand?url=http://snomed.info/sct/449081005/version/20230430?fhir_vs=ecl/<<74400008&count=10&displayLanguage=es`
+
+`GET /fhir/ValueSet/$expand?url=http://snomed.info/sct/449081005/version/20230430?fhir_vs=ecl/<<74400008&filter=perforada&count=10&displayLanguage=es`
 
 #### Respuesta de ejemplo
 
 ```json
 {
     "resourceType": "ValueSet",
+    "id": "abbc2197-9e84-42ec-95a9-55015390f1ae",
+    "url": "http://snomed.info/sct/449081005/version/20230430?fhir_vs=ecl/<<74400008",
     "status": "active",
-    "compose": {
-        "include": [
-            {
-                "valueSet": [
-                    "https://www.state.gov/pepfar/mer_reference_indicators_fy19|v12.0"
-                ]
-            }
-        ]
-    },
+    "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement.",
     "expansion": {
-        "identifier": "834041db-d0a9-47ef-9cd2-bf92dcc18992",
-        "timestamp": "2020-12-15T17:15:08-05:00",
-        "total": 44,
+        "id": "2a6a472e-dfd8-44d7-8b33-6381ff9e859a",
+        "timestamp": "2023-07-04T16:22:24+00:00",
+        "total": 3,
         "offset": 0,
         "parameter": [
             {
-                "name": "url",
-                "valueUri": "https://www.state.gov/pepfar/mer_reference_indicators_fy19"
+                "name": "version",
+                "valueUri": "http://snomed.info/sct|http://snomed.info/sct/449081005/version/20230430"
             },
             {
-                "name": "valueSetVersion",
-                "valueString": "v12.0"
-            },
-            {
-                "name": "offset",
-                "valueInteger": 0
-            },
-            {
-                "name": "count",
-                "valueInteger": 100
-            },
-            {
-                "name": "includeDesignations",
-                "valueBoolean": true
-            },
-            {
-                "name": "includeDefinition",
-                "valueBoolean": false
-            },
-            {
-                "name": "activeOnly",
-                "valueBoolean": true
+                "name": "displayLanguage",
+                "valueString": "es"
             }
         ],
         "contains": [
             {
-                "system": "https://www.state.gov/pepfar",
-                "inactive": false,
-                "version": "HEAD",
-                "code": "AGYW_PREV",
-                "display": "AGYW_PREV",
-                "designation": [
-                    {
-                        "language": "en",
-                        "use": {
-                            "code": "Fully Specified"
-                        },
-                        "value": "AGYW_PREV"
-                    }
-                ]
+                "system": "http://snomed.info/sct",
+                "code": "286967008",
+                "display": "apendicitis aguda perforada"
             },
             {
-                "system": "https://www.state.gov/pepfar",
-                "inactive": false,
-                "version": "HEAD",
-                "code": "CXCA_SCRN",
-                "display": "CXCA_SCRN",
-                "designation": [
-                    {
-                        "language": "en",
-                        "use": {
-                            "code": "Fully Specified"
-                        },
-                        "value": "CXCA_SCRN"
-                    }
-                ]
+                "system": "http://snomed.info/sct",
+                "code": "1255222000",
+                "display": "apendicitis crónica perforada"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "95547004",
+                "display": "apendicitis supurativa perforada"
             }
         ]
     }
 }
 ```
-
-<br />
