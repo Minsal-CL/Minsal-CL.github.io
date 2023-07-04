@@ -8,186 +8,91 @@ grand_parent: Componentes de la Arquitectura
 
 # ConceptMap
 
-## Introduction
+## Introducción
 
-The OCL FHIR service converts OCL's Source into FHIR's ConceptMap resource and provides ability to interact with OCL resources in FHIR format. 
-The ConceptMap can be retrieved using two type of identifiers:
-1. Using Global Namespace (canonical url)
-2. Using Owner Namespace (Id)
+El servicio terminológico FHIR MINSAL convierte las fuentes terminológicas en recursos Conceptmap y provee la posibilidad de interactuar con estos en el formato FHIR. 
+
+
+Los ConceptMap pueden ser recuperados usando su Namespace Global (url canónica).
 
 Links:
-* [FHIR ConceptMap spec](https://www.hl7.org/fhir/conceptmap.html#resource)
-* [FHIR ConceptMap $translate spec](https://www.hl7.org/fhir/conceptmap-operation-translate.html)
+* [Especificación FHIR ConceptMap](https://www.hl7.org/fhir/conceptmap.html#resource)
+* [Especificación FHIR ConceptMap $translate](https://www.hl7.org/fhir/conceptmap-operation-translate.html)
 
 
-## Get a single ConceptMap
+## Obtener un único ConceptMap
 
-The version-less request for the conceptmap returns `most recent released version`. If none of the version is released then empty response will be returned.
+La solicitud de un conceptmap sin versiones devuelve la `versión liberada más reciente`. Si no existe una versión liberada, entonces se devolverá una respuesta vacía.
 
-**NOTE**
-- The ConceptMap.group.element.target.equivalence value is returned as a extension of target with extension url 
+<!-- 
+**NOTA**
+
+- El valor ConceptMap.group.element.target.equivalence se devuelve como una extensión del objetivo con URL de extensión
+
   `http://fhir.openconceptlab.org/ConceptMap/equivalence` .
-
-#### Request url
+  
+-->
+#### URL de Solicitud
 
 `GET /fhir/ConceptMap/?url=:url`
 
-`GET /orgs/:org/ConceptMap/:id`
-
-#### Request Parameters
+#### Parámetros de Solicitud
 
 |  Parameter   |            Description     |
 |-----|-------------------------------------|
-| url | The canonical url of the conceptmap |
-| org | The id of the OCL organization      |
-| id  | The id of the conceptmap            |
+| url | La URL canónica del conceptmap      |
+| id  | El  id del  conceptmap              |
 
-#### Example Request
+#### Solicitud de ejemplo
 
-`GET /fhir/ConceptMap/?url=https://datim.org/ConceptMap/MER`
+Solicitar todos los concept map disponibles.
 
-`GET /orgs/PEPFAR-Test10/ConceptMap/MER`
+`GET /fhir/ConceptMap?url=http://hl7.org/fhir/sid/meddra`
 
-#### Example response
+#### Respuesta de Ejemplo
 
 ```json
 {
     "resourceType": "Bundle",
-    "id": "60b6b267-531e-4d9d-b857-77c43055c2f4",
+    "id": "3e7e9ba7-ab8e-4026-9436-90c14c74560c",
     "meta": {
-        "lastUpdated": "2021-02-25T18:28:04.514+00:00"
+        "lastUpdated": "2023-07-04T22:02:31.814+00:00"
     },
     "type": "searchset",
-    "total": 1,
+    "total": 0,
     "link": [
         {
             "relation": "self",
-            "url": "http://fhir.qa.aws.openconceptlab.org/orgs/PEPFAR-Test10/ConceptMap/MER/"
-        },
-        {
-            "relation": "prev",
-            "url": "null"
-        },
-        {
-            "relation": "next",
-            "url": "http://fhir.qa.aws.openconceptlab.org/orgs/PEPFAR-Test10/ConceptMap/MER/?page=2"
-        }
-    ],
-    "entry": [
-        {
-            "resource": {
-                "resourceType": "ConceptMap",
-                "id": "MER",
-                "url": "https://datim.org/ConceptMap/MER",
-                "identifier": {
-                    "type": {
-                        "coding": [
-                            {
-                                "system": "http://hl7.org/fhir/v2/0203",
-                                "code": "ACSN",
-                                "display": "Accession ID"
-                            }
-                        ],
-                        "text": "Accession ID"
-                    },
-                    "system": "https://fhir.qa.aws.openconceptlab.org",
-                    "value": "/orgs/PEPFAR-Test10/ConceptMap/MER/version/v1.0/"
-                },
-                "version": "v1.0",
-                "name": "MER Source",
-                "title": "DATIM Monitoring, Evaluation & Results Metadata",
-                "status": "active",
-                "description": "Auto-generated release",
-                "group": [
-                    {
-                        "source": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "target": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "element": [
-                            {
-                                "code": "025M3T2Hsh2",
-                                "target": [
-                                    {
-                                        "extension": [
-                                            {
-                                                "url": "http://fhir.openconceptlab.org/ConceptMap/equivalence",
-                                                "valueString": "Has Option"
-                                            }
-                                        ],
-                                        "code": "GNrMxECWqDp"
-                                    },
-                                    {
-                                        "extension": [
-                                            {
-                                                "url": "http://fhir.openconceptlab.org/ConceptMap/equivalence",
-                                                "valueString": "Has Option"
-                                            }
-                                        ],
-                                        "code": "XqbMOMJhdoo"
-                                    }
-                                ]
-                            },
-                            {
-                                "code": "0W99fNHD5Dz",
-                                "target": [
-                                    {
-                                        "extension": [
-                                            {
-                                                "url": "http://fhir.openconceptlab.org/ConceptMap/equivalence",
-                                                "valueString": "Derived From"
-                                            }
-                                        ],
-                                        "code": "q4YD3KInPoX"
-                                    },
-                                    {
-                                        "extension": [
-                                            {
-                                                "url": "http://fhir.openconceptlab.org/ConceptMap/equivalence",
-                                                "valueString": "Derived From"
-                                            }
-                                        ],
-                                        "code": "WPkzUQaVO7k"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
+            "url": "http://192.168.70.139:8080/fhir/ConceptMap?url=http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Fmeddra"
         }
     ]
 }
 
 ```
 
+Por defecto, se devuelven los primeros `100` mapeos para un conceptmap. Si el usuario desea obtener más mapeos, el servicio FHIR proporciona soporte de paginación para un recurso. El valor de página por defecto es `page=1` y este número puede incrementarse para recuperar más mapeos.
 
-
-By default, first `100` mappings are returned for a conceptmap. If user wants to get more mappings, OCL FHIR service provides pagination support for a resource. The default page value is `page=1` and this number can be incremented to retrieve more mappings.
-
-
-## Get a ConceptMap version
-#### Request url
+<!--
+## Obtener versión de un ConceptMap
+#### URL de Solicitud
 
 `GET /fhir/ConceptMap/?url=:url&version=:version`
 
-`GET /orgs/:org/ConceptMap/:id/version/:version`
-
-#### Request Parameters
+#### Parámetros de Solicitud
 
 |  Parameter   |            Description     |
 |-----|-------------------------------------|
-|url | The canonical url of the conceptmap|
-|org | The id of the OCL organization|
-|id | The id of the conceptmap |
-|version | The version of the conceptmap|
+|url | La URL canónica del conceptmap  |
+|id | El id del  conceptmap        |
+|version | La version del conceptmap|
 
-#### Example Request
+#### Solicitud de ejemplo
 
-`GET /fhir/ConceptMap/?url=https://datim.org/ConceptMap/MER&version=v2.0`
-
-`GET /orgs/:org/ConceptMap/MER/version/v2.0`
+`GET /fhir/ConceptMap/?url=http://snomed.info/sct&version=http://snomed.info/sct/449081005/version/20230430`
 
 
-#### Example Response
+#### Respuesta de Ejemplo
+
 
 ```json
 {
@@ -296,8 +201,9 @@ By default, first `100` mappings are returned for a conceptmap. If user wants to
     ]
 }
 ```
+-->
 
-
+<!-- ## 
 ## Get list of ConceptMap versions
 
 This request returns all `released` versions for a given conceptmap. Note that this request only returns conceptmap definitions and does not populate mappings.
@@ -407,107 +313,193 @@ This request returns all `released` versions for a given conceptmap. Note that t
     ]
 }
 ```
+``` -->
+
+## Obtener una lista de los conceptmaps
+Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
 
 
-
-## Get a list of conceptmaps
-
-This request returns list of most recent released versions of all conceptmaps.
-
-#### Request url
+#### URL de Solicitud
 
 `GET /fhir/ConceptMap/`
 
-`GET /orgs/:org/ConceptMap/`
 
-#### Request Parameters
+#### Parámetros de Solicitud
 
 |  Parameter   |            Description     |
 |-----|-------------------------------------|
-|org | The id of the OCL organization |
+|     |                     |
 
 #### Example Request
 
 `GET /fhir/ConceptMap/`
-
-`GET /orgs/PEPFAR-Test10/ConceptMap/`
 
 #### Example Response
 
 ```json
 {
     "resourceType": "Bundle",
-    "id": "33e60b00-93c8-407a-bd35-2ce93924abb9",
+    "id": "27e8285f-7b96-44a0-8545-3234ad7d14cb",
     "meta": {
-        "lastUpdated": "2021-02-25T18:40:40.704+00:00"
+        "lastUpdated": "2023-07-04T21:38:33.235+00:00"
     },
     "type": "searchset",
-    "total": 1,
+    "total": 10,
     "link": [
         {
             "relation": "self",
-            "url": "http://fhir.qa.aws.openconceptlab.org/orgs/PEPFAR-Test10/ConceptMap/MER/version/"
-        },
-        {
-            "relation": "prev",
-            "url": "null"
-        },
-        {
-            "relation": "next",
-            "url": "null"
+            "url": "http://192.168.70.139:8080/fhir/ConceptMap/"
         }
     ],
     "entry": [
         {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000527005",
             "resource": {
                 "resourceType": "ConceptMap",
-                "id": "MER1",
-                "url": "https://datim.org/ConceptMap/MER1",
-                "identifier": {
-                    "type": {
-                        "coding": [
-                            {
-                                "system": "http://hl7.org/fhir/v2/0203",
-                                "code": "ACSN",
-                                "display": "Accession ID"
-                            }
-                        ],
-                        "text": "Accession ID"
-                    },
-                    "system": "https://fhir.qa.aws.openconceptlab.org",
-                    "value": "/orgs/PEPFAR-Test10/ConceptMap/MER1/version/v1.0/"
+                "id": "snomed_implicit_map_900000000000527005",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://snomed.info/sct?fhir_vs is generated using Reference Set 900000000000527005.</div>"
                 },
-                "version": "v2.0",
-                "name": "MER1 Source",
-                "title": "DATIM Monitoring, Evaluation & Results Metadata",
-                "status": "active",
-                "description": "Auto-generated release"
+                "url": "http://snomed.info/sct?fhir_cm=900000000000527005",
+                "name": "SAME AS",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://snomed.info/sct?fhir_vs"
             }
         },
         {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_446608001",
             "resource": {
                 "resourceType": "ConceptMap",
-                "id": "MER2",
-                "url": "https://datim.org/ConceptMap/MER2",
-                "identifier": {
-                    "type": {
-                        "coding": [
-                            {
-                                "system": "http://hl7.org/fhir/v2/0203",
-                                "code": "ACSN",
-                                "display": "Accession ID"
-                            }
-                        ],
-                        "text": "Accession ID"
-                    },
-                    "system": "https://fhir.qa.aws.openconceptlab.org",
-                    "value": "/orgs/PEPFAR-Test10/ConceptMap/MER2/version/v2.0/"
+                "id": "snomed_implicit_map_446608001",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://hl7.org/fhir/sid/icd-o?fhir_vs is generated using Reference Set 446608001.</div>"
                 },
-                "version": "v2.0",
-                "name": "MER2 Source",
-                "title": "DATIM Monitoring, Evaluation & Results Metadata",
-                "status": "active",
-                "description": "Auto-generated release"
+                "url": "http://snomed.info/sct?fhir_cm=446608001",
+                "name": "SNOMED CT to ICD-O simple map",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://hl7.org/fhir/sid/icd-o?fhir_vs"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_447562003",
+            "resource": {
+                "resourceType": "ConceptMap",
+                "id": "snomed_implicit_map_447562003",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://hl7.org/fhir/sid/icd-10?fhir_vs is generated using Reference Set 447562003.</div>"
+                },
+                "url": "http://snomed.info/sct?fhir_cm=447562003",
+                "name": "SNOMED CT to ICD-10 extended map",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://hl7.org/fhir/sid/icd-10?fhir_vs"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_784008009",
+            "resource": {
+                "resourceType": "ConceptMap",
+                "id": "snomed_implicit_map_784008009",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://hl7.org/fhir/sid/orphanet?fhir_vs is generated using Reference Set 784008009.</div>"
+                },
+                "url": "http://snomed.info/sct?fhir_cm=784008009",
+                "name": "SNOMED CT to Orphanet simple map",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://hl7.org/fhir/sid/orphanet?fhir_vs"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000530003",
+            "resource": {
+                "resourceType": "ConceptMap",
+                "id": "snomed_implicit_map_900000000000530003",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://snomed.info/sct?fhir_vs is generated using Reference Set 900000000000530003.</div>"
+                },
+                "url": "http://snomed.info/sct?fhir_cm=900000000000530003",
+                "name": "ALTERNATIVE",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://snomed.info/sct?fhir_vs"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000497000",
+            "resource": {
+                "resourceType": "ConceptMap",
+                "id": "snomed_implicit_map_900000000000497000",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from CTV-3?fhir_vs to http://snomed.info/sct?fhir_vs is generated using Reference Set 900000000000497000.</div>"
+                },
+                "url": "http://snomed.info/sct?fhir_cm=900000000000497000",
+                "name": "CTV3 to SNOMED CT simple map",
+                "sourceUri": "CTV-3?fhir_vs",
+                "targetUri": "http://snomed.info/sct?fhir_vs"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000523009",
+            "resource": {
+                "resourceType": "ConceptMap",
+                "id": "snomed_implicit_map_900000000000523009",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://snomed.info/sct?fhir_vs is generated using Reference Set 900000000000523009.</div>"
+                },
+                "url": "http://snomed.info/sct?fhir_cm=900000000000523009",
+                "name": "POSSIBLY EQUIVALENT TO",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://snomed.info/sct?fhir_vs"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_6011000124106",
+            "resource": {
+                "resourceType": "ConceptMap",
+                "id": "snomed_implicit_map_6011000124106",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://hl7.org/fhir/sid/icd-10-cm?fhir_vs is generated using Reference Set 6011000124106.</div>"
+                },
+                "url": "http://snomed.info/sct?fhir_cm=6011000124106",
+                "name": "SNOMED CT to ICD-10-CM complex map",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://hl7.org/fhir/sid/icd-10-cm?fhir_vs"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000526001",
+            "resource": {
+                "resourceType": "ConceptMap",
+                "id": "snomed_implicit_map_900000000000526001",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://snomed.info/sct?fhir_vs is generated using Reference Set 900000000000526001.</div>"
+                },
+                "url": "http://snomed.info/sct?fhir_cm=900000000000526001",
+                "name": "REPLACED BY",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://snomed.info/sct?fhir_vs"
+            }
+        },
+        {
+            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_816210007",
+            "resource": {
+                "resourceType": "ConceptMap",
+                "id": "snomed_implicit_map_816210007",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">This SNOMED CT Implicit Concept Map from http://snomed.info/sct?fhir_vs to http://hl7.org/fhir/sid/meddra?fhir_vs is generated using Reference Set 816210007.</div>"
+                },
+                "url": "http://snomed.info/sct?fhir_cm=816210007",
+                "name": "SNOMED CT to MedDra simple map",
+                "sourceUri": "http://snomed.info/sct?fhir_vs",
+                "targetUri": "http://hl7.org/fhir/sid/meddra?fhir_vs"
             }
         }
     ]
@@ -515,35 +507,31 @@ This request returns list of most recent released versions of all conceptmaps.
 ```
 
 
-## FHIR Operations
+## Operaciones FHIR 
 
-As per mSVCM profile, following FHIR operations are supported for a conceptmap:
+Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas para un conceptmap:
+
 1. $translate
 
 ### $translate
 
-#### Request url
+#### URL de Solicitud
 
 `GET /fhir/ConceptMap/$translate/?url=:url&system=:systam&code=:code`
 
-`GET /orgs/:org/ConceptMap/$translate/?url=:url&system=:systam&code=:code`
-
-`POST /fhir/ConceptMap/$translate`
-
-`POST /orgs/:org/ConceptMap/$translate`
-
-#### Request parameters (GET)
+#### Parámetros de Solicitud (GET)
 
 |  Parameter   |            Description     |
 |-----|-------------------------------------|
-|url| (M) The canonical url of the conceptmap|
-|system | (M) The canonical url of the codesystem|
-|code | (M) The concept code that needs to be translated|
+|system | (M) La URL canónica del conceptmap|
+|code | (M) El código del concepto que será traducido|
+<!--
 |conceptMapVersion| (O) The version of the conceptmap|
-|version | (O) The version of the codesystem|
-|targetSystem | (O) The canonical url of target codesystem|
-|org | The id of OCL organization|
+|version | (O) La version del codesystem|
+-->
+|targetSystem | (O) La url canónica del codesystem objetivo |
 
+<!--
 #### Request body (POST)
 
 ```json
@@ -577,41 +565,22 @@ As per mSVCM profile, following FHIR operations are supported for a conceptmap:
     ]
 }
 
-# Alternayively, user can include `coding` parameter to provide codesystem_url, concept_code and codesystem_version.
-
-{
-    "resourceType":"Parameters",
-    "parameter": [
-        {
-            "name":"url",
-            "valueUri":"<conceptmap_url>"
-        },
-        {
-            "name":"coding",
-            "valueCoding": {
-                "system" : "<codesystem_url>",
-                "code" : "<concept_code>",
-                "version": "<codesystem_version>"
-            }
-        }
-    ]
-}
-
 ```
 
-**NOTE:**
-- If coding is provided then codesystem_url, concept_code and codesystem_version values are overridden with the values of
-  coding.system, coding.code and coding.version respectively.
+**NOTA:**
+
+- Si se proporciona coding, los valores codesystem_url, concept_code y codesystem_version se sustituyen por los valores de
+  coding.system, coding.code y coding.version , respectivamente.
+
+-->
+
+#### Solicitud de ejemplo
 
 
-#### Example Request
+`GET /fhir/ConceptMap/$translate?code=35037009&system=http://snomed.info/sct&targetsystem=http://hl7.org/fhir/sid/icd-10`
 
-`GET /fhir/ConceptMap/$translate/?url=https://datim.org/CodeSystem/MER&system=/orgs/PEPFAR-Test10/sources/MER/&code=025M3T2Hsh2`
+#### Respuesta de Ejemplo
 
-`GET /orgs/PEPFAR-Test10/ConceptMap/$translate/?url=https://datim.org/CodeSystem/MER&system=/orgs/PEPFAR-Test10/sources/MER/&code=025M3T2Hsh2`
-
-
-#### Example Response
 
 ```json
 {
@@ -623,117 +592,25 @@ As per mSVCM profile, following FHIR operations are supported for a conceptmap:
         },
         {
             "name": "message",
-            "valueString": "Matches found!"
+            "valueString": "Please observe the following map advice. Group:1, Priority:1, Rule:TRUE, Advice:'ALWAYS J84.9', Map Category:'null'."
         },
         {
             "name": "match",
             "part": [
                 {
                     "name": "equivalence",
-                    "valueString": "Has Option"
+                    "valueCode": "unmatched"
                 },
                 {
                     "name": "concept",
                     "valueCoding": {
-                        "system": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "code": "EsEgz70ex5M"
+                        "system": "http://hl7.org/fhir/sid/icd-10",
+                        "code": "J84.9"
                     }
-                }
-            ]
-        },
-        {
-            "name": "match",
-            "part": [
-                {
-                    "name": "equivalence",
-                    "valueString": "Has Option"
                 },
                 {
-                    "name": "concept",
-                    "valueCoding": {
-                        "system": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "code": "mN07ApGjAKh"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "match",
-            "part": [
-                {
-                    "name": "equivalence",
-                    "valueString": "Has Option"
-                },
-                {
-                    "name": "concept",
-                    "valueCoding": {
-                        "system": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "code": "aReRE4UUoKW"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "match",
-            "part": [
-                {
-                    "name": "equivalence",
-                    "valueString": "Has Option"
-                },
-                {
-                    "name": "concept",
-                    "valueCoding": {
-                        "system": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "code": "tb2OliToe2g"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "match",
-            "part": [
-                {
-                    "name": "equivalence",
-                    "valueString": "Has Option"
-                },
-                {
-                    "name": "concept",
-                    "valueCoding": {
-                        "system": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "code": "JqROtRoCBHP"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "match",
-            "part": [
-                {
-                    "name": "equivalence",
-                    "valueString": "Has Option"
-                },
-                {
-                    "name": "concept",
-                    "valueCoding": {
-                        "system": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "code": "GcAEOo6pgjG"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "match",
-            "part": [
-                {
-                    "name": "equivalence",
-                    "valueString": "Has Option"
-                },
-                {
-                    "name": "concept",
-                    "valueCoding": {
-                        "system": "/orgs/PEPFAR-Test10/sources/MER/",
-                        "code": "BiJwnz9vw41"
-                    }
+                    "name": "source",
+                    "valueString": "http://snomed.info/sct/900000000000207008/version/20230430?fhir_cm=447562003"
                 }
             ]
         }
