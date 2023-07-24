@@ -525,11 +525,12 @@ Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas par
 |-----|-------------------------------------|
 |system | (M) La URL canónica del conceptmap|
 |code | (M) El código del concepto que será traducido|
+|targetSystem | (O) La url canónica del codesystem objetivo |
+
 <!--
 |conceptMapVersion| (O) The version of the conceptmap|
 |version | (O) La version del codesystem|
 -->
-|targetSystem | (O) La url canónica del codesystem objetivo |
 
 <!--
 #### Request body (POST)

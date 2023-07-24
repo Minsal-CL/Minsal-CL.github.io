@@ -538,6 +538,7 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
 
 #### Parámetros de Solicitud (GET)
 
+
 |  Parámetro   |            Descripción     |
 |-----|-------------------------------------|
 |url | (M) URL canonica del ValueSet|
@@ -545,8 +546,7 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
 |valueSetVersion | (O) La versión del valueset|
 |offset | (O) Punto de inicio para el subconjunto deseado (defecto 0)|
 |count | (O) Número deseado de códigos a ser devueltos (defecto 100)|
-|filter | (O) 
-La cadena de caracteres que actúa de filtro puede ser usado para controlar los códigos incluidos en la expansión del ValueSet. Para usar múltiples filtros, cada cadena debe ser separada por espacios y el servicio lo reconocerá como filtros combinados de intersección.
+|filter | (O) La cadena de caracteres que actúa de filtro puede ser usado para controlar los códigos incluidos en la expansión del ValueSet. Para usar múltiples filtros, cada cadena debe ser separada por espacios y el servicio lo reconocerá como filtros combinados de intersección.|
 
 
 #### Solicitud de ejemplo
