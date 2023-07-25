@@ -5,5 +5,5 @@ parent: Componentes de la Arquitectura
 nav_order: 2
 ---
 
-# HPD
+# Directorio de Prestadores de Salud
 Uno de los Componentes de la Arquitectura es el HPD. 
