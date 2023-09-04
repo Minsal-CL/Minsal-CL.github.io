@@ -19,10 +19,11 @@ Links:
 * [Especificación FHIR ConceptMap](https://www.hl7.org/fhir/conceptmap.html#resource)
 * [Especificación FHIR ConceptMap $translate](https://www.hl7.org/fhir/conceptmap-operation-translate.html)
 
-
+<!-- 
 ## Obtener un único ConceptMap
 
 La solicitud de un conceptmap sin versiones devuelve la `versión liberada más reciente`. Si no existe una versión liberada, entonces se devolverá una respuesta vacía.
+-->
 
 <!-- 
 **NOTA**
@@ -32,6 +33,8 @@ La solicitud de un conceptmap sin versiones devuelve la `versión liberada más 
   `http://fhir.openconceptlab.org/ConceptMap/equivalence` .
   
 -->
+
+<!-- 
 #### URL de Solicitud
 
 `GET /fhir/ConceptMap/?url=:url`
@@ -71,6 +74,8 @@ Solicitar todos los concept map disponibles.
 ```
 
 Por defecto, se devuelven los primeros `100` mapeos para un conceptmap. Si el usuario desea obtener más mapeos, el servicio FHIR proporciona soporte de paginación para un recurso. El valor de página por defecto es `page=1` y este número puede incrementarse para recuperar más mapeos.
+
+-->
 
 <!--
 ## Obtener versión de un ConceptMap
@@ -315,7 +320,7 @@ This request returns all `released` versions for a given conceptmap. Note that t
 ```
 ``` -->
 
-## Obtener una lista de los conceptmaps
+## Obtener una lista de los ConceptMaps
 Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
 
 
