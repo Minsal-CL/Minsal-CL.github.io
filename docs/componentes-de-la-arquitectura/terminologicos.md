@@ -6,6 +6,8 @@ nav_order: 3
 has_children: true
 ---
 
+[Feedback](https://forms.office.com/Pages/ResponsePage.aspx?id=fNVEdMgE3kKggd2JmvKSLktJxloj9ylNpaUWGFAhPiRUNk8xN0FBS084TEgwWk1VUTBBNUpTSFFNMSQlQCN0PWcu){: .btn .btn-red }
+
 # Servicios Terminológicos
 
 Uno de los Componentes de la Arquitectura son los Servicios Terminológicos. 
