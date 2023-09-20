@@ -66,7 +66,7 @@ Solicitar todos los concept map disponibles.
     "link": [
         {
             "relation": "self",
-            "url": "http://192.168.70.139:8080/fhir/ConceptMap?url=http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Fmeddra"
+            "url": "{{baseUrl}}/ConceptMap?url=http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Fmeddra"
         }
     ]
 }
@@ -353,12 +353,12 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
     "link": [
         {
             "relation": "self",
-            "url": "http://192.168.70.139:8080/fhir/ConceptMap/"
+            "url": "{{baseUrl}}/ConceptMap/"
         }
     ],
     "entry": [
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000527005",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_900000000000527005",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_900000000000527005",
@@ -373,7 +373,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_446608001",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_446608001",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_446608001",
@@ -388,7 +388,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_447562003",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_447562003",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_447562003",
@@ -403,7 +403,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_784008009",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_784008009",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_784008009",
@@ -418,7 +418,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000530003",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_900000000000530003",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_900000000000530003",
@@ -433,7 +433,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000497000",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_900000000000497000",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_900000000000497000",
@@ -448,7 +448,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000523009",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_900000000000523009",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_900000000000523009",
@@ -463,7 +463,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_6011000124106",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_6011000124106",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_6011000124106",
@@ -478,7 +478,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_900000000000526001",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_900000000000526001",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_900000000000526001",
@@ -493,7 +493,7 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
             }
         },
         {
-            "fullUrl": "http://192.168.70.139:8080/fhir/ConceptMap/snomed_implicit_map_816210007",
+            "fullUrl": "{{baseUrl}}/ConceptMap/snomed_implicit_map_816210007",
             "resource": {
                 "resourceType": "ConceptMap",
                 "id": "snomed_implicit_map_816210007",

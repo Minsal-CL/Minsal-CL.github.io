@@ -56,12 +56,12 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
     "link": [
         {
             "relation": "self",
-            "url": "http://192.168.10.187:8080/fhir/CodeSystem?url=http%3A%2F%2Fsnomed.info%2Fsct"
+            "url": "{{baseUrl}}/CodeSystem?url=http%3A%2F%2Fsnomed.info%2Fsct"
         }
     ],
     "entry": [
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20220131",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20220131",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20220131",
@@ -78,7 +78,7 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20220731",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20220731",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20220731",
@@ -95,7 +95,7 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20221031",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_449081005_20221031",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_449081005_20221031",
@@ -112,7 +112,7 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20221031",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20221031",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20221031",
@@ -129,7 +129,7 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20230331",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20230331",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20230331",
@@ -146,7 +146,7 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20230430",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_449081005_20230430",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_449081005_20230430",
@@ -163,7 +163,7 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20230430",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20230430",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20230430",
@@ -216,12 +216,12 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
     "link": [
         {
             "relation": "self",
-            "url": "http://192.168.10.187:8080/fhir/CodeSystem?url=http%3A%2F%2Fsnomed.info%2Fsct&version=http%3A%2F%2Fsnomed.info%2Fsct%2F449081005%2Fversion%2F20230430"
+            "url": "{{baseUrl}}/CodeSystem?url=http%3A%2F%2Fsnomed.info%2Fsct&version=http%3A%2F%2Fsnomed.info%2Fsct%2F449081005%2Fversion%2F20230430"
         }
     ],
     "entry": [
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20230430",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_449081005_20230430",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_449081005_20230430",
@@ -461,12 +461,12 @@ Esta solicitud devuelve las versiones más recientes de todos los Code System.
     "link": [
         {
             "relation": "self",
-            "url": "http://192.168.10.187:8080/fhir/CodeSystem?_count=10"
+            "url": "{{baseUrl}}/CodeSystem?_count=10"
         }
     ],
     "entry": [
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20220131",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20220131",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20220131",
@@ -483,7 +483,7 @@ Esta solicitud devuelve las versiones más recientes de todos los Code System.
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20220731",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20220731",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20220731",
@@ -500,7 +500,7 @@ Esta solicitud devuelve las versiones más recientes de todos los Code System.
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20221031",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20221031",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20221031",
@@ -517,7 +517,7 @@ Esta solicitud devuelve las versiones más recientes de todos los Code System.
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20221031",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_449081005_20221031",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_449081005_20221031",
@@ -534,7 +534,7 @@ Esta solicitud devuelve las versiones más recientes de todos los Code System.
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20230331",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20230331",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20230331",
@@ -551,7 +551,7 @@ Esta solicitud devuelve las versiones más recientes de todos los Code System.
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_900000000000207008_20230430",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_900000000000207008_20230430",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_900000000000207008_20230430",
@@ -568,7 +568,7 @@ Esta solicitud devuelve las versiones más recientes de todos los Code System.
             }
         },
         {
-            "fullUrl": "http://192.168.10.187:8080/fhir/CodeSystem/sct_449081005_20230430",
+            "fullUrl": "{{baseUrl}}/CodeSystem/sct_449081005_20230430",
             "resource": {
                 "resourceType": "CodeSystem",
                 "id": "sct_449081005_20230430",
