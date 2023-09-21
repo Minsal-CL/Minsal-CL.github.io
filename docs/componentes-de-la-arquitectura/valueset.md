@@ -52,12 +52,12 @@ La solicitud sin versión de un ValueSet devuelve `la versión más reciente lib
     "link": [
         {
             "relation": "self",
-            "url": "{{baseUrl}}/ValueSet/?url=http%3A%2F%2Fminsal.com%2Ffhir%2Fvs%2Fsexo_biologico"
+            "url": "{% raw %}{{baseUrl}}{% endraw %}/ValueSet/?url=http%3A%2F%2Fminsal.com%2Ffhir%2Fvs%2Fsexo_biologico"
         }
     ],
     "entry": [
         {
-            "fullUrl": "{{baseUrl}}/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
+            "fullUrl": "{% raw %}{{baseUrl}}{% endraw %}/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
             "resource": {
                 "resourceType": "ValueSet",
                 "id": "7b6217e8-42e8-461a-ae29-53b2b0352805",
@@ -105,12 +105,12 @@ La solicitud sin versión de un ValueSet devuelve `la versión más reciente lib
     "link": [
         {
             "relation": "self",
-            "url": "{{baseUrl}}/ValueSet/?url=http%3A%2F%2Fminsal.com%2Ffhir%2Fvs%2Fsexo_biologico&version=0.1"
+            "url": "{% raw %}{{baseUrl}}{% endraw %}/ValueSet/?url=http%3A%2F%2Fminsal.com%2Ffhir%2Fvs%2Fsexo_biologico&version=0.1"
         }
     ],
     "entry": [
         {
-            "fullUrl": "{{baseUrl}}/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
+            "fullUrl": "{% raw %}{{baseUrl}}{% endraw %}/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
             "resource": {
                 "resourceType": "ValueSet",
                 "id": "7b6217e8-42e8-461a-ae29-53b2b0352805",
@@ -162,12 +162,12 @@ Esta solicitud devuelve las versiones más recientes de todos los ValueSets.
     "link": [
         {
             "relation": "self",
-            "url": "{{baseUrl}}/ValueSet/"
+            "url": "{% raw %}{{baseUrl}}{% endraw %}/ValueSet/"
         }
     ],
     "entry": [
         {
-            "fullUrl": "{{baseUrl}}/ValueSet/122f0f73-812f-455d-91ca-8f842251ed0a",
+            "fullUrl": "{% raw %}{{baseUrl}}{% endraw %}/ValueSet/122f0f73-812f-455d-91ca-8f842251ed0a",
             "resource": {
                 "resourceType": "ValueSet",
                 "id": "122f0f73-812f-455d-91ca-8f842251ed0a",
@@ -181,7 +181,7 @@ Esta solicitud devuelve las versiones más recientes de todos los ValueSets.
             }
         },
         {
-            "fullUrl": "{{baseUrl}}/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
+            "fullUrl": "{% raw %}{{baseUrl}}{% endraw %}/ValueSet/7b6217e8-42e8-461a-ae29-53b2b0352805",
             "resource": {
                 "resourceType": "ValueSet",
                 "id": "7b6217e8-42e8-461a-ae29-53b2b0352805",
@@ -195,7 +195,7 @@ Esta solicitud devuelve las versiones más recientes de todos los ValueSets.
             }
         },
         {
-            "fullUrl": "{{baseUrl}}/ValueSet/bc4b4694-2021-4179-997b-c31556679a18",
+            "fullUrl": "{% raw %}{{baseUrl}}{% endraw %}/ValueSet/bc4b4694-2021-4179-997b-c31556679a18",
             "resource": {
                 "resourceType": "ValueSet",
                 "id": "bc4b4694-2021-4179-997b-c31556679a18",
