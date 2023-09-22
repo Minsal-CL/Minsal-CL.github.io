@@ -1548,7 +1548,7 @@ Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas par
 |code | (M) El código del concepto|
 |version | (O) La version del codesystem|
 |display | (O) El texto asociado al código|
-|--displayLanguage-- | --(O) El idioma solicitado para mostrar-- |
+|~~displayLanguage~~ | ~~(O) El idioma solicitado para mostrar~~ |
 
 
 **NOTA:**
