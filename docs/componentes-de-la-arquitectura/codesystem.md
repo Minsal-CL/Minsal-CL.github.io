@@ -1547,8 +1547,8 @@ Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas par
 |url | (M) La URL canónica del codesystem|
 |code | (M) El código del concepto|
 |version | (O) La version del codesystem|
-|displayLanguage | (O) El idioma solicitado para mostrar |
 |display | (O) El texto asociado al código|
+|--displayLanguage-- | --(O) El idioma solicitado para mostrar-- |
 
 
 **NOTA:**
