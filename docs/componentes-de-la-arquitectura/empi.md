@@ -7,4 +7,5 @@ nav_order: 1
 
 # Índice Maestro de Pacientes
 
-Uno de los Componentes de la Arquitectura es el [Índice Maestro de Pacientes](https://minsal-cl.github.io/MPI-IG-FHIR/). 
+
+Uno de los Componentes de la Arquitectura es el [Índice Maestro de Pacientes](https://interoperabilidad.minsal.cl/fhir/ig/mpi/).
