@@ -30,3 +30,5 @@ EMPI reduce los gastos administrativos al agilizar el proceso de registro de pac
 3. **Atención centrada en el paciente:** Una EMPI completa ayuda a prestar una atención centrada en el paciente al proporcionar a los profesionales sanitarios una visión completa y precisa del historial médico de un paciente, independientemente de dónde se hayan originado los datos.
 
 4. **Reducción de gasto:** Al reducir los registros duplicados y mejorar la precisión de los datos, la EMPI puede suponer un ahorro de costes para las organizaciones sanitarias y los aseguradores.
+
+A continuación podrá encontrar la Guá de Implementación del [Índice Maestro de Pacientes](https://interoperabilidad.minsal.cl/fhir/ig/mpi/) de MINSAL.
