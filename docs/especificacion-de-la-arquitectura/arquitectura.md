@@ -8,3 +8,7 @@ nav_order: 1
 # Introducción
 
 Un sistema de intecambio de información (HIE, por sus siglas en inglés Health Information Exchange), es ...
+
+![](../../assets/images/ModeloFederadoHibrido.jpg)
+
+
