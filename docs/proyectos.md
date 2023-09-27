@@ -12,4 +12,4 @@ El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.min
 
 ## Receta electrónica Interoperable
 
-El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/fhir/ig/snreE)
+El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/fhir/ig/snre)
