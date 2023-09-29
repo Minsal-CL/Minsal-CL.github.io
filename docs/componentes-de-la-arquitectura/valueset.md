@@ -532,7 +532,7 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
 
 La definición de un conjunto de valores se utiliza para crear una colección simple de códigos adecuados para su uso en la entrada o validación de datos.
 
-Si la operación no se llama a nivel de instancia, debe proporcionarse uno de los parámetros in url, context o valueSet. Se devolverá un conjunto de valores expandido, o un OperationOutcome con un mensaje de error.
+Si la operación no se llama a nivel de instancia, debe proporcionarse en uno de los parámetros url, context o oalueSet. Se devolverá un conjunto de valores expandido, o un OperationOutcome con un mensaje de error.
 
 La expansión del conjunto de valores devuelta por esta consulta debe tratarse como un resultado transitorio que cambiará con el tiempo (que lo haga o no depende de cómo se especifique el conjunto de valores), por lo que las aplicaciones deben repetir la operación cada vez que se utilice el conjunto de valores.
 
