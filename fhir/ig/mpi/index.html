@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>HL7.FHIR.CL.MINSAL.MPI\Home - FHIR v4.0.1</title>
+    <title>Inicio - Indice de maestro de pacientes v0.1.4</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -67,7 +67,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Indice de maestro de pacientes</span>
             <br/>
-            <span style="display:inline-block;">0.1.3 - ci-build
+            <span style="display:inline-block;">0.1.4 - ci-build
 
 
 
@@ -99,10 +99,13 @@
 
 <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
   <li>
-    <a href="index.html">Home</a>
+    <a href="index.html">Inicio</a>
   </li>
   <li>
-    <a href="artifacts.html">Artifacts</a>
+    <a href="negocio.html">Negocio</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
   </li>
 </ul>
             </div>  <!-- /.nav-collapse -->
@@ -116,7 +119,7 @@
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->
         <ul class="breadcrumb">
-          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Home</b></li>
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Inicio</b></li>
 
         </ul>
       </div>  <!-- /container -->
@@ -136,8 +139,8 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Indice de maestro de pacientes - Local Development build (v0.1.3). See the <a href="http://minsal.cl/fhir/ig/mpi/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
-  <h2>Home</h2>
+  <!--ReleaseHeader--><p id="publish-box">Indice de maestro de pacientes - Local Development build (v0.1.4). See the <a href="http://minsal.cl/fhir/ig/mpi/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Inicio</h2>
   
 
 
@@ -151,7 +154,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://minsal.cl/fhir/ig/mpi/ImplementationGuide/hl7.fhir.cl.minsal.mpi<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://minsal.cl/fhir/ig/mpi/ImplementationGuide/hl7.fhir.cl.minsal.mpi"/></span>
       </td>
       <td><i>Version</i>:
-      <span class="copy-text">0.1.3<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://minsal.cl/fhir/ig/mpi/ImplementationGuide/hl7.fhir.cl.minsal.mpi|0.1.3"/></span>
+      <span class="copy-text">0.1.4<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://minsal.cl/fhir/ig/mpi/ImplementationGuide/hl7.fhir.cl.minsal.mpi|0.1.4"/></span>
       </td>
     </tr>
 
@@ -167,7 +170,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
         
           Draft
           
-            as of 2023-09-04
+            as of 2023-10-06
           
         
       </td>
@@ -191,12 +194,69 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
-</div>
-<h1 id="mpi">mpi</h1>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#alcance" id="markdown-toc-alcance">Alcance</a></li>
+  <li><a href="#antecedentes" id="markdown-toc-antecedentes">Antecedentes</a></li>
+  <li><a href="#descripción" id="markdown-toc-descripción">Descripción</a></li>
+  <li><a href="#objetivos-de-la-implementación-de-un-mpi" id="markdown-toc-objetivos-de-la-implementación-de-un-mpi">Objetivos de la Implementación de un MPI</a></li>
+  <li><a href="#objetivos-de-esta-guía-de-implementación" id="markdown-toc-objetivos-de-esta-guía-de-implementación">Objetivos de esta Guía de Implementación</a></li>
+</ul>
 
-<p>Feel free to modify this index page with your own awesome content!</p>
+</div>
+<h3 id="alcance">Alcance</h3>
+
+<p>Esta guía de implementación aborda el proceso asociado a la identificación de un usuario en su interacción con el sistema de salud mediante las transacciones de información entre el sistema local y el Indice Maestro de Paciente o MPI (del ingles Master Patient Index). El MPI es una componente de la Arquitectura Nacional de Interoperabilidad que permite administrar y mantener la identidad en los registros de las personas que reciben servicios de salud dentro del territorio nacional de manera unívoca.</p>
+
+<h3 id="antecedentes">Antecedentes</h3>
+
+<p>Es fundamental para cualquier prestador de salud  gestionar con precisión los datos clínicos de los pacientes, los que son recopilados de diversas fuentes. La identificación precisa de los pacientes es crucial. La presencia de registros demográficos duplicados en un sistema no solo crea ineficiencias, sino que también genera riesgos en desmedro del cuidado de los pacientes y costos innecesarios para la organización.</p>
+
+<h3 id="descripción">Descripción</h3>
+
+<p>El MPI representa el pilar fundamental de la interoperabilidad en el ámbito de la salud. Facilita el intercambio seguro de datos de pacientes entre diversas organizaciones, sistemas y partes interesadas del sector sanitario. Sin un MPI robusto, los esfuerzos por lograr la interoperabilidad pueden verse obstaculizados por incoherencias y errores en los datos.
+La identificación precisa de los pacientes es esencial para garantizar su seguridad. El MPI ayuda a prevenir errores en la medicación, diagnósticos equivocados y otros eventos adversos que pueden ocurrir cuando los proveedores de atención médica carecen de un historial completo y preciso del paciente.
+Además, el MPI reduce los costos administrativos al simplificar el proceso de registro de pacientes. Las organizaciones sanitarias pueden evitar la entrada de datos redundantes y mejorar la eficiencia en el intercambio de información.</p>
+
+<h3 id="objetivos-de-la-implementación-de-un-mpi">Objetivos de la Implementación de un MPI</h3>
+
+<h4 id="general">General</h4>
+
+<ul>
+  <li>Generar un sistema seguro e interoperable de identificación unívoca de pacientes, para soportar la gestión (carga, consulta e identificación cruzada de duplicados) de la información de descripción de un paciente de manera fidedigna y de calidad.</li>
+</ul>
+
+<h4 id="específicos">Específicos</h4>
+
+<ul>
+  <li>Apoyar los esfuerzos de gobierno de datos garantizando que los datos de los pacientes sean coherentes y fiables. Esto es importante para cumplir con las regulaciones nacionales de privacidad de datos.</li>
+  <li>Ayudar a prestar una atención centrada en el paciente al proporcionar a los profesionales sanitarios una visión completa y precisa del historial médico de un paciente, independientemente de dónde se hayan originado los datos.</li>
+  <li>Reducir los registros duplicados y mejorar la precisión de los datos</li>
+  <li>Ahorrar de costos para las organizaciones sanitarias y los aseguradores.</li>
+</ul>
+
+<h3 id="objetivos-de-esta-guía-de-implementación">Objetivos de esta Guía de Implementación</h3>
+
+<h4 id="general-1">General</h4>
+
+<ul>
+  <li>Brindar las directrices para el desarrollo de sistema de información que garanticen la interoperabilidad con el Índice Maestro de Pacientes, según los estándares definidos por el Ministerio de Salud.</li>
+</ul>
+
+<h4 id="específicos-1">Específicos</h4>
+
+<ul>
+  <li>
+    <p>Otorgar las herramientas necesarias para el desarrollo de sistemas informáticos que interoperen con el Índice Maestro de Pacientes, en base al estándar HL7 FHIR.</p>
+  </li>
+  <li>
+    <p>Describir los distintos perfiles de usuario de los procesos asociados al Índice Maestro de Pacientes y los recursos asociados a cada uno.</p>
+  </li>
+  <li>
+    <p>Ejemplificar los distintos casos de uso asociados al Índice Maestro de Pacientes</p>
+  </li>
+</ul>
+
 
 
 
@@ -222,7 +282,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2023+ <a style="color:var(--footer-hyperlink-text-color)" href="http://minsal.cl">MINSAL</a>.  Package hl7.fhir.cl.minsal.mpi#0.1.3 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 4, 2023 11:09-0300">2023-09-04</span>
+          IG &#169; 2023+ <a style="color:var(--footer-hyperlink-text-color)" href="http://minsal.cl">MINSAL</a>.  Package hl7.fhir.cl.minsal.mpi#0.1.4 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Oct 6, 2023 15:57-0300">2023-10-06</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
