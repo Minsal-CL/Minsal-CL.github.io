@@ -6,7 +6,7 @@ nav_order: 4
 
 # Proyectos 
 
-## Sistema de Lista de Espera Interoperable.
+## Tiempos de Espera Interoperables.
 
 El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/SIGTEv2-IG/).
 
