@@ -12,8 +12,8 @@
   <sch:pattern>
     <sch:title>f:Observation</sch:title>
     <sch:rule context="f:Observation">
-      <sch:assert test="count(f:extension[@url = 'http://minsal.cl/fhir/ig/mpi/StructureDefinition/OrigenDiscapacidad']) &gt;= 1">extension with URL = 'http://minsal.cl/fhir/ig/mpi/StructureDefinition/OrigenDiscapacidad': minimum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'http://minsal.cl/fhir/ig/mpi/StructureDefinition/OrigenDiscapacidad']) &lt;= 1">extension with URL = 'http://minsal.cl/fhir/ig/mpi/StructureDefinition/OrigenDiscapacidad': maximum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/OrigenDiscapacidad']) &gt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/OrigenDiscapacidad': minimum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/OrigenDiscapacidad']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/OrigenDiscapacidad': maximum cardinality of 'extension' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
