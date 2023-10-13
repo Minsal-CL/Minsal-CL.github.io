@@ -8,10 +8,8 @@ nav_order: 4
 
 ## Tiempos de Espera Interoperables.
 
-El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/SIGTEv2-IG/).
+El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/SIGTEv2-IG/)
 
 ## Receta electrónica Interoperable.
 
-El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/fhir/ig/snre).
-
- 
+El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/fhir/ig/snre)
