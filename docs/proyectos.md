@@ -6,9 +6,9 @@ nav_order: 4
 
 # Proyectos 
 
-## Tiempos de Espera Interoperables.
+## Tiempos de Espera Interoperable.
 
-El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/fhir/ig/te)
+El proyecto tiene su documentación oficial [aqui](https://interoperabilidad.minsal.cl/fhir/ig/tei)
 
 ## Receta electrónica Interoperable.
 
