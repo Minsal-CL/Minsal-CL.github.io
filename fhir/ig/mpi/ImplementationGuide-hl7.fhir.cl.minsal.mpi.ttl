@@ -17,7 +17,7 @@
   fhir:name [ fhir:v "MaestroDePacientes"] ; # 
   fhir:title [ fhir:v "Maestro de pacientes"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2023-10-18T10:23:28-03:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2023-10-26T16:48:32-03:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Unidad de Interoperabilidad - MINSAL"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Unidad de Interoperabilidad - MINSAL" ] ;
@@ -528,18 +528,6 @@
      fhir:resource ( [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:resource" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/AgrupacionPorMarcas> ;
-         fhir:reference [ fhir:v "StructureDefinition/AgrupacionPorMarcas" ]
-       ] ;
-       fhir:name [ fhir:v "Agrupacion Por Marcas" ] ;
-       fhir:description [ fhir:v "Agrupacion Por Marcas" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "StructureDefinition:extension" ]
        ] ) ;
        fhir:reference [
@@ -572,18 +560,6 @@
        ] ;
        fhir:name [ fhir:v "calificacionPrevisional" ] ;
        fhir:description [ fhir:v "calificacionPrevisional" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:resource" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/CoberturaMinsalMPI> ;
-         fhir:reference [ fhir:v "StructureDefinition/CoberturaMinsalMPI" ]
-       ] ;
-       fhir:name [ fhir:v "Cobertura de Salud del paciente" ] ;
-       fhir:description [ fhir:v "Recurso para almacenar la cobertura del paciente" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -687,11 +663,83 @@
          fhir:value [ fhir:v "StructureDefinition:resource" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/NivelEducacional> ;
-         fhir:reference [ fhir:v "StructureDefinition/NivelEducacional" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/MINSALAcompanante> ;
+         fhir:reference [ fhir:v "StructureDefinition/MINSALAcompanante" ]
        ] ;
-       fhir:name [ fhir:v "Nivel Educacional" ] ;
-       fhir:description [ fhir:v "Nivel Educacional" ] ;
+       fhir:name [ fhir:v "MINSAL Acompañante" ] ;
+       fhir:description [ fhir:v "Información sobre una persona que participa en la atención a un paciente, pero que no es el destinatario de la asistencia sanitaria ni tiene una responsabilidad formal en el proceso asistencial." ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/MINSALAgrupacionPorMarcas> ;
+         fhir:reference [ fhir:v "StructureDefinition/MINSALAgrupacionPorMarcas" ]
+       ] ;
+       fhir:name [ fhir:v "MINSAL Agrupacion por marcas" ] ;
+       fhir:description [ fhir:v "Agrupacion por marcas" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/MINSALCobertura> ;
+         fhir:reference [ fhir:v "StructureDefinition/MINSALCobertura" ]
+       ] ;
+       fhir:name [ fhir:v "MINSAL Cobertura de Salud del paciente" ] ;
+       fhir:description [ fhir:v "Recurso para almacenar la cobertura del paciente" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/MINSALNivelEducacional> ;
+         fhir:reference [ fhir:v "StructureDefinition/MINSALNivelEducacional" ]
+       ] ;
+       fhir:name [ fhir:v "MINSAL Nivel Educacional" ] ;
+       fhir:description [ fhir:v "MINSAL Nivel Educacional" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/MINSALOcupacion> ;
+         fhir:reference [ fhir:v "StructureDefinition/MINSALOcupacion" ]
+       ] ;
+       fhir:name [ fhir:v "MINSAL Ocupación" ] ;
+       fhir:description [ fhir:v "MINSAL Ocupación" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/MINSALPaciente> ;
+         fhir:reference [ fhir:v "StructureDefinition/MINSALPaciente" ]
+       ] ;
+       fhir:name [ fhir:v "MINSAL Paciente " ] ;
+       fhir:description [ fhir:v "Paciente definido para el Registro Maestro de Pacientes" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/MINSALSituacionDiscapacidad> ;
+         fhir:reference [ fhir:v "StructureDefinition/MINSALSituacionDiscapacidad" ]
+       ] ;
+       fhir:name [ fhir:v "MINSAL Situacion Discapacidad" ] ;
+       fhir:description [ fhir:v "MINSAL Situacion Discapacidad" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -744,18 +792,6 @@
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:resource" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/Ocupacion> ;
-         fhir:reference [ fhir:v "StructureDefinition/Ocupacion" ]
-       ] ;
-       fhir:name [ fhir:v "Ocupación" ] ;
-       fhir:description [ fhir:v "Ocupación" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "StructureDefinition:extension" ]
        ] ) ;
        fhir:reference [
@@ -788,18 +824,6 @@
        ] ;
        fhir:name [ fhir:v "OrigenDiscapacidad" ] ;
        fhir:description [ fhir:v "OrigenDiscapacidad" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:resource" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/PacienteMinsalMPI> ;
-         fhir:reference [ fhir:v "StructureDefinition/PacienteMinsalMPI" ]
-       ] ;
-       fhir:name [ fhir:v "PacienteMPI" ] ;
-       fhir:description [ fhir:v "Paciente definido para el Registro Maestro de Pacientes" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -924,18 +948,6 @@
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:resource" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/RelatedPersonMPI> ;
-         fhir:reference [ fhir:v "StructureDefinition/RelatedPersonMPI" ]
-       ] ;
-       fhir:name [ fhir:v "RelatedPerson" ] ;
-       fhir:description [ fhir:v "RelatedPerson" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
@@ -980,18 +992,6 @@
        ] ;
        fhir:name [ fhir:v "Sexo Biologico del paciente" ] ;
        fhir:description [ fhir:v "Sexo Biologico del paciente" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:resource" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mpi/StructureDefinition/SituacionDiscapacidad> ;
-         fhir:reference [ fhir:v "StructureDefinition/SituacionDiscapacidad" ]
-       ] ;
-       fhir:name [ fhir:v "Situacion Discapacidad" ] ;
-       fhir:description [ fhir:v "Situacion Discapacidad" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [

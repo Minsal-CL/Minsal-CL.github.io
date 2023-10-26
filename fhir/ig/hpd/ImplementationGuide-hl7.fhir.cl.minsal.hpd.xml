@@ -3,15 +3,15 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="hl7.fhir.cl.minsal.hpd"/>
   <text>
-    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>IndiceMaestrodeprestadoresindividuales</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/snre/ImplementationGuide/hl7.fhir.cl.minsal.hpd</pre><div><p>Indice Maestro de prestadores individuales</p>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>MaestroDePrestadoresIndividuales</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/hpd/ImplementationGuide/hl7.fhir.cl.minsal.hpd</pre><div><p>Maestro de prestadores individuales</p>
 </div></div>
   </text>
-  <url value="https://interoperabilidad.minsal.cl/fhir/ig/snre/ImplementationGuide/hl7.fhir.cl.minsal.hpd"/>
+  <url value="https://interoperabilidad.minsal.cl/fhir/ig/hpd/ImplementationGuide/hl7.fhir.cl.minsal.hpd"/>
   <version value="0.2.0"/>
-  <name value="IndiceMaestrodeprestadoresindividuales"/>
-  <title value="Indice Maestro de prestadores individuales"/>
+  <name value="MaestroDePrestadoresIndividuales"/>
+  <title value="Maestro de prestadores individuales"/>
   <status value="draft"/>
-  <date value="2023-10-12T17:20:42-03:00"/>
+  <date value="2023-10-26T17:37:24-03:00"/>
   <publisher value="Unidad de Interoperabilidad - MINSAL"/>
   <contact>
     <name value="Unidad de Interoperabilidad - MINSAL"/>
@@ -20,7 +20,7 @@
       <value value="https://interoperabilidad.minsal.cl"/>
     </telecom>
   </contact>
-  <description value="Indice Maestro de prestadores individuales"/>
+  <description value="Maestro de prestadores individuales"/>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
@@ -50,7 +50,7 @@
   <dependsOn id="hl7_fhir_cl_clcore">
     <uri value="https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore"/>
     <packageId value="hl7.fhir.cl.clcore"/>
-    <version value="1.8.4"/>
+    <version value="1.8.5"/>
   </dependsOn>
   <definition>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -130,7 +130,7 @@
         <valueString value="path-history"/>
       </extension>
       <extension url="value">
-        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/snre/history.html"/>
+        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/hpd/history.html"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -333,7 +333,7 @@
         <valueCode value="path-history"/>
       </extension>
       <extension url="value">
-        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/snre/history.html"/>
+        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/hpd/history.html"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -524,17 +524,6 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="Practitioner"/>
-      </extension>
-      <reference>
-        <reference value="Practitioner/EjPrestadorCoreMinsal"/>
-      </reference>
-      <name value="Ejemplo Prestador Profesional Minsal 1"/>
-      <description value="Prestador Profesional sin contacto y sin dirección"/>
-      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/snre/StructureDefinition/PrestadorProfesionalMinsal"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="ValueSet"/>
       </extension>
       <reference>
@@ -615,9 +604,20 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/PrestadorProfesionalMinsal"/>
+        <reference value="StructureDefinition/MINSALPrestadorAdministrativo"/>
       </reference>
-      <name value="Prestador Profesional Minsal"/>
+      <name value="MINSAL Prestador Administrativo"/>
+      <description value="Prestador Administrativo definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/MINSALPrestadorProfesional"/>
+      </reference>
+      <name value="MINSAL Prestador Profesional"/>
       <description value="Prestador Profesional Individual definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud."/>
       <exampleBoolean value="false"/>
     </resource>

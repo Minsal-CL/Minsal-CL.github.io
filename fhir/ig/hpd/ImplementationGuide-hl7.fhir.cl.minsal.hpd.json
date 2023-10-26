@@ -3,14 +3,14 @@
   "id" : "hl7.fhir.cl.minsal.hpd",
   "text" : {
     "status" : "extensions",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>IndiceMaestrodeprestadoresindividuales</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/snre/ImplementationGuide/hl7.fhir.cl.minsal.hpd</pre><div><p>Indice Maestro de prestadores individuales</p>\n</div></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MaestroDePrestadoresIndividuales</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/hpd/ImplementationGuide/hl7.fhir.cl.minsal.hpd</pre><div><p>Maestro de prestadores individuales</p>\n</div></div>"
   },
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/snre/ImplementationGuide/hl7.fhir.cl.minsal.hpd",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/hpd/ImplementationGuide/hl7.fhir.cl.minsal.hpd",
   "version" : "0.2.0",
-  "name" : "IndiceMaestrodeprestadoresindividuales",
-  "title" : "Indice Maestro de prestadores individuales",
+  "name" : "MaestroDePrestadoresIndividuales",
+  "title" : "Maestro de prestadores individuales",
   "status" : "draft",
-  "date" : "2023-10-12T17:20:42-03:00",
+  "date" : "2023-10-26T17:37:24-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -19,7 +19,7 @@
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Indice Maestro de prestadores individuales",
+  "description" : "Maestro de prestadores individuales",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -54,7 +54,7 @@
     "id" : "hl7_fhir_cl_clcore",
     "uri" : "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore",
     "packageId" : "hl7.fhir.cl.clcore",
-    "version" : "1.8.4"
+    "version" : "1.8.5"
   }],
   "definition" : {
     "extension" : [{
@@ -163,7 +163,7 @@
       },
       {
         "url" : "value",
-        "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/snre/history.html"
+        "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/hpd/history.html"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -442,7 +442,7 @@
       },
       {
         "url" : "value",
-        "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/snre/history.html"
+        "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/hpd/history.html"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -686,18 +686,6 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Practitioner"
-      }],
-      "reference" : {
-        "reference" : "Practitioner/EjPrestadorCoreMinsal"
-      },
-      "name" : "Ejemplo Prestador Profesional Minsal 1",
-      "description" : "Prestador Profesional sin contacto y sin dirección",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/snre/StructureDefinition/PrestadorProfesionalMinsal"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
       }],
       "reference" : {
@@ -785,9 +773,21 @@
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/PrestadorProfesionalMinsal"
+        "reference" : "StructureDefinition/MINSALPrestadorAdministrativo"
       },
-      "name" : "Prestador Profesional Minsal",
+      "name" : "MINSAL Prestador Administrativo",
+      "description" : "Prestador Administrativo definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/MINSALPrestadorProfesional"
+      },
+      "name" : "MINSAL Prestador Profesional",
       "description" : "Prestador Profesional Individual definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud.",
       "exampleBoolean" : false
     },
