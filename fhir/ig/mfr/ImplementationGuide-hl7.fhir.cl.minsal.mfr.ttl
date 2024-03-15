@@ -13,11 +13,11 @@
      fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MaestroPrestadoresInstitucionales</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/mfr/ImplementationGuide/hl7.fhir.cl.minsal.mfr</pre><div><p>Maestro Prestadores Institucionales</p>\n</div></div>"
   ] ; # 
   fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/mfr/ImplementationGuide/hl7.fhir.cl.minsal.mfr"^^xsd:anyURI] ; # 
-  fhir:version [ fhir:v "0.1.1"] ; # 
+  fhir:version [ fhir:v "0.1.4"] ; # 
   fhir:name [ fhir:v "MaestroPrestadoresInstitucionales"] ; # 
   fhir:title [ fhir:v "Maestro Prestadores Institucionales"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2024-03-05T16:32:16-03:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2024-03-12T17:17:58-03:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Unidad de Interoperabilidad - MINSAL"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Unidad de Interoperabilidad - MINSAL" ] ;
@@ -68,7 +68,7 @@
        fhir:link <https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore>
      ] ;
      fhir:packageId [ fhir:v "hl7.fhir.cl.clcore" ] ;
-     fhir:version [ fhir:v "1.8.7" ]
+     fhir:version [ fhir:v "1.8.5" ]
   ] ) ; # 
   fhir:definition [
      fhir:extension ( [
@@ -528,14 +528,26 @@
      fhir:resource ( [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/AmbitoFuncionamiento> ;
+         fhir:reference [ fhir:v "StructureDefinition/AmbitoFuncionamiento" ]
+       ] ;
+       fhir:name [ fhir:v "Ambito Funcionamiento" ] ;
+       fhir:description [ fhir:v "Ambito Funcionamiento" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSAmbitoFuncionamiento> ;
          fhir:reference [ fhir:v "ValueSet/VSAmbitoFuncionamiento" ]
        ] ;
-       fhir:name [ fhir:v "AmbitoFuncionamiento" ] ;
-       fhir:description [ fhir:v "AmbitoFuncionamiento" ] ;
+       fhir:name [ fhir:v "Ambito Funcionamiento" ] ;
+       fhir:description [ fhir:v "Ambito Funcionamiento" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -546,20 +558,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSAmbitoFuncionamiento> ;
          fhir:reference [ fhir:v "CodeSystem/CSAmbitoFuncionamiento" ]
        ] ;
-       fhir:name [ fhir:v "AmbitoFuncionamiento" ] ;
-       fhir:description [ fhir:v "AmbitoFuncionamiento" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:extension" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/CaracterizacionPrestador> ;
-         fhir:reference [ fhir:v "StructureDefinition/CaracterizacionPrestador" ]
-       ] ;
-       fhir:name [ fhir:v "Caracterización del Prestador" ] ;
-       fhir:description [ fhir:v "Datos de Caracterización del Prestador existente en esta ubicación" ] ;
+       fhir:name [ fhir:v "Ambito Funcionamiento" ] ;
+       fhir:description [ fhir:v "Ambito Funcionamiento" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -579,23 +579,11 @@
          fhir:value [ fhir:v "StructureDefinition:extension" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/CodigoPaises> ;
-         fhir:reference [ fhir:v "StructureDefinition/CodigoPaises" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/ClasificacionSAPU> ;
+         fhir:reference [ fhir:v "StructureDefinition/ClasificacionSAPU" ]
        ] ;
-       fhir:name [ fhir:v "Codigo de Identificación de países" ] ;
-       fhir:description [ fhir:v "Esta extensión incluye códigos de paises de origen" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:extension" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/CodigoPais> ;
-         fhir:reference [ fhir:v "StructureDefinition/CodigoPais" ]
-       ] ;
-       fhir:name [ fhir:v "Código de identificación de país" ] ;
-       fhir:description [ fhir:v "Extensión para el código de identificación de país" ] ;
+       fhir:name [ fhir:v "Clasificacion SAPU" ] ;
+       fhir:description [ fhir:v "Clasificacion SAPU" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -603,11 +591,11 @@
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSCertificacionInst> ;
-         fhir:reference [ fhir:v "ValueSet/VSCertificacionInst" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSClasificacionSapu> ;
+         fhir:reference [ fhir:v "ValueSet/VSClasificacionSapu" ]
        ] ;
-       fhir:name [ fhir:v "Códigos paa procedimientos de certificación" ] ;
-       fhir:description [ fhir:v "Códigos para procedimientos de certificación según Norma 820" ] ;
+       fhir:name [ fhir:v "Clasificacion SAPU" ] ;
+       fhir:description [ fhir:v "Clasificacion SAPU" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -615,83 +603,11 @@
          fhir:value [ fhir:v "CodeSystem" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSCertificacionInst> ;
-         fhir:reference [ fhir:v "CodeSystem/CSCertificacionInst" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSClasificacionSapu> ;
+         fhir:reference [ fhir:v "CodeSystem/CSClasificacionSapu" ]
        ] ;
-       fhir:name [ fhir:v "Códigos paa procedimientos de certificación" ] ;
-       fhir:description [ fhir:v "Códigos para procedimientos de certificación según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "ValueSet" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSClasUrgAPS> ;
-         fhir:reference [ fhir:v "ValueSet/VSClasUrgAPS" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para clasificación de urgencia en APS" ] ;
-       fhir:description [ fhir:v "Códigos para clasificación de urgencia en APS según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSClasUrgAPS> ;
-         fhir:reference [ fhir:v "CodeSystem/CSClasUrgAPS" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para clasificación de urgencia en APS" ] ;
-       fhir:description [ fhir:v "Códigos para clasificación de urgencia en APS según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "ValueSet" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSModalidadAte> ;
-         fhir:reference [ fhir:v "ValueSet/VSModalidadAte" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para modalidad atención prestador" ] ;
-       fhir:description [ fhir:v "Códigos para modalidad atención prestador según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSModalidadAte> ;
-         fhir:reference [ fhir:v "CodeSystem/CSModalidadAte" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para modalidad atención prestador" ] ;
-       fhir:description [ fhir:v "Códigos para modalidad atención prestador según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "ValueSet" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSNivelPrestador> ;
-         fhir:reference [ fhir:v "ValueSet/VSNivelPrestador" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para nivel del prestador" ] ;
-       fhir:description [ fhir:v "Códigos para nivel del prestador según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSNivelPrestador> ;
-         fhir:reference [ fhir:v "CodeSystem/CSNivelPrestador" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para nivel del prestador" ] ;
-       fhir:description [ fhir:v "Códigos para nivel del prestador según Norma 820" ] ;
+       fhir:name [ fhir:v "Clasificacion SAPU" ] ;
+       fhir:description [ fhir:v "Clasificacion SAPU" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -703,7 +619,7 @@
          fhir:reference [ fhir:v "ValueSet/VSSexoBiologico" ]
        ] ;
        fhir:name [ fhir:v "Códigos para sexo biológico en Chile" ] ;
-       fhir:description [ fhir:v "Códigos para sexo biológico en Chile según tabla 820." ] ;
+       fhir:description [ fhir:v "Códigos para sexo biológico en Chile" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -723,47 +639,11 @@
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSTipoEstablecimiento> ;
-         fhir:reference [ fhir:v "ValueSet/VSTipoEstablecimiento" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para tipo de establecimiento de salud" ] ;
-       fhir:description [ fhir:v "Códigos para tipo de establecimiento de salud" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "ValueSet" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSTipoUrgencia> ;
-         fhir:reference [ fhir:v "ValueSet/VSTipoUrgencia" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para tipo de urgencia" ] ;
-       fhir:description [ fhir:v "Códigos para tipo de urgencia según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTipoUrgencia> ;
-         fhir:reference [ fhir:v "CodeSystem/CSTipoUrgencia" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para tipo de urgencia" ] ;
-       fhir:description [ fhir:v "Códigos para tipo de urgencia según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "ValueSet" ]
-       ] ) ;
-       fhir:reference [
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSTipoIdentificadorDEIS> ;
          fhir:reference [ fhir:v "ValueSet/VSTipoIdentificadorDEIS" ]
        ] ;
-       fhir:name [ fhir:v "Códigos para tipops de identificadores 820" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de identificadores según Norma 820, agregando RNPI" ] ;
+       fhir:name [ fhir:v "Códigos para tipops de identificadores" ] ;
+       fhir:description [ fhir:v "Códigos para lo tipos de identificadores" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -774,68 +654,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTipoIdentificadorDEIS> ;
          fhir:reference [ fhir:v "CodeSystem/CSTipoIdentificadorDEIS" ]
        ] ;
-       fhir:name [ fhir:v "Códigos para tipops de identificadores 820" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de identificadores según Norma 820, agregando RNPI" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPub> ;
-         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPub" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para tipos de establecimientos públicos" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de establecimientos públicos según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPubOtros> ;
-         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPubOtros" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para tipos de establecimientos públicos categoría otros" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de establecimientos públicos categoría otros según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPubAPS> ;
-         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPubAPS" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para tipos de establecimientos públicos en APS" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de establecimientos públicos en APS según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPubEsp> ;
-         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPubEsp" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para tipos de establecimientos públicos Especialidades" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de establecimientos públicos Especialidades según Norma 820" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPubHosp> ;
-         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPubHosp" ]
-       ] ;
-       fhir:name [ fhir:v "Códigos para tipos de establecimientos públicos Hospitales" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de establecimientos públicos Hospitales según Norma 820" ] ;
+       fhir:name [ fhir:v "Códigos para tipops de identificadores" ] ;
+       fhir:description [ fhir:v "Códigos para lo tipos de identificadores" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -843,23 +663,23 @@
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSTiposPrestador> ;
-         fhir:reference [ fhir:v "ValueSet/VSTiposPrestador" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSSeremiServiciosdeSalud> ;
+         fhir:reference [ fhir:v "ValueSet/VSSeremiServiciosdeSalud" ]
        ] ;
-       fhir:name [ fhir:v "Códigos para tipos de prestadores" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de prestadores según Norma 820" ] ;
+       fhir:name [ fhir:v "Códigos Seremi/ServiciosdeSalud" ] ;
+       fhir:description [ fhir:v "Códigos Seremi/ServiciosdeSalud" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "CodeSystem" ]
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposPrestador> ;
-         fhir:reference [ fhir:v "CodeSystem/CSTiposPrestador" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/DependenciaAdministrativa> ;
+         fhir:reference [ fhir:v "StructureDefinition/DependenciaAdministrativa" ]
        ] ;
-       fhir:name [ fhir:v "Códigos para tipos de prestadores" ] ;
-       fhir:description [ fhir:v "Códigos para lo tipos de prestadores según Norma 820" ] ;
+       fhir:name [ fhir:v "Dependencia Administrativa" ] ;
+       fhir:description [ fhir:v "Dependencia Administrativa" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -870,8 +690,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSDependenciaAdministrativa> ;
          fhir:reference [ fhir:v "ValueSet/VSDependenciaAdministrativa" ]
        ] ;
-       fhir:name [ fhir:v "DependenciaAdministrativa" ] ;
-       fhir:description [ fhir:v "DependenciaAdministrativa" ] ;
+       fhir:name [ fhir:v "Dependencia Administrativa" ] ;
+       fhir:description [ fhir:v "Dependencia Administrativa" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -882,8 +702,44 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSDependenciaAdministrativa> ;
          fhir:reference [ fhir:v "CodeSystem/CSDependenciaAdministrativa" ]
        ] ;
-       fhir:name [ fhir:v "DependenciaAdministrativa" ] ;
-       fhir:description [ fhir:v "DependenciaAdministrativa" ] ;
+       fhir:name [ fhir:v "Dependencia Administrativa" ] ;
+       fhir:description [ fhir:v "Dependencia Administrativa" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/Dependencia> ;
+         fhir:reference [ fhir:v "StructureDefinition/Dependencia" ]
+       ] ;
+       fhir:name [ fhir:v "Dependencia Jerárquica (SEREMI / Servicio de Salud)" ] ;
+       fhir:description [ fhir:v "Dependencia Jerárquica (SEREMI / Servicio de Salud)" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSEstadoFuncionamiento> ;
+         fhir:reference [ fhir:v "ValueSet/VSEstadoFuncionamiento" ]
+       ] ;
+       fhir:name [ fhir:v "Estado Funcionamiento" ] ;
+       fhir:description [ fhir:v "Estado Funcionamiento" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSEstadoFuncionamiento> ;
+         fhir:reference [ fhir:v "CodeSystem/CSEstadoFuncionamiento" ]
+       ] ;
+       fhir:name [ fhir:v "Estado Funcionamiento" ] ;
+       fhir:description [ fhir:v "Estado Funcionamiento" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -903,11 +759,11 @@
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSEstadoFuncionamiento> ;
-         fhir:reference [ fhir:v "ValueSet/VSEstadoFuncionamiento" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSModalidadAtencion> ;
+         fhir:reference [ fhir:v "ValueSet/VSModalidadAtencion" ]
        ] ;
-       fhir:name [ fhir:v "EstadoFuncionamiento" ] ;
-       fhir:description [ fhir:v "EstadoFuncionamiento" ] ;
+       fhir:name [ fhir:v "Modalidad atención prestador" ] ;
+       fhir:description [ fhir:v "Modalidad atención prestador" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -915,11 +771,11 @@
          fhir:value [ fhir:v "CodeSystem" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSEstadoFuncionamiento> ;
-         fhir:reference [ fhir:v "CodeSystem/CSEstadoFuncionamiento" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSModalidadAtencion> ;
+         fhir:reference [ fhir:v "CodeSystem/CSModalidadAtencion" ]
        ] ;
-       fhir:name [ fhir:v "EstadoFuncionamiento" ] ;
-       fhir:description [ fhir:v "EstadoFuncionamiento" ] ;
+       fhir:name [ fhir:v "Modalidad atención prestador" ] ;
+       fhir:description [ fhir:v "Modalidad atención" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -927,44 +783,8 @@
          fhir:value [ fhir:v "StructureDefinition:extension" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/FechaFunciona> ;
-         fhir:reference [ fhir:v "StructureDefinition/FechaFunciona" ]
-       ] ;
-       fhir:name [ fhir:v "Fecha Cese Funcionamiento Institución" ] ;
-       fhir:description [ fhir:v "Corresponde al momento cronológico  que  inicio de funcionamiento de las actividades del prestador, dando cumplimiento a las exigencias sanitarias.  Es un dato expresado en formato de fecha." ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:extension" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/FechaCese> ;
-         fhir:reference [ fhir:v "StructureDefinition/FechaCese" ]
-       ] ;
-       fhir:name [ fhir:v "Fecha Cese Funcionamiento Institución" ] ;
-       fhir:description [ fhir:v "Corresponde al momento cronológico  que cierre de funcionamiento de las actividades del prestador, dando cumplimiento a las exigencias sanitarias.  Es un dato expresado en formato de fecha." ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:resource" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/LocalizacionPresInstitucional> ;
-         fhir:reference [ fhir:v "StructureDefinition/LocalizacionPresInstitucional" ]
-       ] ;
-       fhir:name [ fhir:v "Localización Prestador Institucional MINSAL" ] ;
-       fhir:description [ fhir:v "Localización asociada a Prestador Institucional definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud." ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:extension" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/ModalidadAte> ;
-         fhir:reference [ fhir:v "StructureDefinition/ModalidadAte" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/ModalidadAtencion> ;
+         fhir:reference [ fhir:v "StructureDefinition/ModalidadAtencion" ]
        ] ;
        fhir:name [ fhir:v "Modalidad de Atención del Prestador" ] ;
        fhir:description [ fhir:v "Modalidad de atención respecto al proceso de atención de las personas en el establecimiento de salud de atención general y/o especializada. Se diferencian entre: los que están habilitados para la atención ambulatoria - abierta o sin internación de la persona, es decir se atiende y vuelve a su lugar de origen y la atención hospitalaria - cerrada  o con  internación, cuando  la presona para recibir los cuidados requeridos debe permanecer en el recinto hospitalario, haciendo  uso  de una cama de dotación." ] ;
@@ -987,11 +807,71 @@
          fhir:value [ fhir:v "StructureDefinition:extension" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/NombreVia> ;
-         fhir:reference [ fhir:v "StructureDefinition/NombreVia" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/NivelAtencion> ;
+         fhir:reference [ fhir:v "StructureDefinition/NivelAtencion" ]
        ] ;
-       fhir:name [ fhir:v "Nombre de la Vía" ] ;
-       fhir:description [ fhir:v "Es la ubicación más específica de la dirección del establecimiento." ] ;
+       fhir:name [ fhir:v "Nivel Atencion" ] ;
+       fhir:description [ fhir:v "Nivel Atencion" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSNivelAtencion> ;
+         fhir:reference [ fhir:v "CodeSystem/CSNivelAtencion" ]
+       ] ;
+       fhir:name [ fhir:v "Nivel Atencion" ] ;
+       fhir:description [ fhir:v "Nivel de Atencion" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/NivelComplejidadEstablecimiento> ;
+         fhir:reference [ fhir:v "StructureDefinition/NivelComplejidadEstablecimiento" ]
+       ] ;
+       fhir:name [ fhir:v "Nivel Complejidad Establecimiento" ] ;
+       fhir:description [ fhir:v "Nivel Complejidad Establecimiento" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSNivelComplejidadEstablecimiento> ;
+         fhir:reference [ fhir:v "ValueSet/VSNivelComplejidadEstablecimiento" ]
+       ] ;
+       fhir:name [ fhir:v "Nivel Complejidad Establecimiento" ] ;
+       fhir:description [ fhir:v "Nivel Complejidad Establecimiento" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSNivelComplejidadEstablecimiento> ;
+         fhir:reference [ fhir:v "CodeSystem/CSNivelComplejidadEstablecimiento" ]
+       ] ;
+       fhir:name [ fhir:v "Nivel Complejidad Establecimiento" ] ;
+       fhir:description [ fhir:v "Nivel Complejidad Establecimiento" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSNivelAtencion> ;
+         fhir:reference [ fhir:v "ValueSet/VSNivelAtencion" ]
+       ] ;
+       fhir:name [ fhir:v "Nivel de Atencion" ] ;
+       fhir:description [ fhir:v "Nivel de Atencion" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -1011,23 +891,35 @@
          fhir:value [ fhir:v "StructureDefinition:extension" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/Pertenencia> ;
-         fhir:reference [ fhir:v "StructureDefinition/Pertenencia" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/PertenenciaSNSS> ;
+         fhir:reference [ fhir:v "StructureDefinition/PertenenciaSNSS" ]
        ] ;
-       fhir:name [ fhir:v "Pertenencia al SNSS" ] ;
+       fhir:name [ fhir:v "PertenenciaSNSS" ] ;
        fhir:description [ fhir:v "Es un atributo o características  del establecimiento relacionado con la relación de jurisdicción  establecida con el Sistema  Nacional de Servicios de Salud. Los establecimientos públicos  forman parte de un Servicio de Salud,  por lo tanto se consideran Pertenecientes al Sistema Nacional de Servicios de Salud. Por otro lado, Los establecimientos privados, de las Fuerzas Armadas, de Orden y Seguridad tienen una jurisdicción diferente, por lo tanto serán considerados  No pertenecientes al Sistema Nacional de Servicios de Salud." ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:resource" ]
+         fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/PrestadorAdministrativoMinsal> ;
-         fhir:reference [ fhir:v "StructureDefinition/PrestadorAdministrativoMinsal" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSPertenenciaSNSS> ;
+         fhir:reference [ fhir:v "ValueSet/VSPertenenciaSNSS" ]
        ] ;
-       fhir:name [ fhir:v "Prestador Administrativo Minsal" ] ;
-       fhir:description [ fhir:v "Prestador Administrativo definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud." ] ;
+       fhir:name [ fhir:v "PertenenciaSNSS" ] ;
+       fhir:description [ fhir:v "PertenenciaSNSS" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSPertenenciaSNSS> ;
+         fhir:reference [ fhir:v "CodeSystem/CSPertenenciaSNSS" ]
+       ] ;
+       fhir:name [ fhir:v "PertenenciaSNSS" ] ;
+       fhir:description [ fhir:v "PertenenciaSNSS" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -1044,14 +936,50 @@
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:extension" ]
+         fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/SegundoApellido> ;
-         fhir:reference [ fhir:v "StructureDefinition/SegundoApellido" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSCertificacionInst> ;
+         fhir:reference [ fhir:v "ValueSet/VSCertificacionInst" ]
        ] ;
-       fhir:name [ fhir:v "Segundo Apellido" ] ;
-       fhir:description [ fhir:v "Segundo Apellido" ] ;
+       fhir:name [ fhir:v "Procedimientos de certificación" ] ;
+       fhir:description [ fhir:v "Procedimientos de certificación" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSCertificacionInst> ;
+         fhir:reference [ fhir:v "CodeSystem/CSCertificacionInst" ]
+       ] ;
+       fhir:name [ fhir:v "Procedimientos de certificación" ] ;
+       fhir:description [ fhir:v "Procedimientos de certificación" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSSEREMI> ;
+         fhir:reference [ fhir:v "CodeSystem/CSSEREMI" ]
+       ] ;
+       fhir:name [ fhir:v "SEREMIs" ] ;
+       fhir:description [ fhir:v "SEREMIs" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSServiciosdeSalud> ;
+         fhir:reference [ fhir:v "CodeSystem/CSServiciosdeSalud" ]
+       ] ;
+       fhir:name [ fhir:v "Servicios de Salud" ] ;
+       fhir:description [ fhir:v "Servicios de Salud" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -1059,23 +987,11 @@
          fhir:value [ fhir:v "StructureDefinition:extension" ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/SexoNacimiento820> ;
-         fhir:reference [ fhir:v "StructureDefinition/SexoNacimiento820" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/TieneServicioUrgencia> ;
+         fhir:reference [ fhir:v "StructureDefinition/TieneServicioUrgencia" ]
        ] ;
-       fhir:name [ fhir:v "Sexo biológico al nacer" ] ;
-       fhir:description [ fhir:v "Extensión de Sexdo biológico al nacer para Chile" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:extension" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/SexoReg> ;
-         fhir:reference [ fhir:v "StructureDefinition/SexoReg" ]
-       ] ;
-       fhir:name [ fhir:v "Sexo Registral" ] ;
-       fhir:description [ fhir:v "Extensión para dato es de del sexo registrado oficialmente por el/la paciente" ] ;
+       fhir:name [ fhir:v "Tiene Servicio Urgencia" ] ;
+       fhir:description [ fhir:v "Tiene Servicio Urgencia" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -1100,6 +1016,138 @@
        ] ;
        fhir:name [ fhir:v "Tipo de Prestador según 820" ] ;
        fhir:description [ fhir:v "Modalidad de atención respecto al proceso de atención de las personas en el establecimiento de salud de atención general y/o especializada. Se diferencian entre: los que están habilitados para la atención ambulatoria - abierta o sin internación de la persona, es decir se atiende y vuelve a su lugar de origen y la atención hospitalaria - cerrada  o con  internación, cuando  la presona para recibir los cuidados requeridos debe permanecer en el recinto hospitalario, haciendo  uso  de una cama de dotación." ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSTipoUrgencia> ;
+         fhir:reference [ fhir:v "ValueSet/VSTipoUrgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo de urgencia" ] ;
+       fhir:description [ fhir:v "Tipo de urgencia" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTipoUrgencia> ;
+         fhir:reference [ fhir:v "CodeSystem/CSTipoUrgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo de urgencia" ] ;
+       fhir:description [ fhir:v "Tipo de urgencia" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/StructureDefinition/TipoUrgencia> ;
+         fhir:reference [ fhir:v "StructureDefinition/TipoUrgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo Urgencia" ] ;
+       fhir:description [ fhir:v "Tipo Urgencia" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSTipoEstablecimiento> ;
+         fhir:reference [ fhir:v "ValueSet/VSTipoEstablecimiento" ]
+       ] ;
+       fhir:name [ fhir:v "Tipos de establecimiento de salud" ] ;
+       fhir:description [ fhir:v "Tipo de establecimiento de salud" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPub> ;
+         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPub" ]
+       ] ;
+       fhir:name [ fhir:v "Tipos de establecimientos públicos" ] ;
+       fhir:description [ fhir:v "Tipos de establecimientos públicos" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPubOtros> ;
+         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPubOtros" ]
+       ] ;
+       fhir:name [ fhir:v "Tipos de establecimientos públicos \"otros\"" ] ;
+       fhir:description [ fhir:v "Tipos de establecimientos públicos \"otros\"" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPubAPS> ;
+         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPubAPS" ]
+       ] ;
+       fhir:name [ fhir:v "Tipos de establecimientos públicos en APS" ] ;
+       fhir:description [ fhir:v "Tipos de establecimientos públicos en APS" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPubEsp> ;
+         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPubEsp" ]
+       ] ;
+       fhir:name [ fhir:v "Tipos de establecimientos públicos Especialidades" ] ;
+       fhir:description [ fhir:v "Tipos de establecimientos públicos Especialidades" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposEstabPubHosp> ;
+         fhir:reference [ fhir:v "CodeSystem/CSTiposEstabPubHosp" ]
+       ] ;
+       fhir:name [ fhir:v "Tipos de establecimientos públicos Hospitales" ] ;
+       fhir:description [ fhir:v "Tipos de establecimientos públicos Hospitales" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/ValueSet/VSTiposPrestador> ;
+         fhir:reference [ fhir:v "ValueSet/VSTiposPrestador" ]
+       ] ;
+       fhir:name [ fhir:v "Tipos de prestadores" ] ;
+       fhir:description [ fhir:v "Tipos de prestadores" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mfr/CodeSystem/CSTiposPrestador> ;
+         fhir:reference [ fhir:v "CodeSystem/CSTiposPrestador" ]
+       ] ;
+       fhir:name [ fhir:v "Tipos de prestadores" ] ;
+       fhir:description [ fhir:v "Tipos de prestadores" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] ) ;
      fhir:page [

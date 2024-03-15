@@ -6,11 +6,11 @@
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MaestroPrestadoresInstitucionales</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/mfr/ImplementationGuide/hl7.fhir.cl.minsal.mfr</pre><div><p>Maestro Prestadores Institucionales</p>\n</div></div>"
   },
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/mfr/ImplementationGuide/hl7.fhir.cl.minsal.mfr",
-  "version" : "0.1.1",
+  "version" : "0.1.4",
   "name" : "MaestroPrestadoresInstitucionales",
   "title" : "Maestro Prestadores Institucionales",
   "status" : "draft",
-  "date" : "2024-03-05T16:32:16-03:00",
+  "date" : "2024-03-12T17:17:58-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -54,7 +54,7 @@
     "id" : "hl7_fhir_cl_clcore",
     "uri" : "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore",
     "packageId" : "hl7.fhir.cl.clcore",
-    "version" : "1.8.7"
+    "version" : "1.8.5"
   }],
   "definition" : {
     "extension" : [{
@@ -614,13 +614,25 @@
     "resource" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/AmbitoFuncionamiento"
+      },
+      "name" : "Ambito Funcionamiento",
+      "description" : "Ambito Funcionamiento",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
       }],
       "reference" : {
         "reference" : "ValueSet/VSAmbitoFuncionamiento"
       },
-      "name" : "AmbitoFuncionamiento",
-      "description" : "AmbitoFuncionamiento",
+      "name" : "Ambito Funcionamiento",
+      "description" : "Ambito Funcionamiento",
       "exampleBoolean" : false
     },
     {
@@ -631,20 +643,8 @@
       "reference" : {
         "reference" : "CodeSystem/CSAmbitoFuncionamiento"
       },
-      "name" : "AmbitoFuncionamiento",
-      "description" : "AmbitoFuncionamiento",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/CaracterizacionPrestador"
-      },
-      "name" : "Caracterización del Prestador",
-      "description" : "Datos de Caracterización del Prestador existente en esta ubicación",
+      "name" : "Ambito Funcionamiento",
+      "description" : "Ambito Funcionamiento",
       "exampleBoolean" : false
     },
     {
@@ -665,22 +665,10 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/CodigoPaises"
+        "reference" : "StructureDefinition/ClasificacionSAPU"
       },
-      "name" : "Codigo de Identificación de países",
-      "description" : "Esta extensión incluye códigos de paises de origen",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/CodigoPais"
-      },
-      "name" : "Código de identificación de país",
-      "description" : "Extensión para el código de identificación de país",
+      "name" : "Clasificacion SAPU",
+      "description" : "Clasificacion SAPU",
       "exampleBoolean" : false
     },
     {
@@ -689,10 +677,10 @@
         "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "ValueSet/VSCertificacionInst"
+        "reference" : "ValueSet/VSClasificacionSapu"
       },
-      "name" : "Códigos paa procedimientos de certificación",
-      "description" : "Códigos para procedimientos de certificación según Norma 820",
+      "name" : "Clasificacion SAPU",
+      "description" : "Clasificacion SAPU",
       "exampleBoolean" : false
     },
     {
@@ -701,82 +689,10 @@
         "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "CodeSystem/CSCertificacionInst"
+        "reference" : "CodeSystem/CSClasificacionSapu"
       },
-      "name" : "Códigos paa procedimientos de certificación",
-      "description" : "Códigos para procedimientos de certificación según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/VSClasUrgAPS"
-      },
-      "name" : "Códigos para clasificación de urgencia en APS",
-      "description" : "Códigos para clasificación de urgencia en APS según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSClasUrgAPS"
-      },
-      "name" : "Códigos para clasificación de urgencia en APS",
-      "description" : "Códigos para clasificación de urgencia en APS según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/VSModalidadAte"
-      },
-      "name" : "Códigos para modalidad atención prestador",
-      "description" : "Códigos para modalidad atención prestador según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSModalidadAte"
-      },
-      "name" : "Códigos para modalidad atención prestador",
-      "description" : "Códigos para modalidad atención prestador según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/VSNivelPrestador"
-      },
-      "name" : "Códigos para nivel del prestador",
-      "description" : "Códigos para nivel del prestador según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSNivelPrestador"
-      },
-      "name" : "Códigos para nivel del prestador",
-      "description" : "Códigos para nivel del prestador según Norma 820",
+      "name" : "Clasificacion SAPU",
+      "description" : "Clasificacion SAPU",
       "exampleBoolean" : false
     },
     {
@@ -788,7 +704,7 @@
         "reference" : "ValueSet/VSSexoBiologico"
       },
       "name" : "Códigos para sexo biológico en Chile",
-      "description" : "Códigos para sexo biológico en Chile según tabla 820.",
+      "description" : "Códigos para sexo biológico en Chile",
       "exampleBoolean" : false
     },
     {
@@ -809,46 +725,10 @@
         "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "ValueSet/VSTipoEstablecimiento"
-      },
-      "name" : "Códigos para tipo de establecimiento de salud",
-      "description" : "Códigos para tipo de establecimiento de salud",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/VSTipoUrgencia"
-      },
-      "name" : "Códigos para tipo de urgencia",
-      "description" : "Códigos para tipo de urgencia según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSTipoUrgencia"
-      },
-      "name" : "Códigos para tipo de urgencia",
-      "description" : "Códigos para tipo de urgencia según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
         "reference" : "ValueSet/VSTipoIdentificadorDEIS"
       },
-      "name" : "Códigos para tipops de identificadores 820",
-      "description" : "Códigos para lo tipos de identificadores según Norma 820, agregando RNPI",
+      "name" : "Códigos para tipops de identificadores",
+      "description" : "Códigos para lo tipos de identificadores",
       "exampleBoolean" : false
     },
     {
@@ -859,68 +739,8 @@
       "reference" : {
         "reference" : "CodeSystem/CSTipoIdentificadorDEIS"
       },
-      "name" : "Códigos para tipops de identificadores 820",
-      "description" : "Códigos para lo tipos de identificadores según Norma 820, agregando RNPI",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSTiposEstabPub"
-      },
-      "name" : "Códigos para tipos de establecimientos públicos",
-      "description" : "Códigos para lo tipos de establecimientos públicos según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSTiposEstabPubOtros"
-      },
-      "name" : "Códigos para tipos de establecimientos públicos categoría otros",
-      "description" : "Códigos para lo tipos de establecimientos públicos categoría otros según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSTiposEstabPubAPS"
-      },
-      "name" : "Códigos para tipos de establecimientos públicos en APS",
-      "description" : "Códigos para lo tipos de establecimientos públicos en APS según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSTiposEstabPubEsp"
-      },
-      "name" : "Códigos para tipos de establecimientos públicos Especialidades",
-      "description" : "Códigos para lo tipos de establecimientos públicos Especialidades según Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSTiposEstabPubHosp"
-      },
-      "name" : "Códigos para tipos de establecimientos públicos Hospitales",
-      "description" : "Códigos para lo tipos de establecimientos públicos Hospitales según Norma 820",
+      "name" : "Códigos para tipops de identificadores",
+      "description" : "Códigos para lo tipos de identificadores",
       "exampleBoolean" : false
     },
     {
@@ -929,22 +749,22 @@
         "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "ValueSet/VSTiposPrestador"
+        "reference" : "ValueSet/VSSeremiServiciosdeSalud"
       },
-      "name" : "Códigos para tipos de prestadores",
-      "description" : "Códigos para lo tipos de prestadores según Norma 820",
+      "name" : "Códigos Seremi/ServiciosdeSalud",
+      "description" : "Códigos Seremi/ServiciosdeSalud",
       "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
+        "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "CodeSystem/CSTiposPrestador"
+        "reference" : "StructureDefinition/DependenciaAdministrativa"
       },
-      "name" : "Códigos para tipos de prestadores",
-      "description" : "Códigos para lo tipos de prestadores según Norma 820",
+      "name" : "Dependencia Administrativa",
+      "description" : "Dependencia Administrativa",
       "exampleBoolean" : false
     },
     {
@@ -955,8 +775,8 @@
       "reference" : {
         "reference" : "ValueSet/VSDependenciaAdministrativa"
       },
-      "name" : "DependenciaAdministrativa",
-      "description" : "DependenciaAdministrativa",
+      "name" : "Dependencia Administrativa",
+      "description" : "Dependencia Administrativa",
       "exampleBoolean" : false
     },
     {
@@ -967,8 +787,44 @@
       "reference" : {
         "reference" : "CodeSystem/CSDependenciaAdministrativa"
       },
-      "name" : "DependenciaAdministrativa",
-      "description" : "DependenciaAdministrativa",
+      "name" : "Dependencia Administrativa",
+      "description" : "Dependencia Administrativa",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/Dependencia"
+      },
+      "name" : "Dependencia Jerárquica (SEREMI / Servicio de Salud)",
+      "description" : "Dependencia Jerárquica (SEREMI / Servicio de Salud)",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VSEstadoFuncionamiento"
+      },
+      "name" : "Estado Funcionamiento",
+      "description" : "Estado Funcionamiento",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSEstadoFuncionamiento"
+      },
+      "name" : "Estado Funcionamiento",
+      "description" : "Estado Funcionamiento",
       "exampleBoolean" : false
     },
     {
@@ -989,10 +845,10 @@
         "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "ValueSet/VSEstadoFuncionamiento"
+        "reference" : "ValueSet/VSModalidadAtencion"
       },
-      "name" : "EstadoFuncionamiento",
-      "description" : "EstadoFuncionamiento",
+      "name" : "Modalidad atención prestador",
+      "description" : "Modalidad atención prestador",
       "exampleBoolean" : false
     },
     {
@@ -1001,10 +857,10 @@
         "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "CodeSystem/CSEstadoFuncionamiento"
+        "reference" : "CodeSystem/CSModalidadAtencion"
       },
-      "name" : "EstadoFuncionamiento",
-      "description" : "EstadoFuncionamiento",
+      "name" : "Modalidad atención prestador",
+      "description" : "Modalidad atención",
       "exampleBoolean" : false
     },
     {
@@ -1013,43 +869,7 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/FechaFunciona"
-      },
-      "name" : "Fecha Cese Funcionamiento Institución",
-      "description" : "Corresponde al momento cronológico  que  inicio de funcionamiento de las actividades del prestador, dando cumplimiento a las exigencias sanitarias.  Es un dato expresado en formato de fecha.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/FechaCese"
-      },
-      "name" : "Fecha Cese Funcionamiento Institución",
-      "description" : "Corresponde al momento cronológico  que cierre de funcionamiento de las actividades del prestador, dando cumplimiento a las exigencias sanitarias.  Es un dato expresado en formato de fecha.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/LocalizacionPresInstitucional"
-      },
-      "name" : "Localización Prestador Institucional MINSAL",
-      "description" : "Localización asociada a Prestador Institucional definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/ModalidadAte"
+        "reference" : "StructureDefinition/ModalidadAtencion"
       },
       "name" : "Modalidad de Atención del Prestador",
       "description" : "Modalidad de atención respecto al proceso de atención de las personas en el establecimiento de salud de atención general y/o especializada. Se diferencian entre: los que están habilitados para la atención ambulatoria - abierta o sin internación de la persona, es decir se atiende y vuelve a su lugar de origen y la atención hospitalaria - cerrada  o con  internación, cuando  la presona para recibir los cuidados requeridos debe permanecer en el recinto hospitalario, haciendo  uso  de una cama de dotación.",
@@ -1073,10 +893,70 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/NombreVia"
+        "reference" : "StructureDefinition/NivelAtencion"
       },
-      "name" : "Nombre de la Vía",
-      "description" : "Es la ubicación más específica de la dirección del establecimiento.",
+      "name" : "Nivel Atencion",
+      "description" : "Nivel Atencion",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSNivelAtencion"
+      },
+      "name" : "Nivel Atencion",
+      "description" : "Nivel de Atencion",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/NivelComplejidadEstablecimiento"
+      },
+      "name" : "Nivel Complejidad Establecimiento",
+      "description" : "Nivel Complejidad Establecimiento",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VSNivelComplejidadEstablecimiento"
+      },
+      "name" : "Nivel Complejidad Establecimiento",
+      "description" : "Nivel Complejidad Establecimiento",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSNivelComplejidadEstablecimiento"
+      },
+      "name" : "Nivel Complejidad Establecimiento",
+      "description" : "Nivel Complejidad Establecimiento",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VSNivelAtencion"
+      },
+      "name" : "Nivel de Atencion",
+      "description" : "Nivel de Atencion",
       "exampleBoolean" : false
     },
     {
@@ -1097,22 +977,34 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/Pertenencia"
+        "reference" : "StructureDefinition/PertenenciaSNSS"
       },
-      "name" : "Pertenencia al SNSS",
+      "name" : "PertenenciaSNSS",
       "description" : "Es un atributo o características  del establecimiento relacionado con la relación de jurisdicción  establecida con el Sistema  Nacional de Servicios de Salud. Los establecimientos públicos  forman parte de un Servicio de Salud,  por lo tanto se consideran Pertenecientes al Sistema Nacional de Servicios de Salud. Por otro lado, Los establecimientos privados, de las Fuerzas Armadas, de Orden y Seguridad tienen una jurisdicción diferente, por lo tanto serán considerados  No pertenecientes al Sistema Nacional de Servicios de Salud.",
       "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
+        "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/PrestadorAdministrativoMinsal"
+        "reference" : "ValueSet/VSPertenenciaSNSS"
       },
-      "name" : "Prestador Administrativo Minsal",
-      "description" : "Prestador Administrativo definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud.",
+      "name" : "PertenenciaSNSS",
+      "description" : "PertenenciaSNSS",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSPertenenciaSNSS"
+      },
+      "name" : "PertenenciaSNSS",
+      "description" : "PertenenciaSNSS",
       "exampleBoolean" : false
     },
     {
@@ -1130,13 +1022,49 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
+        "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SegundoApellido"
+        "reference" : "ValueSet/VSCertificacionInst"
       },
-      "name" : "Segundo Apellido",
-      "description" : "Segundo Apellido",
+      "name" : "Procedimientos de certificación",
+      "description" : "Procedimientos de certificación",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSCertificacionInst"
+      },
+      "name" : "Procedimientos de certificación",
+      "description" : "Procedimientos de certificación",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSSEREMI"
+      },
+      "name" : "SEREMIs",
+      "description" : "SEREMIs",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSServiciosdeSalud"
+      },
+      "name" : "Servicios de Salud",
+      "description" : "Servicios de Salud",
       "exampleBoolean" : false
     },
     {
@@ -1145,22 +1073,10 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/SexoNacimiento820"
+        "reference" : "StructureDefinition/TieneServicioUrgencia"
       },
-      "name" : "Sexo biológico al nacer",
-      "description" : "Extensión de Sexdo biológico al nacer para Chile",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/SexoReg"
-      },
-      "name" : "Sexo Registral",
-      "description" : "Extensión para dato es de del sexo registrado oficialmente por el/la paciente",
+      "name" : "Tiene Servicio Urgencia",
+      "description" : "Tiene Servicio Urgencia",
       "exampleBoolean" : false
     },
     {
@@ -1185,6 +1101,138 @@
       },
       "name" : "Tipo de Prestador según 820",
       "description" : "Modalidad de atención respecto al proceso de atención de las personas en el establecimiento de salud de atención general y/o especializada. Se diferencian entre: los que están habilitados para la atención ambulatoria - abierta o sin internación de la persona, es decir se atiende y vuelve a su lugar de origen y la atención hospitalaria - cerrada  o con  internación, cuando  la presona para recibir los cuidados requeridos debe permanecer en el recinto hospitalario, haciendo  uso  de una cama de dotación.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VSTipoUrgencia"
+      },
+      "name" : "Tipo de urgencia",
+      "description" : "Tipo de urgencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSTipoUrgencia"
+      },
+      "name" : "Tipo de urgencia",
+      "description" : "Tipo de urgencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TipoUrgencia"
+      },
+      "name" : "Tipo Urgencia",
+      "description" : "Tipo Urgencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VSTipoEstablecimiento"
+      },
+      "name" : "Tipos de establecimiento de salud",
+      "description" : "Tipo de establecimiento de salud",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSTiposEstabPub"
+      },
+      "name" : "Tipos de establecimientos públicos",
+      "description" : "Tipos de establecimientos públicos",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSTiposEstabPubOtros"
+      },
+      "name" : "Tipos de establecimientos públicos \"otros\"",
+      "description" : "Tipos de establecimientos públicos \"otros\"",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSTiposEstabPubAPS"
+      },
+      "name" : "Tipos de establecimientos públicos en APS",
+      "description" : "Tipos de establecimientos públicos en APS",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSTiposEstabPubEsp"
+      },
+      "name" : "Tipos de establecimientos públicos Especialidades",
+      "description" : "Tipos de establecimientos públicos Especialidades",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSTiposEstabPubHosp"
+      },
+      "name" : "Tipos de establecimientos públicos Hospitales",
+      "description" : "Tipos de establecimientos públicos Hospitales",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VSTiposPrestador"
+      },
+      "name" : "Tipos de prestadores",
+      "description" : "Tipos de prestadores",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSTiposPrestador"
+      },
+      "name" : "Tipos de prestadores",
+      "description" : "Tipos de prestadores",
       "exampleBoolean" : false
     }],
     "page" : {
