@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Appointment xmlns="http://hl7.org/fhir">
+  <id value="EjemploAppointmentAgendarCancelar"/>
+  <meta>
+    <profile value="https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AppointmentAgendarLE"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative: Appointment</b><a name="EjemploAppointmentAgendarCancelar"> </a><a name="hcEjemploAppointmentAgendarCancelar"> </a></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource Appointment &quot;EjemploAppointmentAgendarCancelar&quot; </p><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-AppointmentAgendarLE.html">Appointment Agendar LE</a></p></div><blockquote><p><b>Contactado</b></p><blockquote><p><b>url</b></p><code>MotivoNoContactabilidad</code></blockquote><p><b>value</b>: Otro <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="CodeSystem-CSMotivoNoContactabilidad.html">Motivo No Contactabilidad</a>#1)</span></p><blockquote><p><b>url</b></p><a href="StructureDefinition-Contactado.html">Contactado</a></blockquote><p><b>value</b>: false</p></blockquote><p><b>identifier</b>: 21</p><p><b>status</b>: cancelled</p><p><b>cancelationReason</b>: Patient <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/5.5.0/CodeSystem-appointment-cancellation-reason.html">Appointment cancellation reason</a>#pat)</span></p><p><b>start</b>: 22 Jan 2023, 06:00:00</p><p><b>end</b>: 22 Jan 2023, 06:30:00</p><p><b>basedOn</b>: <a href="ServiceRequest-EjemploServiceRequestAgendar.html">ServiceRequest/EjemploServiceRequestAgendar</a></p><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href="Patient-EjemploPatient.html">Patient/EjemploPatient: Anibal Diaz Cortés</a> &quot; DIAZ&quot;</p><p><b>status</b>: accepted</p></blockquote><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href="PractitionerRole-EjemploPractitionerRoleAgendarAPPO.html">PractitionerRole/EjemploPractitionerRoleAgendarAPPO</a></p><p><b>status</b>: accepted</p></blockquote></div>
+  </text>
+  <extension url="https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Contactado">
+    <extension url="MotivoNoContactabilidad">
+      <valueCodeableConcept>
+        <coding>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoContactabilidad"/>
+          <code value="1"/>
+        </coding>
+        <text value="Otro"/>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="Contactado">
+      <valueBoolean value="false"/>
+    </extension>
+  </extension>
+  <identifier>
+    <value value="21"/>
+  </identifier>
+  <status value="cancelled"/>
+  <cancelationReason>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"/>
+      <code value="pat"/>
+    </coding>
+  </cancelationReason>
+  <start value="2023-01-22T09:00:00Z"/>
+  <end value="2023-01-22T09:30:00Z"/>
+  <basedOn>
+    <reference value="ServiceRequest/EjemploServiceRequestAgendar"/>
+  </basedOn>
+  <participant>
+    <actor>
+      <reference value="Patient/EjemploPatient"/>
+      <type value="Patient"/>
+      <display value="Anibal Diaz Cortés"/>
+    </actor>
+    <status value="accepted"/>
+  </participant>
+  <participant>
+    <actor>
+      <reference value="PractitionerRole/EjemploPractitionerRoleAgendarAPPO"/>
+      <type value="PractitionerRole"/>
+    </actor>
+    <status value="accepted"/>
+  </participant>
+</Appointment>
