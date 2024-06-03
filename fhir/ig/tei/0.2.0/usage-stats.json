@@ -135,24 +135,6 @@
       ]
     },
     {
-      "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EvaluacionPertinencia",
-      "title": "Evaluacion Pertinencia",
-      "types": [
-        "CodeableConcept",
-        "string",
-        "Extension",
-        "Coding",
-        "string",
-        "Extension",
-        "uri",
-        "string",
-        "code",
-        "string",
-        "boolean",
-        "string"
-      ]
-    },
-    {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtBool",
       "title": "ExtBool",
       "types": [
@@ -287,24 +269,6 @@
       ]
     },
     {
-      "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/MotivoNoPertinencia",
-      "title": "Motivo No Pertinencia",
-      "types": [
-        "CodeableConcept",
-        "string",
-        "Extension",
-        "Coding",
-        "string",
-        "Extension",
-        "uri",
-        "string",
-        "code",
-        "string",
-        "boolean",
-        "string"
-      ]
-    },
-    {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/OrigenInterconsulta",
       "title": "Origen Interconsulta",
       "types": [
@@ -345,7 +309,18 @@
       "title": "Pertinencia Interconsulta",
       "types": [
         "CodeableConcept",
-        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string",
+        "string",
         "base64Binary",
         "boolean",
         "canonical",
@@ -421,6 +396,13 @@
       "title": "ProblemaGES",
       "types": [
         "boolean"
+      ]
+    },
+    {
+      "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ProdComercial",
+      "title": "Identificación de un medicamento bajo su marca comercial",
+      "types": [
+        "Reference"
       ]
     },
     {
@@ -750,6 +732,12 @@
         "title": "QuestionnaireResponse Iniciar Motivo de la Derivación LE"
       }
     ],
+    "MedicationRequest": [
+      {
+        "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/RecetaPrescripcionCl",
+        "title": "CL Prescripción"
+      }
+    ],
     "ServiceRequest": [
       {
         "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestExamenLE",
@@ -774,20 +762,19 @@
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName": [
       "StructureDefinition.snapshot.element.binding"
     ],
-    "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding": [
-      "StructureDefinition.snapshot.element.binding"
-    ],
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet": [
       "StructureDefinition.snapshot.element.binding"
     ],
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable": [
       "StructureDefinition.snapshot.element"
     ],
-    "http://hl7.org/fhir/StructureDefinition/geolocation": [
-      "Patient.address"
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support": [
+      "StructureDefinition.differential.element.type",
+      "StructureDefinition.snapshot.element.type"
     ],
-    "http://hl7.org/fhir/StructureDefinition/humanname-mothers-family": [
-      "Patient.contact.name.family"
+    "http://hl7.org/fhir/StructureDefinition/geolocation": [
+      "Patient.address",
+      "Practitioner.address"
     ],
     "http://hl7.org/fhir/StructureDefinition/regex": [
       "StructureDefinition.snapshot.element.type"
@@ -850,15 +837,13 @@
       "Practitioner.address.state"
     ],
     "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido": [
+      "Patient.contact.name.family",
       "Patient.name.family",
       "Practitioner.name.family"
     ],
     "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoBiologico": [
       "Patient",
       "Practitioner"
-    ],
-    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoRegistral": [
-      "Patient"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ConsecuenciaAtencionCodigo": [
       "Encounter"
@@ -916,6 +901,9 @@
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PertinenciaInterconsulta": [
       "ServiceRequest"
+    ],
+    "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ProdComercial": [
+      "MedicationRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosAfrodescendiente": [
       "Patient"

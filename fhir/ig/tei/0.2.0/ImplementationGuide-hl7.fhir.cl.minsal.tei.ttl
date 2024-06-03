@@ -17,7 +17,7 @@
   fhir:name [ fhir:v "TiemposDeEsperaInteroperable"] ; # 
   fhir:title [ fhir:v "Tiempos de Espera Interoperable"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2024-06-03T10:40:28-04:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2024-06-03T17:44:35-04:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Unidad de Interoperabilidad - MINSAL"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Unidad de Interoperabilidad - MINSAL" ] ;
@@ -68,15 +68,7 @@
        fhir:link <https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore>
      ] ;
      fhir:packageId [ fhir:v "hl7.fhir.cl.clcore" ] ;
-     fhir:version [ fhir:v "dev" ]
-  ] [
-     fhir:id [ fhir:v "hl7_fhir_cl_minsal_snre" ] ;
-     fhir:uri [
-       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/snre/ImplementationGuide/hl7.fhir.cl.minsal.snre"^^xsd:anyURI ;
-       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/snre/ImplementationGuide/hl7.fhir.cl.minsal.snre>
-     ] ;
-     fhir:packageId [ fhir:v "hl7.fhir.cl.minsal.snre" ] ;
-     fhir:version [ fhir:v "dev" ]
+     fhir:version [ fhir:v "1.8.11" ]
   ] ) ; # 
   fhir:definition [
      fhir:extension ( [
@@ -656,6 +648,18 @@
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:resource" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/RecetaPrescripcionCl> ;
+         fhir:reference [ fhir:v "StructureDefinition/RecetaPrescripcionCl" ]
+       ] ;
+       fhir:name [ fhir:v "CL Prescripción" ] ;
+       fhir:description [ fhir:v "Este Perfil describe la información contenida en la Prescripción de un medicamento para el Sistema Nacional de Receta Electrónica del MINSAL" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "ConceptMap" ]
        ] ) ;
        fhir:reference [
@@ -664,6 +668,30 @@
        ] ;
        fhir:name [ fhir:v "CMHipotesisDiagnosticaCodigoAConditionVerificationStatus" ] ;
        fhir:description [ fhir:v "Mapping de codigos confirmación diagnostica a condition verfication status" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSCodificacionCategoria> ;
+         fhir:reference [ fhir:v "ValueSet/VSCodificacionCategoria" ]
+       ] ;
+       fhir:name [ fhir:v "Codificación de la categoría de una prescripción" ] ;
+       fhir:description [ fhir:v "Estado de una prescripción" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSCodificacionCategoria> ;
+         fhir:reference [ fhir:v "CodeSystem/CSCodificacionCategoria" ]
+       ] ;
+       fhir:name [ fhir:v "Codificación del estado de una prescripción" ] ;
+       fhir:description [ fhir:v "Estado de una prescripción" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -1088,18 +1116,6 @@
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:extension" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EvaluacionPertinencia> ;
-         fhir:reference [ fhir:v "StructureDefinition/EvaluacionPertinencia" ]
-       ] ;
-       fhir:name [ fhir:v "Evaluacion Pertinencia" ] ;
-       fhir:description [ fhir:v "Evaluacion Pertinencia" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "StructureDefinition:resource" ]
        ] ) ;
        fhir:reference [
@@ -1270,6 +1286,30 @@
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSFuncionProfesionalDispensacion> ;
+         fhir:reference [ fhir:v "ValueSet/VSFuncionProfesionalDispensacion" ]
+       ] ;
+       fhir:name [ fhir:v "Funcion del Personal" ] ;
+       fhir:description [ fhir:v "Funcion del Personal. Puede ser Dispensador o Validador" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSFuncionProfesionalDispensacion> ;
+         fhir:reference [ fhir:v "CodeSystem/CSFuncionProfesionalDispensacion" ]
+       ] ;
+       fhir:name [ fhir:v "Funcion del Personal" ] ;
+       fhir:description [ fhir:v "Funcion del Personal. Puede ser Dispensador o Validador" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSHipotesisDiagnosticaCodigo> ;
          fhir:reference [ fhir:v "ValueSet/VSHipotesisDiagnosticaCodigo" ]
        ] ;
@@ -1311,6 +1351,18 @@
        ] ;
        fhir:name [ fhir:v "Identidad de Genero" ] ;
        fhir:description [ fhir:v "Identidad de Genero" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:extension" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ProdComercial> ;
+         fhir:reference [ fhir:v "StructureDefinition/ProdComercial" ]
+       ] ;
+       fhir:name [ fhir:v "Identificación de un medicamento bajo su marca comercial" ] ;
+       fhir:description [ fhir:v "Indicación de un Medicamento bajo su Marca Comercial" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -1531,18 +1583,6 @@
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [ fhir:v "StructureDefinition:extension" ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/MotivoNoPertinencia> ;
-         fhir:reference [ fhir:v "StructureDefinition/MotivoNoPertinencia" ]
-       ] ;
-       fhir:name [ fhir:v "Motivo No Pertinencia" ] ;
-       fhir:description [ fhir:v "Motivo No Pertinencia" ] ;
-       fhir:example [ fhir:v "false"^^xsd:boolean ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
@@ -1563,6 +1603,30 @@
        ] ;
        fhir:name [ fhir:v "Motivo No Pertinencia Codigo" ] ;
        fhir:description [ fhir:v "Motivo No Pertinencia Codigo" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSMetodos> ;
+         fhir:reference [ fhir:v "ValueSet/VSMetodos" ]
+       ] ;
+       fhir:name [ fhir:v "Métodos de Administración" ] ;
+       fhir:description [ fhir:v "Métodos de Administración de SNOMED-CT utilizados para el proyecto de receta electrónica" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMetodos> ;
+         fhir:reference [ fhir:v "CodeSystem/CSMetodos" ]
+       ] ;
+       fhir:name [ fhir:v "Métodos de Administración" ] ;
+       fhir:description [ fhir:v "Métodos de Administración de SNOMED-CT utilizados para el proyecto de receta electrónica" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -1671,6 +1735,30 @@
        ] ;
        fhir:name [ fhir:v "Patient LE" ] ;
        fhir:description [ fhir:v "Paciente definido para el Registro Maestro de Pacientes" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSCodificacionPatron> ;
+         fhir:reference [ fhir:v "ValueSet/VSCodificacionPatron" ]
+       ] ;
+       fhir:name [ fhir:v "Patrón de la Prescripción" ] ;
+       fhir:description [ fhir:v "Codificación del patrón de administración de una prescripción" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSCodificacionPatron> ;
+         fhir:reference [ fhir:v "CodeSystem/CSCodificacionPatron" ]
+       ] ;
+       fhir:name [ fhir:v "Patrón de la Prescripción" ] ;
+       fhir:description [ fhir:v "Codificación del patrón de administración de una prescripción" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -1891,6 +1979,66 @@
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:complex-type" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/RangeCL> ;
+         fhir:reference [ fhir:v "StructureDefinition/RangeCL" ]
+       ] ;
+       fhir:name [ fhir:v "Rango para dispensación de medicamentos" ] ;
+       fhir:description [ fhir:v "Definición para un rango de valores y su contenido para el consumo de un fármaco según prescripción" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSRazonEstadoDispensacion> ;
+         fhir:reference [ fhir:v "ValueSet/VSRazonEstadoDispensacion" ]
+       ] ;
+       fhir:name [ fhir:v "Razón del cambio de estado (Dispensación)" ] ;
+       fhir:description [ fhir:v "Códigos que indican la razón por la cual una Dispensación ha cambiado su estado" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSRazonEstadoDispensacion> ;
+         fhir:reference [ fhir:v "CodeSystem/CSRazonEstadoDispensacion" ]
+       ] ;
+       fhir:name [ fhir:v "Razón del cambio de estado (Dispensación)" ] ;
+       fhir:description [ fhir:v "Códigos que indican la razón por la cual una Dispensación ha cambiado su estado" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSStatusReason> ;
+         fhir:reference [ fhir:v "ValueSet/VSStatusReason" ]
+       ] ;
+       fhir:name [ fhir:v "Razón del cambio de estado (Prescripción)" ] ;
+       fhir:description [ fhir:v "Códigos que indican la razón por la cual una Prescripción ha cambiado su estado" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSStatusReason> ;
+         fhir:reference [ fhir:v "CodeSystem/CSStatusReason" ]
+       ] ;
+       fhir:name [ fhir:v "Razón del cambio de estado (Prescripción)" ] ;
+       fhir:description [ fhir:v "Códigos que indican la razón por la cual una Prescripción ha cambiado su estado" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
@@ -2007,6 +2155,18 @@
        ] ;
        fhir:name [ fhir:v "Sexo de Nacimiento 820" ] ;
        fhir:description [ fhir:v "Código que identifica el sexo de nacimiento de un paciente según la definición en la Norma Técnica" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "StructureDefinition:complex-type" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/SimpleQuantityCL> ;
+         fhir:reference [ fhir:v "StructureDefinition/SimpleQuantityCL" ]
+       ] ;
+       fhir:name [ fhir:v "SimpleQuantity para el caso de Receta" ] ;
+       fhir:description [ fhir:v "Definición para una unidad simple y su contenido para el consumo de un fármaco según prescripción" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] [
        fhir:extension ( [
@@ -2170,6 +2330,30 @@
          fhir:value [ fhir:v "ValueSet" ]
        ] ) ;
        fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSTipoPrescripcion> ;
+         fhir:reference [ fhir:v "ValueSet/VSTipoPrescripcion" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo de Prescripción" ] ;
+       fhir:description [ fhir:v "Identifica el tipo de Prescripción" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoPrescripcion> ;
+         fhir:reference [ fhir:v "CodeSystem/CSTipoPrescripcion" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo de Prescripción" ] ;
+       fhir:description [ fhir:v "Identifica el tipo de Prescripción" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSTituloProfesional> ;
          fhir:reference [ fhir:v "ValueSet/VSTituloProfesional" ]
        ] ;
@@ -2187,6 +2371,54 @@
        ] ;
        fhir:name [ fhir:v "TituloProfesional" ] ;
        fhir:description [ fhir:v "TituloProfesional" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSUnidadAsistencial> ;
+         fhir:reference [ fhir:v "ValueSet/VSUnidadAsistencial" ]
+       ] ;
+       fhir:name [ fhir:v "Unidad Asistencial" ] ;
+       fhir:description [ fhir:v "Unidad para dosificar" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSUnidadAsistencial> ;
+         fhir:reference [ fhir:v "CodeSystem/CSUnidadAsistencial" ]
+       ] ;
+       fhir:name [ fhir:v "Unidad Asistencial" ] ;
+       fhir:description [ fhir:v "Unidad para dosificar" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "ValueSet" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSViasAdmin> ;
+         fhir:reference [ fhir:v "ValueSet/VSViasAdmin" ]
+       ] ;
+       fhir:name [ fhir:v "Vías de Administración" ] ;
+       fhir:description [ fhir:v "Vías de Administración de SNOMED-CT utilizadas para el Sistema Nacional de Receta Electrónica" ] ;
+       fhir:example [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "CodeSystem" ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSViasAdmin> ;
+         fhir:reference [ fhir:v "CodeSystem/CSViasAdmin" ]
+       ] ;
+       fhir:name [ fhir:v "Vías de Administración" ] ;
+       fhir:description [ fhir:v "Vías de Administración de SNOMED-CT utilizadas para el Sistema Nacional de Receta Electrónica" ] ;
        fhir:example [ fhir:v "false"^^xsd:boolean ]
      ] ) ;
      fhir:page [
