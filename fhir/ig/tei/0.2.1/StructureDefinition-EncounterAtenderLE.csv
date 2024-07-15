@@ -25,16 +25,16 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"Encounter.extension:ConsecuenciaAtencionCodigo","Encounter.extension","ConsecuenciaAtencionCodigo","","",0,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionConsecuenciaAtencionCodigo]]} {[]}
-","Código de la consecuencia de la atención","Consecuencia Atención Codigo","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
-","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
-ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Encounter.extension:PertinenciaAtencionBox","Encounter.extension","PertinenciaAtencionBox","","",1,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionPertinenciaAtencionBox]]} {[]}
 ","Pertinencia de la atención al ser evaluado por el profesional especialista","ExtBool Pertinencia Atencion Box","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Encounter.extension:MotivoNoPertinencia","Encounter.extension","MotivoNoPertinencia","","",0,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMotivoNoPertinencia]]} {[]}
 ","Indicar Motivo de la No Pertinecia en texto libre (PertinenciaAtencionBox = false)","Extensión que declara un porque de la no pertinencia","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"Encounter.extension:ConsecuenciaAtencionCodigo","Encounter.extension","ConsecuenciaAtencionCodigo","","",0,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionConsecuenciaAtencionCodigo]]} {[]}
+","Código de la consecuencia de la atención","Consecuencia Atención Codigo","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Encounter.modifierExtension","Encounter.modifierExtension","","extensions
@@ -195,7 +195,7 @@ Admission diagnosis","",0,*,"","","Y","CodeableConcept {[]} {[]}
 Admission diagnosis","",0,*,"","","Y","Reference {[]} {[CanonicalType[http://hl7.org/fhir/StructureDefinition/Condition], CanonicalType[http://hl7.org/fhir/StructureDefinition/Procedure], CanonicalType[http://hl7.org/fhir/StructureDefinition/Observation], CanonicalType[http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation]]}
 ","Reason the encounter takes place (reference)","Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.","For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis).","","","","","","","","",,,,,"",,,,"Encounter.reasonReference",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","Event.reasonCode",".reasonCode","FiveWs.why[x]","EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )"
-"Encounter.diagnosis","Encounter.diagnosis","","","",1,1,"Y","","Y","BackboneElement {[]} {[]}
+"Encounter.diagnosis","Encounter.diagnosis","","","",1,*,"Y","","Y","BackboneElement {[]} {[]}
 ","Lista de diagnósticos relevantes a este encuentro médico","The list of diagnosis relevant to this encounter.","","","","","","","","","",,,,,"",,,,"Encounter.diagnosis",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ",".outboundRelationship[typeCode=RSON]"
 "Encounter.diagnosis.id","Encounter.diagnosis.id","","","",0,1,"","","","string {[]} {[]}

@@ -1,0 +1,62 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/tei/Appointment/AgendaEjemplo> a fhir:Appointment ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "AgendaEjemplo"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AppointmentAgendarLE"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AppointmentAgendarLE>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Appointment AgendaEjemplo</b></p><a name=\"AgendaEjemplo\"> </a><a name=\"hcAgendaEjemplo\"> </a><a name=\"AgendaEjemplo-es-CL\"> </a><p><b>identifier</b>: 123</p><p><b>status</b>: Booked</p><p><b>start</b>: 2024-02-22 08:00:00-0300</p><p><b>end</b>: 2024-02-22 08:30:00-0300</p><p><b>created</b>: 2024-02-20 16:00:00-0300</p><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href=\"PractitionerRole-PractitionerRoleAtendedor.html\">PractitionerRole Atendedor</a></p><p><b>status</b>: Accepted</p></blockquote><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href=\"Patient-EjemploPatientLE.html\">María Josefina Gonzalez (official) Male, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>status</b>: Accepted</p></blockquote></div>"
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMediodeContacto"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMediodeContacto"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "3" ] ;
+         fhir:display [ fhir:v "Llamada" ]
+       ] )
+     ]
+  ] [
+     fhir:extension ( [
+       fhir:url [ fhir:v "Contactado"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "true"^^xsd:boolean ]
+     ] ) ;
+     fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Contactado"^^xsd:anyURI ]
+  ] ) ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "123" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "booked"] ; # 
+  fhir:start [ fhir:v "2024-02-22T08:00:00-03:00"^^xsd:dateTime] ; # 
+  fhir:end [ fhir:v "2024-02-22T08:30:00-03:00"^^xsd:dateTime] ; # 
+  fhir:created [ fhir:v "2024-02-20T16:00:00-03:00"^^xsd:dateTime] ; # 
+  fhir:participant ( [
+     fhir:actor [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/PractitionerRole/PractitionerRoleAtendedor> ;
+       fhir:reference [ fhir:v "PractitionerRole/PractitionerRoleAtendedor" ] ;
+       fhir:type [ fhir:v "PractitionerRole"^^xsd:anyURI ]
+     ] ;
+     fhir:status [ fhir:v "accepted" ]
+  ] [
+     fhir:actor [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/tei/Patient/EjemploPatientLE> ;
+       fhir:reference [ fhir:v "Patient/EjemploPatientLE" ] ;
+       fhir:type [ fhir:v "Patient"^^xsd:anyURI ]
+     ] ;
+     fhir:status [ fhir:v "accepted" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

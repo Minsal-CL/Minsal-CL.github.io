@@ -6,7 +6,7 @@
   "extensions": [
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Contactado",
-      "title": "ExtensionContactadoLE",
+      "title": "Extension ContactadoLE",
       "types": [
         "boolean",
         "CodeableConcept",
@@ -82,14 +82,14 @@
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolRequiereExamen",
-      "title": "ExtBool RequiereExamen",
+      "title": "ExtBool Requiere Examen",
       "types": [
         "boolean"
       ]
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolResolutividadAPS",
-      "title": "ExtBool ResolutividadAPS",
+      "title": "ExtBool Resolutividad APS",
       "types": [
         "boolean"
       ]
@@ -150,7 +150,7 @@
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMediodeContacto",
-      "title": "MediodeContacto",
+      "title": "Medio de Contacto",
       "types": [
         "CodeableConcept",
         "string",
@@ -186,7 +186,7 @@
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMotivoNoPertinencia",
-      "title": "ExtString MotivoNoPertinencia",
+      "title": "ExtString Motivo No Pertinencia",
       "types": [
         "string"
       ]
@@ -294,7 +294,7 @@
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionStringFundamentoPriorizacion",
-      "title": "ExtensionStringFundamentoPriorizacion",
+      "title": "Extension String Fundamento Priorizacion",
       "types": [
         "string"
       ]
@@ -319,7 +319,7 @@
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Mencion",
-      "title": "Mención profesional añadida l título profesional",
+      "title": "Mención profesional añadida al título profesional",
       "types": [
         "string"
       ]
@@ -344,7 +344,7 @@
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosAfrodescendiente",
-      "title": "PueblosAfrodescendiente",
+      "title": "Pueblos Afrodescendiente",
       "types": [
         "boolean"
       ]
@@ -369,7 +369,7 @@
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosOriginariosPerteneciente",
-      "title": "PueblosOriginariosPerteneciente",
+      "title": "Pueblos Originarios Perteneciente",
       "types": [
         "boolean"
       ]
@@ -394,7 +394,7 @@
     },
     {
       "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/SituacionCalle",
-      "title": "SituacionCalle",
+      "title": "Situacion Calle",
       "types": [
         "boolean"
       ]
@@ -463,6 +463,12 @@
       {
         "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterIniciarLE",
         "title": "Encounter Iniciar LE"
+      }
+    ],
+    "MedicationRequest": [
+      {
+        "url": "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/MedicationRequestLE",
+        "title": "Solicitude de Medicamento LE"
       }
     ],
     "MessageHeader": [
@@ -593,13 +599,20 @@
       "ImplementationGuide.definition.resource"
     ],
     "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises": [
+      "Bundle.entry.resource",
+      "Bundle.entry.resource.address.country",
+      "Bundle.entry.resource.identifier.type",
+      "Organization.address.country",
       "Patient",
       "Patient.address.country",
       "Patient.identifier.type",
       "Practitioner",
-      "Practitioner.address.country"
+      "Practitioner.address.country",
+      "Practitioner.identifier.type"
     ],
     "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl": [
+      "Bundle.entry.resource.address.city",
+      "Organization.address.city",
       "Patient.address.city",
       "Practitioner.address.city"
     ],
@@ -607,18 +620,22 @@
       "Patient.contact"
     ],
     "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdentidadDeGenero": [
+      "Bundle.entry.resource",
       "Patient",
       "Practitioner"
     ],
     "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl": [
+      "Bundle.entry.resource.address.district",
       "Patient.address.district",
       "Practitioner.address.district"
     ],
     "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl": [
+      "Bundle.entry.resource.address.state",
       "Patient.address.state",
       "Practitioner.address.state"
     ],
     "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido": [
+      "Bundle.entry.resource.name.family",
       "Patient.contact.name.family",
       "Patient.name.family",
       "Practitioner.name.family"
@@ -628,57 +645,73 @@
       "Practitioner"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Contactado": [
-      "Appointment"
+      "Appointment",
+      "Bundle.entry.resource"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolAtencionPreferente": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolRequiereExamen": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolResolutividadAPS": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionConsecuenciaAtencionCodigo": [
+      "Bundle.entry.resource",
       "Encounter"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionEspecialidadMedicaDestinoCodigo": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionEstadoInterconsultaCodigoLE": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMediodeContacto": [
-      "Appointment"
+      "Appointment",
+      "Bundle.entry.resource"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMotivoCierreInterconsulta": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMotivoNoPertinencia": [
       "Encounter"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionOrigenInterconsulta": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionPertinenciaAtencionBox": [
+      "Bundle.entry.resource",
       "Encounter"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionPertinenciaInterconsulta": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionSolicitudExamenes": [
+      "Bundle.entry.resource",
       "CarePlan"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionStringFundamentoPriorizacion": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionSubEspecialidadMedicaDestinoCodigo": [
+      "Bundle.entry.resource",
       "ServiceRequest"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Mencion": [
       "Practitioner.qualification"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PaisOrigenMPI": [
+      "Bundle.entry.resource",
       "Patient"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosAfrodescendiente": [
@@ -688,6 +721,7 @@
       "Patient"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosOriginariosPerteneciente": [
+      "Bundle.entry.resource",
       "Patient"
     ],
     "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Religion": [
