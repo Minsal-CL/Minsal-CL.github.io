@@ -17,109 +17,14 @@ Response:
 access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
 access-control-allow-origin:*
 access-control-expose-headers:Content-Location, Location
-cache-control:public, max-age=600
 connection:keep-alive
 content-length:1519
 content-type:application/fhir+json
-date:Mon, 15 Jul 2024 15:24:59 GMT
-pragma:no-cache
+date:Fri, 19 Jul 2024 19:20:29 GMT
 server:nginx
-x-request-id:144-973171
+x-request-id:144-2140122
 
-{"resourceType" : "CapabilityStatement","id" : "FhirServer","meta" : {"tag" : [{"system" : "http://hl7.org/fhir/v3/ObservationValue","code" : "SUBSETTED","display" : "Subsetted"}]},"url" : "http://tx.fhir.org/r4/metadata","version" : "4.0.1-3.4.6","name" : "FHIR Reference Server Conformance Statement","status" : "active","date" : "2024-07-15T15:24:59.893Z","contact" : [{"telecom" : [{"system" : "other","value" : "http://healthintersections.com.au/"}]}],"kind" : "instance","instantiates" : ["http://hl7.org/fhir/CapabilityStatement/terminology-server"],"software" : {"name" : "Reference Server","version" : "3.4.6","releaseDate" : "2024-05-18T12:36:55.539Z"},"implementation" : {"description" : "FHIR Server running at http://tx.fhir.org/r4","url" : "http://tx.fhir.org/r4"},"fhirVersion" : "4.0.1","format" : ["application/fhir+xml","application/fhir+json"],"rest" : [{"mode" : "server","security" : {"cors" : true},"operation" : [{"name" : "expand","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand"},{"name" : "lookup","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-lookup"},{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/Resource-validate"},{"name" : "translate","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"},{"name" : "closure","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"},{"name" : "versions","definition" : "http://tx.fhir.org/r4/OperationDefinition/fso-versions"}]}]}
-
-</pre><hr/>
-<a name="l2"> </a><h3>2</h3>
-<pre>
-Request: 
-
-POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
-Accept: application/fhir+json; fhirVersion=4.0
-Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
-User-Agent: fhir/publisher
-
-{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"227493005"}},{"name":"displayLanguage","valueString":"en, en-US, es-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"555b9c58-2fb4-4d72-a0b8-55b75f0fa13d"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
-
-
-Response: 
-
-200
-access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
-access-control-allow-origin:*
-access-control-expose-headers:Content-Location, Location
-cache-control:public, max-age=600
-connection:keep-alive
-content-length:340
-content-type:application/fhir+json
-date:Mon, 15 Jul 2024 15:25:09 GMT
-last-modified:Mon, 15 Jul 2024 15:25:09 GMT
-pragma:no-cache
-server:nginx
-x-request-id:144-973215
-
-{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "227493005"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Cashew nuts"}]}
-
-</pre><hr/>
-<a name="l3"> </a><h3>3</h3>
-<pre>
-Request: 
-
-POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
-Accept: application/fhir+json; fhirVersion=4.0
-Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
-User-Agent: fhir/publisher
-
-{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://loinc.org","code":"8059-8"}},{"name":"displayLanguage","valueString":"en, en-US, es-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"555b9c58-2fb4-4d72-a0b8-55b75f0fa13d"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
-
-
-Response: 
-
-200
-access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
-access-control-allow-origin:*
-access-control-expose-headers:Content-Location, Location
-cache-control:public, max-age=600
-connection:keep-alive
-content-length:300
-content-type:application/fhir+json
-date:Mon, 15 Jul 2024 15:25:09 GMT
-last-modified:Mon, 15 Jul 2024 15:25:09 GMT
-pragma:no-cache
-server:nginx
-x-request-id:144-973217
-
-{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://loinc.org"},{"name" : "code","valueCode" : "8059-8"},{"name" : "version","valueString" : "2.77"},{"name" : "display","valueString" : "Adrenal Ab [Units/volume] in Serum"}]}
-
-</pre><hr/>
-<a name="l4"> </a><h3>4</h3>
-<pre>
-Request: 
-
-POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
-Accept: application/fhir+json; fhirVersion=4.0
-Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
-User-Agent: fhir/publisher
-
-{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"103696004"}},{"name":"displayLanguage","valueString":"en, en-US, es-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"555b9c58-2fb4-4d72-a0b8-55b75f0fa13d"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
-
-
-Response: 
-
-200
-access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
-access-control-allow-origin:*
-access-control-expose-headers:Content-Location, Location
-cache-control:public, max-age=600
-connection:keep-alive
-content-length:359
-content-type:application/fhir+json
-date:Mon, 15 Jul 2024 15:25:09 GMT
-last-modified:Mon, 15 Jul 2024 15:25:09 GMT
-pragma:no-cache
-server:nginx
-x-request-id:144-973221
-
-{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "103696004"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Patient referral to specialist"}]}
+{"resourceType" : "CapabilityStatement","id" : "FhirServer","meta" : {"tag" : [{"system" : "http://hl7.org/fhir/v3/ObservationValue","code" : "SUBSETTED","display" : "Subsetted"}]},"url" : "http://tx.fhir.org/r4/metadata","version" : "4.0.1-3.4.6","name" : "FHIR Reference Server Conformance Statement","status" : "active","date" : "2024-07-17T01:48:38.068Z","contact" : [{"telecom" : [{"system" : "other","value" : "http://healthintersections.com.au/"}]}],"kind" : "instance","instantiates" : ["http://hl7.org/fhir/CapabilityStatement/terminology-server"],"software" : {"name" : "Reference Server","version" : "3.4.6","releaseDate" : "2024-05-18T12:36:55.539Z"},"implementation" : {"description" : "FHIR Server running at http://tx.fhir.org/r4","url" : "http://tx.fhir.org/r4"},"fhirVersion" : "4.0.1","format" : ["application/fhir+xml","application/fhir+json"],"rest" : [{"mode" : "server","security" : {"cors" : true},"operation" : [{"name" : "expand","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand"},{"name" : "lookup","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-lookup"},{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/Resource-validate"},{"name" : "translate","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"},{"name" : "closure","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"},{"name" : "versions","definition" : "http://tx.fhir.org/r4/OperationDefinition/fso-versions"}]}]}
 
 --- 1 -----------------
 Request: 
@@ -136,101 +41,12 @@ Response:
 access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
 access-control-allow-origin:*
 access-control-expose-headers:Content-Location, Location
-cache-control:public, max-age=600
 connection:keep-alive
 content-length:1519
 content-type:application/fhir+json
-date:Mon, 15 Jul 2024 15:24:59 GMT
-pragma:no-cache
+date:Fri, 19 Jul 2024 19:20:29 GMT
 server:nginx
-x-request-id:144-973171
+x-request-id:144-2140122
 
-{"resourceType" : "CapabilityStatement","id" : "FhirServer","meta" : {"tag" : [{"system" : "http://hl7.org/fhir/v3/ObservationValue","code" : "SUBSETTED","display" : "Subsetted"}]},"url" : "http://tx.fhir.org/r4/metadata","version" : "4.0.1-3.4.6","name" : "FHIR Reference Server Conformance Statement","status" : "active","date" : "2024-07-15T15:24:59.893Z","contact" : [{"telecom" : [{"system" : "other","value" : "http://healthintersections.com.au/"}]}],"kind" : "instance","instantiates" : ["http://hl7.org/fhir/CapabilityStatement/terminology-server"],"software" : {"name" : "Reference Server","version" : "3.4.6","releaseDate" : "2024-05-18T12:36:55.539Z"},"implementation" : {"description" : "FHIR Server running at http://tx.fhir.org/r4","url" : "http://tx.fhir.org/r4"},"fhirVersion" : "4.0.1","format" : ["application/fhir+xml","application/fhir+json"],"rest" : [{"mode" : "server","security" : {"cors" : true},"operation" : [{"name" : "expand","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand"},{"name" : "lookup","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-lookup"},{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/Resource-validate"},{"name" : "translate","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"},{"name" : "closure","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"},{"name" : "versions","definition" : "http://tx.fhir.org/r4/OperationDefinition/fso-versions"}]}]}
-
---- 2 -----------------
-Request: 
-
-POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
-Accept: application/fhir+json; fhirVersion=4.0
-Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
-User-Agent: fhir/publisher
-
-{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"227493005"}},{"name":"displayLanguage","valueString":"en, en-US, es-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"555b9c58-2fb4-4d72-a0b8-55b75f0fa13d"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
-
-
-Response: 
-
-200
-access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
-access-control-allow-origin:*
-access-control-expose-headers:Content-Location, Location
-cache-control:public, max-age=600
-connection:keep-alive
-content-length:340
-content-type:application/fhir+json
-date:Mon, 15 Jul 2024 15:25:09 GMT
-last-modified:Mon, 15 Jul 2024 15:25:09 GMT
-pragma:no-cache
-server:nginx
-x-request-id:144-973215
-
-{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "227493005"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Cashew nuts"}]}
-
---- 3 -----------------
-Request: 
-
-POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
-Accept: application/fhir+json; fhirVersion=4.0
-Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
-User-Agent: fhir/publisher
-
-{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://loinc.org","code":"8059-8"}},{"name":"displayLanguage","valueString":"en, en-US, es-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"555b9c58-2fb4-4d72-a0b8-55b75f0fa13d"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
-
-
-Response: 
-
-200
-access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
-access-control-allow-origin:*
-access-control-expose-headers:Content-Location, Location
-cache-control:public, max-age=600
-connection:keep-alive
-content-length:300
-content-type:application/fhir+json
-date:Mon, 15 Jul 2024 15:25:09 GMT
-last-modified:Mon, 15 Jul 2024 15:25:09 GMT
-pragma:no-cache
-server:nginx
-x-request-id:144-973217
-
-{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://loinc.org"},{"name" : "code","valueCode" : "8059-8"},{"name" : "version","valueString" : "2.77"},{"name" : "display","valueString" : "Adrenal Ab [Units/volume] in Serum"}]}
-
---- 4 -----------------
-Request: 
-
-POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
-Accept: application/fhir+json; fhirVersion=4.0
-Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
-User-Agent: fhir/publisher
-
-{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"103696004"}},{"name":"displayLanguage","valueString":"en, en-US, es-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"555b9c58-2fb4-4d72-a0b8-55b75f0fa13d"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
-
-
-Response: 
-
-200
-access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
-access-control-allow-origin:*
-access-control-expose-headers:Content-Location, Location
-cache-control:public, max-age=600
-connection:keep-alive
-content-length:359
-content-type:application/fhir+json
-date:Mon, 15 Jul 2024 15:25:09 GMT
-last-modified:Mon, 15 Jul 2024 15:25:09 GMT
-pragma:no-cache
-server:nginx
-x-request-id:144-973221
-
-{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "103696004"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Patient referral to specialist"}]}
+{"resourceType" : "CapabilityStatement","id" : "FhirServer","meta" : {"tag" : [{"system" : "http://hl7.org/fhir/v3/ObservationValue","code" : "SUBSETTED","display" : "Subsetted"}]},"url" : "http://tx.fhir.org/r4/metadata","version" : "4.0.1-3.4.6","name" : "FHIR Reference Server Conformance Statement","status" : "active","date" : "2024-07-17T01:48:38.068Z","contact" : [{"telecom" : [{"system" : "other","value" : "http://healthintersections.com.au/"}]}],"kind" : "instance","instantiates" : ["http://hl7.org/fhir/CapabilityStatement/terminology-server"],"software" : {"name" : "Reference Server","version" : "3.4.6","releaseDate" : "2024-05-18T12:36:55.539Z"},"implementation" : {"description" : "FHIR Server running at http://tx.fhir.org/r4","url" : "http://tx.fhir.org/r4"},"fhirVersion" : "4.0.1","format" : ["application/fhir+xml","application/fhir+json"],"rest" : [{"mode" : "server","security" : {"cors" : true},"operation" : [{"name" : "expand","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand"},{"name" : "lookup","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-lookup"},{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/Resource-validate"},{"name" : "translate","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"},{"name" : "closure","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"},{"name" : "versions","definition" : "http://tx.fhir.org/r4/OperationDefinition/fso-versions"}]}]}
 </pre></head></html>
