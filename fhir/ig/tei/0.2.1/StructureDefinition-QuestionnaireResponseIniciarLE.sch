@@ -12,6 +12,7 @@
   <sch:pattern>
     <sch:title>f:QuestionnaireResponse</sch:title>
     <sch:rule context="f:QuestionnaireResponse">
+      <sch:assert test="count(f:id) &gt;= 1">id: minimum cardinality of 'id' is 1</sch:assert>
       <sch:assert test="count(f:item) &gt;= 1">item: minimum cardinality of 'item' is 1</sch:assert>
       <sch:assert test="count(f:item) &lt;= 1">item: maximum cardinality of 'item' is 1</sch:assert>
     </sch:rule>
