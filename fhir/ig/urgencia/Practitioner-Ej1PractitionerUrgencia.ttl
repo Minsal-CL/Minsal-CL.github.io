@@ -1,0 +1,58 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://proceso-urgencia.minsal.cl/Practitioner/Ej1PractitionerUrgencia> a fhir:Practitioner ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "Ej1PractitionerUrgencia"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/profesional-medico"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/profesional-medico>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Practitioner Ej1PractitionerUrgencia</b></p><a name=\"Ej1PractitionerUrgencia\"> </a><a name=\"hcEj1PractitionerUrgencia\"> </a><a name=\"Ej1PractitionerUrgencia-en-US\"> </a><p><b>identifier</b>: RUN/12345678-9 (use: official, )</p><p><b>name</b>: Juan Carlos Perez Gonzalez(Official)</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>cert</td><td><span title=\"Codes:{http://proceso-urgencia.minsal.cl/CodeSystem/titulo-profesional 1}\">MÉDICO CIRUJANO</span></td></tr></table></div>"
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "01" ]
+       ] )
+     ] ;
+     fhir:system [ fhir:v "http://www.registrocivil.cl"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "12345678-9" ]
+  ] ) ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:text [ fhir:v "Juan Carlos Perez Gonzalez" ] ;
+     fhir:family [
+       fhir:v "Perez" ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Gonzalez" ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "Juan" ] [ fhir:v "Carlos" ] )
+  ] ) ; # 
+  fhir:qualification ( [
+     fhir:identifier ( [
+       fhir:value [ fhir:v "cert" ]
+     ] ) ;
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/titulo-profesional"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "1" ] ;
+         fhir:display [ fhir:v "MÉDICO CIRUJANO" ]
+       ] )
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

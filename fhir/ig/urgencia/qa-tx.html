@@ -1,0 +1,532 @@
+<html><head><title>Terminology Server Log</title></head><body><h2>Terminology Server Log</h2><pre>
+
+</pre><hr/>
+<a name="l1"> </a><h3>1</h3>
+<pre>
+Request: 
+
+GET http://tx.fhir.org/r4/metadata?_summary=true HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+connection:keep-alive
+content-length:1519
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:48:43 GMT
+server:nginx
+x-request-id:152-3965253
+
+{"resourceType" : "CapabilityStatement","id" : "FhirServer","meta" : {"tag" : [{"system" : "http://hl7.org/fhir/v3/ObservationValue","code" : "SUBSETTED","display" : "Subsetted"}]},"url" : "http://tx.fhir.org/r4/metadata","version" : "4.0.1-3.4.6","name" : "FHIR Reference Server Conformance Statement","status" : "active","date" : "2024-08-26T16:00:17.747Z","contact" : [{"telecom" : [{"system" : "other","value" : "http://healthintersections.com.au/"}]}],"kind" : "instance","instantiates" : ["http://hl7.org/fhir/CapabilityStatement/terminology-server"],"software" : {"name" : "Reference Server","version" : "3.4.6","releaseDate" : "2024-05-18T12:36:55.539Z"},"implementation" : {"description" : "FHIR Server running at http://tx.fhir.org/r4","url" : "http://tx.fhir.org/r4"},"fhirVersion" : "4.0.1","format" : ["application/fhir+xml","application/fhir+json"],"rest" : [{"mode" : "server","security" : {"cors" : true},"operation" : [{"name" : "expand","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand"},{"name" : "lookup","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-lookup"},{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/Resource-validate"},{"name" : "translate","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"},{"name" : "closure","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"},{"name" : "versions","definition" : "http://tx.fhir.org/r4/OperationDefinition/fso-versions"}]}]}
+
+</pre><hr/>
+<a name="l2"> </a><h3>2</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"230690007"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:359
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:27 GMT
+last-modified:Tue, 27 Aug 2024 21:49:27 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965355
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "230690007"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "CVA - Cerebrovascular accident"}]}
+
+</pre><hr/>
+<a name="l3"> </a><h3>3</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"266987004"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:344
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:27 GMT
+last-modified:Tue, 27 Aug 2024 21:49:27 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965356
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "266987004"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "H/O: malignancy"}]}
+
+</pre><hr/>
+<a name="l4"> </a><h3>4</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"370992007"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:352
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:27 GMT
+last-modified:Tue, 27 Aug 2024 21:49:27 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965357
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "370992007"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Dyslipidemia (disorder)"}]}
+
+</pre><hr/>
+<a name="l5"> </a><h3>5</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"44054006"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:353
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:27 GMT
+last-modified:Tue, 27 Aug 2024 21:49:27 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965359
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "44054006"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Diabetes mellitus type II"}]}
+
+</pre><hr/>
+<a name="l6"> </a><h3>6</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"414024009"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:367
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:28 GMT
+last-modified:Tue, 27 Aug 2024 21:49:28 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965362
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "414024009"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Disorder of coronary artery (disorder)"}]}
+
+</pre><hr/>
+<a name="l7"> </a><h3>7</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"13645005"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:360
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:28 GMT
+last-modified:Tue, 27 Aug 2024 21:49:28 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965363
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "13645005"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Chronic obstructive lung disease"}]}
+
+</pre><hr/>
+<a name="l8"> </a><h3>8</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"38341003"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:347
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:28 GMT
+last-modified:Tue, 27 Aug 2024 21:49:28 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965364
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "38341003"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "High blood pressure"}]}
+
+</pre><hr/>
+<a name="l9"> </a><h3>9</h3>
+<pre>
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"161505003"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:347
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:28 GMT
+last-modified:Tue, 27 Aug 2024 21:49:28 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965365
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "161505003"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "H/O: heart failure"}]}
+
+--- 1 -----------------
+Request: 
+
+GET http://tx.fhir.org/r4/metadata?_summary=true HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+connection:keep-alive
+content-length:1519
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:48:43 GMT
+server:nginx
+x-request-id:152-3965253
+
+{"resourceType" : "CapabilityStatement","id" : "FhirServer","meta" : {"tag" : [{"system" : "http://hl7.org/fhir/v3/ObservationValue","code" : "SUBSETTED","display" : "Subsetted"}]},"url" : "http://tx.fhir.org/r4/metadata","version" : "4.0.1-3.4.6","name" : "FHIR Reference Server Conformance Statement","status" : "active","date" : "2024-08-26T16:00:17.747Z","contact" : [{"telecom" : [{"system" : "other","value" : "http://healthintersections.com.au/"}]}],"kind" : "instance","instantiates" : ["http://hl7.org/fhir/CapabilityStatement/terminology-server"],"software" : {"name" : "Reference Server","version" : "3.4.6","releaseDate" : "2024-05-18T12:36:55.539Z"},"implementation" : {"description" : "FHIR Server running at http://tx.fhir.org/r4","url" : "http://tx.fhir.org/r4"},"fhirVersion" : "4.0.1","format" : ["application/fhir+xml","application/fhir+json"],"rest" : [{"mode" : "server","security" : {"cors" : true},"operation" : [{"name" : "expand","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand"},{"name" : "lookup","definition" : "http://hl7.org/fhir/OperationDefinition/ValueSet-lookup"},{"name" : "validate-code","definition" : "http://hl7.org/fhir/OperationDefinition/Resource-validate"},{"name" : "translate","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"},{"name" : "closure","definition" : "http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"},{"name" : "versions","definition" : "http://tx.fhir.org/r4/OperationDefinition/fso-versions"}]}]}
+
+--- 2 -----------------
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"230690007"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:359
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:27 GMT
+last-modified:Tue, 27 Aug 2024 21:49:27 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965355
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "230690007"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "CVA - Cerebrovascular accident"}]}
+
+--- 3 -----------------
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"266987004"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:344
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:27 GMT
+last-modified:Tue, 27 Aug 2024 21:49:27 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965356
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "266987004"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "H/O: malignancy"}]}
+
+--- 4 -----------------
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"370992007"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:352
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:27 GMT
+last-modified:Tue, 27 Aug 2024 21:49:27 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965357
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "370992007"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Dyslipidemia (disorder)"}]}
+
+--- 5 -----------------
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"44054006"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:353
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:27 GMT
+last-modified:Tue, 27 Aug 2024 21:49:27 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965359
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "44054006"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Diabetes mellitus type II"}]}
+
+--- 6 -----------------
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"414024009"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:367
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:28 GMT
+last-modified:Tue, 27 Aug 2024 21:49:28 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965362
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "414024009"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Disorder of coronary artery (disorder)"}]}
+
+--- 7 -----------------
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"13645005"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:360
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:28 GMT
+last-modified:Tue, 27 Aug 2024 21:49:28 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965363
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "13645005"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "Chronic obstructive lung disease"}]}
+
+--- 8 -----------------
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"38341003"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:347
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:28 GMT
+last-modified:Tue, 27 Aug 2024 21:49:28 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965364
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "38341003"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "High blood pressure"}]}
+
+--- 9 -----------------
+Request: 
+
+POST http://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"http://snomed.info/sct","code":"161505003"}},{"name":"displayLanguage","valueString":"en-CL"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"cache-id","valueId":"306906aa-0091-42b6-9fdf-cf3a91e215c6"},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"}]}
+
+
+Response: 
+
+200
+access-control-allow-methods:GET, POST, PUT, PATCH, DELETE
+access-control-allow-origin:*
+access-control-expose-headers:Content-Location, Location
+cache-control:public, max-age=600
+connection:keep-alive
+content-length:347
+content-type:application/fhir+json
+date:Tue, 27 Aug 2024 21:49:28 GMT
+last-modified:Tue, 27 Aug 2024 21:49:28 GMT
+pragma:no-cache
+server:nginx
+x-request-id:152-3965365
+
+{"resourceType" : "Parameters","parameter" : [{"name" : "result","valueBoolean" : true},{"name" : "system","valueUri" : "http://snomed.info/sct"},{"name" : "code","valueCode" : "161505003"},{"name" : "version","valueString" : "http://snomed.info/sct/900000000000207008/version/20240201"},{"name" : "display","valueString" : "H/O: heart failure"}]}
+</pre></head></html>

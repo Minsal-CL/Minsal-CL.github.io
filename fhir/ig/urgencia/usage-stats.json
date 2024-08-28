@@ -1,0 +1,571 @@
+{
+  "package": "fhir.cl.urgencia",
+  "version": "0.1.0",
+  "fhirVersion": "4.0.1",
+  "extensions": [
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/PaisOrigenMPI",
+      "title": "País de origen del paciente",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosAfrodescendiente",
+      "title": "Pueblos Afrodescendiente",
+      "types": [
+        "boolean"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosOriginarios",
+      "title": "Pueblos Originarios",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosOriginariosPerteneciente",
+      "title": "Pueblos Originarios Perteneciente",
+      "types": [
+        "boolean"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/Religion",
+      "title": "Religión",
+      "types": [
+        "CodeableConcept",
+        "string",
+        "Extension",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/SituacionCalle",
+      "title": "Situacion Calle",
+      "types": [
+        "boolean"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/anexo-direccion-residencia",
+      "title": "ExtAnexoDireccionResidencia",
+      "types": [
+        "string"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/comuna",
+      "title": "ExtComuna",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/consulta-accidente",
+      "title": "ExtConsultaPorAccidente",
+      "types": [
+        "boolean"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/evolucion-clinica",
+      "title": "Evolución Clínica",
+      "types": [
+        "Reference"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/fecha-realizacion-solicitud",
+      "title": "Extensión Fecha Realización Solicitud",
+      "types": [
+        "dateTime"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/fecha-resultado-solicitud",
+      "title": "Extensión Fecha Resultado Solicitud",
+      "types": [
+        "dateTime"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/fecha-solicitud-especialista",
+      "title": "Extensión Fecha Solicitud Especialista",
+      "types": [
+        "dateTime"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/identidad-genero",
+      "title": "ExtIdentidadGenero",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/indicaciones",
+      "title": "Indicaciones",
+      "types": [
+        "Reference"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/ley-previsional",
+      "title": "ExtLeyPrevisional",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/medio-llegada",
+      "title": "ExtMedioLlegada",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/morbilidad-previa",
+      "title": "Morbilidad Previa",
+      "types": [
+        "Reference"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/nacionalidad",
+      "title": "ExtNacionalidad",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/pais-emisor-documento",
+      "title": "ExtPaisEmisorDocumento",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/pais-origen",
+      "title": "ExtPaisOrigen",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/prevision",
+      "title": "ExtPrevisión",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/procedencia",
+      "title": "ExtProcedenciaOrigenAdmision",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/pueblo-indigena",
+      "title": "ExtPuebloIndigena",
+      "types": [
+        "boolean",
+        "Coding",
+        "string",
+        "base64Binary",
+        "boolean",
+        "canonical",
+        "code",
+        "date",
+        "dateTime",
+        "decimal",
+        "id",
+        "instant",
+        "integer",
+        "markdown",
+        "oid",
+        "positiveInt",
+        "string",
+        "time",
+        "unsignedInt",
+        "uri",
+        "url",
+        "uuid",
+        "Address",
+        "Age",
+        "Annotation",
+        "Attachment",
+        "CodeableConcept",
+        "Coding",
+        "ContactPoint",
+        "Count",
+        "Distance",
+        "Duration",
+        "HumanName",
+        "Identifier",
+        "Money",
+        "Period",
+        "Quantity",
+        "Range",
+        "Ratio",
+        "Reference",
+        "SampledData",
+        "Signature",
+        "Timing",
+        "ContactDetail",
+        "Contributor",
+        "DataRequirement",
+        "Expression",
+        "ParameterDefinition",
+        "RelatedArtifact",
+        "TriggerDefinition",
+        "UsageContext",
+        "Dosage",
+        "Meta"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/region",
+      "title": "ExtRegion",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/segundo-apellido",
+      "title": "ExtSegundoApellido",
+      "types": [
+        "string"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/servicio-salud",
+      "title": "Servicio de Salud",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/sexo-biologico",
+      "title": "ExtSexoBiologico",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/tipo-via-residencia",
+      "title": "ExtTipoViaResidencia",
+      "types": [
+        "Coding"
+      ]
+    },
+    {
+      "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/titulo-profesional-categorizador",
+      "title": "Extensión Título Profesional Categorizador",
+      "types": [
+        "Coding"
+      ]
+    }
+  ],
+  "profiles": {
+    "Patient": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/PacienteUrgencia",
+        "title": "Paciente Urgencia"
+      }
+    ],
+    "RelatedPerson": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/acompanante-urgencia",
+        "title": "ProfileRelatedPerson"
+      }
+    ],
+    "Condition": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/hipotesis-diagnostica",
+        "title": "Condition HipDiag"
+      }
+    ],
+    "AllergyIntolerance": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/antecedentes-alergia",
+        "title": "AllergyIntolerance"
+      }
+    ],
+    "Bundle": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/bundle-admision",
+        "title": "Bundle Admision"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/bundle-atencion",
+        "title": "Bundle Atención"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/bundle-categorizacion",
+        "title": "Bundle Categorización"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/bundle-egreso",
+        "title": "Bundle Egreso"
+      }
+    ],
+    "Observation": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/motivo-consulta-categorizacion",
+        "title": "Motivo Consulta Categorización"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/observacion-anamnesis",
+        "title": "Observation Anamnesis"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/observacion-atencion",
+        "title": "Observation Atención"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/observacion-egreso",
+        "title": "Observación Egreso Urgencia"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/observacion-evol-clin",
+        "title": "Observation Evolución Clínica Urgencia"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/observacion-morb-prev",
+        "title": "Observation Morbilidad Previa"
+      }
+    ],
+    "Encounter": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/egreso-urgencia",
+        "title": "Encounter Egreso"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/encounter-admision",
+        "title": "Encounter Admisión"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/encounter-categorizacion",
+        "title": "Encounter Categorización"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/encuentro-atencion",
+        "title": "Encounter Atención"
+      }
+    ],
+    "EpisodeOfCare": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/episodio-urgencia",
+        "title": "EpisodeOfCare Urgencia"
+      }
+    ],
+    "MessageHeader": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/message-header-urgencia",
+        "title": "MessageHeader Urgencia"
+      }
+    ],
+    "Organization": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/organizacion-establecimiento",
+        "title": "Establecimiento de Salud"
+      }
+    ],
+    "Practitioner": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/profesional-medico",
+        "title": "Profesional Médico"
+      },
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/profesional-no-medico",
+        "title": "Profesional No Médico"
+      }
+    ],
+    "ServiceRequest": [
+      {
+        "url": "http://proceso-urgencia.minsal.cl/StructureDefinition/solcitud-urgencia",
+        "title": "Solicitud Urgencia"
+      }
+    ]
+  },
+  "usage": {
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation": [
+      "StructureDefinition.snapshot.element.constraint"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet": [
+      "StructureDefinition.snapshot.element.binding"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable": [
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/geolocation": [
+      "Patient.address"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/regex": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint": [
+      "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy": [
+      "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency": [
+      "ImplementationGuide.definition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name": [
+      "ImplementationGuide.definition.page",
+      "ImplementationGuide.definition.page.page"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter": [
+      "ImplementationGuide.definition"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment": [
+      "ImplementationGuide.dependsOn"
+    ],
+    "http://hl7.org/fhir/tools/StructureDefinition/resource-information": [
+      "ImplementationGuide.definition.resource"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/PaisOrigenMPI": [
+      "Bundle.entry.resource",
+      "Patient"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosAfrodescendiente": [
+      "Bundle.entry.resource",
+      "Patient"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosOriginarios": [
+      "Bundle.entry.resource",
+      "Patient"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosOriginariosPerteneciente": [
+      "Bundle.entry.resource",
+      "Patient"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/Religion": [
+      "Patient"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/SituacionCalle": [
+      "Patient.address"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/consulta-accidente": [
+      "Bundle.entry.resource.hospitalization",
+      "Encounter.hospitalization"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/fecha-realizacion-solicitud": [
+      "ServiceRequest"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/fecha-resultado-solicitud": [
+      "ServiceRequest"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/fecha-solicitud-especialista": [
+      "Encounter.participant"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/ley-previsional": [
+      "Bundle.entry.resource.hospitalization",
+      "Encounter.hospitalization"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/prevision": [
+      "Bundle.entry.resource",
+      "Patient"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/procedencia": [
+      "Bundle.entry.resource.hospitalization",
+      "Encounter.hospitalization"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/segundo-apellido": [
+      "Bundle.entry.resource.name.family",
+      "RelatedPerson.name.family"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/servicio-salud": [
+      "Bundle.entry.resource",
+      "Organization"
+    ],
+    "http://proceso-urgencia.minsal.cl/StructureDefinition/titulo-profesional-categorizador": [
+      "Encounter.participant"
+    ],
+    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises": [
+      "Bundle.entry.resource",
+      "Bundle.entry.resource.identifier.type",
+      "Patient",
+      "Patient.address.country",
+      "Patient.identifier.type",
+      "Practitioner"
+    ],
+    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl": [
+      "Bundle.entry.resource.address.city",
+      "Patient.address.city"
+    ],
+    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdContacto": [
+      "Patient.contact"
+    ],
+    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdentidadDeGenero": [
+      "Bundle.entry.resource",
+      "Patient",
+      "Practitioner"
+    ],
+    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl": [
+      "Bundle.entry.resource.address.district",
+      "Patient.address.district"
+    ],
+    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl": [
+      "Bundle.entry.resource.address.state",
+      "Patient.address.state"
+    ],
+    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido": [
+      "Bundle.entry.resource.name.family",
+      "Patient.contact.name.family",
+      "Patient.name.family",
+      "Practitioner.name.family"
+    ],
+    "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoBiologico": [
+      "Patient",
+      "Practitioner"
+    ]
+  }
+}

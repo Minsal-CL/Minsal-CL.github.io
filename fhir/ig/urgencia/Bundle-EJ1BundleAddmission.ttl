@@ -1,0 +1,417 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://proceso-urgencia.minsal.cl/Bundle/EJ1BundleAddmission> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "EJ1BundleAddmission"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/bundle-admision"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/bundle-admision>
+     ] )
+  ] ; # 
+  fhir:type [ fhir:v "message"] ; # 
+  fhir:timestamp [ fhir:v "2024-05-05T00:00:00Z"^^xsd:dateTime] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "urn:uuid:24843ad3-d657-463b-a137-33c38def43e5"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:24843ad3-d657-463b-a137-33c38def43e5> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:894bdb3a-8a18-44db-ab64-b13262a432cc"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:894bdb3a-8a18-44db-ab64-b13262a432cc> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:391d2365-379b-4b3a-b416-89ae62e2f501"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:391d2365-379b-4b3a-b416-89ae62e2f501> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:5491b8d5-e06c-4f89-beb7-75a1989cdc81"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:5491b8d5-e06c-4f89-beb7-75a1989cdc81> )
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7> )
+  ] ) . # 
+
+<urn:uuid:24843ad3-d657-463b-a137-33c38def43e5> a fhir:MessageHeader ;
+  fhir:id [ fhir:v "24843ad3-d657-463b-a137-33c38def43e5"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/message-header-urgencia"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/message-header-urgencia>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_24843ad3-d657-463b-a137-33c38def43e5\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MessageHeader 24843ad3-d657-463b-a137-33c38def43e5</b></p><a name=\"24843ad3-d657-463b-a137-33c38def43e5\"> </a><a name=\"hc24843ad3-d657-463b-a137-33c38def43e5\"> </a><a name=\"24843ad3-d657-463b-a137-33c38def43e5-en-US\"> </a><p><b>event</b>: <a href=\"CodeSystem-eventos-urgencia.html#eventos-urgencia-admision\">CSEventosUrgencia</a> admision: Admisión</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>FHIR Server Ministerio de Salud</td><td><a href=\"https://fhir.minsal.cl\">https://fhir.minsal.cl</a></td></tr></table><p><b>sender</b>: <a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-5491b8d5-e06c-4f89-beb7-75a1989cdc81\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></p><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Software</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</td><td>Sistema de Urgencia Electrónica</td><td><a href=\"https://fhir.hospitalflorida.cl\">https://fhir.hospitalflorida.cl</a></td></tr></table><p><b>focus</b>: </p><ul><li><a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-391d2365-379b-4b3a-b416-89ae62e2f501\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></li><li><a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-894bdb3a-8a18-44db-ab64-b13262a432cc\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></li></ul></div>"
+  ] ; # 
+  fhir:event [
+     a fhir:Coding ;
+     fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/eventos-urgencia"^^xsd:anyURI ] ;
+     fhir:code [ fhir:v "admision" ] ;
+     fhir:display [ fhir:v "Admisión" ]
+  ] ; # 
+  fhir:destination ( [
+     fhir:name [ fhir:v "FHIR Server Ministerio de Salud" ] ;
+     fhir:endpoint [ fhir:v "https://fhir.minsal.cl"^^xsd:anyURI ]
+  ] ) ; # 
+  fhir:sender [
+     fhir:reference [ fhir:v "urn:uuid:5491b8d5-e06c-4f89-beb7-75a1989cdc81" ]
+  ] ; # 
+  fhir:source [
+     fhir:name [ fhir:v "Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza" ] ;
+     fhir:software [ fhir:v "Sistema de Urgencia Electrónica" ] ;
+     fhir:endpoint [ fhir:v "https://fhir.hospitalflorida.cl"^^xsd:anyURI ]
+  ] ; # 
+  fhir:focus ( [
+     fhir:reference [ fhir:v "urn:uuid:391d2365-379b-4b3a-b416-89ae62e2f501" ]
+  ] [
+     fhir:reference [ fhir:v "urn:uuid:894bdb3a-8a18-44db-ab64-b13262a432cc" ]
+  ] ) . # 
+
+<urn:uuid:894bdb3a-8a18-44db-ab64-b13262a432cc> a fhir:EpisodeOfCare ;
+  fhir:id [ fhir:v "894bdb3a-8a18-44db-ab64-b13262a432cc"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/episodio-urgencia"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/episodio-urgencia>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_894bdb3a-8a18-44db-ab64-b13262a432cc\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodeOfCare 894bdb3a-8a18-44db-ab64-b13262a432cc</b></p><a name=\"894bdb3a-8a18-44db-ab64-b13262a432cc\"> </a><a name=\"hc894bdb3a-8a18-44db-ab64-b13262a432cc\"> </a><a name=\"894bdb3a-8a18-44db-ab64-b13262a432cc-en-US\"> </a><p><b>identifier</b>: 123456-1</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ActCode EMER}\">emergency</span></p><p><b>patient</b>: <a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-6ec6dc25-4b65-4165-a545-9b796f60b997\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></p><p><b>managingOrganization</b>: <a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-5491b8d5-e06c-4f89-beb7-75a1989cdc81\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></p><p><b>period</b>: 2024-05-04 12:00:00+0000 --&gt; (ongoing)</p></div>"
+  ] ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "123456-1" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:type ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "EMER" ]
+     ] )
+  ] ) ; # 
+  fhir:patient [
+     fhir:reference [ fhir:v "urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:managingOrganization [
+     fhir:reference [ fhir:v "urn:uuid:5491b8d5-e06c-4f89-beb7-75a1989cdc81" ]
+  ] ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2024-05-04T12:00:00Z"^^xsd:dateTime ]
+  ] . # 
+
+<urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997> a fhir:Patient ;
+  fhir:id [ fhir:v "6ec6dc25-4b65-4165-a545-9b796f60b997"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/PacienteUrgencia"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/PacienteUrgencia>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_6ec6dc25-4b65-4165-a545-9b796f60b997\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient 6ec6dc25-4b65-4165-a545-9b796f60b997</b></p><a name=\"6ec6dc25-4b65-4165-a545-9b796f60b997\"> </a><a name=\"hc6ec6dc25-4b65-4165-a545-9b796f60b997\"> </a><a name=\"6ec6dc25-4b65-4165-a545-9b796f60b997-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td>true</td><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\"><ul><li>ph: (562) 5555 6473(Work)</li><li>Calle Arrabal Conchita Tejeda Nº 24, Esc. 432(home)</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"País de origen del paciente\"><a href=\"StructureDefinition-PaisOrigenMPI.html\">País de origen del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais 152}\">Chile</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Pueblos Originarios Perteneciente\"><a href=\"StructureDefinition-PueblosOriginariosPerteneciente.html\">Pueblos Originarios Perteneciente</a></td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Pueblos Afrodescendiente\"><a href=\"StructureDefinition-PueblosAfrodescendiente.html\">Pueblos Afrodescendiente</a></td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Esta extensión incluye códigos de paises\"><a href=\"https://build.fhir.org/ig/HL7Chile/clcore_ig/StructureDefinition-CodigoPaises.html\">Codigo de Paises</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais 152}\">Chile</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Almacenar si el paciente pertenece a algun pueblo originario\"><a href=\"StructureDefinition-PueblosOriginarios.html\">Pueblos Originarios</a></td><td colspan=\"3\"><span title=\"Codes:{http://proceso-urgencia.minsal.cl/CodeSystem/PueblosOriginariosCS 07}\">Diaguita</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Previsión de salud del paciente\"><a href=\"StructureDefinition-prevision.html\">ExtPrevisión</a></td><td colspan=\"3\"><a href=\"CodeSystem-prevision.html#prevision-1\">CSPrevision</a> 1: Fonasa</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Identidad De Genero\"><a href=\"https://build.fhir.org/ig/HL7Chile/clcore_ig/StructureDefinition-IdentidadDeGenero.html\">Identidad De Genero</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero 2}\">Femenina</span></td></tr></table></div>"
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosOriginariosPerteneciente"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "true"^^xsd:boolean ]
+  ] [
+     fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosOriginarios"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/PueblosOriginariosCS"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "07" ] ;
+         fhir:display [ fhir:v "Diaguita" ]
+       ] )
+     ]
+  ] [
+     fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/PueblosAfrodescendiente"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "false"^^xsd:boolean ]
+  ] [
+     fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/prevision"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:Coding ;
+       fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/prevision"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "1" ] ;
+       fhir:display [ fhir:v "Fonasa" ]
+     ]
+  ] [
+     fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdentidadDeGenero"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "2" ] ;
+         fhir:display [ fhir:v "Femenina" ]
+       ] )
+     ]
+  ] [
+     fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/PaisOrigenMPI"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "152" ] ;
+         fhir:display [ fhir:v "Chile" ]
+       ] )
+     ]
+  ] [
+     fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "152" ] ;
+         fhir:display [ fhir:v "Chile" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:extension ( [
+         fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:CodeableConcept ;
+           fhir:coding ( [
+             fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais"^^xsd:anyURI ] ;
+             fhir:code [ fhir:v "152" ] ;
+             fhir:display [ fhir:v "Chile" ]
+           ] )
+         ]
+       ] ) ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "01" ] ;
+         fhir:display [ fhir:v "RUN" ]
+       ] ) ;
+       fhir:text [ fhir:v "Rol Único Nacional" ]
+     ] ;
+     fhir:value [ fhir:v "90000000-6" ] ;
+     fhir:assigner [
+       fhir:display [ fhir:v "Republica de Chile" ]
+     ]
+  ] ) ; # 
+  fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:text [ fhir:v "Maria Josefína Perez Gonzalez" ] ;
+     fhir:family [
+       fhir:v "Perez" ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Gonzalez" ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "María" ] [ fhir:v "Josefina" ] )
+  ] ) ; # 
+  fhir:telecom ( [
+     fhir:system [ fhir:v "phone" ] ;
+     fhir:value [ fhir:v "(562) 5555 6473" ] ;
+     fhir:use [ fhir:v "work" ] ;
+     fhir:rank [ fhir:v "1"^^xsd:positiveInteger ]
+  ] ) ; # 
+  fhir:gender [ fhir:v "female"] ; # 
+  fhir:birthDate [ fhir:v "1974-12-25"^^xsd:date] ; # 
+  fhir:deceased [ fhir:v "false"^^xsd:boolean] ; # 
+  fhir:address ( [
+     fhir:use [ fhir:v "home" ] ;
+     fhir:text [ fhir:v "Calle Arrabal Conchita Tejeda Nº 24, Esc. 432" ] ;
+     fhir:line ( [ fhir:v "Calle Arrabal Conchita Tejeda" ] ) ;
+     fhir:city [
+       fhir:v "Huara" ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:CodeableConcept ;
+           fhir:coding ( [
+             fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL"^^xsd:anyURI ] ;
+             fhir:code [ fhir:v "01404" ] ;
+             fhir:display [ fhir:v "Huara" ]
+           ] )
+         ]
+       ] )
+     ] ;
+     fhir:district [
+       fhir:v "Provincia del Tamarugal" ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:CodeableConcept ;
+           fhir:coding ( [
+             fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL"^^xsd:anyURI ] ;
+             fhir:code [ fhir:v "014" ] ;
+             fhir:display [ fhir:v "Tamarugal" ]
+           ] )
+         ]
+       ] )
+     ] ;
+     fhir:state [
+       fhir:v "Región de Tarapacá" ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:CodeableConcept ;
+           fhir:coding ( [
+             fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"^^xsd:anyURI ] ;
+             fhir:code [ fhir:v "01" ] ;
+             fhir:display [ fhir:v "Tarapacá" ]
+           ] )
+         ]
+       ] )
+     ]
+  ] ) . # 
+
+<urn:uuid:391d2365-379b-4b3a-b416-89ae62e2f501> a fhir:Encounter ;
+  fhir:id [ fhir:v "391d2365-379b-4b3a-b416-89ae62e2f501"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/encounter-admision"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/encounter-admision>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_391d2365-379b-4b3a-b416-89ae62e2f501\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encounter 391d2365-379b-4b3a-b416-89ae62e2f501</b></p><a name=\"391d2365-379b-4b3a-b416-89ae62e2f501\"> </a><a name=\"hc391d2365-379b-4b3a-b416-89ae62e2f501\"> </a><a name=\"391d2365-379b-4b3a-b416-89ae62e2f501-en-US\"> </a><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode</a> EMER: emergency</p><p><b>serviceType</b>: <span title=\"Codes:{http://proceso-urgencia.minsal.cl/CodeSystem/eventos-urgencia admision}\">Admisión</span></p><p><b>subject</b>: <a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-6ec6dc25-4b65-4165-a545-9b796f60b997\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></p><p><b>episodeOfCare</b>: <a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-894bdb3a-8a18-44db-ab64-b13262a432cc\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://proceso-urgencia.minsal.cl/CodeSystem/tipos-participante-encounter companion}\">Acompañante</span></td><td><a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></td></tr></table><p><b>period</b>: 2024-05-04 12:00:00+0000 --&gt; (ongoing)</p><blockquote><p><b>hospitalization</b></p><p><b>admitSource</b>: <span title=\"Codes:{http://proceso-urgencia.minsal.cl/CodeSystem/medio-llegada 1}\">Ambulancia SAMU</span></p></blockquote><p><b>serviceProvider</b>: <a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-5491b8d5-e06c-4f89-beb7-75a1989cdc81\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "finished"] ; # 
+  fhir:class [
+     fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
+     fhir:code [ fhir:v "EMER" ]
+  ] ; # 
+  fhir:serviceType [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/eventos-urgencia"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "admision" ] ;
+       fhir:display [ fhir:v "Admisión" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:reference [ fhir:v "urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:episodeOfCare ( [
+     fhir:reference [ fhir:v "urn:uuid:894bdb3a-8a18-44db-ab64-b13262a432cc" ]
+  ] ) ; # 
+  fhir:participant ( [
+     fhir:type ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/tipos-participante-encounter"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "companion" ] ;
+         fhir:display [ fhir:v "Acompañante" ]
+       ] )
+     ] ) ;
+     fhir:individual [
+       fhir:reference [ fhir:v "urn:uuid:3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7" ]
+     ]
+  ] ) ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2024-05-04T12:00:00Z"^^xsd:dateTime ]
+  ] ; # 
+  fhir:hospitalization [
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/procedencia"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:Coding ;
+         fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/codigo-procedencia"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "9" ] ;
+         fhir:display [ fhir:v "Domicilio" ]
+       ]
+     ] [
+       fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/consulta-accidente"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "false"^^xsd:boolean ]
+     ] [
+       fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/ley-previsional"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:Coding ;
+         fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/ley-previsional"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "96" ] ;
+         fhir:display [ fhir:v "Ninguna" ]
+       ]
+     ] ) ;
+     fhir:admitSource [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/medio-llegada"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "1" ] ;
+         fhir:display [ fhir:v "Ambulancia SAMU" ]
+       ] )
+     ]
+  ] ; # 
+  fhir:serviceProvider [
+     fhir:reference [ fhir:v "urn:uuid:5491b8d5-e06c-4f89-beb7-75a1989cdc81" ]
+  ] . # 
+
+<urn:uuid:5491b8d5-e06c-4f89-beb7-75a1989cdc81> a fhir:Organization ;
+  fhir:id [ fhir:v "5491b8d5-e06c-4f89-beb7-75a1989cdc81"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/organizacion-establecimiento"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/organizacion-establecimiento>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_5491b8d5-e06c-4f89-beb7-75a1989cdc81\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organization 5491b8d5-e06c-4f89-beb7-75a1989cdc81</b></p><a name=\"5491b8d5-e06c-4f89-beb7-75a1989cdc81\"> </a><a name=\"hc5491b8d5-e06c-4f89-beb7-75a1989cdc81\"> </a><a name=\"5491b8d5-e06c-4f89-beb7-75a1989cdc81-en-US\"> </a><p><b>identifier</b>: <code>http://deis.minsal.cl/establecimientos</code>/114105</p><p><b>active</b>: true</p><p><b>name</b>: Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</p></div>"
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/servicio-salud"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:Coding ;
+       fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/servicio-salud"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "14" ] ;
+       fhir:display [ fhir:v "Servicio de Salud Metropolitano Sur Oriente" ]
+     ]
+  ] ) ; # 
+  fhir:identifier ( [
+     fhir:system [ fhir:v "http://deis.minsal.cl/establecimientos"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "114105" ]
+  ] ) ; # 
+  fhir:active [ fhir:v "true"^^xsd:boolean] ; # 
+  fhir:name [ fhir:v "Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza"] . # 
+
+<urn:uuid:3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7> a fhir:RelatedPerson ;
+  fhir:id [ fhir:v "3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/acompanante-urgencia"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/acompanante-urgencia>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RelatedPerson_3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RelatedPerson 3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7</b></p><a name=\"3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7\"> </a><a name=\"hc3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7\"> </a><a name=\"3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7-en-US\"> </a><p><b>patient</b>: <a href=\"Bundle-EJ1BundleAddmission.html#urn-uuid-6ec6dc25-4b65-4165-a545-9b796f60b997\">Bundle: type = message; timestamp = 2024-05-05 00:00:00+0000</a></p><p><b>relationship</b>: <span title=\"Codes:{http://proceso-urgencia.minsal.cl/CodeSystem/relacion-acompanante 5}\">Vecino(a)</span></p><p><b>name</b>: Raúl Muñoz Valdebenito(Official)</p><p><b>telecom</b>: ph: 555-555-5555(Mobile)</p></div>"
+  ] ; # 
+  fhir:patient [
+     fhir:reference [ fhir:v "urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:relationship ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/relacion-acompanante"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "5" ] ;
+       fhir:display [ fhir:v "Vecino(a)" ]
+     ] )
+  ] ) ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:text [ fhir:v "Raúl Muñoz Valdebenito" ] ;
+     fhir:family [
+       fhir:v "Muñoz" ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/segundo-apellido"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Valdebenito" ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "Raúl" ] )
+  ] ) ; # 
+  fhir:telecom ( [
+     fhir:system [ fhir:v "phone" ] ;
+     fhir:value [ fhir:v "555-555-5555" ] ;
+     fhir:use [ fhir:v "mobile" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

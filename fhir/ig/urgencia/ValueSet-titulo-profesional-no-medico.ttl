@@ -1,0 +1,61 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://proceso-urgencia.minsal.cl/ValueSet/titulo-profesional-no-medico> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "titulo-profesional-no-medico"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet titulo-profesional-no-medico</b></p><a name=\"titulo-profesional-no-medico\"> </a><a name=\"hctitulo-profesional-no-medico\"> </a><a name=\"titulo-profesional-no-medico-en-US\"> </a><ul><li>Include codes from<a href=\"CodeSystem-titulo-profesional.html\"><code>http://proceso-urgencia.minsal.cl/CodeSystem/titulo-profesional</code></a> where concept  is-not-a <a href=\"CodeSystem-titulo-profesional.html#titulo-profesional-1\">1</a> and concept  is-not-a <a href=\"CodeSystem-titulo-profesional.html#titulo-profesional-2\">2</a></li></ul></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://proceso-urgencia.minsal.cl/ValueSet/titulo-profesional-no-medico"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "VSTituloProfesionalNoMedico"] ; # 
+  fhir:title [ fhir:v "Título Profesional No Médico"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v "false"^^xsd:boolean] ; # 
+  fhir:date [ fhir:v "2024-08-27T17:49:18-04:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "ChileData"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "ChileData" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://chiledata.cl" ]
+     ] )
+  ] [
+     fhir:name [ fhir:v "Roberto Araneda" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "roberto.araneda@chiledata.cl" ] ;
+       fhir:use [ fhir:v "work" ]
+     ] )
+  ] [
+     fhir:name [ fhir:v "John Díaz" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "john.diaz@chiledata.cl" ] ;
+       fhir:use [ fhir:v "work" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Códigos de los títulos profesionales no médicos de un profesional de la salud que participa de la atención de un paciente"] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [ fhir:v "http://proceso-urgencia.minsal.cl/CodeSystem/titulo-profesional"^^xsd:anyURI ] ;
+       fhir:filter ( [
+         fhir:property [ fhir:v "concept" ] ;
+         fhir:op [ fhir:v "is-not-a" ] ;
+         fhir:value [ fhir:v "1" ]
+       ] [
+         fhir:property [ fhir:v "concept" ] ;
+         fhir:op [ fhir:v "is-not-a" ] ;
+         fhir:value [ fhir:v "2" ]
+       ] )
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

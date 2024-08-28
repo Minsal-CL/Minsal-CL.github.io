@@ -1,0 +1,44 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://proceso-urgencia.minsal.cl/EpisodeOfCare/894bdb3a-8a18-44db-ab64-b13262a432cc> a fhir:EpisodeOfCare ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "894bdb3a-8a18-44db-ab64-b13262a432cc"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://proceso-urgencia.minsal.cl/StructureDefinition/episodio-urgencia"^^xsd:anyURI ;
+       fhir:link <http://proceso-urgencia.minsal.cl/StructureDefinition/episodio-urgencia>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: EpisodeOfCare 894bdb3a-8a18-44db-ab64-b13262a432cc</b></p><a name=\"894bdb3a-8a18-44db-ab64-b13262a432cc\"> </a><a name=\"hc894bdb3a-8a18-44db-ab64-b13262a432cc\"> </a><a name=\"894bdb3a-8a18-44db-ab64-b13262a432cc-en-US\"> </a><p><b>identifier</b>: 123456-1</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ActCode EMER}\">emergency</span></p><p><b>patient</b>: <a href=\"Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-5491b8d5-e06c-4f89-beb7-75a1989cdc81.html\">Organization Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</a></p><p><b>period</b>: 2024-05-04 12:00:00+0000 --&gt; (ongoing)</p></div>"
+  ] ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "123456-1" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:type ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "EMER" ]
+     ] )
+  ] ) ; # 
+  fhir:patient [
+     fhir:link <http://proceso-urgencia.minsal.cl/Patient/6ec6dc25-4b65-4165-a545-9b796f60b997> ;
+     fhir:reference [ fhir:v "Patient/6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:managingOrganization [
+     fhir:link <http://proceso-urgencia.minsal.cl/Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81> ;
+     fhir:reference [ fhir:v "Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81" ]
+  ] ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2024-05-04T12:00:00Z"^^xsd:dateTime ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+
