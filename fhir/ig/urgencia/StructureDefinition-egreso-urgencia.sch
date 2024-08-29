@@ -10,6 +10,16 @@
     single schematron that validates contained resources (if you have any) 
   -->
   <sch:pattern>
+    <sch:title>f:Encounter</sch:title>
+    <sch:rule context="f:Encounter">
+      <sch:assert test="count(f:serviceType) &gt;= 1">serviceType: minimum cardinality of 'serviceType' is 1</sch:assert>
+      <sch:assert test="count(f:subject) &gt;= 1">subject: minimum cardinality of 'subject' is 1</sch:assert>
+      <sch:assert test="count(f:episodeOfCare) &gt;= 1">episodeOfCare: minimum cardinality of 'episodeOfCare' is 1</sch:assert>
+      <sch:assert test="count(f:episodeOfCare) &lt;= 1">episodeOfCare: maximum cardinality of 'episodeOfCare' is 1</sch:assert>
+      <sch:assert test="count(f:serviceProvider) &gt;= 1">serviceProvider: minimum cardinality of 'serviceProvider' is 1</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
     <sch:title>f:Encounter/f:participant</sch:title>
     <sch:rule context="f:Encounter/f:participant">
       <sch:assert test="count(f:type) &gt;= 1">type: minimum cardinality of 'type' is 1</sch:assert>

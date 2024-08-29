@@ -10,7 +10,7 @@
   "name" : "guiaimplementacionurgencia",
   "title" : "Guía de Implementación de Proceso de Urgencia",
   "status" : "draft",
-  "date" : "2024-08-27T17:49:18-04:00",
+  "date" : "2024-08-29T09:57:29-04:00",
   "publisher" : "ChileData",
   "contact" : [{
     "name" : "ChileData",
@@ -647,6 +647,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/acompanante-urgencia"
+      },
+      "name" : "Acompañante",
+      "description" : "Infoprmación del acompañante del paciente que acude a una unidad de urgencias.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "RelatedPerson"
       }],
       "reference" : {
@@ -664,8 +676,8 @@
       "reference" : {
         "reference" : "StructureDefinition/antecedentes-alergia"
       },
-      "name" : "AllergyIntolerance",
-      "description" : "Recurso para registrar los antecedentes de alergia del paciente",
+      "name" : "Alergias e Intolerancias",
+      "description" : "Registra los antecedentes de alergia o intolerancia del paciente",
       "exampleBoolean" : false
     },
     {
@@ -719,12 +731,48 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/categorizacion-paciente"
+      },
+      "name" : "Categorización de Paciente",
+      "description" : "Códigos de categorización de un paciente en un evento de urgencia.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/codigo-procedencia"
+      },
+      "name" : "Codigo Procedencia Admision",
+      "description" : "Códigos de procedencia de un paciente en un evento de urgencia.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/codigo-deis-servicios-salud"
+      },
+      "name" : "Codigos Servicio Salud",
+      "description" : "Códigos de Servicios de Salud DEIS (Norma 820)",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
         "reference" : "StructureDefinition/antecedente-acv"
       },
-      "name" : "Condition ACV",
+      "name" : "Condición ACV",
       "description" : "Registro de un antecedente de Accidente Cerebrovascular",
       "exampleBoolean" : false
     },
@@ -736,7 +784,7 @@
       "reference" : {
         "reference" : "StructureDefinition/antecedente-cancer"
       },
-      "name" : "Condition Cáncer",
+      "name" : "Condición Cáncer",
       "description" : "Registro de un antecedente de Cáncer",
       "exampleBoolean" : false
     },
@@ -748,7 +796,7 @@
       "reference" : {
         "reference" : "StructureDefinition/antecedente-dlp"
       },
-      "name" : "Condition DLP",
+      "name" : "Condición DLP",
       "description" : "Registro de un antecedente de Dislipidemia",
       "exampleBoolean" : false
     },
@@ -760,7 +808,7 @@
       "reference" : {
         "reference" : "StructureDefinition/antecedente-dm2"
       },
-      "name" : "Condition DM2",
+      "name" : "Condición DM2",
       "description" : "Registro de un antecedente de Diabetes Mellitus Tipo 2",
       "exampleBoolean" : false
     },
@@ -772,7 +820,7 @@
       "reference" : {
         "reference" : "StructureDefinition/antecedente-enf-coronaria"
       },
-      "name" : "Condition EnfCoronaria",
+      "name" : "Condición EnfCoronaria",
       "description" : "Registro de un antecedente de Enfermedad Coronaria",
       "exampleBoolean" : false
     },
@@ -784,7 +832,7 @@
       "reference" : {
         "reference" : "StructureDefinition/antecedente-epoc"
       },
-      "name" : "Condition EPOC",
+      "name" : "Condición EPOC",
       "description" : "Registro de un antecedente de Enfermedad Pulmonar Obstructiva Crónica",
       "exampleBoolean" : false
     },
@@ -796,7 +844,7 @@
       "reference" : {
         "reference" : "StructureDefinition/hipotesis-diagnostica"
       },
-      "name" : "Condition HipDiag",
+      "name" : "Condición HipDiag",
       "description" : "Registro de una hipótesis diagnóstica del paciente",
       "exampleBoolean" : false
     },
@@ -808,7 +856,7 @@
       "reference" : {
         "reference" : "StructureDefinition/antecedente-hta"
       },
-      "name" : "Condition HTA",
+      "name" : "Condición HTA",
       "description" : "Registro de un antecedente de Hipertensión Arterial",
       "exampleBoolean" : false
     },
@@ -820,8 +868,20 @@
       "reference" : {
         "reference" : "StructureDefinition/antecedente-insuf-cardiaca"
       },
-      "name" : "Condition InsufCardiaca",
+      "name" : "Condición InsufCardiaca",
       "description" : "Registro de un antecedente de Insuficiencia Cardiaca",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/consulta-accidente"
+      },
+      "name" : "Consulta Por Accidente",
+      "description" : "Extensión que registra si el paciente fue atendido por un accidente",
       "exampleBoolean" : false
     },
     {
@@ -866,30 +926,6 @@
         "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "CodeSystem/codigo-deis-establecimiento"
-      },
-      "name" : "CSCodigoEstablecimiento",
-      "description" : "Codigos Deis Establecimiento",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/codigo-paises"
-      },
-      "name" : "CSCodigoPaises",
-      "description" : "Códigos de países según ISO 3166 (Norma 820)",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
         "reference" : "CodeSystem/codigo-procedencia"
       },
       "name" : "CSCodigoProcedencia",
@@ -914,34 +950,10 @@
         "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "CodeSystem/comunas"
-      },
-      "name" : "CSComunas",
-      "description" : "Códigos de Comunas de Chile Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
         "reference" : "CodeSystem/eventos-urgencia"
       },
       "name" : "CSEventosUrgencia",
       "description" : "Códigos de eventos de urgencia",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/identidad-genero"
-      },
-      "name" : "CSIdentidadGenero",
-      "description" : "Códigos para la identidad de género",
       "exampleBoolean" : false
     },
     {
@@ -986,58 +998,10 @@
         "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "CodeSystem/provincias"
-      },
-      "name" : "CSProvincias",
-      "description" : "Códigos de Provincias de Chile",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/pueblo-indigena"
-      },
-      "name" : "CSPuebloIndigena",
-      "description" : "Códigos de los pueblos indígenas de Chile",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/regiones"
-      },
-      "name" : "CSRegiones",
-      "description" : "Códigos de Regiones de Chile Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
         "reference" : "CodeSystem/relacion-acompanante"
       },
       "name" : "CSRelacionAcompanante",
       "description" : "Códigos de relación de acompañante",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/sexo-biologico"
-      },
-      "name" : "CSSexoBiologico",
-      "description" : "Código de Sexo Biológico",
       "exampleBoolean" : false
     },
     {
@@ -1204,8 +1168,8 @@
       "reference" : {
         "reference" : "StructureDefinition/encounter-admision"
       },
-      "name" : "Encounter Admisión",
-      "description" : "Registro de un encuentro de admisión de un paciente a la urgencia de un establecimiento de salud.",
+      "name" : "Encuentro Admisión",
+      "description" : "Registro de un encuentro de admisión de un paciente a un servicio de urgencia de un establecimiento de salud.",
       "exampleBoolean" : false
     },
     {
@@ -1216,8 +1180,8 @@
       "reference" : {
         "reference" : "StructureDefinition/encuentro-atencion"
       },
-      "name" : "Encounter Atención",
-      "description" : "Registro de un encuentro de atención de urgencia de un paciente en un establecimiento de salud.",
+      "name" : "Encuentro Atención",
+      "description" : "Registro de un encuentro de atención de urgencia de un paciente en servicio de urgencia de un establecimiento de salud.",
       "exampleBoolean" : false
     },
     {
@@ -1228,8 +1192,8 @@
       "reference" : {
         "reference" : "StructureDefinition/encounter-categorizacion"
       },
-      "name" : "Encounter Categorización",
-      "description" : "Registro de un encuentro de categorización de un paciente en un servicio de urgencia.",
+      "name" : "Encuentro Categorización",
+      "description" : "Registro de un encuentro de categorización de un paciente en un servicio de urgencia de un establecimiento de salud.",
       "exampleBoolean" : false
     },
     {
@@ -1240,8 +1204,8 @@
       "reference" : {
         "reference" : "StructureDefinition/egreso-urgencia"
       },
-      "name" : "Encounter Egreso",
-      "description" : "Registro de un encuentro de egreso de atención de urgencia",
+      "name" : "Encuentro Egreso",
+      "description" : "Registro de un encuentro de egreso de un paciente en un servicio de urgencia.",
       "exampleBoolean" : false
     },
     {
@@ -1252,7 +1216,7 @@
       "reference" : {
         "reference" : "StructureDefinition/episodio-urgencia"
       },
-      "name" : "EpisodeOfCare Urgencia",
+      "name" : "Episodio Urgencia",
       "description" : "Este recuerso representa un episodio de atención de urgencia, el cual agrupa las diferentes atenciones que se le han brindado a un paciente en un servicio de urgencia.",
       "exampleBoolean" : false
     },
@@ -1355,265 +1319,13 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
+        "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/evolucion-clinica"
+        "reference" : "ValueSet/eventos-urgencia"
       },
-      "name" : "Evolución Clínica",
-      "description" : "Extensión para registrar la evolución clínica del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/anexo-direccion-residencia"
-      },
-      "name" : "ExtAnexoDireccionResidencia",
-      "description" : "Extensión para el anexo de dirección de residencia del paciente.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/comuna"
-      },
-      "name" : "ExtComuna",
-      "description" : "Comuna de residencia en base a Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/consulta-accidente"
-      },
-      "name" : "ExtConsultaPorAccidente",
-      "description" : "Si el paciente fue atendido por un accidente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/fecha-realizacion-solicitud"
-      },
-      "name" : "Extensión Fecha Realización Solicitud",
-      "description" : "Esta extensión se emplea para registrar la fecha en que se llevó a cabo la realización de una solicitud de atención de urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/fecha-resultado-solicitud"
-      },
-      "name" : "Extensión Fecha Resultado Solicitud",
-      "description" : "Esta extensión se emplea para registrar la fecha en que se obtuvo el resultado de una solicitud de atención de urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/fecha-solicitud-especialista"
-      },
-      "name" : "Extensión Fecha Solicitud Especialista",
-      "description" : "Esta extensión indica la fecha en la que se solicitó la atención de un especialista en el contexto de un encuentro de atención de urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/titulo-profesional-categorizador"
-      },
-      "name" : "Extensión Título Profesional Categorizador",
-      "description" : "Profesión del profesional de la salud que categoriza al paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/identidad-genero"
-      },
-      "name" : "ExtIdentidadGenero",
-      "description" : "Identidad de género del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/ley-previsional"
-      },
-      "name" : "ExtLeyPrevisional",
-      "description" : "Extensión para la Ley Previsional",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/medio-llegada"
-      },
-      "name" : "ExtMedioLlegada",
-      "description" : "Medio de llegada del paciente al establecimiento de salud",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/nacionalidad"
-      },
-      "name" : "ExtNacionalidad",
-      "description" : "Extension para la nacionalidad del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/pais-emisor-documento"
-      },
-      "name" : "ExtPaisEmisorDocumento",
-      "description" : "País emisor del documento de identidad",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/pais-origen"
-      },
-      "name" : "ExtPaisOrigen",
-      "description" : "Extension para indicar el pais de origen del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/prevision"
-      },
-      "name" : "ExtPrevisión",
-      "description" : "Previsión de salud del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/procedencia"
-      },
-      "name" : "ExtProcedenciaOrigenAdmision",
-      "description" : "Procedencia del paciente al momento de la atención.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/pueblo-indigena"
-      },
-      "name" : "ExtPuebloIndigena",
-      "description" : "Extension para identificar si el paciente pertenece a un pueblo indígena",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/region"
-      },
-      "name" : "ExtRegion",
-      "description" : "región de residencia en base a Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/segundo-apellido"
-      },
-      "name" : "ExtSegundoApellido",
-      "description" : "Segundo apellido del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/sexo-biologico"
-      },
-      "name" : "ExtSexoBiologico",
-      "description" : "Sexo biológico del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/tipo-via-residencia"
-      },
-      "name" : "ExtTipoViaResidencia",
-      "description" : "Tipo Vía Residencia",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/examenes-categorizacion"
-      },
-      "name" : "Exámenes Categorización",
-      "description" : "Perfil que registra las mediciones de signos vitales en la categorización de un paciente.",
+      "name" : "Eventos Urgencia",
+      "description" : "Códigos de eventos de urgencia",
       "exampleBoolean" : false
     },
     {
@@ -1646,10 +1358,34 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/indicaciones"
+        "reference" : "StructureDefinition/fecha-realizacion-solicitud"
       },
-      "name" : "Indicaciones",
-      "description" : "Extensión para registrar las indicaciones del paciente",
+      "name" : "Fecha Realización Solicitud",
+      "description" : "Extensión que registra la fecha en que se llevó a cabo la realización de una solicitud de atención de urgencia.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/fecha-resultado-solicitud"
+      },
+      "name" : "Fecha Resultado Solicitud",
+      "description" : "Extensión que registra la fecha en que se obtuvo el resultado de una solicitud de atención de urgencia.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/fecha-solicitud-especialista"
+      },
+      "name" : "Fecha Solicitud Especialista",
+      "description" : "Extensión que registra la fecha en la que se solicitó la atención de un especialista en el contexto de un encuentro de atención de urgencia.",
       "exampleBoolean" : false
     },
     {
@@ -1751,6 +1487,54 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ley-previsional"
+      },
+      "name" : "Ley Previsional",
+      "description" : "Extensión para registrar la Ley Previsional",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/ley-previsional"
+      },
+      "name" : "Ley Previsional",
+      "description" : "Códigos de Ley Previsional",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/medio-llegada"
+      },
+      "name" : "Medio Llegada",
+      "description" : "Extensión que registra el medio de llegada del paciente al establecimiento de salud",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/medio-llegada"
+      },
+      "name" : "Medio Llegada Admision",
+      "description" : "Códigos de Medio de Llegada",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
@@ -1763,48 +1547,12 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/morbilidad-previa"
-      },
-      "name" : "Morbilidad Previa",
-      "description" : "Extensión para registrar la morbilidad previa del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/motivo-consulta-categorizacion"
-      },
-      "name" : "Motivo Consulta Categorización",
-      "description" : "Perfil que registra el motivo de consulta en la categorización de un paciente.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/observacion-egreso"
-      },
-      "name" : "Observación Egreso Urgencia",
-      "description" : "Recurso empleado para registra toda la información relacionada con el egreso de un paciente de un servicio de urgencia",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
         "reference" : "StructureDefinition/observacion-anamnesis"
       },
-      "name" : "Observation Anamnesis",
+      "name" : "Observación Anamnesis",
       "description" : "Observación de la anamnesis de un paciente en un servicio de urgencia",
       "exampleBoolean" : false
     },
@@ -1816,8 +1564,20 @@
       "reference" : {
         "reference" : "StructureDefinition/observacion-atencion"
       },
-      "name" : "Observation Atención",
-      "description" : "Información adicional registrada en un encuentro de atención de urgencia",
+      "name" : "Observación Atención",
+      "description" : "Observación que regista información requerida en un encuentro de atención de urgencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/observacion-egreso"
+      },
+      "name" : "Observación Egreso",
+      "description" : "Recurso empleado para registra toda la información relacionada con el egreso de un paciente de un servicio de urgencia",
       "exampleBoolean" : false
     },
     {
@@ -1828,7 +1588,7 @@
       "reference" : {
         "reference" : "StructureDefinition/observacion-evol-clin"
       },
-      "name" : "Observation Evolución Clínica Urgencia",
+      "name" : "Observación Evolución Clínica",
       "description" : "Observación de la evolución clínica de un paciente en un servicio de urgencia",
       "exampleBoolean" : false
     },
@@ -1840,8 +1600,8 @@
       "reference" : {
         "reference" : "StructureDefinition/indicacion-term-urg"
       },
-      "name" : "Observation Indicaciones",
-      "description" : "Se refiere a recomendación que el profesional que decide el alta, comunica y explica al usuario o tutor, de manera verbal y registra en el dato de urgencia, para dar continuidad a los cuidados ambulatorios o en caso de derivación u hospitalización, el plan terapéutico planteado a seguir.",
+      "name" : "Observación Indicaciones",
+      "description" : "Registro de la recomendación que el profesional que decide el alta, comunica y explica al usuario o tutor, de manera verbal y registra en el dato de urgencia, para dar continuidad a los cuidados ambulatorios o en caso de derivación u hospitalización, el plan terapéutico planteado a seguir.",
       "exampleBoolean" : false
     },
     {
@@ -1852,8 +1612,32 @@
       "reference" : {
         "reference" : "StructureDefinition/observacion-morb-prev"
       },
-      "name" : "Observation Morbilidad Previa",
-      "description" : "Observación que registra si el paciente atendido tiene alguna patología anteriormente diagnosticada, que puede o no estar relacionada con su motivo de consulta.",
+      "name" : "Observación Morbilidad Previa",
+      "description" : "Registra en texto libre si el paciente atendido tiene alguna patología anteriormente diagnosticada, que puede o no estar relacionada con su motivo de consulta.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/motivo-consulta-categorizacion"
+      },
+      "name" : "Observación Motivo Consulta",
+      "description" : "Recurso empleado para registrar el motivo de consulta en la categorización de un paciente en una unidad de urgencias.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/examenes-categorizacion"
+      },
+      "name" : "Observación Signos Vitales",
+      "description" : "Registra las mediciones de signos vitales en la categorización de un paciente.",
       "exampleBoolean" : false
     },
     {
@@ -1864,7 +1648,7 @@
       "reference" : {
         "reference" : "StructureDefinition/codigo-categorizacion"
       },
-      "name" : "Observation Sistema Categorización",
+      "name" : "Observación Sistema Categorización",
       "description" : "Recurso empleado para registrar la información sobre el sistema de categorización de un paciente en un servicio de urgencia.",
       "exampleBoolean" : false
     },
@@ -1907,6 +1691,42 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/prevision"
+      },
+      "name" : "Prevision",
+      "description" : "La previsión es la  variable determinada el sistema de aseguramiento de salud del paciente.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/prevision"
+      },
+      "name" : "Previsión",
+      "description" : "Previsión de salud del paciente",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/procedencia"
+      },
+      "name" : "Procedencia",
+      "description" : "Procedencia del paciente al momento de la atención.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
@@ -1926,18 +1746,6 @@
       },
       "name" : "Profesional No Médico",
       "description" : "Profesional no médico que participa en la atención de urgencia de un paciente.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/acompanante-urgencia"
-      },
-      "name" : "ProfileRelatedPerson",
-      "description" : "Información de contacto de una persona relacionada con el paciente en caso de urgencia.",
       "exampleBoolean" : false
     },
     {
@@ -1998,6 +1806,18 @@
       },
       "name" : "Pueblos Originarios Perteneciente",
       "description" : "Pueblos Originarios Perteneciente",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/relacion-acompanante"
+      },
+      "name" : "Relacion Acompañante",
+      "description" : "Códigos de relación del acompañante con el paciente.",
       "exampleBoolean" : false
     },
     {
@@ -2092,8 +1912,20 @@
       "reference" : {
         "reference" : "StructureDefinition/solcitud-urgencia"
       },
-      "name" : "Solicitud Urgencia",
-      "description" : "ServiceRequest para registrar una solicitud creada durante un encuentro de atención de urgencia",
+      "name" : "Solicitud",
+      "description" : "Recurso empoleado para registrar una solicitud creada durante un encuentro de atención de urgencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/tipo-sistema-categorizacion"
+      },
+      "name" : "Tipo de sistema de categorización",
+      "description" : "Códigos tipo de sistema de categorización",
       "exampleBoolean" : false
     },
     {
@@ -2147,6 +1979,42 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tipo-via-residencia"
+      },
+      "name" : "Tipo Via Residencia",
+      "description" : "Tipo Vía Residencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/tipo-via-residencia"
+      },
+      "name" : "Tipo Via Residencia",
+      "description" : "Códigos de tipo de vía de residencia Norma 820",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/tipos-participante-encounter"
+      },
+      "name" : "Tipos Participante Encounter",
+      "description" : "Códigos de los tipos de participante de un Encounter",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
       }],
       "reference" : {
@@ -2171,12 +2039,24 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/titulo-profesional-categorizador"
+      },
+      "name" : "Título Profesional Categorizador",
+      "description" : "Extensión que registra el título del profesional de la salud que categoriza al paciente",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
       }],
       "reference" : {
         "reference" : "ValueSet/titulo-profesional-categorizador"
       },
-      "name" : "Título Profesional Categoriazador",
+      "name" : "Título Profesional Categorizador",
       "description" : "Códigos de los títulos profesionales de un profesional categorizador de un paciente en un servicio de urgencia",
       "exampleBoolean" : false
     },
@@ -2207,10 +2087,10 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
+        "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "CodeSystem/unidad-hospitalaria-destino"
+        "reference" : "ValueSet/unidad-hospitalaria-destino"
       },
       "name" : "Unidad Hospitalaria Destino",
       "description" : "Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento.",
@@ -2219,240 +2099,12 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
+        "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "ValueSet/tipo-sistema-categorizacion"
+        "reference" : "CodeSystem/unidad-hospitalaria-destino"
       },
-      "name" : "VS Tipo de sistema de categorización",
-      "description" : "Códigos tipo de sistema de categorización",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/categorizacion-paciente"
-      },
-      "name" : "VSCategorización de Paciente",
-      "description" : "Códigos de categorización de un paciente en un evento de urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/codigo-paises"
-      },
-      "name" : "VSCodigoPaises",
-      "description" : "Códigos de países según ISO 3166 (Norma 820)",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/codigo-procedencia"
-      },
-      "name" : "VSCodigoProcedenciaAdmision",
-      "description" : "Códigos de procedencia de un paciente en un evento de urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/codigo-deis-establecimientos"
-      },
-      "name" : "VSCodigosEstablecimiento",
-      "description" : "Códigos de Establecimientos de Salud DEIS (Norma 820)",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/codigo-deis-servicios-salud"
-      },
-      "name" : "VSCodigosServicioSalud",
-      "description" : "Códigos de Servicios de Salud DEIS (Norma 820)",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/comunas"
-      },
-      "name" : "VSComunas",
-      "description" : "Códigos de Comunas de Chile Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/eventos-urgencia"
-      },
-      "name" : "VSEventosUrgencia",
-      "description" : "Códigos de eventos de urgencia",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/identidad-genero"
-      },
-      "name" : "VSIdentidadGenero",
-      "description" : "Códigos de identidad de género",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/ley-previsional"
-      },
-      "name" : "VSLeyPrevisional",
-      "description" : "Códigos de Ley Previsional",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/medio-llegada"
-      },
-      "name" : "VSMedioLlegadaAdmision",
-      "description" : "Códigos de Medio de Llegada",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/prevision"
-      },
-      "name" : "VSPrevision",
-      "description" : "La previsión es la  variable determinada el sistema de aseguramiento de salud del paciente.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/provincias"
-      },
-      "name" : "VSProvincias",
-      "description" : "Códigos de Provincias de Chile Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/pueblo-indigena"
-      },
-      "name" : "VSPuebloIndigena",
-      "description" : "Códigos de los pueblos indígenas de Chile",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/regiones"
-      },
-      "name" : "VSRegiones",
-      "description" : "Códigos de Regiones de Chile Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/relacion-acompanante"
-      },
-      "name" : "VSRelacionAcompanante",
-      "description" : "Códigos de relación del acompañante con el paciente.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/sexo-biologico"
-      },
-      "name" : "VSSexoBiologico",
-      "description" : "Sexo biológico de la persona.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/tipos-participante-encounter"
-      },
-      "name" : "VSTiposParticipanteEncounter",
-      "description" : "Códigos de los tipos de participante de un Encounter",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/tipo-via-residencia"
-      },
-      "name" : "VSTipoViaResidencia",
-      "description" : "Códigos de tipo de vía de residencia Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/unidad-hospitalaria-destino"
-      },
-      "name" : "VSUnidadHospitalariaDestino",
+      "name" : "Unidad Hospitalaria Destino",
       "description" : "Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento.",
       "exampleBoolean" : false
     }],

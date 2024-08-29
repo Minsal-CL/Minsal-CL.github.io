@@ -11,7 +11,7 @@
   <name value="guiaimplementacionurgencia"/>
   <title value="Guía de Implementación de Proceso de Urgencia"/>
   <status value="draft"/>
-  <date value="2024-08-27T17:49:18-04:00"/>
+  <date value="2024-08-29T09:57:29-04:00"/>
   <publisher value="ChileData"/>
   <contact>
     <name value="ChileData"/>
@@ -489,6 +489,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/acompanante-urgencia"/>
+      </reference>
+      <name value="Acompañante"/>
+      <description value="Infoprmación del acompañante del paciente que acude a una unidad de urgencias."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="RelatedPerson"/>
       </extension>
       <reference>
@@ -505,8 +516,8 @@
       <reference>
         <reference value="StructureDefinition/antecedentes-alergia"/>
       </reference>
-      <name value="AllergyIntolerance"/>
-      <description value="Recurso para registrar los antecedentes de alergia del paciente"/>
+      <name value="Alergias e Intolerancias"/>
+      <description value="Registra los antecedentes de alergia o intolerancia del paciente"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -555,12 +566,45 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/categorizacion-paciente"/>
+      </reference>
+      <name value="Categorización de Paciente"/>
+      <description value="Códigos de categorización de un paciente en un evento de urgencia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/codigo-procedencia"/>
+      </reference>
+      <name value="Codigo Procedencia Admision"/>
+      <description value="Códigos de procedencia de un paciente en un evento de urgencia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/codigo-deis-servicios-salud"/>
+      </reference>
+      <name value="Codigos Servicio Salud"/>
+      <description value="Códigos de Servicios de Salud DEIS (Norma 820)"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
         <reference value="StructureDefinition/antecedente-acv"/>
       </reference>
-      <name value="Condition ACV"/>
+      <name value="Condición ACV"/>
       <description value="Registro de un antecedente de Accidente Cerebrovascular"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -571,7 +615,7 @@
       <reference>
         <reference value="StructureDefinition/antecedente-cancer"/>
       </reference>
-      <name value="Condition Cáncer"/>
+      <name value="Condición Cáncer"/>
       <description value="Registro de un antecedente de Cáncer"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -582,7 +626,7 @@
       <reference>
         <reference value="StructureDefinition/antecedente-dlp"/>
       </reference>
-      <name value="Condition DLP"/>
+      <name value="Condición DLP"/>
       <description value="Registro de un antecedente de Dislipidemia"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -593,7 +637,7 @@
       <reference>
         <reference value="StructureDefinition/antecedente-dm2"/>
       </reference>
-      <name value="Condition DM2"/>
+      <name value="Condición DM2"/>
       <description value="Registro de un antecedente de Diabetes Mellitus Tipo 2"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -604,7 +648,7 @@
       <reference>
         <reference value="StructureDefinition/antecedente-enf-coronaria"/>
       </reference>
-      <name value="Condition EnfCoronaria"/>
+      <name value="Condición EnfCoronaria"/>
       <description value="Registro de un antecedente de Enfermedad Coronaria"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -615,7 +659,7 @@
       <reference>
         <reference value="StructureDefinition/antecedente-epoc"/>
       </reference>
-      <name value="Condition EPOC"/>
+      <name value="Condición EPOC"/>
       <description value="Registro de un antecedente de Enfermedad Pulmonar Obstructiva Crónica"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -626,7 +670,7 @@
       <reference>
         <reference value="StructureDefinition/hipotesis-diagnostica"/>
       </reference>
-      <name value="Condition HipDiag"/>
+      <name value="Condición HipDiag"/>
       <description value="Registro de una hipótesis diagnóstica del paciente"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -637,7 +681,7 @@
       <reference>
         <reference value="StructureDefinition/antecedente-hta"/>
       </reference>
-      <name value="Condition HTA"/>
+      <name value="Condición HTA"/>
       <description value="Registro de un antecedente de Hipertensión Arterial"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -648,8 +692,19 @@
       <reference>
         <reference value="StructureDefinition/antecedente-insuf-cardiaca"/>
       </reference>
-      <name value="Condition InsufCardiaca"/>
+      <name value="Condición InsufCardiaca"/>
       <description value="Registro de un antecedente de Insuficiencia Cardiaca"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/consulta-accidente"/>
+      </reference>
+      <name value="Consulta Por Accidente"/>
+      <description value="Extensión que registra si el paciente fue atendido por un accidente"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -690,28 +745,6 @@
         <valueString value="CodeSystem"/>
       </extension>
       <reference>
-        <reference value="CodeSystem/codigo-deis-establecimiento"/>
-      </reference>
-      <name value="CSCodigoEstablecimiento"/>
-      <description value="Codigos Deis Establecimiento"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/codigo-paises"/>
-      </reference>
-      <name value="CSCodigoPaises"/>
-      <description value="Códigos de países según ISO 3166 (Norma 820)"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
         <reference value="CodeSystem/codigo-procedencia"/>
       </reference>
       <name value="CSCodigoProcedencia"/>
@@ -734,32 +767,10 @@
         <valueString value="CodeSystem"/>
       </extension>
       <reference>
-        <reference value="CodeSystem/comunas"/>
-      </reference>
-      <name value="CSComunas"/>
-      <description value="Códigos de Comunas de Chile Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
         <reference value="CodeSystem/eventos-urgencia"/>
       </reference>
       <name value="CSEventosUrgencia"/>
       <description value="Códigos de eventos de urgencia"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/identidad-genero"/>
-      </reference>
-      <name value="CSIdentidadGenero"/>
-      <description value="Códigos para la identidad de género"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -800,54 +811,10 @@
         <valueString value="CodeSystem"/>
       </extension>
       <reference>
-        <reference value="CodeSystem/provincias"/>
-      </reference>
-      <name value="CSProvincias"/>
-      <description value="Códigos de Provincias de Chile"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/pueblo-indigena"/>
-      </reference>
-      <name value="CSPuebloIndigena"/>
-      <description value="Códigos de los pueblos indígenas de Chile"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/regiones"/>
-      </reference>
-      <name value="CSRegiones"/>
-      <description value="Códigos de Regiones de Chile Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
         <reference value="CodeSystem/relacion-acompanante"/>
       </reference>
       <name value="CSRelacionAcompanante"/>
       <description value="Códigos de relación de acompañante"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/sexo-biologico"/>
-      </reference>
-      <name value="CSSexoBiologico"/>
-      <description value="Código de Sexo Biológico"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1000,8 +967,8 @@
       <reference>
         <reference value="StructureDefinition/encounter-admision"/>
       </reference>
-      <name value="Encounter Admisión"/>
-      <description value="Registro de un encuentro de admisión de un paciente a la urgencia de un establecimiento de salud."/>
+      <name value="Encuentro Admisión"/>
+      <description value="Registro de un encuentro de admisión de un paciente a un servicio de urgencia de un establecimiento de salud."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1011,8 +978,8 @@
       <reference>
         <reference value="StructureDefinition/encuentro-atencion"/>
       </reference>
-      <name value="Encounter Atención"/>
-      <description value="Registro de un encuentro de atención de urgencia de un paciente en un establecimiento de salud."/>
+      <name value="Encuentro Atención"/>
+      <description value="Registro de un encuentro de atención de urgencia de un paciente en servicio de urgencia de un establecimiento de salud."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1022,8 +989,8 @@
       <reference>
         <reference value="StructureDefinition/encounter-categorizacion"/>
       </reference>
-      <name value="Encounter Categorización"/>
-      <description value="Registro de un encuentro de categorización de un paciente en un servicio de urgencia."/>
+      <name value="Encuentro Categorización"/>
+      <description value="Registro de un encuentro de categorización de un paciente en un servicio de urgencia de un establecimiento de salud."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1033,8 +1000,8 @@
       <reference>
         <reference value="StructureDefinition/egreso-urgencia"/>
       </reference>
-      <name value="Encounter Egreso"/>
-      <description value="Registro de un encuentro de egreso de atención de urgencia"/>
+      <name value="Encuentro Egreso"/>
+      <description value="Registro de un encuentro de egreso de un paciente en un servicio de urgencia."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1044,7 +1011,7 @@
       <reference>
         <reference value="StructureDefinition/episodio-urgencia"/>
       </reference>
-      <name value="EpisodeOfCare Urgencia"/>
+      <name value="Episodio Urgencia"/>
       <description value="Este recuerso representa un episodio de atención de urgencia, el cual agrupa las diferentes atenciones que se le han brindado a un paciente en un servicio de urgencia."/>
       <exampleBoolean value="false"/>
     </resource>
@@ -1138,244 +1105,13 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
+        <valueString value="ValueSet"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/evolucion-clinica"/>
+        <reference value="ValueSet/eventos-urgencia"/>
       </reference>
-      <name value="Evolución Clínica"/>
-      <description value="Extensión para registrar la evolución clínica del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/anexo-direccion-residencia"/>
-      </reference>
-      <name value="ExtAnexoDireccionResidencia"/>
-      <description value="Extensión para el anexo de dirección de residencia del paciente."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/comuna"/>
-      </reference>
-      <name value="ExtComuna"/>
-      <description value="Comuna de residencia en base a Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/consulta-accidente"/>
-      </reference>
-      <name value="ExtConsultaPorAccidente"/>
-      <description value="Si el paciente fue atendido por un accidente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/fecha-realizacion-solicitud"/>
-      </reference>
-      <name value="Extensión Fecha Realización Solicitud"/>
-      <description value="Esta extensión se emplea para registrar la fecha en que se llevó a cabo la realización de una solicitud de atención de urgencia."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/fecha-resultado-solicitud"/>
-      </reference>
-      <name value="Extensión Fecha Resultado Solicitud"/>
-      <description value="Esta extensión se emplea para registrar la fecha en que se obtuvo el resultado de una solicitud de atención de urgencia."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/fecha-solicitud-especialista"/>
-      </reference>
-      <name value="Extensión Fecha Solicitud Especialista"/>
-      <description value="Esta extensión indica la fecha en la que se solicitó la atención de un especialista en el contexto de un encuentro de atención de urgencia."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/titulo-profesional-categorizador"/>
-      </reference>
-      <name value="Extensión Título Profesional Categorizador"/>
-      <description value="Profesión del profesional de la salud que categoriza al paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/identidad-genero"/>
-      </reference>
-      <name value="ExtIdentidadGenero"/>
-      <description value="Identidad de género del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/ley-previsional"/>
-      </reference>
-      <name value="ExtLeyPrevisional"/>
-      <description value="Extensión para la Ley Previsional"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/medio-llegada"/>
-      </reference>
-      <name value="ExtMedioLlegada"/>
-      <description value="Medio de llegada del paciente al establecimiento de salud"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/nacionalidad"/>
-      </reference>
-      <name value="ExtNacionalidad"/>
-      <description value="Extension para la nacionalidad del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/pais-emisor-documento"/>
-      </reference>
-      <name value="ExtPaisEmisorDocumento"/>
-      <description value="País emisor del documento de identidad"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/pais-origen"/>
-      </reference>
-      <name value="ExtPaisOrigen"/>
-      <description value="Extension para indicar el pais de origen del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/prevision"/>
-      </reference>
-      <name value="ExtPrevisión"/>
-      <description value="Previsión de salud del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/procedencia"/>
-      </reference>
-      <name value="ExtProcedenciaOrigenAdmision"/>
-      <description value="Procedencia del paciente al momento de la atención."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/pueblo-indigena"/>
-      </reference>
-      <name value="ExtPuebloIndigena"/>
-      <description value="Extension para identificar si el paciente pertenece a un pueblo indígena"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/region"/>
-      </reference>
-      <name value="ExtRegion"/>
-      <description value="región de residencia en base a Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/segundo-apellido"/>
-      </reference>
-      <name value="ExtSegundoApellido"/>
-      <description value="Segundo apellido del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/sexo-biologico"/>
-      </reference>
-      <name value="ExtSexoBiologico"/>
-      <description value="Sexo biológico del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/tipo-via-residencia"/>
-      </reference>
-      <name value="ExtTipoViaResidencia"/>
-      <description value="Tipo Vía Residencia"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/examenes-categorizacion"/>
-      </reference>
-      <name value="Exámenes Categorización"/>
-      <description value="Perfil que registra las mediciones de signos vitales en la categorización de un paciente."/>
+      <name value="Eventos Urgencia"/>
+      <description value="Códigos de eventos de urgencia"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1405,10 +1141,32 @@
         <valueString value="StructureDefinition:extension"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/indicaciones"/>
+        <reference value="StructureDefinition/fecha-realizacion-solicitud"/>
       </reference>
-      <name value="Indicaciones"/>
-      <description value="Extensión para registrar las indicaciones del paciente"/>
+      <name value="Fecha Realización Solicitud"/>
+      <description value="Extensión que registra la fecha en que se llevó a cabo la realización de una solicitud de atención de urgencia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/fecha-resultado-solicitud"/>
+      </reference>
+      <name value="Fecha Resultado Solicitud"/>
+      <description value="Extensión que registra la fecha en que se obtuvo el resultado de una solicitud de atención de urgencia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/fecha-solicitud-especialista"/>
+      </reference>
+      <name value="Fecha Solicitud Especialista"/>
+      <description value="Extensión que registra la fecha en la que se solicitó la atención de un especialista en el contexto de un encuentro de atención de urgencia."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1501,6 +1259,50 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ley-previsional"/>
+      </reference>
+      <name value="Ley Previsional"/>
+      <description value="Extensión para registrar la Ley Previsional"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/ley-previsional"/>
+      </reference>
+      <name value="Ley Previsional"/>
+      <description value="Códigos de Ley Previsional"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/medio-llegada"/>
+      </reference>
+      <name value="Medio Llegada"/>
+      <description value="Extensión que registra el medio de llegada del paciente al establecimiento de salud"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/medio-llegada"/>
+      </reference>
+      <name value="Medio Llegada Admision"/>
+      <description value="Códigos de Medio de Llegada"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
@@ -1512,45 +1314,12 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/morbilidad-previa"/>
-      </reference>
-      <name value="Morbilidad Previa"/>
-      <description value="Extensión para registrar la morbilidad previa del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/motivo-consulta-categorizacion"/>
-      </reference>
-      <name value="Motivo Consulta Categorización"/>
-      <description value="Perfil que registra el motivo de consulta en la categorización de un paciente."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/observacion-egreso"/>
-      </reference>
-      <name value="Observación Egreso Urgencia"/>
-      <description value="Recurso empleado para registra toda la información relacionada con el egreso de un paciente de un servicio de urgencia"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
         <reference value="StructureDefinition/observacion-anamnesis"/>
       </reference>
-      <name value="Observation Anamnesis"/>
+      <name value="Observación Anamnesis"/>
       <description value="Observación de la anamnesis de un paciente en un servicio de urgencia"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -1561,8 +1330,19 @@
       <reference>
         <reference value="StructureDefinition/observacion-atencion"/>
       </reference>
-      <name value="Observation Atención"/>
-      <description value="Información adicional registrada en un encuentro de atención de urgencia"/>
+      <name value="Observación Atención"/>
+      <description value="Observación que regista información requerida en un encuentro de atención de urgencia"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/observacion-egreso"/>
+      </reference>
+      <name value="Observación Egreso"/>
+      <description value="Recurso empleado para registra toda la información relacionada con el egreso de un paciente de un servicio de urgencia"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1572,7 +1352,7 @@
       <reference>
         <reference value="StructureDefinition/observacion-evol-clin"/>
       </reference>
-      <name value="Observation Evolución Clínica Urgencia"/>
+      <name value="Observación Evolución Clínica"/>
       <description value="Observación de la evolución clínica de un paciente en un servicio de urgencia"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -1583,8 +1363,8 @@
       <reference>
         <reference value="StructureDefinition/indicacion-term-urg"/>
       </reference>
-      <name value="Observation Indicaciones"/>
-      <description value="Se refiere a recomendación que el profesional que decide el alta, comunica y explica al usuario o tutor, de manera verbal y registra en el dato de urgencia, para dar continuidad a los cuidados ambulatorios o en caso de derivación u hospitalización, el plan terapéutico planteado a seguir."/>
+      <name value="Observación Indicaciones"/>
+      <description value="Registro de la recomendación que el profesional que decide el alta, comunica y explica al usuario o tutor, de manera verbal y registra en el dato de urgencia, para dar continuidad a los cuidados ambulatorios o en caso de derivación u hospitalización, el plan terapéutico planteado a seguir."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1594,8 +1374,30 @@
       <reference>
         <reference value="StructureDefinition/observacion-morb-prev"/>
       </reference>
-      <name value="Observation Morbilidad Previa"/>
-      <description value="Observación que registra si el paciente atendido tiene alguna patología anteriormente diagnosticada, que puede o no estar relacionada con su motivo de consulta."/>
+      <name value="Observación Morbilidad Previa"/>
+      <description value="Registra en texto libre si el paciente atendido tiene alguna patología anteriormente diagnosticada, que puede o no estar relacionada con su motivo de consulta."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/motivo-consulta-categorizacion"/>
+      </reference>
+      <name value="Observación Motivo Consulta"/>
+      <description value="Recurso empleado para registrar el motivo de consulta en la categorización de un paciente en una unidad de urgencias."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/examenes-categorizacion"/>
+      </reference>
+      <name value="Observación Signos Vitales"/>
+      <description value="Registra las mediciones de signos vitales en la categorización de un paciente."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1605,7 +1407,7 @@
       <reference>
         <reference value="StructureDefinition/codigo-categorizacion"/>
       </reference>
-      <name value="Observation Sistema Categorización"/>
+      <name value="Observación Sistema Categorización"/>
       <description value="Recurso empleado para registrar la información sobre el sistema de categorización de un paciente en un servicio de urgencia."/>
       <exampleBoolean value="false"/>
     </resource>
@@ -1644,6 +1446,39 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/prevision"/>
+      </reference>
+      <name value="Prevision"/>
+      <description value="La previsión es la  variable determinada el sistema de aseguramiento de salud del paciente."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/prevision"/>
+      </reference>
+      <name value="Previsión"/>
+      <description value="Previsión de salud del paciente"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/procedencia"/>
+      </reference>
+      <name value="Procedencia"/>
+      <description value="Procedencia del paciente al momento de la atención."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
@@ -1662,17 +1497,6 @@
       </reference>
       <name value="Profesional No Médico"/>
       <description value="Profesional no médico que participa en la atención de urgencia de un paciente."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/acompanante-urgencia"/>
-      </reference>
-      <name value="ProfileRelatedPerson"/>
-      <description value="Información de contacto de una persona relacionada con el paciente en caso de urgencia."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1728,6 +1552,17 @@
       </reference>
       <name value="Pueblos Originarios Perteneciente"/>
       <description value="Pueblos Originarios Perteneciente"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/relacion-acompanante"/>
+      </reference>
+      <name value="Relacion Acompañante"/>
+      <description value="Códigos de relación del acompañante con el paciente."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1814,8 +1649,19 @@
       <reference>
         <reference value="StructureDefinition/solcitud-urgencia"/>
       </reference>
-      <name value="Solicitud Urgencia"/>
-      <description value="ServiceRequest para registrar una solicitud creada durante un encuentro de atención de urgencia"/>
+      <name value="Solicitud"/>
+      <description value="Recurso empoleado para registrar una solicitud creada durante un encuentro de atención de urgencia"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/tipo-sistema-categorizacion"/>
+      </reference>
+      <name value="Tipo de sistema de categorización"/>
+      <description value="Códigos tipo de sistema de categorización"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1864,6 +1710,39 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/tipo-via-residencia"/>
+      </reference>
+      <name value="Tipo Via Residencia"/>
+      <description value="Tipo Vía Residencia"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/tipo-via-residencia"/>
+      </reference>
+      <name value="Tipo Via Residencia"/>
+      <description value="Códigos de tipo de vía de residencia Norma 820"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/tipos-participante-encounter"/>
+      </reference>
+      <name value="Tipos Participante Encounter"/>
+      <description value="Códigos de los tipos de participante de un Encounter"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="CodeSystem"/>
       </extension>
       <reference>
@@ -1886,12 +1765,23 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/titulo-profesional-categorizador"/>
+      </reference>
+      <name value="Título Profesional Categorizador"/>
+      <description value="Extensión que registra el título del profesional de la salud que categoriza al paciente"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="ValueSet"/>
       </extension>
       <reference>
         <reference value="ValueSet/titulo-profesional-categorizador"/>
       </reference>
-      <name value="Título Profesional Categoriazador"/>
+      <name value="Título Profesional Categorizador"/>
       <description value="Códigos de los títulos profesionales de un profesional categorizador de un paciente en un servicio de urgencia"/>
       <exampleBoolean value="false"/>
     </resource>
@@ -1919,10 +1809,10 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
+        <valueString value="ValueSet"/>
       </extension>
       <reference>
-        <reference value="CodeSystem/unidad-hospitalaria-destino"/>
+        <reference value="ValueSet/unidad-hospitalaria-destino"/>
       </reference>
       <name value="Unidad Hospitalaria Destino"/>
       <description value="Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento."/>
@@ -1930,221 +1820,12 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
+        <valueString value="CodeSystem"/>
       </extension>
       <reference>
-        <reference value="ValueSet/tipo-sistema-categorizacion"/>
+        <reference value="CodeSystem/unidad-hospitalaria-destino"/>
       </reference>
-      <name value="VS Tipo de sistema de categorización"/>
-      <description value="Códigos tipo de sistema de categorización"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/categorizacion-paciente"/>
-      </reference>
-      <name value="VSCategorización de Paciente"/>
-      <description value="Códigos de categorización de un paciente en un evento de urgencia."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/codigo-paises"/>
-      </reference>
-      <name value="VSCodigoPaises"/>
-      <description value="Códigos de países según ISO 3166 (Norma 820)"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/codigo-procedencia"/>
-      </reference>
-      <name value="VSCodigoProcedenciaAdmision"/>
-      <description value="Códigos de procedencia de un paciente en un evento de urgencia."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/codigo-deis-establecimientos"/>
-      </reference>
-      <name value="VSCodigosEstablecimiento"/>
-      <description value="Códigos de Establecimientos de Salud DEIS (Norma 820)"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/codigo-deis-servicios-salud"/>
-      </reference>
-      <name value="VSCodigosServicioSalud"/>
-      <description value="Códigos de Servicios de Salud DEIS (Norma 820)"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/comunas"/>
-      </reference>
-      <name value="VSComunas"/>
-      <description value="Códigos de Comunas de Chile Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/eventos-urgencia"/>
-      </reference>
-      <name value="VSEventosUrgencia"/>
-      <description value="Códigos de eventos de urgencia"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/identidad-genero"/>
-      </reference>
-      <name value="VSIdentidadGenero"/>
-      <description value="Códigos de identidad de género"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/ley-previsional"/>
-      </reference>
-      <name value="VSLeyPrevisional"/>
-      <description value="Códigos de Ley Previsional"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/medio-llegada"/>
-      </reference>
-      <name value="VSMedioLlegadaAdmision"/>
-      <description value="Códigos de Medio de Llegada"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/prevision"/>
-      </reference>
-      <name value="VSPrevision"/>
-      <description value="La previsión es la  variable determinada el sistema de aseguramiento de salud del paciente."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/provincias"/>
-      </reference>
-      <name value="VSProvincias"/>
-      <description value="Códigos de Provincias de Chile Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/pueblo-indigena"/>
-      </reference>
-      <name value="VSPuebloIndigena"/>
-      <description value="Códigos de los pueblos indígenas de Chile"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/regiones"/>
-      </reference>
-      <name value="VSRegiones"/>
-      <description value="Códigos de Regiones de Chile Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/relacion-acompanante"/>
-      </reference>
-      <name value="VSRelacionAcompanante"/>
-      <description value="Códigos de relación del acompañante con el paciente."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/sexo-biologico"/>
-      </reference>
-      <name value="VSSexoBiologico"/>
-      <description value="Sexo biológico de la persona."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/tipos-participante-encounter"/>
-      </reference>
-      <name value="VSTiposParticipanteEncounter"/>
-      <description value="Códigos de los tipos de participante de un Encounter"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/tipo-via-residencia"/>
-      </reference>
-      <name value="VSTipoViaResidencia"/>
-      <description value="Códigos de tipo de vía de residencia Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/unidad-hospitalaria-destino"/>
-      </reference>
-      <name value="VSUnidadHospitalariaDestino"/>
+      <name value="Unidad Hospitalaria Destino"/>
       <description value="Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento."/>
       <exampleBoolean value="false"/>
     </resource>

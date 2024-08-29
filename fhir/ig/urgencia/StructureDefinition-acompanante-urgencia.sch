@@ -35,8 +35,8 @@
     <sch:title>f:RelatedPerson/f:name/f:family</sch:title>
     <sch:rule context="f:RelatedPerson/f:name/f:family">
       <sch:assert test="count(f:id) &lt;= 1">id: maximum cardinality of 'id' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'http://proceso-urgencia.minsal.cl/StructureDefinition/segundo-apellido']) &gt;= 1">extension with URL = 'http://proceso-urgencia.minsal.cl/StructureDefinition/segundo-apellido': minimum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'http://proceso-urgencia.minsal.cl/StructureDefinition/segundo-apellido']) &lt;= 1">extension with URL = 'http://proceso-urgencia.minsal.cl/StructureDefinition/segundo-apellido': maximum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido']) &gt;= 1">extension with URL = 'https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido': minimum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido']) &lt;= 1">extension with URL = 'https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:value) &lt;= 1">value: maximum cardinality of 'value' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
