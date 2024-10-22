@@ -41,7 +41,8 @@
   <body onload="document.body.style.opacity='1'">
 
 	  <script src="assets/js/prism.js"></script>
-
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
     <style type="text/css">h2{--heading-prefix:"10"}
     h3,h4,h5,h6{--heading-prefix:"10"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
@@ -431,7 +432,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li>Perfil <strong>ObservationAtender</strong> -&gt; Se llamara <a href="StructureDefinition-ObservationAnamnesisLE.html">ObservationAnamnesis</a>
     <ul>
       <li>se incluye el code = http://snomed.info/sct#84100007</li>
-      <li>se incluye el code.text = “Anamnesis”</li>
+      <li>se incluye el code.text = "Anamnesis"</li>
       <li>se incluye biding a <a href="ValueSet-TipoDeObservacion.html">TipoDeObservacion</a></li>
     </ul>
   </li>
@@ -457,12 +458,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <ul>
   <li>Perfil <a href="StructureDefinition-PatientLE.html">PatientLE</a>
     <ul>
-      <li>Se elimina elemento “IdentidadDeGenero” repetido, dejando solo el que viene referenciado desde la <strong>Guia CLCore</strong></li>
-      <li>Extension “País de origen del paciente”, el binding se modifica para dejarlo linkeado al elemento “valueCodeableConcept”.</li>
-      <li>Extension “Religión”, el binding se modifica para dejarlo linkeado al elemento “valueCodeableConcept”.</li>
-      <li>Extension “Pueblos Originarios”, el binding se modifica para dejarlo linkeado al elemento “valueCodeableConcept”.</li>
-      <li>Se elimina la extension “LugarDeNacimiento”</li>
-      <li>El elemento “deceased[x]” se deja abierto para que se pueda registrar una fecha de fallecimiento o un booleano sobre si el paciente esta fallecido o no</li>
+      <li>Se elimina elemento "IdentidadDeGenero" repetido, dejando solo el que viene referenciado desde la <strong>Guia CLCore</strong></li>
+      <li>Extension "País de origen del paciente", el binding se modifica para dejarlo linkeado al elemento "valueCodeableConcept".</li>
+      <li>Extension "Religión", el binding se modifica para dejarlo linkeado al elemento "valueCodeableConcept".</li>
+      <li>Extension "Pueblos Originarios", el binding se modifica para dejarlo linkeado al elemento "valueCodeableConcept".</li>
+      <li>Se elimina la extension "LugarDeNacimiento"</li>
+      <li>El elemento "deceased[x]" se deja abierto para que se pueda registrar una fecha de fallecimiento o un booleano sobre si el paciente esta fallecido o no</li>
       <li>El elemento identifier.type.extension[paisEmisionDocumento] se le cambia la cardinalidad de 0..1 -&gt; 1..1</li>
       <li>Se cambia cardinalidad birthDate 0..1 -&gt; 1..1</li>
       <li>Se cambia cardinalidad de extension nacionalidad 0..1 -&gt; 1..1</li>
@@ -471,7 +472,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li>Perfil <a href="StructureDefinition-BundleAtenderLE.html">BundleAtenderLE</a>
     <ul>
       <li>Se agrega entry AllergyIntolerance aceptando solo AllergyIntoleranceIniciarLE en el campo resource</li>
-      <li>Se elimina slice “questionnaireResponse”</li>
+      <li>Se elimina slice "questionnaireResponse"</li>
     </ul>
   </li>
   <li>Perfil <a href="StructureDefinition-EncounterAtenderLE.html">EncounterAtenderLE</a>
@@ -492,15 +493,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
   <li>Perfil <a href="StructureDefinition-ServiceRequestLE.html">ServiceRequestLE</a>
     <ul>
-      <li>Se elimina la extension “CorrespondeGES”</li>
-      <li>Se elimina la extension “RequiereExamen”</li>
+      <li>Se elimina la extension "CorrespondeGES"</li>
+      <li>Se elimina la extension "RequiereExamen"</li>
       <li>requester se modifica cardinalidad 0..1 -&gt; 1..1</li>
       <li>requester se agrega MustSupport</li>
-      <li>requester debe referenciar solo a “PractitionerRoleLE”</li>
+      <li>requester debe referenciar solo a "PractitionerRoleLE"</li>
       <li>authoredOn se modifica cardinalidad 0..1 -&gt; 1..1</li>
-      <li>intent se cambia la descripcion “Tipo de Servicio solicitado” -&gt; “Tipo de solicitud”</li>
+      <li>intent se cambia la descripcion "Tipo de Servicio solicitado" -&gt; "Tipo de solicitud"</li>
       <li>code se modifica cardinalidad 0..1 -&gt; 1..1</li>
-      <li>Se elemina extension “Alergia”</li>
+      <li>Se elemina extension "Alergia"</li>
       <li>Se cambia cardinalidad supportingInfo[TipoAlergia] 0..1 -&gt; 0..*</li>
       <li>Se cambia cardinalidad supportingInfo[motivoDerivacion] 0..1 -&gt; 1..1</li>
       <li>Se elimina extensión ConsecuenciaAtencionCodigo</li>
@@ -526,7 +527,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li>Se cambia cardinalidad subject 0..1 -&gt; 1..1</li>
       <li>Se cambia cardinalidad code.text 1..1 -&gt; 0..1</li>
       <li>Se fija la referencia de subject solo a PatientLE</li>
-      <li>Se fija el valor “laboratory” de category.coding.code</li>
+      <li>Se fija el valor "laboratory" de category.coding.code</li>
       <li>Se fija cardinalidad coding 1..1</li>
       <li>Se fija cardinalidad code 1..1</li>
     </ul>
@@ -539,7 +540,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li>Se fija cardinalidad de identifier 1..1</li>
       <li>Se deja solo el slice qualification[TituloProfesional]</li>
       <li>Se remueve el valor obligatorio para type.coding.system</li>
-      <li>Se fija la referencia de beneficiary -&gt; “PatientLE”-</li>
+      <li>Se fija la referencia de beneficiary -&gt; "PatientLE"-</li>
       <li>Se cambia el nombre del perfil de CoverageIniciarLE -&gt; CoverageLE</li>
       <li>Se cambia cardinalidad de identifier[run].coding -&gt; 1..1</li>
       <li>Se cambia cardinalidad de identifier[run].type.coding -&gt; 1..1</li>
@@ -548,7 +549,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
   <li>Perfil <a href="StructureDefinition-ObservationIndiceComorbilidadLE.html">ObservationIniciarIndiceComorbilidadLE</a>
     <ul>
-      <li>Se fija el valor “final” para el elemento status</li>
+      <li>Se fija el valor "final" para el elemento status</li>
       <li>Se cambia cardinalidad category.text 1..1 -&gt; 0..1</li>
     </ul>
   </li>
@@ -574,7 +575,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <ul>
       <li>Se cambia cardinalidad type 1..1 -&gt; 0..1</li>
       <li>Se remueve el valor obligatorio para type.coding.system</li>
-      <li>Se fija la referencia de beneficiary -&gt; “PatientLE”</li>
+      <li>Se fija la referencia de beneficiary -&gt; "PatientLE"</li>
       <li>Se cambia el nombre del perfil de CoverageIniciarLE -&gt; CoverageLE</li>
       <li>Se cambia el bindig del type a VSPrevisionCodigo</li>
       <li>Se cambia el bindig del class.type a VSInstitucionAseguradora</li>
@@ -586,7 +587,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li>Se cambia cardinalidad type 1..1 -&gt; 0..1</li>
       <li>Se fija la referencia de participant.individual -&gt; PractitionerRoleLE</li>
       <li>Se elimina el slice reasonReference[ObservationAtenderLE]</li>
-      <li>Se fija la referencia de reasonReference a “QuestionnaireResponseAtenderLE”</li>
+      <li>Se fija la referencia de reasonReference a "QuestionnaireResponseAtenderLE"</li>
     </ul>
   </li>
   <li>Perfil <a href="StructureDefinition-QuestionnaireResponseIniciarLE.html">QuestionnaireResponseIniciarLE</a>
@@ -697,10 +698,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li>
     <p>Se elimina CSTipoIdentificadorSR</p>
   </li>
-  <li>Modificaciones de la “CLcore”
+  <li>Modificaciones de la "CLcore"
     <ul>
       <li>Se cambió el nombre de la extension identifier.type.extension[paises] -&gt; identifier.type.extension[paisEmisionDocumento]</li>
-      <li>Extension “Codigo de Identificación de países”, el binding se modifica para dejarlo linkeado al elemento “valueCodeableConcept.</li>
+      <li>Extension "Codigo de Identificación de países", el binding se modifica para dejarlo linkeado al elemento "valueCodeableConcept.</li>
       <li><strong>PrestadorCL</strong>
         <ul>
           <li>Se cambia el nombre de los siguientes slices de qualification:
@@ -755,13 +756,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
     <ul>
       <li>Todos los Bundles ahora cuentan con secciones de consideraciones generales y específicas, además de su conjunto mínimo de datos.</li>
-      <li>Los atributos de todos los recursos cuentan con descripciones en español, esto solo para los que aparezcan en las “Diferential Tables”</li>
+      <li>Los atributos de todos los recursos cuentan con descripciones en español, esto solo para los que aparezcan en las "Diferential Tables"</li>
       <li>Todos lo referente a eventos (Iniciar, Agendar, Atender…) ahora cuentan con su verbo escrito en inifitivo.</li>
       <li>Ahora todas las referencias que tengan que ver con el paciente son <strong>OBLIGATORIAS</strong>, por lo que sus cardinalidades son 1..1 en todos los recursos que se encuentre una de estas</li>
       <li>
         <p>Cada uno de los títulos dentro de la sección de “Especificación de Negocio” pasa a ser parte de un menú desplegable, además, en los eventos que corresponda se menciona (con el link) a la Norma Técnica N° 118 y se corrigen algunas secciones del texto.</p>
       </li>
-      <li><strong>Para la sección “Especificaciones Técnicas”:</strong>
+      <li><strong>Para la sección "Especificaciones Técnicas":</strong>
         <ul>
           <li>La pestaña de “Eventos” ahora cuenta con las mismas descripciones que la sección “Eventos Interoperabilidad CNE de APS a Secundario” de la sección de Negocio. Además, se corrigen algunas secciones del texto.</li>
           <li>La pestaña de “Transacciones” tiene un leve arreglo a unos links que no redireccionaban correctamente.</li>
@@ -791,27 +792,27 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       </li>
       <li><strong>Para el recurso MessageHeaderLE:</strong>
         <ul>
-          <li>La cardinalidad de “focus” cambia a 1..2 y en este mismo atributo se crean slices para restringir el uso de los recursos de referencia.</li>
+          <li>La cardinalidad de "focus" cambia a 1..2 y en este mismo atributo se crean slices para restringir el uso de los recursos de referencia.</li>
         </ul>
       </li>
       <li><strong>Para el recurso ServiceRequestLE:</strong>
         <ul>
-          <li>El elemento “EstadoInterconsultaCódigo” cambia su cardinalidad a 1..1</li>
+          <li>El elemento "EstadoInterconsultaCódigo" cambia su cardinalidad a 1..1</li>
           <li>Slice en supportingInfo cambia cardinalidad a 1..N, dónde al menos se debe agregar el recurso ObservationInicioDiscapacidadLE.</li>
-          <li>La extensión “DestinoAtencionCodigo” ahora se llama “ConsecuenciaAtencionCodigo”</li>
+          <li>La extensión "DestinoAtencionCodigo" ahora se llama "ConsecuenciaAtencionCodigo"</li>
           <li>Ahora el identifier.type.coding cuenta con un binding que redirecciona correctamente.</li>
         </ul>
       </li>
       <li><strong>Para el recurso EncounterIniciarLE:</strong>
         <ul>
-          <li>Se cambia realidad de “diagnosis” de 0..N a 1..1.</li>
+          <li>Se cambia realidad de "diagnosis" de 0..N a 1..1.</li>
         </ul>
       </li>
       <li><strong>Para el recurso PatientLE:</strong>
         <ul>
           <li>Cambia su nombre de PacienteMPI a PatientLE</li>
           <li>Cambia cardinalidad de las extensiones de 5..N a 4..N</li>
-          <li>La extensión “SexoBiologico” se elimina</li>
+          <li>La extensión "SexoBiologico" se elimina</li>
         </ul>
       </li>
       <li><strong>Para el recurso ObservationIniciarCuidadorLE:</strong>
@@ -837,14 +838,14 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       </li>
       <li><strong>Para el BundleRevisarLE:</strong>
         <ul>
-          <li>Ahora el número de entry’s pasa de 5..6 a 7..8</li>
+          <li>Ahora el número de entry's pasa de 5..6 a 7..8</li>
           <li>La cardinalidad del elemento practitionerRole pasa de 1..1 a 2..2</li>
           <li>La cardinalidad del elemento organization pasa de 1..1 a 2..2</li>
         </ul>
       </li>
       <li><strong>Para el BundlePriorizarLE:</strong>
         <ul>
-          <li>Ahora el número de entry’s pasa de 6..6 a 5..5, ya que se eliminó la referencia al paciente.</li>
+          <li>Ahora el número de entry's pasa de 6..6 a 5..5, ya que se eliminó la referencia al paciente.</li>
         </ul>
       </li>
       <li><strong>Para el BundleAgendarLE:</strong>
@@ -864,7 +865,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       </li>
       <li><strong>Para el recurso CarePlanAtenderLE:</strong>
         <ul>
-          <li>Los Elementos “status” e “intent” ahora son requeridos con valores fijos.</li>
+          <li>Los Elementos "status" e "intent" ahora son requeridos con valores fijos.</li>
         </ul>
       </li>
     </ul>
@@ -875,8 +876,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <ul>
       <li>El CS de Pertinencia Interconsulta, se pasa de 2 valores (Pertinente Incompleta|No Pertinente) a 3 valores (Pertinente|Pertinente Incompleta|No Pertinente).</li>
       <li>El CS de Pueblo Originarios ahora cuenta con los valores numerados según la norma 231 y se le arreglan valores con faltas ortográficas.</li>
-      <li>El VS de Servicio Requerido ahora cuenta solo con un valor, que hace referencia a la derivación del paciente (http://snomed.info/sct#103696004 “derivación del paciente a un especialista (procedimiento)”).</li>
-      <li>El CS/VS “Rol de médicos” ahora se llama “Rol de profesionales”.</li>
+      <li>El VS de Servicio Requerido ahora cuenta solo con un valor, que hace referencia a la derivación del paciente (http://snomed.info/sct#103696004 "derivación del paciente a un especialista (procedimiento)").</li>
+      <li>El CS/VS "Rol de médicos" ahora se llama "Rol de profesionales".</li>
       <li>Se presentan cambios en las descripciones de CSPractitionerTipoRolLE, VSServicioRequerido y el nombre de CS/VSDestinoAtencionCodigo pasa a CS/VSConsecuenciaAtencionCodigo</li>
       <li>Sobre las extensiones, se agrega una llamada “Mencion” que hace referencia a la mención profesional, ésta se agregó junto al nuevo Prestador Profesional y Administrativo, provenientes del HPD.</li>
       <li>El CS Establecimiento Destino Atencion ahora cuenta con los displays correctos (establecimientos al principio).</li>
@@ -903,7 +904,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024 <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.tei#0.2.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Jul 29, 2024 12:02-0400">2024-07-29</span>
+          IG &#169; 2024 <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.tei#0.2.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Oct 22, 2024 09:59-0500">2024-10-22</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
@@ -921,7 +922,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <div class="container">  <!-- container -->
     </div>  <!-- /container -->
   </div>  <!-- /segment-post-footer -->
-  
+
   <!-- JS and analytics only. -->
   <!-- Bootstrap core JavaScript
   ================================================== -->
@@ -932,7 +933,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
   <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
   <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
-  
   <!-- Analytics Below
   ================================================== -->
   </body>
