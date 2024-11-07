@@ -5,7 +5,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Unidad Hospitalaria Destino - XML Representation - Guía de Implementación de Proceso de Urgencia v0.1.0</title>
+    <title>Unidad Hospitalaria Destino - XML Representation - Atención de Urgencia Interoperable v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -21,6 +21,9 @@
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
     <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
 
     <script type="text/javascript" src="fhir-table-scripts.js"> </script>
 
@@ -42,17 +45,35 @@
 	  <script src="assets/js/prism.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"2.116"}
-    h3,h4,h5,h6{--heading-prefix:"2.116"}</style>
+    <style type="text/css">h2{--heading-prefix:"2.98"}
+    h3,h4,h5,h6{--heading-prefix:"2.98"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
         <!-- Placeholder for child template header declarations -->
 
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
 
         <div id="ig-status">
-          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación de Proceso de Urgencia</span>
+          <p><span style="font-size:12pt;font-weight:bold">Atención de Urgencia Interoperable</span>
             <br/>
-            <span style="display:inline-block;">0.1.0 - ci-build
+            <span style="display:inline-block;">0.1.0 - draft
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
 
 
             </span>
@@ -83,7 +104,7 @@
     <a href="index.html">Home</a>
   </li>
   <li>
-    <a href="artifacts.html">Artifacts</a>
+    <a href="artifacts.html">Artefactos</a>
   </li>
 </ul>
             </div>  <!-- /.nav-collapse -->
@@ -110,7 +131,7 @@
           <div class="inner-wrapper">
 
 <div style="counter-reset: section 7" class="col-12">
-<!--ReleaseHeader--><p id="publish-box">Guía de Implementación de Proceso de Urgencia - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="http://proceso-urgencia.minsal.cl/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+<!--ReleaseHeader--><p id="publish-box">Atención de Urgencia Interoperable - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
 
 
 
@@ -165,7 +186,7 @@
         
           Draft
           
-            as of 2024-08-29
+            as of 2024-11-07
           
         
       </td>
@@ -181,28 +202,27 @@
 
 
 
-  <pre class="xml" style="white-space: pre; text-wrap: nowrap;"><code class="language-xml" style="white-space: pre; text-wrap: nowrap;">
-
+  <pre class="xml" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-xml" style="white-space: pre; text-wrap: nowrap;">
 &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem">CodeSystem</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;unidad-hospitalaria-destino&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.text">text</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: CodeSystem unidad-hospitalaria-destino&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;unidad-hospitalaria-destino&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcunidad-hospitalaria-destino&quot;&gt; &lt;/a&gt;&lt;a name=&quot;unidad-hospitalaria-destino-en-US&quot;&gt; &lt;/a&gt;&lt;p&gt;This case-insensitive code system &lt;code&gt;http://proceso-urgencia.minsal.cl/CodeSystem/unidad-hospitalaria-destino&lt;/code&gt; defines the following codes:&lt;/p&gt;&lt;table class=&quot;codes&quot;&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;&lt;b&gt;Code&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Display&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;401&lt;a name=&quot;unidad-hospitalaria-destino-401&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médica Adulto Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;402&lt;a name=&quot;unidad-hospitalaria-destino-402&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médica Adulto Cuidados Medios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;403&lt;a name=&quot;unidad-hospitalaria-destino-403&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médico-Quirúrgico Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;404&lt;a name=&quot;unidad-hospitalaria-destino-404&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médico-Quirúrgico Cuidados Medios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;405&lt;a name=&quot;unidad-hospitalaria-destino-405&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Cuidados Intensivos Adultos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;406&lt;a name=&quot;unidad-hospitalaria-destino-406&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Cuidados Intermedios Adultos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;407&lt;a name=&quot;unidad-hospitalaria-destino-407&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médica Pediátrica Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;408&lt;a name=&quot;unidad-hospitalaria-destino-408&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médica Pediátrica Cuidados Medios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;409&lt;a name=&quot;unidad-hospitalaria-destino-409&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médico-Quirúrgico Pediátrica Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;410&lt;a name=&quot;unidad-hospitalaria-destino-410&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médico-Quirúrgico Pediátrica Cuidados Medios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;411&lt;a name=&quot;unidad-hospitalaria-destino-411&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Cuidados Intensivos Pediátricos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;412&lt;a name=&quot;unidad-hospitalaria-destino-412&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Cuidados Intermedios Pediátricos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;413&lt;a name=&quot;unidad-hospitalaria-destino-413&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Neonatología Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;414&lt;a name=&quot;unidad-hospitalaria-destino-414&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Neonatología Cuidados Intensivos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;415&lt;a name=&quot;unidad-hospitalaria-destino-415&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Neonatología Cuidados Intermedios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;416&lt;a name=&quot;unidad-hospitalaria-destino-416&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Obstetricia&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;330&lt;a name=&quot;unidad-hospitalaria-destino-330&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Pensionado&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;418&lt;a name=&quot;unidad-hospitalaria-destino-418&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Adulto Corta estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;419&lt;a name=&quot;unidad-hospitalaria-destino-419&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Adulto Mediana estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;420&lt;a name=&quot;unidad-hospitalaria-destino-420&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Adulto Larga estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;421&lt;a name=&quot;unidad-hospitalaria-destino-421&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Infanto-adolescente corta estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;422&lt;a name=&quot;unidad-hospitalaria-destino-422&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Infanto-adolescente mediana estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;423&lt;a name=&quot;unidad-hospitalaria-destino-423&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Forense Adulto evaluación e inicio tto.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;424&lt;a name=&quot;unidad-hospitalaria-destino-424&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Forense Adulto tratamiento&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;425&lt;a name=&quot;unidad-hospitalaria-destino-425&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Forense Infanto Adolescente evaluación e inicio tto.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;426&lt;a name=&quot;unidad-hospitalaria-destino-426&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Forense Infanto Adolescente tratamiento&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;427&lt;a name=&quot;unidad-hospitalaria-destino-427&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Sociosanitaria Adulto&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;428&lt;a name=&quot;unidad-hospitalaria-destino-428&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área de Hospitalización de Cuidados Intensivos en Psiquiatría Adulto&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;429&lt;a name=&quot;unidad-hospitalaria-destino-429&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área de Hospitalización de Cuidados Intensivos en Psiquiatría Infanto Adolescente&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;<a name="end-xhtml"></a>
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: CodeSystem unidad-hospitalaria-destino&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;unidad-hospitalaria-destino&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcunidad-hospitalaria-destino&quot;&gt; &lt;/a&gt;&lt;a name=&quot;unidad-hospitalaria-destino-es-CL&quot;&gt; &lt;/a&gt;&lt;p&gt;This case-insensitive code system &lt;code&gt;https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-hospitalaria-destino&lt;/code&gt; defines the following codes:&lt;/p&gt;&lt;table class=&quot;codes&quot;&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;&lt;b&gt;Code&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Display&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;401&lt;a name=&quot;unidad-hospitalaria-destino-401&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médica Adulto Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;402&lt;a name=&quot;unidad-hospitalaria-destino-402&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médica Adulto Cuidados Medios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;403&lt;a name=&quot;unidad-hospitalaria-destino-403&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médico-Quirúrgico Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;404&lt;a name=&quot;unidad-hospitalaria-destino-404&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médico-Quirúrgico Cuidados Medios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;405&lt;a name=&quot;unidad-hospitalaria-destino-405&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Cuidados Intensivos Adultos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;406&lt;a name=&quot;unidad-hospitalaria-destino-406&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Cuidados Intermedios Adultos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;407&lt;a name=&quot;unidad-hospitalaria-destino-407&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médica Pediátrica Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;408&lt;a name=&quot;unidad-hospitalaria-destino-408&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médica Pediátrica Cuidados Medios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;409&lt;a name=&quot;unidad-hospitalaria-destino-409&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médico-Quirúrgico Pediátrica Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;410&lt;a name=&quot;unidad-hospitalaria-destino-410&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Médico-Quirúrgico Pediátrica Cuidados Medios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;411&lt;a name=&quot;unidad-hospitalaria-destino-411&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Cuidados Intensivos Pediátricos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;412&lt;a name=&quot;unidad-hospitalaria-destino-412&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Cuidados Intermedios Pediátricos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;413&lt;a name=&quot;unidad-hospitalaria-destino-413&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Neonatología Cuidados Básicos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;414&lt;a name=&quot;unidad-hospitalaria-destino-414&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Neonatología Cuidados Intensivos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;415&lt;a name=&quot;unidad-hospitalaria-destino-415&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Neonatología Cuidados Intermedios&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;416&lt;a name=&quot;unidad-hospitalaria-destino-416&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Obstetricia&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;330&lt;a name=&quot;unidad-hospitalaria-destino-330&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Pensionado&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;418&lt;a name=&quot;unidad-hospitalaria-destino-418&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Adulto Corta estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;419&lt;a name=&quot;unidad-hospitalaria-destino-419&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Adulto Mediana estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;420&lt;a name=&quot;unidad-hospitalaria-destino-420&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Adulto Larga estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;421&lt;a name=&quot;unidad-hospitalaria-destino-421&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Infanto-adolescente corta estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;422&lt;a name=&quot;unidad-hospitalaria-destino-422&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Infanto-adolescente mediana estadía&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;423&lt;a name=&quot;unidad-hospitalaria-destino-423&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Forense Adulto evaluación e inicio tto.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;424&lt;a name=&quot;unidad-hospitalaria-destino-424&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Forense Adulto tratamiento&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;425&lt;a name=&quot;unidad-hospitalaria-destino-425&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Forense Infanto Adolescente evaluación e inicio tto.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;426&lt;a name=&quot;unidad-hospitalaria-destino-426&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Psiquiatría Forense Infanto Adolescente tratamiento&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;427&lt;a name=&quot;unidad-hospitalaria-destino-427&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área Sociosanitaria Adulto&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;428&lt;a name=&quot;unidad-hospitalaria-destino-428&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área de Hospitalización de Cuidados Intensivos en Psiquiatría Adulto&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;white-space:nowrap&quot;&gt;429&lt;a name=&quot;unidad-hospitalaria-destino-429&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Área de Hospitalización de Cuidados Intensivos en Psiquiatría Infanto Adolescente&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;<a name="end-xhtml"></a>
   &lt;/text&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.url">url</a>
-       <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://proceso-urgencia.minsal.cl/CodeSystem/unidad-hospitalaria-destino&quot;/&gt;
+       <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-hospitalaria-destino&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.version">version</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;0.1.0&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;CSUnidadHospitalariaDestino&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.title">title</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Unidad Hospitalaria Destino&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;draft&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.experimental">experimental</a> <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
-  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.date">date</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>=&quot;2024-08-29T09:57:29-04:00&quot;/&gt;
-  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.publisher">publisher</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;ChileData&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.date">date</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>=&quot;2024-11-07T14:38:19-03:00&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.publisher">publisher</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Unidad de Interoperabilidad - MINSAL&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.contact">contact</a>&gt;
-    &lt;<a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;ChileData&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Unidad de Interoperabilidad - MINSAL&quot;/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>&gt;
       &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;url&quot;/&gt;
-      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.value">value</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;http://chiledata.cl&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.value">value</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;https://interoperabilidad.minsal.cl&quot;/&gt;
     &lt;/telecom&gt;
   &lt;/contact&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.contact">contact</a>&gt;
@@ -223,6 +243,13 @@
   &lt;/contact&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.description">description</a>
                <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento.&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.jurisdiction">jurisdiction</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;urn:iso:std:iso:3166&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;CL&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Chile&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/jurisdiction&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.caseSensitive">caseSensitive</a> <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.content">content</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;complete&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.count">count</a> <a href="http://hl7.org/fhir/R4/datatypes.html#unsignedInt">value</a>=&quot;29&quot;/&gt;
@@ -371,13 +398,14 @@
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="http://chiledata.cl">ChileData</a>.  Package fhir.cl.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Aug 29, 2024 09:57-0400">2024-08-29</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Nov 7, 2024 14:38-0300">2024-11-07</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
-                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
-                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
-                 
-                
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> 
+<!-- <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia"></a> -->
+</a>
+
           </span>
         </p>
       </div>  <!-- /inner-wrapper -->

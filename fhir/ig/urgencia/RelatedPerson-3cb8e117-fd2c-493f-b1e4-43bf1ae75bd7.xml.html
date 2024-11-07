@@ -5,7 +5,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Acompañante urgencia - XML Representation - Guía de Implementación de Proceso de Urgencia v0.1.0</title>
+    <title>Acompañante urgencia - XML Representation - Atención de Urgencia Interoperable v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -21,6 +21,9 @@
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
     <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
 
     <script type="text/javascript" src="fhir-table-scripts.js"> </script>
 
@@ -42,17 +45,35 @@
 	  <script src="assets/js/prism.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"2.117"}
-    h3,h4,h5,h6{--heading-prefix:"2.117"}</style>
+    <style type="text/css">h2{--heading-prefix:"2.99"}
+    h3,h4,h5,h6{--heading-prefix:"2.99"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
         <!-- Placeholder for child template header declarations -->
 
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
 
         <div id="ig-status">
-          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación de Proceso de Urgencia</span>
+          <p><span style="font-size:12pt;font-weight:bold">Atención de Urgencia Interoperable</span>
             <br/>
-            <span style="display:inline-block;">0.1.0 - ci-build
+            <span style="display:inline-block;">0.1.0 - draft
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
 
 
             </span>
@@ -83,7 +104,7 @@
     <a href="index.html">Home</a>
   </li>
   <li>
-    <a href="artifacts.html">Artifacts</a>
+    <a href="artifacts.html">Artefactos</a>
   </li>
 </ul>
             </div>  <!-- /.nav-collapse -->
@@ -110,7 +131,7 @@
           <div class="inner-wrapper">
 
 <div style="counter-reset: section 7" class="col-12">
-<!--ReleaseHeader--><p id="publish-box">Guía de Implementación de Proceso de Urgencia - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="http://proceso-urgencia.minsal.cl/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+<!--ReleaseHeader--><p id="publish-box">Atención de Urgencia Interoperable - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
 
 
 
@@ -166,17 +187,16 @@
 
 
 
-  <pre class="xml" style="white-space: pre; text-wrap: nowrap;"><code class="language-xml" style="white-space: pre; text-wrap: nowrap;">
-
+  <pre class="xml" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-xml" style="white-space: pre; text-wrap: nowrap;">
 &lt;<a href="http://hl7.org/fhir/R4/relatedperson.html#RelatedPerson">RelatedPerson</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;<a href="http://hl7.org/fhir/R4/relatedperson.html#RelatedPerson.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/relatedperson.html#RelatedPerson.meta">meta</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
-             <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;http://proceso-urgencia.minsal.cl/StructureDefinition/acompanante-urgencia&quot;/&gt;
+             <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AcompananteUrg&quot;/&gt;
   &lt;/meta&gt;
   &lt;<a href="http://hl7.org/fhir/R4/relatedperson.html#RelatedPerson.text">text</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: RelatedPerson 3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hc3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7&quot;&gt; &lt;/a&gt;&lt;a name=&quot;3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7-en-US&quot;&gt; &lt;/a&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=&quot;Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html&quot;&gt;Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;relationship&lt;/b&gt;: &lt;span title=&quot;Codes:{http://proceso-urgencia.minsal.cl/CodeSystem/relacion-acompanante 5}&quot;&gt;Vecino(a)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: Raúl Muñoz Valdebenito(Official)&lt;/p&gt;&lt;p&gt;&lt;b&gt;telecom&lt;/b&gt;: ph: 555-555-5555(Mobile)&lt;/p&gt;&lt;/div&gt;<a name="end-xhtml"></a>
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: RelatedPerson 3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hc3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7&quot;&gt; &lt;/a&gt;&lt;a name=&quot;3cb8e117-fd2c-493f-b1e4-43bf1ae75bd7-es-CL&quot;&gt; &lt;/a&gt;&lt;p&gt;&lt;b&gt;patient&lt;/b&gt;: &lt;a href=&quot;Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html&quot;&gt;Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;relationship&lt;/b&gt;: &lt;span title=&quot;Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante 5}&quot;&gt;Vecino(a)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: Raúl Muñoz &lt;/p&gt;&lt;p&gt;&lt;b&gt;telecom&lt;/b&gt;: ph: 555-555-5555(Mobile)&lt;/p&gt;&lt;/div&gt;<a name="end-xhtml"></a>
   &lt;/text&gt;
   &lt;<a href="http://hl7.org/fhir/R4/relatedperson.html#RelatedPerson.patient">patient</a>&gt;<a href="Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html" style="color: Maroon">&#x1F517;</a> 
     &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Patient/6ec6dc25-4b65-4165-a545-9b796f60b997&quot;/&gt;
@@ -184,14 +204,12 @@
   &lt;<a href="http://hl7.org/fhir/R4/relatedperson.html#RelatedPerson.relationship">relationship</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
       &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>
-              <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://proceso-urgencia.minsal.cl/CodeSystem/relacion-acompanante&quot;/&gt;
+              <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante&quot;/&gt;
       &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;5&quot;/&gt;
       &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Vecino(a)&quot;/&gt;
     &lt;/coding&gt;
   &lt;/relationship&gt;
   &lt;<a href="http://hl7.org/fhir/R4/relatedperson.html#RelatedPerson.name">name</a>&gt;
-    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#HumanName#HumanName.use">use</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;official&quot;/&gt;
-    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#HumanName#HumanName.text">text</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Raúl Muñoz Valdebenito&quot;/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#HumanName#HumanName.family">family</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Muñoz&quot;&gt;
       &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#string#string.extension">extension</a>
                  <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido&quot;&gt;
@@ -229,13 +247,14 @@
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="http://chiledata.cl">ChileData</a>.  Package fhir.cl.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Aug 29, 2024 09:57-0400">2024-08-29</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Nov 7, 2024 14:38-0300">2024-11-07</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
-                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
-                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
-                 
-                
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> 
+<!-- <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia"></a> -->
+</a>
+
           </span>
         </p>
       </div>  <!-- /inner-wrapper -->

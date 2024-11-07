@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Home - Guía de Implementación de Proceso de Urgencia v0.1.0</title>
+    <title>Home - Atención de Urgencia Interoperable v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -19,6 +19,9 @@
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
     <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
 
     <script type="text/javascript" src="fhir-table-scripts.js"> </script>
 
@@ -46,11 +49,29 @@
       <div class="container">  <!-- container -->
         <!-- Placeholder for child template header declarations -->
 
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
 
         <div id="ig-status">
-          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación de Proceso de Urgencia</span>
+          <p><span style="font-size:12pt;font-weight:bold">Atención de Urgencia Interoperable</span>
             <br/>
-            <span style="display:inline-block;">0.1.0 - ci-build
+            <span style="display:inline-block;">0.1.0 - draft
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
 
 
             </span>
@@ -81,7 +102,7 @@
     <a href="index.html">Home</a>
   </li>
   <li>
-    <a href="artifacts.html">Artifacts</a>
+    <a href="artifacts.html">Artefactos</a>
   </li>
 </ul>
             </div>  <!-- /.nav-collapse -->
@@ -115,7 +136,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación de Proceso de Urgencia - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="http://proceso-urgencia.minsal.cl/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Atención de Urgencia Interoperable - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Home</h2>
   
 
@@ -127,10 +148,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <table class="colsd">
 
     <tr>
-      <td colspan="4"><i>Official URL</i>: <span class="copy-text">http://proceso-urgencia.minsal.cl/ImplementationGuide/fhir.cl.urgencia<button title="Click to copy URL" class="btn-copy" data-clipboard-text="http://proceso-urgencia.minsal.cl/ImplementationGuide/fhir.cl.urgencia"/></span>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia<button title="Click to copy URL" class="btn-copy" data-clipboard-text="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia"/></span>
       </td>
       <td><i>Version</i>:
-      <span class="copy-text">0.1.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="http://proceso-urgencia.minsal.cl/ImplementationGuide/fhir.cl.urgencia|0.1.0"/></span>
+      <span class="copy-text">0.1.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia|0.1.0"/></span>
       </td>
     </tr>
 
@@ -146,14 +167,14 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
         
           Draft
           
-            as of 2024-08-29
+            as of 2024-11-07
           
         
       </td>
 
 
 
-      <td><i>Computable Name</i>: <span style="font-family: monospace;">guiaimplementacionurgencia</span></td>
+      <td><i>Computable Name</i>: <span style="font-family: monospace;">AtencindeUrgenciaInteroperable</span></td>
     </tr>
 
 
@@ -170,12 +191,26 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
-</div>
-<h1 id="guia-implementacion-urgencia">guia-implementacion-urgencia</h1>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#propósito-de-la-guía" id="markdown-toc-propósito-de-la-guía">Propósito de la Guía</a></li>
+  <li><a href="#qué-es-el-dato-de-atención-de-urgencia-dau" id="markdown-toc-qué-es-el-dato-de-atención-de-urgencia-dau">¿Qué es el Dato de Atención de Urgencia (DAU)?</a></li>
+  <li><a href="#estructura-de-la-guía" id="markdown-toc-estructura-de-la-guía">Estructura de la Guía</a></li>
+</ul>
 
-<p>Feel free to modify this index page with your own awesome content!</p>
+</div>
+<h3 id="propósito-de-la-guía">Propósito de la Guía</h3>
+
+<p>Esta guía tiene como objetivo proporcionar un marco detallado y estandarizado para la documentación, registro y manejo de datos de atención de urgencias en los establecimientos de salud de Chile. Está diseñada para facilitar la interoperabilidad entre diferentes sistemas de información en salud y asegurar la continuidad del cuidado del paciente.</p>
+
+<h3 id="qué-es-el-dato-de-atención-de-urgencia-dau">¿Qué es el Dato de Atención de Urgencia (DAU)?</h3>
+
+<p>El DAU es un documento clínico esencial que resume la atención prestada a un paciente durante un episodio de urgencias. Contiene información fidedigna sobre la admisión, categorización (triage), atención y egreso del paciente. Esta guía busca estandarizar el formato y la transmisión de este dato de manera interoperable.</p>
+
+<h3 id="estructura-de-la-guía">Estructura de la Guía</h3>
+
+<p>La guía está dividida en secciones que cubren desde el propósito y alcance hasta los detalles técnicos y ejemplos prácticos de implementación. Se incluyen especificaciones técnicas sobre el uso de perfiles FHIR, mensajes de transacción (<code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code>), terminologías relevantes y consideraciones de seguridad y privacidad.</p>
+
 
 
 
@@ -195,13 +230,14 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="http://chiledata.cl">ChileData</a>.  Package fhir.cl.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Aug 29, 2024 09:57-0400">2024-08-29</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Nov 7, 2024 14:38-0300">2024-11-07</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
-                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
-                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
-                 
-                
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> 
+<!-- <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia"></a> -->
+</a>
+
           </span>
         </p>
       </div>  <!-- /inner-wrapper -->
