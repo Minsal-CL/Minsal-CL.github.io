@@ -1,23 +1,6 @@
 {
   "codeSystems" : [
     {
-      "url" : "http://hl7.org/fhir/ValueSet/encounter-participant-type",
-      "version" : "4.0.1",
-      "status" : "draft",
-      "name" : "ParticipantType",
-      "title" : "Participant type",
-      "description" : "This value set defines a set of codes that can be used to indicate how an individual participates in an encounter.",
-      "systems" : [
-        "http://terminology.hl7.org/CodeSystem/participant-type",
-        "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"
-      ],
-      "oids" : ["2.16.840.1.113883.4.642.3.250"],
-      "sources" : ["2.16.840.1.113883.4.642.3.250"],
-      "uses" : {
-      },
-      "ValueSet-TipoParticipanteEncuentroUrgencia.html" : "Tipo Participante Encuentro Urgencia"
-    },
-    {
       "url" : "http://hl7.org/fhir/ValueSet/observation-vitalsignresult",
       "version" : "4.0.1",
       "status" : "active",
@@ -55,7 +38,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-PatientUrg.html" : "Patient Urg"
+      "StructureDefinition-PatientUrg.html" : "Paciente Urgencia"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/EspecialidadMedica",
@@ -238,7 +221,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-PatientUrg.html" : "Patient Urg"
+      "StructureDefinition-PatientUrg.html" : "Paciente Urgencia"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/VSReligion",
@@ -280,23 +263,24 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
+      "StructureDefinition-Abandono.html" : "Abandono"
     },
     {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/categorizacion-paciente",
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/categorizacion-urgencia",
       "version" : "0.1.0",
       "status" : "draft",
-      "name" : "VSCategorizacionPaciente",
-      "title" : "Categorización de Paciente",
-      "description" : "Códigos de categorización de un paciente en un evento de urgencia.",
+      "name" : "VSCategorizacionUrgencia",
+      "title" : "Categorización Urgencia",
+      "description" : "Códigos de categorización asociados a la urgencia de pacientes en el sistema de salud chileno",
       "systems" : [
         "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-discrecional",
+        "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-no-realizada",
         "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-ugo",
         "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-esi"
       ],
       "uses" : {
       },
-      "StructureDefinition-ObservationCategorizacionn.html" : "Observación Categorización"
+      "StructureDefinition-EncounterUrg.html" : "Encuentro Urgencia"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/destino-fallecido",
@@ -310,7 +294,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
+      "StructureDefinition-Fallecido.html" : "Fallecido"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/destino-traslado",
@@ -321,10 +305,7 @@
       "description" : "Códigos asociados a destino de traslado del paciente desde urgencia.",
       "systems" : [
         "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-traslado"
-      ],
-      "uses" : {
-      },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
+      ]
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/especialidad-odontologica",
@@ -336,15 +317,6 @@
       "systems" : [
         "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/especialidad-odontologica"
       ]
-    },
-    {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/estado-antecedente",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "VSEstadoAntecedente",
-      "title" : "Estado Antecedente",
-      "description" : "Valores posibles a registrar en verificationStatus de un antecedente",
-      "systems" : ["http://terminology.hl7.org/CodeSystem/condition-ver-status"]
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/eventos-urgencia",
@@ -369,7 +341,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
+      "StructureDefinition-Fallecido.html" : "Fallecido"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/indicacion-alta",
@@ -383,7 +355,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
+      "StructureDefinition-IndicacionAlta.html" : "Indicación Alta"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/indicacion-hospitalizacion",
@@ -397,7 +369,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
+      "StructureDefinition-IndicacionHospitalizacion.html" : "Indicación Hospitalización"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/indicacion-traslado-otro-centro",
@@ -411,7 +383,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
+      "StructureDefinition-IndicacionDerivacion.html" : "Indicación Derivación"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/lesion-autoinflingida",
@@ -425,7 +397,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-atencion.html" : "Observación Atención"
+      "StructureDefinition-LesionAutoinfligida.html" : "Lesion Autoinfligida"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/tipo-egreso",
@@ -439,71 +411,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
-    },
-    {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/tipo-sistema-categorizacion",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "VSTipoSistemaCategorizacion",
-      "title" : "Tipo de sistema de categorización",
-      "description" : "Códigos tipo de sistema de categorización",
-      "systems" : [
-        "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-sistema-categorizacion"
-      ],
-      "uses" : {
-      },
-      "StructureDefinition-ObservationCategorizacionn.html" : "Observación Categorización"
-    },
-    {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/tipo-solicitud",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "VSTipoSolicitud",
-      "title" : "Tipo de Solicitud",
-      "description" : "Set de códigos para el tipo de solicitud realizados durante un encuentro de atención de urgencia",
-      "systems" : [
-        "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-solicitud"
-      ],
-      "uses" : {
-      },
-      "StructureDefinition-solcitud-urgencia.html" : "Solicitud"
-    },
-    {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/titulo-profesional-categorizador",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "VSTituloProfesionalCategorizador",
-      "title" : "Título Profesional Categorizador",
-      "description" : "Códigos de los títulos profesionales de un profesional categorizador de un paciente en un servicio de urgencia",
-      "systems" : [
-        "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional"
-      ],
-      "uses" : {
-      },
-      "StructureDefinition-titulo-profesional-categorizador.html" : "Título Profesional Categorizador"
-    },
-    {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/titulo-profesional-medico",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "VSTituloProfesionalMedico",
-      "title" : "Título Profesional Médico",
-      "description" : "Códigos de los títulos profesionales médicos u odontólogo de un profesional de la salud que participa de la atención de un paciente",
-      "systems" : [
-        "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional"
-      ]
-    },
-    {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/titulo-profesional-no-medico",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "VSTituloProfesionalNoMedico",
-      "title" : "Título Profesional No Médico",
-      "description" : "Códigos de los títulos profesionales no médicos de un profesional de la salud que participa de la atención de un paciente",
-      "systems" : [
-        "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional"
-      ]
+      "StructureDefinition-EncounterUrg.html" : "Encuentro Urgencia"
     },
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/unidad-hospitalaria-destino",
@@ -517,7 +425,7 @@
       ],
       "uses" : {
       },
-      "StructureDefinition-observacion-egreso.html" : "Observación Egreso"
+      "StructureDefinition-IndicacionHospitalizacion.html" : "Indicación Hospitalización"
     }
   ]
 }

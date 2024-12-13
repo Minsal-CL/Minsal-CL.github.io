@@ -10,7 +10,7 @@
   fhir:id [ fhir:v "TipoParticipanteEncuentroUrgencia"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet TipoParticipanteEncuentroUrgencia</b></p><a name=\"TipoParticipanteEncuentroUrgencia\"> </a><a name=\"hcTipoParticipanteEncuentroUrgencia\"> </a><a name=\"TipoParticipanteEncuentroUrgencia-es-CL\"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include all codes defined in <a href=\"CodeSystem-TipoParticipanteUrgencia.html\"><code>https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoParticipanteUrgencia</code></a></li><li>Import all the codes that are contained in <a href=\"http://hl7.org/fhir/R4/valueset-encounter-participant-type.html\">Participant type</a></li></ul></div>"
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet TipoParticipanteEncuentroUrgencia</b></p><a name=\"TipoParticipanteEncuentroUrgencia\"> </a><a name=\"hcTipoParticipanteEncuentroUrgencia\"> </a><a name=\"TipoParticipanteEncuentroUrgencia-es-CL\"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include all codes defined in <a href=\"CodeSystem-TipoParticipanteUrgencia.html\"><code>https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoParticipanteUrgencia</code></a></li><li>Include codes from<a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html\"><code>http://terminology.hl7.org/CodeSystem/v3-ParticipationType</code></a> where concept  is-a <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-ADM\">ADM</a></li><li>Include codes from<a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html\"><code>http://terminology.hl7.org/CodeSystem/v3-ParticipationType</code></a> where concept  is-a <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-ATND\">ATND</a></li><li>Include codes from<a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html\"><code>http://terminology.hl7.org/CodeSystem/v3-ParticipationType</code></a> where concept  is-a <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-CON\">CON</a></li><li>Include codes from<a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html\"><code>http://terminology.hl7.org/CodeSystem/v3-ParticipationType</code></a> where concept  is-a <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-DIS\">DIS</a></li><li>Include codes from<a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html\"><code>http://terminology.hl7.org/CodeSystem/v3-ParticipationType</code></a> where concept  is-a <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ParticipationType.html#v3-ParticipationType-SPRF\">SPRF</a></li><li>Include codes from<a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-participant-type.html\"><code>http://terminology.hl7.org/CodeSystem/participant-type</code></a> where concept  is-a <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-participant-type.html#participant-type-emergency\">emergency</a></li></ul></div>"
   ] ; # 
   fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/TipoParticipanteEncuentroUrgencia"^^xsd:anyURI] ; # 
   fhir:version [ fhir:v "0.1.0"] ; # 
@@ -18,7 +18,7 @@
   fhir:title [ fhir:v "Tipo Participante Encuentro Urgencia"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
   fhir:experimental [ fhir:v "false"^^xsd:boolean] ; # 
-  fhir:date [ fhir:v "2024-11-07T14:38:19-03:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2024-12-13T10:10:51-03:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Unidad de Interoperabilidad - MINSAL"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Unidad de Interoperabilidad - MINSAL" ] ;
@@ -53,9 +53,46 @@
      fhir:include ( [
        fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoParticipanteUrgencia"^^xsd:anyURI ]
      ] [
-       fhir:valueSet ( [
-         fhir:v "http://hl7.org/fhir/ValueSet/encounter-participant-type"^^xsd:anyURI ;
-         fhir:link <http://hl7.org/fhir/ValueSet/encounter-participant-type>
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
+       fhir:filter ( [
+         fhir:property [ fhir:v "concept" ] ;
+         fhir:op [ fhir:v "is-a" ] ;
+         fhir:value [ fhir:v "ADM" ]
+       ] )
+     ] [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
+       fhir:filter ( [
+         fhir:property [ fhir:v "concept" ] ;
+         fhir:op [ fhir:v "is-a" ] ;
+         fhir:value [ fhir:v "ATND" ]
+       ] )
+     ] [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
+       fhir:filter ( [
+         fhir:property [ fhir:v "concept" ] ;
+         fhir:op [ fhir:v "is-a" ] ;
+         fhir:value [ fhir:v "CON" ]
+       ] )
+     ] [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
+       fhir:filter ( [
+         fhir:property [ fhir:v "concept" ] ;
+         fhir:op [ fhir:v "is-a" ] ;
+         fhir:value [ fhir:v "DIS" ]
+       ] )
+     ] [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
+       fhir:filter ( [
+         fhir:property [ fhir:v "concept" ] ;
+         fhir:op [ fhir:v "is-a" ] ;
+         fhir:value [ fhir:v "SPRF" ]
+       ] )
+     ] [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/participant-type"^^xsd:anyURI ] ;
+       fhir:filter ( [
+         fhir:property [ fhir:v "concept" ] ;
+         fhir:op [ fhir:v "is-a" ] ;
+         fhir:value [ fhir:v "emergency" ]
        ] )
      ] )
   ] . # 

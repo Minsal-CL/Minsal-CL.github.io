@@ -1,0 +1,435 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Bundle/EjBundleAtencion> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "EjBundleAtencion"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAtencion"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAtencion>
+     ] )
+  ] ; # 
+  fhir:type [ fhir:v "transaction"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [ fhir:v "urn:uuid:d1391b7b-302a-49f8-a908-8116599e137e"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:d1391b7b-302a-49f8-a908-8116599e137e> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "PUT" ] ;
+       fhir:url [ fhir:v "Encounter?identifier=126402-0025"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:190cd208-48b1-4920-a283-6bc37cbde13a"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:190cd208-48b1-4920-a283-6bc37cbde13a> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Practitioner"^^xsd:anyURI ] ;
+       fhir:ifNoneExist [ fhir:v "identifier=55555555-5" ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:fbb0e12c-95ec-43f7-bff1-73009b307cb5"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:fbb0e12c-95ec-43f7-bff1-73009b307cb5> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Practitioner"^^xsd:anyURI ] ;
+       fhir:ifNoneExist [ fhir:v "identifier=33333333-3" ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:7ea8cb9a-fc10-44ad-8c52-de03c4517b30"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:7ea8cb9a-fc10-44ad-8c52-de03c4517b30> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Observation"^^xsd:anyURI ]
+     ]
+  ] [
+     fhir:fullUrl [ fhir:v "urn:uuid:e27704ff-fa1a-4750-9d23-36ce567f35b0"^^xsd:anyURI ] ;
+     fhir:resource ( <urn:uuid:e27704ff-fa1a-4750-9d23-36ce567f35b0> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [ fhir:v "Condition"^^xsd:anyURI ]
+     ]
+  ] ) . # 
+
+<urn:uuid:d1391b7b-302a-49f8-a908-8116599e137e> a fhir:Encounter ;
+  fhir:id [ fhir:v "d1391b7b-302a-49f8-a908-8116599e137e"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_d1391b7b-302a-49f8-a908-8116599e137e\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encounter d1391b7b-302a-49f8-a908-8116599e137e</b></p><a name=\"d1391b7b-302a-49f8-a908-8116599e137e\"> </a><a name=\"hcd1391b7b-302a-49f8-a908-8116599e137e\"> </a><a name=\"d1391b7b-302a-49f8-a908-8116599e137e-es-CL\"> </a><p><b>Previsión</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Prevision 1}\">FONASA</span></p><p><b>Acompañante</b>: false</p><p><b>Hospitalizacion Reciente</b>: false</p><p><b>Lesion Autoinfligida</b>: <a href=\"CodeSystem-lesion-autoinflingida.html#lesion-autoinflingida-1\">Lesión Autoinflingida 1</a>: No</p><p><b>identifier</b>: 126402-0025</p><p><b>status</b>: In Progress</p><blockquote><p><b>statusHistory</b></p><p><b>status</b>: Arrived</p><p><b>period</b>: 2024-10-25 13:18:00-0400 --&gt; (ongoing)</p></blockquote><blockquote><p><b>statusHistory</b></p><p><b>status</b>: Triaged</p><p><b>period</b>: 2024-10-25 13:30:00-0400 --&gt; (ongoing)</p></blockquote><blockquote><p><b>statusHistory</b></p><p><b>status</b>: In Progress</p><p><b>period</b>: 2024-10-25 14:12:00-0400 --&gt; (ongoing)</p></blockquote><p><b>class</b>: <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode EMER</a>: emergency</p><p><b>priority</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-ugo C3}\">Atención Prioritaria</span></p><p><b>subject</b>: <a href=\"Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><blockquote><p><b>participant</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType ADM}\">admitter</span></p><p><b>period</b>: 2024-10-25 13:18:00-0400 --&gt; (ongoing)</p><p><b>individual</b>: <a href=\"Practitioner-b9f6967f-51b5-49f4-8576-ce9f588523c2.html\">Practitioner Mario Donoso </a></p></blockquote><blockquote><p><b>participant</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/participant-type emergency}\">Emergency</span></p><p><b>individual</b>: <a href=\"RelatedPerson-bb7f34f7-8f4e-42c8-aa84-1f64bf584a05.html\">RelatedPerson Jose Luis Perez </a></p></blockquote><blockquote><p><b>participant</b></p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoParticipanteUrgencia triage}\">Categorizador</span></p><p><b>period</b>: 2024-10-25 13:30:00-0400 --&gt; (ongoing)</p><p><b>individual</b>: <a href=\"Practitioner-d04739d3-ba47-4f0f-920f-bcd66b474963.html\">Practitioner Juan Carlos Perez Gonzalez(official)</a></p></blockquote><blockquote><p><b>participant</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType ATND}\">attender</span></p><p><b>period</b>: 2024-10-25 14:12:00-0400 --&gt; (ongoing)</p><p><b>individual</b>: <a href=\"Bundle-EjBundleAtencion.html#urn-uuid-190cd208-48b1-4920-a283-6bc37cbde13a\">Bundle: type = transaction</a></p></blockquote><blockquote><p><b>participant</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType CON}\">consultant</span></p><p><b>period</b>: 2024-10-25 14:29:00-0400 --&gt; (ongoing)</p><p><b>individual</b>: <a href=\"Bundle-EjBundleAtencion.html#urn-uuid-fbb0e12c-95ec-43f7-bff1-73009b307cb5\">Bundle: type = transaction</a></p></blockquote><p><b>period</b>: 2024-10-25 13:18:00-0400 --&gt; (ongoing)</p><p><b>reasonCode</b>: <span title=\"Codes:\">Dolor abdominal de 24 horas de evolución</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td><td><b>Use</b></td><td><b>Rank</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-EjBundleAtencion.html#urn-uuid-e27704ff-fa1a-4750-9d23-36ce567f35b0\">Bundle: type = transaction</a></td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/diagnostic-role AD}\">AD</span></td><td>1</td></tr></table><blockquote><p><b>hospitalization</b></p><p><b>Medio de Llegada</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/MedioDeLlegada 5}\">Vehículo particular</span></p><p><b>Consulta por Accidente</b>: false</p><p><b>admitSource</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Procedencia 9}\">Domicilio</span></p></blockquote><p><b>serviceProvider</b>: <a href=\"Organization-5491b8d5-e06c-4f89-beb7-75a1989cdc81.html\">Organization Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</a></p></div>"
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Prevision"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Prevision"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "1" ] ;
+         fhir:display [ fhir:v "FONASA" ]
+       ] )
+     ]
+  ] [
+     fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Acompanante"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "false"^^xsd:boolean ]
+  ] [
+     fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/HospitalizacionReciente"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "false"^^xsd:boolean ]
+  ] [
+     fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/LesionAutoinfligida"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:Coding ;
+       fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/lesion-autoinflingida"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "1" ] ;
+       fhir:display [ fhir:v "No" ]
+     ]
+  ] ) ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "126402-0025" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "in-progress"] ; # 
+  fhir:statusHistory ( [
+     fhir:status [ fhir:v "arrived" ] ;
+     fhir:period [
+       fhir:start [ fhir:v "2024-10-25T13:18:00-04:00"^^xsd:dateTime ]
+     ]
+  ] [
+     fhir:status [ fhir:v "triaged" ] ;
+     fhir:period [
+       fhir:start [ fhir:v "2024-10-25T13:30:00-04:00"^^xsd:dateTime ]
+     ]
+  ] [
+     fhir:status [ fhir:v "in-progress" ] ;
+     fhir:period [
+       fhir:start [ fhir:v "2024-10-25T14:12:00-04:00"^^xsd:dateTime ]
+     ]
+  ] ) ; # 
+  fhir:class [
+     fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ] ;
+     fhir:code [ fhir:v "EMER" ]
+  ] ; # 
+  fhir:priority [
+     fhir:coding ( [
+       fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-ugo"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "C3" ] ;
+       fhir:display [ fhir:v "Atención Prioritaria" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Patient/6ec6dc25-4b65-4165-a545-9b796f60b997> ;
+     fhir:reference [ fhir:v "Patient/6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:participant ( [
+     fhir:type ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "ADM" ]
+       ] )
+     ] ) ;
+     fhir:period [
+       fhir:start [ fhir:v "2024-10-25T13:18:00-04:00"^^xsd:dateTime ]
+     ] ;
+     fhir:individual [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/b9f6967f-51b5-49f4-8576-ce9f588523c2> ;
+       fhir:reference [ fhir:v "Practitioner/b9f6967f-51b5-49f4-8576-ce9f588523c2" ]
+     ]
+  ] [
+     fhir:type ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/participant-type"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "emergency" ]
+       ] )
+     ] ) ;
+     fhir:individual [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/RelatedPerson/bb7f34f7-8f4e-42c8-aa84-1f64bf584a05> ;
+       fhir:reference [ fhir:v "RelatedPerson/bb7f34f7-8f4e-42c8-aa84-1f64bf584a05" ]
+     ]
+  ] [
+     fhir:type ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoParticipanteUrgencia"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "triage" ]
+       ] )
+     ] ) ;
+     fhir:period [
+       fhir:start [ fhir:v "2024-10-25T13:30:00-04:00"^^xsd:dateTime ]
+     ] ;
+     fhir:individual [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/d04739d3-ba47-4f0f-920f-bcd66b474963> ;
+       fhir:reference [ fhir:v "Practitioner/d04739d3-ba47-4f0f-920f-bcd66b474963" ]
+     ]
+  ] [
+     fhir:type ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "ATND" ]
+       ] )
+     ] ) ;
+     fhir:period [
+       fhir:start [ fhir:v "2024-10-25T14:12:00-04:00"^^xsd:dateTime ]
+     ] ;
+     fhir:individual [
+       fhir:reference [ fhir:v "urn:uuid:190cd208-48b1-4920-a283-6bc37cbde13a" ]
+     ]
+  ] [
+     fhir:type ( [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-ParticipationType"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "CON" ]
+       ] )
+     ] ) ;
+     fhir:period [
+       fhir:start [ fhir:v "2024-10-25T14:29:00-04:00"^^xsd:dateTime ]
+     ] ;
+     fhir:individual [
+       fhir:reference [ fhir:v "urn:uuid:fbb0e12c-95ec-43f7-bff1-73009b307cb5" ]
+     ]
+  ] ) ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2024-10-25T13:18:00-04:00"^^xsd:dateTime ]
+  ] ; # 
+  fhir:reasonCode ( [
+     fhir:text [ fhir:v "Dolor abdominal de 24 horas de evolución" ]
+  ] ) ; # 
+  fhir:diagnosis ( [
+     fhir:condition [
+       fhir:reference [ fhir:v "urn:uuid:e27704ff-fa1a-4750-9d23-36ce567f35b0" ]
+     ] ;
+     fhir:use [
+       fhir:coding ( [
+         fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/diagnostic-role"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "AD" ]
+       ] )
+     ] ;
+     fhir:rank [ fhir:v "1"^^xsd:positiveInteger ]
+  ] ) ; # 
+  fhir:hospitalization [
+     fhir:extension ( [
+       fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedioDeLlegada"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:CodeableConcept ;
+         fhir:coding ( [
+           fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/MedioDeLlegada"^^xsd:anyURI ] ;
+           fhir:code [ fhir:v "5" ] ;
+           fhir:display [ fhir:v "Vehículo particular" ]
+         ] )
+       ]
+     ] [
+       fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConsultaPorAccidente"^^xsd:anyURI ] ;
+       fhir:value [ fhir:v "false"^^xsd:boolean ]
+     ] ) ;
+     fhir:admitSource [
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Procedencia"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "9" ] ;
+         fhir:display [ fhir:v "Domicilio" ]
+       ] )
+     ]
+  ] ; # 
+  fhir:serviceProvider [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81> ;
+     fhir:reference [ fhir:v "Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81" ]
+  ] . # 
+
+<urn:uuid:190cd208-48b1-4920-a283-6bc37cbde13a> a fhir:Practitioner ;
+  fhir:id [ fhir:v "190cd208-48b1-4920-a283-6bc37cbde13a"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_190cd208-48b1-4920-a283-6bc37cbde13a\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practitioner 190cd208-48b1-4920-a283-6bc37cbde13a</b></p><a name=\"190cd208-48b1-4920-a283-6bc37cbde13a\"> </a><a name=\"hc190cd208-48b1-4920-a283-6bc37cbde13a\"> </a><a name=\"190cd208-48b1-4920-a283-6bc37cbde13a-es-CL\"> </a><p><b>identifier</b>: RUN/55555555-5 (use: official, )</p><p><b>name</b>: Luis Gonzalez (Official)</p><p><b>birthDate</b>: 1992-05-26</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>cert</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional 30}\">MÉDICO GENERAL</span></td></tr></table></div>"
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "01" ]
+       ] )
+     ] ;
+     fhir:system [ fhir:v "http://www.registrocivil.cl"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "55555555-5" ]
+  ] ) ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:family [
+       fhir:v "Gonzalez" ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Nuñez" ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "Luis" ] )
+  ] ) ; # 
+  fhir:birthDate [ fhir:v "1992-05-26"^^xsd:date] ; # 
+  fhir:qualification ( [
+     fhir:identifier ( [
+       fhir:value [ fhir:v "cert" ]
+     ] ) ;
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "30" ] ;
+         fhir:display [ fhir:v "MÉDICO GENERAL" ]
+       ] )
+     ]
+  ] ) . # 
+
+<urn:uuid:fbb0e12c-95ec-43f7-bff1-73009b307cb5> a fhir:Practitioner ;
+  fhir:id [ fhir:v "fbb0e12c-95ec-43f7-bff1-73009b307cb5"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_fbb0e12c-95ec-43f7-bff1-73009b307cb5\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practitioner fbb0e12c-95ec-43f7-bff1-73009b307cb5</b></p><a name=\"fbb0e12c-95ec-43f7-bff1-73009b307cb5\"> </a><a name=\"hcfbb0e12c-95ec-43f7-bff1-73009b307cb5\"> </a><a name=\"fbb0e12c-95ec-43f7-bff1-73009b307cb5-es-CL\"> </a><p><b>identifier</b>: RUN/33333333-3 (use: official, )</p><p><b>name</b>: Maria Fernandez (Official)</p><p><b>birthDate</b>: 1995-09-12</p><blockquote><p><b>qualification</b></p><p><b>identifier</b>: cert</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional 1}\">MÉDICO CIRUJANO</span></p></blockquote><blockquote><p><b>qualification</b></p><p><b>identifier</b>: esp</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/EspecialidadMedica 18}\">GASTROENTEROLOGÍA ADULTO</span></p></blockquote></div>"
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "01" ]
+       ] )
+     ] ;
+     fhir:system [ fhir:v "http://www.registrocivil.cl"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "33333333-3" ]
+  ] ) ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:family [
+       fhir:v "Fernandez" ;
+       fhir:extension ( [
+         fhir:url [ fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido"^^xsd:anyURI ] ;
+         fhir:value [ fhir:v "Alvarez" ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "Maria" ] )
+  ] ) ; # 
+  fhir:birthDate [ fhir:v "1995-09-12"^^xsd:date] ; # 
+  fhir:qualification ( [
+     fhir:identifier ( [
+       fhir:value [ fhir:v "cert" ]
+     ] ) ;
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "1" ] ;
+         fhir:display [ fhir:v "MÉDICO CIRUJANO" ]
+       ] )
+     ]
+  ] [
+     fhir:identifier ( [
+       fhir:value [ fhir:v "esp" ]
+     ] ) ;
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/EspecialidadMedica"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "18" ] ;
+         fhir:display [ fhir:v "GASTROENTEROLOGÍA ADULTO" ]
+       ] )
+     ]
+  ] ) . # 
+
+<urn:uuid:7ea8cb9a-fc10-44ad-8c52-de03c4517b30> a fhir:Observation ;
+  fhir:id [ fhir:v "7ea8cb9a-fc10-44ad-8c52-de03c4517b30"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionAnamnesis"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionAnamnesis>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_7ea8cb9a-fc10-44ad-8c52-de03c4517b30\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation 7ea8cb9a-fc10-44ad-8c52-de03c4517b30</b></p><a name=\"7ea8cb9a-fc10-44ad-8c52-de03c4517b30\"> </a><a name=\"hc7ea8cb9a-fc10-44ad-8c52-de03c4517b30\"> </a><a name=\"7ea8cb9a-fc10-44ad-8c52-de03c4517b30-es-CL\"> </a><p><b>status</b>: Registered</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 84100007}\">Anamnesis</span></p><p><b>subject</b>: <a href=\"Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>encounter</b>: <a href=\"Bundle-Ej1BundleAdmision.html#urn-uuid-d1391b7b-302a-49f8-a908-8116599e137e\">Bundle: type = transaction</a></p><p><b>effective</b>: 2024-10-25 14:18:00-0400</p><p><b>performer</b>: <a href=\"Bundle-EjBundleAtencion.html#urn-uuid-190cd208-48b1-4920-a283-6bc37cbde13a\">Bundle: type = transaction</a></p><p><b>value</b>: MOTIVO DE CONSULTA:\nDolor abdominal de 24 horas de evolución.\n\nHISTORIA ACTUAL:\nInicio en región periumbilical hace 24 horas, posteriormente migra a fosa iliaca derecha.\nIntensidad progresiva, EVA actual 8/10.\nAsociado a:\n- Anorexia desde inicio de síntomas\n- Náuseas y dos episodios de vómitos\n- Sensación febril no cuantificada\nDolor aumenta al caminar y con movimientos bruscos.\nNo reporta diarrea ni síntomas urinarios.\nAutomedicación con Paracetamol sin alivio.\n\nANTECEDENTES:\nMórbidos: No\nQuirúrgicos: No\nAlergias: No\nMedicamentos habituales: No\nÚltima ingesta: &gt;12 horas (anorexia)</p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "registered"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       a sct:84100007 ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "84100007" ]
+     ] ) ;
+     fhir:text [ fhir:v "Anamnesis" ]
+  ] ; # 
+  fhir:subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Patient/6ec6dc25-4b65-4165-a545-9b796f60b997> ;
+     fhir:reference [ fhir:v "Patient/6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:reference [ fhir:v "urn:uuid:d1391b7b-302a-49f8-a908-8116599e137e" ]
+  ] ; # 
+  fhir:effective [ fhir:v "2024-10-25T14:18:00-04:00"^^xsd:dateTime] ; # 
+  fhir:performer ( [
+     fhir:reference [ fhir:v "urn:uuid:190cd208-48b1-4920-a283-6bc37cbde13a" ]
+  ] ) ; # 
+  fhir:value [ fhir:v "MOTIVO DE CONSULTA:\nDolor abdominal de 24 horas de evolución.\n\nHISTORIA ACTUAL:\nInicio en región periumbilical hace 24 horas, posteriormente migra a fosa iliaca derecha.\nIntensidad progresiva, EVA actual 8/10.\nAsociado a:\n- Anorexia desde inicio de síntomas\n- Náuseas y dos episodios de vómitos\n- Sensación febril no cuantificada\nDolor aumenta al caminar y con movimientos bruscos.\nNo reporta diarrea ni síntomas urinarios.\nAutomedicación con Paracetamol sin alivio.\n\nANTECEDENTES:\nMórbidos: No\nQuirúrgicos: No\nAlergias: No\nMedicamentos habituales: No\nÚltima ingesta: >12 horas (anorexia)"] . # 
+
+<urn:uuid:e27704ff-fa1a-4750-9d23-36ce567f35b0> a fhir:Condition ;
+  fhir:id [ fhir:v "e27704ff-fa1a-4750-9d23-36ce567f35b0"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CondicionHipotesisDiagnostica"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CondicionHipotesisDiagnostica>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_e27704ff-fa1a-4750-9d23-36ce567f35b0\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condition e27704ff-fa1a-4750-9d23-36ce567f35b0</b></p><a name=\"e27704ff-fa1a-4750-9d23-36ce567f35b0\"> </a><a name=\"hce27704ff-fa1a-4750-9d23-36ce567f35b0\"> </a><a name=\"e27704ff-fa1a-4750-9d23-36ce567f35b0-es-CL\"> </a><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status provisional}\">Provisional</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category encounter-diagnosis}\">Encounter Diagnosis</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 K35}\">Acute appendicitis</span></p><p><b>subject</b>: <a href=\"Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>encounter</b>: <a href=\"Bundle-Ej1BundleAdmision.html#urn-uuid-d1391b7b-302a-49f8-a908-8116599e137e\">Bundle: type = transaction</a></p><p><b>recorder</b>: <a href=\"Bundle-EjBundleAtencion.html#urn-uuid-190cd208-48b1-4920-a283-6bc37cbde13a\">Bundle: type = transaction</a></p><p><b>note</b>: Paciente con dolor abdominal agudo, compatible con apendicitis aguda.</p></div>"
+  ] ; # 
+  fhir:clinicalStatus [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-clinical"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "active" ]
+     ] )
+  ] ; # 
+  fhir:verificationStatus [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-ver-status"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "provisional" ]
+     ] )
+  ] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/condition-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "encounter-diagnosis" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://hl7.org/fhir/sid/icd-10"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "K35" ] ;
+       fhir:display [ fhir:v "Acute appendicitis" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Patient/6ec6dc25-4b65-4165-a545-9b796f60b997> ;
+     fhir:reference [ fhir:v "Patient/6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:reference [ fhir:v "urn:uuid:d1391b7b-302a-49f8-a908-8116599e137e" ]
+  ] ; # 
+  fhir:recorder [
+     fhir:reference [ fhir:v "urn:uuid:190cd208-48b1-4920-a283-6bc37cbde13a" ]
+  ] ; # 
+  fhir:note ( [
+     fhir:text [ fhir:v "Paciente con dolor abdominal agudo, compatible con apendicitis aguda." ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

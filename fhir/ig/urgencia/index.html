@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Home - Atención de Urgencia Interoperable v0.1.0</title>
+    <title>Index - Atención de Urgencia Interoperable v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -18,6 +18,7 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
     <!-- Placeholder for child template CSS declarations -->
 <link href="assets/css/hl7chile.css" rel="stylesheet" />
 <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
@@ -101,6 +102,47 @@
   <li>
     <a href="index.html">Home</a>
   </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificación de negocio
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="workflow.html">Flujo</a>
+      </li>
+      <li>
+        <a href="events.html">Eventos Interoperabilidad</a>
+      </li>
+      <li>
+        <a href="actors.html">Rol de actores</a>
+      </li>
+      <li>
+        <a href="user-history.html">Historias de usuario segun rol</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificaciones técnicas
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="spec-events.html">Eventos</a>
+      </li>
+      <li>
+        <a href="spec-transactions.html">Transactiones</a>
+      </li>
+      <li>
+        <a href="artifacts.html">Perfiles</a>
+      </li>
+      <li>
+        <a href="spec-message.html">Mensajería</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Terminologías</a>
+  </li>
   <li>
     <a href="artifacts.html">Artefactos</a>
   </li>
@@ -116,7 +158,7 @@
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->
         <ul class="breadcrumb">
-          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Home</b></li>
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Index</b></li>
 
         </ul>
       </div>  <!-- /container -->
@@ -137,7 +179,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </style>
 <div class="col-12">
   <!--ReleaseHeader--><p id="publish-box">Atención de Urgencia Interoperable - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
-  <h2>Home</h2>
+  <h2>Index</h2>
   
 
 
@@ -167,7 +209,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
         
           Draft
           
-            as of 2024-11-07
+            as of 2024-12-13
           
         
       </td>
@@ -193,24 +235,65 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <p><!-- white space is critical inside of capture --></p>
 <div class="markdown-toc">
 <ul id="markdown-toc">
-  <li><a href="#propósito-de-la-guía" id="markdown-toc-propósito-de-la-guía">Propósito de la Guía</a></li>
-  <li><a href="#qué-es-el-dato-de-atención-de-urgencia-dau" id="markdown-toc-qué-es-el-dato-de-atención-de-urgencia-dau">¿Qué es el Dato de Atención de Urgencia (DAU)?</a></li>
-  <li><a href="#estructura-de-la-guía" id="markdown-toc-estructura-de-la-guía">Estructura de la Guía</a></li>
+  <li><a href="#alcance" id="markdown-toc-alcance">Alcance</a></li>
+  <li><a href="#introducción" id="markdown-toc-introducción">Introducción</a></li>
 </ul>
 
 </div>
-<h3 id="propósito-de-la-guía">Propósito de la Guía</h3>
+<h3 id="alcance">Alcance</h3>
 
-<p>Esta guía tiene como objetivo proporcionar un marco detallado y estandarizado para la documentación, registro y manejo de datos de atención de urgencias en los establecimientos de salud de Chile. Está diseñada para facilitar la interoperabilidad entre diferentes sistemas de información en salud y asegurar la continuidad del cuidado del paciente.</p>
+<p>Esta guía de implementación aborda el proceso de atención de urgencia, que se lleva a cabo en la Unidad de Emergencia Hospitalaria. Para representar este proceso se definen 4 eventos, los cuales son:</p>
 
-<h3 id="qué-es-el-dato-de-atención-de-urgencia-dau">¿Qué es el Dato de Atención de Urgencia (DAU)?</h3>
+<ul>
+  <li><strong>Admisión</strong>: Apertura del Dato de Atención de Urgencia (DAU).</li>
+  <li><strong>Categorización</strong>: Priorización de la oportunidad de la atención según el riesgo vital y la complejidad.</li>
+  <li><strong>Atención</strong>: Atención de un profesional de salud.</li>
+  <li><strong>Egreso</strong>: Egreso de la atención de urgencia e indicar el destino del usuario.</li>
+</ul>
 
-<p>El DAU es un documento clínico esencial que resume la atención prestada a un paciente durante un episodio de urgencias. Contiene información fidedigna sobre la admisión, categorización (triage), atención y egreso del paciente. Esta guía busca estandarizar el formato y la transmisión de este dato de manera interoperable.</p>
+<h3 id="introducción">Introducción</h3>
+<h4 id="antecentes">Antecentes</h4>
 
-<h3 id="estructura-de-la-guía">Estructura de la Guía</h3>
+<p>El proceso de atención de urgencia es el conjunto de actividades clínicas y administrativas que se llevan a cabo en la Unidad de Emergencia Hospitalaria. Tiene como objetivo brindar cuidados de salud a una persona que necesita atención médica inmediata. El proceso se inicia ya sea por demanda espontánea, derivación desde un Servicio de Atención Primaria de Urgencia (SAPU, SAR) o desde el SAMU.</p>
 
-<p>La guía está dividida en secciones que cubren desde el propósito y alcance hasta los detalles técnicos y ejemplos prácticos de implementación. Se incluyen especificaciones técnicas sobre el uso de perfiles FHIR, mensajes de transacción (<code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code>), terminologías relevantes y consideraciones de seguridad y privacidad.</p>
+<p>La Unidad de Emergencia Hospitalaria (UEH) es un dispositivo esencial, dado que corresponde al punto de resolución de los casos más complejos y la puerta de ingreso a la atención hospitalaria. Dada esta razón y la importancia de este proceso se hace necesario implementar un proceso interoperable que genere información de valor entre distintos centros, permitiendo tomar decisiones.</p>
 
+<h4 id="descripción">Descripción</h4>
+
+<p>Se propone desarrollar una guía de implementación que permita hacer trazabilidad del proceso de la atención de urgencia desde que un paciente ingresa a la admisión, hasta que se egresa por diferentes razones, esta información estará disponible tanto para el paciente, como para los establecimientos de salud involucrados y el nivel central para la toma de decisiones y mejor gestión de los recursos.</p>
+
+<p>Este proyecto fue ejecutado por un equipo multidisciplinario del Ministerio de Salud, con la participación de profesionales del Departamento de Estadísticas e Información en Salud (DEIS), la División de Gestión de la Red Asistencial (DIGERA), y la Unidad de Interoperabilidad del Departamento de Tecnologías de la Información y Comunicaciones (DTIC). Se ha utilizado una metodología para el re-diseño del proceso, optimizándolo y centrándolo en el paciente y se ha implementado bajo el uso estándares internacionales de interoperabilidad.</p>
+
+<h4 id="objetivos-del-proyecto">Objetivos del Proyecto</h4>
+<h5 id="general">General</h5>
+
+<ul>
+  <li>Desarrollar una guía de implementación para el proceso de urgencia interoperable que respalde la gestión de información, incluyendo su registro, transferencia y análisis. Dicha información es entregada a través de una plataforma que facilite su acceso y almacenamiento de manera precisa y de calidad, en el contexto de la atención de urgencias para pacientes de la red asistencial.</li>
+</ul>
+
+<h5 id="específicos">Específicos</h5>
+
+<ul>
+  <li>Lograr el intercambio de información desde el ingreso del paciente a una atención de urgencia, hasta el egreso de este por las diferentes casuísticas desde los registros clínicos electrónicos implementados en los establecimientos de salud pública del país y la plataforma de interoperabilidad de MINSAL.</li>
+  <li>Promover la estandarización de los datos involucrados en el proceso de atención de urgencia.</li>
+  <li>Proporcionar directrices y reglas comunes que faciliten la adopción de estándares de interoperabilidad semánticos y sintácticos, tanto por parte de profesionales clínicos como para los desarrolladores en toda la red asistencial.</li>
+  <li>Garantizar que los datos se representen y se compartan de manera coherente entre sistemas, evitando ambigüedades y errores en la interpretación de la información.</li>
+</ul>
+
+<h4 id="objetivos-de-la-guía-de-implementación">Objetivos de la Guía de Implementación</h4>
+<h5 id="general-1">General</h5>
+
+<ul>
+  <li>Brindar las directrices necesarias que garanticen la interoperabilidad con la plataforma de Minsal para el proceso de atención de urgencia, según los estándares definidos por el Ministerio de Salud.</li>
+</ul>
+
+<h5 id="específicos-1">Específicos</h5>
+
+<ul>
+  <li>Otorgar las herramientas necesarias para el desarrollo de sistemas informáticos de registro clínico que interoperen con la plataforma definida por Minsal para el intercambio de información del proceso de atención de urgencia, en base al estándar HL7 FHIR.</li>
+  <li>Describir los distintos perfiles de usuario del proceso de atención de urgencia y los recursos asociados a cada uno.</li>
+  <li>Ejemplificar los distintos casos de uso asociados al proceso de atención de urgencia que son aplicables en el día a día.</li>
+</ul>
 
 
 
@@ -230,7 +313,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Nov 7, 2024 14:38-0300">2024-11-07</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Dec 13, 2024 10:10-0300">2024-12-13</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
