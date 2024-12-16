@@ -10,7 +10,7 @@
   "name" : "AtencindeUrgenciaInteroperable",
   "title" : "Atención de Urgencia Interoperable",
   "status" : "draft",
-  "date" : "2024-12-13T10:10:51-03:00",
+  "date" : "2024-12-16T14:50:05-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -350,7 +350,7 @@
     },
     {
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency",
-      "valueCode" : "hl7.fhir.uv.tools#0.2.0"
+      "valueCode" : "hl7.fhir.uv.tools.r4#0.3.0"
     },
     {
       "extension" : [{
@@ -702,6 +702,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "AllergyIntolerance"
+      }],
+      "reference" : {
+        "reference" : "AllergyIntolerance/39d71be0-2eea-4672-ac70-73373a19e714"
+      },
+      "name" : "Alergia o Intolerancia",
+      "description" : "Ejemplo de una alergia o intolerancia de un paciente.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AlergiaIntolerancia"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
@@ -822,6 +834,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/CarePlanIndicaciones"
+      },
+      "name" : "CarePlan Indicaciones",
+      "description" : "Registro de indicaciones al término de una atención de urgencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
       }],
       "reference" : {
@@ -834,14 +858,14 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
+        "valueString" : "Condition"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/CondicionDiagnosticoEgreso"
+        "reference" : "Condition/c08c94fd-bd58-4be8-bd1d-193441b4567e"
       },
-      "name" : "Condicion Diagnóstico Egreso",
-      "description" : "Perfil empleado para registrar diagnósticos de egreso del paciente en el contexto de atención de urgencia.",
-      "exampleBoolean" : false
+      "name" : "Comorbilidad de Diabetes Mellitus",
+      "description" : "Ejemplo de condición diagnóstica de comorbilidad de diabetes mellitus en un paciente en un servicio de atención de urgencia.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE"
     },
     {
       "extension" : [{
@@ -849,22 +873,10 @@
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/CondicionMorbilidades"
+        "reference" : "StructureDefinition/ConditionDiagnosticoLE"
       },
-      "name" : "Condicion Morbilidades",
-      "description" : "Perfíl empleado para registrar morbilidades o antecedentes médicos del paciente.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/CondicionHipotesisDiagnostica"
-      },
-      "name" : "Condición Hipótesis Diagnóstica",
-      "description" : "Perfil empleado para registrar hipótesis diagnósticas del paciente en el contexto de atención de urgencia.",
+      "name" : "Condition Diagnostico",
+      "description" : "Condicion Diagnostico, recurso que se utiliza para indicar el diagnóstico tanto de ingreso como egreso de un paciente en un servicio de urgencias",
       "exampleBoolean" : false
     },
     {
@@ -937,6 +949,42 @@
       },
       "name" : "CSEventosUrgencia",
       "description" : "Códigos de eventos de urgencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/CodigoExamen"
+      },
+      "name" : "Códigos de Examenes",
+      "description" : "Codigos de Examenes",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VSCodigosUrgencia"
+      },
+      "name" : "Códigos de Urgencia",
+      "description" : "Códigos creados para registrar información dentro de la atención de urgencia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CSCodigosUrgencia"
+      },
+      "name" : "Códigos de Urgencia",
+      "description" : "Códigos creados para registrar información dentro de la atención de urgencia",
       "exampleBoolean" : false
     },
     {
@@ -1074,6 +1122,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Encounter"
+      }],
+      "reference" : {
+        "reference" : "Encounter/4c9a3e03-a907-492e-b69c-710cb8c42347"
+      },
+      "name" : "Encuentro Urgencia Abandono",
+      "description" : "Ejemplo de recurso Encounter con registro de abandono de atención de un paciente en un servicio de urgencia",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
       }],
       "reference" : {
@@ -1170,6 +1230,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/3d07043e-adc5-4047-a309-26e2c38ab074"
+      },
+      "name" : "Evolución clínica de paciente con dolor abdominal",
+      "description" : "Ejemplo de observación de la evolución clínica de un paciente con dolor abdominal",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/observacion-evol-clin"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
@@ -1213,19 +1285,7 @@
       },
       "name" : "Hipótesis Diagnóstica de Dolor Abdominal",
       "description" : "Ejemplo de condición hipótesis diagnóstica de dolor abdominal en un paciente en un servicio de atención de urgencia.",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CondicionHipotesisDiagnostica"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/HospitalizacionReciente"
-      },
-      "name" : "Hospitalizacion Reciente",
-      "description" : "Extensión empleada para indicar si el paciente ha sido hospitalizado recientemente.",
-      "exampleBoolean" : false
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE"
     },
     {
       "extension" : [{
@@ -1238,6 +1298,18 @@
       "name" : "Identificador Prestador",
       "description" : "Identificador Prestador",
       "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CarePlan"
+      }],
+      "reference" : {
+        "reference" : "CarePlan/23eb67e4-4fd5-4315-963a-3c5e63fff3a5"
+      },
+      "name" : "Indicaciones Plan de Cuidados",
+      "description" : "Ejemplo de un plan de cuidados con indicaciones al término de una atención de urgencia",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CarePlanIndicaciones"
     },
     {
       "extension" : [{
@@ -1350,18 +1422,6 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/LesionAutoinfligida"
-      },
-      "name" : "Lesion Autoinfligida",
-      "description" : "Extensión empleada para indicar si el paciente presenta una lesión autoinfligida.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
       }],
       "reference" : {
@@ -1422,13 +1482,25 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
+        "valueString" : "MedicationAdministration"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/MedicoLegal"
+        "reference" : "MedicationAdministration/716cd145-cd36-4935-9351-263d4e43f3da"
       },
-      "name" : "Medico Legal",
-      "description" : "Extensión que registra la información médico legal en el contexto de un encuentro de atención de urgencia.",
+      "name" : "Medicación Administrada en Urgencia",
+      "description" : "Ejemplo de administración de medicación en un servicio de atención de urgencia",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedicationAdministrationUrg"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/MedicationAdministrationUrg"
+      },
+      "name" : "MedicationAdministration Urgencia",
+      "description" : "Recurso MedicationAdministration para registrar la administración de medicamentos en un servicio de atención de urgencia",
       "exampleBoolean" : false
     },
     {
@@ -1470,6 +1542,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/Mencion"
+      },
+      "name" : "Mención profesional añadida al título profesional",
+      "description" : "Mención profesional obtenida junto con el título, dato que se agrega en texto lible",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
@@ -1478,6 +1562,18 @@
       "name" : "Observación Anamnesis",
       "description" : "Observación de la anamnesis de un paciente en un servicio de urgencia",
       "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/447eef01-d4b1-4312-9c4f-c34ca46dce11"
+      },
+      "name" : "Observación de hospitalización reciente",
+      "description" : "Observación que registra si el paciente ha sido hospitalizado recientemente",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionHospitalizacionReciente"
     },
     {
       "extension" : [{
@@ -1497,11 +1593,191 @@
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/indicacion-term-urg"
+        "reference" : "StructureDefinition/ObservacionHospitalizacionReciente"
       },
-      "name" : "Observación Indicaciones",
-      "description" : "Registro de la recomendación que el profesional que decide el alta, comunica y explica al usuario o tutor, de manera verbal y registra en el dato de urgencia, para dar continuidad a los cuidados ambulatorios o en caso de derivación u hospitalización, el plan terapéutico planteado a seguir.",
+      "name" : "Observación Hospitalización Reciente",
+      "description" : "Observación que registra si el paciente ha sido hospitalizado recientemente",
       "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ObservacionLesionAutoInfligida"
+      },
+      "name" : "Observación Lesión Auto Infligida",
+      "description" : "Observación que registra si el paciente ha sufrido una lesión auto infligida",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/70763f44-cded-482d-9afc-05894c7615c9"
+      },
+      "name" : "Observación Lesión Auto Infligida",
+      "description" : "Ejemplo de observación que registra si el paciente ha sufrido una lesión auto infligida",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionLesionAutoInfligida"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ObservacionMedLegalAlcoholemia"
+      },
+      "name" : "Observación Medico Legal Alcoholemia",
+      "description" : "Observación que registra la fecha y hora de la toma de alcoholemia",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ObservacionMedLegalCert"
+      },
+      "name" : "Observación Medico Legal Certificación",
+      "description" : "Observación que registra la fecha y hora de la certificación de riesgo vital o secuela grave",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ObservacionMedLegalExamenToxico"
+      },
+      "name" : "Observación Medico Legal Examen Toxicológico",
+      "description" : "Observación que registra la fecha y hora en que se realiza un examen toxicológico",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/535e0438-315b-4291-b5cc-4469cef1ffb6"
+      },
+      "name" : "Observación Medico Legal Examen Toxicológico",
+      "description" : "Ejemplo de observación que registra la fecha y hora en que se realiza un examen toxicológico",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalExamenToxico"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ObservacionMedLegalLesiones"
+      },
+      "name" : "Observación Medico Legal Lesiones",
+      "description" : "Observación que registra la fecha y hora de la realización del informe de lesiones",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/8bac861c-c8cc-48fa-a37c-14eeb054974f"
+      },
+      "name" : "Observación Medico Legal Riesgo Vital o Secuela Grave",
+      "description" : "Ejemplo de observación que registra la fecha y hora de la certificación de riesgo vital o secuela grave",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalCert"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ObservacionMedLegalVS"
+      },
+      "name" : "Observación Medico Legal Violencia Sexual",
+      "description" : "Observación que registra la fecha y hora de la realización del informe de violencia sexual",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/80d57f5d-fde9-4df3-95b8-4f223428659c"
+      },
+      "name" : "Observación Medico Legal Violencia Sexual",
+      "description" : "Ejemplo de observación que registra la fecha y hora de la realización del informe de violencia sexual",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalVS"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/39b30e0d-76d2-4ec1-b047-6c2a13291863"
+      },
+      "name" : "Observación Médico Legal Alcoholemia",
+      "description" : "Ejemplo de observación que registra la fecha y hora de la toma de alcoholemia",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalAlcoholemia"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/813c8069-e56d-42a9-b2c8-91b11703c13e"
+      },
+      "name" : "Observación Médico Legal Lesiones",
+      "description" : "Ejemplo de observación que registra la fecha y hora de la realización del informe de lesiones",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalLesiones"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ObservacionReconsultaUrgencia"
+      },
+      "name" : "Observación Reconsulta Urgencia",
+      "description" : "Observación que registra si el paciente ha tenido un evento de urgencia previo en el período de 15-21 días",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/d00b0ce5-aee0-475d-8028-a360f60b810c"
+      },
+      "name" : "Observación Reconsulta Urgencia",
+      "description" : "Ejemplo de observación que registra si el paciente ha tenido un evento de urgencia previo en el período de 15-21 días",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionReconsultaUrgencia"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/aeb13c46-8eb3-4b8f-9bc2-e3d57024cb86"
+      },
+      "name" : "Observación Resultado Examen",
+      "description" : "Ejemplo de observación que registra el resultado de un examen",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationResultadoExamen"
     },
     {
       "extension" : [{
@@ -1513,6 +1789,42 @@
       },
       "name" : "Observación Signos Vitales",
       "description" : "Recurso empleado para registrar la información de signos vitales de un paciente en un servicio de urgencia.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/3d609e5a-730d-4a32-947c-e632253fa5ff"
+      },
+      "name" : "Observación Signos Vitales - Peso",
+      "description" : "Ejemplo de observación de signos vitales de un paciente en un servicio de urgencia - Peso.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/d01f4e15-7f0a-49cf-b5a7-e7dd717526d2"
+      },
+      "name" : "Observación Signos Vitales - Pulso",
+      "description" : "Ejemplo de observación de signos vitales de un paciente en un servicio de urgencia - Pulso.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/ObservationResultadoExamen"
+      },
+      "name" : "Observation Resultado Examen",
+      "description" : "Resultado de examen",
       "exampleBoolean" : false
     },
     {
@@ -1581,42 +1893,6 @@
         "valueString" : "ValueSet"
       }],
       "reference" : {
-        "reference" : "ValueSet/Prevision"
-      },
-      "name" : "Prevision",
-      "description" : "La previsión es la  variable determinada el sistema de aseguramiento de salud del paciente.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/Prevision"
-      },
-      "name" : "Prevision",
-      "description" : "Previsión de salud del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/Prevision"
-      },
-      "name" : "Previsión",
-      "description" : "Previsión de salud del paciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
         "reference" : "ValueSet/Procedencia"
       },
       "name" : "Procedencia",
@@ -1634,6 +1910,30 @@
       "name" : "Procedencia",
       "description" : "Corresponde al lugar físico desde donde proviene el paciente cuando consulta en un servicio de atención de urgencia",
       "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/Procedimiento"
+      },
+      "name" : "Procedimiento",
+      "description" : "Registro de un procedimiento realizado a un paciente",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Procedure"
+      }],
+      "reference" : {
+        "reference" : "Procedure/dc28ac35-92d9-495c-b97f-78ce3733c671"
+      },
+      "name" : "Procedimiento",
+      "description" : "Ejemplo de recurso Procedure para el registro de un procedimiento realizado a un paciente",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Procedimiento"
     },
     {
       "extension" : [{
@@ -1693,18 +1993,6 @@
       },
       "name" : "Pueblos Originarios Perteneciente",
       "description" : "Pueblos Originarios Perteneciente",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/ReconsultaUrgencia"
-      },
-      "name" : "Reconsulta Urgencia",
-      "description" : "Extensión que registra si la atención de urgencia es una reconsulta.",
       "exampleBoolean" : false
     },
     {
@@ -1770,37 +2058,13 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
+        "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/ServicioDeSalud"
+        "reference" : "StructureDefinition/ServiceRequestSolicitudes"
       },
-      "name" : "Servicio de Salud",
-      "description" : "Extensión para registrar el Servicio de Salud al cual pertenece un establecimiento de salud.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/VSServicioDeSalud"
-      },
-      "name" : "Servicio de Salud",
-      "description" : "Códigos de Servicios de Salud en Chile presentes en Norma Técnica 820.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/CSServicioDeSalud"
-      },
-      "name" : "Servicio de Salud",
-      "description" : "Códigos de Servicios de Salud en Chile presentes en Norma Técnica 820.",
+      "name" : "ServiceRequest Solicitudes",
+      "description" : "Recurso ServiceRequest para las solicitudes de exámenes, procedimientos y otros servicios durante la atención de un paciente",
       "exampleBoolean" : false
     },
     {
@@ -1813,6 +2077,30 @@
       },
       "name" : "Signos Vitales",
       "description" : "Códigos empleados para registrar los diferentes signos vitales de un paciente en un servicio de urgencia.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ServiceRequest"
+      }],
+      "reference" : {
+        "reference" : "ServiceRequest/b8b2b855-e554-40ef-98fe-55a07556fc48"
+      },
+      "name" : "Solicitud de Examen de Laboratorio",
+      "description" : "Ejemplo de solicitud de exámen de laboratorio para un paciente",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ServiceRequestSolicitudes"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VSTerminologiasDiag"
+      },
+      "name" : "TerminologiasDiag",
+      "description" : "TerminologiasDiag",
       "exampleBoolean" : false
     },
     {
@@ -1861,42 +2149,6 @@
       },
       "name" : "Tipo Participante Urgencia",
       "description" : "Tipo de participante en un evento de urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/TipoViaResidencia"
-      },
-      "name" : "Tipo Via Residencia",
-      "description" : "Corresponde al tipo o clasificación de la vía",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/TipoViaResidencia"
-      },
-      "name" : "Tipo Via Residencia",
-      "description" : "Códigos de tipo de vía de residencia Norma 820",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/TipoViaResidencia"
-      },
-      "name" : "Tipo Via Residencia",
-      "description" : "Códigos de tipo de vía de residencia Norma 820",
       "exampleBoolean" : false
     },
     {

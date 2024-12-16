@@ -133,7 +133,7 @@
         <a href="spec-transactions.html">Transactiones</a>
       </li>
       <li>
-        <a href="artifacts.html">Perfiles</a>
+        <a href="artifacts.html#structures-resource-profiles">Perfiles</a>
       </li>
       <li>
         <a href="spec-message.html">Mensajería</a>
@@ -141,7 +141,7 @@
     </ul>
   </li>
   <li>
-    <a href="artifacts.html">Terminologías</a>
+    <a href="artifacts.html#terminology-value-sets">Terminologías</a>
   </li>
   <li>
     <a href="artifacts.html">Artefactos</a>
@@ -198,7 +198,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <ul id="markdown-toc">
   <li><a href="#transacción-evento-admisión" id="markdown-toc-transacción-evento-admisión">Transacción evento Admisión</a></li>
   <li><a href="#transacción-evento-categorización" id="markdown-toc-transacción-evento-categorización">Transacción evento Categorización</a></li>
-  <li><a href="#transacción-evento-atención-clínica" id="markdown-toc-transacción-evento-atención-clínica">Transacción evento Atención Clínica</a></li>
+  <li><a href="#transacción-evento-atención" id="markdown-toc-transacción-evento-atención">Transacción evento Atención</a></li>
   <li><a href="#transacción-evento-egreso" id="markdown-toc-transacción-evento-egreso">Transacción evento Egreso</a></li>
 </ul>
 
@@ -221,7 +221,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td>Admisión</td>
       <td>
-        Según la Norma Técnica NGT 149 indica que: La Admisión es el subproceso auxiliar y administrativo del proceso de atención de urgencias, de soporte, que tributa al principal proceso correspondiente a la atención clínica. En él se lleva a cabo la recepción del usuario, apertura del Dato de Atención de Urgencia (DAU) e instalación de brazalete de identificación con doble verificador, esto a partir del registro de datos sociodemográficos relevantes, habilitando así el registro de los cuidados y prestaciones ejecutados durante el subproceso clínico de atención de urgencias. (MINSAL, Norma Técnica Estándares de Datos de atención de Urgencia (No Oficial), 2023) 
+        Según la Norma Técnica NGT 149 indica que: La Admisión es el subproceso auxiliar y administrativo del proceso de atención de urgencias, de soporte, que tributa al principal proceso correspondiente a la atención. En él se lleva a cabo la recepción del usuario, apertura del Dato de Atención de Urgencia (DAU) e instalación de brazalete de identificación con doble verificador, esto a partir del registro de datos sociodemográficos relevantes, habilitando así el registro de los cuidados y prestaciones ejecutados durante el subproceso clínico de atención de urgencias. (MINSAL, Norma Técnica Estándares de Datos de atención de Urgencia (No Oficial), 2023) 
       </td>
       <td>La respuesta debe indicar si hay errores o indicar que los recursos han sido creados exitosamente</td>
     </tr>
@@ -242,7 +242,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h5 id="request">Request</h5>
 
-<p>La semántica del mensaje para la transacción del evendo admisión usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Admisión</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
+<p>La semántica del mensaje para la transacción del evento Admisión usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Admisión</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
 
 <h5 id="response">Response</h5>
 
@@ -283,7 +283,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h4 id="diagrama-de-secuencia-1">Diagrama de secuencia</h4>
 
-<p>El evento admisión debe soportar la siguiente secuencia:</p>
+<p>El evento Categorización debe soportar la siguiente secuencia:</p>
 
 <p><br /></p>
 <div style="display: flex; justify-content: center; align-items: center;">
@@ -295,7 +295,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h5 id="request-1">Request</h5>
 
-<p>La semántica del mensaje para la transacción del evendo admisión usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Categorización</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
+<p>La semántica del mensaje para la transacción del evento Categorización usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Categorización</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
 
 <h5 id="response-1">Response</h5>
 
@@ -305,7 +305,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <ul>
   <li>Debe existir un paciente creado</li>
-  <li>Debe haber sido creada una admisión de paciente.</li>
+  <li>Debe haber sido creada una admisión de paciente</li>
 </ul>
 
 <h4 id="acciones-esperadas-1">Acciones esperadas</h4>
@@ -314,7 +314,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li>Creación de una categorización de urgencia para un paciente</li>
 </ul>
 
-<h3 id="transacción-evento-atención-clínica">Transacción evento Atención Clínica</h3>
+<h3 id="transacción-evento-atención">Transacción evento Atención</h3>
 
 <h4 id="descripción-2">Descripción</h4>
 
@@ -328,7 +328,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </thead>
   <tbody>
     <tr>
-      <td>Atención Clínica</td>
+      <td>Atención</td>
       <td>
         Este evento corresponde al conjunto de actividades clínicas y administrativas que se llevan a cabo en la urgencia con el fin de diagnosticar y reestablecer el estado de salud del usuario. Estas actividades son realizadas por parte del equipo clínico a cargo de la urgencia, durante el proceso de atención el paciente puede sufrir interconsultas a múltiples profesionales dependiendo de su condición de salud.
       </td>
@@ -339,7 +339,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h4 id="diagrama-de-secuencia-2">Diagrama de secuencia</h4>
 
-<p>El evento atención clínica debe soportar la siguiente secuencia:</p>
+<p>El evento Atención debe soportar la siguiente secuencia:</p>
 
 <p><br /></p>
 <div style="display: flex; justify-content: center; align-items: center;">
@@ -351,7 +351,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h5 id="request-2">Request</h5>
 
-<p>La semántica del mensaje para la transacción del evendo atención clínica usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Categorización</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
+<p>La semántica del mensaje para la transacción del evento Atención usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Atención</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
 
 <h5 id="response-2">Response</h5>
 
@@ -361,13 +361,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <ul>
   <li>Debe existir un paciente creado</li>
-  <li>Debe haber sido creada una admisión de paciente.</li>
+  <li>Debe haber sido creada una admisión de paciente</li>
 </ul>
 
 <h4 id="acciones-esperadas-2">Acciones esperadas</h4>
 
 <ul>
-  <li>Creación de una atención clínica de urgencia para un paciente</li>
+  <li>Creación de una atención de urgencia para un paciente</li>
 </ul>
 
 <h3 id="transacción-evento-egreso">Transacción evento Egreso</h3>
@@ -395,7 +395,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h4 id="diagrama-de-secuencia-3">Diagrama de secuencia</h4>
 
-<p>El evento egreso debe soportar la siguiente secuencia:</p>
+<p>El evento Egreso debe soportar la siguiente secuencia:</p>
 
 <p><br /></p>
 <div style="display: flex; justify-content: center; align-items: center;">
@@ -407,7 +407,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h5 id="request-3">Request</h5>
 
-<p>La semántica del mensaje para la transacción del evento egreso usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Categorización</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
+<p>La semántica del mensaje para la transacción del evento Egreso usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Egreso</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
 
 <h5 id="response-3">Response</h5>
 
@@ -417,7 +417,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <ul>
   <li>Debe existir un paciente creado</li>
-  <li>Debe haber sido creada una admisión de paciente.</li>
+  <li>Debe haber sido creada una admisión de paciente</li>
 </ul>
 
 <h4 id="acciones-esperadas-3">Acciones esperadas</h4>
@@ -445,7 +445,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Dec 13, 2024 10:10-0300">2024-12-13</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Dec 16, 2024 14:50-0300">2024-12-16</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

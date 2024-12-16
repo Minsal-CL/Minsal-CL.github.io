@@ -1,0 +1,67 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Encounter/6c7dae68-552d-44cb-b414-e5024ae8e0a0> a fhir:Encounter ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "6c7dae68-552d-44cb-b414-e5024ae8e0a0"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/EncounterEntrevistaLE"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/EncounterEntrevistaLE>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Encounter 6c7dae68-552d-44cb-b414-e5024ae8e0a0</b></p><a name=\"6c7dae68-552d-44cb-b414-e5024ae8e0a0\"> </a><a name=\"hc6c7dae68-552d-44cb-b414-e5024ae8e0a0\"> </a><a name=\"6c7dae68-552d-44cb-b414-e5024ae8e0a0-es-CL\"> </a><p><b>En Condicion Cirugia</b>: true</p><p><b>Extension Resultado Evaluación Pre-Qx</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSResultadoEvaluacionPreQuirurgica 1}\">El Paciente requiere intervención quirúrgica.</span></p><p><b>identifier</b>: 1234567890</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"CodeSystem-CSModalidadAtencionCodigo.html#CSModalidadAtencionCodigo-1\">Modalidad Atencion Codigo 1</a>: Presencial</p><p><b>subject</b>: <a href=\"Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html\">Juan Pérez (official) Male, DoB: 1980-01-01 ( RUN: 4444444-4)</a></p><p><b>basedOn</b>: <a href=\"ServiceRequest-38a17703-0731-4c3f-88fd-1202dc99d7ce.html\">ServiceRequest Lung</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-0e5c9353-5f8e-4801-b7fc-59395f14344c.html\">PractitionerRole Entrevistador</a></td></tr></table><p><b>appointment</b>: <a href=\"Appointment-76adaeb4-4885-4aa6-96c1-13b9df9a61d7.html\">Appointment: extension = Llamada,; identifier = CITA-20241027-001; status = booked; serviceType = Entrevista Pre Quirúrgica; start = 2024-10-27 10:00:00-0400; end = 2024-10-27 10:30:00-0400; created = 2024-10-25 14:00:00-0400</a></p><p><b>period</b>: 2024-12-02 10:00:00-0400 --&gt; (ongoing)</p></div>"
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/EnCondicionCirugia"^^xsd:anyURI ] ;
+     fhir:value [ fhir:v "true"^^xsd:boolean ]
+  ] [
+     fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionResultadoEvaluacionPreQx"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSResultadoEvaluacionPreQuirurgica"^^xsd:anyURI ] ;
+         fhir:code [ fhir:v "1" ] ;
+         fhir:display [ fhir:v "El Paciente requiere intervención quirúrgica." ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "1234567890" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "finished"] ; # 
+  fhir:class [
+     fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSModalidadAtencionCodigo"^^xsd:anyURI ] ;
+     fhir:code [ fhir:v "1" ] ;
+     fhir:display [ fhir:v "Presencial" ]
+  ] ; # 
+  fhir:subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Patient/22e862c5-6d96-44ec-869c-dba001058cb3> ;
+     fhir:reference [ fhir:v "Patient/22e862c5-6d96-44ec-869c-dba001058cb3" ]
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce> ;
+     fhir:reference [ fhir:v "ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce" ]
+  ] ) ; # 
+  fhir:participant ( [
+     fhir:individual [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/PractitionerRole/0e5c9353-5f8e-4801-b7fc-59395f14344c> ;
+       fhir:reference [ fhir:v "PractitionerRole/0e5c9353-5f8e-4801-b7fc-59395f14344c" ]
+     ]
+  ] ) ; # 
+  fhir:appointment ( [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Appointment/76adaeb4-4885-4aa6-96c1-13b9df9a61d7> ;
+     fhir:reference [ fhir:v "Appointment/76adaeb4-4885-4aa6-96c1-13b9df9a61d7" ]
+  ] ) ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2024-12-02T10:00:00-04:00"^^xsd:dateTime ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

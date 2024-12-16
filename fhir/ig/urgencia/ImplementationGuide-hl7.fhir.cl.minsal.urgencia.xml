@@ -11,7 +11,7 @@
   <name value="AtencindeUrgenciaInteroperable"/>
   <title value="Atención de Urgencia Interoperable"/>
   <status value="draft"/>
-  <date value="2024-12-13T10:10:51-03:00"/>
+  <date value="2024-12-16T14:50:05-03:00"/>
   <publisher value="Unidad de Interoperabilidad - MINSAL"/>
   <contact>
     <name value="Unidad de Interoperabilidad - MINSAL"/>
@@ -270,7 +270,7 @@
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
-      <valueCode value="hl7.fhir.uv.tools#0.2.0"/>
+      <valueCode value="hl7.fhir.uv.tools.r4#0.3.0"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
       <extension url="code">
@@ -540,6 +540,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="AllergyIntolerance"/>
+      </extension>
+      <reference>
+        <reference value="AllergyIntolerance/39d71be0-2eea-4672-ac70-73373a19e714"/>
+      </reference>
+      <name value="Alergia o Intolerancia"/>
+      <description value="Ejemplo de una alergia o intolerancia de un paciente."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AlergiaIntolerancia"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
@@ -650,6 +661,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/CarePlanIndicaciones"/>
+      </reference>
+      <name value="CarePlan Indicaciones"/>
+      <description value="Registro de indicaciones al término de una atención de urgencia"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="ValueSet"/>
       </extension>
       <reference>
@@ -661,35 +683,24 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
+        <valueString value="Condition"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/CondicionDiagnosticoEgreso"/>
+        <reference value="Condition/c08c94fd-bd58-4be8-bd1d-193441b4567e"/>
       </reference>
-      <name value="Condicion Diagnóstico Egreso"/>
-      <description value="Perfil empleado para registrar diagnósticos de egreso del paciente en el contexto de atención de urgencia."/>
-      <exampleBoolean value="false"/>
+      <name value="Comorbilidad de Diabetes Mellitus"/>
+      <description value="Ejemplo de condición diagnóstica de comorbilidad de diabetes mellitus en un paciente en un servicio de atención de urgencia."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/CondicionMorbilidades"/>
+        <reference value="StructureDefinition/ConditionDiagnosticoLE"/>
       </reference>
-      <name value="Condicion Morbilidades"/>
-      <description value="Perfíl empleado para registrar morbilidades o antecedentes médicos del paciente."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/CondicionHipotesisDiagnostica"/>
-      </reference>
-      <name value="Condición Hipótesis Diagnóstica"/>
-      <description value="Perfil empleado para registrar hipótesis diagnósticas del paciente en el contexto de atención de urgencia."/>
+      <name value="Condition Diagnostico"/>
+      <description value="Condicion Diagnostico, recurso que se utiliza para indicar el diagnóstico tanto de ingreso como egreso de un paciente en un servicio de urgencias"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -756,6 +767,39 @@
       </reference>
       <name value="CSEventosUrgencia"/>
       <description value="Códigos de eventos de urgencia"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/CodigoExamen"/>
+      </reference>
+      <name value="Códigos de Examenes"/>
+      <description value="Codigos de Examenes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSCodigosUrgencia"/>
+      </reference>
+      <name value="Códigos de Urgencia"/>
+      <description value="Códigos creados para registrar información dentro de la atención de urgencia"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSCodigosUrgencia"/>
+      </reference>
+      <name value="Códigos de Urgencia"/>
+      <description value="Códigos creados para registrar información dentro de la atención de urgencia"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -881,6 +925,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Encounter"/>
+      </extension>
+      <reference>
+        <reference value="Encounter/4c9a3e03-a907-492e-b69c-710cb8c42347"/>
+      </reference>
+      <name value="Encuentro Urgencia Abandono"/>
+      <description value="Ejemplo de recurso Encounter con registro de abandono de atención de un paciente en un servicio de urgencia"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="ValueSet"/>
       </extension>
       <reference>
@@ -969,6 +1024,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/3d07043e-adc5-4047-a309-26e2c38ab074"/>
+      </reference>
+      <name value="Evolución clínica de paciente con dolor abdominal"/>
+      <description value="Ejemplo de observación de la evolución clínica de un paciente con dolor abdominal"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/observacion-evol-clin"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:extension"/>
       </extension>
       <reference>
@@ -1009,18 +1075,7 @@
       </reference>
       <name value="Hipótesis Diagnóstica de Dolor Abdominal"/>
       <description value="Ejemplo de condición hipótesis diagnóstica de dolor abdominal en un paciente en un servicio de atención de urgencia."/>
-      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CondicionHipotesisDiagnostica"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/HospitalizacionReciente"/>
-      </reference>
-      <name value="Hospitalizacion Reciente"/>
-      <description value="Extensión empleada para indicar si el paciente ha sido hospitalizado recientemente."/>
-      <exampleBoolean value="false"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -1032,6 +1087,17 @@
       <name value="Identificador Prestador"/>
       <description value="Identificador Prestador"/>
       <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CarePlan"/>
+      </extension>
+      <reference>
+        <reference value="CarePlan/23eb67e4-4fd5-4315-963a-3c5e63fff3a5"/>
+      </reference>
+      <name value="Indicaciones Plan de Cuidados"/>
+      <description value="Ejemplo de un plan de cuidados con indicaciones al término de una atención de urgencia"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CarePlanIndicaciones"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -1134,17 +1200,6 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/LesionAutoinfligida"/>
-      </reference>
-      <name value="Lesion Autoinfligida"/>
-      <description value="Extensión empleada para indicar si el paciente presenta una lesión autoinfligida."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="ValueSet"/>
       </extension>
       <reference>
@@ -1200,13 +1255,24 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
+        <valueString value="MedicationAdministration"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/MedicoLegal"/>
+        <reference value="MedicationAdministration/716cd145-cd36-4935-9351-263d4e43f3da"/>
       </reference>
-      <name value="Medico Legal"/>
-      <description value="Extensión que registra la información médico legal en el contexto de un encuentro de atención de urgencia."/>
+      <name value="Medicación Administrada en Urgencia"/>
+      <description value="Ejemplo de administración de medicación en un servicio de atención de urgencia"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedicationAdministrationUrg"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/MedicationAdministrationUrg"/>
+      </reference>
+      <name value="MedicationAdministration Urgencia"/>
+      <description value="Recurso MedicationAdministration para registrar la administración de medicamentos en un servicio de atención de urgencia"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1244,6 +1310,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/Mencion"/>
+      </reference>
+      <name value="Mención profesional añadida al título profesional"/>
+      <description value="Mención profesional obtenida junto con el título, dato que se agrega en texto lible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
@@ -1252,6 +1329,17 @@
       <name value="Observación Anamnesis"/>
       <description value="Observación de la anamnesis de un paciente en un servicio de urgencia"/>
       <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/447eef01-d4b1-4312-9c4f-c34ca46dce11"/>
+      </reference>
+      <name value="Observación de hospitalización reciente"/>
+      <description value="Observación que registra si el paciente ha sido hospitalizado recientemente"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionHospitalizacionReciente"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -1269,11 +1357,176 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/indicacion-term-urg"/>
+        <reference value="StructureDefinition/ObservacionHospitalizacionReciente"/>
       </reference>
-      <name value="Observación Indicaciones"/>
-      <description value="Registro de la recomendación que el profesional que decide el alta, comunica y explica al usuario o tutor, de manera verbal y registra en el dato de urgencia, para dar continuidad a los cuidados ambulatorios o en caso de derivación u hospitalización, el plan terapéutico planteado a seguir."/>
+      <name value="Observación Hospitalización Reciente"/>
+      <description value="Observación que registra si el paciente ha sido hospitalizado recientemente"/>
       <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservacionLesionAutoInfligida"/>
+      </reference>
+      <name value="Observación Lesión Auto Infligida"/>
+      <description value="Observación que registra si el paciente ha sufrido una lesión auto infligida"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/70763f44-cded-482d-9afc-05894c7615c9"/>
+      </reference>
+      <name value="Observación Lesión Auto Infligida"/>
+      <description value="Ejemplo de observación que registra si el paciente ha sufrido una lesión auto infligida"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionLesionAutoInfligida"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservacionMedLegalAlcoholemia"/>
+      </reference>
+      <name value="Observación Medico Legal Alcoholemia"/>
+      <description value="Observación que registra la fecha y hora de la toma de alcoholemia"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservacionMedLegalCert"/>
+      </reference>
+      <name value="Observación Medico Legal Certificación"/>
+      <description value="Observación que registra la fecha y hora de la certificación de riesgo vital o secuela grave"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservacionMedLegalExamenToxico"/>
+      </reference>
+      <name value="Observación Medico Legal Examen Toxicológico"/>
+      <description value="Observación que registra la fecha y hora en que se realiza un examen toxicológico"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/535e0438-315b-4291-b5cc-4469cef1ffb6"/>
+      </reference>
+      <name value="Observación Medico Legal Examen Toxicológico"/>
+      <description value="Ejemplo de observación que registra la fecha y hora en que se realiza un examen toxicológico"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalExamenToxico"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservacionMedLegalLesiones"/>
+      </reference>
+      <name value="Observación Medico Legal Lesiones"/>
+      <description value="Observación que registra la fecha y hora de la realización del informe de lesiones"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/8bac861c-c8cc-48fa-a37c-14eeb054974f"/>
+      </reference>
+      <name value="Observación Medico Legal Riesgo Vital o Secuela Grave"/>
+      <description value="Ejemplo de observación que registra la fecha y hora de la certificación de riesgo vital o secuela grave"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalCert"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservacionMedLegalVS"/>
+      </reference>
+      <name value="Observación Medico Legal Violencia Sexual"/>
+      <description value="Observación que registra la fecha y hora de la realización del informe de violencia sexual"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/80d57f5d-fde9-4df3-95b8-4f223428659c"/>
+      </reference>
+      <name value="Observación Medico Legal Violencia Sexual"/>
+      <description value="Ejemplo de observación que registra la fecha y hora de la realización del informe de violencia sexual"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalVS"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/39b30e0d-76d2-4ec1-b047-6c2a13291863"/>
+      </reference>
+      <name value="Observación Médico Legal Alcoholemia"/>
+      <description value="Ejemplo de observación que registra la fecha y hora de la toma de alcoholemia"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalAlcoholemia"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/813c8069-e56d-42a9-b2c8-91b11703c13e"/>
+      </reference>
+      <name value="Observación Médico Legal Lesiones"/>
+      <description value="Ejemplo de observación que registra la fecha y hora de la realización del informe de lesiones"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalLesiones"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservacionReconsultaUrgencia"/>
+      </reference>
+      <name value="Observación Reconsulta Urgencia"/>
+      <description value="Observación que registra si el paciente ha tenido un evento de urgencia previo en el período de 15-21 días"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/d00b0ce5-aee0-475d-8028-a360f60b810c"/>
+      </reference>
+      <name value="Observación Reconsulta Urgencia"/>
+      <description value="Ejemplo de observación que registra si el paciente ha tenido un evento de urgencia previo en el período de 15-21 días"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionReconsultaUrgencia"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/aeb13c46-8eb3-4b8f-9bc2-e3d57024cb86"/>
+      </reference>
+      <name value="Observación Resultado Examen"/>
+      <description value="Ejemplo de observación que registra el resultado de un examen"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationResultadoExamen"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -1284,6 +1537,39 @@
       </reference>
       <name value="Observación Signos Vitales"/>
       <description value="Recurso empleado para registrar la información de signos vitales de un paciente en un servicio de urgencia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/3d609e5a-730d-4a32-947c-e632253fa5ff"/>
+      </reference>
+      <name value="Observación Signos Vitales - Peso"/>
+      <description value="Ejemplo de observación de signos vitales de un paciente en un servicio de urgencia - Peso."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/d01f4e15-7f0a-49cf-b5a7-e7dd717526d2"/>
+      </reference>
+      <name value="Observación Signos Vitales - Pulso"/>
+      <description value="Ejemplo de observación de signos vitales de un paciente en un servicio de urgencia - Pulso."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservationResultadoExamen"/>
+      </reference>
+      <name value="Observation Resultado Examen"/>
+      <description value="Resultado de examen"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1346,39 +1632,6 @@
         <valueString value="ValueSet"/>
       </extension>
       <reference>
-        <reference value="ValueSet/Prevision"/>
-      </reference>
-      <name value="Prevision"/>
-      <description value="La previsión es la  variable determinada el sistema de aseguramiento de salud del paciente."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/Prevision"/>
-      </reference>
-      <name value="Prevision"/>
-      <description value="Previsión de salud del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/Prevision"/>
-      </reference>
-      <name value="Previsión"/>
-      <description value="Previsión de salud del paciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
         <reference value="ValueSet/Procedencia"/>
       </reference>
       <name value="Procedencia"/>
@@ -1395,6 +1648,28 @@
       <name value="Procedencia"/>
       <description value="Corresponde al lugar físico desde donde proviene el paciente cuando consulta en un servicio de atención de urgencia"/>
       <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/Procedimiento"/>
+      </reference>
+      <name value="Procedimiento"/>
+      <description value="Registro de un procedimiento realizado a un paciente"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Procedure"/>
+      </extension>
+      <reference>
+        <reference value="Procedure/dc28ac35-92d9-495c-b97f-78ce3733c671"/>
+      </reference>
+      <name value="Procedimiento"/>
+      <description value="Ejemplo de recurso Procedure para el registro de un procedimiento realizado a un paciente"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Procedimiento"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -1449,17 +1724,6 @@
       </reference>
       <name value="Pueblos Originarios Perteneciente"/>
       <description value="Pueblos Originarios Perteneciente"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/ReconsultaUrgencia"/>
-      </reference>
-      <name value="Reconsulta Urgencia"/>
-      <description value="Extensión que registra si la atención de urgencia es una reconsulta."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1519,35 +1783,13 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
+        <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/ServicioDeSalud"/>
+        <reference value="StructureDefinition/ServiceRequestSolicitudes"/>
       </reference>
-      <name value="Servicio de Salud"/>
-      <description value="Extensión para registrar el Servicio de Salud al cual pertenece un establecimiento de salud."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/VSServicioDeSalud"/>
-      </reference>
-      <name value="Servicio de Salud"/>
-      <description value="Códigos de Servicios de Salud en Chile presentes en Norma Técnica 820."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/CSServicioDeSalud"/>
-      </reference>
-      <name value="Servicio de Salud"/>
-      <description value="Códigos de Servicios de Salud en Chile presentes en Norma Técnica 820."/>
+      <name value="ServiceRequest Solicitudes"/>
+      <description value="Recurso ServiceRequest para las solicitudes de exámenes, procedimientos y otros servicios durante la atención de un paciente"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1559,6 +1801,28 @@
       </reference>
       <name value="Signos Vitales"/>
       <description value="Códigos empleados para registrar los diferentes signos vitales de un paciente en un servicio de urgencia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/b8b2b855-e554-40ef-98fe-55a07556fc48"/>
+      </reference>
+      <name value="Solicitud de Examen de Laboratorio"/>
+      <description value="Ejemplo de solicitud de exámen de laboratorio para un paciente"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ServiceRequestSolicitudes"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSTerminologiasDiag"/>
+      </reference>
+      <name value="TerminologiasDiag"/>
+      <description value="TerminologiasDiag"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1603,39 +1867,6 @@
       </reference>
       <name value="Tipo Participante Urgencia"/>
       <description value="Tipo de participante en un evento de urgencia."/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:extension"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/TipoViaResidencia"/>
-      </reference>
-      <name value="Tipo Via Residencia"/>
-      <description value="Corresponde al tipo o clasificación de la vía"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/TipoViaResidencia"/>
-      </reference>
-      <name value="Tipo Via Residencia"/>
-      <description value="Códigos de tipo de vía de residencia Norma 820"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/TipoViaResidencia"/>
-      </reference>
-      <name value="Tipo Via Residencia"/>
-      <description value="Códigos de tipo de vía de residencia Norma 820"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>

@@ -1,0 +1,358 @@
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Agendamiento cirugía - XML Representation - Lista de Espera Quirúrgica Interoperable v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"9.84"}
+    h3,h4,h5,h6{--heading-prefix:"9.84"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Lista de Espera Quirúrgica Interoperable</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - draft
+
+
+
+  <span title="Chile">CL</span>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificación de negocio
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="workflow.html">Workflow</a>
+      </li>
+      <li>
+        <a href="events.html">Eventos Interoperabilidad</a>
+      </li>
+      <li>
+        <a href="actors.html">Rol de actores</a>
+      </li>
+      <li>
+        <a href="user-history.html">Historias de usuario segun rol</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificaciones técnicas
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="spec-events.html">Eventos</a>
+      </li>
+      <li>
+        <a href="spec-transactions.html">Transactiones</a>
+      </li>
+      <li>
+        <a href="artifacts.html#structures-resource-profiles">Perfiles</a>
+      </li>
+      <li>
+        <a href="spec-message.html">Mensajeria</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html#terminology-value-sets">Terminologías</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>Agendamiento cirugía</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div style="counter-reset: section 7" class="col-12">
+<!--ReleaseHeader--><p id="publish-box">Lista de Espera Quirúrgica Interoperable - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li>
+    <a href="Appointment-0708a908-fc3a-48ea-90e7-b5cd0e516e30.html">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li class="active">
+      <a href="#">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Appointment-0708a908-fc3a-48ea-90e7-b5cd0e516e30.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Appointment-0708a908-fc3a-48ea-90e7-b5cd0e516e30.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+
+<a name="root"> </a>
+
+
+<h2 id="root">: Agendamiento cirugía - XML Representation</h2>
+
+
+<p><a href="Appointment-0708a908-fc3a-48ea-90e7-b5cd0e516e30.xml" no-download="true">Raw xml</a> | <a href="Appointment-0708a908-fc3a-48ea-90e7-b5cd0e516e30.xml" download>Download</a></p>
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <pre class="xml" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-xml" style="white-space: pre; text-wrap: nowrap;">
+&lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment">Appointment</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;0708a908-fc3a-48ea-90e7-b5cd0e516e30&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.meta">meta</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/AppointmentAgendarLE&quot;/&gt;
+  &lt;/meta&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.text">text</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;extensions&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Appointment 0708a908-fc3a-48ea-90e7-b5cd0e516e30&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;0708a908-fc3a-48ea-90e7-b5cd0e516e30&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hc0708a908-fc3a-48ea-90e7-b5cd0e516e30&quot;&gt; &lt;/a&gt;&lt;a name=&quot;0708a908-fc3a-48ea-90e7-b5cd0e516e30-es-CL&quot;&gt; &lt;/a&gt;&lt;p&gt;&lt;b&gt;Medio de Contacto&lt;/b&gt;: &lt;span title=&quot;Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSMediodeContacto 3}&quot;&gt;Llamada&lt;/span&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;Extension ContactadoLE&lt;/b&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Contactado: true&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;&lt;p&gt;&lt;b&gt;identifier&lt;/b&gt;: CITA-20241130-001&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;serviceType&lt;/b&gt;: &lt;span title=&quot;Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoServicioAgendamiento 2}&quot;&gt;Agendamiento de quirófano&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;appointmentType&lt;/b&gt;: &lt;span title=&quot;Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoAgendamiento 1}&quot;&gt;Electivo Normal&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;start&lt;/b&gt;: 2024-11-12 10:00:00-0400&lt;/p&gt;&lt;p&gt;&lt;b&gt;end&lt;/b&gt;: 2024-11-12 11:00:00-0400&lt;/p&gt;&lt;p&gt;&lt;b&gt;created&lt;/b&gt;: 2024-10-27 14:00:00-0400&lt;/p&gt;&lt;p&gt;&lt;b&gt;basedOn&lt;/b&gt;: &lt;a href=&quot;ServiceRequest-38a17703-0731-4c3f-88fd-1202dc99d7ce.html&quot;&gt;ServiceRequest Lung&lt;/a&gt;&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;participant&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;actor&lt;/b&gt;: &lt;a href=&quot;Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html&quot;&gt;Juan Pérez (official) Male, DoB: 1980-01-01 ( RUN: 4444444-4)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Accepted&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;participant&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;actor&lt;/b&gt;: &lt;a href=&quot;PractitionerRole-4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa.html&quot;&gt;PractitionerRole Atendedor&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Accepted&lt;/p&gt;&lt;/blockquote&gt;&lt;/div&gt;<a name="end-xhtml"></a>
+  &lt;/text&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.extension">extension</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionMediodeContacto&quot;&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueCodeableConcept</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>
+                <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSMediodeContacto&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;3&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Llamada&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/valueCodeableConcept&gt;
+  &lt;/extension&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.extension">extension</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/Contactado&quot;&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.extension">extension</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;Contactado&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value[x]">valueBoolean</a> <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+    &lt;/extension&gt;
+  &lt;/extension&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.identifier">identifier</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.value">value</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;CITA-20241130-001&quot;/&gt;
+  &lt;/identifier&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;booked&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.serviceType">serviceType</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>
+              <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoServicioAgendamiento&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;2&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Agendamiento de quirófano&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/serviceType&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.appointmentType">appointmentType</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>
+              <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoAgendamiento&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Electivo Normal&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/appointmentType&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.start">start</a> <a href="http://hl7.org/fhir/R4/datatypes.html#instant">value</a>=&quot;2024-11-12T10:00:00-04:00&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.end">end</a> <a href="http://hl7.org/fhir/R4/datatypes.html#instant">value</a>=&quot;2024-11-12T11:00:00-04:00&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.created">created</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>=&quot;2024-10-27T14:00:00-04:00&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.basedOn">basedOn</a>&gt;<a href="ServiceRequest-38a17703-0731-4c3f-88fd-1202dc99d7ce.html" style="color: Maroon">&#x1F517;</a> 
+    &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce&quot;/&gt;
+  &lt;/basedOn&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.participant">participant</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.participant.actor">actor</a>&gt;<a href="Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html" style="color: Maroon">&#x1F517;</a> 
+      &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Patient/22e862c5-6d96-44ec-869c-dba001058cb3&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;Patient&quot;/&gt;
+    &lt;/actor&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.participant.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;accepted&quot;/&gt;
+  &lt;/participant&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.participant">participant</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.participant.actor">actor</a>&gt;<a href="PractitionerRole-4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa.html" style="color: Maroon">&#x1F517;</a> 
+      &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a>
+                 <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;PractitionerRole/4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;PractitionerRole&quot;/&gt;
+    &lt;/actor&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/appointment.html#Appointment.participant.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;accepted&quot;/&gt;
+  &lt;/participant&gt;
+&lt;/Appointment&gt;</code></pre>
+
+
+  <!-- insert notes if present -->
+  
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.quirurgico#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Dec 16, 2024 14:50-0300">2024-12-16</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> 
+<!-- <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico"></a> -->
+</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

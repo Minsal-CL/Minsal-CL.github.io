@@ -12,7 +12,6 @@
   <sch:pattern>
     <sch:title>f:Organization</sch:title>
     <sch:rule context="f:Organization">
-      <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ServicioDeSalud']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ServicioDeSalud': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:identifier) &gt;= 1">identifier: minimum cardinality of 'identifier' is 1</sch:assert>
       <sch:assert test="count(f:identifier) &lt;= 1">identifier: maximum cardinality of 'identifier' is 1</sch:assert>
     </sch:rule>

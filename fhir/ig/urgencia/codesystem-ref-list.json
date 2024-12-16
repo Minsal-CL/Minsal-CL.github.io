@@ -1,6 +1,18 @@
 {
   "codeSystems" : [
     {
+      "url" : "http://hl7.org/fhir/sid/icd-10",
+      "version" : "2.1.1",
+      "status" : "retired",
+      "name" : "Icd10",
+      "title" : "ICD-10",
+      "description" : "International Classification of Diseases revision 10 (ICD 10)",
+      "oids" : ["2.16.840.1.113883.6.3"],
+      "uses" : {
+      },
+      "ValueSet-VSTerminologiasDiag.html" : "TerminologiasDiag"
+    },
+    {
       "url" : "http://loinc.org",
       "version" : "3.1.0",
       "status" : "active",
@@ -10,7 +22,45 @@
       "oids" : ["2.16.840.1.113883.6.1"],
       "uses" : {
       },
+      "ValueSet-CodigoExamen.html" : "Códigos de Examenes",
       "ValueSet-SignosVitales.html" : "Signos Vitales"
+    },
+    {
+      "url" : "http://snomed.info/sct",
+      "version" : null,
+      "status" : "active",
+      "name" : "SNOMED_CT",
+      "title" : "SNOMED CT (all versions)",
+      "description" : "SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by The International Health Terminology Standards Development Organisation (IHTSDO).",
+      "oids" : ["2.16.840.1.113883.6.96"],
+      "uses" : {
+      },
+      "ValueSet-VSTerminologiasDiag.html" : "TerminologiasDiag",
+      "http://hl7.org/fhir/R4/valueset-condition-severity.html" : "Condition/Diagnosis Severity"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/condition-clinical",
+      "version" : "3.0.0",
+      "status" : "active",
+      "name" : "ConditionClinicalStatusCodes",
+      "title" : "Condition Clinical Status Codes",
+      "description" : "Preferred value set for Condition Clinical Status.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1074"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-condition-clinical.html" : "Condition Clinical Status Codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+      "version" : "2.0.1",
+      "status" : "active",
+      "name" : "ConditionVerificationStatus",
+      "title" : "ConditionVerificationStatus",
+      "description" : "The verification status to support or decline the clinical status of the condition or diagnosis.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1075"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-condition-ver-status.html" : "ConditionVerificationStatus"
     },
     {
       "url" : "http://terminology.hl7.org/CodeSystem/participant-type",
@@ -60,6 +110,17 @@
       "https://hl7chile.cl/fhir/ig/clcore/1.9.1/ValueSet-CodPais.html" : "Códigos de Países"
     },
     {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSCodigosUrgencia",
+      "version" : "0.1.0",
+      "status" : "active",
+      "name" : "CSCodigosUrgencia",
+      "title" : "Códigos de Urgencia",
+      "description" : "Códigos creados para registrar información dentro de la atención de urgencia",
+      "uses" : {
+      },
+      "ValueSet-VSCodigosUrgencia.html" : "Códigos de Urgencia"
+    },
+    {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSEstadoCivil",
       "version" : "0.1.0",
       "status" : "active",
@@ -82,20 +143,9 @@
       "ValueSet-VSReligion.html" : "Religion"
     },
     {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSServicioDeSalud",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "CSServicioDeSalud",
-      "title" : "Servicio de Salud",
-      "description" : "Códigos de Servicios de Salud en Chile presentes en Norma Técnica 820.",
-      "uses" : {
-      },
-      "ValueSet-VSServicioDeSalud.html" : "Servicio de Salud"
-    },
-    {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/EspecialidadMedica",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSEspecialidadMedica",
       "title" : "Especialidad Médica",
       "description" : "Especialidades médicas reconocidas en el sistema de salud de Chile.",
@@ -106,7 +156,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/LeyPrevisional",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSLeyPrevisional",
       "title" : "Ley Previsional",
       "description" : "Códigos para la ley previsional",
@@ -117,7 +167,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/MedioDeLlegada",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSMedioDeLlegada",
       "title" : "Medio de Llegada",
       "description" : "Corresponde a las posibles formas de llegada de un paciente a un servicio de atención de urgencia",
@@ -126,20 +176,9 @@
       "ValueSet-MedioDeLlegada.html" : "Medio de Llegada"
     },
     {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Prevision",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "CSPrevision",
-      "title" : "Prevision",
-      "description" : "Previsión de salud del paciente",
-      "uses" : {
-      },
-      "ValueSet-Prevision.html" : "Prevision"
-    },
-    {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Procedencia",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSProcedencia",
       "title" : "Procedencia",
       "description" : "Corresponde al lugar físico desde donde proviene el paciente cuando consulta en un servicio de atención de urgencia",
@@ -150,7 +189,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/PueblosOriginariosCS",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "PueblosOriginariosCS",
       "title" : "Pueblos Originarios de Chile",
       "description" : "Pueblos Originarios de Chile",
@@ -161,7 +200,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSRelacionAcompanante",
       "title" : "Relación Acompañante",
       "description" : "Códigos asociados a la relación del acompañante con el paciente.",
@@ -172,7 +211,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoParticipanteUrgencia",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSTipoParticipanteUrgencia",
       "title" : "Tipo Participante Urgencia",
       "description" : "Tipo de participante en un evento de urgencia.",
@@ -181,20 +220,9 @@
       "ValueSet-TipoParticipanteEncuentroUrgencia.html" : "Tipo Participante Encuentro Urgencia"
     },
     {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoViaResidencia",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "CSTipoViaResidencia",
-      "title" : "Tipo Via Residencia",
-      "description" : "Códigos de tipo de vía de residencia Norma 820",
-      "uses" : {
-      },
-      "ValueSet-TipoViaResidencia.html" : "Tipo Via Residencia"
-    },
-    {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSTituloProfesional",
       "title" : "Titulo Profesional",
       "description" : "Códigos asociados a los títulos profesionales de los participantes en un encuentro de urgencia",
@@ -205,7 +233,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/abandono",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSAbandono",
       "title" : "Abandono",
       "description" : "Códigos asociados al tipo de abandono del paciente desde urgencia.",
@@ -216,7 +244,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-discrecional",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSCategorizacionDiscrecional",
       "title" : "CSCategorizacionDiscrecional",
       "description" : "Códigos de categorización discrecional de pacientes en el sistema de salud chileno",
@@ -227,7 +255,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-esi",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSCategorizacionESI",
       "title" : "CSCategorizacionESI",
       "description" : "Códigos de categorización ESI de pacientes en el sistema de salud chileno",
@@ -238,7 +266,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-no-realizada",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSCategorizacionNoRealizada",
       "title" : "CSCategorizacionNoRealizada",
       "description" : "Código asociado a la categorización no realizada en el sistema de salud chileno",
@@ -249,7 +277,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-ugo",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSCategorizacionUGO",
       "title" : "CSCategorizacionUGO",
       "description" : "Códigos de categorización Gineco-obstétrica (UGO) de pacientes en el sistema de salud chileno",
@@ -260,7 +288,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-fallecido",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSDestinoFallecido",
       "title" : "Destino Fallecido",
       "description" : "Códigos asociados a la situación final de los usuarios fallecidos durante la atención de urgencia.",
@@ -271,7 +299,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-traslado",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSDestinoTraslado",
       "title" : "Destino Traslado",
       "description" : "Códigos asociados a destino de traslado del paciente desde urgencia.",
@@ -282,7 +310,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/especialidad-odontologica",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSEspecialidadOdontologica",
       "title" : "Especialidad Odontológica",
       "description" : "Especialidades odontológicas",
@@ -293,7 +321,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/eventos-urgencia",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSEventosUrgencia",
       "title" : "CSEventosUrgencia",
       "description" : "Códigos de eventos de urgencia",
@@ -304,7 +332,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/fallecido",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSFallecido",
       "title" : "Fallecido",
       "description" : "Códigos asociados al momento en que el paciente fallece en el servicio de urgencia.",
@@ -315,7 +343,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-alta",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSIndicacionAlta",
       "title" : "Indicación Alta",
       "description" : "Códigos asociados al destino de alta dados por parte del profesional médico al usuario posterior a su atención de urgencia.",
@@ -326,7 +354,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-hospitalizacion",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSIndicacionHospitalizacion",
       "title" : "Indicación Hospitalización",
       "description" : "Códigos asociados al destino de hospitalización dados por parte del profesional médico al usuario posterior a su atención de urgencia.",
@@ -337,7 +365,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-traslado-otro-centro",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSIndicacionTrasladoOtroCentro",
       "title" : "Indicación Traslado Otro Centro",
       "description" : "Códigos correspondientes a la derivación  o traslado del usuario a otro centro asistencial de salud, el cual puede ser o no perteneciente al Servicio Nacional de Salud.",
@@ -348,7 +376,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/lesion-autoinflingida",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSLesionAutoinflingida",
       "title" : "Lesión Autoinflingida",
       "description" : "Códigos de lesión autoinflingida",
@@ -359,7 +387,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-egreso",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSTipoEgreso",
       "title" : "Tipo Egreso",
       "description" : "Corresponde a códigos asociados a la decisión del médico u odontólogo del destino que debe seguir el usuario en virtud de su evaluación y situación clínica antes de cerrar el proceso de urgencia. ",
@@ -370,7 +398,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-hospitalaria-destino",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSUnidadHospitalariaDestino",
       "title" : "Unidad Hospitalaria Destino",
       "description" : "Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento.",

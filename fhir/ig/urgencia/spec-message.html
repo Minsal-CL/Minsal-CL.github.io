@@ -133,7 +133,7 @@
         <a href="spec-transactions.html">Transactiones</a>
       </li>
       <li>
-        <a href="artifacts.html">Perfiles</a>
+        <a href="artifacts.html#structures-resource-profiles">Perfiles</a>
       </li>
       <li>
         <a href="spec-message.html">Mensajería</a>
@@ -141,7 +141,7 @@
     </ul>
   </li>
   <li>
-    <a href="artifacts.html">Terminologías</a>
+    <a href="artifacts.html#terminology-value-sets">Terminologías</a>
   </li>
   <li>
     <a href="artifacts.html">Artefactos</a>
@@ -200,6 +200,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#mensaje-de-envío" id="markdown-toc-mensaje-de-envío">Mensaje de Envío</a></li>
   <li><a href="#mensaje-de-respuesta" id="markdown-toc-mensaje-de-respuesta">Mensaje de Respuesta</a></li>
   <li><a href="#response-code" id="markdown-toc-response-code">Response Code</a></li>
+  <li><a href="#interacción-con-el-servidor" id="markdown-toc-interacción-con-el-servidor">Interacción con el servidor</a></li>
 </ul>
 
 </div>
@@ -207,7 +208,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h3 id="estructura-de-los-mensajes">Estructura de los mensajes</h3>
 <ul>
-  <li>Es importante considerar que la URL para el envío del mensaje será: <code class="language-plaintext highlighter-rouge">[base]/</code></li>
+  <li>Es importante considerar que la URL para el envío del mensaje será: <code class="language-plaintext highlighter-rouge">[base]</code> (Ej: https://fhir.example.com/fhir)</li>
   <li>Agrupador de Recursos: Un recurso de tipo <code class="language-plaintext highlighter-rouge">Bundle</code> del tipo <code class="language-plaintext highlighter-rouge">transaction</code> (type=transaction)</li>
   <li>Otros recursos: Necesariamente los recursos referenciados deben ser incluidos dentro del mismo Bundle como entradas adicionales.</li>
 </ul>
@@ -293,7 +294,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <ul>
   <li>El recurso Bundle debe ser del tipo <code class="language-plaintext highlighter-rouge">transaction-response</code> (type=transaction-response)</li>
   <li>El servidor procesa todas las entradas del Bundle como una única unidad atómica (todo o nada). Esto significa que para que la transacción sea exitosa, todas las operaciones del Bundle deben ejecutarse con éxito.</li>
-  <li>Ejemplo de Respuesta evento Admisión</li>
+  <li>Ejemplo de respuesta evento Admisión</li>
 </ul>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -319,7 +320,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200 OK"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Practitioner/456"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Practitioner/789"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"etag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W/</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"lastModified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-12-09T12:00:00Z"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -354,6 +355,158 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li>5xx errores de servidor no relacionados al mensaje</li>
 </ul>
 
+<h3 id="interacción-con-el-servidor">Interacción con el servidor</h3>
+
+<table>
+    <tr>
+        <th>Propiedad</th>
+        <th>Detalle</th>
+    </tr>
+    <tr>
+        <td><strong>Método HTTP</strong></td>
+        <td>POST</td>
+    </tr>
+    <tr>
+        <td><strong>URL</strong></td>
+        <td>https://fhir.example.com/fhir</td>
+    </tr>
+    <tr>
+        <td><strong>Headers</strong></td>
+        <td>
+            <pre>
+              Content-Type: application/json+fhir
+            </pre>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Body</strong></td>
+        <td>
+            <pre>
+              {
+                  "resourceType": "Bundle",
+                  "type": "transaction",
+                  ... // Resto del mensaje
+              }
+            </pre>
+        </td>
+    </tr>
+</table>
+
+<h4 id="ejemplo-con-curl">Ejemplo con cURL</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="s1">'https://fhir.example.com/fhir'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json+fhir'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
+    "resourceType": "Bundle",
+    "type": "transaction"
+}'</span>
+</code></pre></div></div>
+
+<h4 id="ejemplo-con-c---httpclient">Ejemplo con C# - HttpClient</h4>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HttpClient</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HttpRequestMessage</span><span class="p">(</span><span class="n">HttpMethod</span><span class="p">.</span><span class="n">Post</span><span class="p">,</span> <span class="s">"https://fhir.example.com/fhir"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">content</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StringContent</span><span class="p">(</span><span class="s">"{\n    \"resourceType\": \"Bundle\",\n    \"type\": \"transaction\"\n}"</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="s">"application/json+fhir"</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="n">Content</span> <span class="p">=</span> <span class="n">content</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="k">await</span> <span class="n">client</span><span class="p">.</span><span class="nf">SendAsync</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="n">response</span><span class="p">.</span><span class="nf">EnsureSuccessStatusCode</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="k">await</span> <span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">.</span><span class="nf">ReadAsStringAsync</span><span class="p">());</span>
+</code></pre></div></div>
+
+<h4 id="ejemplo-con-nodejs---axios">Ejemplo con NodeJs - Axios</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">resourceType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Bundle</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">transaction</span><span class="dl">"</span>
+<span class="p">});</span>
+
+<span class="kd">let</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">post</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://fhir.example.com/fhir</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json+fhir</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">data</span> <span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+<span class="nx">axios</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
+<span class="p">.</span><span class="nf">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h4 id="ejemplo-con-php---curl">Ejemplo con PHP - cURL</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://fhir.example.com/fhir'</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="no">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="no">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="no">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span><span class="s1">'{
+    "resourceType": "Bundle",
+    "type": "transaction"
+}'</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type: application/json+fhir'</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="ejemplo-con-python---requests">Ejemplo con Python - Requests</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">requests</span>
+<span class="kn">import</span> <span class="n">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="sh">"</span><span class="s">https://fhir.example.com/fhir</span><span class="sh">"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">({</span>
+  <span class="sh">"</span><span class="s">resourceType</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Bundle</span><span class="sh">"</span><span class="p">,</span>
+  <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">transaction</span><span class="sh">"</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="sh">'</span><span class="s">Content-Type</span><span class="sh">'</span><span class="p">:</span> <span class="sh">'</span><span class="s">application/json+fhir</span><span class="sh">'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="sh">"</span><span class="s">POST</span><span class="sh">"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<style>
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 16px;
+      text-align: left;
+  }
+  th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+  }
+  th {
+      background-color: #f4f4f4;
+  }
+</style>
+
+
 
 
 </div>
@@ -372,7 +525,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Dec 13, 2024 10:10-0300">2024-12-13</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Dec 16, 2024 14:50-0300">2024-12-16</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

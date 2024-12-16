@@ -1,0 +1,59 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Observation/de52c7f4-7022-4aab-9e7e-968fc792a9a4> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "de52c7f4-7022-4aab-9e7e-968fc792a9a4"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationResultadoExamen"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationResultadoExamen>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation de52c7f4-7022-4aab-9e7e-968fc792a9a4</b></p><a name=\"de52c7f4-7022-4aab-9e7e-968fc792a9a4\"> </a><a name=\"hcde52c7f4-7022-4aab-9e7e-968fc792a9a4\"> </a><a name=\"de52c7f4-7022-4aab-9e7e-968fc792a9a4-es-CL\"> </a><p><b>status</b>: Registered</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 2345-7}\">Examen de glucosa en sangre</span></p><p><b>subject</b>: <a href=\"Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html\">Juan Pérez (official) Male, DoB: 1980-01-01 ( RUN: 4444444-4)</a></p><p><b>encounter</b>: <a href=\"Encounter-23b7f034-a998-44d7-9be4-0281be8222c0.html\">Encounter: identifier = ENC-20241130-001; status = finished; class = Presencial (Modalidad Atencion Codigo#1); type = Nueva; period = 2024-11-30 10:00:00-0400 --&gt; (ongoing)</a></p><p><b>effective</b>: 2024-11-30 10:00:00-0400</p><p><b>performer</b>: <a href=\"Practitioner-fbb0e12c-95ec-43f7-bff1-73009b307cb5.html\">Practitioner Maria Fernandez (official)</a></p><p><b>value</b>: 120 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></p></div>"
+  ] ; # 
+  fhir:status [ fhir:v "registered"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:2345-7 ;
+       fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "2345-7" ]
+     ] ) ;
+     fhir:text [ fhir:v "Examen de glucosa en sangre" ]
+  ] ; # 
+  fhir:subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Patient/22e862c5-6d96-44ec-869c-dba001058cb3> ;
+     fhir:reference [ fhir:v "Patient/22e862c5-6d96-44ec-869c-dba001058cb3" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Encounter/23b7f034-a998-44d7-9be4-0281be8222c0> ;
+     fhir:reference [ fhir:v "Encounter/23b7f034-a998-44d7-9be4-0281be8222c0" ]
+  ] ; # 
+  fhir:effective [ fhir:v "2024-11-30T10:00:00-04:00"^^xsd:dateTime] ; # 
+  fhir:performer ( [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Practitioner/fbb0e12c-95ec-43f7-bff1-73009b307cb5> ;
+     fhir:reference [ fhir:v "Practitioner/fbb0e12c-95ec-43f7-bff1-73009b307cb5" ]
+  ] ) ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "120"^^xsd:decimal ] ;
+     fhir:unit [ fhir:v "mg/dL" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
+     fhir:code [ fhir:v "mg/dL" ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

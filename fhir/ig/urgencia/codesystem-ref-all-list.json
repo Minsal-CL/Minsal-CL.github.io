@@ -85,6 +85,18 @@
       "http://hl7.org/fhir/R4/valueset-bundle-type.html" : "BundleType"
     },
     {
+      "url" : "http://hl7.org/fhir/care-plan-activity-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "CarePlanActivityStatus",
+      "title" : "CarePlanActivityStatus",
+      "description" : "Codes that reflect the current state of a care plan activity within its overall life cycle.",
+      "oids" : ["2.16.840.1.113883.4.642.4.147"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-care-plan-activity-status.html" : "CarePlanActivityStatus"
+    },
+    {
       "url" : "http://hl7.org/fhir/contact-point-system",
       "version" : "4.0.1",
       "status" : "active",
@@ -131,6 +143,18 @@
       "uses" : {
       },
       "http://hl7.org/fhir/R4/valueset-encounter-status.html" : "EncounterStatus"
+    },
+    {
+      "url" : "http://hl7.org/fhir/event-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "EventStatus",
+      "title" : "EventStatus",
+      "description" : "Codes identifying the lifecycle stage of an event.",
+      "oids" : ["2.16.840.1.113883.4.642.4.110"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-event-status.html" : "EventStatus"
     },
     {
       "url" : "http://hl7.org/fhir/http-verb",
@@ -205,6 +229,43 @@
       "http://hl7.org/fhir/R4/valueset-reaction-event-severity.html" : "AllergyIntoleranceSeverity"
     },
     {
+      "url" : "http://hl7.org/fhir/request-intent",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "RequestIntent",
+      "title" : "RequestIntent",
+      "description" : "Codes indicating the degree of authority/intentionality associated with a request.",
+      "oids" : ["2.16.840.1.113883.4.642.4.114"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-request-intent.html" : "RequestIntent",
+      "http://hl7.org/fhir/R4/valueset-care-plan-intent.html" : "Care Plan Intent"
+    },
+    {
+      "url" : "http://hl7.org/fhir/request-priority",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "RequestPriority",
+      "title" : "RequestPriority",
+      "description" : "Identifies the level of importance to be assigned to actioning the request.",
+      "oids" : ["2.16.840.1.113883.4.642.4.116"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-request-priority.html" : "Request priority"
+    },
+    {
+      "url" : "http://hl7.org/fhir/request-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "RequestStatus",
+      "title" : "RequestStatus",
+      "description" : "Codes identifying the lifecycle stage of a request.",
+      "oids" : ["2.16.840.1.113883.4.642.4.112"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-request-status.html" : "RequestStatus"
+    },
+    {
       "url" : "http://hl7.org/fhir/resource-types",
       "version" : "4.0.1",
       "status" : "active",
@@ -213,6 +274,7 @@
       "description" : "One of the resource types defined as part of this version of FHIR.",
       "uses" : {
       },
+      "http://hl7.org/fhir/R4/valueset-care-plan-activity-kind.html" : "Care Plan Activity Kind",
       "http://hl7.org/fhir/R4/valueset-resource-types.html" : "ResourceType"
     },
     {
@@ -228,6 +290,18 @@
       "http://hl7.org/fhir/R4/valueset-search-entry-mode.html" : "SearchEntryMode"
     },
     {
+      "url" : "http://hl7.org/fhir/sid/icd-10",
+      "version" : "2.1.1",
+      "status" : "retired",
+      "name" : "Icd10",
+      "title" : "ICD-10",
+      "description" : "International Classification of Diseases revision 10 (ICD 10)",
+      "oids" : ["2.16.840.1.113883.6.3"],
+      "uses" : {
+      },
+      "ValueSet-VSTerminologiasDiag.html" : "TerminologiasDiag"
+    },
+    {
       "url" : "http://loinc.org",
       "version" : "3.1.0",
       "status" : "active",
@@ -237,8 +311,9 @@
       "oids" : ["2.16.840.1.113883.6.1"],
       "uses" : {
       },
-      "http://hl7.org/fhir/R4/valueset-observation-codes.html" : "LOINC Codes",
-      "ValueSet-SignosVitales.html" : "Signos Vitales"
+      "ValueSet-CodigoExamen.html" : "Códigos de Examenes",
+      "ValueSet-SignosVitales.html" : "Signos Vitales",
+      "http://hl7.org/fhir/R4/valueset-observation-codes.html" : "LOINC Codes"
     },
     {
       "url" : "http://snomed.info/sct",
@@ -250,19 +325,39 @@
       "oids" : ["2.16.840.1.113883.6.96"],
       "uses" : {
       },
+      "http://hl7.org/fhir/R4/valueset-procedure-reason.html" : "Procedure Reason Codes",
+      "http://hl7.org/fhir/R4/valueset-procedure-not-performed-reason.html" : "Procedure Not Performed Reason (SNOMED-CT)",
+      "http://hl7.org/fhir/R4/valueset-procedure-outcome.html" : "Procedure Outcome Codes (SNOMED CT)",
       "http://hl7.org/fhir/R4/valueset-allergyintolerance-code.html" : "AllergyIntolerance Substance/Product, Condition and Negation Codes",
-      "http://hl7.org/fhir/R4/valueset-referencerange-appliesto.html" : "Observation Reference Range Applies To Codes",
-      "http://hl7.org/fhir/R4/valueset-manifestation-or-symptom.html" : "Manifestation and Symptom Codes",
-      "http://hl7.org/fhir/R4/valueset-condition-stage.html" : "Condition Stage",
-      "http://hl7.org/fhir/R4/valueset-condition-severity.html" : "Condition/Diagnosis Severity",
-      "http://hl7.org/fhir/R4/valueset-condition-stage-type.html" : "Condition Stage Type",
-      "https://hl7chile.cl/fhir/ig/clcore/1.9.1/ValueSet-VSDiagnosticosSCT.html" : "Diagnósticos SNOMED y Ausente o Desconocido",
-      "http://hl7.org/fhir/R4/valueset-clinical-findings.html" : "SNOMED CT Clinical Findings",
+      "http://hl7.org/fhir/R4/valueset-care-plan-activity-outcome.html" : "Care Plan Activity Outcome",
+      "http://hl7.org/fhir/R4/valueset-device-action.html" : "Procedure Device Action Codes",
       "http://hl7.org/fhir/R4/valueset-body-site.html" : "SNOMED CT Body Structures",
-      "http://hl7.org/fhir/R4/valueset-substance-code.html" : "Substance Code",
-      "http://hl7.org/fhir/R4/valueset-route-codes.html" : "SNOMED CT Route Codes",
+      "http://hl7.org/fhir/R4/valueset-condition-code.html" : "Condition/Problem/Diagnosis Codes",
+      "http://hl7.org/fhir/R4/valueset-medication-as-needed-reason.html" : "SNOMED CT Medication As Needed Reason Codes",
       "http://hl7.org/fhir/R4/valueset-encounter-reason.html" : "Encounter Reason Codes",
-      "http://hl7.org/fhir/R4/valueset-observation-methods.html" : "Observation Methods"
+      "http://hl7.org/fhir/R4/valueset-servicerequest-orderdetail.html" : "Service Request Order Details Codes",
+      "http://hl7.org/fhir/R4/valueset-medication-codes.html" : "SNOMED CT Medication Codes",
+      "http://hl7.org/fhir/R4/valueset-performer-role.html" : "Procedure Performer Role Codes",
+      "http://hl7.org/fhir/R4/valueset-condition-stage.html" : "Condition Stage",
+      "http://hl7.org/fhir/R4/valueset-referencerange-appliesto.html" : "Observation Reference Range Applies To Codes",
+      "http://hl7.org/fhir/R4/valueset-participant-role.html" : "Participant Roles",
+      "http://hl7.org/fhir/R4/valueset-substance-code.html" : "Substance Code",
+      "http://hl7.org/fhir/R4/valueset-condition-stage-type.html" : "Condition Stage Type",
+      "http://hl7.org/fhir/R4/valueset-route-codes.html" : "SNOMED CT Route Codes",
+      "http://hl7.org/fhir/R4/valueset-procedure-followup.html" : "Procedure Follow up Codes (SNOMED CT)",
+      "http://hl7.org/fhir/R4/valueset-administration-method-codes.html" : "SNOMED CT Administration Method Codes",
+      "http://hl7.org/fhir/R4/valueset-reason-medication-not-given-codes.html" : "SNOMED CT Reason Medication Not Given Codes",
+      "http://hl7.org/fhir/R4/valueset-procedure-category.html" : "Procedure Category Codes (SNOMED CT)",
+      "ValueSet-VSTerminologiasDiag.html" : "TerminologiasDiag",
+      "http://hl7.org/fhir/R4/valueset-approach-site-codes.html" : "SNOMED CT Anatomical Structure for Administration Site Codes",
+      "http://hl7.org/fhir/R4/valueset-observation-methods.html" : "Observation Methods",
+      "http://hl7.org/fhir/R4/valueset-servicerequest-category.html" : "Service Request Category Codes",
+      "http://hl7.org/fhir/R4/valueset-manifestation-or-symptom.html" : "Manifestation and Symptom Codes",
+      "http://hl7.org/fhir/R4/valueset-clinical-findings.html" : "SNOMED CT Clinical Findings",
+      "http://hl7.org/fhir/R4/valueset-procedure-code.html" : "Procedure Codes (SNOMED CT)",
+      "http://hl7.org/fhir/R4/valueset-care-plan-category.html" : "Care Plan Category",
+      "http://hl7.org/fhir/R4/valueset-device-kind.html" : "FHIR Device Types",
+      "http://hl7.org/fhir/R4/valueset-condition-severity.html" : "Condition/Diagnosis Severity"
     },
     {
       "url" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
@@ -397,6 +492,42 @@
       "http://hl7.org/fhir/R4/valueset-location-physical-type.html" : "Location type"
     },
     {
+      "url" : "http://terminology.hl7.org/CodeSystem/med-admin-perform-function",
+      "version" : "1.0.1",
+      "status" : "active",
+      "name" : "MedicationAdministrationPerformerFunctionCodes",
+      "title" : "MedicationAdministration Performer Function Codes",
+      "description" : "MedicationAdministration Performer Function Codes",
+      "oids" : ["2.16.840.1.113883.4.642.1.1112"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-med-admin-perform-function.html" : "Medication administration  performer  function  codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/medication-admin-category",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "MedicationAdministration Category Codes",
+      "title" : "Medication administration  category  codes",
+      "description" : "MedicationAdministration Category Codes",
+      "oids" : ["2.16.840.1.113883.4.642.4.1111"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-medication-admin-category.html" : "Medication administration  category  codes"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/medication-admin-status",
+      "version" : "4.0.1",
+      "status" : "draft",
+      "name" : "MedicationAdministration Status Codes",
+      "title" : "Medication administration  status  codes",
+      "description" : "MedicationAdministration Status Codes",
+      "oids" : ["2.16.840.1.113883.4.642.4.1311"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-medication-admin-status.html" : "Medication administration  status  codes"
+    },
+    {
       "url" : "http://terminology.hl7.org/CodeSystem/observation-category",
       "version" : "1.0.1",
       "status" : "active",
@@ -432,6 +563,18 @@
       },
       "ValueSet-TipoParticipanteEncuentroUrgencia.html" : "Tipo Participante Encuentro Urgencia",
       "http://hl7.org/fhir/R4/valueset-encounter-participant-type.html" : "Participant type"
+    },
+    {
+      "url" : "http://terminology.hl7.org/CodeSystem/reason-medication-given",
+      "version" : "1.0.1",
+      "status" : "active",
+      "name" : "ReasonMedicationGivenCodes",
+      "title" : "Reason Medication Given Codes",
+      "description" : "This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.",
+      "oids" : ["2.16.840.1.113883.4.642.1.1110"],
+      "uses" : {
+      },
+      "http://hl7.org/fhir/R4/valueset-reason-medication-given-codes.html" : "Reason Medication Given Codes"
     },
     {
       "url" : "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
@@ -544,6 +687,18 @@
       "http://hl7.org/fhir/R4/valueset-encounter-participant-type.html" : "Participant type"
     },
     {
+      "url" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "version" : "3.0.0",
+      "status" : "active",
+      "name" : "RoleCode",
+      "title" : "RoleCode",
+      "description" : "A set of codes further specifying the kind of Role; specific classification codes for further qualifying RoleClass codes.",
+      "oids" : ["2.16.840.1.113883.5.111"],
+      "uses" : {
+      },
+      "http://terminology.hl7.org/6.0.2/ValueSet-v3-ServiceDeliveryLocationRoleType.html" : "ServiceDeliveryLocationRoleType"
+    },
+    {
       "url" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodigoServicio",
       "version" : "1.9.1",
       "status" : "active",
@@ -600,6 +755,17 @@
       "https://hl7chile.cl/fhir/ig/clcore/1.9.1/ValueSet-CodPais.html" : "Códigos de Países"
     },
     {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSCodigosUrgencia",
+      "version" : "0.1.0",
+      "status" : "active",
+      "name" : "CSCodigosUrgencia",
+      "title" : "Códigos de Urgencia",
+      "description" : "Códigos creados para registrar información dentro de la atención de urgencia",
+      "uses" : {
+      },
+      "ValueSet-VSCodigosUrgencia.html" : "Códigos de Urgencia"
+    },
+    {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSEstadoCivil",
       "version" : "0.1.0",
       "status" : "active",
@@ -622,20 +788,9 @@
       "ValueSet-VSReligion.html" : "Religion"
     },
     {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSServicioDeSalud",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "CSServicioDeSalud",
-      "title" : "Servicio de Salud",
-      "description" : "Códigos de Servicios de Salud en Chile presentes en Norma Técnica 820.",
-      "uses" : {
-      },
-      "ValueSet-VSServicioDeSalud.html" : "Servicio de Salud"
-    },
-    {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/EspecialidadMedica",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSEspecialidadMedica",
       "title" : "Especialidad Médica",
       "description" : "Especialidades médicas reconocidas en el sistema de salud de Chile.",
@@ -646,7 +801,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/LeyPrevisional",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSLeyPrevisional",
       "title" : "Ley Previsional",
       "description" : "Códigos para la ley previsional",
@@ -657,7 +812,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/MedioDeLlegada",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSMedioDeLlegada",
       "title" : "Medio de Llegada",
       "description" : "Corresponde a las posibles formas de llegada de un paciente a un servicio de atención de urgencia",
@@ -666,20 +821,9 @@
       "ValueSet-MedioDeLlegada.html" : "Medio de Llegada"
     },
     {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Prevision",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "CSPrevision",
-      "title" : "Prevision",
-      "description" : "Previsión de salud del paciente",
-      "uses" : {
-      },
-      "ValueSet-Prevision.html" : "Prevision"
-    },
-    {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Procedencia",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSProcedencia",
       "title" : "Procedencia",
       "description" : "Corresponde al lugar físico desde donde proviene el paciente cuando consulta en un servicio de atención de urgencia",
@@ -690,7 +834,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/PueblosOriginariosCS",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "PueblosOriginariosCS",
       "title" : "Pueblos Originarios de Chile",
       "description" : "Pueblos Originarios de Chile",
@@ -701,7 +845,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSRelacionAcompanante",
       "title" : "Relación Acompañante",
       "description" : "Códigos asociados a la relación del acompañante con el paciente.",
@@ -712,7 +856,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoParticipanteUrgencia",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSTipoParticipanteUrgencia",
       "title" : "Tipo Participante Urgencia",
       "description" : "Tipo de participante en un evento de urgencia.",
@@ -721,20 +865,9 @@
       "ValueSet-TipoParticipanteEncuentroUrgencia.html" : "Tipo Participante Encuentro Urgencia"
     },
     {
-      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoViaResidencia",
-      "version" : "0.1.0",
-      "status" : "draft",
-      "name" : "CSTipoViaResidencia",
-      "title" : "Tipo Via Residencia",
-      "description" : "Códigos de tipo de vía de residencia Norma 820",
-      "uses" : {
-      },
-      "ValueSet-TipoViaResidencia.html" : "Tipo Via Residencia"
-    },
-    {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSTituloProfesional",
       "title" : "Titulo Profesional",
       "description" : "Códigos asociados a los títulos profesionales de los participantes en un encuentro de urgencia",
@@ -745,7 +878,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/abandono",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSAbandono",
       "title" : "Abandono",
       "description" : "Códigos asociados al tipo de abandono del paciente desde urgencia.",
@@ -756,7 +889,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-discrecional",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSCategorizacionDiscrecional",
       "title" : "CSCategorizacionDiscrecional",
       "description" : "Códigos de categorización discrecional de pacientes en el sistema de salud chileno",
@@ -767,7 +900,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-esi",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSCategorizacionESI",
       "title" : "CSCategorizacionESI",
       "description" : "Códigos de categorización ESI de pacientes en el sistema de salud chileno",
@@ -778,7 +911,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-no-realizada",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSCategorizacionNoRealizada",
       "title" : "CSCategorizacionNoRealizada",
       "description" : "Código asociado a la categorización no realizada en el sistema de salud chileno",
@@ -789,7 +922,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-ugo",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSCategorizacionUGO",
       "title" : "CSCategorizacionUGO",
       "description" : "Códigos de categorización Gineco-obstétrica (UGO) de pacientes en el sistema de salud chileno",
@@ -800,7 +933,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-fallecido",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSDestinoFallecido",
       "title" : "Destino Fallecido",
       "description" : "Códigos asociados a la situación final de los usuarios fallecidos durante la atención de urgencia.",
@@ -811,7 +944,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-traslado",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSDestinoTraslado",
       "title" : "Destino Traslado",
       "description" : "Códigos asociados a destino de traslado del paciente desde urgencia.",
@@ -822,7 +955,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/especialidad-odontologica",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSEspecialidadOdontologica",
       "title" : "Especialidad Odontológica",
       "description" : "Especialidades odontológicas",
@@ -833,7 +966,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/eventos-urgencia",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSEventosUrgencia",
       "title" : "CSEventosUrgencia",
       "description" : "Códigos de eventos de urgencia",
@@ -844,7 +977,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/fallecido",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSFallecido",
       "title" : "Fallecido",
       "description" : "Códigos asociados al momento en que el paciente fallece en el servicio de urgencia.",
@@ -855,7 +988,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-alta",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSIndicacionAlta",
       "title" : "Indicación Alta",
       "description" : "Códigos asociados al destino de alta dados por parte del profesional médico al usuario posterior a su atención de urgencia.",
@@ -866,7 +999,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-hospitalizacion",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSIndicacionHospitalizacion",
       "title" : "Indicación Hospitalización",
       "description" : "Códigos asociados al destino de hospitalización dados por parte del profesional médico al usuario posterior a su atención de urgencia.",
@@ -877,7 +1010,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-traslado-otro-centro",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSIndicacionTrasladoOtroCentro",
       "title" : "Indicación Traslado Otro Centro",
       "description" : "Códigos correspondientes a la derivación  o traslado del usuario a otro centro asistencial de salud, el cual puede ser o no perteneciente al Servicio Nacional de Salud.",
@@ -888,7 +1021,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/lesion-autoinflingida",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSLesionAutoinflingida",
       "title" : "Lesión Autoinflingida",
       "description" : "Códigos de lesión autoinflingida",
@@ -899,7 +1032,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-egreso",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSTipoEgreso",
       "title" : "Tipo Egreso",
       "description" : "Corresponde a códigos asociados a la decisión del médico u odontólogo del destino que debe seguir el usuario en virtud de su evaluación y situación clínica antes de cerrar el proceso de urgencia. ",
@@ -910,7 +1043,7 @@
     {
       "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-hospitalaria-destino",
       "version" : "0.1.0",
-      "status" : "draft",
+      "status" : "active",
       "name" : "CSUnidadHospitalariaDestino",
       "title" : "Unidad Hospitalaria Destino",
       "description" : "Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento.",

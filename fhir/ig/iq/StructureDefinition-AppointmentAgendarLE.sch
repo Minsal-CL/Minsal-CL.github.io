@@ -21,7 +21,10 @@
       <sch:assert test="count(f:serviceType) &gt;= 1">serviceType: minimum cardinality of 'serviceType' is 1</sch:assert>
       <sch:assert test="count(f:serviceType) &lt;= 1">serviceType: maximum cardinality of 'serviceType' is 1</sch:assert>
       <sch:assert test="count(f:start) &gt;= 1">start: minimum cardinality of 'start' is 1</sch:assert>
+      <sch:assert test="count(f:end) &gt;= 1">end: minimum cardinality of 'end' is 1</sch:assert>
       <sch:assert test="count(f:created) &gt;= 1">created: minimum cardinality of 'created' is 1</sch:assert>
+      <sch:assert test="count(f:basedOn) &gt;= 1">basedOn: minimum cardinality of 'basedOn' is 1</sch:assert>
+      <sch:assert test="count(f:basedOn) &lt;= 1">basedOn: maximum cardinality of 'basedOn' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>

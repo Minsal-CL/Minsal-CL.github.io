@@ -12,14 +12,9 @@
   <sch:pattern>
     <sch:title>f:Encounter</sch:title>
     <sch:rule context="f:Encounter">
-      <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Prevision']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Prevision': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Acompanante']) &gt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Acompanante': minimum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Acompanante']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Acompanante': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/LeyPrevisional']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/LeyPrevisional': maximum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/HospitalizacionReciente']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/HospitalizacionReciente': maximum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/LesionAutoinfligida']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/LesionAutoinfligida': maximum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ReconsultaUrgencia']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ReconsultaUrgencia': maximum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedicoLegal']) &lt;= 1">extension with URL = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedicoLegal': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:identifier) &gt;= 1">identifier: minimum cardinality of 'identifier' is 1</sch:assert>
       <sch:assert test="count(f:identifier) &lt;= 1">identifier: maximum cardinality of 'identifier' is 1</sch:assert>
       <sch:assert test="count(f:priority) &gt;= 1">priority: minimum cardinality of 'priority' is 1</sch:assert>
@@ -156,6 +151,7 @@
   <sch:pattern>
     <sch:title>f:Encounter/f:diagnosis</sch:title>
     <sch:rule context="f:Encounter/f:diagnosis">
+      <sch:assert test="count(f:use) &gt;= 1">use: minimum cardinality of 'use' is 1</sch:assert>
       <sch:assert test="count(f:use) &gt;= 1">use: minimum cardinality of 'use' is 1</sch:assert>
       <sch:assert test="count(f:use) &gt;= 1">use: minimum cardinality of 'use' is 1</sch:assert>
     </sch:rule>
