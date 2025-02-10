@@ -1,0 +1,66 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Procedure/abfca780-745d-4c35-ae8a-fd0dbc3a9b16> a fhir:Procedure ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "abfca780-745d-4c35-ae8a-fd0dbc3a9b16"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ProcedureCirugiaLE"^^xsd:anyURI ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ProcedureCirugiaLE>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Procedure abfca780-745d-4c35-ae8a-fd0dbc3a9b16</b></p><a name=\"abfca780-745d-4c35-ae8a-fd0dbc3a9b16\"> </a><a name=\"hcabfca780-745d-4c35-ae8a-fd0dbc3a9b16\"> </a><a name=\"abfca780-745d-4c35-ae8a-fd0dbc3a9b16-es-CL\"> </a><p><b>basedOn</b>: <a href=\"ServiceRequest-38a17703-0731-4c3f-88fd-1202dc99d7ce.html\">ServiceRequest Lung</a></p><p><b>status</b>: Completed</p><p><b>category</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoCirugiaPropuesta 1}\">Cirugía Mayor Electiva</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 39607008}\">Cirugía de hernia ventral</span></p><p><b>subject</b>: <a href=\"Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html\">Juan Pérez (official) Male, DoB: 1980-01-01 ( RUN: 4444444-4)</a></p><p><b>performed</b>: 2024-12-02 10:00:00-0400</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa.html\">PractitionerRole Atendedor</a></td></tr></table><p><b>outcome</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSCondicionSalidaCirugia 1}\">Vivo</span></p></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:basedOn ( [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce> ;
+     fhir:reference [ fhir:v "ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "completed"] ; # 
+  fhir:category [
+     fhir:coding ( [
+       fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoCirugiaPropuesta"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "1" ] ;
+       fhir:display [ fhir:v "Cirugía Mayor Electiva" ]
+     ] )
+  ] ; # 
+  fhir:code [
+     fhir:coding ( [
+       a sct:39607008 ;
+       fhir:system [ fhir:v "http://snomed.info/sct"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "39607008" ]
+     ] ) ;
+     fhir:text [ fhir:v "Cirugía de hernia ventral" ]
+  ] ; # 
+  fhir:subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Patient/22e862c5-6d96-44ec-869c-dba001058cb3> ;
+     fhir:reference [ fhir:v "Patient/22e862c5-6d96-44ec-869c-dba001058cb3" ]
+  ] ; # 
+  fhir:performed [
+     a fhir:dateTime ;
+     fhir:v "2024-12-02T10:00:00-04:00"^^xsd:dateTime
+  ] ; # 
+  fhir:performer ( [
+     fhir:actor [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/PractitionerRole/4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa> ;
+       fhir:reference [ fhir:v "PractitionerRole/4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa" ]
+     ]
+  ] ) ; # 
+  fhir:outcome [
+     fhir:coding ( [
+       fhir:system [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSCondicionSalidaCirugia"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "1" ] ;
+       fhir:display [ fhir:v "Vivo" ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+
