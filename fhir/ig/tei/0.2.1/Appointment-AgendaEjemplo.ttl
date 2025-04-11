@@ -1,5 +1,6 @@
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -15,8 +16,8 @@
      ] )
   ] ; # 
   fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Appointment AgendaEjemplo</b></p><a name=\"AgendaEjemplo\"> </a><a name=\"hcAgendaEjemplo\"> </a><a name=\"AgendaEjemplo-es-CL\"> </a><p><b>identifier</b>: 123</p><p><b>status</b>: Booked</p><p><b>start</b>: 2024-02-22 08:00:00-0300</p><p><b>end</b>: 2024-02-22 08:30:00-0300</p><p><b>created</b>: 2024-02-20 16:00:00-0300</p><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href=\"PractitionerRole-PractitionerRoleAtendedor.html\">PractitionerRole Atendedor</a></p><p><b>status</b>: Accepted</p></blockquote><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href=\"Patient-EjemploPatientLE.html\">María Josefina Gonzalez (official) Male, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>status</b>: Accepted</p></blockquote></div>"
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Appointment AgendaEjemplo</b></p><a name=\"AgendaEjemplo\"> </a><a name=\"hcAgendaEjemplo\"> </a><a name=\"AgendaEjemplo-es-CL\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-AppointmentAgendarLE.html\">Appointment Agendar LE</a></p></div><p><b>Medio de Contacto</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMediodeContacto 3}\">Llamada</span></p><blockquote><p><b>Extension ContactadoLE</b></p><ul><li>Contactado: true</li></ul></blockquote><p><b>identifier</b>: 123</p><p><b>status</b>: Booked</p><p><b>start</b>: 2024-02-22 08:00:00-0300</p><p><b>end</b>: 2024-02-22 08:30:00-0300</p><p><b>created</b>: 2024-02-20 16:00:00-0300</p><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href=\"PractitionerRole-PractitionerRoleAtendedor.html\">PractitionerRole Atendedor</a></p><p><b>status</b>: Accepted</p></blockquote><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href=\"Patient-EjemploPatientLE.html\">María Josefina Gonzalez (official) Male, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>status</b>: Accepted</p></blockquote></div>"^^rdf:XMLLiteral
   ] ; # 
   fhir:extension ( [
      fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMediodeContacto"^^xsd:anyURI ] ;
@@ -31,7 +32,10 @@
   ] [
      fhir:extension ( [
        fhir:url [ fhir:v "Contactado"^^xsd:anyURI ] ;
-       fhir:value [ fhir:v "true"^^xsd:boolean ]
+       fhir:value [
+         a fhir:boolean ;
+         fhir:v true
+       ]
      ] ) ;
      fhir:url [ fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Contactado"^^xsd:anyURI ]
   ] ) ; # 
