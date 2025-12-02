@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="MPI.PIXm.pix"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: OperationDefinition MPI.PIXm.pix</b></p><a name="MPI.PIXm.pix"> </a><a name="hcMPI.PIXm.pix"> </a><a name="MPI.PIXm.pix-es-CL"> </a><p>URL: [base]/Patient/$ihe-pix</p><p>Input parameters Profile:<a href="StructureDefinition-ParametrosEntradaPixmMpi.html">MINSAL Parametros Entrada PIXm</a></p><p>Output parameters Profile:<a href="StructureDefinition-ParametrosSalidaPixmMpi.html">MINSAL Parámetros Salida PIXm</a></p><h3>Parameters</h3><table class="grid"><tr><td><b>Use</b></td><td><b>Name</b></td><td><b>Scope</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Documentation</b></td></tr><tr><td>IN</td><td>sourceIdentifier</td><td/><td>1..1</td><td><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a><br/>(<a href="http://hl7.org/fhir/R4/search.html#token">token</a>)</td><td/><td><div><p>El parámetro de búsqueda del identificador del Paciente que será utilizado por el Administrador de Referencia Cruzada de Identificadores de Pacientes para encontrar identificadores cruzados asociados con el Recurso Paciente.</p>
+</div></td></tr><tr><td>IN</td><td>targetSystem</td><td/><td>0..1</td><td><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a><br/>(<a href="http://hl7.org/fhir/R4/search.html#uri">uri</a>)</td><td/><td><div><p>La Autoridad Asignadora de Identificadores del Paciente objetivo de la cual se deben seleccionar los identificadores devueltos.</p>
+</div></td></tr><tr><td>IN</td><td>_format</td><td/><td>0..1</td><td><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a><br/>(<a href="http://hl7.org/fhir/R4/search.html#token">token</a>)</td><td/><td><div><p>El formato solicitado de la respuesta.</p>
+</div></td></tr><tr><td>OUT</td><td>targetIdentifier</td><td/><td>0..*</td><td><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td><td/><td><div><p>El identificador encontrado.</p>
+</div></td></tr><tr><td>OUT</td><td>targetId</td><td/><td>0..*</td><td><a href="http://hl7.org/fhir/R4/references.html#Reference">Reference</a></td><td/><td><div><p>La URL del Recurso Paciente.</p>
+</div></td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <url value="https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationDefinition/MPI.PIXm.pix"/>
+  <version value="0.4.5"/>
+  <name value="MPI_PIXM_pix"/>
+  <title value="Operación para Obtener Identificadores Correspondientes"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2024-08-27"/>
+  <publisher value="Unidad de Interoperabilidad - MINSAL"/>
+  <contact>
+    <name value="Unidad de Interoperabilidad - MINSAL"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://interoperabilidad.minsal.cl"/>
+    </telecom>
+  </contact>
+  <description value="Operación compatible con la [$ihe-pix](https://profiles.ihe.net/ITI/PIXm/OperationDefinition-IHE.PIXm.pix.html) para obtener los identificadores correspondientes de cada recurso paciente&#xA;  * Input: sourceIdentifier, targetSystem, and _format&#xA;  * Output: targetIdentifier, targetId"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CL"/>
+      <display value="Chile"/>
+    </coding>
+  </jurisdiction>
+  <code value="ihe-pix"/>
+  <base value="https://profiles.ihe.net/ITI/PIXm/OperationDefinition/IHE.PIXm.pix"/>
+  <resource value="Patient"/>
+  <system value="false"/>
+  <type value="true"/>
+  <instance value="false"/>
+  <inputProfile value="https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/ParametrosEntradaPixmMpi"/>
+  <outputProfile value="https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/ParametrosSalidaPixmMpi"/>
+  <parameter>
+    <name value="sourceIdentifier"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="El parámetro de búsqueda del identificador del Paciente que será utilizado por el Administrador de Referencia Cruzada de Identificadores de Pacientes para encontrar identificadores cruzados asociados con el Recurso Paciente."/>
+    <type value="string"/>
+    <searchType value="token"/>
+  </parameter>
+  <parameter>
+    <name value="targetSystem"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="La Autoridad Asignadora de Identificadores del Paciente objetivo de la cual se deben seleccionar los identificadores devueltos."/>
+    <type value="string"/>
+    <searchType value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="_format"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="El formato solicitado de la respuesta."/>
+    <type value="string"/>
+    <searchType value="token"/>
+  </parameter>
+  <parameter>
+    <name value="targetIdentifier"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="El identificador encontrado."/>
+    <type value="Identifier"/>
+  </parameter>
+  <parameter>
+    <name value="targetId"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="La URL del Recurso Paciente."/>
+    <type value="Reference"/>
+  </parameter>
+</OperationDefinition>

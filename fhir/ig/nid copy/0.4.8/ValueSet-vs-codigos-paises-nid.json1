@@ -1,0 +1,44 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "vs-codigos-paises-nid",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores vs-codigos-paises-nid</b></p><a name=\"vs-codigos-paises-nid\"> </a><a name=\"hcvs-codigos-paises-nid\"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include codes from<a href=\"http://terminology.hl7.org/6.5.0/CodeSystem-ISO3166Part1.html\"><code>urn:iso:std:iso:3166</code></a><span title=\"Version is not explicity stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span> where code  matches (by regex) [0-9]{3}</li><li>Include all codes defined in <a href=\"CodeSystem-cs-pais-desconocido.html\"><code>https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/cs-pais-desconocido</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version &#x1F4E6;0.4.8</span></li></ul></div>"
+  },
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/vs-codigos-paises-nid",
+  "version" : "0.4.8",
+  "name" : "VSCodigosPaisesNID",
+  "title" : "Códigos de Países para NID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-09-25",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [{
+    "name" : "Unidad de Interoperabilidad - MINSAL",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://interoperabilidad.minsal.cl"
+    }]
+  }],
+  "description" : "códigos de países según norma ISO 3166-1, para uso en NID (Identificador Nacional de Paciente)",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "CL",
+      "display" : "Chile"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "filter" : [{
+        "property" : "code",
+        "op" : "regex",
+        "value" : "[0-9]{3}"
+      }]
+    },
+    {
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/cs-pais-desconocido"
+    }]
+  }
+}
