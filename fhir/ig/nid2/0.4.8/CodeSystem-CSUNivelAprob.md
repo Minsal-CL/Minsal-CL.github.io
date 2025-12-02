@@ -1,3 +1,4 @@
+
 # Último nivel aprobado - Núcleo de Interoperabilidad de Datos (NID) - MINSAL v0.4.8
 
 * [**Table of Contents**](toc.md)
