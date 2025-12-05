@@ -33,10 +33,10 @@
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
-    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
-    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
-    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
     <link rel="shortcut icon" href="assets/ico/favicon.png"/>
   </head>
   <body onload="document.body.style.opacity='1'">
@@ -73,7 +73,7 @@
 
 
 
-  <span title="">CL</span>
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
 
 
             </span>
@@ -182,7 +182,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tiempos de Espera Interoperable - Local Development build (v0.2.1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href="https://interoperabilidad.minsal.cl/fhir/ig/tei/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tiempos de Espera Interoperable - Local Development build (v0.2.1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/tei/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Rol De Actores</h2>
   
 
@@ -212,9 +212,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <h3 id="iniciador">Iniciador</h3>
 
-<p>Corresponde al profesional de la salud que se encuentra atendiendo al usuario (paciente) en la consulta que puede ser médica, de odontología, matronería o consulta oftalmológica con tecnólogo/a médico/a, y que en virtud a su evaluación y cuando corresponda, origina la Solicitud de Interconsulta (SIC) para nueva consulta de especialidad hacia el nivel secundario.</p>
-
-<p>Los profesionales autorizados para iniciar este proceso son médicos/as, matrones/as, odontólogo/as o tecnólogos/as médicos/as con mención en oftalmología. Este profesional deberá completar los antecedentes clínicos que fundamente la decisión de derivar a especialidad.</p>
+<p>Corresponde al profesional de la salud que se encuentra atendiendo al usuario
+  (paciente) en la consulta que puede ser médica, de odontología, matronería o
+  consulta oftalmológica con tecnólogo/a médico/a, y que en virtud a su evaluación y
+  cuando corresponda, origina la Solicitud de Interconsulta (SIC) para nueva
+  consulta de especialidad en el nivel secundario. Los profesionales autorizados
+  para iniciar este proceso son médicos/as, matrones/as, odontólogo/as o
+  tecnólogos/as médicos/as con mención en oftalmología. Este profesional deberá
+  completar los antecedentes clínicos que fundamente la decisión de derivar a
+  especialidad.</p>
 
 <h3 id="referenciador">Referenciador</h3>
 
@@ -233,20 +239,34 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h3 id="revisor">Revisor</h3>
 
-<p>Es el/la profesional clínico/a que ejerce las funciones de contraloría, quien revisa la pertinencia de la solicitud, según el protocolo de referencia y contrarreferencia establecido y reconocido por la red y los antecedentes entregados por el INICIADOR.
-Puede aprobar, rechazar u objetar la derivación por falta de antecedentes y gestionar la completitud de las antecedentes clínicos y administrativos.</p>
+<p>Es el/la profesional clínico/a que ejerce las funciones de contraloría, quien
+  revisa la pertinencia de la solicitud, según el protocolo de referencia y
+  contrarreferencia establecido y reconocido por la red y los antecedentes
+  entregados por el INICIADOR. Puede aprobar, rechazar u objetar la derivación por
+  falta de antecedentes y gestionar la completitud de las antecedentes clínicos y
+  administrativos.</p>
 
-<p>Este profesional pertenece al establecimiento de atención primaria. 
-en caso de rechazar la SIC, debe gestionar las acciones necesarias para dar respuesta al usuario (paciente).</p>
+<p>Este profesional puede pertenecer al establecimiento de atención primaria o
+  secundaria, según lo definido por cada Servicio de Salud y en caso de rechazar la
+  SIC, debe gestionar las acciones necesarias para dar respuesta al usuario
+  (paciente).</p>
 
-<p>El REVISOR también pueden verificar si existe alguna causal de salida de Lista de Espera, por ejemplo, en caso de defunción, GES, no beneficiario entre otras.</p>
+<p>El REVISOR también pueden verificar si existe alguna causal de salida de Lista de
+  Espera, por ejemplo, en caso de defunción, GES, no beneficiario entre otras.</p>
 
 <h3 id="priorizador">Priorizador</h3>
 
-<p>Es el/la profesional clínico/a que ejerce las funciones de contraloría, quien debe dar prioridad a la solicitud de interconsulta, en función de la categorización definida, considerando patología, gravedad y determinantes sociales del paciente informadas por el profesional INICIADOR.</p>
+<p>Es el/la profesional clínico/a que ejerce las funciones de contraloría, quien debe
+  dar prioridad a la solicitud de interconsulta, en función de la categorización
+  definida, considerando patología, gravedad y determinantes sociales del paciente
+  informadas por el profesional INICIADOR.</p>
 
-<p>Este profesional pertenece al establecimiento secundario.
-También puede verificar si existe alguna causa de salida de Lista de Espera, por ejemplo, en caso de defunción, GES, no beneficiario, entre otras. (Según <a href="https://drive.google.com/file/d/1kZBAY7E-Rmy3DxGCMP3emotxEWh5nLEy/view">Norma Técnica N°118</a>).</p>
+<p>Este profesional puede pertenecer al establecimiento de atención primaria o
+  secundaria, según lo definido por cada Servicio de Salud por acuerdo entre ambos
+  niveles y el Servicio de Salud.</p>
+
+<p>También puede verificar si existe alguna causa de salida de Lista de Espera, por
+  ejemplo, en caso de defunción, GES, no beneficiario, entre otras. (Según <a href="https://drive.google.com/file/d/1kZBAY7E-Rmy3DxGCMP3emotxEWh5nLEy/view">Norma técnica N°118</a>).</p>
 
 <h3 id="agendador">Agendador</h3>
 
@@ -276,10 +296,13 @@ También puede verificar si existe alguna causa de salida de Lista de Espera, po
 
 <h3 id="terminador">Terminador</h3>
 
-<p>Corresponde al funcionario administrativo que ejecuta la salida del usuario/a paciente de lista de espera, en función de si recibió la atención de especialidad, o por alguna de las otras causales de eliminación de la Lista de Espera (Según <a href="https://drive.google.com/file/d/1kZBAY7E-Rmy3DxGCMP3emotxEWh5nLEy/view">Norma Técnica N°118</a>).</p>
+<p>Corresponde al funcionario administrativo que ejecuta la salida del usuario/a
+  paciente de lista de espera, en función de si recibió la atención de especialidad,
+  o por alguna de las otras causales de eliminación de la Lista de Espera según la
+  norma técnica N°118.</p>
 
-<p>En algunos casos esto podría ser automático, marcando como responsable al que gatilló el envio de este evento, según definiciones del sistema informático local.</p>
-
+<p>En algunos casos esto podría ser automático, sin la mediación de una persona,
+  según definiciones del sistema informático local.</p>
 
 
 
@@ -299,7 +322,7 @@ También puede verificar si existe alguna causa de salida de Lista de Espera, po
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2024 <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.tei#0.2.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Jul 24, 2025 21:35-0400">2025-07-24</span>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.tei#0.2.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Dec 5, 2025 09:25-0300">2025-12-05</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
