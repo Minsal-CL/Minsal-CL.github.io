@@ -1,0 +1,101 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Observation/EjemploSituacionDiscapacidad> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "EjemploSituacionDiscapacidad"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALSituacionDiscapacidad"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALSituacionDiscapacidad>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observación EjemploSituacionDiscapacidad</b></p><a name=\"EjemploSituacionDiscapacidad\"> </a><a name=\"hcEjemploSituacionDiscapacidad\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MINSALSituacionDiscapacidad.html\">MINSAL Situacion Discapacidad</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoObservacion 03}\">Situacion Discapacidad</span></p><p><b>subject</b>: <a href=\"Patient-MinsalPacienteEjemplo.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( RUN: 16182522-0 (use: official, ))</a></p><p><b>effective</b>: 2018-07-15 --&gt; (ongoing)</p><p><b>value</b>: true</p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSComponenteDiscapacidad 01}\">Origen de la discapacidad</span></p><p><b>value</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSOrigenDiscapacidad 2}\">Origen sensorial visual</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSComponenteDiscapacidad 02}\">Evaluación Valoración de Desempeño en Comunidad (IVADEC-DIF)</span></p><p><b>value</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSValoracionDesempeno 2}\">Discapacidad leve</span></p></blockquote></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
+       ] ;
+       fhir:code [ fhir:v "social-history" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoObservacion"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoObservacion>
+       ] ;
+       fhir:code [ fhir:v "03" ] ;
+       fhir:display [ fhir:v "Situacion Discapacidad" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/MinsalPacienteEjemplo> ;
+     fhir:reference [ fhir:v "Patient/MinsalPacienteEjemplo" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2018-07-15"^^xsd:date ]
+  ] ; # 
+  fhir:value [
+     a fhir:Boolean ;
+     fhir:v true
+  ] ; # 
+  fhir:component ( [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSComponenteDiscapacidad"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSComponenteDiscapacidad>
+         ] ;
+         fhir:code [ fhir:v "01" ] ;
+         fhir:display [ fhir:v "Origen de la discapacidad" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSOrigenDiscapacidad"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSOrigenDiscapacidad>
+         ] ;
+         fhir:code [ fhir:v "2" ] ;
+         fhir:display [ fhir:v "Origen sensorial visual" ]
+       ] )
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSComponenteDiscapacidad"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSComponenteDiscapacidad>
+         ] ;
+         fhir:code [ fhir:v "02" ] ;
+         fhir:display [ fhir:v "Evaluación Valoración de Desempeño en Comunidad (IVADEC-DIF)" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSValoracionDesempeno"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSValoracionDesempeno>
+         ] ;
+         fhir:code [ fhir:v "2" ] ;
+         fhir:display [ fhir:v "Discapacidad leve" ]
+       ] )
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

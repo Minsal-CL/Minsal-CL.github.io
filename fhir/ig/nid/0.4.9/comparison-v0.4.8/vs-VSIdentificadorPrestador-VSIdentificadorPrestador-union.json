@@ -1,0 +1,45 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "a19c0952-d90a-4562-8082-dd8531438c1d-182",
+  "url" : "http://hl7.org/fhir/comparison/ValueSet/a19c0952-d90a-4562-8082-dd8531438c1d-182",
+  "name" : "UnionVSIdentificadorPrestadorAndVSIdentificadorPrestador",
+  "title" : "Union of Identificador del Prestador And Identificador del Prestador",
+  "status" : "active",
+  "date" : "2025-12-05T14:33:38-03:00",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "CL",
+      "display" : "Chile"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "01"
+      }]
+    },
+    {
+      "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "13"
+      }]
+    },
+    {
+      "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+      "concept" : [{
+        "code" : "01",
+        "display" : "RUN"
+      },
+      {
+        "code" : "13",
+        "display" : "RNPI"
+      }]
+    }]
+  }
+}
