@@ -1,0 +1,19 @@
+# Historial de Cambios - Repositorio de Reportes de Biopsias Oncológicas v0.1.1-ballot
+
+* [**Table of Contents**](toc.md)
+* **Historial de Cambios**
+
+## Historial de Cambios
+
+| |
+| :--- |
+| *Page standards status:*[Informative](http://hl7.org/fhir/R4/versions.html#std-process) |
+
+### Versión 0.1.1
+
+Se crearon los perfiles para generar documento FHIR, inspirados en la guía de [HL7 Europa Imaging Study Report](https://build.fhir.org/ig/hl7-eu/imaging/). Se incluyó un composition, 2 extensiones para referencias circulares entre Composition y DiagnosticReport, y el perfil bodyStructure para las conclusiones de la topografía y morfología.
+
+### Versión 0.1.0
+
+Se crearon los primeros perfiles inspirados en los modelos lógicos.
+

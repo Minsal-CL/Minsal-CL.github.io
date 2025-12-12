@@ -1,0 +1,4537 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia> a fhir:ImplementationGuide ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "hl7.fhir.cl.minsal.urgencia"] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide hl7.fhir.cl.minsal.urgencia</b></p><a name=\"hl7.fhir.cl.minsal.urgencia\"> </a><a name=\"hchl7.fhir.cl.minsal.urgencia\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: en</p></div><h2>AtencionUrgenciaInteroperable</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia</pre><div><p>Guía de implementación para la interoperabilidad de la atención de urgencia en Chile.</p>\n</div></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia"^^xsd:anyURI ;
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.2-ballot"] ; # 
+  fhir:name [ fhir:v "AtencionUrgenciaInteroperable"] ; # 
+  fhir:title [ fhir:v "Atención de Urgencia Interoperable"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2025-12-10T16:35:01-03:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Unidad de Interoperabilidad - MINSAL"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://interoperabilidad.minsal.cl" ]
+     ] )
+  ] [
+     fhir:name [ fhir:v "Roberto Araneda" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "roberto.araneda@chiledata.cl" ] ;
+       fhir:use [ fhir:v "work" ]
+     ] )
+  ] [
+     fhir:name [ fhir:v "John Díaz" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "john.diaz@chiledata.cl" ] ;
+       fhir:use [ fhir:v "work" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Guía de implementación para la interoperabilidad de la atención de urgencia en Chile."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ;
+         fhir:l <urn:iso:std:iso:3166>
+       ] ;
+       fhir:code [ fhir:v "CL" ] ;
+       fhir:display [ fhir:v "Chile" ]
+     ] )
+  ] ) ; # 
+  fhir:packageId [ fhir:v "hl7.fhir.cl.minsal.urgencia"] ; # 
+  fhir:license [ fhir:v "CC0-1.0"] ; # 
+  fhir:fhirVersion ( [ fhir:v "4.0.1"] ) ; # 
+  fhir:dependsOn ( [
+     fhir:id [ fhir:v "hl7tx" ] ;
+     fhir:extension ( [
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment>
+       ] ;
+       fhir:value [
+         a fhir:Markdown ;
+         fhir:v "Automatically added as a dependency - all IGs depend on HL7 Terminology"
+       ]
+     ] ) ;
+     fhir:uri [
+       fhir:v "http://terminology.hl7.org/ImplementationGuide/hl7.terminology"^^xsd:anyURI ;
+       fhir:l <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.terminology.r4" ] ;
+     fhir:version [ fhir:v "7.0.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7ext" ] ;
+     fhir:extension ( [
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment>
+       ] ;
+       fhir:value [
+         a fhir:Markdown ;
+         fhir:v "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"
+       ]
+     ] ) ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.uv.extensions.r4" ] ;
+     fhir:version [ fhir:v "5.2.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7_fhir_cl_clcore" ] ;
+     fhir:uri [
+       fhir:v "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore"^^xsd:anyURI ;
+       fhir:l <https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.cl.clcore" ] ;
+     fhir:version [ fhir:v "1.9.4" ]
+  ] ) ; # 
+  fhir:definition [
+     fhir:extension ( [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "copyrightyear"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "2024+"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "releaselabel"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ballot"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "pin-canonicals"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "pin-multiples"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-expansion-params"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "../../input/_resources/exp-params.json"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "autoload-resources"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template/liquid"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "input/liquid"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-qa"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "temp/qa"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-temp"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "temp/pages"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-output"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "output"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-suppressed-warnings"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "input/ignoreWarnings.txt"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-history"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-html"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-page.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-md"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-page-md.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-contact"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-context"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-copyright"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-jurisdiction"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-license"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-publisher"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-version"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-wg"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "active-tables"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "fmm-definition"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "http://hl7.org/fhir/versions.html#maturity"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "propagate-status"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "excludelogbinaryformat"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "tabbed-snapshots"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters>
+       ] ;
+       fhir:value [
+         a fhir:Reference ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Parameters/expansion-parameters> ;
+         fhir:reference [ fhir:v "Parameters/expansion-parameters" ]
+       ]
+     ] [
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency>
+       ] ;
+       fhir:value [
+         a fhir:Code ;
+         fhir:v "hl7.fhir.uv.tools.r4#0.8.0"
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "copyrightyear"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "2024+"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "releaselabel"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ballot"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "pin-canonicals"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "pin-multiples"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-expansion-params"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "../../input/_resources/exp-params.json"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "autoload-resources"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template/liquid"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "input/liquid"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-qa"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "temp/qa"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-temp"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "temp/pages"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-output"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "output"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-suppressed-warnings"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "input/ignoreWarnings.txt"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-history"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "template-html"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-page.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "template-md"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-page-md.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-contact"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-context"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-copyright"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-jurisdiction"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-license"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-publisher"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-version"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-wg"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "active-tables"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "fmm-definition"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "http://hl7.org/fhir/versions.html#maturity"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "propagate-status"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "excludelogbinaryformat"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "tabbed-snapshots"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] ) ;
+     fhir:resource ( [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Abandono> ;
+         fhir:reference [ fhir:v "StructureDefinition/Abandono" ]
+       ] ;
+       fhir:name [ fhir:v "Abandono" ] ;
+       fhir:description [ fhir:v "Extension para regitrar el tipo de abandono que un paciente puede efectuar durante el proceso de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/abandono> ;
+         fhir:reference [ fhir:v "ValueSet/abandono" ]
+       ] ;
+       fhir:name [ fhir:v "Abandono" ] ;
+       fhir:description [ fhir:v "Códigos asociados al tipo de abandono del paciente desde urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/abandono> ;
+         fhir:reference [ fhir:v "CodeSystem/abandono" ]
+       ] ;
+       fhir:name [ fhir:v "Abandono" ] ;
+       fhir:description [ fhir:v "Códigos asociados al tipo de abandono del paciente desde urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Acompanante> ;
+         fhir:reference [ fhir:v "StructureDefinition/Acompanante" ]
+       ] ;
+       fhir:name [ fhir:v "Acompañante" ] ;
+       fhir:description [ fhir:v "Extensión empleada para indicar si el paciente tiene un acompañante en la atención de salud." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AcompananteUrg> ;
+         fhir:reference [ fhir:v "StructureDefinition/AcompananteUrg" ]
+       ] ;
+       fhir:name [ fhir:v "Acompañante Urgencia" ] ;
+       fhir:description [ fhir:v "Información del acompañante del paciente que acude a una unidad de urgencias." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "RelatedPerson"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/RelatedPerson/bb7f34f7-8f4e-42c8-aa84-1f64bf584a05> ;
+         fhir:reference [ fhir:v "RelatedPerson/bb7f34f7-8f4e-42c8-aa84-1f64bf584a05" ]
+       ] ;
+       fhir:name [ fhir:v "Acompañante urgencia" ] ;
+       fhir:description [ fhir:v "Persona que acompaña a un paciente en una situación de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AcompananteUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AcompananteUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "AllergyIntolerance"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/AllergyIntolerance/39d71be0-2eea-4672-ac70-73373a19e714> ;
+         fhir:reference [ fhir:v "AllergyIntolerance/39d71be0-2eea-4672-ac70-73373a19e714" ]
+       ] ;
+       fhir:name [ fhir:v "Alergia o Intolerancia" ] ;
+       fhir:description [ fhir:v "Ejemplo de una alergia o intolerancia de un paciente." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AlergiaIntolerancia"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AlergiaIntolerancia>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AlergiaIntolerancia> ;
+         fhir:reference [ fhir:v "StructureDefinition/AlergiaIntolerancia" ]
+       ] ;
+       fhir:name [ fhir:v "Alergias e Intolerancia" ] ;
+       fhir:description [ fhir:v "Perfíl empleado para registrar alergias e intolerancias de un paciente." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/7ea8cb9a-fc10-44ad-8c52-de03c4517b30> ;
+         fhir:reference [ fhir:v "Observation/7ea8cb9a-fc10-44ad-8c52-de03c4517b30" ]
+       ] ;
+       fhir:name [ fhir:v "Anamnesis de paciente con dolor abdominal" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación de la anamnesis de un paciente con dolor abdominal" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionAnamnesis"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionAnamnesis>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAdmision> ;
+         fhir:reference [ fhir:v "StructureDefinition/BundleAdmision" ]
+       ] ;
+       fhir:name [ fhir:v "Bundle Admision" ] ;
+       fhir:description [ fhir:v "Recurso Bundle para la admisión de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Bundle/Ej1BundleAdmision> ;
+         fhir:reference [ fhir:v "Bundle/Ej1BundleAdmision" ]
+       ] ;
+       fhir:name [ fhir:v "Bundle Admision" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Bundle para la admisión de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAdmision"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAdmision>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAtencion> ;
+         fhir:reference [ fhir:v "StructureDefinition/BundleAtencion" ]
+       ] ;
+       fhir:name [ fhir:v "Bundle Atención" ] ;
+       fhir:description [ fhir:v "Recurso Bundle para la atención de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Bundle/EjBundleAtencion> ;
+         fhir:reference [ fhir:v "Bundle/EjBundleAtencion" ]
+       ] ;
+       fhir:name [ fhir:v "Bundle Atención" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Bundle para la atención de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAtencion"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAtencion>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Bundle/Ej1BundleCategorizacion> ;
+         fhir:reference [ fhir:v "Bundle/Ej1BundleCategorizacion" ]
+       ] ;
+       fhir:name [ fhir:v "Bundle Categoriazación" ] ;
+       fhir:description [ fhir:v "Ejemlo de recurso Bundle para la categorización de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleCategorizacion"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleCategorizacion>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleCategorizacion> ;
+         fhir:reference [ fhir:v "StructureDefinition/BundleCategorizacion" ]
+       ] ;
+       fhir:name [ fhir:v "Bundle Categorizacion" ] ;
+       fhir:description [ fhir:v "Recurso Bundle para registrar la categorización de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleEgreso> ;
+         fhir:reference [ fhir:v "StructureDefinition/BundleEgreso" ]
+       ] ;
+       fhir:name [ fhir:v "Bundle Egreso" ] ;
+       fhir:description [ fhir:v "Recurso Bundle para el egreso de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Bundle/EjBundleEgreso> ;
+         fhir:reference [ fhir:v "Bundle/EjBundleEgreso" ]
+       ] ;
+       fhir:name [ fhir:v "Bundle Egreso" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Bundle para el egreso de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleEgreso"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleEgreso>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CarePlanIndicaciones> ;
+         fhir:reference [ fhir:v "StructureDefinition/CarePlanIndicaciones" ]
+       ] ;
+       fhir:name [ fhir:v "CarePlan Indicaciones" ] ;
+       fhir:description [ fhir:v "Registro de indicaciones al término de una atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/categorizacion-urgencia> ;
+         fhir:reference [ fhir:v "ValueSet/categorizacion-urgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Categorización Urgencia" ] ;
+       fhir:description [ fhir:v "Códigos de categorización asociados a la urgencia de pacientes en el sistema de salud chileno" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Condition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Condition/c08c94fd-bd58-4be8-bd1d-193441b4567e> ;
+         fhir:reference [ fhir:v "Condition/c08c94fd-bd58-4be8-bd1d-193441b4567e" ]
+       ] ;
+       fhir:name [ fhir:v "Comorbilidad de Diabetes Mellitus" ] ;
+       fhir:description [ fhir:v "Ejemplo de condición diagnóstica de comorbilidad de diabetes mellitus en un paciente en un servicio de atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE> ;
+         fhir:reference [ fhir:v "StructureDefinition/ConditionDiagnosticoLE" ]
+       ] ;
+       fhir:name [ fhir:v "Condition Diagnostico" ] ;
+       fhir:description [ fhir:v "Condicion Diagnostico, recurso que se utiliza para indicar el diagnóstico tanto de ingreso como egreso de un paciente en un servicio de urgencias" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConsultaPorAccidente> ;
+         fhir:reference [ fhir:v "StructureDefinition/ConsultaPorAccidente" ]
+       ] ;
+       fhir:name [ fhir:v "Consulta por Accidente" ] ;
+       fhir:description [ fhir:v "Extensión que registra si la atención de urgencia se debe a un accidente." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-discrecional> ;
+         fhir:reference [ fhir:v "CodeSystem/categorizacion-discrecional" ]
+       ] ;
+       fhir:name [ fhir:v "CSCategorizacionDiscrecional" ] ;
+       fhir:description [ fhir:v "Códigos de categorización discrecional de pacientes en el sistema de salud chileno" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-esi> ;
+         fhir:reference [ fhir:v "CodeSystem/categorizacion-esi" ]
+       ] ;
+       fhir:name [ fhir:v "CSCategorizacionESI" ] ;
+       fhir:description [ fhir:v "Códigos de categorización ESI de pacientes en el sistema de salud chileno" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-no-realizada> ;
+         fhir:reference [ fhir:v "CodeSystem/categorizacion-no-realizada" ]
+       ] ;
+       fhir:name [ fhir:v "CSCategorizacionNoRealizada" ] ;
+       fhir:description [ fhir:v "Código asociado a la categorización no realizada en el sistema de salud chileno" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-ugo> ;
+         fhir:reference [ fhir:v "CodeSystem/categorizacion-ugo" ]
+       ] ;
+       fhir:name [ fhir:v "CSCategorizacionUGO" ] ;
+       fhir:description [ fhir:v "Códigos de categorización Gineco-obstétrica (UGO) de pacientes en el sistema de salud chileno" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/eventos-urgencia> ;
+         fhir:reference [ fhir:v "CodeSystem/eventos-urgencia" ]
+       ] ;
+       fhir:name [ fhir:v "CSEventosUrgencia" ] ;
+       fhir:description [ fhir:v "Códigos de eventos de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/CodigoExamen> ;
+         fhir:reference [ fhir:v "ValueSet/CodigoExamen" ]
+       ] ;
+       fhir:name [ fhir:v "Códigos de Examenes" ] ;
+       fhir:description [ fhir:v "Codigos de Examenes" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/VSCodigosUrgencia> ;
+         fhir:reference [ fhir:v "ValueSet/VSCodigosUrgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Códigos de Urgencia" ] ;
+       fhir:description [ fhir:v "Códigos creados para registrar información dentro de la atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSCodigosUrgencia> ;
+         fhir:reference [ fhir:v "CodeSystem/CSCodigosUrgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Códigos de Urgencia" ] ;
+       fhir:description [ fhir:v "Códigos creados para registrar información dentro de la atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/destino-fallecido> ;
+         fhir:reference [ fhir:v "ValueSet/destino-fallecido" ]
+       ] ;
+       fhir:name [ fhir:v "Destino Fallecido" ] ;
+       fhir:description [ fhir:v "Códigos asociados a la situación final de los usuarios fallecidos durante la atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-fallecido> ;
+         fhir:reference [ fhir:v "CodeSystem/destino-fallecido" ]
+       ] ;
+       fhir:name [ fhir:v "Destino Fallecido" ] ;
+       fhir:description [ fhir:v "Códigos asociados a la situación final de los usuarios fallecidos durante la atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/destino-traslado> ;
+         fhir:reference [ fhir:v "ValueSet/destino-traslado" ]
+       ] ;
+       fhir:name [ fhir:v "Destino Traslado" ] ;
+       fhir:description [ fhir:v "Códigos asociados a destino de traslado del paciente desde urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-traslado> ;
+         fhir:reference [ fhir:v "CodeSystem/destino-traslado" ]
+       ] ;
+       fhir:name [ fhir:v "Destino Traslado" ] ;
+       fhir:description [ fhir:v "Códigos asociados a destino de traslado del paciente desde urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Practitioner"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/fbb0e12c-95ec-43f7-bff1-73009b307cb5> ;
+         fhir:reference [ fhir:v "Practitioner/fbb0e12c-95ec-43f7-bff1-73009b307cb5" ]
+       ] ;
+       fhir:name [ fhir:v "Ejemplo de un profesional especialista de urgencia" ] ;
+       fhir:description [ fhir:v "Ejemplo de un profesional que atiende en un servicio de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Practitioner"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/190cd208-48b1-4920-a283-6bc37cbde13a> ;
+         fhir:reference [ fhir:v "Practitioner/190cd208-48b1-4920-a283-6bc37cbde13a" ]
+       ] ;
+       fhir:name [ fhir:v "Ejemplo de un profesional médico de urgencia" ] ;
+       fhir:description [ fhir:v "Ejemplo de un profesional que atiende en un servicio de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Practitioner"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/d04739d3-ba47-4f0f-920f-bcd66b474963> ;
+         fhir:reference [ fhir:v "Practitioner/d04739d3-ba47-4f0f-920f-bcd66b474963" ]
+       ] ;
+       fhir:name [ fhir:v "Ejemplo de un profesional TENS de urgencia" ] ;
+       fhir:description [ fhir:v "Ejemplo de un profesional que de un servicio de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Organization"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81> ;
+         fhir:reference [ fhir:v "Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81" ]
+       ] ;
+       fhir:name [ fhir:v "Ejemplo de una organización de establecimiento" ] ;
+       fhir:description [ fhir:v "Ejemplo de una organización con un establecimiento de salud" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EstablecimientoUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EstablecimientoUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Encounter"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Encounter/bd36a211-7b55-4ff7-905b-0dac7bf35aee> ;
+         fhir:reference [ fhir:v "Encounter/bd36a211-7b55-4ff7-905b-0dac7bf35aee" ]
+       ] ;
+       fhir:name [ fhir:v "Ejemplo Encuentro Urgencia Egreso por Alta" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Encounter en un servicio de atención de urgencia con egreso por alta del paciente, utilizando la extensión Indicacion Alta." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Encounter"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Encounter/e383a62a-628f-4408-b98f-5e5914869bfe> ;
+         fhir:reference [ fhir:v "Encounter/e383a62a-628f-4408-b98f-5e5914869bfe" ]
+       ] ;
+       fhir:name [ fhir:v "Ejemplo Encuentro Urgencia Egreso por Defunción" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Encounter en un servicio de atención de urgencia con egreso por defunción del paciente, utilizando la extensión Fallecido." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Encounter"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Encounter/fbce23ed-b195-47a2-81a2-be4aaf11b038> ;
+         fhir:reference [ fhir:v "Encounter/fbce23ed-b195-47a2-81a2-be4aaf11b038" ]
+       ] ;
+       fhir:name [ fhir:v "Ejemplo Encuentro Urgencia Egreso por Derivación" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Encounter en un servicio de atención de urgencia con egreso por derivación o traslado a otro centro asistencial, utilizando la extensión IndicacionDerivacion." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Practitioner"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/b9f6967f-51b5-49f4-8576-ce9f588523c2> ;
+         fhir:reference [ fhir:v "Practitioner/b9f6967f-51b5-49f4-8576-ce9f588523c2" ]
+       ] ;
+       fhir:name [ fhir:v "EjProfesionalAdministrativo" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Practitioner para la admisión de pacientes en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorAdministrativo"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorAdministrativo>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterAtencion> ;
+         fhir:reference [ fhir:v "StructureDefinition/EncounterAtencion" ]
+       ] ;
+       fhir:name [ fhir:v "Encuentro Atención" ] ;
+       fhir:description [ fhir:v "Recurso que representa los diferentes encuentros clínicos durante su estancia en el servicio de urgencia de un paciente en un establecimiento de salud." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg> ;
+         fhir:reference [ fhir:v "StructureDefinition/EncounterUrg" ]
+       ] ;
+       fhir:name [ fhir:v "Encuentro Urgencia" ] ;
+       fhir:description [ fhir:v "Recurso que representa el episodio de urgencia de un paciente en un establecimiento de salud." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Encounter"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Encounter/d1391b7b-302a-49f8-a908-8116599e137e> ;
+         fhir:reference [ fhir:v "Encounter/d1391b7b-302a-49f8-a908-8116599e137e" ]
+       ] ;
+       fhir:name [ fhir:v "Encuentro Urgencia" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Encounter con información que debería contener para indicar las atenciones de un paciente en un servicio de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Encounter"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Encounter/4c9a3e03-a907-492e-b69c-710cb8c42347> ;
+         fhir:reference [ fhir:v "Encounter/4c9a3e03-a907-492e-b69c-710cb8c42347" ]
+       ] ;
+       fhir:name [ fhir:v "Encuentro Urgencia Abandono" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Encounter con registro de abandono de atención de un paciente en un servicio de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/EspecialidadMedica> ;
+         fhir:reference [ fhir:v "ValueSet/EspecialidadMedica" ]
+       ] ;
+       fhir:name [ fhir:v "Especialidad Médica" ] ;
+       fhir:description [ fhir:v "Códigos de especialidades médicas (Norma 820)" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/EspecialidadMedica> ;
+         fhir:reference [ fhir:v "CodeSystem/EspecialidadMedica" ]
+       ] ;
+       fhir:name [ fhir:v "Especialidad Médica" ] ;
+       fhir:description [ fhir:v "Especialidades médicas reconocidas en el sistema de salud de Chile." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/especialidad-odontologica> ;
+         fhir:reference [ fhir:v "ValueSet/especialidad-odontologica" ]
+       ] ;
+       fhir:name [ fhir:v "Especialidad Odontológica" ] ;
+       fhir:description [ fhir:v "Códigos de especialidades odontológicas (Norma 821)" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/especialidad-odontologica> ;
+         fhir:reference [ fhir:v "CodeSystem/especialidad-odontologica" ]
+       ] ;
+       fhir:name [ fhir:v "Especialidad Odontológica" ] ;
+       fhir:description [ fhir:v "Especialidades odontológicas" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EstablecimientoUrg> ;
+         fhir:reference [ fhir:v "StructureDefinition/EstablecimientoUrg" ]
+       ] ;
+       fhir:name [ fhir:v "Establecimiento Urgencia" ] ;
+       fhir:description [ fhir:v "Recurso empleado para representar un establecimiento de salud en el cual se realiza la atención de urgencia de un paciente." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/VSEstadoCivil> ;
+         fhir:reference [ fhir:v "ValueSet/VSEstadoCivil" ]
+       ] ;
+       fhir:name [ fhir:v "EstadoCivil" ] ;
+       fhir:description [ fhir:v "EstadoCivil" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSEstadoCivil> ;
+         fhir:reference [ fhir:v "CodeSystem/CSEstadoCivil" ]
+       ] ;
+       fhir:name [ fhir:v "EstadoCivil" ] ;
+       fhir:description [ fhir:v "EstadoCivil" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/eventos-urgencia> ;
+         fhir:reference [ fhir:v "ValueSet/eventos-urgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Eventos Urgencia" ] ;
+       fhir:description [ fhir:v "Códigos de eventos de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/3d07043e-adc5-4047-a309-26e2c38ab074> ;
+         fhir:reference [ fhir:v "Observation/3d07043e-adc5-4047-a309-26e2c38ab074" ]
+       ] ;
+       fhir:name [ fhir:v "Evolución clínica de paciente con dolor abdominal" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación de la evolución clínica de un paciente con dolor abdominal" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/observacion-evol-clin"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/observacion-evol-clin>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Fallecido> ;
+         fhir:reference [ fhir:v "StructureDefinition/Fallecido" ]
+       ] ;
+       fhir:name [ fhir:v "Fallecido" ] ;
+       fhir:description [ fhir:v "Extensión que registra la información de un paciente fallecido en el contexto de un encuentro de atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/fallecido> ;
+         fhir:reference [ fhir:v "ValueSet/fallecido" ]
+       ] ;
+       fhir:name [ fhir:v "Fallecido" ] ;
+       fhir:description [ fhir:v "Códigos asociados al momento en que el paciente fallece en el servicio de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/fallecido> ;
+         fhir:reference [ fhir:v "CodeSystem/fallecido" ]
+       ] ;
+       fhir:name [ fhir:v "Fallecido" ] ;
+       fhir:description [ fhir:v "Códigos asociados al momento en que el paciente fallece en el servicio de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Condition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Condition/e27704ff-fa1a-4750-9d23-36ce567f35b0> ;
+         fhir:reference [ fhir:v "Condition/e27704ff-fa1a-4750-9d23-36ce567f35b0" ]
+       ] ;
+       fhir:name [ fhir:v "Hipótesis Diagnóstica de Dolor Abdominal" ] ;
+       fhir:description [ fhir:v "Ejemplo de condición hipótesis diagnóstica de dolor abdominal en un paciente en un servicio de atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConditionDiagnosticoLE>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/IdentificadorPrestador> ;
+         fhir:reference [ fhir:v "ValueSet/IdentificadorPrestador" ]
+       ] ;
+       fhir:name [ fhir:v "Identificador Prestador" ] ;
+       fhir:description [ fhir:v "Identificador Prestador" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CarePlan"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CarePlan/23eb67e4-4fd5-4315-963a-3c5e63fff3a5> ;
+         fhir:reference [ fhir:v "CarePlan/23eb67e4-4fd5-4315-963a-3c5e63fff3a5" ]
+       ] ;
+       fhir:name [ fhir:v "Indicaciones Plan de Cuidados" ] ;
+       fhir:description [ fhir:v "Ejemplo de un plan de cuidados con indicaciones al término de una atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CarePlanIndicaciones"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/CarePlanIndicaciones>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/IndicacionAlta> ;
+         fhir:reference [ fhir:v "StructureDefinition/IndicacionAlta" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación Alta" ] ;
+       fhir:description [ fhir:v "Extensión que registra la indicación de alta en el contexto de un encuentro de atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-alta> ;
+         fhir:reference [ fhir:v "CodeSystem/indicacion-alta" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación Alta" ] ;
+       fhir:description [ fhir:v "Códigos asociados al destino de alta dados por parte del profesional médico al usuario posterior a su atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/indicacion-alta> ;
+         fhir:reference [ fhir:v "ValueSet/indicacion-alta" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación de Alta" ] ;
+       fhir:description [ fhir:v "Códigos asociados al destino de alta dados por parte del profesional médico al usuario posterior a su atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/IndicacionDerivacion> ;
+         fhir:reference [ fhir:v "StructureDefinition/IndicacionDerivacion" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación Derivación" ] ;
+       fhir:description [ fhir:v "Extensión que registra la indicación de derivación en el contexto de un encuentro de atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/IndicacionHospitalizacion> ;
+         fhir:reference [ fhir:v "StructureDefinition/IndicacionHospitalizacion" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación Hospitalización" ] ;
+       fhir:description [ fhir:v "Extensión que registra la indicación de hospitalización en el contexto de un encuentro de atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/indicacion-hospitalizacion> ;
+         fhir:reference [ fhir:v "ValueSet/indicacion-hospitalizacion" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación Hospitalización" ] ;
+       fhir:description [ fhir:v "Códigos asociados al destino de hospitalización dados por parte del profesional médico al usuario posterior a su atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-hospitalizacion> ;
+         fhir:reference [ fhir:v "CodeSystem/indicacion-hospitalizacion" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación Hospitalización" ] ;
+       fhir:description [ fhir:v "Códigos asociados al destino de hospitalización dados por parte del profesional médico al usuario posterior a su atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/indicacion-traslado-otro-centro> ;
+         fhir:reference [ fhir:v "ValueSet/indicacion-traslado-otro-centro" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación Traslado Otro Centro" ] ;
+       fhir:description [ fhir:v "Códigos correspondientes a la derivación  o traslado del usuario a otro centro asistencial de salud, el cual puede ser o no perteneciente al Servicio Nacional de Salud." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/indicacion-traslado-otro-centro> ;
+         fhir:reference [ fhir:v "CodeSystem/indicacion-traslado-otro-centro" ]
+       ] ;
+       fhir:name [ fhir:v "Indicación Traslado Otro Centro" ] ;
+       fhir:description [ fhir:v "Códigos correspondientes a la derivación  o traslado del usuario a otro centro asistencial de salud, el cual puede ser o no perteneciente al Servicio Nacional de Salud." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/lesion-autoinflingida> ;
+         fhir:reference [ fhir:v "ValueSet/lesion-autoinflingida" ]
+       ] ;
+       fhir:name [ fhir:v "Lesión Autoinflingida" ] ;
+       fhir:description [ fhir:v "Códigos de lesión autoinflingida" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/lesion-autoinflingida> ;
+         fhir:reference [ fhir:v "CodeSystem/lesion-autoinflingida" ]
+       ] ;
+       fhir:name [ fhir:v "Lesión Autoinflingida" ] ;
+       fhir:description [ fhir:v "Códigos de lesión autoinflingida" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/LeyPrevisional> ;
+         fhir:reference [ fhir:v "StructureDefinition/LeyPrevisional" ]
+       ] ;
+       fhir:name [ fhir:v "Ley Previsional" ] ;
+       fhir:description [ fhir:v "Extensión para registrar la Ley Previsional asociada al episodio de atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/LeyPrevisional> ;
+         fhir:reference [ fhir:v "ValueSet/LeyPrevisional" ]
+       ] ;
+       fhir:name [ fhir:v "Ley Previsional" ] ;
+       fhir:description [ fhir:v "Códigos de Ley Previsional" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/LeyPrevisional> ;
+         fhir:reference [ fhir:v "CodeSystem/LeyPrevisional" ]
+       ] ;
+       fhir:name [ fhir:v "Ley Previsional" ] ;
+       fhir:description [ fhir:v "Códigos para la ley previsional" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationAdministration"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/MedicationAdministration/716cd145-cd36-4935-9351-263d4e43f3da> ;
+         fhir:reference [ fhir:v "MedicationAdministration/716cd145-cd36-4935-9351-263d4e43f3da" ]
+       ] ;
+       fhir:name [ fhir:v "Medicación Administrada en Urgencia" ] ;
+       fhir:description [ fhir:v "Ejemplo de administración de medicación en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedicationAdministrationUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedicationAdministrationUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedicationAdministrationUrg> ;
+         fhir:reference [ fhir:v "StructureDefinition/MedicationAdministrationUrg" ]
+       ] ;
+       fhir:name [ fhir:v "MedicationAdministration Urgencia" ] ;
+       fhir:description [ fhir:v "Recurso MedicationAdministration para registrar la administración de medicamentos en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedioDeLlegada> ;
+         fhir:reference [ fhir:v "StructureDefinition/MedioDeLlegada" ]
+       ] ;
+       fhir:name [ fhir:v "Medio de Llegada" ] ;
+       fhir:description [ fhir:v "Extensión que registra el medio de llegada del paciente al establecimiento de salud" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/MedioDeLlegada> ;
+         fhir:reference [ fhir:v "ValueSet/MedioDeLlegada" ]
+       ] ;
+       fhir:name [ fhir:v "Medio de Llegada" ] ;
+       fhir:description [ fhir:v "Set de códigos que corresponden a las posibles formas de llegada de un paciente a un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/MedioDeLlegada> ;
+         fhir:reference [ fhir:v "CodeSystem/MedioDeLlegada" ]
+       ] ;
+       fhir:name [ fhir:v "Medio de Llegada" ] ;
+       fhir:description [ fhir:v "Corresponde a las posibles formas de llegada de un paciente a un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Mencion> ;
+         fhir:reference [ fhir:v "StructureDefinition/Mencion" ]
+       ] ;
+       fhir:name [ fhir:v "Mención profesional añadida al título profesional" ] ;
+       fhir:description [ fhir:v "Mención profesional obtenida junto con el título, dato que se agrega en texto lible" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionAnamnesis> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionAnamnesis" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Anamnesis" ] ;
+       fhir:description [ fhir:v "Observación de la anamnesis de un paciente en un servicio de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/447eef01-d4b1-4312-9c4f-c34ca46dce11> ;
+         fhir:reference [ fhir:v "Observation/447eef01-d4b1-4312-9c4f-c34ca46dce11" ]
+       ] ;
+       fhir:name [ fhir:v "Observación de hospitalización reciente" ] ;
+       fhir:description [ fhir:v "Observación que registra si el paciente ha sido hospitalizado recientemente" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionHospitalizacionReciente"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionHospitalizacionReciente>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/observacion-evol-clin> ;
+         fhir:reference [ fhir:v "StructureDefinition/observacion-evol-clin" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Evolución Clínica" ] ;
+       fhir:description [ fhir:v "Observación de la evolución clínica de un paciente en un servicio de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionHospitalizacionReciente> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionHospitalizacionReciente" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Hospitalización Reciente" ] ;
+       fhir:description [ fhir:v "Observación que registra si el paciente ha sido hospitalizado recientemente" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionLesionAutoInfligida> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionLesionAutoInfligida" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Lesión Auto Infligida" ] ;
+       fhir:description [ fhir:v "Observación que registra si el paciente ha sufrido una lesión auto infligida" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/70763f44-cded-482d-9afc-05894c7615c9> ;
+         fhir:reference [ fhir:v "Observation/70763f44-cded-482d-9afc-05894c7615c9" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Lesión Auto Infligida" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación que registra si el paciente ha sufrido una lesión auto infligida" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionLesionAutoInfligida"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionLesionAutoInfligida>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalAlcoholemia> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionMedLegalAlcoholemia" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Medico Legal Alcoholemia" ] ;
+       fhir:description [ fhir:v "Observación que registra la fecha y hora de la toma de alcoholemia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalCert> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionMedLegalCert" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Medico Legal Certificación" ] ;
+       fhir:description [ fhir:v "Observación que registra la fecha y hora de la certificación de riesgo vital o secuela grave" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalExamenToxico> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionMedLegalExamenToxico" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Medico Legal Examen Toxicológico" ] ;
+       fhir:description [ fhir:v "Observación que registra la fecha y hora en que se realiza un examen toxicológico" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/535e0438-315b-4291-b5cc-4469cef1ffb6> ;
+         fhir:reference [ fhir:v "Observation/535e0438-315b-4291-b5cc-4469cef1ffb6" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Medico Legal Examen Toxicológico" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación que registra la fecha y hora en que se realiza un examen toxicológico" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalExamenToxico"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalExamenToxico>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalLesiones> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionMedLegalLesiones" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Medico Legal Lesiones" ] ;
+       fhir:description [ fhir:v "Observación que registra la fecha y hora de la realización del informe de lesiones" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/8bac861c-c8cc-48fa-a37c-14eeb054974f> ;
+         fhir:reference [ fhir:v "Observation/8bac861c-c8cc-48fa-a37c-14eeb054974f" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Medico Legal Riesgo Vital o Secuela Grave" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación que registra la fecha y hora de la certificación de riesgo vital o secuela grave" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalCert"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalCert>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalVS> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionMedLegalVS" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Medico Legal Violencia Sexual" ] ;
+       fhir:description [ fhir:v "Observación que registra la fecha y hora de la realización del informe de violencia sexual" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/80d57f5d-fde9-4df3-95b8-4f223428659c> ;
+         fhir:reference [ fhir:v "Observation/80d57f5d-fde9-4df3-95b8-4f223428659c" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Medico Legal Violencia Sexual" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación que registra la fecha y hora de la realización del informe de violencia sexual" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalVS"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalVS>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/39b30e0d-76d2-4ec1-b047-6c2a13291863> ;
+         fhir:reference [ fhir:v "Observation/39b30e0d-76d2-4ec1-b047-6c2a13291863" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Médico Legal Alcoholemia" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación que registra la fecha y hora de la toma de alcoholemia" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalAlcoholemia"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalAlcoholemia>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/813c8069-e56d-42a9-b2c8-91b11703c13e> ;
+         fhir:reference [ fhir:v "Observation/813c8069-e56d-42a9-b2c8-91b11703c13e" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Médico Legal Lesiones" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación que registra la fecha y hora de la realización del informe de lesiones" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalLesiones"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalLesiones>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionReconsultaUrgencia> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservacionReconsultaUrgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Reconsulta Urgencia" ] ;
+       fhir:description [ fhir:v "Observación que registra si el paciente ha tenido un evento de urgencia previo en el período de 15-21 días" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/d00b0ce5-aee0-475d-8028-a360f60b810c> ;
+         fhir:reference [ fhir:v "Observation/d00b0ce5-aee0-475d-8028-a360f60b810c" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Reconsulta Urgencia" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación que registra si el paciente ha tenido un evento de urgencia previo en el período de 15-21 días" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionReconsultaUrgencia"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionReconsultaUrgencia>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/aeb13c46-8eb3-4b8f-9bc2-e3d57024cb86> ;
+         fhir:reference [ fhir:v "Observation/aeb13c46-8eb3-4b8f-9bc2-e3d57024cb86" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Resultado Examen" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación que registra el resultado de un examen" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationResultadoExamen"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationResultadoExamen>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservationSignosVitales" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Signos Vitales" ] ;
+       fhir:description [ fhir:v "Recurso empleado para registrar la información de signos vitales de un paciente en un servicio de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/3d609e5a-730d-4a32-947c-e632253fa5ff> ;
+         fhir:reference [ fhir:v "Observation/3d609e5a-730d-4a32-947c-e632253fa5ff" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Signos Vitales - Peso" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación de signos vitales de un paciente en un servicio de urgencia - Peso." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/d01f4e15-7f0a-49cf-b5a7-e7dd717526d2> ;
+         fhir:reference [ fhir:v "Observation/d01f4e15-7f0a-49cf-b5a7-e7dd717526d2" ]
+       ] ;
+       fhir:name [ fhir:v "Observación Signos Vitales - Pulso" ] ;
+       fhir:description [ fhir:v "Ejemplo de observación de signos vitales de un paciente en un servicio de urgencia - Pulso." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationSignosVitales>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservationResultadoExamen> ;
+         fhir:reference [ fhir:v "StructureDefinition/ObservationResultadoExamen" ]
+       ] ;
+       fhir:name [ fhir:v "Observation Resultado Examen" ] ;
+       fhir:description [ fhir:v "Resultado de examen" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PatientUrg> ;
+         fhir:reference [ fhir:v "StructureDefinition/PatientUrg" ]
+       ] ;
+       fhir:name [ fhir:v "Paciente Urgencia" ] ;
+       fhir:description [ fhir:v "Paciente definido para el registro de atenciones de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Patient"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Patient/6ec6dc25-4b65-4165-a545-9b796f60b997> ;
+         fhir:reference [ fhir:v "Patient/6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+       ] ;
+       fhir:name [ fhir:v "Paciente Urgencia con datos básicos" ] ;
+       fhir:description [ fhir:v "Ejemplo de un paciente de urgencia con datos básicos" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PatientUrg"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PatientUrg>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PaisOrigenMPI> ;
+         fhir:reference [ fhir:v "StructureDefinition/PaisOrigenMPI" ]
+       ] ;
+       fhir:name [ fhir:v "País de origen del paciente" ] ;
+       fhir:description [ fhir:v "País de origen del paciente" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorAdministrativo> ;
+         fhir:reference [ fhir:v "StructureDefinition/PrestadorAdministrativo" ]
+       ] ;
+       fhir:name [ fhir:v "Prestador Administrativo de Urgencia" ] ;
+       fhir:description [ fhir:v "Prestador Administrativo que participa en la atención de urgencia durante el proceso de admisión" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional> ;
+         fhir:reference [ fhir:v "StructureDefinition/PrestadorProfesional" ]
+       ] ;
+       fhir:name [ fhir:v "Prestador Profesional de Urgencia" ] ;
+       fhir:description [ fhir:v "Profesional médico u odontólogo que participa en la atención de urgencia de un paciente." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/Procedencia> ;
+         fhir:reference [ fhir:v "ValueSet/Procedencia" ]
+       ] ;
+       fhir:name [ fhir:v "Procedencia" ] ;
+       fhir:description [ fhir:v "Códigos de lugares físicos desde donde proviene el paciente cuando concurre a la atención de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Procedencia> ;
+         fhir:reference [ fhir:v "CodeSystem/Procedencia" ]
+       ] ;
+       fhir:name [ fhir:v "Procedencia" ] ;
+       fhir:description [ fhir:v "Corresponde al lugar físico desde donde proviene el paciente cuando consulta en un servicio de atención de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Procedure"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Procedure/dc28ac35-92d9-495c-b97f-78ce3733c671> ;
+         fhir:reference [ fhir:v "Procedure/dc28ac35-92d9-495c-b97f-78ce3733c671" ]
+       ] ;
+       fhir:name [ fhir:v "Procedimiento" ] ;
+       fhir:description [ fhir:v "Ejemplo de recurso Procedure para el registro de un procedimiento realizado a un paciente" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Procedimiento"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Procedimiento>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Procedimiento> ;
+         fhir:reference [ fhir:v "StructureDefinition/Procedimiento" ]
+       ] ;
+       fhir:name [ fhir:v "Procedimientos de Urgencias" ] ;
+       fhir:description [ fhir:v "Registro de un procedimiento realizado a un paciente" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PueblosAfrodescendiente> ;
+         fhir:reference [ fhir:v "StructureDefinition/PueblosAfrodescendiente" ]
+       ] ;
+       fhir:name [ fhir:v "Pueblos Afrodescendiente" ] ;
+       fhir:description [ fhir:v "Pueblos Afrodescendiente" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PueblosOriginarios> ;
+         fhir:reference [ fhir:v "StructureDefinition/PueblosOriginarios" ]
+       ] ;
+       fhir:name [ fhir:v "Pueblos Originarios" ] ;
+       fhir:description [ fhir:v "Almacenar si el paciente pertenece a algun pueblo originario" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/PueblosOriginariosVS> ;
+         fhir:reference [ fhir:v "ValueSet/PueblosOriginariosVS" ]
+       ] ;
+       fhir:name [ fhir:v "Pueblos Originarios de Chile" ] ;
+       fhir:description [ fhir:v "Pueblos Originarios de Chile" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/PueblosOriginariosCS> ;
+         fhir:reference [ fhir:v "CodeSystem/PueblosOriginariosCS" ]
+       ] ;
+       fhir:name [ fhir:v "Pueblos Originarios de Chile" ] ;
+       fhir:description [ fhir:v "Pueblos Originarios de Chile" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PueblosOriginariosPerteneciente> ;
+         fhir:reference [ fhir:v "StructureDefinition/PueblosOriginariosPerteneciente" ]
+       ] ;
+       fhir:name [ fhir:v "Pueblos Originarios Perteneciente" ] ;
+       fhir:description [ fhir:v "Pueblos Originarios Perteneciente" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/RelacionAcompanante> ;
+         fhir:reference [ fhir:v "ValueSet/RelacionAcompanante" ]
+       ] ;
+       fhir:name [ fhir:v "Relación Acompañante" ] ;
+       fhir:description [ fhir:v "Conjunto de códigos que representan la relación del acompañante con el paciente." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante> ;
+         fhir:reference [ fhir:v "CodeSystem/RelacionAcompanante" ]
+       ] ;
+       fhir:name [ fhir:v "Relación Acompañante" ] ;
+       fhir:description [ fhir:v "Códigos asociados a la relación del acompañante con el paciente." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/VSReligion> ;
+         fhir:reference [ fhir:v "ValueSet/VSReligion" ]
+       ] ;
+       fhir:name [ fhir:v "Religion" ] ;
+       fhir:description [ fhir:v "Religion" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSReligion> ;
+         fhir:reference [ fhir:v "CodeSystem/CSReligion" ]
+       ] ;
+       fhir:name [ fhir:v "Religion" ] ;
+       fhir:description [ fhir:v "Religion" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Religion> ;
+         fhir:reference [ fhir:v "StructureDefinition/Religion" ]
+       ] ;
+       fhir:name [ fhir:v "Religión" ] ;
+       fhir:description [ fhir:v "Religión" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/SignosVitales> ;
+         fhir:reference [ fhir:v "ValueSet/SignosVitales" ]
+       ] ;
+       fhir:name [ fhir:v "Signos Vitales" ] ;
+       fhir:description [ fhir:v "Códigos empleados para registrar los diferentes signos vitales de un paciente en un servicio de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ServiceRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ServiceRequest/b8b2b855-e554-40ef-98fe-55a07556fc48> ;
+         fhir:reference [ fhir:v "ServiceRequest/b8b2b855-e554-40ef-98fe-55a07556fc48" ]
+       ] ;
+       fhir:name [ fhir:v "Solicitud de Examen de Laboratorio" ] ;
+       fhir:description [ fhir:v "Ejemplo de solicitud de exámen de laboratorio para un paciente" ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ServiceRequestSolicitudes"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ServiceRequestSolicitudes>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ServiceRequestSolicitudes> ;
+         fhir:reference [ fhir:v "StructureDefinition/ServiceRequestSolicitudes" ]
+       ] ;
+       fhir:name [ fhir:v "Solicitudes de Exámenes, Procedimientos y Otros Servicios Complementarios" ] ;
+       fhir:description [ fhir:v "Recurso ServiceRequest para las solicitudes de exámenes, procedimientos y otros servicios durante la atención de un paciente" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/VSTerminologiasDiag> ;
+         fhir:reference [ fhir:v "ValueSet/VSTerminologiasDiag" ]
+       ] ;
+       fhir:name [ fhir:v "TerminologiasDiag" ] ;
+       fhir:description [ fhir:v "TerminologiasDiag" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/tipo-egreso> ;
+         fhir:reference [ fhir:v "ValueSet/tipo-egreso" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo Egreso" ] ;
+       fhir:description [ fhir:v "Corresponde a códigos asociados a la decisión del médico u odontólogo del destino que debe seguir el usuario en virtud de su evaluación y situación clínica antes de cerrar el proceso de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-egreso> ;
+         fhir:reference [ fhir:v "CodeSystem/tipo-egreso" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo Egreso" ] ;
+       fhir:description [ fhir:v "Corresponde a códigos asociados a la decisión del médico u odontólogo del destino que debe seguir el usuario en virtud de su evaluación y situación clínica antes de cerrar el proceso de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/TipoParticipanteEncuentroUrgencia> ;
+         fhir:reference [ fhir:v "ValueSet/TipoParticipanteEncuentroUrgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo Participante Encuentro Urgencia" ] ;
+       fhir:description [ fhir:v "Códigos de los tipos de participante de un Encounter" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TipoParticipanteUrgencia> ;
+         fhir:reference [ fhir:v "CodeSystem/TipoParticipanteUrgencia" ]
+       ] ;
+       fhir:name [ fhir:v "Tipo Participante Urgencia" ] ;
+       fhir:description [ fhir:v "Tipo de participante en un evento de urgencia." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional> ;
+         fhir:reference [ fhir:v "CodeSystem/TituloProfesional" ]
+       ] ;
+       fhir:name [ fhir:v "Titulo Profesional" ] ;
+       fhir:description [ fhir:v "Códigos asociados a los títulos profesionales de los participantes en un encuentro de urgencia" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/TituloProfesional> ;
+         fhir:reference [ fhir:v "ValueSet/TituloProfesional" ]
+       ] ;
+       fhir:name [ fhir:v "Título Profesional" ] ;
+       fhir:description [ fhir:v "Códigos de los títulos profesionales de un profesional de la salud que participa de la atención de un paciente" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/unidad-hospitalaria-destino> ;
+         fhir:reference [ fhir:v "ValueSet/unidad-hospitalaria-destino" ]
+       ] ;
+       fhir:name [ fhir:v "Unidad Hospitalaria Destino" ] ;
+       fhir:description [ fhir:v "Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-hospitalaria-destino> ;
+         fhir:reference [ fhir:v "CodeSystem/unidad-hospitalaria-destino" ]
+       ] ;
+       fhir:name [ fhir:v "Unidad Hospitalaria Destino" ] ;
+       fhir:description [ fhir:v "Códigos asociados a Unidad Funcional de destino si es que el paciente requiere hospitalización en el mismo establecimiento." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] ) ;
+     fhir:page [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+         ] ;
+         fhir:value [
+           a fhir:Url ;
+           fhir:v "toc.html"^^xsd:anyURI ;
+           fhir:l fhir:toc.html
+         ]
+       ] ) ;
+       fhir:name [
+         a fhir:Url ;
+         fhir:v "toc.html"^^xsd:anyURI ;
+         fhir:l fhir:toc.html
+       ] ;
+       fhir:title [ fhir:v "Table of Contents" ] ;
+       fhir:generation [ fhir:v "html" ] ;
+       fhir:page ( [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "index.html"^^xsd:anyURI ;
+             fhir:l fhir:index.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "index.html"^^xsd:anyURI ;
+           fhir:l fhir:index.html
+         ] ;
+         fhir:title [ fhir:v "Index" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "ImplementationGuide-hl7.fhir.cl.minsal.urgencia.html"^^xsd:anyURI ;
+             fhir:l fhir:ImplementationGuide-hl7.fhir.cl.minsal.urgencia.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "ImplementationGuide-hl7.fhir.cl.minsal.urgencia.html"^^xsd:anyURI ;
+           fhir:l fhir:ImplementationGuide-hl7.fhir.cl.minsal.urgencia.html
+         ] ;
+         fhir:title [ fhir:v "Guía de Implementación" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "workflow.html"^^xsd:anyURI ;
+             fhir:l fhir:workflow.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "workflow.html"^^xsd:anyURI ;
+           fhir:l fhir:workflow.html
+         ] ;
+         fhir:title [ fhir:v "Flujo" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "events.html"^^xsd:anyURI ;
+             fhir:l fhir:events.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "events.html"^^xsd:anyURI ;
+           fhir:l fhir:events.html
+         ] ;
+         fhir:title [ fhir:v "Atención de Urgencia Interoperable" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "actors.html"^^xsd:anyURI ;
+             fhir:l fhir:actors.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "actors.html"^^xsd:anyURI ;
+           fhir:l fhir:actors.html
+         ] ;
+         fhir:title [ fhir:v "Rol de actores" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "user-history.html"^^xsd:anyURI ;
+             fhir:l fhir:user-history.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "user-history.html"^^xsd:anyURI ;
+           fhir:l fhir:user-history.html
+         ] ;
+         fhir:title [ fhir:v "Historias de usuario segun rol" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "spec-events.html"^^xsd:anyURI ;
+             fhir:l fhir:spec-events.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "spec-events.html"^^xsd:anyURI ;
+           fhir:l fhir:spec-events.html
+         ] ;
+         fhir:title [ fhir:v "Eventos" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "spec-transactions.html"^^xsd:anyURI ;
+             fhir:l fhir:spec-transactions.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "spec-transactions.html"^^xsd:anyURI ;
+           fhir:l fhir:spec-transactions.html
+         ] ;
+         fhir:title [ fhir:v "Transacciones" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "spec-message.html"^^xsd:anyURI ;
+             fhir:l fhir:spec-message.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "spec-message.html"^^xsd:anyURI ;
+           fhir:l fhir:spec-message.html
+         ] ;
+         fhir:title [ fhir:v "Operaciones" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] )
+     ] ;
+     fhir:parameter ( [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/capabilities" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/examples" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/extensions" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/models" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/operations" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/profiles" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/resources" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/vocabulary" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/maps" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/testing" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/history" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "fsh-generated/resources" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "template/config" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "input/images" ]
+     ] [
+       fhir:code [ fhir:v "path-tx-cache" ] ;
+       fhir:value [ fhir:v "input-cache/txcache" ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

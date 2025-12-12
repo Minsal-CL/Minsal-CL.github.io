@@ -1,0 +1,111 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> a fhir:Specimen ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "r2bo-specimen-example"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-muestra-biopsia"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-muestra-biopsia>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Specimen r2bo-specimen-example</b></p><a name=\"r2bo-specimen-example\"> </a><a name=\"hcr2bo-specimen-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-muestra-biopsia.html\">Perfil de Muestra</a></p></div><p><b>identifier</b>: 110101101</p><p><b>status</b>: Available</p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0487 TISS}\">Tissue</span></p><p><b>subject</b>: <a href=\"Patient-paciente-requiere-examen.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</a></p><p><b>receivedTime</b>: 2021-06-01 00:00:00+0000</p><h3>Collections</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Collector</b></td><td><b>Collected[x]</b></td><td><b>Method</b></td><td><b>BodySite</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-ProfesionalHospital.html\">PractitionerRole MÉDICO CIRUJANO</a></td><td>2021-06-01 10:00:00+0000</td><td><span title=\"Codes:{http://snomed.info/sct 122548005}\">Biopsy of breast</span></td><td><span title=\"Codes:{http://snomed.info/sct 76752008}\">Breast</span></td></tr></table><p><b>note</b>: </p><blockquote><div><p>Resección completa de tejido mamario, posible carcinoma</p>\n</div></blockquote></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "110101101" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "available"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/v2-0487"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/v2-0487>
+       ] ;
+       fhir:code [ fhir:v "TISS" ] ;
+       fhir:display [ fhir:v "Tissue" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:reference [ fhir:v "Patient/paciente-requiere-examen" ]
+  ] ; # 
+  fhir:receivedTime [ fhir:v "2021-06-01T00:00:00Z"^^xsd:dateTime] ; # 
+  fhir:collection [
+     fhir:collector [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital> ;
+       fhir:reference [ fhir:v "PractitionerRole/ProfesionalHospital" ]
+     ] ;
+     fhir:collected [
+       a fhir:DateTime ;
+       fhir:v "2021-06-01T10:00:00Z"^^xsd:dateTime
+     ] ;
+     fhir:method [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-extension-tipo-procedimientos-biopsias"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-extension-tipo-procedimientos-biopsias>
+         ] ;
+         fhir:value [
+           a fhir:CodeableConcept ;
+           fhir:coding ( [
+             a sct:8889005 ;
+             fhir:system [
+               fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+               fhir:l <http://snomed.info/sct>
+             ] ;
+             fhir:code [ fhir:v "8889005" ]
+           ] )
+         ]
+       ] ) ;
+       fhir:coding ( [
+         a sct:122548005 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "122548005" ]
+       ] )
+     ] ;
+     fhir:bodySite [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-laterality-qualifier"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-laterality-qualifier>
+         ] ;
+         fhir:value [
+           a fhir:CodeableConcept ;
+           fhir:coding ( [
+             a sct:7771000 ;
+             fhir:system [
+               fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+               fhir:l <http://snomed.info/sct>
+             ] ;
+             fhir:code [ fhir:v "7771000" ]
+           ] )
+         ]
+       ] ) ;
+       fhir:coding ( [
+         a sct:76752008 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "76752008" ]
+       ] )
+     ]
+  ] ; # 
+  fhir:note ( [
+     fhir:text [ fhir:v "Resección completa de tejido mamario, posible carcinoma" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

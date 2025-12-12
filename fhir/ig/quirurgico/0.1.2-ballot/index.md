@@ -1,0 +1,2550 @@
+# Index - Lista de Espera Quirúrgica Interoperable v0.1.2-ballot
+
+* [**Table of Contents**](toc.md)
+* **Index**
+
+## Index
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/ImplementationGuide/hl7.fhir.cl.minsal.quirurgico | *Version*:0.1.2-ballot |
+| Draft as of 2025-12-10 | *Computable Name*:ListadeEsperaQuirurgicaInteroperable |
+
+### Alcance
+
+Esta guía de implementación aborda el proceso de lista de espera quirúrgica No GES que comprende un conjunto de actividades asistenciales y no asistenciales centradas en el paciente con una indicación quirúrgica. Para representar este proceso se definen 6 eventos, los cuáles son:
+
+* **Evento Atender**: Entrada al registro de la lista de espera.
+* **Evento Agendar Entrevista**: Agendar la entrevista entre el paciente con un profesional.
+* **Evento Entrevista**: Realización de la entrevista prequirúrgica.
+* **Evento Agendar Cirugía:** Ejecución de la programación quirúrgica.
+* **Evento Cirugía**: Realización de la intervención quirúrgica.
+* **Evento Cierre**: Termina el proceso de Lista de Espera Quirúrgico No GES y egreso de la LE.
+
+### Introducción
+
+#### Antecedentes
+
+La lista de espera quirúrgica no GES es el registro de pacientes que esperan una atención quirúrgica programada en el servicio público de salud, pero que no está cubierta por el Plan de Garantías Explícitas en Salud (GES). Incluye todos los pacientes pendientes para una intervención quirúrgica NO GES, indicada por un médico especialista, una vez concluidos sus estudios, independiente de si precisa o no hospitalización y del tipo de anestesia previsto. La entrada al registro de lista de espera corresponde a la fecha de la indicación de la cirugía, realizada por el médico especialista quirúrgico, y finaliza con el alta quirúrgica que deriva en la entrega del paciente en el destino final de recuperación (domicilio en el caso de cirugía mayor ambulatoria (CMA) o una cama de dotación en el caso de una cirugía mayor hospitalaria (CMH)).
+
+#### Descripción
+
+Se propone desarrollar una guía de implementación que permita hacer trazabilidad del proceso de lista de espera quirúrgica No Ges, desde que un paciente posee una indicación de cirugía, hasta que se egresa por una alta quirúrgica, esta información estará disponible tanto para el paciente, como para los establecimientos de salud involucrados y el nivel central para la toma de decisiones y mejor gestión de los recursos. Este proyecto fue ejecutado por un equipo multidisciplinario del Ministerio de Salud, con la participación de profesionales del Departamento de Estadísticas e Información en Salud (DEIS), la División de Gestión de la Red Asistencial (DIGERA), y la Unidad de Interoperabilidad del Departamento de Tecnologías de la Información y Comunicaciones (DTIC). Se ha utilizado una metodología para el rediseño del proceso, optimizando y centrándose en el paciente y se ha implementado bajo el uso estándares internacionales de interoperabilidad.
+
+#### Objetivos del Proyecto
+
+##### General
+
+* Desarrollar una guía de implementación para el proceso de lista de espera quirúrgica No GES interoperable que respalde la gestión de información, incluyendo su registro, transferencia y análisis. Dicha información es entregada a través de una plataforma que facilite su acceso y almacenamiento de manera precisa y de calidad, en el contexto de la lista de espera quirúrgica no GES para pacientes de la red asistencial.
+
+##### Específicos
+
+* Lograr el intercambio de información entre los diferentes registros clínicos implementados en la red asistencial desde que existe una indicación de cirugía hasta el alta, con la plataforma de interoperabilidad de MINSAL.
+* Promover la estandarización de los datos involucrados en el proceso de lista de espera quirúrgica No GES.
+* Proporcionar directrices y reglas comunes que faciliten la adopción de estándares de interoperabilidad semánticos y sintácticos, tanto por parte de profesionales clínicos como para los desarrolladores en toda la red asistencial.
+* Garantizar que los datos se representen y se compartan de manera coherente entre sistemas, evitando ambigüedades y errores en la interpretación de la información.
+
+#### Objetivos de la Guía de Implementación
+
+##### General
+
+* Brindar las directrices necesarias que garanticen la interoperabilidad con la plataforma de Minsal para el proceso de atención de lista de espera quirúrgica No GES, según los estándares definidos por el Ministerio de Salud.
+
+##### Específicos
+
+* Otorgar las herramientas necesarias para que los sistemas informáticos de registro clínico que interoperan con la plataforma definida por MINSAL para el intercambio de información del proceso de lista de espera quirúrgica No GES, en base al estándar HL7 FHIR.
+* Describir los distintos perfiles de usuario del proceso de lista de espera quirúrgica No GES y los recursos asociados a cada uno.
+* Ejemplificar los distintos casos de uso asociados al proceso de atención de lista de espera No GES que son aplicables en el día a día.
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "ImplementationGuide",
+  "id" : "hl7.fhir.cl.minsal.quirurgico",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/ImplementationGuide/hl7.fhir.cl.minsal.quirurgico",
+  "version" : "0.1.2-ballot",
+  "name" : "ListadeEsperaQuirurgicaInteroperable",
+  "title" : "Lista de Espera Quirúrgica Interoperable",
+  "status" : "draft",
+  "date" : "2025-12-10T09:54:02-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Roberto Araneda",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "roberto.araneda@chiledata.cl",
+          "use" : "work"
+        }
+      ]
+    },
+    {
+      "name" : "John Díaz",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "john.diaz@chiledata.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Guía de implementación para la interoperabilidad de la lista de espera Quirúrgica en Chile.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "packageId" : "hl7.fhir.cl.minsal.quirurgico",
+  "license" : "CC0-1.0",
+  "fhirVersion" : ["4.0.1"],
+  "dependsOn" : [
+    {
+      "id" : "hl7tx",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment",
+          "valueMarkdown" : "Automatically added as a dependency - all IGs depend on HL7 Terminology"
+        }
+      ],
+      "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
+      "packageId" : "hl7.terminology.r4",
+      "version" : "7.0.0"
+    },
+    {
+      "id" : "hl7_fhir_cl_clcore",
+      "uri" : "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore",
+      "packageId" : "hl7.fhir.cl.clcore",
+      "version" : "1.9.4"
+    },
+    {
+      "id" : "hl7_fhir_uv_extensions_r4",
+      "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+      "packageId" : "hl7.fhir.uv.extensions.r4",
+      "version" : "5.2.0"
+    }
+  ],
+  "definition" : {
+    "extension" : [
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "copyrightyear"
+          },
+          {
+            "url" : "value",
+            "valueString" : "2025+"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "releaselabel"
+          },
+          {
+            "url" : "value",
+            "valueString" : "ballot"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "autoload-resources"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-liquid"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template/liquid"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-liquid"
+          },
+          {
+            "url" : "value",
+            "valueString" : "input/liquid"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-qa"
+          },
+          {
+            "url" : "value",
+            "valueString" : "temp/qa"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-temp"
+          },
+          {
+            "url" : "value",
+            "valueString" : "temp/pages"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-output"
+          },
+          {
+            "url" : "value",
+            "valueString" : "output"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-suppressed-warnings"
+          },
+          {
+            "url" : "value",
+            "valueString" : "input/ignoreWarnings.txt"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-history"
+          },
+          {
+            "url" : "value",
+            "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/history.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "template-html"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template-page.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "template-md"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template-page-md.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-contact"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-context"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-copyright"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-jurisdiction"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-license"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-publisher"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-version"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-wg"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "active-tables"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "fmm-definition"
+          },
+          {
+            "url" : "value",
+            "valueString" : "http://hl7.org/fhir/versions.html#maturity"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "propagate-status"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "excludelogbinaryformat"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "tabbed-snapshots"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency",
+        "valueCode" : "hl7.fhir.uv.tools.r4#0.8.0"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "copyrightyear"
+          },
+          {
+            "url" : "value",
+            "valueString" : "2025+"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "releaselabel"
+          },
+          {
+            "url" : "value",
+            "valueString" : "ballot"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "autoload-resources"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-liquid"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template/liquid"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-liquid"
+          },
+          {
+            "url" : "value",
+            "valueString" : "input/liquid"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-qa"
+          },
+          {
+            "url" : "value",
+            "valueString" : "temp/qa"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-temp"
+          },
+          {
+            "url" : "value",
+            "valueString" : "temp/pages"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-output"
+          },
+          {
+            "url" : "value",
+            "valueString" : "output"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-suppressed-warnings"
+          },
+          {
+            "url" : "value",
+            "valueString" : "input/ignoreWarnings.txt"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-history"
+          },
+          {
+            "url" : "value",
+            "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/history.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "template-html"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template-page.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "template-md"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template-page-md.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-contact"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-context"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-copyright"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-jurisdiction"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-license"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-publisher"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-version"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-wg"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "active-tables"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "fmm-definition"
+          },
+          {
+            "url" : "value",
+            "valueString" : "http://hl7.org/fhir/versions.html#maturity"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "propagate-status"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "excludelogbinaryformat"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "tabbed-snapshots"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      }
+    ],
+    "resource" : [
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Appointment"
+          }
+        ],
+        "reference" : {
+          "reference" : "Appointment/0708a908-fc3a-48ea-90e7-b5cd0e516e30"
+        },
+        "name" : "Agendamiento cirugía",
+        "description" : "Ejemplo de agendamiento de cirugía",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/AppointmentAgendarLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Appointment"
+          }
+        ],
+        "reference" : {
+          "reference" : "Appointment/76adaeb4-4885-4aa6-96c1-13b9df9a61d7"
+        },
+        "name" : "Agendamiento entrevista pre quirúrgica",
+        "description" : "Ejemplo de agendamiento de entrevista pre quirúrgica",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/AppointmentAgendarLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/AllergyIntoleranceIniciarLE"
+        },
+        "name" : "AllergyIntolerance Iniciar LE",
+        "description" : "AllergyIntolerance Iniciar LE",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/AppointmentAgendarLE"
+        },
+        "name" : "Appointment Agendar LE",
+        "description" : "Appointment Agendar LE",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/BundleAgendarCirugiaLE"
+        },
+        "name" : "Bundle Agendar Cirugía LE",
+        "description" : "Recurso Bundle Agendar Cirugía LE que se utiliza para representar el agendamiento de la cirugía.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Bundle"
+          }
+        ],
+        "reference" : {
+          "reference" : "Bundle/EjBundleAgendarCirugia"
+        },
+        "name" : "Bundle Agendar Cirugía LE",
+        "description" : "Ejemplo de Bundle Agendar Cirugía LE que se utiliza para representar el agendamiento de la cirugía.",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleAgendarCirugiaLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/BundleAgendarEntrevistaLE"
+        },
+        "name" : "Bundle Agendar Entrevista LE",
+        "description" : "Recurso Bundle Agendar Entrevista LE que se utiliza para representar el agendamiento de la entrevista prequirúrgica.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Bundle"
+          }
+        ],
+        "reference" : {
+          "reference" : "Bundle/EjBundleAgendarEntrevista"
+        },
+        "name" : "Bundle Agendar Entrevista LE",
+        "description" : "Ejemplo de Bundle Agendar Entrevista LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleAgendarEntrevistaLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/BundleAtenderLE"
+        },
+        "name" : "Bundle Atender LE",
+        "description" : "Recurso Bundle Atender LE que se utiliza para representar el encuentro médico del paciente con el especialista quirúrgico.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Bundle"
+          }
+        ],
+        "reference" : {
+          "reference" : "Bundle/EjBundleAtender"
+        },
+        "name" : "Bundle Atender LE",
+        "description" : "Ejemplo de Bundle Atender LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleAtenderLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/BundleCierreLE"
+        },
+        "name" : "Bundle Cierre LE",
+        "description" : "Recurso Bundle Cierre LE que se utiliza para representar el cierre de la solicitud de cirugía.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Bundle"
+          }
+        ],
+        "reference" : {
+          "reference" : "Bundle/EjBundleCierre"
+        },
+        "name" : "Bundle Cierre LE",
+        "description" : "Ejemplo de Bundle Cierre LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleCierreLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/BundleCirugiaLE"
+        },
+        "name" : "Bundle Cirugía LE",
+        "description" : "Recurso Bundle Cirugía LE que se utiliza para representar la entrevista prequirúrgica.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Bundle"
+          }
+        ],
+        "reference" : {
+          "reference" : "Bundle/EjBundleCirugia"
+        },
+        "name" : "Bundle Cirugía LE",
+        "description" : "Ejemplo de Bundle Cirugía LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleCirugiaLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/BundleEntrevistaLE"
+        },
+        "name" : "Bundle Entrevista LE",
+        "description" : "Recurso Bundle Entrevista LE que se utiliza para representar la entrevista prequirúrgica.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Bundle"
+          }
+        ],
+        "reference" : {
+          "reference" : "Bundle/EjBundleEntrevista"
+        },
+        "name" : "Bundle Entrevista LE",
+        "description" : "Ejemplo de Bundle Entrevista LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleEntrevistaLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Procedure"
+          }
+        ],
+        "reference" : {
+          "reference" : "Procedure/abfca780-745d-4c35-ae8a-fd0dbc3a9b16"
+        },
+        "name" : "Cirugía Hernia Ventral",
+        "description" : "Ejemplo de una cirugía de hernia ventral",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ProcedureCirugiaLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSCondicionSalidaCirugia"
+        },
+        "name" : "Condición Salida Cirugía",
+        "description" : "Condición Salida Cirugía",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSCondicionSalidaCirugia"
+        },
+        "name" : "Condición Salida Cirugía",
+        "description" : "Condición Salida Cirugía",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ConditionDiagnosticoLE"
+        },
+        "name" : "Condition Diagnostico LE",
+        "description" : "Condicion Diagnostico LE, recurso que se utiliza para indicar el diagnóstico",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/CodigoExamen"
+        },
+        "name" : "Códigos de Examenes",
+        "description" : "Codigos de Examenes",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "AllergyIntolerance"
+          }
+        ],
+        "reference" : {
+          "reference" : "AllergyIntolerance/8f627a17-27f4-4519-9ff7-4f1da6f0eef2"
+        },
+        "name" : "Ejemplo de Alergia",
+        "description" : "Registro de alergia a la amoxicilina",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/AllergyIntoleranceIniciarLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Condition"
+          }
+        ],
+        "reference" : {
+          "reference" : "Condition/b97a87f6-060d-48de-9e4d-db93518fd278"
+        },
+        "name" : "Ejemplo de Condition Diagnostico LE",
+        "description" : "Ejemplo de un recurso Condition Diagnostico LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ConditionDiagnosticoLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Patient"
+          }
+        ],
+        "reference" : {
+          "reference" : "Patient/22e862c5-6d96-44ec-869c-dba001058cb3"
+        },
+        "name" : "Ejemplo de Paciente",
+        "description" : "Ejemplo de Paciente para lista de espera quirúrgica",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PatientLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Organization"
+          }
+        ],
+        "reference" : {
+          "reference" : "Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81"
+        },
+        "name" : "Ejemplo de una organización de establecimiento",
+        "description" : "Ejemplo de una organización con un establecimiento de salud",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/OrganizationLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/EnCondicionCirugia"
+        },
+        "name" : "En Condicion Cirugia",
+        "description" : "En Condicion Cirugia",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/EncounterAtenderLE"
+        },
+        "name" : "Encounter Atender LE",
+        "description" : "Encounter Atender LE recurso que se utiliza para representar el encuentro médico del paciente con el especialista quirúrgico.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Encounter"
+          }
+        ],
+        "reference" : {
+          "reference" : "Encounter/23b7f034-a998-44d7-9be4-0281be8222c0"
+        },
+        "name" : "Encounter Atender LE",
+        "description" : "Ejemlo de Encounter Atender LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/EncounterAtenderLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/EncounterEntrevistaLE"
+        },
+        "name" : "Encounter Entrevista LE",
+        "description" : "Encounter Entrevista LE recurso que se utiliza para representar el encuentro que se realiza para la entrevista pre-quirúrgica con el paciente.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Encounter"
+          }
+        ],
+        "reference" : {
+          "reference" : "Encounter/6c7dae68-552d-44cb-b414-e5024ae8e0a0"
+        },
+        "name" : "Encounter Entrevista LE",
+        "description" : "Ejemplo de Encounter Entrevista LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/EncounterEntrevistaLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Practitioner"
+          }
+        ],
+        "reference" : {
+          "reference" : "Practitioner/2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210"
+        },
+        "name" : "Enfermera",
+        "description" : "Ejemplo de un profesional de enfermería",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerProfesionalLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSEspecialidadOdont"
+        },
+        "name" : "Especialidades Odontológicas",
+        "description" : "Especialidades Odontológicas",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSEspecialidadOdont"
+        },
+        "name" : "Especialidades Odontológicas",
+        "description" : "Especialidades Odontológicas",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSEspecialidadMed"
+        },
+        "name" : "EspecialidadMed",
+        "description" : "EspecialidadMed",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSEspecialidadMed"
+        },
+        "name" : "EspecialidadMed",
+        "description" : "EspecialidadMed",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSEstablecimientoDestino"
+        },
+        "name" : "Establecimiento Destino Codigo",
+        "description" : "Establecimiento destino códigos de ejemplo hechos en base a este documento con los [Códigos DEIS del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSEstablecimientoDestino"
+        },
+        "name" : "Establecimiento Destino Código",
+        "description" : "Establecimiento destino código ejemplos hechos en base a este documento con los [Códigos DEIS del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSEstadoCivil"
+        },
+        "name" : "EstadoCivil",
+        "description" : "EstadoCivil",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSEstadoCivil"
+        },
+        "name" : "EstadoCivil",
+        "description" : "EstadoCivil",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/Contactado"
+        },
+        "name" : "Extension ContactadoLE",
+        "description" : "Extension ContactadoLE",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ExtensionResultadoEvaluacionPreQx"
+        },
+        "name" : "Extension Resultado Evaluación Pre-Qx",
+        "description" : "Extensión para representar el resultado de la evaluación pre-quirúrgica.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ExtensionStringFundamentoPriorizacion"
+        },
+        "name" : "Extension String Fundamento Priorizacion",
+        "description" : "Extensión para fundamenta la priorización de la solicitud de cirugía",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ExtensionTipoPriorizacion"
+        },
+        "name" : "Extension Tipo Priorización",
+        "description" : "Extensión para representar el tipo de priorización de la solicitud de cirugía.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSIdentificadorPrestador"
+        },
+        "name" : "IdentificadorPrestador",
+        "description" : "IdentificadorPrestador",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/MedicationStatementLE"
+        },
+        "name" : "MedicationStatement LE",
+        "description" : "Recurso utilizado para representar la información de medicamentos que el paciente está consumiendo.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "MedicationStatement"
+          }
+        ],
+        "reference" : {
+          "reference" : "MedicationStatement/d853623b-9ad4-4ceb-8d25-09facfa877e3"
+        },
+        "name" : "MedicationStatement LE",
+        "description" : "Ejemplo de MedicationStatement LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/MedicationStatementLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ExtensionMediodeContacto"
+        },
+        "name" : "Medio de Contacto",
+        "description" : "Medio de Contacto",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSMediodeContacto"
+        },
+        "name" : "Medio Notificación",
+        "description" : "Medio Notificación",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSMediodeContacto"
+        },
+        "name" : "Medio Notificación",
+        "description" : "Medio Notificación",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/Mencion"
+        },
+        "name" : "Mención profesional añadida al título profesional",
+        "description" : "Mención profesional obtenida junto con el título, dato que se agrega en texto lible",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSModalidadAtencionCodigo"
+        },
+        "name" : "Modalidad Atencion Codigo",
+        "description" : "Modalidad Atencion Codigo",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSModalidadAtencionCodigo"
+        },
+        "name" : "Modalidad Atencion Codigo",
+        "description" : "Modalidad Atencion Codigo",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ExtensionMotivoCierreSolicitudCirugia"
+        },
+        "name" : "Motivo Cierre Solicitud Cirugía",
+        "description" : "Extensión utilizada para la representación de los datos del motivo por el cual se cierra la solicitud de cirugía.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSMotivoCierreSolicitudCirugia"
+        },
+        "name" : "Motivo Cierre Solicitud Cirugía",
+        "description" : "Motivo Cierre Solicitud Cirugía",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSMotivoCierreSolicitudCirugia"
+        },
+        "name" : "Motivo Cierre Solicitud Cirugía",
+        "description" : "Motivo Cierre Solicitud Cirugía",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSMotivoNoContactabilidad"
+        },
+        "name" : "Motivo No Contactabilidad",
+        "description" : "Motivo No Contactabilidad",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSMotivoNoContactabilidad"
+        },
+        "name" : "Motivo No Contactabilidad",
+        "description" : "Motivo No Contactabilidad",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSMotivoSuspencionCirugia"
+        },
+        "name" : "Motivo Suspensión Cirugía",
+        "description" : "Motivo Suspensión Cirugía",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSMotivoSuspencionCirugia"
+        },
+        "name" : "Motivo Suspensión Cirugía",
+        "description" : "Motivo Suspensión Cirugía",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Practitioner"
+          }
+        ],
+        "reference" : {
+          "reference" : "Practitioner/fbb0e12c-95ec-43f7-bff1-73009b307cb5"
+        },
+        "name" : "Médico Cirujano Gastroenterólogo",
+        "description" : "Ejemplo de un profesional médico cirujano con especialidad en gastroenterología adulto",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerProfesionalLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Observation"
+          }
+        ],
+        "reference" : {
+          "reference" : "Observation/6f81d435-c6ca-4a73-9a59-2d89bc9b7e71"
+        },
+        "name" : "Observation Anamnesis",
+        "description" : "Ejemplo de Observation Anamnesis",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationAnamnesisLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ObservationAnamnesisLE"
+        },
+        "name" : "Observation Anamnesis LE",
+        "description" : "Observation Anamnesis LE",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Observation"
+          }
+        ],
+        "reference" : {
+          "reference" : "Observation/913614cd-2069-49be-a1d8-0bc0cdacd5f2"
+        },
+        "name" : "Observation Notas Clinicas",
+        "description" : "Ejemplo de Observation Notas Clinicas",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationNotasClinicasLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ObservationNotasClinicasLE"
+        },
+        "name" : "Observation Notas Clinicas LE",
+        "description" : "Observation Notas Clinicas LE",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ObservationResultadoExamen"
+        },
+        "name" : "Observation Resultado Examen",
+        "description" : "Resultado de examen anterior como antecedente",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Observation"
+          }
+        ],
+        "reference" : {
+          "reference" : "Observation/de52c7f4-7022-4aab-9e7e-968fc792a9a4"
+        },
+        "name" : "Observation Resultado Examen",
+        "description" : "Ejemplo de un resultado de examen anterior como antecedente",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationResultadoExamen"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/OrganizationLE"
+        },
+        "name" : "Organization LE",
+        "description" : "Organization LE según [Códigos DEIS del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/PatientLE"
+        },
+        "name" : "Patient LE",
+        "description" : "Paciente definido para el Registro Maestro de Pacientes",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/PaisOrigenMPI"
+        },
+        "name" : "País de origen del paciente",
+        "description" : "País de origen del paciente",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "PractitionerRole"
+          }
+        ],
+        "reference" : {
+          "reference" : "PractitionerRole/4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa"
+        },
+        "name" : "PractitionerRole Atendedor LE",
+        "description" : "Ejemplo de PractitionerRole Atendedor LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "PractitionerRole"
+          }
+        ],
+        "reference" : {
+          "reference" : "PractitionerRole/2b238804-f4bd-4005-82d2-9777aa09bea8"
+        },
+        "name" : "PractitionerRole Entrevistador LE",
+        "description" : "Ejemplo de PractitionerRole Entrevistador LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "PractitionerRole"
+          }
+        ],
+        "reference" : {
+          "reference" : "PractitionerRole/0e5c9353-5f8e-4801-b7fc-59395f14344c"
+        },
+        "name" : "PractitionerRole Entrevistador LE",
+        "description" : "Ejemplo de PractitionerRole Entrevistador LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "PractitionerRole"
+          }
+        ],
+        "reference" : {
+          "reference" : "PractitionerRole/96f2b566-b17b-4e4e-ada0-3986748990ee"
+        },
+        "name" : "PractitionerRole Indicador LE",
+        "description" : "Ejemplo de PractitionerRole Indicador LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/PractitionerRoleLE"
+        },
+        "name" : "PractitionerRole LE",
+        "description" : "PractitionerRole LE, recurso que se utiliza para representar la información de roles, un profesional de la salud.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "PractitionerRole"
+          }
+        ],
+        "reference" : {
+          "reference" : "PractitionerRole/ec19af63-cab4-46b5-a5d7-8df62f596e41"
+        },
+        "name" : "PractitionerRole Planificador LE",
+        "description" : "Ejemplo de PractitionerRole Planificador LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "PractitionerRole"
+          }
+        ],
+        "reference" : {
+          "reference" : "PractitionerRole/5a4ca080-8d59-4409-92f3-e6fc1eb855d6"
+        },
+        "name" : "PractitionerRole Terminador LE",
+        "description" : "Ejemplo de PractitionerRole Terminador LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/PractitionerAdministrativoLE"
+        },
+        "name" : "Prestador Administrativo LE",
+        "description" : "Prestador Administrativo definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/PractitionerProfesionalLE"
+        },
+        "name" : "Prestador Profesional LE",
+        "description" : "Prestador Profesional Individual definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ProcedureCirugiaLE"
+        },
+        "name" : "Procedure Cirugia LE",
+        "description" : "Recursos que se utilizan para representar la intervención quirúrgica realizada al paciente.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/PueblosAfrodescendiente"
+        },
+        "name" : "Pueblos Afrodescendiente",
+        "description" : "Pueblos Afrodescendiente",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/PueblosOriginarios"
+        },
+        "name" : "Pueblos Originarios",
+        "description" : "Almacenar si el paciente pertenece a algun pueblo originario",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/PueblosOriginariosVS"
+        },
+        "name" : "Pueblos Originarios de Chile",
+        "description" : "Pueblos Originarios de Chile",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/PueblosOriginariosCS"
+        },
+        "name" : "Pueblos Originarios de Chile",
+        "description" : "Pueblos Originarios de Chile",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/PueblosOriginariosPerteneciente"
+        },
+        "name" : "Pueblos Originarios Perteneciente",
+        "description" : "Pueblos Originarios Perteneciente",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSReligion"
+        },
+        "name" : "Religion",
+        "description" : "Religion",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSReligion"
+        },
+        "name" : "Religion",
+        "description" : "Religion",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/Religion"
+        },
+        "name" : "Religión",
+        "description" : "Religión",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/RequirioComite"
+        },
+        "name" : "Requirió Comite",
+        "description" : "Extension para indicar si se requirió comité",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSResultadoEvaluacionPreQuirurgica"
+        },
+        "name" : "Resultado Evaluación Pre Quirúrgica",
+        "description" : "Códigos de resultado de la evaluación pre quirúrgica",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSResultadoEvaluacionPreQuirurgica"
+        },
+        "name" : "Resultado Evaluación Pre Quirúrgica",
+        "description" : "Códigos de resultado de la evaluación pre quirúrgica",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSPractitionerTipoRolLE"
+        },
+        "name" : "Rol de profesionales",
+        "description" : "Rol de profesionales(Practitioner) en algún evento, durante la intercosulta.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSPractitionerTipoRolLE"
+        },
+        "name" : "Rol de profesionales",
+        "description" : "CodeSystem con códigos definidos para representar cada rol de profesional o funcionario administrativo dentro de la lista de espera quirúrgica",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ServiceRequestCirugiaLE"
+        },
+        "name" : "ServiceRequest Cirugía LE",
+        "description" : "ServiceRequest Cirugia LE recurso utilizado para la representación de los datos de la solicitud de cirugía.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ServiceRequest"
+          }
+        ],
+        "reference" : {
+          "reference" : "ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce"
+        },
+        "name" : "ServiceRequest Cirugía LE",
+        "description" : "Ejemplo de ServiceRequest Cirugía LE",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ServiceRequestCirugiaLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/SituacionCalle"
+        },
+        "name" : "Situacion Calle",
+        "description" : "Situacion Calle",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/ServiceRequestExamenLE"
+        },
+        "name" : "Solicitud de Examen LE",
+        "description" : "ServiceRequestExamen LE recurso utilizado para la representación de la solicitud de examen",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ServiceRequest"
+          }
+        ],
+        "reference" : {
+          "reference" : "ServiceRequest/aecacd57-d7cf-4cb7-8bfd-339dc53d6e83"
+        },
+        "name" : "Solicitud Examen",
+        "description" : "Ejemplo de Solicitud Examen",
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ServiceRequestExamenLE"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSTerminologiasDiag"
+        },
+        "name" : "TerminologiasDiag",
+        "description" : "TerminologiasDiag",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSTipoAgendamiento"
+        },
+        "name" : "Tipo Agendamiento",
+        "description" : "Tipo Agendamiento",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSTipoAgendamiento"
+        },
+        "name" : "Tipo Agendamiento",
+        "description" : "Tipo Agendamiento",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSTipoCirugiaPropuesta"
+        },
+        "name" : "Tipo Cirugía Propuesta",
+        "description" : "Tipo Cirugía Propuesta",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSTipoCirugiaPropuesta"
+        },
+        "name" : "Tipo Cirugía Propuesta",
+        "description" : "Códigos de tipo de cirugía propuesta",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSTipoConsulta"
+        },
+        "name" : "Tipo Consulta",
+        "description" : "Tipo Consulta",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSTipoConsulta"
+        },
+        "name" : "Tipo Consulta",
+        "description" : "Tipo Consulta",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/TipoDeObservacion"
+        },
+        "name" : "Tipo de Observación",
+        "description" : "Estas son algunas de las observaciones que se pueden realizar en un encuentro, que permiten dar antecedentes a la interconsulta.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSTipoObservacionMinsal"
+        },
+        "name" : "Tipo de Observación",
+        "description" : "Son todos los tipos de observaciones dadas por el Ministerio De Salud",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSTipoPriorizacion"
+        },
+        "name" : "Tipo Priorización",
+        "description" : "Tipo Priorización",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSTipoPriorizacion"
+        },
+        "name" : "Tipo Priorización",
+        "description" : "Tipo Priorización",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSTipoServicioAgendamiento"
+        },
+        "name" : "Tipo Servicio Agendamiento",
+        "description" : "Tipo Servicio Agendamiento",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSTipoServicioAgendamiento"
+        },
+        "name" : "Tipo Servicio Agendamiento",
+        "description" : "Tipo Servicio Agendamiento",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/VSTituloProfesional"
+        },
+        "name" : "TituloProfesional",
+        "description" : "TituloProfesional",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/CSTituloProfesional"
+        },
+        "name" : "TituloProfesional",
+        "description" : "TituloProfesional",
+        "exampleBoolean" : false
+      }
+    ],
+    "page" : {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "toc.html"
+        }
+      ],
+      "nameUrl" : "toc.html",
+      "title" : "Table of Contents",
+      "generation" : "html",
+      "page" : [
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "index.html"
+            }
+          ],
+          "nameUrl" : "index.html",
+          "title" : "Index",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "workflow.html"
+            }
+          ],
+          "nameUrl" : "workflow.html",
+          "title" : "Flujo",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "events.html"
+            }
+          ],
+          "nameUrl" : "events.html",
+          "title" : "Eventos de Interoperabilidad",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "actors.html"
+            }
+          ],
+          "nameUrl" : "actors.html",
+          "title" : "Rol de actores",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "user-history.html"
+            }
+          ],
+          "nameUrl" : "user-history.html",
+          "title" : "Historias de usuario segun rol",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "spec-events.html"
+            }
+          ],
+          "nameUrl" : "spec-events.html",
+          "title" : "Eventos",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "spec-transactions.html"
+            }
+          ],
+          "nameUrl" : "spec-transactions.html",
+          "title" : "Transacciones",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "spec-message.html"
+            }
+          ],
+          "nameUrl" : "spec-message.html",
+          "title" : "Recurso",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "changes.html"
+            }
+          ],
+          "nameUrl" : "changes.html",
+          "title" : "Historial de Cambios",
+          "generation" : "markdown"
+        }
+      ]
+    },
+    "parameter" : [
+      {
+        "code" : "path-resource",
+        "value" : "input/capabilities"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/examples"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/extensions"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/models"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/operations"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/profiles"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/resources"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/vocabulary"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/maps"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/testing"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/history"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "fsh-generated/resources"
+      },
+      {
+        "code" : "path-pages",
+        "value" : "template/config"
+      },
+      {
+        "code" : "path-pages",
+        "value" : "input/images"
+      },
+      {
+        "code" : "path-tx-cache",
+        "value" : "input-cache/txcache"
+      }
+    ]
+  }
+}
+
+```

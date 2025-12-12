@@ -1,0 +1,1845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hl7.fhir.cl.minsal.quirurgico"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: GuiaDeImplementacion hl7.fhir.cl.minsal.quirurgico</b></p><a name="hl7.fhir.cl.minsal.quirurgico"> </a><a name="hchl7.fhir.cl.minsal.quirurgico"> </a><h2>ListadeEsperaQuirurgicaInteroperable</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/ImplementationGuide/hl7.fhir.cl.minsal.quirurgico</pre><div><p>Guía de implementación para la interoperabilidad de la lista de espera Quirúrgica en Chile.</p>
+</div></div>
+  </text>
+  <url value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/ImplementationGuide/hl7.fhir.cl.minsal.quirurgico"/>
+  <version value="0.1.2-ballot"/>
+  <name value="ListadeEsperaQuirurgicaInteroperable"/>
+  <title value="Lista de Espera Quirúrgica Interoperable"/>
+  <status value="draft"/>
+  <date value="2025-12-10T09:54:02-03:00"/>
+  <publisher value="Unidad de Interoperabilidad - MINSAL"/>
+  <contact>
+    <name value="Unidad de Interoperabilidad - MINSAL"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://interoperabilidad.minsal.cl"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="Roberto Araneda"/>
+    <telecom>
+      <system value="email"/>
+      <value value="roberto.araneda@chiledata.cl"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="John Díaz"/>
+    <telecom>
+      <system value="email"/>
+      <value value="john.diaz@chiledata.cl"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Guía de implementación para la interoperabilidad de la lista de espera Quirúrgica en Chile."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CL"/>
+      <display value="Chile"/>
+    </coding>
+  </jurisdiction>
+  <packageId value="hl7.fhir.cl.minsal.quirurgico"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn id="hl7tx">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on HL7 Terminology"/>
+    </extension>
+    <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
+    <packageId value="hl7.terminology.r4"/>
+    <version value="7.0.0"/>
+  </dependsOn>
+  <dependsOn id="hl7_fhir_cl_clcore">
+    <uri value="https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore"/>
+    <packageId value="hl7.fhir.cl.clcore"/>
+    <version value="1.9.4"/>
+  </dependsOn>
+  <dependsOn id="hl7_fhir_uv_extensions_r4">
+    <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
+    <packageId value="hl7.fhir.uv.extensions.r4"/>
+    <version value="5.2.0"/>
+  </dependsOn>
+  <definition>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2025+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="ballot"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
+      <valueCode value="hl7.fhir.uv.tools.r4#0.8.0"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2025+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="ballot"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Appointment"/>
+      </extension>
+      <reference>
+        <reference value="Appointment/0708a908-fc3a-48ea-90e7-b5cd0e516e30"/>
+      </reference>
+      <name value="Agendamiento cirugía"/>
+      <description value="Ejemplo de agendamiento de cirugía"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/AppointmentAgendarLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Appointment"/>
+      </extension>
+      <reference>
+        <reference value="Appointment/76adaeb4-4885-4aa6-96c1-13b9df9a61d7"/>
+      </reference>
+      <name value="Agendamiento entrevista pre quirúrgica"/>
+      <description value="Ejemplo de agendamiento de entrevista pre quirúrgica"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/AppointmentAgendarLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/AllergyIntoleranceIniciarLE"/>
+      </reference>
+      <name value="AllergyIntolerance Iniciar LE"/>
+      <description value="AllergyIntolerance Iniciar LE"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/AppointmentAgendarLE"/>
+      </reference>
+      <name value="Appointment Agendar LE"/>
+      <description value="Appointment Agendar LE"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/BundleAgendarCirugiaLE"/>
+      </reference>
+      <name value="Bundle Agendar Cirugía LE"/>
+      <description value="Recurso Bundle Agendar Cirugía LE que se utiliza para representar el agendamiento de la cirugía."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/EjBundleAgendarCirugia"/>
+      </reference>
+      <name value="Bundle Agendar Cirugía LE"/>
+      <description value="Ejemplo de Bundle Agendar Cirugía LE que se utiliza para representar el agendamiento de la cirugía."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleAgendarCirugiaLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/BundleAgendarEntrevistaLE"/>
+      </reference>
+      <name value="Bundle Agendar Entrevista LE"/>
+      <description value="Recurso Bundle Agendar Entrevista LE que se utiliza para representar el agendamiento de la entrevista prequirúrgica."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/EjBundleAgendarEntrevista"/>
+      </reference>
+      <name value="Bundle Agendar Entrevista LE"/>
+      <description value="Ejemplo de Bundle Agendar Entrevista LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleAgendarEntrevistaLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/BundleAtenderLE"/>
+      </reference>
+      <name value="Bundle Atender LE"/>
+      <description value="Recurso Bundle Atender LE que se utiliza para representar el encuentro médico del paciente con el especialista quirúrgico."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/EjBundleAtender"/>
+      </reference>
+      <name value="Bundle Atender LE"/>
+      <description value="Ejemplo de Bundle Atender LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleAtenderLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/BundleCierreLE"/>
+      </reference>
+      <name value="Bundle Cierre LE"/>
+      <description value="Recurso Bundle Cierre LE que se utiliza para representar el cierre de la solicitud de cirugía."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/EjBundleCierre"/>
+      </reference>
+      <name value="Bundle Cierre LE"/>
+      <description value="Ejemplo de Bundle Cierre LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleCierreLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/BundleCirugiaLE"/>
+      </reference>
+      <name value="Bundle Cirugía LE"/>
+      <description value="Recurso Bundle Cirugía LE que se utiliza para representar la entrevista prequirúrgica."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/EjBundleCirugia"/>
+      </reference>
+      <name value="Bundle Cirugía LE"/>
+      <description value="Ejemplo de Bundle Cirugía LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleCirugiaLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/BundleEntrevistaLE"/>
+      </reference>
+      <name value="Bundle Entrevista LE"/>
+      <description value="Recurso Bundle Entrevista LE que se utiliza para representar la entrevista prequirúrgica."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/EjBundleEntrevista"/>
+      </reference>
+      <name value="Bundle Entrevista LE"/>
+      <description value="Ejemplo de Bundle Entrevista LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleEntrevistaLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Procedure"/>
+      </extension>
+      <reference>
+        <reference value="Procedure/abfca780-745d-4c35-ae8a-fd0dbc3a9b16"/>
+      </reference>
+      <name value="Cirugía Hernia Ventral"/>
+      <description value="Ejemplo de una cirugía de hernia ventral"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ProcedureCirugiaLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSCondicionSalidaCirugia"/>
+      </reference>
+      <name value="Condición Salida Cirugía"/>
+      <description value="Condición Salida Cirugía"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSCondicionSalidaCirugia"/>
+      </reference>
+      <name value="Condición Salida Cirugía"/>
+      <description value="Condición Salida Cirugía"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ConditionDiagnosticoLE"/>
+      </reference>
+      <name value="Condition Diagnostico LE"/>
+      <description value="Condicion Diagnostico LE, recurso que se utiliza para indicar el diagnóstico"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/CodigoExamen"/>
+      </reference>
+      <name value="Códigos de Examenes"/>
+      <description value="Codigos de Examenes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="AllergyIntolerance"/>
+      </extension>
+      <reference>
+        <reference value="AllergyIntolerance/8f627a17-27f4-4519-9ff7-4f1da6f0eef2"/>
+      </reference>
+      <name value="Ejemplo de Alergia"/>
+      <description value="Registro de alergia a la amoxicilina"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/AllergyIntoleranceIniciarLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Condition"/>
+      </extension>
+      <reference>
+        <reference value="Condition/b97a87f6-060d-48de-9e4d-db93518fd278"/>
+      </reference>
+      <name value="Ejemplo de Condition Diagnostico LE"/>
+      <description value="Ejemplo de un recurso Condition Diagnostico LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ConditionDiagnosticoLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Patient"/>
+      </extension>
+      <reference>
+        <reference value="Patient/22e862c5-6d96-44ec-869c-dba001058cb3"/>
+      </reference>
+      <name value="Ejemplo de Paciente"/>
+      <description value="Ejemplo de Paciente para lista de espera quirúrgica"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PatientLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81"/>
+      </reference>
+      <name value="Ejemplo de una organización de establecimiento"/>
+      <description value="Ejemplo de una organización con un establecimiento de salud"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/OrganizationLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/EnCondicionCirugia"/>
+      </reference>
+      <name value="En Condicion Cirugia"/>
+      <description value="En Condicion Cirugia"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/EncounterAtenderLE"/>
+      </reference>
+      <name value="Encounter Atender LE"/>
+      <description value="Encounter Atender LE recurso que se utiliza para representar el encuentro médico del paciente con el especialista quirúrgico."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Encounter"/>
+      </extension>
+      <reference>
+        <reference value="Encounter/23b7f034-a998-44d7-9be4-0281be8222c0"/>
+      </reference>
+      <name value="Encounter Atender LE"/>
+      <description value="Ejemlo de Encounter Atender LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/EncounterAtenderLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/EncounterEntrevistaLE"/>
+      </reference>
+      <name value="Encounter Entrevista LE"/>
+      <description value="Encounter Entrevista LE recurso que se utiliza para representar el encuentro que se realiza para la entrevista pre-quirúrgica con el paciente."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Encounter"/>
+      </extension>
+      <reference>
+        <reference value="Encounter/6c7dae68-552d-44cb-b414-e5024ae8e0a0"/>
+      </reference>
+      <name value="Encounter Entrevista LE"/>
+      <description value="Ejemplo de Encounter Entrevista LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/EncounterEntrevistaLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210"/>
+      </reference>
+      <name value="Enfermera"/>
+      <description value="Ejemplo de un profesional de enfermería"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerProfesionalLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSEspecialidadOdont"/>
+      </reference>
+      <name value="Especialidades Odontológicas"/>
+      <description value="Especialidades Odontológicas"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSEspecialidadOdont"/>
+      </reference>
+      <name value="Especialidades Odontológicas"/>
+      <description value="Especialidades Odontológicas"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSEspecialidadMed"/>
+      </reference>
+      <name value="EspecialidadMed"/>
+      <description value="EspecialidadMed"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSEspecialidadMed"/>
+      </reference>
+      <name value="EspecialidadMed"/>
+      <description value="EspecialidadMed"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSEstablecimientoDestino"/>
+      </reference>
+      <name value="Establecimiento Destino Codigo"/>
+      <description value="Establecimiento destino códigos de ejemplo hechos en base a este documento con los [Códigos DEIS del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSEstablecimientoDestino"/>
+      </reference>
+      <name value="Establecimiento Destino Código"/>
+      <description value="Establecimiento destino código ejemplos hechos en base a este documento con los [Códigos DEIS del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSEstadoCivil"/>
+      </reference>
+      <name value="EstadoCivil"/>
+      <description value="EstadoCivil"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSEstadoCivil"/>
+      </reference>
+      <name value="EstadoCivil"/>
+      <description value="EstadoCivil"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/Contactado"/>
+      </reference>
+      <name value="Extension ContactadoLE"/>
+      <description value="Extension ContactadoLE"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ExtensionResultadoEvaluacionPreQx"/>
+      </reference>
+      <name value="Extension Resultado Evaluación Pre-Qx"/>
+      <description value="Extensión para representar el resultado de la evaluación pre-quirúrgica."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ExtensionStringFundamentoPriorizacion"/>
+      </reference>
+      <name value="Extension String Fundamento Priorizacion"/>
+      <description value="Extensión para fundamenta la priorización de la solicitud de cirugía"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ExtensionTipoPriorizacion"/>
+      </reference>
+      <name value="Extension Tipo Priorización"/>
+      <description value="Extensión para representar el tipo de priorización de la solicitud de cirugía."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSIdentificadorPrestador"/>
+      </reference>
+      <name value="IdentificadorPrestador"/>
+      <description value="IdentificadorPrestador"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/MedicationStatementLE"/>
+      </reference>
+      <name value="MedicationStatement LE"/>
+      <description value="Recurso utilizado para representar la información de medicamentos que el paciente está consumiendo."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="MedicationStatement"/>
+      </extension>
+      <reference>
+        <reference value="MedicationStatement/d853623b-9ad4-4ceb-8d25-09facfa877e3"/>
+      </reference>
+      <name value="MedicationStatement LE"/>
+      <description value="Ejemplo de MedicationStatement LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/MedicationStatementLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ExtensionMediodeContacto"/>
+      </reference>
+      <name value="Medio de Contacto"/>
+      <description value="Medio de Contacto"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSMediodeContacto"/>
+      </reference>
+      <name value="Medio Notificación"/>
+      <description value="Medio Notificación"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSMediodeContacto"/>
+      </reference>
+      <name value="Medio Notificación"/>
+      <description value="Medio Notificación"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/Mencion"/>
+      </reference>
+      <name value="Mención profesional añadida al título profesional"/>
+      <description value="Mención profesional obtenida junto con el título, dato que se agrega en texto lible"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSModalidadAtencionCodigo"/>
+      </reference>
+      <name value="Modalidad Atencion Codigo"/>
+      <description value="Modalidad Atencion Codigo"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSModalidadAtencionCodigo"/>
+      </reference>
+      <name value="Modalidad Atencion Codigo"/>
+      <description value="Modalidad Atencion Codigo"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ExtensionMotivoCierreSolicitudCirugia"/>
+      </reference>
+      <name value="Motivo Cierre Solicitud Cirugía"/>
+      <description value="Extensión utilizada para la representación de los datos del motivo por el cual se cierra la solicitud de cirugía."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSMotivoCierreSolicitudCirugia"/>
+      </reference>
+      <name value="Motivo Cierre Solicitud Cirugía"/>
+      <description value="Motivo Cierre Solicitud Cirugía"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSMotivoCierreSolicitudCirugia"/>
+      </reference>
+      <name value="Motivo Cierre Solicitud Cirugía"/>
+      <description value="Motivo Cierre Solicitud Cirugía"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSMotivoNoContactabilidad"/>
+      </reference>
+      <name value="Motivo No Contactabilidad"/>
+      <description value="Motivo No Contactabilidad"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSMotivoNoContactabilidad"/>
+      </reference>
+      <name value="Motivo No Contactabilidad"/>
+      <description value="Motivo No Contactabilidad"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSMotivoSuspencionCirugia"/>
+      </reference>
+      <name value="Motivo Suspensión Cirugía"/>
+      <description value="Motivo Suspensión Cirugía"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSMotivoSuspencionCirugia"/>
+      </reference>
+      <name value="Motivo Suspensión Cirugía"/>
+      <description value="Motivo Suspensión Cirugía"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/fbb0e12c-95ec-43f7-bff1-73009b307cb5"/>
+      </reference>
+      <name value="Médico Cirujano Gastroenterólogo"/>
+      <description value="Ejemplo de un profesional médico cirujano con especialidad en gastroenterología adulto"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerProfesionalLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/6f81d435-c6ca-4a73-9a59-2d89bc9b7e71"/>
+      </reference>
+      <name value="Observation Anamnesis"/>
+      <description value="Ejemplo de Observation Anamnesis"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationAnamnesisLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservationAnamnesisLE"/>
+      </reference>
+      <name value="Observation Anamnesis LE"/>
+      <description value="Observation Anamnesis LE"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/913614cd-2069-49be-a1d8-0bc0cdacd5f2"/>
+      </reference>
+      <name value="Observation Notas Clinicas"/>
+      <description value="Ejemplo de Observation Notas Clinicas"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationNotasClinicasLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservationNotasClinicasLE"/>
+      </reference>
+      <name value="Observation Notas Clinicas LE"/>
+      <description value="Observation Notas Clinicas LE"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ObservationResultadoExamen"/>
+      </reference>
+      <name value="Observation Resultado Examen"/>
+      <description value="Resultado de examen anterior como antecedente"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/de52c7f4-7022-4aab-9e7e-968fc792a9a4"/>
+      </reference>
+      <name value="Observation Resultado Examen"/>
+      <description value="Ejemplo de un resultado de examen anterior como antecedente"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationResultadoExamen"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/OrganizationLE"/>
+      </reference>
+      <name value="Organization LE"/>
+      <description value="Organization LE según [Códigos DEIS del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PatientLE"/>
+      </reference>
+      <name value="Patient LE"/>
+      <description value="Paciente definido para el Registro Maestro de Pacientes"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PaisOrigenMPI"/>
+      </reference>
+      <name value="País de origen del paciente"/>
+      <description value="País de origen del paciente"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa"/>
+      </reference>
+      <name value="PractitionerRole Atendedor LE"/>
+      <description value="Ejemplo de PractitionerRole Atendedor LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/2b238804-f4bd-4005-82d2-9777aa09bea8"/>
+      </reference>
+      <name value="PractitionerRole Entrevistador LE"/>
+      <description value="Ejemplo de PractitionerRole Entrevistador LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/0e5c9353-5f8e-4801-b7fc-59395f14344c"/>
+      </reference>
+      <name value="PractitionerRole Entrevistador LE"/>
+      <description value="Ejemplo de PractitionerRole Entrevistador LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/96f2b566-b17b-4e4e-ada0-3986748990ee"/>
+      </reference>
+      <name value="PractitionerRole Indicador LE"/>
+      <description value="Ejemplo de PractitionerRole Indicador LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PractitionerRoleLE"/>
+      </reference>
+      <name value="PractitionerRole LE"/>
+      <description value="PractitionerRole LE, recurso que se utiliza para representar la información de roles, un profesional de la salud."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/ec19af63-cab4-46b5-a5d7-8df62f596e41"/>
+      </reference>
+      <name value="PractitionerRole Planificador LE"/>
+      <description value="Ejemplo de PractitionerRole Planificador LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/5a4ca080-8d59-4409-92f3-e6fc1eb855d6"/>
+      </reference>
+      <name value="PractitionerRole Terminador LE"/>
+      <description value="Ejemplo de PractitionerRole Terminador LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PractitionerAdministrativoLE"/>
+      </reference>
+      <name value="Prestador Administrativo LE"/>
+      <description value="Prestador Administrativo definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PractitionerProfesionalLE"/>
+      </reference>
+      <name value="Prestador Profesional LE"/>
+      <description value="Prestador Profesional Individual definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ProcedureCirugiaLE"/>
+      </reference>
+      <name value="Procedure Cirugia LE"/>
+      <description value="Recursos que se utilizan para representar la intervención quirúrgica realizada al paciente."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PueblosAfrodescendiente"/>
+      </reference>
+      <name value="Pueblos Afrodescendiente"/>
+      <description value="Pueblos Afrodescendiente"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PueblosOriginarios"/>
+      </reference>
+      <name value="Pueblos Originarios"/>
+      <description value="Almacenar si el paciente pertenece a algun pueblo originario"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/PueblosOriginariosVS"/>
+      </reference>
+      <name value="Pueblos Originarios de Chile"/>
+      <description value="Pueblos Originarios de Chile"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/PueblosOriginariosCS"/>
+      </reference>
+      <name value="Pueblos Originarios de Chile"/>
+      <description value="Pueblos Originarios de Chile"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PueblosOriginariosPerteneciente"/>
+      </reference>
+      <name value="Pueblos Originarios Perteneciente"/>
+      <description value="Pueblos Originarios Perteneciente"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSReligion"/>
+      </reference>
+      <name value="Religion"/>
+      <description value="Religion"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSReligion"/>
+      </reference>
+      <name value="Religion"/>
+      <description value="Religion"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/Religion"/>
+      </reference>
+      <name value="Religión"/>
+      <description value="Religión"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/RequirioComite"/>
+      </reference>
+      <name value="Requirió Comite"/>
+      <description value="Extension para indicar si se requirió comité"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSResultadoEvaluacionPreQuirurgica"/>
+      </reference>
+      <name value="Resultado Evaluación Pre Quirúrgica"/>
+      <description value="Códigos de resultado de la evaluación pre quirúrgica"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSResultadoEvaluacionPreQuirurgica"/>
+      </reference>
+      <name value="Resultado Evaluación Pre Quirúrgica"/>
+      <description value="Códigos de resultado de la evaluación pre quirúrgica"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSPractitionerTipoRolLE"/>
+      </reference>
+      <name value="Rol de profesionales"/>
+      <description value="Rol de profesionales(Practitioner) en algún evento, durante la intercosulta."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSPractitionerTipoRolLE"/>
+      </reference>
+      <name value="Rol de profesionales"/>
+      <description value="CodeSystem con códigos definidos para representar cada rol de profesional o funcionario administrativo dentro de la lista de espera quirúrgica"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ServiceRequestCirugiaLE"/>
+      </reference>
+      <name value="ServiceRequest Cirugía LE"/>
+      <description value="ServiceRequest Cirugia LE recurso utilizado para la representación de los datos de la solicitud de cirugía."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce"/>
+      </reference>
+      <name value="ServiceRequest Cirugía LE"/>
+      <description value="Ejemplo de ServiceRequest Cirugía LE"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ServiceRequestCirugiaLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/SituacionCalle"/>
+      </reference>
+      <name value="Situacion Calle"/>
+      <description value="Situacion Calle"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ServiceRequestExamenLE"/>
+      </reference>
+      <name value="Solicitud de Examen LE"/>
+      <description value="ServiceRequestExamen LE recurso utilizado para la representación de la solicitud de examen"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/aecacd57-d7cf-4cb7-8bfd-339dc53d6e83"/>
+      </reference>
+      <name value="Solicitud Examen"/>
+      <description value="Ejemplo de Solicitud Examen"/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ServiceRequestExamenLE"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSTerminologiasDiag"/>
+      </reference>
+      <name value="TerminologiasDiag"/>
+      <description value="TerminologiasDiag"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSTipoAgendamiento"/>
+      </reference>
+      <name value="Tipo Agendamiento"/>
+      <description value="Tipo Agendamiento"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSTipoAgendamiento"/>
+      </reference>
+      <name value="Tipo Agendamiento"/>
+      <description value="Tipo Agendamiento"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSTipoCirugiaPropuesta"/>
+      </reference>
+      <name value="Tipo Cirugía Propuesta"/>
+      <description value="Tipo Cirugía Propuesta"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSTipoCirugiaPropuesta"/>
+      </reference>
+      <name value="Tipo Cirugía Propuesta"/>
+      <description value="Códigos de tipo de cirugía propuesta"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSTipoConsulta"/>
+      </reference>
+      <name value="Tipo Consulta"/>
+      <description value="Tipo Consulta"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSTipoConsulta"/>
+      </reference>
+      <name value="Tipo Consulta"/>
+      <description value="Tipo Consulta"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/TipoDeObservacion"/>
+      </reference>
+      <name value="Tipo de Observación"/>
+      <description value="Estas son algunas de las observaciones que se pueden realizar en un encuentro, que permiten dar antecedentes a la interconsulta."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSTipoObservacionMinsal"/>
+      </reference>
+      <name value="Tipo de Observación"/>
+      <description value="Son todos los tipos de observaciones dadas por el Ministerio De Salud"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSTipoPriorizacion"/>
+      </reference>
+      <name value="Tipo Priorización"/>
+      <description value="Tipo Priorización"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSTipoPriorizacion"/>
+      </reference>
+      <name value="Tipo Priorización"/>
+      <description value="Tipo Priorización"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSTipoServicioAgendamiento"/>
+      </reference>
+      <name value="Tipo Servicio Agendamiento"/>
+      <description value="Tipo Servicio Agendamiento"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSTipoServicioAgendamiento"/>
+      </reference>
+      <name value="Tipo Servicio Agendamiento"/>
+      <description value="Tipo Servicio Agendamiento"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VSTituloProfesional"/>
+      </reference>
+      <name value="TituloProfesional"/>
+      <description value="TituloProfesional"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CSTituloProfesional"/>
+      </reference>
+      <name value="TituloProfesional"/>
+      <description value="TituloProfesional"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <page>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+        <valueUrl value="toc.html"/>
+      </extension>
+      <nameUrl value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="index.html"/>
+        </extension>
+        <nameUrl value="index.html"/>
+        <title value="Index"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="workflow.html"/>
+        </extension>
+        <nameUrl value="workflow.html"/>
+        <title value="Flujo"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="events.html"/>
+        </extension>
+        <nameUrl value="events.html"/>
+        <title value="Eventos de Interoperabilidad"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="actors.html"/>
+        </extension>
+        <nameUrl value="actors.html"/>
+        <title value="Rol de actores"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="user-history.html"/>
+        </extension>
+        <nameUrl value="user-history.html"/>
+        <title value="Historias de usuario segun rol"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="spec-events.html"/>
+        </extension>
+        <nameUrl value="spec-events.html"/>
+        <title value="Eventos"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="spec-transactions.html"/>
+        </extension>
+        <nameUrl value="spec-transactions.html"/>
+        <title value="Transacciones"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="spec-message.html"/>
+        </extension>
+        <nameUrl value="spec-message.html"/>
+        <title value="Recurso"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="changes.html"/>
+        </extension>
+        <nameUrl value="changes.html"/>
+        <title value="Historial de Cambios"/>
+        <generation value="markdown"/>
+      </page>
+    </page>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/capabilities"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/examples"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/extensions"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/models"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/operations"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/profiles"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/vocabulary"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/maps"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/testing"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/history"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="fsh-generated/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="template/config"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="input/images"/>
+    </parameter>
+    <parameter>
+      <code value="path-tx-cache"/>
+      <value value="input-cache/txcache"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

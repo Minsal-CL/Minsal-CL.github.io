@@ -1,0 +1,241 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Composition/r2bo-documento-biopsia-ex> a fhir:Composition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "r2bo-documento-biopsia-ex"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-composition-biopsia"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-composition-biopsia>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Composition r2bo-documento-biopsia-ex</b></p><a name=\"r2bo-documento-biopsia-ex\"> </a><a name=\"hcr2bo-documento-biopsia-ex\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-composition-biopsia.html\">Perfil del Documento de Biopsía</a></p></div><p><b>Extensión De Referencia al Reporte</b>: <a href=\"DiagnosticReport-r2bo-informe-biopsia-ex.html\">Diagnostic Report for 'Breast Pathology biopsy report' for '-&gt;Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))'</a></p><p><b>identifier</b>: r2bo-2020-0001</p><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 66110-8}\">Informe de Biopsia de Mama</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 PAT}\">Pathology (gross &amp; histopath, not surgical)</span></p><p><b>date</b>: 2021-08-01 10:00:00-0400</p><p><b>author</b>: <a href=\"PractitionerRole-r2bo-anatopatologo-hospital.html\">PractitionerRole MÉDICO CIRUJANO</a></p><p><b>title</b>: Informe de Biopsia de Mama</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-extension-referencia-diagnosticReport"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-extension-referencia-diagnosticReport>
+     ] ;
+     fhir:value [
+       a fhir:Reference ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/DiagnosticReport/r2bo-informe-biopsia-ex> ;
+       fhir:reference [ fhir:v "DiagnosticReport/r2bo-informe-biopsia-ex" ]
+     ]
+  ] ) ; # 
+  fhir:identifier [
+     fhir:value [ fhir:v "r2bo-2020-0001" ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       a loinc:66110-8 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "66110-8" ]
+     ] ) ;
+     fhir:text [ fhir:v "Informe de Biopsia de Mama" ]
+  ] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/v2-0074"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/v2-0074>
+       ] ;
+       fhir:code [ fhir:v "PAT" ] ;
+       fhir:display [ fhir:v "Pathology (gross & histopath, not surgical)" ]
+     ] )
+  ] ) ; # 
+  fhir:subject [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:reference [ fhir:v "Patient/paciente-requiere-examen" ]
+  ] ; # 
+  fhir:date [ fhir:v "2021-08-01T10:00:00-04:00"^^xsd:dateTime] ; # 
+  fhir:author ( [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital> ;
+     fhir:reference [ fhir:v "PractitionerRole/r2bo-anatopatologo-hospital" ]
+  ] ) ; # 
+  fhir:title [ fhir:v "Informe de Biopsia de Mama"] ; # 
+  fhir:section ( [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:22636-5 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "22636-5" ]
+       ] ) ;
+       fhir:text [ fhir:v "Solicitud de Biopsia" ]
+     ] ;
+     fhir:text [
+       fhir:status [ fhir:v "generated" ] ;
+       fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\">Solicitud de Biopsia</div>"^^rdf:XMLLiteral ]
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> ;
+       fhir:reference [ fhir:v "ServiceRequest/r2bo-solicitud-informe-apa-ej" ]
+     ] )
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:22633-2 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "22633-2" ]
+       ] ) ;
+       fhir:text [ fhir:v "Muestra de Biopsia" ]
+     ] ;
+     fhir:text [
+       fhir:status [ fhir:v "generated" ] ;
+       fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\">Muestra de Biopsia</div>"^^rdf:XMLLiteral ]
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+       fhir:reference [ fhir:v "Specimen/r2bo-specimen-example" ]
+     ] )
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:22634-0 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "22634-0" ]
+       ] ) ;
+       fhir:text [ fhir:v "Macroscopia de Biopsia" ]
+     ] ;
+     fhir:text [
+       fhir:status [ fhir:v "generated" ] ;
+       fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\">Macroscopia de Biopsia</div>"^^rdf:XMLLiteral ]
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-macroscopica-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-macroscopica-ex" ]
+     ] )
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:22635-7 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "22635-7" ]
+       ] ) ;
+       fhir:text [ fhir:v "Microscopia de Biopsia" ]
+     ] ;
+     fhir:text [
+       fhir:status [ fhir:v "generated" ] ;
+       fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\">Microscopia de Biopsia</div>"^^rdf:XMLLiteral ]
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-microscopica-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-microscopica-ex" ]
+     ] )
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:33746-9 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "33746-9" ]
+       ] ) ;
+       fhir:text [ fhir:v "Hallazgos de Biopsia" ]
+     ] ;
+     fhir:text [
+       fhir:status [ fhir:v "generated" ] ;
+       fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\">Hallazgos de Biopsia</div>"^^rdf:XMLLiteral ]
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-ganglios-linfaticos-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-ganglios-linfaticos-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-infiltracion-perineural-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-infiltracion-perineural-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-infiltracion-peritumoral-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-infiltracion-peritumoral-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-invasion-linfatica-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-invasion-linfatica-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-invasion-vascular-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-invasion-vascular-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-margen-quirurgico-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-margen-quirurgico-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-centricidad-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-centricidad-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-multifocalidad-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-multifocalidad-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-porcentaje-necrosis-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-porcentaje-necrosis-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-observacion-post-tratamiento-neoadjuvancia-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-observacion-post-tratamiento-neoadjuvancia-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tamano-tumor-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-tamano-tumor-ex" ]
+     ] [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-estadificacion-tnm-ex> ;
+       fhir:reference [ fhir:v "Observation/r2bo-estadificacion-tnm-ex" ]
+     ] )
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:22637-3 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "22637-3" ]
+       ] ) ;
+       fhir:text [ fhir:v "Conclusiones de Biopsia" ]
+     ] ;
+     fhir:text [
+       fhir:status [ fhir:v "generated" ] ;
+       fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\">Conclusiones de Biopsia</div>"^^rdf:XMLLiteral ]
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/BodyStructure/r2bo-tumor-ex> ;
+       fhir:reference [ fhir:v "BodyStructure/r2bo-tumor-ex" ]
+     ] )
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:22638-1 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "22638-1" ]
+       ] ) ;
+       fhir:text [ fhir:v "Notas del Informe de Biopsia" ]
+     ] ;
+     fhir:text [
+       fhir:status [ fhir:v "generated" ] ;
+       fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Notas del Informe de Biopsia:</p><p>Carcinoma ductal infiltrante de mama, grado histológico 2, estadio pT2N2M1, con márgenes quirúrgicos positivos y con evidencia de necrosis tumoral</p></div>"^^rdf:XMLLiteral ]
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

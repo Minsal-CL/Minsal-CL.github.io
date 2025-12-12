@@ -1,0 +1,75 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/190cd208-48b1-4920-a283-6bc37cbde13a> a fhir:Practitioner ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "190cd208-48b1-4920-a283-6bc37cbde13a"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Practitioner 190cd208-48b1-4920-a283-6bc37cbde13a</b></p><a name=\"190cd208-48b1-4920-a283-6bc37cbde13a\"> </a><a name=\"hc190cd208-48b1-4920-a283-6bc37cbde13a\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PrestadorProfesional.html\">Prestador Profesional de Urgencia</a></p></div><p><b>identifier</b>: RUN/55555555-5 (use: official, )</p><p><b>name</b>: Luis Gonzalez (Official)</p><p><b>birthDate</b>: 1992-05-26</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>cert</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional 30}\">Médico General</span></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"^^xsd:anyURI ;
+           fhir:l <https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador>
+         ] ;
+         fhir:code [ fhir:v "01" ]
+       ] )
+     ] ;
+     fhir:system [
+       fhir:v "http://www.registrocivil.cl"^^xsd:anyURI ;
+       fhir:l <http://www.registrocivil.cl>
+     ] ;
+     fhir:value [ fhir:v "55555555-5" ]
+  ] ) ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:family [
+       fhir:v "Gonzalez" ;
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido"^^xsd:anyURI ;
+           fhir:l <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Nuñez"
+         ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "Luis" ] )
+  ] ) ; # 
+  fhir:birthDate [ fhir:v "1992-05-26"^^xsd:date] ; # 
+  fhir:qualification ( [
+     fhir:identifier ( [
+       fhir:value [ fhir:v "cert" ]
+     ] ) ;
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional>
+         ] ;
+         fhir:code [ fhir:v "30" ] ;
+         fhir:display [ fhir:v "MÉDICO GENERAL" ]
+       ] ) ;
+       fhir:text [ fhir:v "Médico General" ]
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

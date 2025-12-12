@@ -1,0 +1,269 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Bundle/EjBundleCierre> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "EjBundleCierre"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleCierreLE"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleCierreLE>
+     ] )
+  ] ; # 
+  fhir:type [ fhir:v "transaction"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [
+       fhir:v "urn:uuid:38a17703-0731-4c3f-88fd-1202dc99d7ce"^^xsd:anyURI ;
+       fhir:l <urn:uuid:38a17703-0731-4c3f-88fd-1202dc99d7ce>
+     ] ;
+     fhir:resource ( <urn:uuid:38a17703-0731-4c3f-88fd-1202dc99d7ce> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "PUT" ] ;
+       fhir:url [
+         fhir:v "ServiceRequest?identifier=CIR-2024-0001"^^xsd:anyURI ;
+         fhir:l fhir:ServiceRequest?identifier=CIR-2024-0001
+       ]
+     ]
+  ] [
+     fhir:fullUrl [
+       fhir:v "urn:uuid:2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210"^^xsd:anyURI ;
+       fhir:l <urn:uuid:2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210>
+     ] ;
+     fhir:resource ( <urn:uuid:2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [
+         fhir:v "Practitioner"^^xsd:anyURI ;
+         fhir:l fhir:Practitioner
+       ] ;
+       fhir:ifNoneExist [ fhir:v "identifier=http://www.registrocivil.cl|55555555-5" ]
+     ]
+  ] [
+     fhir:fullUrl [
+       fhir:v "urn:uuid:5a4ca080-8d59-4409-92f3-e6fc1eb855d6"^^xsd:anyURI ;
+       fhir:l <urn:uuid:5a4ca080-8d59-4409-92f3-e6fc1eb855d6>
+     ] ;
+     fhir:resource ( <urn:uuid:5a4ca080-8d59-4409-92f3-e6fc1eb855d6> ) ;
+     fhir:request [
+       fhir:method [ fhir:v "POST" ] ;
+       fhir:url [
+         fhir:v "PractitionerRole"^^xsd:anyURI ;
+         fhir:l fhir:PractitionerRole
+       ] ;
+       fhir:ifNoneExist [ fhir:v "practitioner.identifier=http://www.registrocivil.cl|33333333-3&role=https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE|terminador" ]
+     ]
+  ] ) . # 
+
+<urn:uuid:38a17703-0731-4c3f-88fd-1202dc99d7ce> a fhir:ServiceRequest ;
+  fhir:id [ fhir:v "38a17703-0731-4c3f-88fd-1202dc99d7ce"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ServiceRequestCirugiaLE"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ServiceRequestCirugiaLE>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_38a17703-0731-4c3f-88fd-1202dc99d7ce\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio 38a17703-0731-4c3f-88fd-1202dc99d7ce</b></p><a name=\"38a17703-0731-4c3f-88fd-1202dc99d7ce\"> </a><a name=\"hc38a17703-0731-4c3f-88fd-1202dc99d7ce\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ServiceRequestCirugiaLE.html\">ServiceRequest Cirugía LE</a></p></div><p><b>Motivo Cierre Solicitud Cirugía</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSMotivoCierreSolicitudCirugia 3}\">Corresponde a la realización del examen procedimiento ejecutado (2)</span></p><p><b>Extension String Fundamento Priorizacion</b>: Paciente con dolor abdominal crónico</p><p><b>Requirió Comite</b>: false</p><p><b>Extension Tipo Priorización</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoPriorizacion 5}\">Usuarios con dos o más años en LE</span></p><p><b>identifier</b>: CIR-2024-0001</p><p><b>status</b>: Completed</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoCirugiaPropuesta 1}\">Cirugía Mayor Electiva</span></p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 39607008}\">estructura del pulmón</span></p><p><b>subject</b>: <a href=\"Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html\">Juan Pérez (official) Male, DoB: 1980-01-01 ( RUN: 4444444-4)</a></p><p><b>encounter</b>: <a href=\"Encounter-23b7f034-a998-44d7-9be4-0281be8222c0.html\">Encounter: identifier = ENC-20241130-001; status = finished; class = Presencial (Modalidad Atencion Codigo#1); type = Nueva; period = 2024-11-30 10:00:00-0400 --&gt; (ongoing)</a></p><p><b>authoredOn</b>: 2024-12-02 10:00:00-0400</p><p><b>requester</b>: <a href=\"PractitionerRole-96f2b566-b17b-4e4e-ada0-3986748990ee.html\">PractitionerRole Indicador</a></p><p><b>performer</b>: <a href=\"Bundle-EjBundleCierre.html#urn-uuid-5a4ca080-8d59-4409-92f3-e6fc1eb855d6\">PractitionerRole Terminador</a></p><p><b>reasonReference</b>: <a href=\"Condition-b97a87f6-060d-48de-9e4d-db93518fd278.html\">Condition Other and unspecified ventral hernia without obstruction or gangrene</a></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionMotivoCierreSolicitudCirugia"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionMotivoCierreSolicitudCirugia>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSMotivoCierreSolicitudCirugia"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSMotivoCierreSolicitudCirugia>
+         ] ;
+         fhir:code [ fhir:v "3" ] ;
+         fhir:display [ fhir:v "Corresponde a la realización del examen procedimiento ejecutado (2)" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionStringFundamentoPriorizacion"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionStringFundamentoPriorizacion>
+     ] ;
+     fhir:value [
+       a fhir:String ;
+       fhir:v "Paciente con dolor abdominal crónico"
+     ]
+  ] [
+     fhir:url [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/RequirioComite"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/RequirioComite>
+     ] ;
+     fhir:value [
+       a fhir:Boolean ;
+       fhir:v false
+     ]
+  ] [
+     fhir:url [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionTipoPriorizacion"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionTipoPriorizacion>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoPriorizacion"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoPriorizacion>
+         ] ;
+         fhir:code [ fhir:v "5" ] ;
+         fhir:display [ fhir:v "Usuarios con dos o más años en LE" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "CIR-2024-0001" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "completed"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoCirugiaPropuesta"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoCirugiaPropuesta>
+       ] ;
+       fhir:code [ fhir:v "1" ] ;
+       fhir:display [ fhir:v "Cirugía Mayor Electiva" ]
+     ] )
+  ] ) ; # 
+  fhir:priority [ fhir:v "routine"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       a sct:39607008 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "39607008" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Patient/22e862c5-6d96-44ec-869c-dba001058cb3> ;
+     fhir:reference [ fhir:v "Patient/22e862c5-6d96-44ec-869c-dba001058cb3" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Encounter/23b7f034-a998-44d7-9be4-0281be8222c0> ;
+     fhir:reference [ fhir:v "Encounter/23b7f034-a998-44d7-9be4-0281be8222c0" ]
+  ] ; # 
+  fhir:authoredOn [ fhir:v "2024-12-02T10:00:00-04:00"^^xsd:dateTime] ; # 
+  fhir:requester [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/PractitionerRole/96f2b566-b17b-4e4e-ada0-3986748990ee> ;
+     fhir:reference [ fhir:v "PractitionerRole/96f2b566-b17b-4e4e-ada0-3986748990ee" ]
+  ] ; # 
+  fhir:performer ( [
+     fhir:l <urn:uuid:5a4ca080-8d59-4409-92f3-e6fc1eb855d6> ;
+     fhir:reference [ fhir:v "urn:uuid:5a4ca080-8d59-4409-92f3-e6fc1eb855d6" ]
+  ] ) ; # 
+  fhir:reasonReference ( [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Condition/b97a87f6-060d-48de-9e4d-db93518fd278> ;
+     fhir:reference [ fhir:v "Condition/b97a87f6-060d-48de-9e4d-db93518fd278" ]
+  ] ) . # 
+
+<urn:uuid:2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210> a fhir:Practitioner ;
+  fhir:id [ fhir:v "2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerProfesionalLE"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerProfesionalLE>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practicante / Profesional 2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210</b></p><a name=\"2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210\"> </a><a name=\"hc2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PractitionerProfesionalLE.html\">Prestador Profesional LE</a></p></div><p><b>identifier</b>: RUN/55555555-5 (use: official, )</p><p><b>name</b>: Paula Hernandez (Official)</p><p><b>birthDate</b>: 1990-05-15</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>cert</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTituloProfesional 3}\">Enfermera</span></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"^^xsd:anyURI ;
+           fhir:l <https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador>
+         ] ;
+         fhir:code [ fhir:v "01" ]
+       ] )
+     ] ;
+     fhir:system [
+       fhir:v "http://www.registrocivil.cl"^^xsd:anyURI ;
+       fhir:l <http://www.registrocivil.cl>
+     ] ;
+     fhir:value [ fhir:v "55555555-5" ]
+  ] ) ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:family [
+       fhir:v "Hernandez" ;
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido"^^xsd:anyURI ;
+           fhir:l <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Navarro"
+         ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "Paula" ] )
+  ] ) ; # 
+  fhir:birthDate [ fhir:v "1990-05-15"^^xsd:date] ; # 
+  fhir:qualification ( [
+     fhir:identifier ( [
+       fhir:value [ fhir:v "cert" ]
+     ] ) ;
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTituloProfesional"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTituloProfesional>
+         ] ;
+         fhir:code [ fhir:v "3" ] ;
+         fhir:display [ fhir:v "ENFERMERAS(OS)" ]
+       ] ) ;
+       fhir:text [ fhir:v "Enfermera" ]
+     ]
+  ] ) . # 
+
+<urn:uuid:5a4ca080-8d59-4409-92f3-e6fc1eb855d6> a fhir:PractitionerRole ;
+  fhir:id [ fhir:v "5a4ca080-8d59-4409-92f3-e6fc1eb855d6"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_5a4ca080-8d59-4409-92f3-e6fc1eb855d6\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RolProfesional 5a4ca080-8d59-4409-92f3-e6fc1eb855d6</b></p><a name=\"5a4ca080-8d59-4409-92f3-e6fc1eb855d6\"> </a><a name=\"hc5a4ca080-8d59-4409-92f3-e6fc1eb855d6\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PractitionerRoleLE.html\">PractitionerRole LE</a></p></div><p><b>practitioner</b>: <a href=\"Bundle-EjBundleAgendarCirugia.html#urn-uuid-2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210\">Practitioner Paula Hernandez (official)</a></p><p><b>organization</b>: <a href=\"Organization-5491b8d5-e06c-4f89-beb7-75a1989cdc81.html\">Organization Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</a></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE terminador}\">Terminador</span></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:practitioner [
+     fhir:l <urn:uuid:2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210> ;
+     fhir:reference [ fhir:v "urn:uuid:2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210" ]
+  ] ; # 
+  fhir:organization [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81> ;
+     fhir:reference [ fhir:v "Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81" ]
+  ] ; # 
+  fhir:code ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE>
+       ] ;
+       fhir:code [ fhir:v "terminador" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

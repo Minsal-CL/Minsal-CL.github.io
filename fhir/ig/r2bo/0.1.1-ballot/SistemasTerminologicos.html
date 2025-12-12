@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Uso de Sistemas Terminológicos - Repositorio de Reportes de Biopsias Oncológicas v0.1.1-ballot</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Repositorio de Reportes de Biopsias Oncológicas</span>
+            <br/>
+            <span style="display:inline-block;">0.1.1-ballot - ballot
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificaciones Tecnicas
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="design-consideration.html">Consideraciones de Diseño</a>
+      </li>
+      <li>
+        <a href="SistemasTerminologicos.html">Servicios Terminológicos</a>
+      </li>
+      <li>
+        <a href="InteraccionesConServidor.html">Interaciones Repositorio</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="changes.html">Historial de Cambios</a>
+  </li>
+  <li>
+    <a href="Downloads.html">Descargas</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artefactos
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html#behavior-capability-statements">Capability Statements</a>
+      </li>
+      <li>
+        <a href="artifacts.html#structures-logical-models">Modelos Lógicos</a>
+      </li>
+      <li>
+        <a href="artifacts.html#structures-resource-profiles">Perfiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#structures-extension-definitions">Extensiones</a>
+      </li>
+      <li>
+        <a href="artifacts.html#terminology-value-sets">Value Sets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#terminology-code-systems">Code Systems</a>
+      </li>
+      <li>
+        <a href="artifacts.html#example-example-instances">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Uso de Sistemas Terminológicos</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Repositorio de Reportes de Biopsias Oncológicas - Local Development build (v0.1.1-ballot) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/r2bo/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Uso de Sistemas Terminológicos</h2>
+  
+
+
+
+
+
+  <table class="colsi">
+    <tr>
+  
+      <td>
+        <i>Page standards status:</i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Informative</a>
+        
+      </td>
+  
+  
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#instrucciones-de-operación-expand" id="markdown-toc-instrucciones-de-operación-expand">Instrucciones de Operación Expand:</a></li>
+  <li><a href="#instrucciones-de-operación-translate" id="markdown-toc-instrucciones-de-operación-translate">Instrucciones de Operación Translate:</a></li>
+  <li><a href="#iteracciones-esperadas" id="markdown-toc-iteracciones-esperadas">Iteracciones esperadas:</a></li>
+</ul>
+
+</div>
+<p>Dada la necesidad de codificar en distintas terminologías, el Ministerio de Salud de Chile dispone de un servidor terminológico, en el cual están cargados los siguientes sistemas:</p>
+
+<ul>
+  <li>SNOMED-CT</li>
+  <li>CIE-10</li>
+  <li>CIE-O</li>
+</ul>
+
+<p>Que mediante la operación <a href="http://hl7.org/fhir/R4/valueset-operation-expand.html">$expand</a> permitirá la búsqueda de términos con un código SNOMED-CT o algún termino de la Clasificación internacional de Enfermedades. En caso de ser requerido los terminos snomed de estos valueSet permiten ser convertidos en CIE usando la operación <a href="http://hl7.org/fhir/R4/conceptmap-operation-translate.html">$translate</a>.</p>
+
+<ul>
+  <li><a href="ValueSet-r2bo-snomed-hallazgos-clinicos-cie10-VS.html">Snomed CT para Hallazgos Clínicos</a></li>
+  <li><a href="ValueSet-r2bo-topografica-cieo-VS.html">Snomed CT para Topografía</a></li>
+  <li><a href="ValueSet-r2bo-morfologicosct-cieo-VS.html">Snomed CT para Anomalías Morfológicas</a></li>
+</ul>
+
+<h3 id="instrucciones-de-operación-expand">Instrucciones de Operación Expand:</h3>
+
+<p>La operación <a href="http://hl7.org/fhir/R4/valueset-operation-expand.html">$expand</a> se puede realizar a un ValueSet base o específico, como se dijo anteriormente, se crearon 3 de estos para facilitar la búsqueda de estos términos. Por lo que, se requiere el ID del ValueSet que desea realizar la búsqueda más los parámetros <strong>displayLanguage</strong> y <strong>filter</strong> para utilizar esta operación. En caso de no encontrar el termino exacto puede activar los <strong>includeDesignations</strong> lo que permitirá mostrar los sinónimos de los terminos.</p>
+
+<h4 id="ejemplo">Ejemplo:</h4>
+
+<p><strong>Consulta</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /ValueSet/r2bo-snomed-hallazgos-clinicos/$expand?displayLanguage=es,en&amp;includeDesignations=false&amp;filter=Neoplasia Incierto Mama
+</code></pre></div></div>
+<p><strong>Respuesta</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "resourceType": "ValueSet",
+    "id": "r2bo-snomed-hallazgos-clinicos",
+    "url": "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-snomed-hallazgos-clinicos",
+    "name": "SnomedCTHallazgosClinicos",
+    "title": "ValueSet de Snomed CT para Hallazgos Clínicos",
+    "status": "draft",
+    "experimental": true,
+    "description": "Este ValueSet contiene los códigos de Snomed CT que representan hallazgos clínicos",
+    "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement.",
+    "expansion": {
+        "id": "dd71a81a-e89e-4495-8409-82af64af45b7",
+        "timestamp": "2025-02-20T12:11:45+00:00",
+        "total": 18,
+        "offset": 0,
+        "parameter": [
+            {
+                "name": "version",
+                "valueUri": "http://snomed.info/sct|http://snomed.info/sct/449081005/version/20230430"
+            },
+            {
+                "name": "displayLanguage",
+                "valueString": "es,en"
+            }
+        ],
+        "contains": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "269497004",
+                "display": "neoplasia de comportamiento incierto de la mama"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "351411000119103",
+                "display": "neoplasia de comportamiento incierto de mama izquierda"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94924003",
+                "display": "neoplasia de comportamiento incierto de la mama masculina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "351651000119100",
+                "display": "neoplasia de comportamiento incierto de mama derecha"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94836005",
+                "display": "neoplasia de comportamiento incierto de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "95052004",
+                "display": "neoplasia de comportamiento incierto de piel de mama"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94746002",
+                "display": "neoplasia de comportamiento incierto de la aréola de la mama masculina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94965003",
+                "display": "neoplasia de comportamiento incierto del pezón de la mama masculina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94745003",
+                "display": "neoplasia de comportamiento incierto de la aréola de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94964004",
+                "display": "neoplasia de comportamiento incierto del pezón de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94817000",
+                "display": "neoplasia de comportamiento incierto del tejido ectópico de la mama masculina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94816009",
+                "display": "neoplasia de comportamiento incierto del tejido ectópico de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94750009",
+                "display": "neoplasia de comportamiento incierto de la prolongación axilar de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94785009",
+                "display": "neoplasia de comportamiento incierto de la porción central de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94914006",
+                "display": "neoplasia de comportamiento incierto del cuadrante inferior interno de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "94916008",
+                "display": "neoplasia de comportamiento incierto del cuadrante inferior externo de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "95155000",
+                "display": "neoplasia de comportamiento incierto del cuadrante superior interno de la mama femenina"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "95157008",
+                "display": "neoplasia de comportamiento incierto del cuadrante superior externo de la mama femenina"
+            }
+        ]
+    }
+}
+</code></pre></div></div>
+
+<h3 id="instrucciones-de-operación-translate">Instrucciones de Operación Translate:</h3>
+
+<p>La operación $translate se realiza en el recurso <strong>ConceptMap</strong> y está requiere como mínimo 3 parámetros:</p>
+
+<ul>
+  <li><strong>system</strong>: El sistema de codificación de origen, que para nuestro caso siempre será <strong>http://snomed.info/sct</strong></li>
+  <li><strong>targetSystem</strong>: El sistema de codificación de destino que puede ser <strong>http://hl7.org/fhir/sid/icd-10</strong> para la CIE-10 o <strong>http://hl7.org/fhir/sid/icd-o</strong> para el caso de la CIE-O topológica o morfológica.</li>
+  <li><strong>code</strong>: El código de SNOMED el cual se desea traducir.</li>
+</ul>
+
+<h4 id="ejemplo-1">Ejemplo:</h4>
+
+<p><strong>Consulta</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /ConceptMap/$translate?system=http://snomed.info/sct&amp;targetsystem=http://hl7.org/fhir/sid/icd-10&amp;code=269497004
+</code></pre></div></div>
+<p><strong>Respuesta</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "result",
+            "valueBoolean": true
+        },
+        {
+            "name": "message",
+            "valueString": "Please observe the following map advice. Group:1, Priority:1, Rule:TRUE, Advice:'ALWAYS D48.6 | POSSIBLE REQUIREMENT FOR MORPHOLOGY CODE', Map Category:'null'."
+        },
+        {
+            "name": "match",
+            "part": [
+                {
+                    "name": "equivalence",
+                    "valueCode": "unmatched"
+                },
+                {
+                    "name": "concept",
+                    "valueCoding": {
+                        "system": "http://hl7.org/fhir/sid/icd-10",
+                        "code": "D48.6"
+                    }
+                },
+                {
+                    "name": "source",
+                    "valueString": "http://snomed.info/sct/900000000000207008/version/20230331?fhir_cm=447562003"
+                }
+            ]
+        }
+    ]
+}
+</code></pre></div></div>
+<h3 id="iteracciones-esperadas">Iteracciones esperadas:</h3>
+
+<p>El flujo esperado es el descrito en el siguiente diagrama:</p>
+
+<div align="center"> 
+    <img src="servicio-terminologico.svg" alt="Iteracciones con el servicio terminológico" />
+</div>
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2025+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.r2bo#0.1.1-ballot based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Fri, Dec 12, 2025 16:54-0300">2025-12-12</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> 
+<!-- <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/r2bo"></a> -->
+</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

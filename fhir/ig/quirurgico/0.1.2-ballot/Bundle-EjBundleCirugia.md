@@ -1,0 +1,222 @@
+# Bundle Cirugía LE - Lista de Espera Quirúrgica Interoperable v0.1.2-ballot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Bundle Cirugía LE**
+
+## Example Bundle: Bundle Cirugía LE
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "EjBundleCirugia",
+  "meta" : {
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleCirugiaLE"
+    ]
+  },
+  "type" : "transaction",
+  "entry" : [
+    {
+      "fullUrl" : "urn:uuid:abfca780-745d-4c35-ae8a-fd0dbc3a9b16",
+      "resource" : {
+        "resourceType" : "Procedure",
+        "id" : "abfca780-745d-4c35-ae8a-fd0dbc3a9b16",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ProcedureCirugiaLE"
+          ]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Procedure_abfca780-745d-4c35-ae8a-fd0dbc3a9b16\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Procedimiento abfca780-745d-4c35-ae8a-fd0dbc3a9b16</b></p><a name=\"abfca780-745d-4c35-ae8a-fd0dbc3a9b16\"> </a><a name=\"hcabfca780-745d-4c35-ae8a-fd0dbc3a9b16\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ProcedureCirugiaLE.html\">Procedure Cirugia LE</a></p></div><p><b>basedOn</b>: <a href=\"ServiceRequest-38a17703-0731-4c3f-88fd-1202dc99d7ce.html\">ServiceRequest estructura del pulmón</a></p><p><b>status</b>: Completed</p><p><b>category</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoCirugiaPropuesta 1}\">Cirugía Mayor Electiva</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 39607008}\">Cirugía de hernia ventral</span></p><p><b>subject</b>: <a href=\"Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html\">Juan Pérez (official) Male, DoB: 1980-01-01 ( RUN: 4444444-4)</a></p><p><b>performed</b>: 2024-12-02 10:00:00-0400</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-EjBundleCirugia.html#urn-uuid-4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa\">PractitionerRole Atendedor</a></td></tr></table><p><b>outcome</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSCondicionSalidaCirugia 1}\">Vivo</span></p></div>"
+        },
+        "basedOn" : [
+          {
+            "reference" : "ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce"
+          }
+        ],
+        "status" : "completed",
+        "category" : {
+          "coding" : [
+            {
+              "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoCirugiaPropuesta",
+              "code" : "1",
+              "display" : "Cirugía Mayor Electiva"
+            }
+          ]
+        },
+        "code" : {
+          "coding" : [
+            {
+              "system" : "http://snomed.info/sct",
+              "code" : "39607008"
+            }
+          ],
+          "text" : "Cirugía de hernia ventral"
+        },
+        "subject" : {
+          "reference" : "Patient/22e862c5-6d96-44ec-869c-dba001058cb3"
+        },
+        "performedDateTime" : "2024-12-02T10:00:00-04:00",
+        "performer" : [
+          {
+            "actor" : {
+              "reference" : "urn:uuid:4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa"
+            }
+          }
+        ],
+        "outcome" : {
+          "coding" : [
+            {
+              "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSCondicionSalidaCirugia",
+              "code" : "1",
+              "display" : "Vivo"
+            }
+          ]
+        }
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Procedure"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:fbb0e12c-95ec-43f7-bff1-73009b307cb5",
+      "resource" : {
+        "resourceType" : "Practitioner",
+        "id" : "fbb0e12c-95ec-43f7-bff1-73009b307cb5",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerProfesionalLE"
+          ]
+        },
+        "text" : {
+          "status" : "extensions",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_fbb0e12c-95ec-43f7-bff1-73009b307cb5\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practicante / Profesional fbb0e12c-95ec-43f7-bff1-73009b307cb5</b></p><a name=\"fbb0e12c-95ec-43f7-bff1-73009b307cb5\"> </a><a name=\"hcfbb0e12c-95ec-43f7-bff1-73009b307cb5\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PractitionerProfesionalLE.html\">Prestador Profesional LE</a></p></div><p><b>identifier</b>: RUN/33333333-3 (use: official, )</p><p><b>name</b>: Maria Fernandez (Official)</p><p><b>birthDate</b>: 1995-09-12</p><blockquote><p><b>qualification</b></p><p><b>Mención profesional añadida al título profesional</b>: Cirugía Digestiva</p><p><b>identifier</b>: cert</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTituloProfesional 1}\">Médico Cirujano</span></p></blockquote><blockquote><p><b>qualification</b></p><p><b>identifier</b>: esp</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSEspecialidadMed 18}\">Gastroenterología Adulto</span></p></blockquote></div>"
+        },
+        "identifier" : [
+          {
+            "use" : "official",
+            "type" : {
+              "coding" : [
+                {
+                  "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+                  "code" : "01"
+                }
+              ]
+            },
+            "system" : "http://www.registrocivil.cl",
+            "value" : "33333333-3"
+          }
+        ],
+        "name" : [
+          {
+            "use" : "official",
+            "family" : "Fernandez",
+            "_family" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido",
+                  "valueString" : "Alvarez"
+                }
+              ]
+            },
+            "given" : ["Maria"]
+          }
+        ],
+        "birthDate" : "1995-09-12",
+        "qualification" : [
+          {
+            "extension" : [
+              {
+                "url" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/Mencion",
+                "valueString" : "Cirugía Digestiva"
+              }
+            ],
+            "identifier" : [
+              {
+                "value" : "cert"
+              }
+            ],
+            "code" : {
+              "coding" : [
+                {
+                  "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTituloProfesional",
+                  "code" : "1",
+                  "display" : "MÉDICO CIRUJANO"
+                }
+              ],
+              "text" : "Médico Cirujano"
+            }
+          },
+          {
+            "identifier" : [
+              {
+                "value" : "esp"
+              }
+            ],
+            "code" : {
+              "coding" : [
+                {
+                  "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSEspecialidadMed",
+                  "code" : "18",
+                  "display" : "GASTROENTEROLOGÍA ADULTO"
+                }
+              ],
+              "text" : "Gastroenterología Adulto"
+            }
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Practitioner",
+        "ifNoneExist" : "identifier=http://www.registrocivil.cl|33333333-3"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa",
+      "resource" : {
+        "resourceType" : "PractitionerRole",
+        "id" : "4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"
+          ]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RolProfesional 4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa</b></p><a name=\"4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa\"> </a><a name=\"hc4d1c4f8b-1f89-47a3-a765-fdfe5935a3aa\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PractitionerRoleLE.html\">PractitionerRole LE</a></p></div><p><b>practitioner</b>: <a href=\"Bundle-EjBundleAtender.html#urn-uuid-fbb0e12c-95ec-43f7-bff1-73009b307cb5\">Practitioner Maria Fernandez (official)</a></p><p><b>organization</b>: <a href=\"Organization-5491b8d5-e06c-4f89-beb7-75a1989cdc81.html\">Organization Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</a></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE atendedor}\">Atendedor</span></p></div>"
+        },
+        "practitioner" : {
+          "reference" : "urn:uuid:fbb0e12c-95ec-43f7-bff1-73009b307cb5"
+        },
+        "organization" : {
+          "reference" : "Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81"
+        },
+        "code" : [
+          {
+            "coding" : [
+              {
+                "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE",
+                "code" : "atendedor"
+              }
+            ]
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "PractitionerRole",
+        "ifNoneExist" : "practitioner.identifier=http://www.registrocivil.cl|33333333-3&role=https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE|atendedor"
+      }
+    }
+  ]
+}
+
+```

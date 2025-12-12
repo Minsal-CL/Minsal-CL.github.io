@@ -1,0 +1,491 @@
+# Bundle Admision - Atención de Urgencia Interoperable v0.1.2-ballot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Bundle Admision**
+
+## Example Bundle: Bundle Admision
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "Ej1BundleAdmision",
+  "meta" : {
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/BundleAdmision"
+    ]
+  },
+  "type" : "transaction",
+  "entry" : [
+    {
+      "fullUrl" : "urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997",
+      "resource" : {
+        "resourceType" : "Patient",
+        "id" : "6ec6dc25-4b65-4165-a545-9b796f60b997",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PatientUrg"
+          ]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_6ec6dc25-4b65-4165-a545-9b796f60b997\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient 6ec6dc25-4b65-4165-a545-9b796f60b997</b></p><a name=\"6ec6dc25-4b65-4165-a545-9b796f60b997\"> </a><a name=\"hc6ec6dc25-4b65-4165-a545-9b796f60b997\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PatientUrg.html\">Paciente Urgencia</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td>true</td><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\"><ul><li>ph: (562) 5555 6473(Work)</li><li>Calle Arrabal Conchita Tejeda Nº 24, Esc. 432(home)</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Pueblos Afrodescendiente\"><a href=\"StructureDefinition-PueblosAfrodescendiente.html\">Pueblos Afrodescendiente</a></td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Esta extensión incluye códigos de países\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CodigoPaises.html\">Código de Países</a></td><td colspan=\"3\"><span title=\"Codes:{urn:iso:std:iso:3166 152}\">Chile</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Pueblos Originarios Perteneciente\"><a href=\"StructureDefinition-PueblosOriginariosPerteneciente.html\">Pueblos Originarios Perteneciente</a></td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Religión\"><a href=\"StructureDefinition-Religion.html\">Religión</a></td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSReligion 1}\">Católica</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"País de origen del paciente\"><a href=\"StructureDefinition-PaisOrigenMPI.html\">País de origen del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{urn:iso:std:iso:3166 152}\">Chile</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Identidad De Género\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-IdentidadDeGenero.html\">Identidad De Género</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero 2}\">Femenina</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Almacenar si el paciente pertenece a algun pueblo originario\"><a href=\"StructureDefinition-PueblosOriginarios.html\">Pueblos Originarios</a></td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/PueblosOriginariosCS 07}\">Diaguita</span></td></tr></table></div>"
+        },
+        "extension" : [
+          {
+            "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PueblosOriginariosPerteneciente",
+            "valueBoolean" : true
+          },
+          {
+            "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PueblosOriginarios",
+            "valueCodeableConcept" : {
+              "coding" : [
+                {
+                  "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/PueblosOriginariosCS",
+                  "code" : "07",
+                  "display" : "Diaguita"
+                }
+              ]
+            }
+          },
+          {
+            "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PueblosAfrodescendiente",
+            "valueBoolean" : false
+          },
+          {
+            "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdentidadDeGenero",
+            "valueCodeableConcept" : {
+              "coding" : [
+                {
+                  "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero",
+                  "code" : "2",
+                  "display" : "Femenina"
+                }
+              ]
+            }
+          },
+          {
+            "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PaisOrigenMPI",
+            "valueCodeableConcept" : {
+              "coding" : [
+                {
+                  "system" : "urn:iso:std:iso:3166",
+                  "code" : "152",
+                  "display" : "Chile"
+                }
+              ]
+            }
+          },
+          {
+            "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises",
+            "valueCodeableConcept" : {
+              "coding" : [
+                {
+                  "system" : "urn:iso:std:iso:3166",
+                  "code" : "152",
+                  "display" : "Chile"
+                }
+              ]
+            }
+          },
+          {
+            "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Religion",
+            "valueCodeableConcept" : {
+              "coding" : [
+                {
+                  "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/CSReligion",
+                  "code" : "1",
+                  "display" : "Católica"
+                }
+              ]
+            }
+          }
+        ],
+        "identifier" : [
+          {
+            "use" : "official",
+            "type" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises",
+                  "valueCodeableConcept" : {
+                    "coding" : [
+                      {
+                        "system" : "urn:iso:std:iso:3166",
+                        "code" : "152",
+                        "display" : "Chile"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "coding" : [
+                {
+                  "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+                  "code" : "01",
+                  "display" : "RUN"
+                }
+              ],
+              "text" : "Rol Único Nacional"
+            },
+            "value" : "90000000-6",
+            "assigner" : {
+              "display" : "Republica de Chile"
+            }
+          }
+        ],
+        "active" : true,
+        "name" : [
+          {
+            "use" : "official",
+            "text" : "Maria Josefína Perez Gonzalez",
+            "family" : "Perez",
+            "_family" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido",
+                  "valueString" : "Gonzalez"
+                }
+              ]
+            },
+            "given" : ["María", "Josefina"]
+          }
+        ],
+        "telecom" : [
+          {
+            "system" : "phone",
+            "value" : "(562) 5555 6473",
+            "use" : "work",
+            "rank" : 1
+          }
+        ],
+        "gender" : "female",
+        "birthDate" : "1974-12-25",
+        "deceasedBoolean" : false,
+        "address" : [
+          {
+            "use" : "home",
+            "text" : "Calle Arrabal Conchita Tejeda Nº 24, Esc. 432",
+            "line" : ["Calle Arrabal Conchita Tejeda"],
+            "city" : "Huara",
+            "_city" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl",
+                  "valueCodeableConcept" : {
+                    "coding" : [
+                      {
+                        "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL",
+                        "code" : "01404",
+                        "display" : "Huara"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "district" : "Provincia del Tamarugal",
+            "_district" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl",
+                  "valueCodeableConcept" : {
+                    "coding" : [
+                      {
+                        "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL",
+                        "code" : "014",
+                        "display" : "Tamarugal"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "state" : "Región de Tarapacá",
+            "_state" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl",
+                  "valueCodeableConcept" : {
+                    "coding" : [
+                      {
+                        "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL",
+                        "code" : "01",
+                        "display" : "Tarapacá"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Patient",
+        "ifNoneExist" : "identifier=90000000-6"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:d1391b7b-302a-49f8-a908-8116599e137e",
+      "resource" : {
+        "resourceType" : "Encounter",
+        "id" : "d1391b7b-302a-49f8-a908-8116599e137e",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EncounterUrg"
+          ]
+        },
+        "text" : {
+          "status" : "extensions",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_d1391b7b-302a-49f8-a908-8116599e137e\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encounter d1391b7b-302a-49f8-a908-8116599e137e</b></p><a name=\"d1391b7b-302a-49f8-a908-8116599e137e\"> </a><a name=\"hcd1391b7b-302a-49f8-a908-8116599e137e\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-EncounterUrg.html\">Encuentro Urgencia</a></p></div><p><b>Acompañante</b>: false</p><p><b>identifier</b>: 126402-0025</p><p><b>status</b>: Arrived</p><h3>StatusHistories</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Status</b></td><td><b>Period</b></td></tr><tr><td style=\"display: none\">*</td><td>Arrived</td><td>2024-10-25 13:18:00-0400 --&gt; (ongoing)</td></tr></table><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.0.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>priority</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-no-realizada 99}\">Sin Categorizar</span></p><p><b>subject</b>: <a href=\"Bundle-Ej1BundleAdmision.html#urn-uuid-6ec6dc25-4b65-4165-a545-9b796f60b997\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><blockquote><p><b>participant</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType ADM}\">admitter</span></p><p><b>period</b>: 2024-10-25 13:18:00-0400 --&gt; (ongoing)</p><p><b>individual</b>: <a href=\"Bundle-Ej1BundleAdmision.html#urn-uuid-b9f6967f-51b5-49f4-8576-ce9f588523c2\">Practitioner Mario Donoso </a></p></blockquote><blockquote><p><b>participant</b></p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/participant-type emergency}\">Emergency</span></p><p><b>individual</b>: <a href=\"Bundle-Ej1BundleAdmision.html#urn-uuid-bb7f34f7-8f4e-42c8-aa84-1f64bf584a05\">RelatedPerson Jose Luis Perez </a></p></blockquote><p><b>period</b>: 2024-10-25 13:18:00-0400 --&gt; (ongoing)</p><blockquote><p><b>hospitalization</b></p><p><b>Medio de Llegada</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/MedioDeLlegada 5}\">Vehículo particular</span></p><p><b>Consulta por Accidente</b>: false</p><p><b>admitSource</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Procedencia 9}\">Domicilio</span></p></blockquote><p><b>serviceProvider</b>: <a href=\"Bundle-Ej1BundleAdmision.html#urn-uuid-5491b8d5-e06c-4f89-beb7-75a1989cdc81\">Organization Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</a></p></div>"
+        },
+        "extension" : [
+          {
+            "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/Acompanante",
+            "valueBoolean" : false
+          }
+        ],
+        "identifier" : [
+          {
+            "value" : "126402-0025"
+          }
+        ],
+        "status" : "arrived",
+        "statusHistory" : [
+          {
+            "status" : "arrived",
+            "period" : {
+              "start" : "2024-10-25T13:18:00-04:00"
+            }
+          }
+        ],
+        "class" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code" : "EMER"
+        },
+        "priority" : {
+          "coding" : [
+            {
+              "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/categorizacion-no-realizada",
+              "code" : "99",
+              "display" : "Sin Categorizar"
+            }
+          ]
+        },
+        "subject" : {
+          "reference" : "urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997"
+        },
+        "participant" : [
+          {
+            "type" : [
+              {
+                "coding" : [
+                  {
+                    "system" : "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code" : "ADM"
+                  }
+                ]
+              }
+            ],
+            "period" : {
+              "start" : "2024-10-25T13:18:00-04:00"
+            },
+            "individual" : {
+              "reference" : "urn:uuid:b9f6967f-51b5-49f4-8576-ce9f588523c2"
+            }
+          },
+          {
+            "type" : [
+              {
+                "coding" : [
+                  {
+                    "system" : "http://terminology.hl7.org/CodeSystem/participant-type",
+                    "version" : "4.0.1",
+                    "code" : "emergency"
+                  }
+                ]
+              }
+            ],
+            "individual" : {
+              "reference" : "urn:uuid:bb7f34f7-8f4e-42c8-aa84-1f64bf584a05"
+            }
+          }
+        ],
+        "period" : {
+          "start" : "2024-10-25T13:18:00-04:00"
+        },
+        "hospitalization" : {
+          "extension" : [
+            {
+              "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/MedioDeLlegada",
+              "valueCodeableConcept" : {
+                "coding" : [
+                  {
+                    "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/MedioDeLlegada",
+                    "code" : "5",
+                    "display" : "Vehículo particular"
+                  }
+                ]
+              }
+            },
+            {
+              "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ConsultaPorAccidente",
+              "valueBoolean" : false
+            }
+          ],
+          "admitSource" : {
+            "coding" : [
+              {
+                "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/Procedencia",
+                "code" : "9",
+                "display" : "Domicilio"
+              }
+            ]
+          }
+        },
+        "serviceProvider" : {
+          "reference" : "urn:uuid:5491b8d5-e06c-4f89-beb7-75a1989cdc81"
+        }
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Encounter"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:5491b8d5-e06c-4f89-beb7-75a1989cdc81",
+      "resource" : {
+        "resourceType" : "Organization",
+        "id" : "5491b8d5-e06c-4f89-beb7-75a1989cdc81",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/EstablecimientoUrg"
+          ]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_5491b8d5-e06c-4f89-beb7-75a1989cdc81\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organization 5491b8d5-e06c-4f89-beb7-75a1989cdc81</b></p><a name=\"5491b8d5-e06c-4f89-beb7-75a1989cdc81\"> </a><a name=\"hc5491b8d5-e06c-4f89-beb7-75a1989cdc81\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-EstablecimientoUrg.html\">Establecimiento Urgencia</a></p></div><p><b>identifier</b>: <code>http://deis.minsal.cl/establecimientos</code>/114105</p><p><b>active</b>: true</p><p><b>name</b>: Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</p></div>"
+        },
+        "identifier" : [
+          {
+            "system" : "http://deis.minsal.cl/establecimientos",
+            "value" : "114105"
+          }
+        ],
+        "active" : true,
+        "name" : "Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza"
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Organization",
+        "ifNoneExist" : "identifier=114105"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:b9f6967f-51b5-49f4-8576-ce9f588523c2",
+      "resource" : {
+        "resourceType" : "Practitioner",
+        "id" : "b9f6967f-51b5-49f4-8576-ce9f588523c2",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorAdministrativo"
+          ]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_b9f6967f-51b5-49f4-8576-ce9f588523c2\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practitioner b9f6967f-51b5-49f4-8576-ce9f588523c2</b></p><a name=\"b9f6967f-51b5-49f4-8576-ce9f588523c2\"> </a><a name=\"hcb9f6967f-51b5-49f4-8576-ce9f588523c2\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PrestadorAdministrativo.html\">Prestador Administrativo de Urgencia</a></p></div><p><b>identifier</b>: RUN/44444444-4 (use: official, )</p><p><b>name</b>: Mario Donoso </p></div>"
+        },
+        "identifier" : [
+          {
+            "use" : "official",
+            "type" : {
+              "coding" : [
+                {
+                  "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+                  "code" : "01",
+                  "display" : "RUN"
+                }
+              ]
+            },
+            "value" : "44444444-4"
+          }
+        ],
+        "name" : [
+          {
+            "family" : "Donoso",
+            "_family" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido",
+                  "valueString" : "Mardones"
+                }
+              ]
+            },
+            "given" : ["Mario"]
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Practitioner",
+        "ifNoneExist" : "identifier=44444444-4"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:bb7f34f7-8f4e-42c8-aa84-1f64bf584a05",
+      "resource" : {
+        "resourceType" : "RelatedPerson",
+        "id" : "bb7f34f7-8f4e-42c8-aa84-1f64bf584a05",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AcompananteUrg"
+          ]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RelatedPerson_bb7f34f7-8f4e-42c8-aa84-1f64bf584a05\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RelatedPerson bb7f34f7-8f4e-42c8-aa84-1f64bf584a05</b></p><a name=\"bb7f34f7-8f4e-42c8-aa84-1f64bf584a05\"> </a><a name=\"hcbb7f34f7-8f4e-42c8-aa84-1f64bf584a05\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-AcompananteUrg.html\">Acompañante Urgencia</a></p></div><p><b>patient</b>: <a href=\"Bundle-Ej1BundleAdmision.html#urn-uuid-6ec6dc25-4b65-4165-a545-9b796f60b997\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>relationship</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante 3}\">Familiar</span></p><p><b>name</b>: Jose Luis Perez </p></div>"
+        },
+        "patient" : {
+          "reference" : "urn:uuid:6ec6dc25-4b65-4165-a545-9b796f60b997"
+        },
+        "relationship" : [
+          {
+            "coding" : [
+              {
+                "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante",
+                "code" : "3",
+                "display" : "Familiar"
+              }
+            ]
+          }
+        ],
+        "name" : [
+          {
+            "family" : "Perez",
+            "_family" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido",
+                  "valueString" : "Gonzalez"
+                }
+              ]
+            },
+            "given" : ["Jose", "Luis"]
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "RelatedPerson"
+      }
+    }
+  ]
+}
+
+```

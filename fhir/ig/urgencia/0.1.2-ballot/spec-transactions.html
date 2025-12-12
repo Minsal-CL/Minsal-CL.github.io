@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Transacciones - Atención de Urgencia Interoperable v0.1.2-ballot</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Atención de Urgencia Interoperable</span>
+            <br/>
+            <span style="display:inline-block;">0.1.2-ballot - ballot
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificación de negocio
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="workflow.html">Flujo</a>
+      </li>
+      <li>
+        <a href="events.html">Eventos Interoperabilidad</a>
+      </li>
+      <li>
+        <a href="actors.html">Rol de actores</a>
+      </li>
+      <li>
+        <a href="user-history.html">Historias de usuario segun rol</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificaciones técnicas
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="spec-events.html">Eventos</a>
+      </li>
+      <li>
+        <a href="spec-transactions.html">Transacciones</a>
+      </li>
+      <li>
+        <a href="artifacts.html#structures-resource-profiles">Perfiles</a>
+      </li>
+      <li>
+        <a href="spec-message.html">Operaciones</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html#terminology-value-sets">Terminologías</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Transacciones</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Atención de Urgencia Interoperable - Local Development build (v0.1.2-ballot) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Transacciones</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#transacción-evento-admisión" id="markdown-toc-transacción-evento-admisión">Transacción evento Admisión</a></li>
+  <li><a href="#transacción-evento-categorización" id="markdown-toc-transacción-evento-categorización">Transacción evento Categorización</a></li>
+  <li><a href="#transacción-evento-atención" id="markdown-toc-transacción-evento-atención">Transacción evento Atención</a></li>
+  <li><a href="#transacción-evento-egreso" id="markdown-toc-transacción-evento-egreso">Transacción evento Egreso</a></li>
+</ul>
+
+</div>
+<p>El perfil transversal para todo el proceso de Urgencia será el encounter con el <code class="language-plaintext highlighter-rouge">identifier</code> del encuentro (idurgencia).</p>
+
+<h3 id="transacción-evento-admisión">Transacción evento Admisión</h3>
+
+<h4 id="descripción">Descripción</h4>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descripción</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Admisión</td>
+      <td>
+        Según la Norma Técnica NGT 149 indica que: La Admisión es el subproceso auxiliar y administrativo del proceso de atención de urgencias, de soporte, que tributa al principal proceso correspondiente a la atención. En él se lleva a cabo la recepción del usuario, apertura del Dato de Atención de Urgencia (DAU) e instalación de brazalete de identificación con doble verificador, esto a partir del registro de datos sociodemográficos relevantes, habilitando así el registro de los cuidados y prestaciones ejecutados durante el subproceso clínico de atención de urgencias. (MINSAL, Norma Técnica Estándares de Datos de atención de Urgencia (No Oficial), 2023) 
+      </td>
+      <td>La respuesta debe indicar si hay errores o indicar que los recursos han sido creados exitosamente</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="diagrama-de-secuencia">Diagrama de secuencia</h4>
+
+<p>El evento admisión debe soportar la siguiente secuencia:</p>
+
+<p><br /></p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="spec-admision-sec-diag.png" alt="spec-admision-sec-diag" style="width: 300px" />
+</div>
+<p><br /></p>
+
+<h4 id="semántica-del-mensaje">Semántica del mensaje</h4>
+
+<h5 id="request">Request</h5>
+
+<p>La semántica del mensaje para la transacción del evento Admisión usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Admisión</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
+
+<h5 id="response">Response</h5>
+
+<p>La respuesta al mensaje enviado debe ser un <code class="language-plaintext highlighter-rouge">OperationOutcome</code> que contiene los detalles de la transacción.</p>
+
+<h4 id="precondiciones">Precondiciones</h4>
+
+<p>No existen precondiciones para este evento.</p>
+
+<h4 id="acciones-esperadas">Acciones esperadas</h4>
+
+<ul>
+  <li>Creación de una admisión de urgencia para un paciente</li>
+</ul>
+
+<h3 id="transacción-evento-categorización">Transacción evento Categorización</h3>
+
+<h4 id="descripción-1">Descripción</h4>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descripción</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Categorización</td>
+      <td>
+        Corresponde a la “priorización de los pacientes de manera de identificar aquellos que no pueden esperar a ser atendidos”. Esta priorización de la atención permite gestionar la demanda, identificando cuánto tiempo pueden esperar los pacientes su atención médica, en base a la información clínica registrada se puede realizar la categorización en 5 niveles posibles de priorización, Pacientes en situación de alto riesgo (C1, C2), paciente complejo(C3), paciente de menor complejidad (C4, C5). (MINSAL, Norma Técnica Estándares de Datos de atención de Urgencia (No Oficial), 2023)
+      </td>
+      <td>La respuesta debe indicar si hay errores o indicar que los recursos han sido creados exitosamente</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="diagrama-de-secuencia-1">Diagrama de secuencia</h4>
+
+<p>El evento Categorización debe soportar la siguiente secuencia:</p>
+
+<p><br /></p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="categorizacion.png" alt="spec-admision-sec-diag" style="width: 300px" />
+</div>
+<p><br /></p>
+
+<h4 id="semántica-del-mensaje-1">Semántica del mensaje</h4>
+
+<h5 id="request-1">Request</h5>
+
+<p>La semántica del mensaje para la transacción del evento Categorización usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Categorización</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
+
+<h5 id="response-1">Response</h5>
+
+<p>La respuesta al mensaje enviado debe ser un <code class="language-plaintext highlighter-rouge">OperationOutcome</code> que contiene los detalles de la transacción.</p>
+
+<h4 id="precondiciones-1">Precondiciones</h4>
+
+<ul>
+  <li>Debe existir un paciente creado</li>
+  <li>Debe haber sido creada una admisión de paciente</li>
+</ul>
+
+<h4 id="acciones-esperadas-1">Acciones esperadas</h4>
+
+<ul>
+  <li>Creación de una categorización de urgencia para un paciente</li>
+</ul>
+
+<h3 id="transacción-evento-atención">Transacción evento Atención</h3>
+
+<h4 id="descripción-2">Descripción</h4>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descripción</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Atención</td>
+      <td>
+        Este evento corresponde al conjunto de actividades clínicas y administrativas que se llevan a cabo en la urgencia con el fin de diagnosticar y reestablecer el estado de salud del usuario. Estas actividades son realizadas por parte del equipo clínico a cargo de la urgencia, durante el proceso de atención el paciente puede sufrir interconsultas a múltiples profesionales dependiendo de su condición de salud.
+      </td>
+      <td>La respuesta debe indicar si hay errores o indicar que los recursos han sido creados exitosamente</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="diagrama-de-secuencia-2">Diagrama de secuencia</h4>
+
+<p>El evento Atención debe soportar la siguiente secuencia:</p>
+
+<p><br /></p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="atencion-clinica.png" alt="spec-admision-sec-diag" style="width: 300px" />
+</div>
+<p><br /></p>
+
+<h4 id="semántica-del-mensaje-2">Semántica del mensaje</h4>
+
+<h5 id="request-2">Request</h5>
+
+<p>La semántica del mensaje para la transacción del evento Atención usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Atención</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>. Adicionalmente, para aquellos establecimientos que puedan generar encuentros de atención diferenciados por profesional durante la atención del paciente, estos pueden ser incluidos como parte del encuentro general.</p>
+
+<h5 id="response-2">Response</h5>
+
+<p>La respuesta al mensaje enviado debe ser un <code class="language-plaintext highlighter-rouge">OperationOutcome</code> que contiene los detalles de la transacción.</p>
+
+<h4 id="precondiciones-2">Precondiciones</h4>
+
+<ul>
+  <li>Debe existir un paciente creado</li>
+  <li>Debe haber sido creada una admisión de paciente</li>
+</ul>
+
+<h4 id="acciones-esperadas-2">Acciones esperadas</h4>
+
+<ul>
+  <li>Creación de una atención de urgencia para un paciente</li>
+</ul>
+
+<h3 id="transacción-evento-egreso">Transacción evento Egreso</h3>
+
+<h4 id="descripción-3">Descripción</h4>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descripción</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Egreso</td>
+      <td>
+        El evento de egreso se realiza al finalizar la atención del paciente, en donde posterior a hacer la evaluación y tratamiento, el profesional toma la decisión de terminar con la atención. El hito es el cierre del dato de urgencia (DAU), el cual debe ser entregado al usuario o tutor, en el caso de destino ambulatorio o adjuntar a la documentación en caso de derivación u hospitalización (ficha clínica). 
+      </td>
+      <td>La respuesta debe indicar si hay errores o indicar que los recursos han sido creados exitosamente</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="diagrama-de-secuencia-3">Diagrama de secuencia</h4>
+
+<p>El evento Egreso debe soportar la siguiente secuencia:</p>
+
+<p><br /></p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="egreso.png" alt="spec-admision-sec-diag" style="width: 300px" />
+</div>
+<p><br /></p>
+
+<h4 id="semántica-del-mensaje-3">Semántica del mensaje</h4>
+
+<h5 id="request-3">Request</h5>
+
+<p>La semántica del mensaje para la transacción del evento Egreso usa el <code class="language-plaintext highlighter-rouge">bundle</code> que es un bundle de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, que incluye toda la información asociada al evento <code class="language-plaintext highlighter-rouge">Egreso</code>, esta información va representada de manera general en el <code class="language-plaintext highlighter-rouge">Encounter</code>.</p>
+
+<h5 id="response-3">Response</h5>
+
+<p>La respuesta al mensaje enviado debe ser un <code class="language-plaintext highlighter-rouge">OperationOutcome</code> que contiene los detalles de la transacción.</p>
+
+<h4 id="precondiciones-3">Precondiciones</h4>
+
+<ul>
+  <li>Debe existir un paciente creado</li>
+  <li>Debe haber sido creada una admisión de paciente</li>
+</ul>
+
+<h4 id="acciones-esperadas-3">Acciones esperadas</h4>
+
+<ul>
+  <li>Creación de un egreso de urgencia para un paciente</li>
+</ul>
+
+<!-- ### Transacción evento Cierre
+
+#### Descripción
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descripción</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cierre</td>
+      <td>
+      Este evento es opcional y solo se considera concluido cuando ocurre un egreso efectivo. Independientemente de la modalidad de egreso (alta, traslado, derivación, abandono o fallecimiento), el paciente puede permanecer en espera de su salida definitiva por diversas razones, ocupando una cama de urgencia durante ese tiempo. Por lo tanto, este evento debe permitir registrar esos períodos de espera y cerrarse únicamente cuando el paciente deje la cama de urgencia. No es necesario utilizarlo si el egreso efectivo ya se registró en el evento correspondiente.
+      </td>
+      <td>La respuesta debe indicar si hay errores o indicar que los recursos han sido creados exitosamente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Diagrama de secuencia
+
+El evento Cierre debe soportar la siguiente secuencia:
+
+<br/>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="cierre.png" alt="spec-cierre-sec-diag" style="width: 300px"/>
+</div>
+<br/>
+
+#### Semántica del mensaje
+
+##### Request
+
+La semántica del mensaje para la transacción del evento Cierre usa el `bundle` que es un bundle de tipo `transaction`, que incluye toda la información asociada al evento `Cierre`, esta información va representada de manera general en el `Encounter`.
+
+##### Response
+
+La respuesta al mensaje enviado debe ser un `OperationOutcome` que contiene los detalles de la transacción.
+
+#### Precondiciones
+
+- Debe existir un paciente creado
+- Debe haber sido creada una admisión de paciente
+- Debe haber egresado del establecimiento
+
+#### Acciones esperadas
+
+- Creación de un egreso efectivo de urgencia para un paciente -->
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.1.2-ballot based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Dec 10, 2025 16:35-0300">2025-12-10</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> 
+<!-- <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia"></a> -->
+</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

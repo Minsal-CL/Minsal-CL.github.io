@@ -1,0 +1,76 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/d04739d3-ba47-4f0f-920f-bcd66b474963> a fhir:Practitioner ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "d04739d3-ba47-4f0f-920f-bcd66b474963"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/PrestadorProfesional>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Practitioner d04739d3-ba47-4f0f-920f-bcd66b474963</b></p><a name=\"d04739d3-ba47-4f0f-920f-bcd66b474963\"> </a><a name=\"hcd04739d3-ba47-4f0f-920f-bcd66b474963\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PrestadorProfesional.html\">Prestador Profesional de Urgencia</a></p></div><p><b>identifier</b>: RUN/12345678-9 (use: official, )</p><p><b>name</b>: Juan Carlos Perez Gonzalez(Official)</p><p><b>birthDate</b>: 1980-01-01</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>cert</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional 20}\">Técnico en Salud</span></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"^^xsd:anyURI ;
+           fhir:l <https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador>
+         ] ;
+         fhir:code [ fhir:v "01" ]
+       ] )
+     ] ;
+     fhir:system [
+       fhir:v "http://www.registrocivil.cl"^^xsd:anyURI ;
+       fhir:l <http://www.registrocivil.cl>
+     ] ;
+     fhir:value [ fhir:v "12345678-9" ]
+  ] ) ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:text [ fhir:v "Juan Carlos Perez Gonzalez" ] ;
+     fhir:family [
+       fhir:v "Perez" ;
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido"^^xsd:anyURI ;
+           fhir:l <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Gonzalez"
+         ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "Juan" ] [ fhir:v "Carlos" ] )
+  ] ) ; # 
+  fhir:birthDate [ fhir:v "1980-01-01"^^xsd:date] ; # 
+  fhir:qualification ( [
+     fhir:identifier ( [
+       fhir:value [ fhir:v "cert" ]
+     ] ) ;
+     fhir:code [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional"^^xsd:anyURI ;
+           fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/TituloProfesional>
+         ] ;
+         fhir:code [ fhir:v "20" ] ;
+         fhir:display [ fhir:v "TÉCNICOS EN SALUD" ]
+       ] ) ;
+       fhir:text [ fhir:v "Técnico en Salud" ]
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

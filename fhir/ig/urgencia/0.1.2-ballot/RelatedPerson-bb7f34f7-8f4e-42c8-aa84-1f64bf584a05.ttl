@@ -1,0 +1,54 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/urgencia/RelatedPerson/bb7f34f7-8f4e-42c8-aa84-1f64bf584a05> a fhir:RelatedPerson ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "bb7f34f7-8f4e-42c8-aa84-1f64bf584a05"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AcompananteUrg"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/AcompananteUrg>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: RelatedPerson bb7f34f7-8f4e-42c8-aa84-1f64bf584a05</b></p><a name=\"bb7f34f7-8f4e-42c8-aa84-1f64bf584a05\"> </a><a name=\"hcbb7f34f7-8f4e-42c8-aa84-1f64bf584a05\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-AcompananteUrg.html\">Acompañante Urgencia</a></p></div><p><b>patient</b>: <a href=\"Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>relationship</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante 3}\">Familiar</span></p><p><b>name</b>: Jose Luis Perez </p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:patient [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Patient/6ec6dc25-4b65-4165-a545-9b796f60b997> ;
+     fhir:reference [ fhir:v "Patient/6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:relationship ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/RelacionAcompanante>
+       ] ;
+       fhir:code [ fhir:v "3" ] ;
+       fhir:display [ fhir:v "Familiar" ]
+     ] )
+  ] ) ; # 
+  fhir:name ( [
+     fhir:family [
+       fhir:v "Perez" ;
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido"^^xsd:anyURI ;
+           fhir:l <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Gonzalez"
+         ]
+       ] )
+     ] ;
+     fhir:given ( [ fhir:v "Jose" ] [ fhir:v "Luis" ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

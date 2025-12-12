@@ -1,0 +1,219 @@
+# Bundle Agendar Entrevista LE - Lista de Espera Quirúrgica Interoperable v0.1.2-ballot
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Bundle Agendar Entrevista LE**
+
+## Example Bundle: Bundle Agendar Entrevista LE
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "EjBundleAgendarEntrevista",
+  "meta" : {
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/BundleAgendarEntrevistaLE"
+    ]
+  },
+  "type" : "transaction",
+  "entry" : [
+    {
+      "fullUrl" : "urn:uuid:76adaeb4-4885-4aa6-96c1-13b9df9a61d7",
+      "resource" : {
+        "resourceType" : "Appointment",
+        "id" : "76adaeb4-4885-4aa6-96c1-13b9df9a61d7",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/AppointmentAgendarLE"
+          ]
+        },
+        "text" : {
+          "status" : "extensions",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Appointment_76adaeb4-4885-4aa6-96c1-13b9df9a61d7\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Cita 76adaeb4-4885-4aa6-96c1-13b9df9a61d7</b></p><a name=\"76adaeb4-4885-4aa6-96c1-13b9df9a61d7\"> </a><a name=\"hc76adaeb4-4885-4aa6-96c1-13b9df9a61d7\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-AppointmentAgendarLE.html\">Appointment Agendar LE</a></p></div><p><b>Medio de Contacto</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSMediodeContacto 3}\">Llamada</span></p><blockquote><p><b>Extension ContactadoLE</b></p><ul><li>Contactado: true</li></ul></blockquote><p><b>identifier</b>: CITA-20241027-001</p><p><b>status</b>: Booked</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoServicioAgendamiento 1}\">Entrevista Pre Quirúrgica</span></p><p><b>start</b>: 2024-10-27 10:00:00-0400</p><p><b>end</b>: 2024-10-27 10:30:00-0400</p><p><b>created</b>: 2024-10-25 14:00:00-0400</p><p><b>basedOn</b>: <a href=\"ServiceRequest-38a17703-0731-4c3f-88fd-1202dc99d7ce.html\">ServiceRequest estructura del pulmón</a></p><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href=\"Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html\">Juan Pérez (official) Male, DoB: 1980-01-01 ( RUN: 4444444-4)</a></p><p><b>status</b>: Accepted</p></blockquote><blockquote><p><b>participant</b></p><p><b>actor</b>: <a href=\"Bundle-EjBundleAgendarEntrevista.html#urn-uuid-2b238804-f4bd-4005-82d2-9777aa09bea8\">PractitionerRole Agendador</a></p><p><b>status</b>: Accepted</p></blockquote></div>"
+        },
+        "extension" : [
+          {
+            "url" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ExtensionMediodeContacto",
+            "valueCodeableConcept" : {
+              "coding" : [
+                {
+                  "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSMediodeContacto",
+                  "code" : "3",
+                  "display" : "Llamada"
+                }
+              ]
+            }
+          },
+          {
+            "extension" : [
+              {
+                "url" : "Contactado",
+                "valueBoolean" : true
+              }
+            ],
+            "url" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/Contactado"
+          }
+        ],
+        "identifier" : [
+          {
+            "value" : "CITA-20241027-001"
+          }
+        ],
+        "status" : "booked",
+        "serviceType" : [
+          {
+            "coding" : [
+              {
+                "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTipoServicioAgendamiento",
+                "code" : "1",
+                "display" : "Entrevista Pre Quirúrgica"
+              }
+            ]
+          }
+        ],
+        "start" : "2024-10-27T10:00:00-04:00",
+        "end" : "2024-10-27T10:30:00-04:00",
+        "created" : "2024-10-25T14:00:00-04:00",
+        "basedOn" : [
+          {
+            "reference" : "ServiceRequest/38a17703-0731-4c3f-88fd-1202dc99d7ce"
+          }
+        ],
+        "participant" : [
+          {
+            "actor" : {
+              "reference" : "Patient/22e862c5-6d96-44ec-869c-dba001058cb3",
+              "type" : "Patient"
+            },
+            "status" : "accepted"
+          },
+          {
+            "actor" : {
+              "reference" : "urn:uuid:2b238804-f4bd-4005-82d2-9777aa09bea8",
+              "type" : "PractitionerRole"
+            },
+            "status" : "accepted"
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Appointment"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210",
+      "resource" : {
+        "resourceType" : "Practitioner",
+        "id" : "2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerProfesionalLE"
+          ]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practicante / Profesional 2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210</b></p><a name=\"2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210\"> </a><a name=\"hc2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PractitionerProfesionalLE.html\">Prestador Profesional LE</a></p></div><p><b>identifier</b>: RUN/55555555-5 (use: official, )</p><p><b>name</b>: Paula Hernandez (Official)</p><p><b>birthDate</b>: 1990-05-15</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>cert</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTituloProfesional 3}\">Enfermera</span></td></tr></table></div>"
+        },
+        "identifier" : [
+          {
+            "use" : "official",
+            "type" : {
+              "coding" : [
+                {
+                  "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+                  "code" : "01"
+                }
+              ]
+            },
+            "system" : "http://www.registrocivil.cl",
+            "value" : "55555555-5"
+          }
+        ],
+        "name" : [
+          {
+            "use" : "official",
+            "family" : "Hernandez",
+            "_family" : {
+              "extension" : [
+                {
+                  "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido",
+                  "valueString" : "Navarro"
+                }
+              ]
+            },
+            "given" : ["Paula"]
+          }
+        ],
+        "birthDate" : "1990-05-15",
+        "qualification" : [
+          {
+            "identifier" : [
+              {
+                "value" : "cert"
+              }
+            ],
+            "code" : {
+              "coding" : [
+                {
+                  "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSTituloProfesional",
+                  "code" : "3",
+                  "display" : "ENFERMERAS(OS)"
+                }
+              ],
+              "text" : "Enfermera"
+            }
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Practitioner",
+        "ifNoneExist" : "identifier=http://www.registrocivil.cl|55555555-5"
+      }
+    },
+    {
+      "fullUrl" : "urn:uuid:2b238804-f4bd-4005-82d2-9777aa09bea8",
+      "resource" : {
+        "resourceType" : "PractitionerRole",
+        "id" : "2b238804-f4bd-4005-82d2-9777aa09bea8",
+        "meta" : {
+          "profile" : [
+            "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/PractitionerRoleLE"
+          ]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_2b238804-f4bd-4005-82d2-9777aa09bea8\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RolProfesional 2b238804-f4bd-4005-82d2-9777aa09bea8</b></p><a name=\"2b238804-f4bd-4005-82d2-9777aa09bea8\"> </a><a name=\"hc2b238804-f4bd-4005-82d2-9777aa09bea8\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PractitionerRoleLE.html\">PractitionerRole LE</a></p></div><p><b>practitioner</b>: <a href=\"Bundle-EjBundleAgendarCirugia.html#urn-uuid-2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210\">Practitioner Paula Hernandez (official)</a></p><p><b>organization</b>: <a href=\"Organization-5491b8d5-e06c-4f89-beb7-75a1989cdc81.html\">Organization Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza</a></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE agendador}\">Agendador</span></p></div>"
+        },
+        "practitioner" : {
+          "reference" : "urn:uuid:2d5d9db4-6ade-43c9-b4f5-cc68b9c7f210"
+        },
+        "organization" : {
+          "reference" : "Organization/5491b8d5-e06c-4f89-beb7-75a1989cdc81"
+        },
+        "code" : [
+          {
+            "coding" : [
+              {
+                "system" : "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE",
+                "code" : "agendador"
+              }
+            ]
+          }
+        ]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "PractitionerRole",
+        "ifNoneExist" : "practitioner.identifier=http://www.registrocivil.cl|55555555-5&role=https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/CodeSystem/CSPractitionerTipoRolLE|agendador"
+      }
+    }
+  ]
+}
+
+```

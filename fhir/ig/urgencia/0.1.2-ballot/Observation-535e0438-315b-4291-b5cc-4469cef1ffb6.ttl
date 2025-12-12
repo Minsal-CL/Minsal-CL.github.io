@@ -1,0 +1,57 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Observation/535e0438-315b-4291-b5cc-4469cef1ffb6> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "535e0438-315b-4291-b5cc-4469cef1ffb6"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalExamenToxico"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ObservacionMedLegalExamenToxico>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation 535e0438-315b-4291-b5cc-4469cef1ffb6</b></p><a name=\"535e0438-315b-4291-b5cc-4469cef1ffb6\"> </a><a name=\"hc535e0438-315b-4291-b5cc-4469cef1ffb6\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ObservacionMedLegalExamenToxico.html\">Observación Medico Legal Examen Toxicológico</a></p></div><p><b>status</b>: Registered</p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 29587-3}\">Médico Legal Exámen Toxicológico</span></p><p><b>subject</b>: <a href=\"Patient-6ec6dc25-4b65-4165-a545-9b796f60b997.html\">Maria Josefína Perez Gonzalez(official) Female, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))</a></p><p><b>encounter</b>: <a href=\"Encounter-d1391b7b-302a-49f8-a908-8116599e137e.html\">Encounter: extension = false; identifier = 126402-0025; status = in-progress; class = emergency (ActCode#EMER); priority = Atención Prioritaria; period = 2024-10-25 13:18:00-0400 --&gt; (ongoing); reasonCode = </a></p><p><b>effective</b>: 2024-10-25 14:18:00-0400</p><p><b>performer</b>: <a href=\"Practitioner-190cd208-48b1-4920-a283-6bc37cbde13a.html\">Practitioner Luis Gonzalez (official)</a></p><p><b>value</b>: 2024-10-25 14:14:00-0400</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "registered"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:29587-3 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "29587-3" ]
+     ] ) ;
+     fhir:text [ fhir:v "Médico Legal Exámen Toxicológico" ]
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Patient/6ec6dc25-4b65-4165-a545-9b796f60b997> ;
+     fhir:reference [ fhir:v "Patient/6ec6dc25-4b65-4165-a545-9b796f60b997" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Encounter/d1391b7b-302a-49f8-a908-8116599e137e> ;
+     fhir:reference [ fhir:v "Encounter/d1391b7b-302a-49f8-a908-8116599e137e" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2024-10-25T14:18:00-04:00"^^xsd:dateTime
+  ] ; # 
+  fhir:performer ( [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/urgencia/Practitioner/190cd208-48b1-4920-a283-6bc37cbde13a> ;
+     fhir:reference [ fhir:v "Practitioner/190cd208-48b1-4920-a283-6bc37cbde13a" ]
+  ] ) ; # 
+  fhir:value [
+     a fhir:DateTime ;
+     fhir:v "2024-10-25T14:14:00-04:00"^^xsd:dateTime
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

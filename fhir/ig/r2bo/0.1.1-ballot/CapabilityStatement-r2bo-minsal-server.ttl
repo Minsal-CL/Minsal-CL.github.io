@@ -1,0 +1,1062 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/CapabilityStatement/r2bo-minsal-server> a fhir:CapabilityStatement ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "r2bo-minsal-server"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CapabilityStatement r2bo-minsal-server</b></p><a name=\"r2bo-minsal-server\"> </a><a name=\"hcr2bo-minsal-server\"> </a><h2 id=\"title\">CapabilityStatement Servidor del Repositorio de Biopsia del Ministerio de Salud</h2><ul><li>Implementation Guide Version: 0.1.1-ballot </li><li>FHIR Version: 4.0.1 </li><li>Supported Formats: <code>json</code>, <code>xml</code>, <code>application/fhir+json</code>, <code>application/fhir+xml</code></li><li>Published on: 2025-03-05 15:30:00-0300 </li><li>Published by: Unidad de Interoperabilidad - MINSAL </li></ul><blockquote class=\"impl-note\"><p><strong>Note to Implementers: FHIR Capabilities</strong></p><p>Any FHIR capability may be 'allowed' by the system unless explicitly marked as 'SHALL NOT'. A few items are marked as MAY in the Implementation Guide to highlight their potential relevance to the use case.</p></blockquote><p>This CapabilityStatement imports these CapabilityStatements <a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/CapabilityStatement-cl-core-server.html\">CapabilityStatement Servidor Cl Core</a>, <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/CapabilityStatement-MPI.IHE.PIXm.PDQm.Manager.html\">Administrador del Indice Maestro Paciente</a>, <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/CapabilityStatement-NID.IHE.HPD.Manager.html\">Administrador del Directorio de Proveedores de Atención Médica</a></p><h3 id=\"shallIGs\">SHALL Support the Following Implementation Guides</h3><ul><li><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/index.html\">https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore</a></li><li><a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/index.html\">https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid</a></li><li><a href=\"http://hl7.org/fhir/us/mcode/STU4/index.html\">http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode</a></li></ul><h2 id=\"rest\">FHIR RESTful Capabilities</h2><div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 id=\"mode1\" class=\"panel-title\">Mode: <code>server</code></h3></div><div class=\"panel-body\"><div><p>El Servidor Repositorio de Biopsia del Ministerio de Salud permite la gestión de solicitudes de informes de biopsia y sus resultados.</p>\n</div><div class=\"lead\"><em>Security</em></div><div class=\"row\"><div class=\"col-lg-6\">Enable CORS: no</div><div class=\"col-lg-6\">Security services supported: <code>OAuth</code></div></div><blockquote><div><p>OAuth2 usando el APIG del Ministerio de Salud para generar Tokens para enviar y acceder al respositorio</p>\n</div></blockquote><div class=\"lead\"><em>Summary of System-wide Interactions</em></div><ul><li>Supports the <code>transaction</code>interaction described as follows:<div><p>Iteracción para enviar solicitudes de un informe de biopsia y sus resultados</p>\n</div></li><li>Supports the <code>search-system</code>interaction described as follows:<div><p>Iteracción para realizar busquedas de un informe de biopsia y sus resultados</p>\n</div></li></ul><div class=\"row\"><div class=\"col-12\"><span class=\"lead\">Summary of System-wide Operations</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Operation</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td>$graphql</td><td><div><p>Operación para extraer los datos del repositorio de biopsia en formato GraphQL</p>\n</div></td></tr></tbody></table></div></div></div></div><h3 id=\"resourcesCap1\">Capabilities by Resource/Profile</h3><h4 id=\"resourcesSummary1\">Summary</h4><p>The summary table lists the resources that are part of this configuration, and for each resource it lists:</p><ul><li>The relevant profiles (if any)</li><li>The interactions supported by each resource (<b><span class=\"bg-info\">R</span></b>ead, <b><span class=\"bg-info\">S</span></b>earch, <b><span class=\"bg-info\">U</span></b>pdate, and <b><span class=\"bg-info\">C</span></b>reate, are always shown, while <b><span class=\"bg-info\">VR</span></b>ead, <b><span class=\"bg-info\">P</span></b>atch, <b><span class=\"bg-info\">D</span></b>elete, <b><span class=\"bg-info\">H</span></b>istory on <b><span class=\"bg-info\">I</span></b>nstance, or <b><span class=\"bg-info\">H</span></b>istory on <b><span class=\"bg-info\">T</span></b>ype are only present if at least one of the resources has support for them.</li><li><span>The required, recommended, and some optional search parameters (if any). </span></li><li>The linked resources enabled for <code>_include</code></li><li>The other resources enabled for <code>_revinclude</code></li><li>The operations on the resource (if any)</li></ul><div class=\"table-responsive\"><table class=\"table table-condensed table-hover\"><thead><tr><th><b>Resource Type</b></th><th><b>Profile</b></th><th class=\"text-center\"><b title=\"GET a resource (read interaction)\">R</b></th><th class=\"text-center\"><b title=\"GET past versions of resources (vread interaction)\">V-R</b></th><th class=\"text-center\"><b title=\"GET all set of resources of the type (search interaction)\">S</b></th><th class=\"text-center\"><b title=\"PUT a new resource version (update interaction)\">U</b></th><th class=\"text-center\"><b title=\"POST a new resource (create interaction)\">C</b></th><th class=\"text-center\"><b title=\"DELETE a resource (delete interaction)\">D</b></th><th><b title=\"Required and recommended search parameters\">Searches</b></th><th><code><b>_include</b></code></th><th><code><b>_revinclude</b></code></th><th><b>Operations</b></th></tr></thead><tbody><tr><td><a href=\"#BodyStructure1-1\">BodyStructure</a></td><td>Supported Profiles<br/>  <a href=\"StructureDefinition-r2bo-tumor.html\">Perfil de la Morfología y Topología del Tumor</a></td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>identifier, morphology, patient, location, _id</td><td><code>*</code>, <code>BodyStructure:patient</code></td><td><code>Composition:entry</code>, <code>Observation:focus</code></td><td/></tr><tr><td><a href=\"#Composition1-2\">Composition</a></td><td><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-DocumentoCl.html\">https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/DocumentoCl</a><br/><em>Additional supported profiles:</em><br/>  <a href=\"StructureDefinition-r2bo-composition-biopsia.html\">Perfil del Documento de Biopsía</a></td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>date, subject, section, type, patient, identifier, period, author, entry, _id, category, status</td><td><code>*</code>, <code>Composition:attester</code>, <code>Composition:author</code>, <code>Composition:entry</code>, <code>Composition:patient</code>, <code>Composition:subject</code></td><td/><td><code>$document</code></td></tr><tr><td><a href=\"#DiagnosticReport1-3\">DiagnosticReport</a></td><td>Supported Profiles<br/>  <a href=\"StructureDefinition-r2bo-informe-biopsia.html\">Perfil del Reporte de Anatomía Patológica</a></td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>code, subject, conclusion, result, based-on, patient, specimen, issued, identifier, performer, _id, category, status</td><td><code>*</code>, <code>DiagnosticReport:based-on</code>, <code>DiagnosticReport:patient</code>, <code>DiagnosticReport:performer</code>, <code>DiagnosticReport:result</code>, <code>DiagnosticReport:specimen</code>, <code>DiagnosticReport:subject</code></td><td><code>Observation:focus</code></td><td><code>$graphql</code></td></tr><tr><td><a href=\"#Observation1-4\">Observation</a></td><td><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CoreObservacionCL.html\">https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL</a><br/><em>Additional supported profiles:</em><br/>  <a href=\"StructureDefinition-r2bo-estadificacion-tnm.html\">Perfil de Grupo Estadificación TNM</a><br/>  <a href=\"StructureDefinition-r2bo-categoria-tnm.html\">Perfil de Origen para las Categorías T, N,  M (Abstracto)</a><br/>  <a href=\"StructureDefinition-r2bo-resultados-reporte-biopsia.html\">Perfil de Origen de Todos Los Resultados</a></td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>date, subject, value-concept, focus, has-member, component-code-value-quantity, code-value-quantity, combo-code-value-concept, value-string, identifier, method, value-quantity, combo-value-quantity, code-value-concept, _id, status, combo-data-absent-reason, code, component-data-absent-reason, combo-code-value-quantity, code-value-string, based-on, patient, specimen, component-code, performer, combo-code, component-value-quantity, data-absent-reason, component-code-value-concept, component-value-concept, category, combo-value-concept</td><td><code>*</code>, <code>Observation:based-on</code>, <code>Observation:derived-from</code>, <code>Observation:device</code>, <code>Observation:encounter</code>, <code>Observation:focus</code>, <code>Observation:has-member</code>, <code>Observation:part-of</code>, <code>Observation:patient</code>, <code>Observation:performer</code>, <code>Observation:specimen</code>, <code>Observation:subject</code></td><td><code>Composition:entry</code>, <code>DiagnosticReport:result</code>, <code>Observation:derived-from</code>, <code>Observation:focus</code>, <code>Observation:has-member</code></td><td/></tr><tr><td><a href=\"#PractitionerRole1-5\">PractitionerRole</a></td><td><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CoreRolClinicoCl.html\">https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreRolClinicoCl</a><br/><em>Additional supported profiles:</em><br/>  <a href=\"StructureDefinition-r2bo-rol-profesional-minsal.html\">Perfil de Rol Profesional</a></td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>role, practitioner, organization</td><td><code>*</code>, <code>PractitionerRole:endpoint</code>, <code>PractitionerRole:location</code>, <code>PractitionerRole:organization</code>, <code>PractitionerRole:practitioner</code>, <code>PractitionerRole:service</code></td><td><code>Composition:attester</code>, <code>Composition:author</code>, <code>DiagnosticReport:performer</code>, <code>DiagnosticReport:results-interpreter</code>, <code>Observation:focus</code>, <code>Observation:performer</code>, <code>Patient:general-practitioner</code>, <code>ServiceRequest:performer</code>, <code>ServiceRequest:requester</code>, <code>Specimen:collector</code></td><td/></tr><tr><td><a href=\"#ServiceRequest1-6\">ServiceRequest</a></td><td>Supported Profiles<br/>  <a href=\"StructureDefinition-r2bo-solicitud-informe-apa.html\">Perfil de Solicitud de Informe de Anatomía Patológica</a></td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>code, subject, patient, specimen, requester, identifier, performer, intent, performer-type, category, status</td><td><code>*</code>, <code>ServiceRequest:based-on</code>, <code>ServiceRequest:patient</code>, <code>ServiceRequest:performer</code>, <code>ServiceRequest:requester</code>, <code>ServiceRequest:specimen</code>, <code>ServiceRequest:subject</code></td><td><code>Composition:entry</code>, <code>DiagnosticReport:based-on</code>, <code>Observation:based-on</code>, <code>Observation:focus</code>, <code>ServiceRequest:based-on</code>, <code>ServiceRequest:replaces</code></td><td/></tr><tr><td><a href=\"#Specimen1-7\">Specimen</a></td><td>Supported Profiles<br/>  <a href=\"StructureDefinition-r2bo-muestra-biopsia.html\">Perfil de Muestra</a></td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>identifier, bodysite, subject, collected, type, collector, patient, status</td><td><code>*</code>, <code>Specimen:collector</code>, <code>Specimen:parent</code>, <code>Specimen:patient</code>, <code>Specimen:subject</code></td><td><code>Composition:entry</code>, <code>DiagnosticReport:specimen</code>, <code>Observation:focus</code>, <code>Observation:specimen</code>, <code>ServiceRequest:specimen</code>, <code>Specimen:parent</code></td><td/></tr></tbody></table></div><hr/><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"BodyStructure1-1\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>BodyStructure</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4\"><span class=\"lead\">Core FHIR Resource</span><br/><a href=\"http://hl7.org/fhir/R4/bodystructure.html\">BodyStructure</a></div><div class=\"col-lg-4\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div><div class=\"col-lg-4\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>search-type</code>, <code>read</code>, <code>vread</code>, <code>update</code>, <code>delete</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-tumor.html\">Perfil de la Morfología y Topología del Tumor</a></p></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/bodystructure.html#search\">identifier</a></td><td><code>token</code></td><td><div><p>Identificador de la Estructura Corporal</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/bodystructure.html#search\">morphology</a></td><td><code>token</code></td><td><div><p>Tipo de estructura</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/bodystructure.html#search\">patient</a></td><td><code>reference</code></td><td><div><p>Individuo al que se refiere</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/bodystructure.html#search\">location</a></td><td><code>token</code></td><td><div><p>Sitio del cuerpo</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/resource.html#search\">_id</a></td><td><code>token</code></td><td><div><p>Id logico dentro del servidor de la estructura corporal</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"Composition1-2\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>Composition</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6\"><span class=\"lead\">Base System Profile</span><br/><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-DocumentoCl.html\">CL Documento</a></div><div class=\"col-lg-3\"><span class=\"lead\">Profile Conformance</span><br/><b>SHALL</b></div><div class=\"col-lg-3\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-composition-biopsia.html\">Perfil del Documento de Biopsía</a></p></div><div class=\"col-lg-6\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>search-type</code>, <code>read</code>, <code>vread</code>, <code>update</code>, <code>delete</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">date</a></td><td><code>date</code></td><td><div><p>Fecha de la creación del documento</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">subject</a></td><td><code>reference</code></td><td><div><p>Sobre quién o qué es el documento</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">section</a></td><td><code>token</code></td><td><div><p>Clasificación de la sección (recomendado)</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">type</a></td><td><code>string</code></td><td><div><p>titulo legible para humanos</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">patient</a></td><td><code>reference</code></td><td><div><p>Paciente asociado al documento</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">identifier</a></td><td><code>token</code></td><td><div><p>Identificador del documento</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">period</a></td><td><code>date</code></td><td><div><p>El periodo de tiempo que el documento cubre (recomendado)</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">author</a></td><td><code>reference</code></td><td><div><p>Quien o que creo el documento</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">entry</a></td><td><code>reference</code></td><td><div><p>Referencia aresursos incluidos en el documento</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/resource.html#search\">_id</a></td><td><code>token</code></td><td><div><p>Id logico dentro del servidor del documento</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">category</a></td><td><code>token</code></td><td><div><p>Categoría del documento</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/composition.html#search\">status</a></td><td><code>token</code></td><td><div><p>preliminary | final | amended | entered-in-error</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div><div class=\"row\"><div class=\"col-12\"><span class=\"lead\">Extended Operations</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Operation</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td>$document</td><td><div/></td></tr></tbody></table></div></div></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"DiagnosticReport1-3\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>DiagnosticReport</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4\"><span class=\"lead\">Core FHIR Resource</span><br/><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html\">DiagnosticReport</a></div><div class=\"col-lg-4\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div><div class=\"col-lg-4\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>search-type</code>, <code>read</code>, <code>vread</code>, <code>update</code>, <code>delete</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-informe-biopsia.html\">Perfil del Reporte de Anatomía Patológica</a></p></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">code</a></td><td><code>token</code></td><td><div><p>Código de identificación del informe</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">subject</a></td><td><code>reference</code></td><td><div><p>El sujeto del informe</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">conclusion</a></td><td><code>token</code></td><td><div><p>Código de conclusión (interpretación/impresión) del informe</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">result</a></td><td><code>reference</code></td><td><div><p>Enlace de la observaciones de los resultados</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">based-on</a></td><td><code>reference</code></td><td><div><p>Solicitud del Informe de Anatomia Patológica</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">patient</a></td><td><code>reference</code></td><td><div><p>Paciente asociado al informe</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">specimen</a></td><td><code>reference</code></td><td><div><p>Detalles del Especimen</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">issued</a></td><td><code>date</code></td><td><div><p>Cuando fue creado el informe</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">identifier</a></td><td><code>token</code></td><td><div><p>Identificador del informe</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">performer</a></td><td><code>reference</code></td><td><div><p>Quien es el responsable del informe</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/resource.html#search\">_id</a></td><td><code>token</code></td><td><div><p>Id logico dentro del servidor del informe</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">category</a></td><td><code>token</code></td><td><div><p>Cual es la categoria del informe, por defecto es PAT</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html#search\">status</a></td><td><code>token</code></td><td><div><p>El estado del Reporte</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div><div class=\"row\"><div class=\"col-12\"><span class=\"lead\">Extended Operations</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Operation</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td>$graphql</td><td><div><p>Operación para extraer los datos del repositorio de biopsia en formato GraphQL</p>\n</div></td></tr></tbody></table></div></div></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"Observation1-4\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>Observation</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6\"><span class=\"lead\">Base System Profile</span><br/><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CoreObservacionCL.html\">CL Observación</a></div><div class=\"col-lg-3\"><span class=\"lead\">Profile Conformance</span><br/><b>SHALL</b></div><div class=\"col-lg-3\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-estadificacion-tnm.html\">Perfil de Grupo Estadificación TNM</a><br/><a href=\"StructureDefinition-r2bo-categoria-tnm.html\">Perfil de Origen para las Categorías T, N,  M (Abstracto)</a><br/><a href=\"StructureDefinition-r2bo-resultados-reporte-biopsia.html\">Perfil de Origen de Todos Los Resultados</a></p></div><div class=\"col-lg-6\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>search-type</code>, <code>read</code>, <code>vread</code>, <code>update</code>, <code>delete</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">date</a></td><td><code>date</code></td><td><div><p>Fecha de la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">subject</a></td><td><code>reference</code></td><td><div><p>El sujeto de la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">value-concept</a></td><td><code>token</code></td><td><div><p>El valor de la observación, si el valor es un concepto codificado</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">focus</a></td><td><code>reference</code></td><td><div><p>El objeto de la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">has-member</a></td><td><code>reference</code></td><td><div><p>Recursos relacionados son miembros de la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">component-code-value-quantity</a></td><td><code>composite</code></td><td><div><p>Par entre el código del componente y el valor de la cantidad del componente</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">code-value-quantity</a></td><td><code>composite</code></td><td><div><p>Par entre el código y el valor de la cantidad</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">combo-code-value-concept</a></td><td><code>composite</code></td><td><div><p>Par en el parametro de código y valor codificado, incluyendo en componentes</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">value-string</a></td><td><code>string</code></td><td><div><p>El valor de la observación, si el valor es un string, y también busca en CodeableConcept.text</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">identifier</a></td><td><code>token</code></td><td><div><p>Identificador único de la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">method</a></td><td><code>token</code></td><td><div><p>El método usado para la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">value-quantity</a></td><td><code>quantity</code></td><td><div><p>El valor de la observación, si el valor es una cantidad, o un SampledData (solo busca en los límites de los valores en los datos muestreados)</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">combo-value-quantity</a></td><td><code>quantity</code></td><td><div><p>El valor o el valor del componente de la observación, si el valor es una cantidad, o un SampledData (solo busca en los límites de los valores en los datos muestreados)</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">code-value-concept</a></td><td><code>composite</code></td><td><div><p>Par en el parametro de código y valor codificado</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/resource.html#search\">_id</a></td><td><code>token</code></td><td><div><p>Id lógico del recurso</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">status</a></td><td><code>token</code></td><td><div><p>El estado de la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">combo-data-absent-reason</a></td><td><code>token</code></td><td><div><p>La razón por la que el valor esperado en el elemento Observation.component.value[x] está ausente</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">code</a></td><td><code>token</code></td><td><div><p>El código de identificación de la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">component-data-absent-reason</a></td><td><code>token</code></td><td><div><p>La razón por la que el valor esperado en el elemento Observation.component.value[x] está ausente</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">combo-code-value-quantity</a></td><td><code>composite</code></td><td><div><p>Par en el parametro de código y valor codificado, incluyendo en componentes</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">code-value-string</a></td><td><code>composite</code></td><td><div><p>Par en el parametro de código y valor codificado, incluyendo en componentes</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">based-on</a></td><td><code>reference</code></td><td><div><p>Recurso que origina la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">patient</a></td><td><code>reference</code></td><td><div><p>El paciente asociado a la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">specimen</a></td><td><code>reference</code></td><td><div><p>El especimen asociado a la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">component-code</a></td><td><code>token</code></td><td><div><p>El código del componente de la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">performer</a></td><td><code>reference</code></td><td><div><p>El individuo u organización que realizó la observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">combo-code</a></td><td><code>token</code></td><td><div><p>El código de la observación, incluyendo en componentes</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">component-value-quantity</a></td><td><code>quantity</code></td><td><div><p>El valor del componente de la observación, si el valor es una cantidad, o un SampledData (solo busca en los límites de los valores en los datos muestreados)</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">data-absent-reason</a></td><td><code>token</code></td><td><div><p>La razón de por qué el valor esperado en el elemento Observation.value[x] está ausente</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">component-code-value-concept</a></td><td><code>composite</code></td><td><div><p>Par en el parametro de código y valor codificado de los componentes</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">component-value-concept</a></td><td><code>token</code></td><td><div><p>El valor del componente de la observación, si el valor es un concepto codificado</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">category</a></td><td><code>token</code></td><td><div><p>La clasificación del tipo de observación</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/observation.html#search\">combo-value-concept</a></td><td><code>token</code></td><td><div><p>El valor de la observación, si el valor es un concepto codificado, incluyendo en componentes</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"PractitionerRole1-5\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>PractitionerRole</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6\"><span class=\"lead\">Base System Profile</span><br/><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CoreRolClinicoCl.html\">CL RolClinico</a></div><div class=\"col-lg-3\"><span class=\"lead\">Profile Conformance</span><br/><b>SHALL</b></div><div class=\"col-lg-3\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-rol-profesional-minsal.html\">Perfil de Rol Profesional</a></p></div><div class=\"col-lg-6\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>search-type</code>, <code>read</code>, <code>vread</code>, <code>update</code>, <code>delete</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/practitionerrole.html#search\">role</a></td><td><code>token</code></td><td><div><p>El rol que cumple el profesional en el establecimiento de salud</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/practitionerrole.html#search\">practitioner</a></td><td><code>reference</code></td><td><div><p>El profesional que cumple el rol</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/practitionerrole.html#search\">organization</a></td><td><code>reference</code></td><td><div><p>La identidad de la organización que representa el profesional</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"ServiceRequest1-6\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>ServiceRequest</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4\"><span class=\"lead\">Core FHIR Resource</span><br/><a href=\"http://hl7.org/fhir/R4/servicerequest.html\">ServiceRequest</a></div><div class=\"col-lg-4\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div><div class=\"col-lg-4\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>search-type</code>, <code>read</code>, <code>vread</code>, <code>update</code>, <code>delete</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-solicitud-informe-apa.html\">Perfil de Solicitud de Informe de Anatomía Patológica</a></p></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">code</a></td><td><code>token</code></td><td><div><p>Código de solicitud</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">subject</a></td><td><code>reference</code></td><td><div><p>Búsqueda por sujeto</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">patient</a></td><td><code>reference</code></td><td><div><p>Paciente asociado a la solicitud</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">specimen</a></td><td><code>reference</code></td><td><div><p>Muestra que sera analizada</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">requester</a></td><td><code>reference</code></td><td><div><p>Quien solicita el servicio</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">identifier</a></td><td><code>token</code></td><td><div><p>Identificador único de la solicitud</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">performer</a></td><td><code>reference</code></td><td><div><p>Responsable de realizar el servicio</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">intent</a></td><td><code>token</code></td><td><div><p>proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">performer-type</a></td><td><code>token</code></td><td><div><p>Performer role</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">category</a></td><td><code>token</code></td><td><div><p>Clasificación del servicio</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">status</a></td><td><code>token</code></td><td><div><p>draft | active | on-hold | revoked | completed | entered-in-error | unknown</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"Specimen1-7\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>Specimen</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4\"><span class=\"lead\">Core FHIR Resource</span><br/><a href=\"http://hl7.org/fhir/R4/specimen.html\">Specimen</a></div><div class=\"col-lg-4\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div><div class=\"col-lg-4\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>search-type</code>, <code>read</code>, <code>vread</code>, <code>update</code>, <code>delete</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-muestra-biopsia.html\">Perfil de Muestra</a></p></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">identifier</a></td><td><code>token</code></td><td><div><p>Identificador único asociado a la muestra</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">bodysite</a></td><td><code>token</code></td><td><div><p>EL código de la ubicación anatómica de la muestra</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">subject</a></td><td><code>reference</code></td><td><div><p>El sujeto de la muestra</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">collected</a></td><td><code>date</code></td><td><div><p>La fecha de cuando fue recolectada la muestra</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">type</a></td><td><code>token</code></td><td><div><p>Tipo de muestra</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">collector</a></td><td><code>reference</code></td><td><div><p>Quien Recolecto la muestra</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">patient</a></td><td><code>reference</code></td><td><div><p>EL paciente asociado a la muestra</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">status</a></td><td><code>token</code></td><td><div><p>available | unavailable | unsatisfactory | entered-in-error</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div></div></div></div></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm>
+     ] ;
+     fhir:value [
+       a fhir:Integer ;
+       fhir:v 1
+     ]
+  ] ) ; # 
+  fhir:url [
+     fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/CapabilityStatement/r2bo-minsal-server"^^xsd:anyURI ;
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/CapabilityStatement/r2bo-minsal-server>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.1-ballot"] ; # 
+  fhir:name [ fhir:v "R2BOMinsalServerCapabilityStatement"] ; # 
+  fhir:title [ fhir:v "CapabilityStatement Servidor del Repositorio de Biopsia del Ministerio de Salud"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2025-03-05T15:30:00-03:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Unidad de Interoperabilidad - MINSAL"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://interoperabilidad.minsal.cl" ]
+     ] )
+  ] [
+     fhir:name [ fhir:v "Franco Ulloa" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "franco.ulloa@minsal.cl" ] ;
+       fhir:use [ fhir:v "work" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "CapabilityStatement para definir las caracteristicas mínimas del servidor para ver las interacciones posibles"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ;
+         fhir:l <urn:iso:std:iso:3166>
+       ] ;
+       fhir:code [ fhir:v "CL" ] ;
+       fhir:display [ fhir:v "Chile" ]
+     ] )
+  ] ) ; # 
+  fhir:kind [ fhir:v "requirements"] ; # 
+  fhir:imports ( [
+     fhir:v "https://hl7chile.cl/fhir/ig/clcore/CapabilityStatement/cl-core-server"^^xsd:anyURI ;
+     fhir:l <https://hl7chile.cl/fhir/ig/clcore/CapabilityStatement/cl-core-server>
+  ] [
+     fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PIXm.PDQm.Manager"^^xsd:anyURI ;
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PIXm.PDQm.Manager>
+  ] [
+     fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/NID.IHE.HPD.Manager"^^xsd:anyURI ;
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/NID.IHE.HPD.Manager>
+  ] ) ; # 
+  fhir:fhirVersion [ fhir:v "4.0.1"] ; # 
+  fhir:format ( [ fhir:v "json"] [ fhir:v "xml"] [ fhir:v "application/fhir+json"] [ fhir:v "application/fhir+xml"] ) ; # 
+  fhir:implementationGuide ( [
+     fhir:v "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore"^^xsd:anyURI ;
+     fhir:l <https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore>
+  ] [
+     fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid"^^xsd:anyURI ;
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid>
+  ] [
+     fhir:v "http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode"^^xsd:anyURI ;
+     fhir:l <http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode>
+  ] ) ; # 
+  fhir:rest ( [
+     fhir:mode [ fhir:v "server" ] ;
+     fhir:documentation [ fhir:v "El Servidor Repositorio de Biopsia del Ministerio de Salud permite la gestión de solicitudes de informes de biopsia y sus resultados." ] ;
+     fhir:security [
+       fhir:service ( [
+         fhir:coding ( [
+           fhir:system [
+             fhir:v "http://terminology.hl7.org/CodeSystem/restful-security-service"^^xsd:anyURI ;
+             fhir:l <http://terminology.hl7.org/CodeSystem/restful-security-service>
+           ] ;
+           fhir:code [ fhir:v "OAuth" ]
+         ] )
+       ] ) ;
+       fhir:description [ fhir:v "OAuth2 usando el APIG del Ministerio de Salud para generar Tokens para enviar y acceder al respositorio" ]
+     ] ;
+     fhir:resource ( [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation>
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "SHALL"
+         ]
+       ] ) ;
+       fhir:type [ fhir:v "BodyStructure" ] ;
+       fhir:supportedProfile ( [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-tumor"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-tumor>
+       ] ) ;
+       fhir:interaction ( [
+         fhir:code [ fhir:v "create" ]
+       ] [
+         fhir:code [ fhir:v "search-type" ]
+       ] [
+         fhir:code [ fhir:v "read" ]
+       ] [
+         fhir:code [ fhir:v "vread" ]
+       ] [
+         fhir:code [ fhir:v "update" ]
+       ] [
+         fhir:code [ fhir:v "delete" ]
+       ] ) ;
+       fhir:referencePolicy ( [ fhir:v "literal" ] [ fhir:v "logical" ] ) ;
+       fhir:searchInclude ( [ fhir:v "*" ] [ fhir:v "BodyStructure:patient" ] ) ;
+       fhir:searchRevInclude ( [ fhir:v "Composition:entry" ] [ fhir:v "Observation:focus" ] ) ;
+       fhir:searchParam ( [
+         fhir:name [ fhir:v "identifier" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/BodyStructure-identifier"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/BodyStructure-identifier>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Identificador de la Estructura Corporal" ]
+       ] [
+         fhir:name [ fhir:v "morphology" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/BodyStructure-morphology"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/BodyStructure-morphology>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Tipo de estructura" ]
+       ] [
+         fhir:name [ fhir:v "patient" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/BodyStructure-patient"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/BodyStructure-patient>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Individuo al que se refiere" ]
+       ] [
+         fhir:name [ fhir:v "location" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/BodyStructure-location"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/BodyStructure-location>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Sitio del cuerpo" ]
+       ] [
+         fhir:name [ fhir:v "_id" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Resource-id"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Resource-id>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Id logico dentro del servidor de la estructura corporal" ]
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation>
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "SHALL"
+         ]
+       ] ) ;
+       fhir:type [ fhir:v "Composition" ] ;
+       fhir:profile [
+         fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/DocumentoCl"^^xsd:anyURI ;
+         fhir:l <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/DocumentoCl>
+       ] ;
+       fhir:supportedProfile ( [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-composition-biopsia"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-composition-biopsia>
+       ] ) ;
+       fhir:interaction ( [
+         fhir:code [ fhir:v "create" ]
+       ] [
+         fhir:code [ fhir:v "search-type" ]
+       ] [
+         fhir:code [ fhir:v "read" ]
+       ] [
+         fhir:code [ fhir:v "vread" ]
+       ] [
+         fhir:code [ fhir:v "update" ]
+       ] [
+         fhir:code [ fhir:v "delete" ]
+       ] ) ;
+       fhir:referencePolicy ( [ fhir:v "literal" ] [ fhir:v "logical" ] ) ;
+       fhir:searchInclude ( [ fhir:v "*" ] [ fhir:v "Composition:attester" ] [ fhir:v "Composition:author" ] [ fhir:v "Composition:entry" ] [ fhir:v "Composition:patient" ] [ fhir:v "Composition:subject" ] ) ;
+       fhir:searchParam ( [
+         fhir:name [ fhir:v "date" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-date"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-date>
+         ] ;
+         fhir:type [ fhir:v "date" ] ;
+         fhir:documentation [ fhir:v "Fecha de la creación del documento" ]
+       ] [
+         fhir:name [ fhir:v "subject" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Composition-subject"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Composition-subject>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Sobre quién o qué es el documento" ]
+       ] [
+         fhir:name [ fhir:v "section" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Composition-section"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Composition-section>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Clasificación de la sección (recomendado)" ]
+       ] [
+         fhir:name [ fhir:v "type" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Composition-title"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Composition-title>
+         ] ;
+         fhir:type [ fhir:v "string" ] ;
+         fhir:documentation [ fhir:v "titulo legible para humanos" ]
+       ] [
+         fhir:name [ fhir:v "patient" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-patient"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-patient>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Paciente asociado al documento" ]
+       ] [
+         fhir:name [ fhir:v "identifier" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-identifier"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-identifier>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Identificador del documento" ]
+       ] [
+         fhir:name [ fhir:v "period" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Composition-period"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Composition-period>
+         ] ;
+         fhir:type [ fhir:v "date" ] ;
+         fhir:documentation [ fhir:v "El periodo de tiempo que el documento cubre (recomendado)" ]
+       ] [
+         fhir:name [ fhir:v "author" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Composition-author"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Composition-author>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Quien o que creo el documento" ]
+       ] [
+         fhir:name [ fhir:v "entry" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Composition-entry"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Composition-entry>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Referencia aresursos incluidos en el documento" ]
+       ] [
+         fhir:name [ fhir:v "_id" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Resource-id"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Resource-id>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Id logico dentro del servidor del documento" ]
+       ] [
+         fhir:name [ fhir:v "category" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Composition-category"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Composition-category>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Categoría del documento" ]
+       ] [
+         fhir:name [ fhir:v "status" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Composition-status"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Composition-status>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "preliminary | final | amended | entered-in-error" ]
+       ] ) ;
+       fhir:operation ( [
+         fhir:name [ fhir:v "document" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/OperationDefinition/Composition-document"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/OperationDefinition/Composition-document>
+         ]
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation>
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "SHALL"
+         ]
+       ] ) ;
+       fhir:type [ fhir:v "DiagnosticReport" ] ;
+       fhir:supportedProfile ( [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-informe-biopsia"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-informe-biopsia>
+       ] ) ;
+       fhir:interaction ( [
+         fhir:code [ fhir:v "create" ]
+       ] [
+         fhir:code [ fhir:v "search-type" ]
+       ] [
+         fhir:code [ fhir:v "read" ]
+       ] [
+         fhir:code [ fhir:v "vread" ]
+       ] [
+         fhir:code [ fhir:v "update" ]
+       ] [
+         fhir:code [ fhir:v "delete" ]
+       ] ) ;
+       fhir:referencePolicy ( [ fhir:v "literal" ] [ fhir:v "logical" ] ) ;
+       fhir:searchInclude ( [ fhir:v "*" ] [ fhir:v "DiagnosticReport:based-on" ] [ fhir:v "DiagnosticReport:patient" ] [ fhir:v "DiagnosticReport:performer" ] [ fhir:v "DiagnosticReport:result" ] [ fhir:v "DiagnosticReport:specimen" ] [ fhir:v "DiagnosticReport:subject" ] ) ;
+       fhir:searchRevInclude ( [ fhir:v "Observation:focus" ] ) ;
+       fhir:searchParam ( [
+         fhir:name [ fhir:v "code" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-code"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-code>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Código de identificación del informe" ]
+       ] [
+         fhir:name [ fhir:v "subject" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-subject"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-subject>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "El sujeto del informe" ]
+       ] [
+         fhir:name [ fhir:v "conclusion" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-conclusion"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-conclusion>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Código de conclusión (interpretación/impresión) del informe" ]
+       ] [
+         fhir:name [ fhir:v "result" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-result"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-result>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Enlace de la observaciones de los resultados" ]
+       ] [
+         fhir:name [ fhir:v "based-on" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-based-on"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-based-on>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Solicitud del Informe de Anatomia Patológica" ]
+       ] [
+         fhir:name [ fhir:v "patient" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-patient"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-patient>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Paciente asociado al informe" ]
+       ] [
+         fhir:name [ fhir:v "specimen" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-specimen"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-specimen>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Detalles del Especimen" ]
+       ] [
+         fhir:name [ fhir:v "issued" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-issued"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-issued>
+         ] ;
+         fhir:type [ fhir:v "date" ] ;
+         fhir:documentation [ fhir:v "Cuando fue creado el informe" ]
+       ] [
+         fhir:name [ fhir:v "identifier" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-identifier"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-identifier>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Identificador del informe" ]
+       ] [
+         fhir:name [ fhir:v "performer" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-performer"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-performer>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Quien es el responsable del informe" ]
+       ] [
+         fhir:name [ fhir:v "_id" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Resource-id"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Resource-id>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Id logico dentro del servidor del informe" ]
+       ] [
+         fhir:name [ fhir:v "category" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-category"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-category>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Cual es la categoria del informe, por defecto es PAT" ]
+       ] [
+         fhir:name [ fhir:v "status" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/DiagnosticReport-status"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/DiagnosticReport-status>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El estado del Reporte" ]
+       ] ) ;
+       fhir:operation ( [
+         fhir:name [ fhir:v "graphql" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/OperationDefinition/Resource-graphql"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/OperationDefinition/Resource-graphql>
+         ] ;
+         fhir:documentation [ fhir:v "Operación para extraer los datos del repositorio de biopsia en formato GraphQL" ]
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation>
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "SHALL"
+         ]
+       ] ) ;
+       fhir:type [ fhir:v "Observation" ] ;
+       fhir:profile [
+         fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL"^^xsd:anyURI ;
+         fhir:l <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL>
+       ] ;
+       fhir:supportedProfile ( [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-estadificacion-tnm"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-estadificacion-tnm>
+       ] [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-categoria-tnm"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-categoria-tnm>
+       ] [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-resultados-reporte-biopsia"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-resultados-reporte-biopsia>
+       ] ) ;
+       fhir:interaction ( [
+         fhir:code [ fhir:v "create" ]
+       ] [
+         fhir:code [ fhir:v "search-type" ]
+       ] [
+         fhir:code [ fhir:v "read" ]
+       ] [
+         fhir:code [ fhir:v "vread" ]
+       ] [
+         fhir:code [ fhir:v "update" ]
+       ] [
+         fhir:code [ fhir:v "delete" ]
+       ] ) ;
+       fhir:referencePolicy ( [ fhir:v "literal" ] [ fhir:v "logical" ] ) ;
+       fhir:searchInclude ( [ fhir:v "*" ] [ fhir:v "Observation:based-on" ] [ fhir:v "Observation:derived-from" ] [ fhir:v "Observation:device" ] [ fhir:v "Observation:encounter" ] [ fhir:v "Observation:focus" ] [ fhir:v "Observation:has-member" ] [ fhir:v "Observation:part-of" ] [ fhir:v "Observation:patient" ] [ fhir:v "Observation:performer" ] [ fhir:v "Observation:specimen" ] [ fhir:v "Observation:subject" ] ) ;
+       fhir:searchRevInclude ( [ fhir:v "Composition:entry" ] [ fhir:v "DiagnosticReport:result" ] [ fhir:v "Observation:derived-from" ] [ fhir:v "Observation:focus" ] [ fhir:v "Observation:has-member" ] ) ;
+       fhir:searchParam ( [
+         fhir:name [ fhir:v "date" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-date"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-date>
+         ] ;
+         fhir:type [ fhir:v "date" ] ;
+         fhir:documentation [ fhir:v "Fecha de la observación" ]
+       ] [
+         fhir:name [ fhir:v "subject" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-subject"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-subject>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "El sujeto de la observación" ]
+       ] [
+         fhir:name [ fhir:v "value-concept" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-value-concept"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-value-concept>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El valor de la observación, si el valor es un concepto codificado" ]
+       ] [
+         fhir:name [ fhir:v "focus" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-focus"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-focus>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "El objeto de la observación" ]
+       ] [
+         fhir:name [ fhir:v "has-member" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-has-member"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-has-member>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Recursos relacionados son miembros de la observación" ]
+       ] [
+         fhir:name [ fhir:v "component-code-value-quantity" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-component-code-value-quantity"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-component-code-value-quantity>
+         ] ;
+         fhir:type [ fhir:v "composite" ] ;
+         fhir:documentation [ fhir:v "Par entre el código del componente y el valor de la cantidad del componente" ]
+       ] [
+         fhir:name [ fhir:v "code-value-quantity" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-code-value-quantity"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-code-value-quantity>
+         ] ;
+         fhir:type [ fhir:v "composite" ] ;
+         fhir:documentation [ fhir:v "Par entre el código y el valor de la cantidad" ]
+       ] [
+         fhir:name [ fhir:v "combo-code-value-concept" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-combo-code-value-concept"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-combo-code-value-concept>
+         ] ;
+         fhir:type [ fhir:v "composite" ] ;
+         fhir:documentation [ fhir:v "Par en el parametro de código y valor codificado, incluyendo en componentes" ]
+       ] [
+         fhir:name [ fhir:v "value-string" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-value-string"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-value-string>
+         ] ;
+         fhir:type [ fhir:v "string" ] ;
+         fhir:documentation [ fhir:v "El valor de la observación, si el valor es un string, y también busca en CodeableConcept.text" ]
+       ] [
+         fhir:name [ fhir:v "identifier" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-identifier"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-identifier>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Identificador único de la observación" ]
+       ] [
+         fhir:name [ fhir:v "method" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-method"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-method>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El método usado para la observación" ]
+       ] [
+         fhir:name [ fhir:v "value-quantity" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-value-quantity"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-value-quantity>
+         ] ;
+         fhir:type [ fhir:v "quantity" ] ;
+         fhir:documentation [ fhir:v "El valor de la observación, si el valor es una cantidad, o un SampledData (solo busca en los límites de los valores en los datos muestreados)" ]
+       ] [
+         fhir:name [ fhir:v "combo-value-quantity" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-combo-value-quantity"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-combo-value-quantity>
+         ] ;
+         fhir:type [ fhir:v "quantity" ] ;
+         fhir:documentation [ fhir:v "El valor o el valor del componente de la observación, si el valor es una cantidad, o un SampledData (solo busca en los límites de los valores en los datos muestreados)" ]
+       ] [
+         fhir:name [ fhir:v "code-value-concept" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-code-value-concept"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-code-value-concept>
+         ] ;
+         fhir:type [ fhir:v "composite" ] ;
+         fhir:documentation [ fhir:v "Par en el parametro de código y valor codificado" ]
+       ] [
+         fhir:name [ fhir:v "_id" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Resource-id"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Resource-id>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Id lógico del recurso" ]
+       ] [
+         fhir:name [ fhir:v "status" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-status"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-status>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El estado de la observación" ]
+       ] [
+         fhir:name [ fhir:v "combo-data-absent-reason" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-combo-data-absent-reason"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-combo-data-absent-reason>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "La razón por la que el valor esperado en el elemento Observation.component.value[x] está ausente" ]
+       ] [
+         fhir:name [ fhir:v "code" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-code"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-code>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El código de identificación de la observación" ]
+       ] [
+         fhir:name [ fhir:v "component-data-absent-reason" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-component-data-absent-reason"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-component-data-absent-reason>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "La razón por la que el valor esperado en el elemento Observation.component.value[x] está ausente" ]
+       ] [
+         fhir:name [ fhir:v "combo-code-value-quantity" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-combo-code-value-quantity"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-combo-code-value-quantity>
+         ] ;
+         fhir:type [ fhir:v "composite" ] ;
+         fhir:documentation [ fhir:v "Par en el parametro de código y valor codificado, incluyendo en componentes" ]
+       ] [
+         fhir:name [ fhir:v "code-value-string" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-code-value-string"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-code-value-string>
+         ] ;
+         fhir:type [ fhir:v "composite" ] ;
+         fhir:documentation [ fhir:v "Par en el parametro de código y valor codificado, incluyendo en componentes" ]
+       ] [
+         fhir:name [ fhir:v "based-on" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-based-on"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-based-on>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Recurso que origina la observación" ]
+       ] [
+         fhir:name [ fhir:v "patient" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-patient"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-patient>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "El paciente asociado a la observación" ]
+       ] [
+         fhir:name [ fhir:v "specimen" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-specimen"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-specimen>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "El especimen asociado a la observación" ]
+       ] [
+         fhir:name [ fhir:v "component-code" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-component-code"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-component-code>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El código del componente de la observación" ]
+       ] [
+         fhir:name [ fhir:v "performer" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-performer"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-performer>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "El individuo u organización que realizó la observación" ]
+       ] [
+         fhir:name [ fhir:v "combo-code" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-combo-code"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-combo-code>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El código de la observación, incluyendo en componentes" ]
+       ] [
+         fhir:name [ fhir:v "component-value-quantity" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-component-value-quantity"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-component-value-quantity>
+         ] ;
+         fhir:type [ fhir:v "quantity" ] ;
+         fhir:documentation [ fhir:v "El valor del componente de la observación, si el valor es una cantidad, o un SampledData (solo busca en los límites de los valores en los datos muestreados)" ]
+       ] [
+         fhir:name [ fhir:v "data-absent-reason" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-data-absent-reason"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-data-absent-reason>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "La razón de por qué el valor esperado en el elemento Observation.value[x] está ausente" ]
+       ] [
+         fhir:name [ fhir:v "component-code-value-concept" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-component-code-value-concept"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-component-code-value-concept>
+         ] ;
+         fhir:type [ fhir:v "composite" ] ;
+         fhir:documentation [ fhir:v "Par en el parametro de código y valor codificado de los componentes" ]
+       ] [
+         fhir:name [ fhir:v "component-value-concept" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-component-value-concept"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-component-value-concept>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El valor del componente de la observación, si el valor es un concepto codificado" ]
+       ] [
+         fhir:name [ fhir:v "category" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-category"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-category>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "La clasificación del tipo de observación" ]
+       ] [
+         fhir:name [ fhir:v "combo-value-concept" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Observation-combo-value-concept"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Observation-combo-value-concept>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El valor de la observación, si el valor es un concepto codificado, incluyendo en componentes" ]
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation>
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "SHALL"
+         ]
+       ] ) ;
+       fhir:type [ fhir:v "PractitionerRole" ] ;
+       fhir:profile [
+         fhir:v "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreRolClinicoCl"^^xsd:anyURI ;
+         fhir:l <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreRolClinicoCl>
+       ] ;
+       fhir:supportedProfile ( [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal>
+       ] ) ;
+       fhir:interaction ( [
+         fhir:code [ fhir:v "create" ]
+       ] [
+         fhir:code [ fhir:v "search-type" ]
+       ] [
+         fhir:code [ fhir:v "read" ]
+       ] [
+         fhir:code [ fhir:v "vread" ]
+       ] [
+         fhir:code [ fhir:v "update" ]
+       ] [
+         fhir:code [ fhir:v "delete" ]
+       ] ) ;
+       fhir:referencePolicy ( [ fhir:v "literal" ] [ fhir:v "logical" ] ) ;
+       fhir:searchInclude ( [ fhir:v "*" ] [ fhir:v "PractitionerRole:endpoint" ] [ fhir:v "PractitionerRole:location" ] [ fhir:v "PractitionerRole:organization" ] [ fhir:v "PractitionerRole:practitioner" ] [ fhir:v "PractitionerRole:service" ] ) ;
+       fhir:searchRevInclude ( [ fhir:v "Composition:attester" ] [ fhir:v "Composition:author" ] [ fhir:v "DiagnosticReport:performer" ] [ fhir:v "DiagnosticReport:results-interpreter" ] [ fhir:v "Observation:focus" ] [ fhir:v "Observation:performer" ] [ fhir:v "Patient:general-practitioner" ] [ fhir:v "ServiceRequest:performer" ] [ fhir:v "ServiceRequest:requester" ] [ fhir:v "Specimen:collector" ] ) ;
+       fhir:searchParam ( [
+         fhir:name [ fhir:v "role" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/PractitionerRole-role"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/PractitionerRole-role>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "El rol que cumple el profesional en el establecimiento de salud" ]
+       ] [
+         fhir:name [ fhir:v "practitioner" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/PractitionerRole-practitioner"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/PractitionerRole-practitioner>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "El profesional que cumple el rol" ]
+       ] [
+         fhir:name [ fhir:v "organization" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/PractitionerRole-organization"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/PractitionerRole-organization>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "La identidad de la organización que representa el profesional" ]
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation>
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "SHALL"
+         ]
+       ] ) ;
+       fhir:type [ fhir:v "ServiceRequest" ] ;
+       fhir:supportedProfile ( [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-solicitud-informe-apa"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-solicitud-informe-apa>
+       ] ) ;
+       fhir:interaction ( [
+         fhir:code [ fhir:v "create" ]
+       ] [
+         fhir:code [ fhir:v "search-type" ]
+       ] [
+         fhir:code [ fhir:v "read" ]
+       ] [
+         fhir:code [ fhir:v "vread" ]
+       ] [
+         fhir:code [ fhir:v "update" ]
+       ] [
+         fhir:code [ fhir:v "delete" ]
+       ] ) ;
+       fhir:referencePolicy ( [ fhir:v "literal" ] [ fhir:v "logical" ] ) ;
+       fhir:searchInclude ( [ fhir:v "*" ] [ fhir:v "ServiceRequest:based-on" ] [ fhir:v "ServiceRequest:patient" ] [ fhir:v "ServiceRequest:performer" ] [ fhir:v "ServiceRequest:requester" ] [ fhir:v "ServiceRequest:specimen" ] [ fhir:v "ServiceRequest:subject" ] ) ;
+       fhir:searchRevInclude ( [ fhir:v "Composition:entry" ] [ fhir:v "DiagnosticReport:based-on" ] [ fhir:v "Observation:based-on" ] [ fhir:v "Observation:focus" ] [ fhir:v "ServiceRequest:based-on" ] [ fhir:v "ServiceRequest:replaces" ] ) ;
+       fhir:searchParam ( [
+         fhir:name [ fhir:v "code" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-code"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-code>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Código de solicitud" ]
+       ] [
+         fhir:name [ fhir:v "subject" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/ServiceRequest-subject"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/ServiceRequest-subject>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Búsqueda por sujeto" ]
+       ] [
+         fhir:name [ fhir:v "patient" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-patient"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-patient>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Paciente asociado a la solicitud" ]
+       ] [
+         fhir:name [ fhir:v "specimen" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/ServiceRequest-specimen"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/ServiceRequest-specimen>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Muestra que sera analizada" ]
+       ] [
+         fhir:name [ fhir:v "requester" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/ServiceRequest-requester"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/ServiceRequest-requester>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Quien solicita el servicio" ]
+       ] [
+         fhir:name [ fhir:v "identifier" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/clinical-identifier"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/clinical-identifier>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Identificador único de la solicitud" ]
+       ] [
+         fhir:name [ fhir:v "performer" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/ServiceRequest-performer"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/ServiceRequest-performer>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Responsable de realizar el servicio" ]
+       ] [
+         fhir:name [ fhir:v "intent" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/ServiceRequest-intent"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/ServiceRequest-intent>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option" ]
+       ] [
+         fhir:name [ fhir:v "performer-type" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/ServiceRequest-performer-type"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/ServiceRequest-performer-type>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Performer role" ]
+       ] [
+         fhir:name [ fhir:v "category" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/ServiceRequest-category"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/ServiceRequest-category>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Clasificación del servicio" ]
+       ] [
+         fhir:name [ fhir:v "status" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/ServiceRequest-status"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/ServiceRequest-status>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "draft | active | on-hold | revoked | completed | entered-in-error | unknown" ]
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation>
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "SHALL"
+         ]
+       ] ) ;
+       fhir:type [ fhir:v "Specimen" ] ;
+       fhir:supportedProfile ( [
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-muestra-biopsia"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-muestra-biopsia>
+       ] ) ;
+       fhir:interaction ( [
+         fhir:code [ fhir:v "create" ]
+       ] [
+         fhir:code [ fhir:v "search-type" ]
+       ] [
+         fhir:code [ fhir:v "read" ]
+       ] [
+         fhir:code [ fhir:v "vread" ]
+       ] [
+         fhir:code [ fhir:v "update" ]
+       ] [
+         fhir:code [ fhir:v "delete" ]
+       ] ) ;
+       fhir:referencePolicy ( [ fhir:v "literal" ] [ fhir:v "logical" ] ) ;
+       fhir:searchInclude ( [ fhir:v "*" ] [ fhir:v "Specimen:collector" ] [ fhir:v "Specimen:parent" ] [ fhir:v "Specimen:patient" ] [ fhir:v "Specimen:subject" ] ) ;
+       fhir:searchRevInclude ( [ fhir:v "Composition:entry" ] [ fhir:v "DiagnosticReport:specimen" ] [ fhir:v "Observation:focus" ] [ fhir:v "Observation:specimen" ] [ fhir:v "ServiceRequest:specimen" ] [ fhir:v "Specimen:parent" ] ) ;
+       fhir:searchParam ( [
+         fhir:name [ fhir:v "identifier" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Specimen-identifier"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Specimen-identifier>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Identificador único asociado a la muestra" ]
+       ] [
+         fhir:name [ fhir:v "bodysite" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Specimen-bodysite"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Specimen-bodysite>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "EL código de la ubicación anatómica de la muestra" ]
+       ] [
+         fhir:name [ fhir:v "subject" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Specimen-subject"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Specimen-subject>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "El sujeto de la muestra" ]
+       ] [
+         fhir:name [ fhir:v "collected" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Specimen-collected"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Specimen-collected>
+         ] ;
+         fhir:type [ fhir:v "date" ] ;
+         fhir:documentation [ fhir:v "La fecha de cuando fue recolectada la muestra" ]
+       ] [
+         fhir:name [ fhir:v "type" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Specimen-type"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Specimen-type>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "Tipo de muestra" ]
+       ] [
+         fhir:name [ fhir:v "collector" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Specimen-collector"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Specimen-collector>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "Quien Recolecto la muestra" ]
+       ] [
+         fhir:name [ fhir:v "patient" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Specimen-patient"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Specimen-patient>
+         ] ;
+         fhir:type [ fhir:v "reference" ] ;
+         fhir:documentation [ fhir:v "EL paciente asociado a la muestra" ]
+       ] [
+         fhir:name [ fhir:v "status" ] ;
+         fhir:definition [
+           fhir:v "http://hl7.org/fhir/SearchParameter/Specimen-status"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/SearchParameter/Specimen-status>
+         ] ;
+         fhir:type [ fhir:v "token" ] ;
+         fhir:documentation [ fhir:v "available | unavailable | unsatisfactory | entered-in-error" ]
+       ] )
+     ] ) ;
+     fhir:interaction ( [
+       fhir:code [ fhir:v "transaction" ] ;
+       fhir:documentation [ fhir:v "Iteracción para enviar solicitudes de un informe de biopsia y sus resultados" ]
+     ] [
+       fhir:code [ fhir:v "search-system" ] ;
+       fhir:documentation [ fhir:v "Iteracción para realizar busquedas de un informe de biopsia y sus resultados" ]
+     ] ) ;
+     fhir:operation ( [
+       fhir:name [ fhir:v "graphql" ] ;
+       fhir:definition [
+         fhir:v "http://hl7.org/fhir/OperationDefinition/Resource-graphql"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/OperationDefinition/Resource-graphql>
+       ] ;
+       fhir:documentation [ fhir:v "Operación para extraer los datos del repositorio de biopsia en formato GraphQL" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,57 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Observation/913614cd-2069-49be-a1d8-0bc0cdacd5f2> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "913614cd-2069-49be-a1d8-0bc0cdacd5f2"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationNotasClinicasLE"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/StructureDefinition/ObservationNotasClinicasLE>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observación 913614cd-2069-49be-a1d8-0bc0cdacd5f2</b></p><a name=\"913614cd-2069-49be-a1d8-0bc0cdacd5f2\"> </a><a name=\"hc913614cd-2069-49be-a1d8-0bc0cdacd5f2\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ObservationNotasClinicasLE.html\">Observation Notas Clinicas LE</a></p></div><p><b>status</b>: Registered</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 371524004}\">Notas Clinicas</span></p><p><b>subject</b>: <a href=\"Patient-22e862c5-6d96-44ec-869c-dba001058cb3.html\">Juan Pérez (official) Male, DoB: 1980-01-01 ( RUN: 4444444-4)</a></p><p><b>encounter</b>: <a href=\"Encounter-23b7f034-a998-44d7-9be4-0281be8222c0.html\">Encounter: identifier = ENC-20241130-001; status = finished; class = Presencial (Modalidad Atencion Codigo#1); type = Nueva; period = 2024-11-30 10:00:00-0400 --&gt; (ongoing)</a></p><p><b>effective</b>: 2024-11-30 10:00:00-0400</p><p><b>performer</b>: <a href=\"Practitioner-fbb0e12c-95ec-43f7-bff1-73009b307cb5.html\">Practitioner Maria Fernandez (official)</a></p><p><b>value</b>: El paciente presenta dolor abdominal leve en la región epigástrica. Hernia ventral diagnosticada previamente. Se recomienda cirugía electiva con malla. Se descartan signos de obstrucción intestinal.</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "registered"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       a sct:371524004 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "371524004" ]
+     ] ) ;
+     fhir:text [ fhir:v "Notas Clinicas" ]
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Patient/22e862c5-6d96-44ec-869c-dba001058cb3> ;
+     fhir:reference [ fhir:v "Patient/22e862c5-6d96-44ec-869c-dba001058cb3" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Encounter/23b7f034-a998-44d7-9be4-0281be8222c0> ;
+     fhir:reference [ fhir:v "Encounter/23b7f034-a998-44d7-9be4-0281be8222c0" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2024-11-30T10:00:00-04:00"^^xsd:dateTime
+  ] ; # 
+  fhir:performer ( [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/quirurgico/Practitioner/fbb0e12c-95ec-43f7-bff1-73009b307cb5> ;
+     fhir:reference [ fhir:v "Practitioner/fbb0e12c-95ec-43f7-bff1-73009b307cb5" ]
+  ] ) ; # 
+  fhir:value [
+     a fhir:String ;
+     fhir:v "El paciente presenta dolor abdominal leve en la región epigástrica. Hernia ventral diagnosticada previamente. Se recomienda cirugía electiva con malla. Se descartan signos de obstrucción intestinal."
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

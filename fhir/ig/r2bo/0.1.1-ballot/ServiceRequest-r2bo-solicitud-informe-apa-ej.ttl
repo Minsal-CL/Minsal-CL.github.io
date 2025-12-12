@@ -1,0 +1,86 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> a fhir:ServiceRequest ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "r2bo-solicitud-informe-apa-ej"] ; # 
+  fhir:meta [
+     fhir:versionId [ fhir:v "2" ] ;
+     fhir:profile ( [
+       fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-solicitud-informe-apa"^^xsd:anyURI ;
+       fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-solicitud-informe-apa>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest r2bo-solicitud-informe-apa-ej</b></p><a name=\"r2bo-solicitud-informe-apa-ej\"> </a><a name=\"hcr2bo-solicitud-informe-apa-ej\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">version: 2</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-solicitud-informe-apa.html\">Perfil de Solicitud de Informe de Anatomía Patológica</a></p></div><p><b>identifier</b>: 111111101</p><p><b>status</b>: Completed</p><p><b>intent</b>: Order</p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 116784002}\">Informe de Biopsia</span></p><p><b>subject</b>: <a href=\"Patient-paciente-requiere-examen.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</a></p><p><b>requester</b>: <a href=\"PractitionerRole-ProfesionalHospital.html\">PractitionerRole MÉDICO CIRUJANO</a></p><p><b>performer</b>: <a href=\"Organization-hospital-collector.html\">Organization Hospital Dr. Hernán Henríquez Aravena (Temuco)</a></p><p><b>locationCode</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-RoleCode HLAB}\">hospital laboratory</span></p><p><b>reasonCode</b>: <span title=\"Codes:{http://snomed.info/sct 269497004}, {http://hl7.org/fhir/sid/icd-10 D48.6}\">Neoplasm of uncertain behaviour of breast</span></p><p><b>specimen</b>: <a href=\"Specimen-r2bo-specimen-example.html\">Specimen: identifier = 110101101; status = available; type = Tissue; receivedTime = 2021-06-01 00:00:00+0000; note = Resección completa de tejido mamario, posible carcinoma</a></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:value [ fhir:v "111111101" ]
+  ] ) ; # 
+  fhir:status [ fhir:v "completed"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:priority [ fhir:v "routine"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       a sct:116784002 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "116784002" ]
+     ] ) ;
+     fhir:text [ fhir:v "Informe de Biopsia" ]
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:reference [ fhir:v "Patient/paciente-requiere-examen" ]
+  ] ; # 
+  fhir:requester [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital> ;
+     fhir:reference [ fhir:v "PractitionerRole/ProfesionalHospital" ]
+  ] ; # 
+  fhir:performer ( [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Organization/hospital-collector> ;
+     fhir:reference [ fhir:v "Organization/hospital-collector" ]
+  ] ) ; # 
+  fhir:locationCode ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/v3-RoleCode"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/v3-RoleCode>
+       ] ;
+       fhir:code [ fhir:v "HLAB" ] ;
+       fhir:display [ fhir:v "hospital laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:reasonCode ( [
+     fhir:coding ( [
+       a sct:269497004 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "269497004" ]
+     ] [
+       fhir:system [
+         fhir:v "http://hl7.org/fhir/sid/icd-10"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/sid/icd-10>
+       ] ;
+       fhir:version [ fhir:v "2019-covid-expanded" ] ;
+       fhir:code [ fhir:v "D48.6" ]
+     ] )
+  ] ) ; # 
+  fhir:specimen ( [
+     fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+     fhir:reference [ fhir:v "Specimen/r2bo-specimen-example" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
