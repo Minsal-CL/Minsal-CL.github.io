@@ -6,7 +6,7 @@
 
 ## Example Composition: Documento del Informe de Anatomía Patológica de Biopsia de Mama
 
-Profile: [Perfil del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md)
+Profile: [Perfil de la Cabecera del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md)
 
 **Extensión De Referencia al Reporte**: [Diagnostic Report for 'Breast Pathology biopsy report' for '->Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))'](DiagnosticReport-r2bo-informe-biopsia-ex.md)
 

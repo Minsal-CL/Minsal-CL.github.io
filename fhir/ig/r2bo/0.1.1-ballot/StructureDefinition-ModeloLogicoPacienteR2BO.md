@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/ModeloLogicoPacienteR2BO | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-12 | *Computable Name*:PacienteR2BOLogico |
+| Draft as of 2025-12-23 | *Computable Name*:PacienteR2BOLogico |
 
  
 Modelo lógico para el conjunto de datos mínimo de un paciente del R2BO. 
@@ -47,7 +47,7 @@ Other representations of profile: [CSV](StructureDefinition-ModeloLogicoPaciente
   "name" : "PacienteR2BOLogico",
   "title" : "Modelo Logico De un Paciente del R2BO",
   "status" : "draft",
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

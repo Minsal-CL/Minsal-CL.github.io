@@ -16,8 +16,8 @@ Rol que cumple un profesional en un establecimiento de salud. Este puede ser un 
 
 **Usages:**
 
-* Use this Profile: [Perfil de Bundle del Documento](StructureDefinition-r2bo-bundle-documento.md) and [Perfil de Bundle para Generar Informe](StructureDefinition-r2bo-bundle-generar-informe.md)
-* Refer to this Profile: [Perfil de Origen para las Categorías T, N, M (Abstracto)](StructureDefinition-r2bo-categoria-tnm.md), [Perfil del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md), [Perfil del Reporte de Anatomía Patológica](StructureDefinition-r2bo-informe-biopsia.md), [Perfil de Muestra](StructureDefinition-r2bo-muestra-biopsia.md)...Show 2 more,[Perfil de Origen de Todos Los Resultados](StructureDefinition-r2bo-resultados-reporte-biopsia.md)and[Perfil de Solicitud de Informe de Anatomía Patológica](StructureDefinition-r2bo-solicitud-informe-apa.md)
+* Use this Profile: [Perfil de Bundle: Documento de Anatomía Patológica](StructureDefinition-r2bo-bundle-documento.md) and [Perfil de Bundle: Generar Notificación Obligatoria](StructureDefinition-r2bo-bundle-generar-notificacion.md)
+* Refer to this Profile: [Perfil de Origen para las Categorías T, N, M (Abstracto)](StructureDefinition-r2bo-categoria-tnm.md), [Perfil de la Cabecera del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md), [Perfil del Reporte de Anatomía Patológica](StructureDefinition-r2bo-informe-biopsia.md), [Perfil de Muestra](StructureDefinition-r2bo-muestra-biopsia.md)...Show 2 more,[Perfil de Origen de Todos Los Resultados](StructureDefinition-r2bo-resultados-reporte-biopsia.md)and[Perfil de Solicitud de Informe de Anatomía Patológica](StructureDefinition-r2bo-solicitud-informe-apa.md)
 * Examples for this Profile: [PractitionerRole/ProfesionalHospital](PractitionerRole-ProfesionalHospital.md) and [PractitionerRole/r2bo-anatopatologo-hospital](PractitionerRole-r2bo-anatopatologo-hospital.md)
 * CapabilityStatements using this Profile: [CapabilityStatement del Cliente Analista del Repositorio de Biopsia del Ministerio de Salud](CapabilityStatement-r2bo-minsal-analisis.md), [CapabilityStatement Cliente de Origen de Informes del Repositorio de Biopsia del Ministerio de Salud](CapabilityStatement-r2bo-minsal-cliente-informe.md), [CapabilityStatement Consumidor del Repositorio de Biopsia del Ministerio de Salud](CapabilityStatement-r2bo-minsal-consumidor.md) and [CapabilityStatement Servidor del Repositorio de Biopsia del Ministerio de Salud](CapabilityStatement-r2bo-minsal-server.md)
 
@@ -55,7 +55,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-rol-profesional
   "title" : "Perfil de Rol Profesional",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

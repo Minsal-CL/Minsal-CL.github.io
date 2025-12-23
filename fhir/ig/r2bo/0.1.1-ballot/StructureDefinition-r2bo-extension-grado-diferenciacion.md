@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-extension-grado-diferenciacion | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-12 | *Computable Name*:ExtensionGradoDiferenciacion |
+| Draft as of 2025-12-23 | *Computable Name*:ExtensionGradoDiferenciacion |
 
 Extensión que registra el grado de diferenciación tumoral en un reporte de biopsia
 
@@ -48,7 +48,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-extension-grado
   "name" : "ExtensionGradoDiferenciacion",
   "title" : "Extensión del Grado de Diferenciación",
   "status" : "draft",
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

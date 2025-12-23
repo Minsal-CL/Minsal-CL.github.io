@@ -16,7 +16,7 @@ Categoría del tumor primario, basada en su tamaño y extensión, basada en evid
 
 **Usages:**
 
-* Use this Profile: [Perfil de Bundle del Documento](StructureDefinition-r2bo-bundle-documento.md) and [Perfil de Bundle para Generar Informe](StructureDefinition-r2bo-bundle-generar-informe.md)
+* Use this Profile: [Perfil de Bundle: Documento de Anatomía Patológica](StructureDefinition-r2bo-bundle-documento.md) and [Perfil de Bundle: Generar Notificación Obligatoria](StructureDefinition-r2bo-bundle-generar-notificacion.md)
 * Refer to this Profile: [Perfil de Grupo Estadificación TNM](StructureDefinition-r2bo-estadificacion-tnm.md)
 * Examples for this Profile: [Observation/r2bo-tnm-categoria-tumor-primario-ex](Observation-r2bo-tnm-categoria-tumor-primario-ex.md)
 
@@ -54,7 +54,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-tnm-categoria-t
   "title" : "Perfil de Categoria TNM Tumor Primario",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

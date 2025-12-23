@@ -9,14 +9,14 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-categoria-reporte-biopsia-vs | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-12 | *Computable Name*:CategoriaReporteBiopsiaVS |
+| Draft as of 2025-12-23 | *Computable Name*:CategoriaReporteBiopsiaVS |
 
  
 Códigos de tipos de categoría de reportes de biopsias en HL7 
 
  **References** 
 
-* [Perfil del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md)
+* [Perfil de la Cabecera del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md)
 * [Perfil del Reporte de Anatomía Patológica](StructureDefinition-r2bo-informe-biopsia.md)
 
 ### Logical Definition (CLD)
@@ -52,7 +52,7 @@ Códigos de tipos de categoría de reportes de biopsias en HL7
   "title" : "Set de Valores de la Categoría Reportes de Biopsia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {
@@ -91,6 +91,7 @@ Códigos de tipos de categoría de reportes de biopsias en HL7
     "include" : [
       {
         "system" : "http://terminology.hl7.org/CodeSystem/v2-0074",
+        "version" : "3.0.0",
         "concept" : [
           {
             "code" : "CP",

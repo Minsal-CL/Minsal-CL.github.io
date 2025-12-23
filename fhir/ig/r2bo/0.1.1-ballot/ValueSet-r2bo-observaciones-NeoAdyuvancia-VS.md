@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-observaciones-NeoAdyuvancia-VS | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-12 | *Computable Name*:ObservacionNeoAdyuvanciaVS |
+| Draft as of 2025-12-23 | *Computable Name*:ObservacionNeoAdyuvanciaVS |
 | **Copyright/Legal**: This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc | |
 
  
@@ -52,7 +52,7 @@ Posibles valores para las observaciones realizadas en la evaluación post neoady
   "title" : "Set de Valores de Resultados de Observación Post Neoadyuvancia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {
@@ -92,6 +92,7 @@ Posibles valores para las observaciones realizadas en la evaluación post neoady
     "include" : [
       {
         "system" : "http://loinc.org",
+        "version" : "2.81",
         "concept" : [
           {
             "code" : "LA26537-3",

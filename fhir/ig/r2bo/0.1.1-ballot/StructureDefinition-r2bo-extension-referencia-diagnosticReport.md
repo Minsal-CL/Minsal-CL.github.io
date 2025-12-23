@@ -19,7 +19,7 @@ Extensión que genera la referencia al reporte el cual permite generar un docume
 
 **Usages:**
 
-* Use this Extension: [Perfil del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md)
+* Use this Extension: [Perfil de la Cabecera del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md)
 * Examples for this Extension: [Bundle/r2bo-documento-informe-bundle-ejemplo](Bundle-r2bo-documento-informe-bundle-ejemplo.md), [Bundle/r2bo-generar-informe-bundle-ejemplo](Bundle-r2bo-generar-informe-bundle-ejemplo.md) and [Composition/r2bo-documento-biopsia-ex](Composition-r2bo-documento-biopsia-ex.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/hl7.fhir.cl.minsal.r2bo|current/StructureDefinition/r2bo-extension-referencia-diagnosticReport)
@@ -58,7 +58,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-extension-refer
   "title" : "Extensión De Referencia al Reporte",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

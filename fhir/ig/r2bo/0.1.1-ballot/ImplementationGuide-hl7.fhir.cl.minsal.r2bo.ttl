@@ -1555,8 +1555,8 @@
        fhir:description [ fhir:v "Ejemplo de Bundle que contiene los recursos necesarios para solicitar un informe de anatomía patológica de una biopsia de un tejido mamario." ] ;
        fhir:example [
          a fhir:Canonical ;
-         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-informe"^^xsd:anyURI ;
-         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-informe>
+         fhir:v "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-notificacion"^^xsd:anyURI ;
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-notificacion>
        ]
      ] [
        fhir:extension ( [
@@ -2268,7 +2268,7 @@
          fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-documento> ;
          fhir:reference [ fhir:v "StructureDefinition/r2bo-bundle-documento" ]
        ] ;
-       fhir:name [ fhir:v "Perfil de Bundle del Documento" ] ;
+       fhir:name [ fhir:v "Perfil de Bundle: Documento de Anatomía Patológica" ] ;
        fhir:description [ fhir:v "Perfil de Bundle que contiene los recursos necesarios para el documento de anatomía patológica." ] ;
        fhir:example [
          a fhir:Boolean ;
@@ -2286,11 +2286,11 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-informe> ;
-         fhir:reference [ fhir:v "StructureDefinition/r2bo-bundle-generar-informe" ]
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-notificacion> ;
+         fhir:reference [ fhir:v "StructureDefinition/r2bo-bundle-generar-notificacion" ]
        ] ;
-       fhir:name [ fhir:v "Perfil de Bundle para Generar Informe" ] ;
-       fhir:description [ fhir:v "Perfil de Bundle que contiene los recursos necesarios para generar un informe de patología y cargarlos en el repositorio." ] ;
+       fhir:name [ fhir:v "Perfil de Bundle: Generar Notificación Obligatoria" ] ;
+       fhir:description [ fhir:v "Perfil de Bundle que contiene los recursos necesarios para generar la notificación patología y cargarlos en el repositorio." ] ;
        fhir:example [
          a fhir:Boolean ;
          fhir:v false
@@ -2375,6 +2375,27 @@
        ] ;
        fhir:name [ fhir:v "Perfil de Grupo Estadificación TNM" ] ;
        fhir:description [ fhir:v "Perfil grupo de estadificación TNM" ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-composition-biopsia> ;
+         fhir:reference [ fhir:v "StructureDefinition/r2bo-composition-biopsia" ]
+       ] ;
+       fhir:name [ fhir:v "Perfil de la Cabecera del Documento de Biopsía" ] ;
+       fhir:description [ fhir:v "Este recurso representa la cabecera del documento de un reporte de analisis de anatomía patológica" ] ;
        fhir:example [
          a fhir:Boolean ;
          fhir:v false
@@ -2816,27 +2837,6 @@
        ] ;
        fhir:name [ fhir:v "Perfil de Tamaño del Tumor" ] ;
        fhir:description [ fhir:v "Registro de las dimensiones de un tumor" ] ;
-       fhir:example [
-         a fhir:Boolean ;
-         fhir:v false
-       ]
-     ] [
-       fhir:extension ( [
-         fhir:url [
-           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
-           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
-         ] ;
-         fhir:value [
-           a fhir:String ;
-           fhir:v "StructureDefinition:resource"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:l <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-composition-biopsia> ;
-         fhir:reference [ fhir:v "StructureDefinition/r2bo-composition-biopsia" ]
-       ] ;
-       fhir:name [ fhir:v "Perfil del Documento de Biopsía" ] ;
-       fhir:description [ fhir:v "Este recurso representa la cabecera del documento de un reporte de analisis de anatomía patológica" ] ;
        fhir:example [
          a fhir:Boolean ;
          fhir:v false

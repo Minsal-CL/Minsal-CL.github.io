@@ -58,7 +58,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-extension-refer
   "title" : "Extensión De Referencia al Composition",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

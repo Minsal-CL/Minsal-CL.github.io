@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-snomed-hallazgos-clinicos-cie10-VS | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-12 | *Computable Name*:SnomedCTHallazgosClinicosCIE10VS |
+| Draft as of 2025-12-23 | *Computable Name*:SnomedCTHallazgosClinicosCIE10VS |
 | **Copyright/Legal**: This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreementThe SNOMED International IPS Terminology is distributed by International Health Terminology Standards Development Organisation, trading as SNOMED International, and is subject the terms of the Creative Commons Attribution 4.0 International Public License. For more information, see SNOMED IPS TerminologyThe HL7 International IPS implementation guides incorporate SNOMED CT®, used by permission of the International Health Terminology Standards Development Organisation, trading as SNOMED International. SNOMED CT was originally created by the College of American Pathologists. SNOMED CT is a registered trademark of the International Health Terminology Standards Development Organisation, all rights reserved. Implementers of SNOMED CT should review usage terms or directly contact SNOMED International: info@snomed.org | |
 
  
@@ -54,7 +54,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "ValueSet Para Hallazgos Clínicos",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {
@@ -94,6 +94,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
     "include" : [
       {
         "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/900000000000207008/version/20251101",
         "filter" : [
           {
             "property" : "constraint",
@@ -103,7 +104,8 @@ No Expansion for this valueset (not supported by Publication Tooling)
         ]
       },
       {
-        "system" : "http://hl7.org/fhir/sid/icd-10"
+        "system" : "http://hl7.org/fhir/sid/icd-10",
+        "version" : "2019-covid-expanded"
       }
     ]
   }

@@ -982,7 +982,7 @@ Favor referirse a la página de [Autores y contribuidores](contributors.md).
         },
         "name" : "Ejemplo de Enviar un Informe de Anatomía Patológica",
         "description" : "Ejemplo de Bundle que contiene los recursos necesarios para solicitar un informe de anatomía patológica de una biopsia de un tejido mamario.",
-        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-informe"
+        "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-notificacion"
       },
       {
         "extension" : [
@@ -1442,7 +1442,7 @@ Favor referirse a la página de [Autores y contribuidores](contributors.md).
         "reference" : {
           "reference" : "StructureDefinition/r2bo-bundle-documento"
         },
-        "name" : "Perfil de Bundle del Documento",
+        "name" : "Perfil de Bundle: Documento de Anatomía Patológica",
         "description" : "Perfil de Bundle que contiene los recursos necesarios para el documento de anatomía patológica.",
         "exampleBoolean" : false
       },
@@ -1454,10 +1454,10 @@ Favor referirse a la página de [Autores y contribuidores](contributors.md).
           }
         ],
         "reference" : {
-          "reference" : "StructureDefinition/r2bo-bundle-generar-informe"
+          "reference" : "StructureDefinition/r2bo-bundle-generar-notificacion"
         },
-        "name" : "Perfil de Bundle para Generar Informe",
-        "description" : "Perfil de Bundle que contiene los recursos necesarios para generar un informe de patología y cargarlos en el repositorio.",
+        "name" : "Perfil de Bundle: Generar Notificación Obligatoria",
+        "description" : "Perfil de Bundle que contiene los recursos necesarios para generar la notificación patología y cargarlos en el repositorio.",
         "exampleBoolean" : false
       },
       {
@@ -1514,6 +1514,20 @@ Favor referirse a la página de [Autores y contribuidores](contributors.md).
         },
         "name" : "Perfil de Grupo Estadificación TNM",
         "description" : "Perfil grupo de estadificación TNM",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/r2bo-composition-biopsia"
+        },
+        "name" : "Perfil de la Cabecera del Documento de Biopsía",
+        "description" : "Este recurso representa la cabecera del documento de un reporte de analisis de anatomía patológica",
         "exampleBoolean" : false
       },
       {
@@ -1808,20 +1822,6 @@ Favor referirse a la página de [Autores y contribuidores](contributors.md).
         },
         "name" : "Perfil de Tamaño del Tumor",
         "description" : "Registro de las dimensiones de un tumor",
-        "exampleBoolean" : false
-      },
-      {
-        "extension" : [
-          {
-            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-            "valueString" : "StructureDefinition:resource"
-          }
-        ],
-        "reference" : {
-          "reference" : "StructureDefinition/r2bo-composition-biopsia"
-        },
-        "name" : "Perfil del Documento de Biopsía",
-        "description" : "Este recurso representa la cabecera del documento de un reporte de analisis de anatomía patológica",
         "exampleBoolean" : false
       },
       {

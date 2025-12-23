@@ -1,10 +1,10 @@
-# Perfil del Documento de Biopsía - Repositorio de Reportes de Biopsias Oncológicas v0.1.1-ballot
+# Perfil de la Cabecera del Documento de Biopsía - Repositorio de Reportes de Biopsias Oncológicas v0.1.1-ballot
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
-* **Perfil del Documento de Biopsía**
+* **Perfil de la Cabecera del Documento de Biopsía**
 
-## Resource Profile: Perfil del Documento de Biopsía ( Experimental ) 
+## Resource Profile: Perfil de la Cabecera del Documento de Biopsía ( Experimental ) 
 
 | | | |
 | :--- | :--- | :--- |
@@ -16,7 +16,7 @@ Este recurso representa la cabecera del documento de un reporte de analisis de a
 
 **Usages:**
 
-* Use this Profile: [Perfil de Bundle del Documento](StructureDefinition-r2bo-bundle-documento.md) and [Perfil de Bundle para Generar Informe](StructureDefinition-r2bo-bundle-generar-informe.md)
+* Use this Profile: [Perfil de Bundle: Documento de Anatomía Patológica](StructureDefinition-r2bo-bundle-documento.md) and [Perfil de Bundle: Generar Notificación Obligatoria](StructureDefinition-r2bo-bundle-generar-notificacion.md)
 * Refer to this Profile: [Extensión De Referencia al Composition](StructureDefinition-r2bo-extension-referencia-composition.md)
 * Examples for this Profile: [Composition/r2bo-documento-biopsia-ex](Composition-r2bo-documento-biopsia-ex.md)
 * CapabilityStatements using this Profile: [CapabilityStatement del Cliente Analista del Repositorio de Biopsia del Ministerio de Salud](CapabilityStatement-r2bo-minsal-analisis.md), [CapabilityStatement Cliente de Origen de Informes del Repositorio de Biopsia del Ministerio de Salud](CapabilityStatement-r2bo-minsal-cliente-informe.md), [CapabilityStatement Consumidor del Repositorio de Biopsia del Ministerio de Salud](CapabilityStatement-r2bo-minsal-consumidor.md) and [CapabilityStatement Servidor del Repositorio de Biopsia del Ministerio de Salud](CapabilityStatement-r2bo-minsal-server.md)
@@ -52,10 +52,10 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-composition-bio
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-composition-biopsia",
   "version" : "0.1.1-ballot",
   "name" : "R2BOCompositionBiopsia",
-  "title" : "Perfil del Documento de Biopsía",
+  "title" : "Perfil de la Cabecera del Documento de Biopsía",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

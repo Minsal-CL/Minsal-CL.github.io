@@ -1,10 +1,10 @@
-# Perfil de Bundle del Documento - Repositorio de Reportes de Biopsias Oncológicas v0.1.1-ballot
+# Perfil de Bundle: Documento de Anatomía Patológica - Repositorio de Reportes de Biopsias Oncológicas v0.1.1-ballot
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
-* **Perfil de Bundle del Documento**
+* **Perfil de Bundle: Documento de Anatomía Patológica**
 
-## Resource Profile: Perfil de Bundle del Documento ( Experimental ) 
+## Resource Profile: Perfil de Bundle: Documento de Anatomía Patológica ( Experimental ) 
 
 | | | |
 | :--- | :--- | :--- |
@@ -49,10 +49,10 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-bundle-document
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-documento",
   "version" : "0.1.1-ballot",
   "name" : "R2BOBundleDocumento",
-  "title" : "Perfil de Bundle del Documento",
+  "title" : "Perfil de Bundle: Documento de Anatomía Patológica",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

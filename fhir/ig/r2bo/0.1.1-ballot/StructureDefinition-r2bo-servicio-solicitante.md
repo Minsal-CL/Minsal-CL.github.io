@@ -9,14 +9,14 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-servicio-solicitante | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-12 | *Computable Name*:R2BOServicioSolicitante |
+| Draft as of 2025-12-23 | *Computable Name*:R2BOServicioSolicitante |
 
  
 Servicio con el cual es solicitado el informe de Anatomía Patológica. 
 
 **Usages:**
 
-* Use this Profile: [Perfil de Bundle del Documento](StructureDefinition-r2bo-bundle-documento.md) and [Perfil de Bundle para Generar Informe](StructureDefinition-r2bo-bundle-generar-informe.md)
+* Use this Profile: [Perfil de Bundle: Documento de Anatomía Patológica](StructureDefinition-r2bo-bundle-documento.md) and [Perfil de Bundle: Generar Notificación Obligatoria](StructureDefinition-r2bo-bundle-generar-notificacion.md)
 * Refer to this Profile: [Perfil de Rol Profesional](StructureDefinition-r2bo-rol-profesional-minsal.md)
 * Examples for this Profile: [Medicina General](Location-r2bo-localizacion-MedicinaGeneral.md)
 
@@ -43,7 +43,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-servicio-solici
   "name" : "R2BOServicioSolicitante",
   "title" : "Servicio Solicitante del Informe",
   "status" : "draft",
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

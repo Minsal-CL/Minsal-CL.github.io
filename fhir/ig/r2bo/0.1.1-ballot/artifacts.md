@@ -42,8 +42,8 @@ These define constraints on FHIR resources for systems conforming to this implem
 
 | | |
 | :--- | :--- |
-| [Perfil de Bundle del Documento](StructureDefinition-r2bo-bundle-documento.md) | Perfil de Bundle que contiene los recursos necesarios para el documento de anatomía patológica. |
-| [Perfil de Bundle para Generar Informe](StructureDefinition-r2bo-bundle-generar-informe.md) | Perfil de Bundle que contiene los recursos necesarios para generar un informe de patología y cargarlos en el repositorio. |
+| [Perfil de Bundle: Documento de Anatomía Patológica](StructureDefinition-r2bo-bundle-documento.md) | Perfil de Bundle que contiene los recursos necesarios para el documento de anatomía patológica. |
+| [Perfil de Bundle: Generar Notificación Obligatoria](StructureDefinition-r2bo-bundle-generar-notificacion.md) | Perfil de Bundle que contiene los recursos necesarios para generar la notificación patología y cargarlos en el repositorio. |
 | [Perfil de Categoria TNM Nodos Regional](StructureDefinition-r2bo-tnm-categoria-nodo-regional.md) | Categoría de la presencia o ausencia de metástasis en los ganglios linfáticos regionales, basada en evidencia como exámenes físicos, imágenes y/o biopsias. |
 | [Perfil de Categoria TNM Tumor Primario](StructureDefinition-r2bo-tnm-categoria-tumor-primario.md) | Categoría del tumor primario, basada en su tamaño y extensión, basada en evidencia como exámenes físicos, imágenes y/o biopsias. |
 | [Perfil de Categoria TNM de Metástasis Distante](StructureDefinition-r2bo-tnm-categoria-metastasis-distante.md) | Categoría que describe la extensión de la metástasis de un tumor en ubicaciones anatómicas remotas, basada en evidencia como exámenes físicos, imágenes y/o biopsias. |
@@ -66,8 +66,8 @@ These define constraints on FHIR resources for systems conforming to this implem
 | [Perfil de Rol Profesional](StructureDefinition-r2bo-rol-profesional-minsal.md) | Rol que cumple un profesional en un establecimiento de salud. Este puede ser un profesional solicitante, el medico intervencionista o un anatomopatólogo que realiza un informe. |
 | [Perfil de Solicitud de Informe de Anatomía Patológica](StructureDefinition-r2bo-solicitud-informe-apa.md) | Solicitud generada por el médico para la realización de un informe de anatomía patológica |
 | [Perfil de Tamaño del Tumor](StructureDefinition-r2bo-tamano-tumor.md) | Registro de las dimensiones de un tumor |
+| [Perfil de la Cabecera del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md) | Este recurso representa la cabecera del documento de un reporte de analisis de anatomía patológica |
 | [Perfil de la Morfología y Topología del Tumor](StructureDefinition-r2bo-tumor.md) | Este recurso permite entregar la morfología y la topología resultante de un informe de anatomía patológica |
-| [Perfil del Documento de Biopsía](StructureDefinition-r2bo-composition-biopsia.md) | Este recurso representa la cabecera del documento de un reporte de analisis de anatomía patológica |
 | [Perfil del Reporte de Anatomía Patológica](StructureDefinition-r2bo-informe-biopsia.md) | Reporte de anatomía patológica |
 | [Servicio Solicitante del Informe](StructureDefinition-r2bo-servicio-solicitante.md) | Servicio con el cual es solicitado el informe de Anatomía Patológica. |
 

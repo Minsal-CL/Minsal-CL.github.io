@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-profesional-autorizado-VS | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-12 | *Computable Name*:ProfesionalesAutorizadosR2BO |
+| Draft as of 2025-12-23 | *Computable Name*:ProfesionalesAutorizadosR2BO |
 
  
 Estos son los profesionales autorizados para realizar informes o solicitudes de anatomías patológicas 
@@ -51,7 +51,7 @@ Estos son los profesionales autorizados para realizar informes o solicitudes de 
   "title" : "Profesionales Autorizados",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-12T16:54:01-03:00",
+  "date" : "2025-12-23T17:10:55-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {
