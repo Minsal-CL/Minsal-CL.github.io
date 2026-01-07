@@ -111,6 +111,7 @@ These define sets of codes used by systems conforming to this implementation gui
 | [Set de Valores para Invasión Linfática, Vascular, Tumoral](ValueSet-r2bo-invasion-linfatica-VS.md) | Posibles resultados de invasión linfática, vascular y tumoral en un reporte de biopsia |
 | [Set de Valores para Observaciones Biopsia](ValueSet-r2bo-observaciones-biopsia-VS.md) | Observaciones realizadas durante el informe de biopsia |
 | [Set de Valores para Topografía](ValueSet-r2bo-topografica-cieo-VS.md) | Set de valores utilizados para la topografía, estos pueden ser mapeados de Snomed CT a la CIE-O 3 Tográfico o ser usado directamente en CIE-O 3 Tográfico |
+| [Tipo de Margen Quirúrgico](ValueSet-tipo-de-margen-quirurgica-mq-vs.md) | Conjunto de valores para el tipo de margen quirúrgico obtenido en el caso de un posible paciente con cáncer |
 | [ValueSet Para Hallazgos Clínicos](ValueSet-r2bo-snomed-hallazgos-clinicos-cie10-VS.md) | Este ValueSet contiene los códigos de Snomed CT que representan hallazgos clínicos más la CIE 10 |
 
 ### Terminology: Code Systems 

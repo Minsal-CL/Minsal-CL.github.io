@@ -54,7 +54,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-observacion-mar
   "title" : "Perfil de Observación Margen Quirúrgico",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-23T17:10:55-03:00",
+  "date" : "2026-01-07T10:16:22-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {
@@ -144,7 +144,15 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-observacion-mar
       {
         "id" : "Observation.value[x]",
         "path" : "Observation.value[x]",
-        "max" : "0"
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/tipo-de-margen-quirurgica-mq-vs"
+        }
       },
       {
         "id" : "Observation.component",

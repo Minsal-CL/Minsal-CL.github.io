@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-categoria-reporte-biopsia-vs | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-23 | *Computable Name*:CategoriaReporteBiopsiaVS |
+| Draft as of 2026-01-07 | *Computable Name*:CategoriaReporteBiopsiaVS |
 
  
 Códigos de tipos de categoría de reportes de biopsias en HL7 
@@ -52,7 +52,7 @@ Códigos de tipos de categoría de reportes de biopsias en HL7
   "title" : "Set de Valores de la Categoría Reportes de Biopsia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-23T17:10:55-03:00",
+  "date" : "2026-01-07T10:16:22-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

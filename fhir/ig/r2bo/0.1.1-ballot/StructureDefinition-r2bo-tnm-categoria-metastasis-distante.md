@@ -54,7 +54,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-tnm-categoria-m
   "title" : "Perfil de Categoria TNM de Metástasis Distante",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-23T17:10:55-03:00",
+  "date" : "2026-01-07T10:16:22-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

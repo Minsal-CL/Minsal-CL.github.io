@@ -53,7 +53,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-categoria-tnm.c
   "title" : "Perfil de Origen para las Categorías T, N,  M (Abstracto)",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-23T17:10:55-03:00",
+  "date" : "2026-01-07T10:16:22-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

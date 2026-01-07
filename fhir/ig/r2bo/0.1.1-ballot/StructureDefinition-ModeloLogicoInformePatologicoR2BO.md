@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/ModeloLogicoInformePatologicoR2BO | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-23 | *Computable Name*:InformePatologicoR2BOLogico |
+| Draft as of 2026-01-07 | *Computable Name*:InformePatologicoR2BOLogico |
 
  
 Modelo lógico para el conjunto de datos mínimo de un informe patológico del R2BO 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-ModeloLogicoInformeP
   "name" : "InformePatologicoR2BOLogico",
   "title" : "Modelo Lógico de Informe Patológico del R2BO",
   "status" : "draft",
-  "date" : "2025-12-23T17:10:55-03:00",
+  "date" : "2026-01-07T10:16:22-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

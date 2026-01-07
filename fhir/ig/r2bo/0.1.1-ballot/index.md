@@ -2252,6 +2252,20 @@ Favor referirse a la página de [Autores y contribuidores](contributors.md).
           }
         ],
         "reference" : {
+          "reference" : "ValueSet/tipo-de-margen-quirurgica-mq-vs"
+        },
+        "name" : "Tipo de Margen Quirúrgico",
+        "description" : "Conjunto de valores para el tipo de margen quirúrgico obtenido en el caso de un posible paciente con cáncer",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
           "reference" : "ValueSet/r2bo-snomed-hallazgos-clinicos-cie10-VS"
         },
         "name" : "ValueSet Para Hallazgos Clínicos",

@@ -22,6 +22,8 @@ Profile: [Perfil de Observación Margen Quirúrgico](StructureDefinition-r2bo-ob
 
 **performer**: [PractitionerRole MÉDICO CIRUJANO](PractitionerRole-r2bo-anatopatologo-hospital.md)
 
+**value**: Deep margin
+
 **specimen**: [Specimen: identifier = 110101101; status = available; type = Tissue; receivedTime = 2021-06-01 00:00:00+0000; note = Resección completa de tejido mamario, posible carcinoma](Specimen-r2bo-specimen-example.md)
 
 > **component****code**:Surgical margin site involved by tumour**value**:Positive
@@ -74,6 +76,14 @@ Profile: [Perfil de Observación Margen Quirúrgico](StructureDefinition-r2bo-ob
       "reference" : "PractitionerRole/r2bo-anatopatologo-hospital"
     }
   ],
+  "valueCodeableConcept" : {
+    "coding" : [
+      {
+        "system" : "http://loinc.org",
+        "code" : "LA27146-2"
+      }
+    ]
+  },
   "specimen" : {
     "reference" : "Specimen/r2bo-specimen-example"
   },

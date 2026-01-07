@@ -54,7 +54,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-observacion-pos
   "title" : "Perfil de Observación Evaluación Post Neoadyuvancia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-23T17:10:55-03:00",
+  "date" : "2026-01-07T10:16:22-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

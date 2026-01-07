@@ -52,7 +52,7 @@ Profile: [Perfil del Reporte de Anatomía Patológica](StructureDefinition-r2bo-
   * **Flags**: Final
   * **When For**: 2021-06-01 12:00:00-0400
 * **Code**: [Surgical margin observable (observable entity)](Observation-r2bo-observacion-margen-quirurgico-ex.md)
-  * **Value**: 
+  * **Value**: Deep margin
   * **Flags**: Final
   * **When For**: 2021-06-01 12:00:00-0400
 * **Code**: [Multiple tumors reported as single primary Cancer](Observation-r2bo-observacion-centricidad-ex.md)

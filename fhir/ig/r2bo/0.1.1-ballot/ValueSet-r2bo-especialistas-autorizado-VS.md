@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-especialistas-autorizado-VS | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-23 | *Computable Name*:EspecialistasAutorizadosR2BO |
+| Draft as of 2026-01-07 | *Computable Name*:EspecialistasAutorizadosR2BO |
 
  
 Estos son los especialistas autorizados para realizar informes anatomías patológicas 
@@ -51,7 +51,7 @@ Estos son los especialistas autorizados para realizar informes anatomías patol�
   "title" : "Especialistas Autorizados",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-23T17:10:55-03:00",
+  "date" : "2026-01-07T10:16:22-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

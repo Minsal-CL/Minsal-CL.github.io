@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-grado-diferenciacion-vs | *Version*:0.1.1-ballot |
-| Draft as of 2025-12-23 | *Computable Name*:GradoDiferenciacionVS |
+| Draft as of 2026-01-07 | *Computable Name*:GradoDiferenciacionVS |
 
  
 Grado de diferenciación tumoral según clasificación de la OMS 
@@ -51,7 +51,7 @@ Grado de diferenciación tumoral según clasificación de la OMS
   "title" : "Set de Valores Para Grado de Diferenciación",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2025-12-23T17:10:55-03:00",
+  "date" : "2026-01-07T10:16:22-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {
