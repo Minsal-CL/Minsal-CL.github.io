@@ -33,7 +33,7 @@ Pueblos Originarios de Chile
   "title" : "Pueblos Originarios de Chile",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-02-19T12:27:42-03:00",
+  "date" : "2026-02-19T15:23:45-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

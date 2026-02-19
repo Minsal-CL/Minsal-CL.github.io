@@ -43,7 +43,7 @@ Other representations of profile: [CSV](StructureDefinition-PatientLE.csv), [Exc
   "name" : "PatientLE",
   "title" : "Patient LE",
   "status" : "draft",
-  "date" : "2026-02-19T12:27:42-03:00",
+  "date" : "2026-02-19T15:23:45-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

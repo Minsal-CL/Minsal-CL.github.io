@@ -52,7 +52,7 @@ Other representations of profile: [CSV](StructureDefinition-CarePlanAtenderLE.cs
   "name" : "CarePlanAtenderLE",
   "title" : "CarePlan Atender LE",
   "status" : "draft",
-  "date" : "2026-02-19T12:27:42-03:00",
+  "date" : "2026-02-19T15:23:45-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {
