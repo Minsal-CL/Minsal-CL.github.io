@@ -1,4 +1,4 @@
-# Index - Tiempos de Espera Interoperable v0.2.2-ballot
+# Index - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * **Index**
@@ -7,7 +7,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ImplementationGuide/hl7.fhir.cl.minsal.tei | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ImplementationGuide/hl7.fhir.cl.minsal.tei | *Version*:0.2.2 |
 | Draft as of 2026-02-19 | *Computable Name*:TiemposDeEsperaInteroperable |
 
 ### Alcance
@@ -130,11 +130,11 @@ This publication includes IP covered under the following statements.
   "resourceType" : "ImplementationGuide",
   "id" : "hl7.fhir.cl.minsal.tei",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ImplementationGuide/hl7.fhir.cl.minsal.tei",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "TiemposDeEsperaInteroperable",
   "title" : "Tiempos de Espera Interoperable",
   "status" : "draft",
-  "date" : "2026-02-19T11:18:25-03:00",
+  "date" : "2026-02-19T12:27:42-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

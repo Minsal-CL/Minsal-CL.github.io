@@ -1,4 +1,4 @@
-# Origen Interconsulta - Tiempos de Espera Interoperable v0.2.2-ballot
+# Origen Interconsulta - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSorigenInterconsulta | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSorigenInterconsulta | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSorigenInterconsulta |
 
  
@@ -46,7 +46,7 @@ Origen Interconsulta
   "resourceType" : "ValueSet",
   "id" : "VSorigenInterconsulta",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSorigenInterconsulta",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSorigenInterconsulta",
   "title" : "Origen Interconsulta",
   "status" : "active",

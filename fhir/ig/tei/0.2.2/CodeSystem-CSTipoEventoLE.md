@@ -1,4 +1,4 @@
-# Tipo de Evento - Tiempos de Espera Interoperable v0.2.2-ballot
+# Tipo de Evento - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoEventoLE | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoEventoLE | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:CSTipoEventoLE |
 
  
@@ -28,7 +28,7 @@ CodeSystem con códigos definidos para representar cada evento en la interconsul
   "id" : "CSTipoEventoLE",
   "language" : "es-CL",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoEventoLE",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "CSTipoEventoLE",
   "title" : "Tipo de Evento",
   "status" : "active",

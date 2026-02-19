@@ -1,4 +1,4 @@
-# Sitema de Codificación para los Problemas de Salud GES - Tiempos de Espera Interoperable v0.2.2-ballot
+# Sitema de Codificación para los Problemas de Salud GES - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/cs-problema-ges-tei | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/cs-problema-ges-tei | *Version*:0.2.2 |
 | Active as of 2026-02-19 | *Computable Name*:ProblemaSaludGESCS |
 
  
@@ -28,12 +28,12 @@ Sistema de codificación de los problemas de salud GES
   "id" : "cs-problema-ges-tei",
   "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/cs-problema-ges-tei",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "ProblemaSaludGESCS",
   "title" : "Sitema de Codificación para los Problemas de Salud GES",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-02-19T11:18:25-03:00",
+  "date" : "2026-02-19T12:27:42-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

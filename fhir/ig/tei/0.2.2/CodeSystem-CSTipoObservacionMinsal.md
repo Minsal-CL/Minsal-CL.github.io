@@ -1,4 +1,4 @@
-# Tipo de Observación - Tiempos de Espera Interoperable v0.2.2-ballot
+# Tipo de Observación - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoObservacionMinsal | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoObservacionMinsal | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:CSTipoObservacionMinsal |
 
  
@@ -28,7 +28,7 @@ Son todos los tipos de observaciones dadas por el Ministerio De Salud
   "id" : "CSTipoObservacionMinsal",
   "language" : "es-CL",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoObservacionMinsal",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "CSTipoObservacionMinsal",
   "title" : "Tipo de Observación",
   "status" : "active",

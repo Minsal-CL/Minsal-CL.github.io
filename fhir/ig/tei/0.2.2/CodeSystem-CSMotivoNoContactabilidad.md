@@ -1,4 +1,4 @@
-# Motivo No Contactabilidad - Tiempos de Espera Interoperable v0.2.2-ballot
+# Motivo No Contactabilidad - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoContactabilidad | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoContactabilidad | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:CSMotivoNoContactabilidad |
 
  
@@ -28,7 +28,7 @@ Motivo No Contactabilidad
   "id" : "CSMotivoNoContactabilidad",
   "language" : "es-CL",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoContactabilidad",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "CSMotivoNoContactabilidad",
   "title" : "Motivo No Contactabilidad",
   "status" : "active",

@@ -1,4 +1,4 @@
-# IdentificadorPrestador - Tiempos de Espera Interoperable v0.2.2-ballot
+# IdentificadorPrestador - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSIdentificadorPrestador | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSIdentificadorPrestador | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSIdentificadorPrestador |
 
  
@@ -47,7 +47,7 @@ IdentificadorPrestador
   "resourceType" : "ValueSet",
   "id" : "VSIdentificadorPrestador",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSIdentificadorPrestador",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSIdentificadorPrestador",
   "title" : "IdentificadorPrestador",
   "status" : "active",

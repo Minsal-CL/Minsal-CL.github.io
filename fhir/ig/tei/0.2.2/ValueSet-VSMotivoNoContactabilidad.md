@@ -1,4 +1,4 @@
-# Motivo No Contactabilidad - Tiempos de Espera Interoperable v0.2.2-ballot
+# Motivo No Contactabilidad - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSMotivoNoContactabilidad | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSMotivoNoContactabilidad | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSMotivoNoContactabilidad |
 
  
@@ -46,7 +46,7 @@ Motivo No Contactabilidad
   "resourceType" : "ValueSet",
   "id" : "VSMotivoNoContactabilidad",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSMotivoNoContactabilidad",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSMotivoNoContactabilidad",
   "title" : "Motivo No Contactabilidad",
   "status" : "active",

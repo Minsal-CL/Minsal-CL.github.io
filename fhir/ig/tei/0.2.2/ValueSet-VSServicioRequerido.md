@@ -1,4 +1,4 @@
-# Servicio Requerido - Tiempos de Espera Interoperable v0.2.2-ballot
+# Servicio Requerido - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSServicioRequerido | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSServicioRequerido | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSServicioRequerido |
 | **Copyright/Legal**: This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement The SNOMED International IPS Terminology is distributed by International Health Terminology Standards Development Organisation, trading as SNOMED International, and is subject the terms of the Creative Commons Attribution 4.0 International Public License. For more information, see SNOMED IPS Terminology The HL7 International IPS implementation guides incorporate SNOMED CT®, used by permission of the International Health Terminology Standards Development Organisation, trading as SNOMED International. SNOMED CT was originally created by the College of American Pathologists. SNOMED CT is a registered trademark of the International Health Terminology Standards Development Organisation, all rights reserved. Implementers of SNOMED CT should review usage terms or directly contact SNOMED International: info@snomed.org | |
 
@@ -47,7 +47,7 @@ Servicio Requerido
   "resourceType" : "ValueSet",
   "id" : "VSServicioRequerido",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSServicioRequerido",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSServicioRequerido",
   "title" : "Servicio Requerido",
   "status" : "active",

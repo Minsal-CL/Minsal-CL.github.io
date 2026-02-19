@@ -1,4 +1,4 @@
-# ExtBool Atención Preferente - Tiempos de Espera Interoperable v0.2.2-ballot
+# ExtBool Atención Preferente - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolAtencionPreferente | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolAtencionPreferente | *Version*:0.2.2 |
 | Draft as of 2026-02-19 | *Computable Name*:ExtensionBoolAtencionPreferente |
 
 ExtBool ¿Hace uso de atención preferente?
@@ -43,11 +43,11 @@ Other representations of profile: [CSV](StructureDefinition-ExtensionBoolAtencio
   "resourceType" : "StructureDefinition",
   "id" : "ExtensionBoolAtencionPreferente",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolAtencionPreferente",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "ExtensionBoolAtencionPreferente",
   "title" : "ExtBool Atención Preferente",
   "status" : "draft",
-  "date" : "2026-02-19T11:18:25-03:00",
+  "date" : "2026-02-19T12:27:42-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

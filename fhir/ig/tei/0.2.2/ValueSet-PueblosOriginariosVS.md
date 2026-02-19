@@ -1,4 +1,4 @@
-# Pueblos Originarios de Chile - Tiempos de Espera Interoperable v0.2.2-ballot
+# Pueblos Originarios de Chile - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/PueblosOriginariosVS | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/PueblosOriginariosVS | *Version*:0.2.2 |
 | Draft as of 2026-02-19 | *Computable Name*:PueblosOriginariosVS |
 
  
@@ -46,12 +46,12 @@ Pueblos Originarios de Chile
   "resourceType" : "ValueSet",
   "id" : "PueblosOriginariosVS",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/PueblosOriginariosVS",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "PueblosOriginariosVS",
   "title" : "Pueblos Originarios de Chile",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-02-19T11:18:25-03:00",
+  "date" : "2026-02-19T12:27:42-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

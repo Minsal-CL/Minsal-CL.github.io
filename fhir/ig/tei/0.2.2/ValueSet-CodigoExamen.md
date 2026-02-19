@@ -1,4 +1,4 @@
-# Códigos de Examenes - Tiempos de Espera Interoperable v0.2.2-ballot
+# Códigos de Examenes - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/CodigoExamen | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/CodigoExamen | *Version*:0.2.2 |
 | Active as of 2022-01-18 | *Computable Name*:CodigoExamen |
 | **Copyright/Legal**: This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc | |
 
@@ -48,7 +48,7 @@ Codigos de Examenes
   "resourceType" : "ValueSet",
   "id" : "CodigoExamen",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/CodigoExamen",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "CodigoExamen",
   "title" : "Códigos de Examenes",
   "status" : "active",

@@ -1,4 +1,4 @@
-# Pueblos Originarios - Tiempos de Espera Interoperable v0.2.2-ballot
+# Pueblos Originarios - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosOriginarios | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosOriginarios | *Version*:0.2.2 |
 | Draft as of 2026-02-19 | *Computable Name*:PueblosOriginarios |
 
 Almacenar si el paciente pertenece a algun pueblo originario
@@ -45,11 +45,11 @@ Other representations of profile: [CSV](StructureDefinition-PueblosOriginarios.c
   "resourceType" : "StructureDefinition",
   "id" : "PueblosOriginarios",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosOriginarios",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "PueblosOriginarios",
   "title" : "Pueblos Originarios",
   "status" : "draft",
-  "date" : "2026-02-19T11:18:25-03:00",
+  "date" : "2026-02-19T12:27:42-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

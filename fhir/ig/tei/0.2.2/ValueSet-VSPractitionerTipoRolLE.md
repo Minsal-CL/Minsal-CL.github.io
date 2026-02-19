@@ -1,4 +1,4 @@
-# Rol de profesionales - Tiempos de Espera Interoperable v0.2.2-ballot
+# Rol de profesionales - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSPractitionerTipoRolLE | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSPractitionerTipoRolLE | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSPractitionerTipoRolLE |
 
  
@@ -46,7 +46,7 @@ Rol de profesionales(Practitioner) en algún evento, durante la intercosulta.
   "resourceType" : "ValueSet",
   "id" : "VSPractitionerTipoRolLE",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSPractitionerTipoRolLE",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSPractitionerTipoRolLE",
   "title" : "Rol de profesionales",
   "status" : "active",

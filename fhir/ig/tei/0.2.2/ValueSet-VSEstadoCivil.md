@@ -1,4 +1,4 @@
-# EstadoCivil - Tiempos de Espera Interoperable v0.2.2-ballot
+# EstadoCivil - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSEstadoCivil | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSEstadoCivil | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSEstadoCivil |
 
  
@@ -46,7 +46,7 @@ EstadoCivil
   "resourceType" : "ValueSet",
   "id" : "VSEstadoCivil",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSEstadoCivil",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSEstadoCivil",
   "title" : "EstadoCivil",
   "status" : "active",

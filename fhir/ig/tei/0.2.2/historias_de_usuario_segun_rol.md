@@ -1,4 +1,4 @@
-# Historias De Usuario Segun Rol - Tiempos de Espera Interoperable v0.2.2-ballot
+# Historias De Usuario Segun Rol - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * **Historias De Usuario Segun Rol**

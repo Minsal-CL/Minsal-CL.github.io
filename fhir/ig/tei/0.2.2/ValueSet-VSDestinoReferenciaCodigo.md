@@ -1,4 +1,4 @@
-# Destino Referencia Codigo - Tiempos de Espera Interoperable v0.2.2-ballot
+# Destino Referencia Codigo - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSDestinoReferenciaCodigo | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSDestinoReferenciaCodigo | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSDestinoReferenciaCodigo |
 
  
@@ -46,7 +46,7 @@ Destino Referencia Codigo
   "resourceType" : "ValueSet",
   "id" : "VSDestinoReferenciaCodigo",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSDestinoReferenciaCodigo",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSDestinoReferenciaCodigo",
   "title" : "Destino Referencia Codigo",
   "status" : "active",

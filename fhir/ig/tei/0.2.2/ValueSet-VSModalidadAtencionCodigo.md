@@ -1,4 +1,4 @@
-# Modalidad Atencion Codigo - Tiempos de Espera Interoperable v0.2.2-ballot
+# Modalidad Atencion Codigo - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSModalidadAtencionCodigo | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSModalidadAtencionCodigo | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSModalidadAtencionCodigo |
 
  
@@ -48,7 +48,7 @@ Modalidad Atencion Codigo
   "resourceType" : "ValueSet",
   "id" : "VSModalidadAtencionCodigo",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSModalidadAtencionCodigo",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSModalidadAtencionCodigo",
   "title" : "Modalidad Atencion Codigo",
   "status" : "active",

@@ -1,4 +1,4 @@
-# Medio Notificación - Tiempos de Espera Interoperable v0.2.2-ballot
+# Medio Notificación - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSMediodeContacto | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSMediodeContacto | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSMediodeContacto |
 
  
@@ -46,7 +46,7 @@ Medio Notificación
   "resourceType" : "ValueSet",
   "id" : "VSMediodeContacto",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSMediodeContacto",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSMediodeContacto",
   "title" : "Medio Notificación",
   "status" : "active",

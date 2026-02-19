@@ -1,4 +1,4 @@
-# Ejemplo de una Alergía - Tiempos de Espera Interoperable v0.2.2-ballot
+# Ejemplo de una Alergía - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)

@@ -1,4 +1,4 @@
-# Derivado Para - Tiempos de Espera Interoperable v0.2.2-ballot
+# Derivado Para - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDerivadoParaCodigo | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDerivadoParaCodigo | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:CSDerivadoParaCodigo |
 
  
@@ -28,7 +28,7 @@ Derivado Para
   "id" : "CSDerivadoParaCodigo",
   "language" : "es-CL",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDerivadoParaCodigo",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "CSDerivadoParaCodigo",
   "title" : "Derivado Para",
   "status" : "active",

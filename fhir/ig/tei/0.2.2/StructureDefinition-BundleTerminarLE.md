@@ -1,4 +1,4 @@
-# Bundle Terminar LE - Tiempos de Espera Interoperable v0.2.2-ballot
+# Bundle Terminar LE - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | | |
 | :--- | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleTerminarLE | *Version*:0.2.2-ballot | |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleTerminarLE | *Version*:0.2.2 | |
 | * Standards status: *[Draft](http://hl7.org/fhir/R4/versions.html#std-process) | [Maturity Level](http://hl7.org/fhir/versions.html#maturity): 0 | *Computable Name*:BundleTerminarLE |
 
  
@@ -52,11 +52,11 @@ Other representations of profile: [CSV](StructureDefinition-BundleTerminarLE.csv
     }
   ],
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleTerminarLE",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "BundleTerminarLE",
   "title" : "Bundle Terminar LE",
   "status" : "draft",
-  "date" : "2026-02-19T11:18:25-03:00",
+  "date" : "2026-02-19T12:27:42-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [
     {

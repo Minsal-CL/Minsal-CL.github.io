@@ -1,4 +1,4 @@
-# Motivo No Pertinencia Codigo - Tiempos de Espera Interoperable v0.2.2-ballot
+# Motivo No Pertinencia Codigo - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoPertinenciaCodigo | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoPertinenciaCodigo | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:CSMotivoNoPertinenciaCodigo |
 
  
@@ -28,7 +28,7 @@ Motivo No Pertinencia Codigo
   "id" : "CSMotivoNoPertinenciaCodigo",
   "language" : "es-CL",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoPertinenciaCodigo",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "CSMotivoNoPertinenciaCodigo",
   "title" : "Motivo No Pertinencia Codigo",
   "status" : "active",

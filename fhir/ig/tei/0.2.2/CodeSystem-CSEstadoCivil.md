@@ -1,4 +1,4 @@
-# EstadoCivil - Tiempos de Espera Interoperable v0.2.2-ballot
+# EstadoCivil - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstadoCivil | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstadoCivil | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:CSEstadoCivil |
 
  
@@ -28,7 +28,7 @@ EstadoCivil
   "id" : "CSEstadoCivil",
   "language" : "es-CL",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstadoCivil",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "CSEstadoCivil",
   "title" : "EstadoCivil",
   "status" : "active",

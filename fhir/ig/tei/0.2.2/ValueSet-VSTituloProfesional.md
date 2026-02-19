@@ -1,4 +1,4 @@
-# TituloProfesional - Tiempos de Espera Interoperable v0.2.2-ballot
+# TituloProfesional - Tiempos de Espera Interoperable v0.2.2
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts**](artifacts.md)
@@ -8,7 +8,7 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSTituloProfesional | *Version*:0.2.2-ballot |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSTituloProfesional | *Version*:0.2.2 |
 | Active as of 2023-01-15 | *Computable Name*:VSTituloProfesional |
 
  
@@ -46,7 +46,7 @@ TituloProfesional
   "resourceType" : "ValueSet",
   "id" : "VSTituloProfesional",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSTituloProfesional",
-  "version" : "0.2.2-ballot",
+  "version" : "0.2.2",
   "name" : "VSTituloProfesional",
   "title" : "TituloProfesional",
   "status" : "active",
