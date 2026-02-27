@@ -9,11 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/PueblosOriginariosCS | *Version*:0.2.2 |
-<<<<<<< HEAD
 | Draft as of 2026-02-27 | *Computable Name*:PueblosOriginariosCS |
-=======
-| Draft as of 2026-02-19 | *Computable Name*:PueblosOriginariosCS |
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 
  
 Pueblos Originarios de Chile 
@@ -37,7 +33,6 @@ Pueblos Originarios de Chile
   "title" : "Pueblos Originarios de Chile",
   "status" : "draft",
   "experimental" : true,
-<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -121,103 +116,6 @@ Pueblos Originarios de Chile
     "display" : "Otro (Especificar)",
     "definition" : "Otro (Especificar)"
   }]
-=======
-  "date" : "2026-02-19T15:23:45-03:00",
-  "publisher" : "Unidad de Interoperabilidad - MINSAL",
-  "contact" : [
-    {
-      "name" : "Unidad de Interoperabilidad - MINSAL",
-      "telecom" : [
-        {
-          "system" : "url",
-          "value" : "https://interoperabilidad.minsal.cl"
-        }
-      ]
-    },
-    {
-      "name" : "Franco Ulloa",
-      "telecom" : [
-        {
-          "system" : "email",
-          "value" : "franco.ulloa@minsal.cl",
-          "use" : "work"
-        }
-      ]
-    }
-  ],
-  "description" : "Pueblos Originarios de Chile",
-  "jurisdiction" : [
-    {
-      "coding" : [
-        {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "CL",
-          "display" : "Chile"
-        }
-      ]
-    }
-  ],
-  "caseSensitive" : true,
-  "content" : "complete",
-  "count" : 11,
-  "concept" : [
-    {
-      "code" : "01",
-      "display" : "Mapuche",
-      "definition" : "Mapuche"
-    },
-    {
-      "code" : "02",
-      "display" : "Aymara",
-      "definition" : "Aymara"
-    },
-    {
-      "code" : "03",
-      "display" : "Rapa Nui O Pascuense",
-      "definition" : "Rapa Nui O Pascuense"
-    },
-    {
-      "code" : "04",
-      "display" : "Lickanantay",
-      "definition" : "Lickanantay"
-    },
-    {
-      "code" : "05",
-      "display" : "Quechua",
-      "definition" : "Quechua"
-    },
-    {
-      "code" : "06",
-      "display" : "Colla",
-      "definition" : "Colla"
-    },
-    {
-      "code" : "07",
-      "display" : "Diaguita",
-      "definition" : "Diaguita"
-    },
-    {
-      "code" : "08",
-      "display" : "Kawésqar",
-      "definition" : "Kawésqar"
-    },
-    {
-      "code" : "09",
-      "display" : "Yagán",
-      "definition" : "Yagán"
-    },
-    {
-      "code" : "11",
-      "display" : "Chango",
-      "definition" : "Chango"
-    },
-    {
-      "code" : "10",
-      "display" : "Otro (Especificar)",
-      "definition" : "Otro (Especificar)"
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

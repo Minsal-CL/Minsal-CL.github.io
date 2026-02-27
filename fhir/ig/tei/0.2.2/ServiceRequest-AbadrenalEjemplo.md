@@ -40,7 +40,6 @@ para dar seguimiento al tratamiento del paciente
   "resourceType" : "ServiceRequest",
   "id" : "AbadrenalEjemplo",
   "meta" : {
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestExamenLE"]
   },
   "basedOn" : [{
@@ -53,26 +52,6 @@ para dar seguimiento al tratamiento del paciente
       "system" : "http://loinc.org",
       "code" : "8059-8"
     }],
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestExamenLE"
-    ]
-  },
-  "basedOn" : [
-    {
-      "reference" : "ServiceRequest/EjemploSolicitudInterconsultaFinalizada"
-    }
-  ],
-  "status" : "draft",
-  "intent" : "order",
-  "code" : {
-    "coding" : [
-      {
-        "system" : "http://loinc.org",
-        "code" : "8059-8"
-      }
-    ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "Ab adrenal en Sérum"
   },
   "subject" : {
@@ -82,7 +61,6 @@ para dar seguimiento al tratamiento del paciente
   "requester" : {
     "reference" : "Practitioner/PractitionerProfesionalLEAtendedor"
   },
-<<<<<<< HEAD
   "reasonCode" : [{
     "coding" : [{
       "system" : "http://snomed.info/sct",
@@ -94,25 +72,6 @@ para dar seguimiento al tratamiento del paciente
   "note" : [{
     "text" : "para dar seguimiento al tratamiento del paciente"
   }]
-=======
-  "reasonCode" : [
-    {
-      "coding" : [
-        {
-          "system" : "http://snomed.info/sct",
-          "code" : "24867002",
-          "display" : "Severe adrenal insufficiency"
-        }
-      ],
-      "text" : "insuficiencia adrenal severa"
-    }
-  ],
-  "note" : [
-    {
-      "text" : "para dar seguimiento al tratamiento del paciente"
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

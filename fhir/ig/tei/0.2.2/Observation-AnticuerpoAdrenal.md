@@ -31,7 +31,6 @@ Profile: [Observation Resultado Examen](StructureDefinition-ObservationResultado
   "resourceType" : "Observation",
   "id" : "AnticuerpoAdrenal",
   "meta" : {
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationResultadoExamen"]
   },
   "status" : "registered",
@@ -46,30 +45,6 @@ Profile: [Observation Resultado Examen](StructureDefinition-ObservationResultado
       "system" : "http://loinc.org",
       "code" : "8059-8"
     }],
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationResultadoExamen"
-    ]
-  },
-  "status" : "registered",
-  "category" : [
-    {
-      "coding" : [
-        {
-          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
-          "code" : "laboratory"
-        }
-      ]
-    }
-  ],
-  "code" : {
-    "coding" : [
-      {
-        "system" : "http://loinc.org",
-        "code" : "8059-8"
-      }
-    ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "Ab adrenal en Sérum"
   },
   "subject" : {

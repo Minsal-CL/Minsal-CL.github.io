@@ -29,7 +29,6 @@ Profile: [Prestador Administrativo LE](StructureDefinition-PractitionerAdministr
   "resourceType" : "Practitioner",
   "id" : "ProfesionalAdministrativoEjemplo",
   "meta" : {
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerAdministrativoLE"]
   },
   "identifier" : [{
@@ -83,81 +82,6 @@ Profile: [Prestador Administrativo LE](StructureDefinition-PractitionerAdministr
       }]
     }
   }],
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerAdministrativoLE"
-    ]
-  },
-  "identifier" : [
-    {
-      "use" : "official",
-      "type" : {
-        "extension" : [
-          {
-            "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises",
-            "valueCodeableConcept" : {
-              "coding" : [
-                {
-                  "system" : "urn:iso:std:iso:3166",
-                  "code" : "152",
-                  "display" : "Chile"
-                }
-              ]
-            }
-          }
-        ],
-        "coding" : [
-          {
-            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
-            "code" : "01",
-            "display" : "RUN"
-          }
-        ]
-      },
-      "value" : "90000000-6",
-      "assigner" : {
-        "display" : "Republica de Chile"
-      }
-    }
-  ],
-  "active" : true,
-  "name" : [
-    {
-      "use" : "official",
-      "family" : "Parra",
-      "_family" : {
-        "extension" : [
-          {
-            "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido",
-            "valueString" : "Sandoval"
-          }
-        ]
-      },
-      "given" : ["Caludio"]
-    }
-  ],
-  "address" : [
-    {
-      "use" : "work",
-      "_state" : {
-        "extension" : [
-          {
-            "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl",
-            "valueCodeableConcept" : {
-              "coding" : [
-                {
-                  "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL",
-                  "code" : "13",
-                  "display" : "Metropolitana de Santiago"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
-  ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "gender" : "male",
   "birthDate" : "1980-01-01"
 }

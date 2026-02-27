@@ -25,7 +25,6 @@ Profile: [AllergyIntolerance Iniciar LE](StructureDefinition-AllergyIntoleranceI
   "resourceType" : "AllergyIntolerance",
   "id" : "AllergyIntoleranceExample",
   "meta" : {
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AllergyIntoleranceIniciarLE"]
   },
   "clinicalStatus" : {
@@ -49,39 +48,6 @@ Profile: [AllergyIntolerance Iniciar LE](StructureDefinition-AllergyIntoleranceI
       "system" : "http://snomed.info/sct",
       "code" : "227493005"
     }],
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AllergyIntoleranceIniciarLE"
-    ]
-  },
-  "clinicalStatus" : {
-    "coding" : [
-      {
-        "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
-        "code" : "active",
-        "display" : "Active"
-      }
-    ],
-    "text" : "Activo"
-  },
-  "verificationStatus" : {
-    "coding" : [
-      {
-        "system" : "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
-        "code" : "confirmed",
-        "display" : "Confirmed"
-      }
-    ],
-    "text" : "Confirmado"
-  },
-  "code" : {
-    "coding" : [
-      {
-        "system" : "http://snomed.info/sct",
-        "code" : "227493005"
-      }
-    ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "Alergía a castaña de cajú"
   },
   "patient" : {

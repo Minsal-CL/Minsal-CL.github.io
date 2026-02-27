@@ -36,7 +36,6 @@ Especialidades Odontológicas
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
-<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -143,126 +142,6 @@ Especialidades Odontológicas
     "display" : "Rehabilitación Oral Fija",
     "definition" : "Rehabilitación Oral Fija"
   }]
-=======
-  "contact" : [
-    {
-      "name" : "Unidad de Interoperabilidad - MINSAL",
-      "telecom" : [
-        {
-          "system" : "url",
-          "value" : "https://interoperabilidad.minsal.cl"
-        }
-      ]
-    },
-    {
-      "name" : "Franco Ulloa",
-      "telecom" : [
-        {
-          "system" : "email",
-          "value" : "franco.ulloa@minsal.cl",
-          "use" : "work"
-        }
-      ]
-    }
-  ],
-  "description" : "Especialidades Odontológicas",
-  "jurisdiction" : [
-    {
-      "coding" : [
-        {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "CL",
-          "display" : "Chile"
-        }
-      ]
-    }
-  ],
-  "caseSensitive" : true,
-  "content" : "complete",
-  "count" : 16,
-  "concept" : [
-    {
-      "code" : "1",
-      "display" : "Cirugía y Traumatología Buco Maxilofacial",
-      "definition" : "Cirugía y Traumatología Buco Maxilofacial"
-    },
-    {
-      "code" : "2",
-      "display" : "Cirugía Bucal",
-      "definition" : "Cirugía Bucal"
-    },
-    {
-      "code" : "3",
-      "display" : "Endodoncia",
-      "definition" : "Endodoncia"
-    },
-    {
-      "code" : "4",
-      "display" : "Imagenología Oral y Maxilofacial",
-      "definition" : "Imagenología Oral y Maxilofacial"
-    },
-    {
-      "code" : "5",
-      "display" : "Implantología Buco Maxilofacial",
-      "definition" : "Implantología Buco Maxilofacial"
-    },
-    {
-      "code" : "6",
-      "display" : "Odontología legal",
-      "definition" : "Odontología legal"
-    },
-    {
-      "code" : "7",
-      "display" : "Odontopediatría",
-      "definition" : "Odontopediatría"
-    },
-    {
-      "code" : "8",
-      "display" : "Ortodoncia y Ortopedia Dento Máxilo Facial",
-      "definition" : "Ortodoncia y Ortopedia Dento Máxilo Facial"
-    },
-    {
-      "code" : "9",
-      "display" : "Patología Oral Maxilofacial",
-      "definition" : "Patología Oral Maxilofacial"
-    },
-    {
-      "code" : "10",
-      "display" : "Periodoncia",
-      "definition" : "Periodoncia"
-    },
-    {
-      "code" : "11",
-      "display" : "Rehabilitación Oral Removible",
-      "definition" : "Rehabilitación Oral Removible"
-    },
-    {
-      "code" : "12",
-      "display" : "Salud Pública",
-      "definition" : "Salud Pública"
-    },
-    {
-      "code" : "13",
-      "display" : "Somato-Prótesis",
-      "definition" : "Somato-Prótesis"
-    },
-    {
-      "code" : "14",
-      "display" : "Trastornos Temporomandibulares Y Dolor Orofacial",
-      "definition" : "Trastornos Temporomandibulares Y Dolor Orofacial"
-    },
-    {
-      "code" : "15",
-      "display" : "Odontogeriatría",
-      "definition" : "Odontogeriatría"
-    },
-    {
-      "code" : "16",
-      "display" : "Rehabilitación Oral Fija",
-      "definition" : "Rehabilitación Oral Fija"
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

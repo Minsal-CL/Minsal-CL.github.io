@@ -38,7 +38,6 @@ Other representations of profile: [CSV](StructureDefinition-QuestionnaireRespons
 {
   "resourceType" : "StructureDefinition",
   "id" : "QuestionnaireResponseIniciarLE",
-<<<<<<< HEAD
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 0
@@ -47,24 +46,11 @@ Other representations of profile: [CSV](StructureDefinition-QuestionnaireRespons
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "draft"
   }],
-=======
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-      "valueInteger" : 0
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "draft"
-    }
-  ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/QuestionnaireResponseIniciarLE",
   "version" : "0.2.2",
   "name" : "QuestionnaireResponseIniciarLE",
   "title" : "QuestionnaireResponse Iniciar Motivo de la Derivación LE",
   "status" : "draft",
-<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -106,68 +92,12 @@ Other representations of profile: [CSV](StructureDefinition-QuestionnaireRespons
     "uri" : "http://hl7.org/fhir/fivews",
     "name" : "FiveWs Pattern Mapping"
   }],
-=======
-  "date" : "2026-02-19T15:23:45-03:00",
-  "publisher" : "Unidad de Interoperabilidad - MINSAL",
-  "contact" : [
-    {
-      "name" : "Unidad de Interoperabilidad - MINSAL",
-      "telecom" : [
-        {
-          "system" : "url",
-          "value" : "https://interoperabilidad.minsal.cl"
-        }
-      ]
-    },
-    {
-      "name" : "Franco Ulloa",
-      "telecom" : [
-        {
-          "system" : "email",
-          "value" : "franco.ulloa@minsal.cl",
-          "use" : "work"
-        }
-      ]
-    }
-  ],
-  "description" : "QuestionnaireResponse Iniciar para Motivo de Derivación LE",
-  "jurisdiction" : [
-    {
-      "coding" : [
-        {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "CL",
-          "display" : "Chile"
-        }
-      ]
-    }
-  ],
-  "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    }
-  ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "kind" : "resource",
   "abstract" : false,
   "type" : "QuestionnaireResponse",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse",
   "derivation" : "constraint",
   "differential" : {
-<<<<<<< HEAD
     "element" : [{
       "id" : "QuestionnaireResponse.id",
       "path" : "QuestionnaireResponse.id",
@@ -223,77 +153,6 @@ Other representations of profile: [CSV](StructureDefinition-QuestionnaireRespons
       "path" : "QuestionnaireResponse.item.text",
       "patternString" : "Motivo Derivación"
     }]
-=======
-    "element" : [
-      {
-        "id" : "QuestionnaireResponse.id",
-        "path" : "QuestionnaireResponse.id",
-        "short" : "Id temporal necesario para identificar el recurso",
-        "definition" : "El Id que envíe desde la aplicación es temporal, el definitivo es creado por el servidor",
-        "min" : 1,
-        "mustSupport" : true
-      },
-      {
-        "id" : "QuestionnaireResponse.questionnaire",
-        "path" : "QuestionnaireResponse.questionnaire",
-        "patternCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/Questionnaire/MotivoDerivacion"
-      },
-      {
-        "id" : "QuestionnaireResponse.subject",
-        "path" : "QuestionnaireResponse.subject",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PatientLE"
-            ]
-          }
-        ]
-      },
-      {
-        "id" : "QuestionnaireResponse.encounter",
-        "path" : "QuestionnaireResponse.encounter",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterIniciarLE"
-            ]
-          }
-        ]
-      },
-      {
-        "id" : "QuestionnaireResponse.author",
-        "path" : "QuestionnaireResponse.author",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerProfesionalLE"
-            ]
-          }
-        ]
-      },
-      {
-        "id" : "QuestionnaireResponse.item",
-        "path" : "QuestionnaireResponse.item",
-        "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
-      },
-      {
-        "id" : "QuestionnaireResponse.item.linkId",
-        "path" : "QuestionnaireResponse.item.linkId",
-        "patternString" : "MotivoDerivacion",
-        "mustSupport" : true
-      },
-      {
-        "id" : "QuestionnaireResponse.item.text",
-        "path" : "QuestionnaireResponse.item.text",
-        "patternString" : "Motivo Derivación"
-      }
-    ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

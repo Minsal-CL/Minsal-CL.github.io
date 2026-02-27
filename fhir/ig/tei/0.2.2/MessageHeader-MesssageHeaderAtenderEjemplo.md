@@ -36,13 +36,7 @@ Profile: [MessageHeader LE](StructureDefinition-MessageHeaderLE.md)
   "id" : "MesssageHeaderAtenderEjemplo",
   "meta" : {
     "lastUpdated" : "2024-02-22T08:30:00-03:00",
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/MessageHeaderLE"]
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/MessageHeaderLE"
-    ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   },
   "eventCoding" : {
     "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoEventoLE",
@@ -56,23 +50,12 @@ Profile: [MessageHeader LE](StructureDefinition-MessageHeaderLE.md)
     "software" : "SISMaule",
     "endpoint" : "llp:10.11.12.13:5432"
   },
-<<<<<<< HEAD
   "focus" : [{
     "reference" : "ServiceRequest/EjemploSolicitudInterconsultaFinalizada"
   },
   {
     "reference" : "Encounter/AtencionEjemplo"
   }]
-=======
-  "focus" : [
-    {
-      "reference" : "ServiceRequest/EjemploSolicitudInterconsultaFinalizada"
-    },
-    {
-      "reference" : "Encounter/AtencionEjemplo"
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

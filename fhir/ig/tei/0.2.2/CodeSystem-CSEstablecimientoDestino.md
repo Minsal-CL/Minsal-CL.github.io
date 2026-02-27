@@ -34,7 +34,6 @@ Establecimiento Destino Codigo ejemplos hechos en base a este documento con los 
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
-<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -81,66 +80,6 @@ Establecimiento Destino Codigo ejemplos hechos en base a este documento con los 
     "code" : "133527",
     "display" : "Posta de Salud Rural Punta Liles o Laitec"
   }]
-=======
-  "contact" : [
-    {
-      "name" : "Unidad de Interoperabilidad - MINSAL",
-      "telecom" : [
-        {
-          "system" : "url",
-          "value" : "https://interoperabilidad.minsal.cl"
-        }
-      ]
-    },
-    {
-      "name" : "Franco Ulloa",
-      "telecom" : [
-        {
-          "system" : "email",
-          "value" : "franco.ulloa@minsal.cl",
-          "use" : "work"
-        }
-      ]
-    }
-  ],
-  "description" : "Establecimiento Destino Codigo ejemplos hechos en base a este documento con los [Códigos DEIS del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)",
-  "jurisdiction" : [
-    {
-      "coding" : [
-        {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "CL",
-          "display" : "Chile"
-        }
-      ]
-    }
-  ],
-  "caseSensitive" : true,
-  "content" : "complete",
-  "count" : 5,
-  "concept" : [
-    {
-      "code" : "200556",
-      "display" : "Hospital Digital"
-    },
-    {
-      "code" : "201435",
-      "display" : "Departamento de Asistencia Remota en Salud"
-    },
-    {
-      "code" : "133558",
-      "display" : "Posta de Salud Rural Inio"
-    },
-    {
-      "code" : "133529",
-      "display" : "Posta de Salud Rural Piedras Blancas"
-    },
-    {
-      "code" : "133527",
-      "display" : "Posta de Salud Rural Punta Liles o Laitec"
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

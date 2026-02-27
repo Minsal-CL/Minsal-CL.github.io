@@ -38,7 +38,6 @@ Other representations of profile: [CSV](StructureDefinition-ObservationResultado
 {
   "resourceType" : "StructureDefinition",
   "id" : "ObservationResultadoExamen",
-<<<<<<< HEAD
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 0
@@ -47,24 +46,11 @@ Other representations of profile: [CSV](StructureDefinition-ObservationResultado
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "draft"
   }],
-=======
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
-      "valueInteger" : 0
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
-      "valueCode" : "draft"
-    }
-  ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationResultadoExamen",
   "version" : "0.2.2",
   "name" : "ObservationResultadoExamen",
   "title" : "Observation Resultado Examen",
   "status" : "draft",
-<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -121,83 +107,12 @@ Other representations of profile: [CSV](StructureDefinition-ObservationResultado
     "uri" : "http://snomed.org/attributebinding",
     "name" : "SNOMED CT Attribute Binding"
   }],
-=======
-  "date" : "2026-02-19T15:23:45-03:00",
-  "publisher" : "Unidad de Interoperabilidad - MINSAL",
-  "contact" : [
-    {
-      "name" : "Unidad de Interoperabilidad - MINSAL",
-      "telecom" : [
-        {
-          "system" : "url",
-          "value" : "https://interoperabilidad.minsal.cl"
-        }
-      ]
-    },
-    {
-      "name" : "Franco Ulloa",
-      "telecom" : [
-        {
-          "system" : "email",
-          "value" : "franco.ulloa@minsal.cl",
-          "use" : "work"
-        }
-      ]
-    }
-  ],
-  "description" : "Resultado de examen anterior como antecedente",
-  "jurisdiction" : [
-    {
-      "coding" : [
-        {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "CL",
-          "display" : "Chile"
-        }
-      ]
-    }
-  ],
-  "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "sct-concept",
-      "uri" : "http://snomed.info/conceptdomain",
-      "name" : "SNOMED CT Concept Domain Binding"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "sct-attr",
-      "uri" : "http://snomed.org/attributebinding",
-      "name" : "SNOMED CT Attribute Binding"
-    }
-  ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "kind" : "resource",
   "abstract" : false,
   "type" : "Observation",
   "baseDefinition" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL",
   "derivation" : "constraint",
   "differential" : {
-<<<<<<< HEAD
     "element" : [{
       "id" : "Observation.id",
       "path" : "Observation.id",
@@ -323,147 +238,6 @@ Other representations of profile: [CSV](StructureDefinition-ObservationResultado
       "short" : "Resultado de los examenes realizados",
       "min" : 1
     }]
-=======
-    "element" : [
-      {
-        "id" : "Observation.id",
-        "path" : "Observation.id",
-        "short" : "Id temporal necesario para identificar el recurso",
-        "definition" : "El Id que envíe desde la aplicación es temporal, el definitivo es creado por el servidor",
-        "min" : 1,
-        "mustSupport" : true
-      },
-      {
-        "id" : "Observation.status",
-        "path" : "Observation.status",
-        "short" : "Estado de la observación, por defecto DEBE ser registered",
-        "patternCode" : "registered"
-      },
-      {
-        "id" : "Observation.category",
-        "path" : "Observation.category",
-        "short" : "Categoría de la observación",
-        "min" : 1,
-        "max" : "1"
-      },
-      {
-        "id" : "Observation.category.coding",
-        "path" : "Observation.category.coding",
-        "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Observation.category.coding.system",
-        "path" : "Observation.category.coding.system",
-        "short" : "Identificador del sistema de codificación",
-        "patternUri" : "http://terminology.hl7.org/CodeSystem/observation-category"
-      },
-      {
-        "id" : "Observation.category.coding.code",
-        "path" : "Observation.category.coding.code",
-        "short" : "Código de la categoría",
-        "min" : 1,
-        "patternCode" : "laboratory",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Observation.code",
-        "path" : "Observation.code",
-        "short" : "Tipo de observación",
-        "binding" : {
-          "strength" : "required",
-          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/CodigoExamen"
-        }
-      },
-      {
-        "id" : "Observation.code.coding",
-        "path" : "Observation.code.coding",
-        "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Observation.code.coding.system",
-        "path" : "Observation.code.coding.system",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Observation.code.coding.code",
-        "path" : "Observation.code.coding.code",
-        "min" : 1,
-        "mustSupport" : true
-      },
-      {
-        "id" : "Observation.code.text",
-        "path" : "Observation.code.text",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Observation.subject",
-        "path" : "Observation.subject",
-        "min" : 1,
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PatientLE"
-            ]
-          }
-        ]
-      },
-      {
-        "id" : "Observation.encounter",
-        "path" : "Observation.encounter",
-        "short" : "Encuentro del cual nace la observación",
-        "min" : 1,
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterIniciarLE",
-              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterAtenderLE"
-            ]
-          }
-        ]
-      },
-      {
-        "id" : "Observation.effective[x]",
-        "path" : "Observation.effective[x]",
-        "slicing" : {
-          "discriminator" : [
-            {
-              "type" : "type",
-              "path" : "$this"
-            }
-          ],
-          "ordered" : false,
-          "rules" : "open"
-        },
-        "min" : 1
-      },
-      {
-        "id" : "Observation.effective[x]:effectiveDateTime",
-        "path" : "Observation.effective[x]",
-        "sliceName" : "effectiveDateTime",
-        "short" : "Tiempo o momento en que se tomó examen",
-        "min" : 1,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "dateTime"
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "Observation.value[x]",
-        "path" : "Observation.value[x]",
-        "short" : "Resultado de los examenes realizados",
-        "min" : 1
-      }
-    ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

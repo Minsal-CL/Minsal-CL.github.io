@@ -9,11 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosOriginarios | *Version*:0.2.2 |
-<<<<<<< HEAD
 | Draft as of 2026-02-27 | *Computable Name*:PueblosOriginarios |
-=======
-| Draft as of 2026-02-19 | *Computable Name*:PueblosOriginarios |
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 
 Almacenar si el paciente pertenece a algun pueblo originario
 
@@ -53,7 +49,6 @@ Other representations of profile: [CSV](StructureDefinition-PueblosOriginarios.c
   "name" : "PueblosOriginarios",
   "title" : "Pueblos Originarios",
   "status" : "draft",
-<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -91,64 +86,10 @@ Other representations of profile: [CSV](StructureDefinition-PueblosOriginarios.c
     "type" : "element",
     "expression" : "Patient"
   }],
-=======
-  "date" : "2026-02-19T15:23:45-03:00",
-  "publisher" : "Unidad de Interoperabilidad - MINSAL",
-  "contact" : [
-    {
-      "name" : "Unidad de Interoperabilidad - MINSAL",
-      "telecom" : [
-        {
-          "system" : "url",
-          "value" : "https://interoperabilidad.minsal.cl"
-        }
-      ]
-    },
-    {
-      "name" : "Franco Ulloa",
-      "telecom" : [
-        {
-          "system" : "email",
-          "value" : "franco.ulloa@minsal.cl",
-          "use" : "work"
-        }
-      ]
-    }
-  ],
-  "description" : "Almacenar si el paciente pertenece a algun pueblo originario",
-  "jurisdiction" : [
-    {
-      "coding" : [
-        {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "CL",
-          "display" : "Chile"
-        }
-      ]
-    }
-  ],
-  "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    }
-  ],
-  "kind" : "complex-type",
-  "abstract" : false,
-  "context" : [
-    {
-      "type" : "element",
-      "expression" : "Patient"
-    }
-  ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "type" : "Extension",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
   "derivation" : "constraint",
   "differential" : {
-<<<<<<< HEAD
     "element" : [{
       "id" : "Extension",
       "path" : "Extension",
@@ -210,73 +151,6 @@ Other representations of profile: [CSV](StructureDefinition-PueblosOriginarios.c
       "short" : "Otro pueblo originario",
       "mustSupport" : true
     }]
-=======
-    "element" : [
-      {
-        "id" : "Extension",
-        "path" : "Extension",
-        "short" : "Pueblos Originarios",
-        "definition" : "Almacenar si el paciente pertenece a algun pueblo originario"
-      },
-      {
-        "id" : "Extension.extension",
-        "path" : "Extension.extension",
-        "max" : "0"
-      },
-      {
-        "id" : "Extension.url",
-        "path" : "Extension.url",
-        "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosOriginarios",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Extension.value[x]",
-        "path" : "Extension.value[x]",
-        "short" : "Código Pueblo Originario",
-        "type" : [
-          {
-            "code" : "CodeableConcept"
-          }
-        ],
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "required",
-          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/PueblosOriginariosVS"
-        }
-      },
-      {
-        "id" : "Extension.value[x].coding",
-        "path" : "Extension.value[x].coding",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Extension.value[x].coding.system",
-        "path" : "Extension.value[x].coding.system",
-        "short" : "URI del system para validar",
-        "min" : 1,
-        "mustSupport" : true
-      },
-      {
-        "id" : "Extension.value[x].coding.code",
-        "path" : "Extension.value[x].coding.code",
-        "short" : "Código del pueblo",
-        "min" : 1,
-        "mustSupport" : true
-      },
-      {
-        "id" : "Extension.value[x].coding.display",
-        "path" : "Extension.value[x].coding.display",
-        "short" : "Nombre del pueblo",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Extension.value[x].text",
-        "path" : "Extension.value[x].text",
-        "short" : "Otro pueblo originario",
-        "mustSupport" : true
-      }
-    ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

@@ -28,13 +28,7 @@ Profile: [PractitionerRole LE](StructureDefinition-PractitionerRoleLE.md)
   "id" : "PractitionerRoleAtendedor",
   "meta" : {
     "versionId" : "2.0",
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerRoleLE"]
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerRoleLE"
-    ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   },
   "active" : true,
   "practitioner" : {
@@ -43,7 +37,6 @@ Profile: [PractitionerRole LE](StructureDefinition-PractitionerRoleLE.md)
   "organization" : {
     "reference" : "Organization/OrganizationLEAtendedor"
   },
-<<<<<<< HEAD
   "code" : [{
     "coding" : [{
       "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSPractitionerTipoRolLE",
@@ -51,19 +44,6 @@ Profile: [PractitionerRole LE](StructureDefinition-PractitionerRoleLE.md)
       "display" : "Atendedor"
     }]
   }]
-=======
-  "code" : [
-    {
-      "coding" : [
-        {
-          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSPractitionerTipoRolLE",
-          "code" : "atendedor",
-          "display" : "Atendedor"
-        }
-      ]
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

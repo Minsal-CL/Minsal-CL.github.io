@@ -25,7 +25,6 @@ Profile: [Discapacidad LE](StructureDefinition-ObservationDiscapacidadLE.md)
   "resourceType" : "Observation",
   "id" : "EjemploObservationDiscapacidadLE",
   "meta" : {
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationDiscapacidadLE"]
   },
   "status" : "final",
@@ -35,21 +34,6 @@ Profile: [Discapacidad LE](StructureDefinition-ObservationDiscapacidadLE.md)
       "code" : "101720-1",
       "display" : "Disability status"
     }],
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationDiscapacidadLE"
-    ]
-  },
-  "status" : "final",
-  "code" : {
-    "coding" : [
-      {
-        "system" : "http://loinc.org",
-        "code" : "101720-1",
-        "display" : "Disability status"
-      }
-    ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "Discapacidad"
   },
   "subject" : {

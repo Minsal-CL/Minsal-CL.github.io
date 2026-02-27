@@ -36,13 +36,7 @@ Profile: [Solicitud de Medicamento LE](StructureDefinition-MedicationRequestLE.m
   "resourceType" : "MedicationRequest",
   "id" : "PrednisonaEjemplo",
   "meta" : {
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/MedicationRequestLE"]
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/MedicationRequestLE"
-    ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   },
   "status" : "draft",
   "intent" : "order",
@@ -58,17 +52,9 @@ Profile: [Solicitud de Medicamento LE](StructureDefinition-MedicationRequestLE.m
   "requester" : {
     "reference" : "Practitioner/PractitionerProfesionalLEAtendedor"
   },
-<<<<<<< HEAD
   "note" : [{
     "text" : "2 veces al día por 1 mes"
   }]
-=======
-  "note" : [
-    {
-      "text" : "2 veces al día por 1 mes"
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

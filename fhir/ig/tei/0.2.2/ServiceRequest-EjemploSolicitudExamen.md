@@ -42,7 +42,6 @@ paciente con APE elevado en 2022, se solicita examen vigente previo a atención 
   "resourceType" : "ServiceRequest",
   "id" : "EjemploSolicitudExamen",
   "meta" : {
-<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestExamenLE"]
   },
   "basedOn" : [{
@@ -56,27 +55,6 @@ paciente con APE elevado en 2022, se solicita examen vigente previo a atención 
       "code" : "2857-1",
       "display" : "Ag específico de próstata: Suero o Plasma : Punto temporal: Concentración de masa: Cuantitativo:"
     }],
-=======
-    "profile" : [
-      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestExamenLE"
-    ]
-  },
-  "basedOn" : [
-    {
-      "reference" : "ServiceRequest/EjemploSolicitudInterconsultaFinalizada"
-    }
-  ],
-  "status" : "draft",
-  "intent" : "order",
-  "code" : {
-    "coding" : [
-      {
-        "system" : "http://loinc.org",
-        "code" : "2857-1",
-        "display" : "Ag específico de próstata: Suero o Plasma : Punto temporal: Concentración de masa: Cuantitativo:"
-      }
-    ],
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "Antigeno Prostático Específico en Suero o Plasma"
   },
   "subject" : {
@@ -87,7 +65,6 @@ paciente con APE elevado en 2022, se solicita examen vigente previo a atención 
   "requester" : {
     "reference" : "Practitioner/PractitionerProfesionalLEEjemplo"
   },
-<<<<<<< HEAD
   "reasonCode" : [{
     "coding" : [{
       "system" : "http://snomed.info/sct",
@@ -98,24 +75,6 @@ paciente con APE elevado en 2022, se solicita examen vigente previo a atención 
   "note" : [{
     "text" : "paciente con APE elevado en 2022, se solicita examen vigente previo a atención con especialidad"
   }]
-=======
-  "reasonCode" : [
-    {
-      "coding" : [
-        {
-          "system" : "http://snomed.info/sct",
-          "code" : "414205003"
-        }
-      ],
-      "text" : "antecedente familiar de neoplasia maligna de próstata"
-    }
-  ],
-  "note" : [
-    {
-      "text" : "paciente con APE elevado en 2022, se solicita examen vigente previo a atención con especialidad"
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

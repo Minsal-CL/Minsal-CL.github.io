@@ -35,7 +35,6 @@ Pertinencia Interconsulta
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
-<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -77,61 +76,6 @@ Pertinencia Interconsulta
     "display" : "Pertinente Incompleta",
     "definition" : "Pertinente Incompleta"
   }]
-=======
-  "contact" : [
-    {
-      "name" : "Unidad de Interoperabilidad - MINSAL",
-      "telecom" : [
-        {
-          "system" : "url",
-          "value" : "https://interoperabilidad.minsal.cl"
-        }
-      ]
-    },
-    {
-      "name" : "Franco Ulloa",
-      "telecom" : [
-        {
-          "system" : "email",
-          "value" : "franco.ulloa@minsal.cl",
-          "use" : "work"
-        }
-      ]
-    }
-  ],
-  "description" : "Pertinencia Interconsulta",
-  "jurisdiction" : [
-    {
-      "coding" : [
-        {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "CL",
-          "display" : "Chile"
-        }
-      ]
-    }
-  ],
-  "caseSensitive" : true,
-  "content" : "complete",
-  "count" : 3,
-  "concept" : [
-    {
-      "code" : "1",
-      "display" : "Pertinente",
-      "definition" : "Pertinente"
-    },
-    {
-      "code" : "2",
-      "display" : "No Pertinente",
-      "definition" : "No Pertinente"
-    },
-    {
-      "code" : "3",
-      "display" : "Pertinente Incompleta",
-      "definition" : "Pertinente Incompleta"
-    }
-  ]
->>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```
