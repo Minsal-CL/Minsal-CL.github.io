@@ -35,6 +35,7 @@ Consecuencia Atención Codigo
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -76,6 +77,61 @@ Consecuencia Atención Codigo
     "display" : "Derivación",
     "definition" : "Derivación"
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Consecuencia Atención Codigo",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [
+    {
+      "code" : "1",
+      "display" : "Control",
+      "definition" : "Control"
+    },
+    {
+      "code" : "2",
+      "display" : "Alta",
+      "definition" : "Alta"
+    },
+    {
+      "code" : "3",
+      "display" : "Derivación",
+      "definition" : "Derivación"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

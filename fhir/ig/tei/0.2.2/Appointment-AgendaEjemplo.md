@@ -36,6 +36,7 @@ Profile: [Appointment Agendar LE](StructureDefinition-AppointmentAgendarLE.md)
   "resourceType" : "Appointment",
   "id" : "AgendaEjemplo",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AppointmentAgendarLE"]
   },
   "extension" : [{
@@ -58,10 +59,45 @@ Profile: [Appointment Agendar LE](StructureDefinition-AppointmentAgendarLE.md)
   "identifier" : [{
     "value" : "123"
   }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AppointmentAgendarLE"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMediodeContacto",
+      "valueCodeableConcept" : {
+        "coding" : [
+          {
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMediodeContacto",
+            "code" : "3",
+            "display" : "Llamada"
+          }
+        ]
+      }
+    },
+    {
+      "extension" : [
+        {
+          "url" : "Contactado",
+          "valueBoolean" : true
+        }
+      ],
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Contactado"
+    }
+  ],
+  "identifier" : [
+    {
+      "value" : "123"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "status" : "booked",
   "start" : "2024-02-22T08:00:00-03:00",
   "end" : "2024-02-22T08:30:00-03:00",
   "created" : "2024-02-20T16:00:00-03:00",
+<<<<<<< HEAD
   "participant" : [{
     "actor" : {
       "reference" : "PractitionerRole/PractitionerRoleAtendedor",
@@ -76,6 +112,24 @@ Profile: [Appointment Agendar LE](StructureDefinition-AppointmentAgendarLE.md)
     },
     "status" : "accepted"
   }]
+=======
+  "participant" : [
+    {
+      "actor" : {
+        "reference" : "PractitionerRole/PractitionerRoleAtendedor",
+        "type" : "PractitionerRole"
+      },
+      "status" : "accepted"
+    },
+    {
+      "actor" : {
+        "reference" : "Patient/EjemploPatientLE",
+        "type" : "Patient"
+      },
+      "status" : "accepted"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

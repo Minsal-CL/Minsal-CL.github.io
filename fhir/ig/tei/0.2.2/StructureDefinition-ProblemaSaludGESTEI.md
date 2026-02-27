@@ -9,7 +9,11 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ProblemaSaludGESTEI | *Version*:0.2.2 |
+<<<<<<< HEAD
 | Draft as of 2026-02-27 | *Computable Name*:ProblemaSaludGES |
+=======
+| Draft as of 2026-02-19 | *Computable Name*:ProblemaSaludGES |
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 
 Indica si corresponde a que problema de salud GES
 
@@ -49,6 +53,7 @@ Other representations of profile: [CSV](StructureDefinition-ProblemaSaludGESTEI.
   "name" : "ProblemaSaludGES",
   "title" : "Problema GES",
   "status" : "draft",
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -86,10 +91,64 @@ Other representations of profile: [CSV](StructureDefinition-ProblemaSaludGESTEI.
     "type" : "element",
     "expression" : "ServiceRequest"
   }],
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Indica si corresponde a que problema de salud GES",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    }
+  ],
+  "kind" : "complex-type",
+  "abstract" : false,
+  "context" : [
+    {
+      "type" : "element",
+      "expression" : "ServiceRequest"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "type" : "Extension",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
   "derivation" : "constraint",
   "differential" : {
+<<<<<<< HEAD
     "element" : [{
       "id" : "Extension",
       "path" : "Extension",
@@ -167,6 +226,91 @@ Other representations of profile: [CSV](StructureDefinition-ProblemaSaludGESTEI.
       "path" : "Extension.value[x]",
       "max" : "0"
     }]
+=======
+    "element" : [
+      {
+        "id" : "Extension",
+        "path" : "Extension",
+        "short" : "Problema GES",
+        "definition" : "Indica si corresponde a que problema de salud GES"
+      },
+      {
+        "id" : "Extension.extension",
+        "path" : "Extension.extension",
+        "min" : 1
+      },
+      {
+        "id" : "Extension.extension:ProblemaSaludGES",
+        "path" : "Extension.extension",
+        "sliceName" : "ProblemaSaludGES",
+        "short" : "Indica el problema de salud GES",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Extension.extension:ProblemaSaludGES.extension",
+        "path" : "Extension.extension.extension",
+        "max" : "0"
+      },
+      {
+        "id" : "Extension.extension:ProblemaSaludGES.url",
+        "path" : "Extension.extension.url",
+        "fixedUri" : "ProblemaSaludGES"
+      },
+      {
+        "id" : "Extension.extension:ProblemaSaludGES.value[x]",
+        "path" : "Extension.extension.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/vs-problema-ges-tei"
+        }
+      },
+      {
+        "id" : "Extension.extension:RamaGES",
+        "path" : "Extension.extension",
+        "sliceName" : "RamaGES",
+        "short" : "Indica una especificación sobre el problema de salud GES",
+        "min" : 0,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Extension.extension:RamaGES.extension",
+        "path" : "Extension.extension.extension",
+        "max" : "0"
+      },
+      {
+        "id" : "Extension.extension:RamaGES.url",
+        "path" : "Extension.extension.url",
+        "fixedUri" : "RamaGES"
+      },
+      {
+        "id" : "Extension.extension:RamaGES.value[x]",
+        "path" : "Extension.extension.value[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id" : "Extension.url",
+        "path" : "Extension.url",
+        "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ProblemaSaludGESTEI"
+      },
+      {
+        "id" : "Extension.value[x]",
+        "path" : "Extension.value[x]",
+        "max" : "0"
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

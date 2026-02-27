@@ -35,6 +35,7 @@ Destino Referencia Codigo
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -86,6 +87,71 @@ Destino Referencia Codigo
     "display" : "Establecimiento de alta complejidad",
     "definition" : "Establecimiento de alta complejidad"
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Destino Referencia Codigo",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 5,
+  "concept" : [
+    {
+      "code" : "1",
+      "display" : "Nivel Secundario",
+      "definition" : "Nivel Secundario"
+    },
+    {
+      "code" : "2",
+      "display" : "APS",
+      "definition" : "APS"
+    },
+    {
+      "code" : "3",
+      "display" : "Extra Sistema",
+      "definition" : "Extra Sistema"
+    },
+    {
+      "code" : "4",
+      "display" : "Hospital Digital",
+      "definition" : "Hospital Digital"
+    },
+    {
+      "code" : "5",
+      "display" : "Establecimiento de alta complejidad",
+      "definition" : "Establecimiento de alta complejidad"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

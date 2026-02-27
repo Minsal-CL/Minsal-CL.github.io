@@ -27,7 +27,13 @@ Profile: [QuestionnaireResponse Iniciar Motivo de la Derivación LE](StructureDe
   "resourceType" : "QuestionnaireResponse",
   "id" : "MotivoDerivacionEjemplo",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/QuestionnaireResponseIniciarLE"]
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/QuestionnaireResponseIniciarLE"
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   },
   "questionnaire" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/Questionnaire/MotivoDerivacion",
   "status" : "completed",
@@ -40,6 +46,7 @@ Profile: [QuestionnaireResponse Iniciar Motivo de la Derivación LE](StructureDe
   "author" : {
     "reference" : "Practitioner/PractitionerProfesionalLEEjemplo"
   },
+<<<<<<< HEAD
   "item" : [{
     "linkId" : "MotivoDerivacion",
     "text" : "Motivo Derivación",
@@ -47,6 +54,19 @@ Profile: [QuestionnaireResponse Iniciar Motivo de la Derivación LE](StructureDe
       "valueString" : "Paciente sufre de alzas constantes de presión no manejadas en APS. Comienza con precordalgia aguda."
     }]
   }]
+=======
+  "item" : [
+    {
+      "linkId" : "MotivoDerivacion",
+      "text" : "Motivo Derivación",
+      "answer" : [
+        {
+          "valueString" : "Paciente sufre de alzas constantes de presión no manejadas en APS. Comienza con precordalgia aguda."
+        }
+      ]
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

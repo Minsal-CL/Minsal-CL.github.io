@@ -21,12 +21,25 @@ Profile: [Organization LE](StructureDefinition-OrganizationLE.md)
   "resourceType" : "Organization",
   "id" : "OrganizationLEAtendedor",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/OrganizationLE"]
   },
   "identifier" : [{
     "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino",
     "value" : "121343"
   }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/OrganizationLE"
+    ]
+  },
+  "identifier" : [
+    {
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino",
+      "value" : "121343"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "name" : "Centro de Referencia de Salud Miraflores"
 }
 

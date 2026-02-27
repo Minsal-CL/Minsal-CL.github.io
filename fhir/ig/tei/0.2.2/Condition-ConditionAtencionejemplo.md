@@ -31,6 +31,7 @@ Profile: [Condition Diagnostico LE](StructureDefinition-ConditionDiagnosticoLE.m
   "resourceType" : "Condition",
   "id" : "ConditionAtencionejemplo",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ConditionDiagnosticoLE"]
   },
   "clinicalStatus" : {
@@ -71,6 +72,62 @@ Profile: [Condition Diagnostico LE](StructureDefinition-ConditionDiagnosticoLE.m
       "code" : "24867002",
       "display" : "Severe adrenal insufficiency"
     }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ConditionDiagnosticoLE"
+    ]
+  },
+  "clinicalStatus" : {
+    "coding" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code" : "active",
+        "display" : "Active"
+      }
+    ],
+    "text" : "Activo"
+  },
+  "verificationStatus" : {
+    "coding" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code" : "confirmed",
+        "display" : "Confirmed"
+      }
+    ],
+    "text" : "Confirmado"
+  },
+  "category" : [
+    {
+      "coding" : [
+        {
+          "system" : "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code" : "encounter-diagnosis",
+          "display" : "Encounter Diagnosis"
+        }
+      ],
+      "text" : "Diagnostico del encuentro"
+    }
+  ],
+  "severity" : {
+    "coding" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "code" : "24484000",
+        "display" : "Severe"
+      }
+    ],
+    "text" : "Severo"
+  },
+  "code" : {
+    "coding" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "code" : "24867002",
+        "display" : "Severe adrenal insufficiency"
+      }
+    ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "insuficiencia adrenal severa"
   },
   "subject" : {

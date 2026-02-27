@@ -38,6 +38,7 @@ Other representations of profile: [CSV](StructureDefinition-EncounterIniciarLE.c
 {
   "resourceType" : "StructureDefinition",
   "id" : "EncounterIniciarLE",
+<<<<<<< HEAD
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 0
@@ -46,11 +47,24 @@ Other representations of profile: [CSV](StructureDefinition-EncounterIniciarLE.c
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "draft"
   }],
+=======
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 0
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "draft"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterIniciarLE",
   "version" : "0.2.2",
   "name" : "EncounterIniciarLE",
   "title" : "Encounter Iniciar LE",
   "status" : "draft",
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -97,12 +111,73 @@ Other representations of profile: [CSV](StructureDefinition-EncounterIniciarLE.c
     "uri" : "http://hl7.org/v2",
     "name" : "HL7 v2 Mapping"
   }],
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Encounter Iniciar LE recurso que se utiliza para representar el encuentro médico, que representa el encuentro de cuando se solicita la interconsulta.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "kind" : "resource",
   "abstract" : false,
   "type" : "Encounter",
   "baseDefinition" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/EncounterCL",
   "derivation" : "constraint",
   "differential" : {
+<<<<<<< HEAD
     "element" : [{
       "id" : "Encounter.id",
       "path" : "Encounter.id",
@@ -221,6 +296,146 @@ Other representations of profile: [CSV](StructureDefinition-EncounterIniciarLE.c
         "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ConditionDiagnosticoLE"]
       }]
     }]
+=======
+    "element" : [
+      {
+        "id" : "Encounter.id",
+        "path" : "Encounter.id",
+        "short" : "Id temporal necesario para identificar el recurso",
+        "definition" : "El Id que envíe desde la aplicación es temporal, el definitivo es creado por el servidor",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "Encounter.extension",
+        "path" : "Encounter.extension",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "value",
+              "path" : "url"
+            }
+          ],
+          "ordered" : false,
+          "rules" : "open"
+        }
+      },
+      {
+        "id" : "Encounter.extension:ConsecuenciaAtencionCodigo",
+        "path" : "Encounter.extension",
+        "sliceName" : "ConsecuenciaAtencionCodigo",
+        "short" : "Código de la consecuencia de la atención",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionConsecuenciaAtencionCodigo"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Encounter.extension:ConsecuenciaAtencionCodigo.value[x].coding.code",
+        "path" : "Encounter.extension.value[x].coding.code",
+        "patternCode" : "3"
+      },
+      {
+        "id" : "Encounter.identifier",
+        "path" : "Encounter.identifier",
+        "short" : "Id del registro de atención o encuentro del sistema clínico de origen",
+        "min" : 1,
+        "max" : "1"
+      },
+      {
+        "id" : "Encounter.identifier.value",
+        "path" : "Encounter.identifier.value",
+        "short" : "Valor de registro real",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "Encounter.status",
+        "path" : "Encounter.status",
+        "short" : "Estado actual del encuentro",
+        "patternCode" : "finished"
+      },
+      {
+        "id" : "Encounter.class",
+        "path" : "Encounter.class",
+        "short" : "Modalidad de Atención",
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSModalidadAtencionCodigo"
+        }
+      },
+      {
+        "id" : "Encounter.subject",
+        "path" : "Encounter.subject",
+        "short" : "Referencia al Paciente que se presentará a la Atención APS",
+        "min" : 1,
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PatientLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Encounter.participant.individual",
+        "path" : "Encounter.participant.individual",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerRoleLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Encounter.period",
+        "path" : "Encounter.period",
+        "short" : "Fechas de comienzo y término del encuentro Atención APS. El formato queda consignado como YYYY-MM-DDTHH:MMZ",
+        "min" : 1
+      },
+      {
+        "id" : "Encounter.period.start",
+        "path" : "Encounter.period.start",
+        "short" : "Fecha Comienzo del encuentro Atención APS",
+        "min" : 1
+      },
+      {
+        "id" : "Encounter.period.end",
+        "path" : "Encounter.period.end",
+        "short" : "Fecha de término del encuentro Atención APS",
+        "min" : 1
+      },
+      {
+        "id" : "Encounter.diagnosis",
+        "path" : "Encounter.diagnosis",
+        "short" : "El o los diagnósticos por cual se crea la solicitud de interconsulta",
+        "min" : 1
+      },
+      {
+        "id" : "Encounter.diagnosis.condition",
+        "path" : "Encounter.diagnosis.condition",
+        "short" : "Referencia al diagnóstico de origen",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ConditionDiagnosticoLE"
+            ]
+          }
+        ]
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

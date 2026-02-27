@@ -43,6 +43,7 @@ Profile: [Encounter Iniciar LE](StructureDefinition-EncounterIniciarLE.md)
   "resourceType" : "Encounter",
   "id" : "EncounterIniciarEjemplo",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterIniciarLE"]
   },
   "extension" : [{
@@ -60,6 +61,33 @@ Profile: [Encounter Iniciar LE](StructureDefinition-EncounterIniciarLE.md)
     "system" : "http://example.org/sampleencounter-identifier",
     "value" : "123"
   }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterIniciarLE"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionConsecuenciaAtencionCodigo",
+      "valueCodeableConcept" : {
+        "coding" : [
+          {
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSConsecuenciaAtencionCodigo",
+            "code" : "3",
+            "display" : "Derivación"
+          }
+        ]
+      }
+    }
+  ],
+  "identifier" : [
+    {
+      "use" : "official",
+      "system" : "http://example.org/sampleencounter-identifier",
+      "value" : "123"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "status" : "finished",
   "class" : {
     "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSModalidadAtencionCodigo",
@@ -69,21 +97,42 @@ Profile: [Encounter Iniciar LE](StructureDefinition-EncounterIniciarLE.md)
   "subject" : {
     "reference" : "Patient/EjemploPatientLE"
   },
+<<<<<<< HEAD
   "participant" : [{
     "individual" : {
       "reference" : "PractitionerRole/PractitionerRoleIniciador"
     }
   }],
+=======
+  "participant" : [
+    {
+      "individual" : {
+        "reference" : "PractitionerRole/PractitionerRoleIniciador"
+      }
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "period" : {
     "start" : "2024-01-17T16:00:00+10:00",
     "end" : "2024-01-17T16:30:00+10:00"
   },
+<<<<<<< HEAD
   "diagnosis" : [{
     "condition" : {
       "reference" : "Condition/ConditionInicialEjemplo"
     },
     "rank" : 1
   }]
+=======
+  "diagnosis" : [
+    {
+      "condition" : {
+        "reference" : "Condition/ConditionInicialEjemplo"
+      },
+      "rank" : 1
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

@@ -47,6 +47,7 @@ Profile: [Encounter Atender LE](StructureDefinition-EncounterAtenderLE.md)
   "resourceType" : "Encounter",
   "id" : "AtencionEjemplo",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterAtenderLE"]
   },
   "extension" : [{
@@ -56,12 +57,30 @@ Profile: [Encounter Atender LE](StructureDefinition-EncounterAtenderLE.md)
   "identifier" : [{
     "value" : "123"
   }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterAtenderLE"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionPertinenciaAtencionBox",
+      "valueBoolean" : true
+    }
+  ],
+  "identifier" : [
+    {
+      "value" : "123"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "status" : "finished",
   "class" : {
     "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSModalidadAtencionCodigo",
     "code" : "1",
     "display" : "Presencial"
   },
+<<<<<<< HEAD
   "type" : [{
     "coding" : [{
       "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoConsulta",
@@ -80,15 +99,53 @@ Profile: [Encounter Atender LE](StructureDefinition-EncounterAtenderLE.md)
       "reference" : "PractitionerRole/PractitionerRoleAtendedor"
     }
   }],
+=======
+  "type" : [
+    {
+      "coding" : [
+        {
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoConsulta",
+          "code" : "1",
+          "display" : "Nueva"
+        }
+      ]
+    }
+  ],
+  "subject" : {
+    "reference" : "Patient/EjemploPatientLE"
+  },
+  "basedOn" : [
+    {
+      "reference" : "ServiceRequest/EjemploSolicitudInterconsultaFinalizada"
+    }
+  ],
+  "participant" : [
+    {
+      "individual" : {
+        "reference" : "PractitionerRole/PractitionerRoleAtendedor"
+      }
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "period" : {
     "start" : "2024-02-22T08:00:00-03:00",
     "end" : "2024-02-22T08:30:00-03:00"
   },
+<<<<<<< HEAD
   "diagnosis" : [{
     "condition" : {
       "reference" : "Condition/ConditionAtencionejemplo"
     }
   }]
+=======
+  "diagnosis" : [
+    {
+      "condition" : {
+        "reference" : "Condition/ConditionAtencionejemplo"
+      }
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

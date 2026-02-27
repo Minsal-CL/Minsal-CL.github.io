@@ -53,6 +53,7 @@ Set de valores utilizados para los problemas de salud ges
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -80,6 +81,47 @@ Set de valores utilizados para los problemas de salud ges
     "include" : [{
       "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/cs-problema-ges-tei"
     }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Set de valores utilizados para los problemas de salud ges",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "compose" : {
+    "include" : [
+      {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/cs-problema-ges-tei"
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

@@ -38,6 +38,7 @@ Other representations of profile: [CSV](StructureDefinition-OrganizationLE.csv),
 {
   "resourceType" : "StructureDefinition",
   "id" : "OrganizationLE",
+<<<<<<< HEAD
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 0
@@ -46,11 +47,24 @@ Other representations of profile: [CSV](StructureDefinition-OrganizationLE.csv),
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "draft"
   }],
+=======
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 0
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "draft"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/OrganizationLE",
   "version" : "0.2.2",
   "name" : "OrganizationLE",
   "title" : "Organization LE",
   "status" : "draft",
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -97,12 +111,73 @@ Other representations of profile: [CSV](StructureDefinition-OrganizationLE.csv),
     "uri" : "http://hl7.org/fhir/fivews",
     "name" : "FiveWs Pattern Mapping"
   }],
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Organization LE según [Códigos DEIS del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "servd",
+      "uri" : "http://www.omg.org/spec/ServD/1.0/",
+      "name" : "ServD"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "kind" : "resource",
   "abstract" : false,
   "type" : "Organization",
   "baseDefinition" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreOrganizacionCl",
   "derivation" : "constraint",
   "differential" : {
+<<<<<<< HEAD
     "element" : [{
       "id" : "Organization.id",
       "path" : "Organization.id",
@@ -136,6 +211,43 @@ Other representations of profile: [CSV](StructureDefinition-OrganizationLE.csv),
       "definition" : "Código DEIS del establecimiento según [Códigos del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)",
       "min" : 1
     }]
+=======
+    "element" : [
+      {
+        "id" : "Organization.id",
+        "path" : "Organization.id",
+        "short" : "Id temporal necesario para identificar el recurso",
+        "definition" : "El Id que envíe desde la aplicación es temporal, el definitivo es creado por el servidor",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "Organization.identifier",
+        "path" : "Organization.identifier",
+        "short" : "Código DEIS del establecimiento de destino",
+        "definition" : "Código DEIS del establecimiento de destino",
+        "min" : 1,
+        "max" : "1"
+      },
+      {
+        "id" : "Organization.identifier.system",
+        "path" : "Organization.identifier.system",
+        "short" : "CS de los codigos DEIS",
+        "definition" : "CS de los codigos DEIS",
+        "binding" : {
+          "strength" : "example",
+          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSEstablecimientoDestino"
+        }
+      },
+      {
+        "id" : "Organization.identifier.value",
+        "path" : "Organization.identifier.value",
+        "short" : "Código DEIS del establecimiento",
+        "definition" : "Código DEIS del establecimiento según [Códigos del establecimientos](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes)",
+        "min" : 1
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

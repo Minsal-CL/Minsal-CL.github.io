@@ -37,6 +37,7 @@ Other representations of profile: [CSV](StructureDefinition-MessageHeaderLE.csv)
 {
   "resourceType" : "StructureDefinition",
   "id" : "MessageHeaderLE",
+<<<<<<< HEAD
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 0
@@ -45,11 +46,24 @@ Other representations of profile: [CSV](StructureDefinition-MessageHeaderLE.csv)
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "draft"
   }],
+=======
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 0
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "draft"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/MessageHeaderLE",
   "version" : "0.2.2",
   "name" : "MessageHeaderLE",
   "title" : "MessageHeader LE",
   "status" : "draft",
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -91,12 +105,68 @@ Other representations of profile: [CSV](StructureDefinition-MessageHeaderLE.csv)
     "uri" : "http://hl7.org/fhir/fivews",
     "name" : "FiveWs Pattern Mapping"
   }],
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "MessageHeaderLE",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "kind" : "resource",
   "abstract" : false,
   "type" : "MessageHeader",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MessageHeader",
   "derivation" : "constraint",
   "differential" : {
+<<<<<<< HEAD
     "element" : [{
       "id" : "MessageHeader.id",
       "path" : "MessageHeader.id",
@@ -217,6 +287,149 @@ Other representations of profile: [CSV](StructureDefinition-MessageHeaderLE.csv)
       }],
       "mustSupport" : true
     }]
+=======
+    "element" : [
+      {
+        "id" : "MessageHeader.id",
+        "path" : "MessageHeader.id",
+        "short" : "Id temporal necesario para identificar el recurso",
+        "definition" : "El Id que envíe desde la aplicación es temporal, el definitivo es creado por el servidor",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MessageHeader.meta.lastUpdated",
+        "path" : "MessageHeader.meta.lastUpdated",
+        "short" : "Fecha del Evento. El formato corresponde a año, mes, día y hora (hh:mm) y se representa de la siguiente forma: YYYY-MM-DDTHH:MMZ",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "MessageHeader.event[x]",
+        "path" : "MessageHeader.event[x]",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "type",
+              "path" : "$this"
+            }
+          ],
+          "ordered" : false,
+          "rules" : "open"
+        }
+      },
+      {
+        "id" : "MessageHeader.event[x]:eventCoding",
+        "path" : "MessageHeader.event[x]",
+        "sliceName" : "eventCoding",
+        "short" : "Código para el evento que representa este mensaje o enlace a la definición del evento",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Coding"
+          }
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSTipoEventoLE"
+        }
+      },
+      {
+        "id" : "MessageHeader.author",
+        "path" : "MessageHeader.author",
+        "short" : "Referencia al rol del profesional que realiza la acción asociada al evento.",
+        "min" : 1,
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerRoleLE"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "MessageHeader.source.software",
+        "path" : "MessageHeader.source.software",
+        "short" : "Solución Informática. Corresponde al nombre (un string human-friendly) del aplicativo de Registro Clínico Electronico, que realiza el envío de la información.",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "MessageHeader.source.endpoint",
+        "path" : "MessageHeader.source.endpoint",
+        "short" : "Dirección o ID de origen del mensaje real.",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MessageHeader.focus",
+        "path" : "MessageHeader.focus",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "profile",
+              "path" : "resolve()"
+            }
+          ],
+          "rules" : "closed"
+        },
+        "short" : "Referencia a la prestación requerida para el paciente en cada evento",
+        "min" : 1,
+        "max" : "2",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MessageHeader.focus:ServiceRequestLE",
+        "path" : "MessageHeader.focus",
+        "sliceName" : "ServiceRequestLE",
+        "short" : "Referencia a la solicitud de servicio requerida por el paciente, debe ir en cada uno de los eventos",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "MessageHeader.focus:AppointmentAgendarLE",
+        "path" : "MessageHeader.focus",
+        "sliceName" : "AppointmentAgendarLE",
+        "short" : "Referencia a la cita médica requerida por el paciente y se agrega SOLO en el evento agendar",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AppointmentAgendarLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "MessageHeader.focus:EncounterAtenderLE",
+        "path" : "MessageHeader.focus",
+        "sliceName" : "EncounterAtenderLE",
+        "short" : "Referencia a la atención realizada al paciente  y se agrega SOLO en el evento atender",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterAtenderLE"
+            ]
+          }
+        ]
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

@@ -35,6 +35,7 @@ CodeSystem con códigos definidos para representar cada evento en la interconsul
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -96,6 +97,81 @@ CodeSystem con códigos definidos para representar cada evento en la interconsul
     "display" : "Terminar",
     "definition" : "Terminar"
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "CodeSystem con códigos definidos para representar cada evento en la interconsulta",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 7,
+  "concept" : [
+    {
+      "code" : "iniciar",
+      "display" : "Iniciar",
+      "definition" : "Iniciar"
+    },
+    {
+      "code" : "referenciar",
+      "display" : "Referenciar",
+      "definition" : "Referenciar"
+    },
+    {
+      "code" : "revisar",
+      "display" : "Revisar",
+      "definition" : "Revisar"
+    },
+    {
+      "code" : "priorizar",
+      "display" : "Priorizar",
+      "definition" : "Priorizar"
+    },
+    {
+      "code" : "agendar",
+      "display" : "Agendar",
+      "definition" : "Agendar"
+    },
+    {
+      "code" : "atender",
+      "display" : "Atender",
+      "definition" : "Atender"
+    },
+    {
+      "code" : "terminar",
+      "display" : "Terminar",
+      "definition" : "Terminar"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

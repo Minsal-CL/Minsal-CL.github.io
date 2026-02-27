@@ -53,6 +53,7 @@ Indice Comorbilidad
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -80,6 +81,47 @@ Indice Comorbilidad
     "include" : [{
       "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSIndicecomorbilidad"
     }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Indice Comorbilidad",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "compose" : {
+    "include" : [
+      {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSIndicecomorbilidad"
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

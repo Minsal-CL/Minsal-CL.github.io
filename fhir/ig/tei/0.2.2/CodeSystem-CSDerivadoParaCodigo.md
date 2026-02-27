@@ -35,6 +35,7 @@ Derivado Para
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -86,6 +87,71 @@ Derivado Para
     "display" : "Otro",
     "definition" : "Otro"
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Derivado Para",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 5,
+  "concept" : [
+    {
+      "code" : "1",
+      "display" : "Confirmación",
+      "definition" : "Confirmación"
+    },
+    {
+      "code" : "2",
+      "display" : "Control Especialista",
+      "definition" : "Control Especialista"
+    },
+    {
+      "code" : "3",
+      "display" : "Realiza Tratamiento",
+      "definition" : "Realiza Tratamiento"
+    },
+    {
+      "code" : "4",
+      "display" : "Seguimiento",
+      "definition" : "Seguimiento"
+    },
+    {
+      "code" : "5",
+      "display" : "Otro",
+      "definition" : "Otro"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

@@ -35,6 +35,7 @@ Son todos los tipos de observaciones dadas por el Ministerio De Salud
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -66,6 +67,51 @@ Son todos los tipos de observaciones dadas por el Ministerio De Salud
     "display" : "Estrategia de cuidado integral centrado en las personas",
     "definition" : "Estrategia de cuidado integral centrado en las personas"
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Son todos los tipos de observaciones dadas por el Ministerio De Salud",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 1,
+  "concept" : [
+    {
+      "code" : "ECICEP",
+      "display" : "Estrategia de cuidado integral centrado en las personas",
+      "definition" : "Estrategia de cuidado integral centrado en las personas"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

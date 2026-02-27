@@ -33,12 +33,25 @@ Profile: [CarePlan Atender LE](StructureDefinition-CarePlanAtenderLE.md)
   "resourceType" : "CarePlan",
   "id" : "CarePlanAtencionEjemplo",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/CarePlanAtenderLE"]
   },
   "extension" : [{
     "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionSolicitudExamenes",
     "valueBoolean" : true
   }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/CarePlanAtenderLE"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionSolicitudExamenes",
+      "valueBoolean" : true
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "status" : "active",
   "intent" : "plan",
   "description" : "Se le dara un tratamiento de prednisona de 500 mg, 2 veces al día por por 1 mes. Pasado ese tiempo debe realizarse un examen de Ab Adrenal después de ver mejorias, se hara control cada mes",
@@ -48,6 +61,7 @@ Profile: [CarePlan Atender LE](StructureDefinition-CarePlanAtenderLE.md)
   "encounter" : {
     "reference" : "Encounter/AtencionEjemplo"
   },
+<<<<<<< HEAD
   "activity" : [{
     "reference" : {
       "reference" : "ServiceRequest/AbadrenalEjemplo"
@@ -58,6 +72,20 @@ Profile: [CarePlan Atender LE](StructureDefinition-CarePlanAtenderLE.md)
       "reference" : "MedicationRequest/PrednisonaEjemplo"
     }
   }]
+=======
+  "activity" : [
+    {
+      "reference" : {
+        "reference" : "ServiceRequest/AbadrenalEjemplo"
+      }
+    },
+    {
+      "reference" : {
+        "reference" : "MedicationRequest/PrednisonaEjemplo"
+      }
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

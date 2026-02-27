@@ -9,7 +9,11 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PaisOrigenMPI | *Version*:0.2.2 |
+<<<<<<< HEAD
 | Draft as of 2026-02-27 | *Computable Name*:PaisOrigenMPI |
+=======
+| Draft as of 2026-02-19 | *Computable Name*:PaisOrigenMPI |
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 
 País de origen del paciente
 
@@ -49,6 +53,7 @@ Other representations of profile: [CSV](StructureDefinition-PaisOrigenMPI.csv), 
   "name" : "PaisOrigenMPI",
   "title" : "País de origen del paciente",
   "status" : "draft",
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -86,10 +91,64 @@ Other representations of profile: [CSV](StructureDefinition-PaisOrigenMPI.csv), 
     "type" : "element",
     "expression" : "Patient"
   }],
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "País de origen del paciente",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    }
+  ],
+  "kind" : "complex-type",
+  "abstract" : false,
+  "context" : [
+    {
+      "type" : "element",
+      "expression" : "Patient"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "type" : "Extension",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
   "derivation" : "constraint",
   "differential" : {
+<<<<<<< HEAD
     "element" : [{
       "id" : "Extension",
       "path" : "Extension",
@@ -142,6 +201,64 @@ Other representations of profile: [CSV](StructureDefinition-PaisOrigenMPI.csv), 
       "path" : "Extension.value[x].coding.display",
       "mustSupport" : true
     }]
+=======
+    "element" : [
+      {
+        "id" : "Extension",
+        "path" : "Extension",
+        "short" : "País de origen del paciente",
+        "definition" : "País de origen del paciente"
+      },
+      {
+        "id" : "Extension.extension",
+        "path" : "Extension.extension",
+        "max" : "0"
+      },
+      {
+        "id" : "Extension.url",
+        "path" : "Extension.url",
+        "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PaisOrigenMPI",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Extension.value[x]",
+        "path" : "Extension.value[x]",
+        "short" : "Código de País",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "https://hl7chile.cl/fhir/ig/clcore/ValueSet/CodPais"
+        }
+      },
+      {
+        "id" : "Extension.value[x].coding",
+        "path" : "Extension.value[x].coding",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Extension.value[x].coding.system",
+        "path" : "Extension.value[x].coding.system",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Extension.value[x].coding.code",
+        "path" : "Extension.value[x].coding.code",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "Extension.value[x].coding.display",
+        "path" : "Extension.value[x].coding.display",
+        "mustSupport" : true
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

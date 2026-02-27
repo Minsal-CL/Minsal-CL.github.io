@@ -80,6 +80,7 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
   "id" : "EjemploSolicitudInterconsultaFinalizada",
   "meta" : {
     "versionId" : "7.0",
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestLE"]
   },
   "extension" : [{
@@ -183,6 +184,137 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
       "system" : "http://snomed.info/sct",
       "code" : "103696004"
     }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestLE"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMotivoCierreInterconsulta",
+      "valueCodeableConcept" : {
+        "coding" : [
+          {
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoCierreInterconsulta",
+            "code" : "2",
+            "display" : "Atención Realizada (1)"
+          }
+        ]
+      }
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolRequiereExamen",
+      "valueBoolean" : true
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolAtencionPreferente",
+      "valueBoolean" : true
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionBoolResolutividadAPS",
+      "valueBoolean" : true
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionOrigenInterconsulta",
+      "valueCodeableConcept" : {
+        "coding" : [
+          {
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSorigenInterconsulta",
+            "code" : "1",
+            "display" : "APS"
+          }
+        ]
+      }
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionStringFundamentoPriorizacion",
+      "valueString" : "Paciente es jefe de hogar y cuidador de adulto mayor."
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionEstadoInterconsultaCodigoLE",
+      "valueCodeableConcept" : {
+        "coding" : [
+          {
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstadoInterconsulta",
+            "code" : "7",
+            "display" : "Cerrada"
+          }
+        ]
+      }
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionEspecialidadMedicaDestinoCodigo",
+      "valueCodeableConcept" : {
+        "coding" : [
+          {
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEspecialidadMed",
+            "code" : "30",
+            "display" : "MEDICINA INTERNA"
+          }
+        ]
+      }
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionSubEspecialidadMedicaDestinoCodigo",
+      "valueCodeableConcept" : {
+        "coding" : [
+          {
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEspecialidadMed",
+            "code" : "14",
+            "display" : "ENDOCRINOLOGÍA ADULTO"
+          }
+        ]
+      }
+    },
+    {
+      "extension" : [
+        {
+          "url" : "EvaluacionPertinencia",
+          "valueCodeableConcept" : {
+            "coding" : [
+              {
+                "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSPertinenciaInterconsulta",
+                "code" : "3",
+                "display" : "Pertinente Incompleta"
+              }
+            ]
+          }
+        }
+      ],
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionPertinenciaInterconsulta"
+    },
+    {
+      "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/SospechaPatologiaGes",
+      "valueBoolean" : false
+    }
+  ],
+  "identifier" : [
+    {
+      "value" : "123"
+    }
+  ],
+  "status" : "draft",
+  "intent" : "order",
+  "category" : [
+    {
+      "coding" : [
+        {
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSModalidadAtencionCodigo",
+          "code" : "1",
+          "display" : "Presencial"
+        }
+      ]
+    }
+  ],
+  "priority" : "routine",
+  "code" : {
+    "coding" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "code" : "103696004"
+      }
+    ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "Interconsulta para atención presencial"
   },
   "subject" : {
@@ -195,6 +327,7 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
   "requester" : {
     "reference" : "PractitionerRole/PractitionerRoleIniciador"
   },
+<<<<<<< HEAD
   "performer" : [{
     "reference" : "PractitionerRole/PractitionerRoleAtendedor"
   }],
@@ -236,6 +369,61 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
   {
     "reference" : "Observation/AnticuerpoAdrenal"
   }]
+=======
+  "performer" : [
+    {
+      "reference" : "PractitionerRole/PractitionerRoleAtendedor"
+    }
+  ],
+  "locationCode" : [
+    {
+      "coding" : [
+        {
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDestinoReferenciaCodigo",
+          "code" : "1",
+          "display" : "Nivel Secundario"
+        }
+      ]
+    }
+  ],
+  "reasonCode" : [
+    {
+      "coding" : [
+        {
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDerivadoParaCodigo",
+          "code" : "1",
+          "display" : "Confirmación"
+        }
+      ]
+    }
+  ],
+  "supportingInfo" : [
+    {
+      "reference" : "Condition/ConditionInicialEjemplo"
+    },
+    {
+      "reference" : "AllergyIntolerance/AllergyIntoleranceExample"
+    },
+    {
+      "reference" : "Observation/IndiceConmorbilidadEjemplo"
+    },
+    {
+      "reference" : "Observation/EjemploObservationCuidador"
+    },
+    {
+      "reference" : "Observation/EjemploObservationDiscapacidadLE"
+    },
+    {
+      "reference" : "QuestionnaireResponse/MotivoDerivacionEjemplo"
+    },
+    {
+      "reference" : "ServiceRequest/EjemploSolicitudExamen"
+    },
+    {
+      "reference" : "Observation/AnticuerpoAdrenal"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

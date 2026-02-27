@@ -108,9 +108,15 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Time period when the contact point was/is in use","Time period when the contact point was/is in use.","","","","","","","","","",,,,,"",,,,"ContactPoint.period",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","N/A","./usablePeriod[type=""IVL<TS>""]","./StartDate and ./EndDate"
 "Organization.address","Organization.address","","","",0,*,"Y","","","Address {[CanonicalType[https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/cl-address]]} {[]}
+<<<<<<< HEAD
 ","Tipo de dato para agregar la dirección","An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.","Variable dirección","May need to keep track of the organization's addresses for contacting, billing or reporting requirements.","","","","","","","",,,,,"",,,,"Organization.address",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 org-2:An address of an organization can never be of use 'home' {where(use = 'home').empty()}","XAD","n/a","AD","Address"
+=======
+","An address for the organization","An address for the organization.","Organization may have multiple addresses with different uses or applicable periods. The use code 'home' is not to be used.","May need to keep track of the organization's addresses for contacting, billing or reporting requirements.","","","","","","","",,,,,"",,,,"Organization.address",0,*,"org-2
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+org-2:An address of an organization can never be of use 'home' {where(use = 'home').empty()}","ORC-23?",".address","./PrimaryAddress and ./OtherAddresses"
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 "Organization.partOf","Organization.partOf","","","",0,1,"","","Y","Reference {[]} {[CanonicalType[http://hl7.org/fhir/StructureDefinition/Organization]]}
 ","The organization of which this organization forms a part","The organization of which this organization forms a part.","","Need to be able to track the hierarchy of organizations within an organization.","","","","","","","",,,,,"",,,,"Organization.partOf",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","No equivalent in HL7 v2",".playedBy[classCode=Part].scoper","n/a"

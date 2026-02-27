@@ -29,6 +29,7 @@ Profile: [Observation Anamnesis LE](StructureDefinition-ObservationAnamnesisLE.m
   "resourceType" : "Observation",
   "id" : "AnamnesisEjemplo",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationAnamnesisLE"]
   },
   "status" : "registered",
@@ -37,6 +38,20 @@ Profile: [Observation Anamnesis LE](StructureDefinition-ObservationAnamnesisLE.m
       "system" : "http://snomed.info/sct",
       "code" : "84100007"
     }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationAnamnesisLE"
+    ]
+  },
+  "status" : "registered",
+  "code" : {
+    "coding" : [
+      {
+        "system" : "http://snomed.info/sct",
+        "code" : "84100007"
+      }
+    ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "Anamnesis"
   },
   "subject" : {

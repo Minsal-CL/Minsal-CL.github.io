@@ -37,6 +37,7 @@ Other representations of profile: [CSV](StructureDefinition-ObservationAnamnesis
 {
   "resourceType" : "StructureDefinition",
   "id" : "ObservationAnamnesisLE",
+<<<<<<< HEAD
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 0
@@ -45,11 +46,24 @@ Other representations of profile: [CSV](StructureDefinition-ObservationAnamnesis
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "draft"
   }],
+=======
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 0
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "draft"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationAnamnesisLE",
   "version" : "0.2.2",
   "name" : "ObservationAnamnesisLE",
   "title" : "Observation Anamnesis LE",
   "status" : "draft",
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -106,12 +120,83 @@ Other representations of profile: [CSV](StructureDefinition-ObservationAnamnesis
     "uri" : "http://snomed.org/attributebinding",
     "name" : "SNOMED CT Attribute Binding"
   }],
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Observation Anamnesis LE",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "sct-concept",
+      "uri" : "http://snomed.info/conceptdomain",
+      "name" : "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "sct-attr",
+      "uri" : "http://snomed.org/attributebinding",
+      "name" : "SNOMED CT Attribute Binding"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "kind" : "resource",
   "abstract" : false,
   "type" : "Observation",
   "baseDefinition" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL",
   "derivation" : "constraint",
   "differential" : {
+<<<<<<< HEAD
     "element" : [{
       "id" : "Observation.id",
       "path" : "Observation.id",
@@ -220,6 +305,132 @@ Other representations of profile: [CSV](StructureDefinition-ObservationAnamnesis
         "code" : "string"
       }]
     }]
+=======
+    "element" : [
+      {
+        "id" : "Observation.id",
+        "path" : "Observation.id",
+        "short" : "Id temporal necesario para identificar el recurso",
+        "definition" : "El Id que envíe desde la aplicación es temporal, el definitivo es creado por el servidor",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.status",
+        "path" : "Observation.status",
+        "short" : "Estado de la observación, en este caso #registered",
+        "patternCode" : "registered"
+      },
+      {
+        "id" : "Observation.code",
+        "path" : "Observation.code",
+        "short" : "Anamnesis",
+        "binding" : {
+          "strength" : "extensible",
+          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/TipoDeObservacion"
+        }
+      },
+      {
+        "id" : "Observation.code.coding",
+        "path" : "Observation.code.coding",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.code.coding.system",
+        "path" : "Observation.code.coding.system",
+        "short" : "Sistema terminológico, url/uri/uuid",
+        "min" : 1,
+        "patternUri" : "http://snomed.info/sct",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.code.coding.code",
+        "path" : "Observation.code.coding.code",
+        "min" : 1,
+        "patternCode" : "84100007",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.code.coding.display",
+        "path" : "Observation.code.coding.display",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.code.text",
+        "path" : "Observation.code.text",
+        "short" : "Anamnesis",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.subject",
+        "path" : "Observation.subject",
+        "min" : 1,
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PatientLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Observation.encounter",
+        "path" : "Observation.encounter",
+        "short" : "Encuentro del cual nace la observación",
+        "min" : 1,
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterAtenderLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Observation.effective[x]",
+        "path" : "Observation.effective[x]",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "type",
+              "path" : "$this"
+            }
+          ],
+          "ordered" : false,
+          "rules" : "open"
+        }
+      },
+      {
+        "id" : "Observation.effective[x]:effectiveDateTime",
+        "path" : "Observation.effective[x]",
+        "sliceName" : "effectiveDateTime",
+        "short" : "Tiempo o momento en que se realizo anamnesis",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "dateTime"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.value[x]",
+        "path" : "Observation.value[x]",
+        "short" : "Anamnesis",
+        "min" : 1,
+        "type" : [
+          {
+            "code" : "string"
+          }
+        ]
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

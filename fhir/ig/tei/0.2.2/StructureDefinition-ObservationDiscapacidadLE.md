@@ -38,6 +38,7 @@ Other representations of profile: [CSV](StructureDefinition-ObservationDiscapaci
 {
   "resourceType" : "StructureDefinition",
   "id" : "ObservationDiscapacidadLE",
+<<<<<<< HEAD
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 0
@@ -46,11 +47,24 @@ Other representations of profile: [CSV](StructureDefinition-ObservationDiscapaci
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "draft"
   }],
+=======
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 0
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "draft"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationDiscapacidadLE",
   "version" : "0.2.2",
   "name" : "ObservationDiscapacidadLE",
   "title" : "Discapacidad LE",
   "status" : "draft",
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -107,12 +121,83 @@ Other representations of profile: [CSV](StructureDefinition-ObservationDiscapaci
     "uri" : "http://snomed.org/attributebinding",
     "name" : "SNOMED CT Attribute Binding"
   }],
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Observación Discapacidad LE, para describir si un paciente presenta discapacidad",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "sct-concept",
+      "uri" : "http://snomed.info/conceptdomain",
+      "name" : "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "sct-attr",
+      "uri" : "http://snomed.org/attributebinding",
+      "name" : "SNOMED CT Attribute Binding"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "kind" : "resource",
   "abstract" : false,
   "type" : "Observation",
   "baseDefinition" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL",
   "derivation" : "constraint",
   "differential" : {
+<<<<<<< HEAD
     "element" : [{
       "id" : "Observation.id",
       "path" : "Observation.id",
@@ -187,6 +272,94 @@ Other representations of profile: [CSV](StructureDefinition-ObservationDiscapaci
         "code" : "boolean"
       }]
     }]
+=======
+    "element" : [
+      {
+        "id" : "Observation.id",
+        "path" : "Observation.id",
+        "short" : "Id temporal necesario para identificar el recurso",
+        "definition" : "El Id que envíe desde la aplicación es temporal, el definitivo es creado por el servidor",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.status",
+        "path" : "Observation.status",
+        "short" : "Estado de la observación, por defecto 'final'",
+        "patternCode" : "final",
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-status"
+        }
+      },
+      {
+        "id" : "Observation.code",
+        "path" : "Observation.code",
+        "short" : "Tipo de observación",
+        "binding" : {
+          "strength" : "extensible",
+          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/TipoDeObservacion"
+        }
+      },
+      {
+        "id" : "Observation.code.coding",
+        "path" : "Observation.code.coding",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.code.coding.system",
+        "path" : "Observation.code.coding.system",
+        "patternUri" : "http://loinc.org"
+      },
+      {
+        "id" : "Observation.code.coding.code",
+        "path" : "Observation.code.coding.code",
+        "min" : 1,
+        "patternCode" : "101720-1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.subject",
+        "path" : "Observation.subject",
+        "short" : "Referencia al paciente",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PatientLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Observation.encounter",
+        "path" : "Observation.encounter",
+        "short" : "Encuentro del cual nace la observación",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterIniciarLE",
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/EncounterAtenderLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Observation.value[x]",
+        "path" : "Observation.value[x]",
+        "short" : "Tiene Discapacidad? true | false",
+        "min" : 1,
+        "type" : [
+          {
+            "code" : "boolean"
+          }
+        ]
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

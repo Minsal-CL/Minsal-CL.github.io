@@ -35,6 +35,7 @@ Estado Interconsulta
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -96,6 +97,81 @@ Estado Interconsulta
     "display" : "Cerrada",
     "definition" : "Cerrada"
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Estado Interconsulta",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 7,
+  "concept" : [
+    {
+      "code" : "1",
+      "display" : "A la espera de referencia",
+      "definition" : "A la espera de referencia"
+    },
+    {
+      "code" : "2",
+      "display" : "A la espera de revisión",
+      "definition" : "A la espera de revisión"
+    },
+    {
+      "code" : "3",
+      "display" : "A la espera de priorización",
+      "definition" : "A la espera de priorización"
+    },
+    {
+      "code" : "4",
+      "display" : "A la espera de agendamiento",
+      "definition" : "A la espera de agendamiento"
+    },
+    {
+      "code" : "5",
+      "display" : "En espera de la atención",
+      "definition" : "En espera de la atención"
+    },
+    {
+      "code" : "6",
+      "display" : "A la espera de cierre",
+      "definition" : "A la espera de cierre"
+    },
+    {
+      "code" : "7",
+      "display" : "Cerrada",
+      "definition" : "Cerrada"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

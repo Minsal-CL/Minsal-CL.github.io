@@ -38,6 +38,7 @@ Other representations of profile: [CSV](StructureDefinition-PractitionerRoleLE.c
 {
   "resourceType" : "StructureDefinition",
   "id" : "PractitionerRoleLE",
+<<<<<<< HEAD
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
     "valueInteger" : 0
@@ -46,11 +47,24 @@ Other representations of profile: [CSV](StructureDefinition-PractitionerRoleLE.c
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
     "valueCode" : "draft"
   }],
+=======
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 0
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "draft"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerRoleLE",
   "version" : "0.2.2",
   "name" : "PractitionerRoleLE",
   "title" : "PractitionerRole LE",
   "status" : "draft",
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -97,12 +111,73 @@ Other representations of profile: [CSV](StructureDefinition-PractitionerRoleLE.c
     "uri" : "http://hl7.org/fhir/fivews",
     "name" : "FiveWs Pattern Mapping"
   }],
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "PractitionerRole LE, recurso que se utiliza para representar la información de roles, un profesional de la salud.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "servd",
+      "uri" : "http://www.omg.org/spec/ServD/1.0/",
+      "name" : "ServD"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    }
+  ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   "kind" : "resource",
   "abstract" : false,
   "type" : "PractitionerRole",
   "baseDefinition" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreRolClinicoCl",
   "derivation" : "constraint",
   "differential" : {
+<<<<<<< HEAD
     "element" : [{
       "id" : "PractitionerRole.id",
       "path" : "PractitionerRole.id",
@@ -161,6 +236,76 @@ Other representations of profile: [CSV](StructureDefinition-PractitionerRoleLE.c
       "min" : 1,
       "mustSupport" : true
     }]
+=======
+    "element" : [
+      {
+        "id" : "PractitionerRole.id",
+        "path" : "PractitionerRole.id",
+        "short" : "Id temporal necesario para identificar el recurso",
+        "definition" : "El Id que envíe desde la aplicación es temporal, el definitivo es creado por el servidor",
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "PractitionerRole.practitioner",
+        "path" : "PractitionerRole.practitioner",
+        "short" : "Referencia al prestador, profesional o administrativo, que varía según evento",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerProfesionalLE",
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PractitionerAdministrativoLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "PractitionerRole.organization",
+        "path" : "PractitionerRole.organization",
+        "short" : "Organización, que se identifica con el código de establecimiento",
+        "min" : 1,
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/OrganizationLE"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "PractitionerRole.code",
+        "path" : "PractitionerRole.code",
+        "short" : "Roles que el prestador puede realizar",
+        "min" : 1,
+        "max" : "1",
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/VSPractitionerTipoRolLE"
+        }
+      },
+      {
+        "id" : "PractitionerRole.code.coding",
+        "path" : "PractitionerRole.code.coding",
+        "short" : "Códigos definidos por un sistema terminológico",
+        "min" : 1,
+        "max" : "1"
+      },
+      {
+        "id" : "PractitionerRole.code.coding.system",
+        "path" : "PractitionerRole.code.coding.system",
+        "short" : "Sistema terminológico, url/uri/uuid"
+      },
+      {
+        "id" : "PractitionerRole.code.coding.code",
+        "path" : "PractitionerRole.code.coding.code",
+        "short" : "Código definido en un sistema terminológico",
+        "min" : 1,
+        "mustSupport" : true
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

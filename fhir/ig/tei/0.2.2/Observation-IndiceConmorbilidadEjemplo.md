@@ -29,6 +29,7 @@ Profile: [Indice Comorbilidad LE](StructureDefinition-ObservationIndiceComorbili
   "resourceType" : "Observation",
   "id" : "IndiceConmorbilidadEjemplo",
   "meta" : {
+<<<<<<< HEAD
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationIndiceComorbilidadLE"]
   },
   "status" : "final",
@@ -43,6 +44,30 @@ Profile: [Indice Comorbilidad LE](StructureDefinition-ObservationIndiceComorbili
       "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoObservacionMinsal",
       "code" : "ECICEP"
     }],
+=======
+    "profile" : [
+      "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationIndiceComorbilidadLE"
+    ]
+  },
+  "status" : "final",
+  "category" : [
+    {
+      "coding" : [
+        {
+          "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code" : "survey"
+        }
+      ]
+    }
+  ],
+  "code" : {
+    "coding" : [
+      {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoObservacionMinsal",
+        "code" : "ECICEP"
+      }
+    ],
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
     "text" : "Indice Comorbilidad"
   },
   "subject" : {
@@ -52,11 +77,21 @@ Profile: [Indice Comorbilidad LE](StructureDefinition-ObservationIndiceComorbili
     "reference" : "Encounter/EncounterIniciarEjemplo"
   },
   "valueCodeableConcept" : {
+<<<<<<< HEAD
     "coding" : [{
       "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSIndicecomorbilidad",
       "code" : "G2",
       "display" : "Riesgo Moderado, 2 a 4 condiciones crónicas"
     }]
+=======
+    "coding" : [
+      {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSIndicecomorbilidad",
+        "code" : "G2",
+        "display" : "Riesgo Moderado, 2 a 4 condiciones crónicas"
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 

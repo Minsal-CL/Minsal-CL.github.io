@@ -30,6 +30,7 @@ Permite describir el motivo de derivacion de un paciente
   "subjectType" : ["Patient"],
   "date" : "2024-07-04",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -61,6 +62,51 @@ Permite describir el motivo de derivacion de un paciente
     "repeats" : false,
     "maxLength" : 3000
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Permite describir el motivo de derivacion de un paciente",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "item" : [
+    {
+      "linkId" : "MotivoDerivacion",
+      "text" : "Motivo Derivación",
+      "type" : "text",
+      "required" : true,
+      "repeats" : false,
+      "maxLength" : 3000
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

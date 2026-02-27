@@ -35,6 +35,7 @@ Indice Comorbilidad
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -81,6 +82,66 @@ Indice Comorbilidad
     "display" : "Riesgo Alto, 5 o más condiciones crónicas",
     "definition" : "Riesgo Alto, 5 o más condiciones crónicas"
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Indice Comorbilidad",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 4,
+  "concept" : [
+    {
+      "code" : "G0",
+      "display" : "Sin Riesgo, sin condiciones crónicas o riesgo no identificado",
+      "definition" : "Sin Riesgo, sin condiciones crónicas o riesgo no identificado"
+    },
+    {
+      "code" : "G1",
+      "display" : "Riesgo Leve, 1 condición crónica",
+      "definition" : "Riesgo Leve, 1 condición crónica"
+    },
+    {
+      "code" : "G2",
+      "display" : "Riesgo Moderado, 2 a 4 condiciones crónicas",
+      "definition" : "Riesgo Moderado, 2 a 4 condiciones crónicas"
+    },
+    {
+      "code" : "G3",
+      "display" : "Riesgo Alto, 5 o más condiciones crónicas",
+      "definition" : "Riesgo Alto, 5 o más condiciones crónicas"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

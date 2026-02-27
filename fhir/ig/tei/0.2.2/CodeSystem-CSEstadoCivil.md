@@ -35,6 +35,7 @@ EstadoCivil
   "experimental" : false,
   "date" : "2023-01-15",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
+<<<<<<< HEAD
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
     "telecom" : [{
@@ -96,6 +97,81 @@ EstadoCivil
     "display" : "Desconocido",
     "definition" : "Desconocido"
   }]
+=======
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "EstadoCivil",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 7,
+  "concept" : [
+    {
+      "code" : "01",
+      "display" : "Soltero(a)",
+      "definition" : "Soltero(a)"
+    },
+    {
+      "code" : "02",
+      "display" : "Casado(a)",
+      "definition" : "Casado(a)"
+    },
+    {
+      "code" : "03",
+      "display" : "Viudo(a)",
+      "definition" : "Viudo(a)"
+    },
+    {
+      "code" : "04",
+      "display" : "Divorciado(a)",
+      "definition" : "Divorciado(a)"
+    },
+    {
+      "code" : "05",
+      "display" : "Separado(a) judicialmente",
+      "definition" : "Separado(a) judicialmente"
+    },
+    {
+      "code" : "06",
+      "display" : "Conviviente civil",
+      "definition" : "Conviviente civil"
+    },
+    {
+      "code" : "99",
+      "display" : "Desconocido",
+      "definition" : "Desconocido"
+    }
+  ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 }
 
 ```

@@ -5,7 +5,11 @@
 
 ## Historias De Usuario Segun Rol
 
+<<<<<<< HEAD
 Las siguientes corresponden a las historias que definen las interacciones entre los usuarios con los sistemas de información en el contexto de la generación de solicitud de interconsulta para primera atención de especialidad para patologías no GES y su resolución. Las historias se definen según el siguiente esquema: "Como {rol de usuario}, yo {quiero/puedo/necesito} {acción} para poder {objetivo/meta}."
+=======
+Las siguientes corresponden a las historias que definen las interacciones entre los usuarios con los sistemas de información en el contexto de la generación de solicitud de interconsulta para primera atención de especialidad para patologías no GES y su resolución. Las historias se definen según el siguiente esquema: “Como , yo <quiero/puedo/necesito>  para poder <objetivo/meta>.”
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 
 ### Iniciador
 

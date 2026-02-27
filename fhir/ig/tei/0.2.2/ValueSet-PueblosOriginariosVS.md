@@ -9,7 +9,11 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/PueblosOriginariosVS | *Version*:0.2.2 |
+<<<<<<< HEAD
 | Draft as of 2026-02-27 | *Computable Name*:PueblosOriginariosVS |
+=======
+| Draft as of 2026-02-19 | *Computable Name*:PueblosOriginariosVS |
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
 
  
 Pueblos Originarios de Chile 
@@ -51,6 +55,7 @@ Pueblos Originarios de Chile
   "title" : "Pueblos Originarios de Chile",
   "status" : "draft",
   "experimental" : true,
+<<<<<<< HEAD
   "date" : "2026-02-27T12:08:03-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
@@ -80,6 +85,49 @@ Pueblos Originarios de Chile
     "include" : [{
       "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/PueblosOriginariosCS"
     }]
+=======
+  "date" : "2026-02-19T15:23:45-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [
+    {
+      "name" : "Unidad de Interoperabilidad - MINSAL",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://interoperabilidad.minsal.cl"
+        }
+      ]
+    },
+    {
+      "name" : "Franco Ulloa",
+      "telecom" : [
+        {
+          "system" : "email",
+          "value" : "franco.ulloa@minsal.cl",
+          "use" : "work"
+        }
+      ]
+    }
+  ],
+  "description" : "Pueblos Originarios de Chile",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "CL",
+          "display" : "Chile"
+        }
+      ]
+    }
+  ],
+  "compose" : {
+    "include" : [
+      {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/PueblosOriginariosCS"
+      }
+    ]
+>>>>>>> 641281e05df33a1ecaeb097c26639d275384b20a
   }
 }
 
