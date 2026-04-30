@@ -26,7 +26,7 @@ EstadoCivil
 {
   "resourceType" : "CodeSystem",
   "id" : "CSEstadoCivil",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstadoCivil",
   "version" : "0.2.2",
   "name" : "CSEstadoCivil",

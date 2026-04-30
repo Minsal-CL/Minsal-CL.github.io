@@ -21,7 +21,7 @@ Bundle Referenciar LE, recurso utilizado para transportar todos los datos del me
 
 **Usages:**
 
-* Examples for this Profile: [Bundle/BundleReferenciarEjemplo](Bundle-BundleReferenciarEjemplo.md)
+* This Profile is not used by any profiles in this Implementation Guide
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/hl7.fhir.cl.minsal.tei|current/StructureDefinition/BundleReferenciarLE)
 
@@ -54,7 +54,7 @@ Other representations of profile: [CSV](StructureDefinition-BundleReferenciarLE.
   "name" : "BundleReferenciarLE",
   "title" : "Bundle Referenciar LE",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -142,7 +142,6 @@ Other representations of profile: [CSV](StructureDefinition-BundleReferenciarLE.
       },
       "short" : "Entrada en el Bundle: contendrá un recurso o información",
       "min" : 7,
-      "max" : "7",
       "mustSupport" : true
     },
     {
@@ -276,6 +275,222 @@ Other representations of profile: [CSV](StructureDefinition-BundleReferenciarLE.
       "type" : [{
         "code" : "Organization",
         "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/OrganizationLE"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:conditionDiagnostico",
+      "path" : "Bundle.entry",
+      "sliceName" : "conditionDiagnostico",
+      "short" : "Entrada en el Bundle: contendrá un recurso Condition",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:conditionDiagnostico.fullUrl",
+      "path" : "Bundle.entry.fullUrl",
+      "short" : "Uri de identificación dentro del Bundle",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:conditionDiagnostico.resource",
+      "path" : "Bundle.entry.resource",
+      "short" : "Condición que especifica el diagnóstico inicial por el cual se emite la IC",
+      "min" : 1,
+      "type" : [{
+        "code" : "Condition",
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ConditionDiagnosticoLE"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationComorbilidad",
+      "path" : "Bundle.entry",
+      "sliceName" : "observationComorbilidad",
+      "short" : "Entrada en el Bundle: contendrá un recurso Observation de indice de Comorbilidad",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationComorbilidad.fullUrl",
+      "path" : "Bundle.entry.fullUrl",
+      "short" : "Uri de identificación dentro del Bundle",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationComorbilidad.resource",
+      "path" : "Bundle.entry.resource",
+      "short" : "Indice de Comorbilidad del paciente",
+      "min" : 1,
+      "type" : [{
+        "code" : "Observation",
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationIndiceComorbilidadLE"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationDiscapacidad",
+      "path" : "Bundle.entry",
+      "sliceName" : "observationDiscapacidad",
+      "short" : "Entrada en el Bundle: contendrá un recurso Observation de Discapacidad",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationDiscapacidad.fullUrl",
+      "path" : "Bundle.entry.fullUrl",
+      "short" : "Uri de identificación dentro del Bundle",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationDiscapacidad.resource",
+      "path" : "Bundle.entry.resource",
+      "short" : "Observación para indicar si el paciente tiene una discapacidad o no",
+      "min" : 1,
+      "type" : [{
+        "code" : "Observation",
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationDiscapacidadLE"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationCuidador",
+      "path" : "Bundle.entry",
+      "sliceName" : "observationCuidador",
+      "short" : "Entrada en el Bundle: contendrá un recurso Observation de Cuidador",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationCuidador.fullUrl",
+      "path" : "Bundle.entry.fullUrl",
+      "short" : "Uri de identificación dentro del Bundle",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:observationCuidador.resource",
+      "path" : "Bundle.entry.resource",
+      "short" : "Observación para indicar si el paciente tiene un cuidador o no",
+      "min" : 1,
+      "type" : [{
+        "code" : "Observation",
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationIniciarCuidadorLE"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:ObservationResultadoExamen",
+      "path" : "Bundle.entry",
+      "sliceName" : "ObservationResultadoExamen",
+      "short" : "Entrada en el Bundle: contendrá un recurso Observation de resultado de examen",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:ObservationResultadoExamen.fullUrl",
+      "path" : "Bundle.entry.fullUrl",
+      "short" : "Uri de identificación dentro del Bundle",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:ObservationResultadoExamen.resource",
+      "path" : "Bundle.entry.resource",
+      "short" : "Observación para indicar los examenes realizados al paciente",
+      "min" : 1,
+      "type" : [{
+        "code" : "Observation",
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ObservationResultadoExamen"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:allergyintolerance",
+      "path" : "Bundle.entry",
+      "sliceName" : "allergyintolerance",
+      "short" : "Entrada en el Bundle: contendrá un recurso AllergyIntolerance",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:allergyintolerance.fullUrl",
+      "path" : "Bundle.entry.fullUrl",
+      "short" : "Uri de identificación dentro del Bundle",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:allergyintolerance.resource",
+      "path" : "Bundle.entry.resource",
+      "short" : "Alergias que padece el paciente",
+      "min" : 1,
+      "type" : [{
+        "code" : "AllergyIntolerance",
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AllergyIntoleranceIniciarLE"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:motivoDerivacion",
+      "path" : "Bundle.entry",
+      "sliceName" : "motivoDerivacion",
+      "short" : "Entrada en el Bundle: contendrá un recurso QuestionnaireResponse",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:motivoDerivacion.fullUrl",
+      "path" : "Bundle.entry.fullUrl",
+      "short" : "Uri de identificación dentro del Bundle",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:motivoDerivacion.resource",
+      "path" : "Bundle.entry.resource",
+      "short" : "Recurso donde se registra el motivo de la derivación del paciente",
+      "min" : 1,
+      "type" : [{
+        "code" : "QuestionnaireResponse",
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/QuestionnaireResponseIniciarLE"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:SolicitudExamen",
+      "path" : "Bundle.entry",
+      "sliceName" : "SolicitudExamen",
+      "short" : "Entrada en el Bundle: Solicitud Examen",
+      "min" : 0,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:SolicitudExamen.fullUrl",
+      "path" : "Bundle.entry.fullUrl",
+      "short" : "Uri de identificación dentro del Bundle",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Bundle.entry:SolicitudExamen.resource",
+      "path" : "Bundle.entry.resource",
+      "short" : "Solicitud de examen",
+      "min" : 1,
+      "type" : [{
+        "code" : "ServiceRequest",
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestExamenLE"]
       }],
       "mustSupport" : true
     }]

@@ -26,7 +26,6 @@ Medio Notificación
 {
   "resourceType" : "CodeSystem",
   "id" : "CSMediodeContacto",
-  "language" : "es-CL",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMediodeContacto",
   "version" : "0.2.2",
   "name" : "CSMediodeContacto",

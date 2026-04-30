@@ -26,7 +26,7 @@ Pertinencia Interconsulta
 {
   "resourceType" : "CodeSystem",
   "id" : "CSPertinenciaInterconsulta",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSPertinenciaInterconsulta",
   "version" : "0.2.2",
   "name" : "CSPertinenciaInterconsulta",

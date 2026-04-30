@@ -26,7 +26,7 @@ Indice Comorbilidad
 {
   "resourceType" : "CodeSystem",
   "id" : "CSIndicecomorbilidad",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSIndicecomorbilidad",
   "version" : "0.2.2",
   "name" : "CSIndicecomorbilidad",

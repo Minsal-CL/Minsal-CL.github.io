@@ -73,7 +73,6 @@ These define constraints on FHIR data types for systems conforming to this imple
 | [Origen Interconsulta](StructureDefinition-ExtensionOrigenInterconsulta.md) | Origen Interconsulta |
 | [País de origen del paciente](StructureDefinition-PaisOrigenMPI.md) | País de origen del paciente |
 | [Pertinencia Interconsulta](StructureDefinition-ExtensionPertinenciaInterconsulta.md) | Pertinencia Interconsulta |
-| [Problema GES](StructureDefinition-ProblemaSaludGESTEI.md) | Indica si corresponde a que problema de salud GES |
 | [Pueblos Afrodescendiente](StructureDefinition-PueblosAfrodescendiente.md) | Pueblos Afrodescendiente |
 | [Pueblos Originarios](StructureDefinition-PueblosOriginarios.md) | Almacenar si el paciente pertenece a algun pueblo originario |
 | [Pueblos Originarios Perteneciente](StructureDefinition-PueblosOriginariosPerteneciente.md) | Pueblos Originarios Perteneciente |
@@ -160,14 +159,6 @@ These are example instances that show what data produced and consumed by systems
 | | |
 | :--- | :--- |
 | [Ejemplo Agenda](Appointment-AgendaEjemplo.md) | Ejemplo de la agenda de un paciente |
-| [Ejemplo Bundle Agendar](Bundle-BundleAgendarEjemplo.md) | Ejemplo del mensaje de la agenda para la atención de la interconsulta |
-| [Ejemplo Bundle Atender](Bundle-BundleAtenderEjemplo.md) | Ejemplo del mensaje de la atención de la interconsulta |
-| [Ejemplo Bundle Iniciar](Bundle-BundleIniciarEjemplo.md) | Ejemplo de un mensaje del evento Iniciar |
-| [Ejemplo Bundle Iniciar con uso de las extensiones GES](Bundle-BundleIniciarEjemplo2.md) | Ejemplo de un mensaje del evento Iniciar con uso de las extensiones GES |
-| [Ejemplo Bundle Prorización](Bundle-BundlePriorizarEjemplo.md) | Ejemplo del mensaje de la priorización de interconsulta |
-| [Ejemplo Bundle Referenciar](Bundle-BundleReferenciarEjemplo.md) | Ejemplo de un mensaje de referencia de una interconsulta |
-| [Ejemplo Bundle Revisar](Bundle-BundleRevisarEjemplo.md) | Ejemplo del mensaje de la revisión de interconsulta |
-| [Ejemplo Bundle Terminar](Bundle-BundleTerminarEjemplo.md) | Ejemplo del mensaje del termino de una interconsulta |
 | [Ejemplo Condición de Atención](Condition-ConditionAtencionejemplo.md) | Ejemplo condición como resultado del evento atender |
 | [Ejemplo Condition Inicial](Condition-ConditionInicialEjemplo.md) | Ejemplo de una condición como motivo de interconsulta |
 | [Ejemplo Observation Cuidador](Observation-EjemploObservationCuidador.md) | Ejemplo del recurso que indica si el paciente es cuidador o no |

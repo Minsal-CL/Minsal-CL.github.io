@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionPertinenciaAtencionBox | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:ExtensionPertinenciaAtencionBox |
+| Draft as of 2026-04-30 | *Computable Name*:ExtensionPertinenciaAtencionBox |
 
 ExtBool Pertinencia Atencion Box
 
@@ -20,7 +20,7 @@ ExtBool Pertinencia Atencion Box
 **Usages:**
 
 * Use this Extension: [Encounter Atender LE](StructureDefinition-EncounterAtenderLE.md)
-* Examples for this Extension: [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md) and [Encounter/AtencionEjemplo](Encounter-AtencionEjemplo.md)
+* Examples for this Extension: [Encounter/AtencionEjemplo](Encounter-AtencionEjemplo.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/hl7.fhir.cl.minsal.tei|current/StructureDefinition/ExtensionPertinenciaAtencionBox)
 
@@ -47,7 +47,7 @@ Other representations of profile: [CSV](StructureDefinition-ExtensionPertinencia
   "name" : "ExtensionPertinenciaAtencionBox",
   "title" : "ExtBool Pertinencia Atencion Box",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

@@ -26,7 +26,7 @@ Son todos los tipos de observaciones dadas por el Ministerio De Salud
 {
   "resourceType" : "CodeSystem",
   "id" : "CSTipoObservacionMinsal",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoObservacionMinsal",
   "version" : "0.2.2",
   "name" : "CSTipoObservacionMinsal",

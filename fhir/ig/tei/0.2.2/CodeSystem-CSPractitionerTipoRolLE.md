@@ -26,7 +26,7 @@ CodeSystem con códigos definidos para representar cada rol de profesional o fun
 {
   "resourceType" : "CodeSystem",
   "id" : "CSPractitionerTipoRolLE",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSPractitionerTipoRolLE",
   "version" : "0.2.2",
   "name" : "CSPractitionerTipoRolLE",

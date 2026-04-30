@@ -26,7 +26,7 @@ Motivo No Contactabilidad
 {
   "resourceType" : "CodeSystem",
   "id" : "CSMotivoNoContactabilidad",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoContactabilidad",
   "version" : "0.2.2",
   "name" : "CSMotivoNoContactabilidad",

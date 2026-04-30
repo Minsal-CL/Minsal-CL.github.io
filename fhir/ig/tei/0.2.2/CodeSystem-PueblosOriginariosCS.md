@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/PueblosOriginariosCS | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:PueblosOriginariosCS |
+| Draft as of 2026-04-30 | *Computable Name*:PueblosOriginariosCS |
 
  
 Pueblos Originarios de Chile 
@@ -26,14 +26,14 @@ Pueblos Originarios de Chile
 {
   "resourceType" : "CodeSystem",
   "id" : "PueblosOriginariosCS",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/PueblosOriginariosCS",
   "version" : "0.2.2",
   "name" : "PueblosOriginariosCS",
   "title" : "Pueblos Originarios de Chile",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

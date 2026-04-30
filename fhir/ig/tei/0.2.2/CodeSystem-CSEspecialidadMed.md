@@ -27,7 +27,7 @@ EspecialidadMed
 {
   "resourceType" : "CodeSystem",
   "id" : "CSEspecialidadMed",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEspecialidadMed",
   "version" : "0.2.2",
   "name" : "CSEspecialidadMed",

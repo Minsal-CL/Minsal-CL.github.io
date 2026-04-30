@@ -26,7 +26,7 @@ Tipo Consulta
 {
   "resourceType" : "CodeSystem",
   "id" : "CSTipoConsulta",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoConsulta",
   "version" : "0.2.2",
   "name" : "CSTipoConsulta",

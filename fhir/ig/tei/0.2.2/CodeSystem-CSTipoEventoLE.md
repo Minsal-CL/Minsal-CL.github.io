@@ -26,7 +26,7 @@ CodeSystem con códigos definidos para representar cada evento en la interconsul
 {
   "resourceType" : "CodeSystem",
   "id" : "CSTipoEventoLE",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTipoEventoLE",
   "version" : "0.2.2",
   "name" : "CSTipoEventoLE",

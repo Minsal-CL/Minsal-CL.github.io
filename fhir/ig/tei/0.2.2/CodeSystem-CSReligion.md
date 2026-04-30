@@ -26,7 +26,7 @@ Religion
 {
   "resourceType" : "CodeSystem",
   "id" : "CSReligion",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSReligion",
   "version" : "0.2.2",
   "name" : "CSReligion",

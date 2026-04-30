@@ -26,7 +26,7 @@ Motivo No Pertinencia Codigo
 {
   "resourceType" : "CodeSystem",
   "id" : "CSMotivoNoPertinenciaCodigo",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoNoPertinenciaCodigo",
   "version" : "0.2.2",
   "name" : "CSMotivoNoPertinenciaCodigo",

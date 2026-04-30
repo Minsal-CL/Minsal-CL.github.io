@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionConsecuenciaAtencionCodigo | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:ExtensionConsecuenciaAtencionCodigo |
+| Draft as of 2026-04-30 | *Computable Name*:ExtensionConsecuenciaAtencionCodigo |
 
 Consecuencia Atención Codigo
 
@@ -20,7 +20,7 @@ Consecuencia Atención Codigo
 **Usages:**
 
 * Use this Extension: [Encounter Atender LE](StructureDefinition-EncounterAtenderLE.md) and [Encounter Iniciar LE](StructureDefinition-EncounterIniciarLE.md)
-* Examples for this Extension: [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md) and [Encounter/EncounterIniciarEjemplo](Encounter-EncounterIniciarEjemplo.md)
+* Examples for this Extension: [Encounter/EncounterIniciarEjemplo](Encounter-EncounterIniciarEjemplo.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/hl7.fhir.cl.minsal.tei|current/StructureDefinition/ExtensionConsecuenciaAtencionCodigo)
 
@@ -49,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-ExtensionConsecuenci
   "name" : "ExtensionConsecuenciaAtencionCodigo",
   "title" : "Consecuencia Atención Codigo",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

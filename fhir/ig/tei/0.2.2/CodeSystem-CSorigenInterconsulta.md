@@ -26,7 +26,7 @@ Origen Interconsulta
 {
   "resourceType" : "CodeSystem",
   "id" : "CSorigenInterconsulta",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSorigenInterconsulta",
   "version" : "0.2.2",
   "name" : "CSorigenInterconsulta",

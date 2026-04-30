@@ -26,7 +26,7 @@ Consecuencia Atención Codigo
 {
   "resourceType" : "CodeSystem",
   "id" : "CSConsecuenciaAtencionCodigo",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSConsecuenciaAtencionCodigo",
   "version" : "0.2.2",
   "name" : "CSConsecuenciaAtencionCodigo",

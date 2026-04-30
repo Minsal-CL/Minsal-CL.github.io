@@ -26,7 +26,7 @@ Especialidades y Subespecialidades Bioquímicas
 {
   "resourceType" : "CodeSystem",
   "id" : "CSEspecialidadBioqca",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEspecialidadBioqca",
   "version" : "0.2.2",
   "name" : "CSEspecialidadBioqca",

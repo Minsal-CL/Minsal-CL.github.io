@@ -32,7 +32,7 @@ Profile: [Encounter Iniciar LE](StructureDefinition-EncounterIniciarLE.md)
 | | | |
 | :--- | :--- | :--- |
 | - | **Condition** | **Rank** |
-| * | [Condition Adrenal antibody detected](Condition-ConditionInicialEjemplo.md) | 1 |
+| * | [Condition Typhoid and paratyphoid fevers](Condition-ConditionInicialEjemplo.md) | 1 |
 
 
 

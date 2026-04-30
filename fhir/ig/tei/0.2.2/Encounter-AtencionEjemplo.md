@@ -20,7 +20,7 @@ Profile: [Encounter Atender LE](StructureDefinition-EncounterAtenderLE.md)
 
 **subject**: [María Josefina Gonzalez (official) Male, DoB: 1974-12-25 ( Rol Único Nacional: 90000000-6 (use: official, ))](Patient-EjemploPatientLE.md)
 
-**basedOn**: [ServiceRequest derivación del paciente a un especialista](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md)
+**basedOn**: [ServiceRequest Patient referral to specialist](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md)
 
 ### Participants
 

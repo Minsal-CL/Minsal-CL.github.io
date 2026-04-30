@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/SituacionCalle | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:SituacionCalle |
+| Draft as of 2026-04-30 | *Computable Name*:SituacionCalle |
 
 Situacion Calle
 
@@ -46,7 +46,7 @@ Other representations of profile: [CSV](StructureDefinition-SituacionCalle.csv),
   "name" : "SituacionCalle",
   "title" : "Situacion Calle",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

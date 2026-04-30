@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PueblosOriginarios | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:PueblosOriginarios |
+| Draft as of 2026-04-30 | *Computable Name*:PueblosOriginarios |
 
 Almacenar si el paciente pertenece a algun pueblo originario
 
@@ -20,7 +20,7 @@ Almacenar si el paciente pertenece a algun pueblo originario
 **Usages:**
 
 * Use this Extension: [Patient LE](StructureDefinition-PatientLE.md)
-* Examples for this Extension: [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md) and [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md)
+* Examples for this Extension: [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/hl7.fhir.cl.minsal.tei|current/StructureDefinition/PueblosOriginarios)
 
@@ -49,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-PueblosOriginarios.c
   "name" : "PueblosOriginarios",
   "title" : "Pueblos Originarios",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

@@ -67,9 +67,8 @@ Profile: [Condition Diagnostico LE](StructureDefinition-ConditionDiagnosticoLE.m
   },
   "code" : {
     "coding" : [{
-      "system" : "http://snomed.info/sct",
-      "code" : "165865000",
-      "display" : "Adrenal antibody detected"
+      "system" : "http://hl7.org/fhir/sid/icd-10",
+      "code" : "A01"
     }],
     "text" : "anticuerpos contra glándulas suprarrenales detectados"
   },

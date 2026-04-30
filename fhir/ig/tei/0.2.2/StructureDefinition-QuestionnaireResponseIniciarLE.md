@@ -16,7 +16,7 @@ QuestionnaireResponse Iniciar para Motivo de Derivación LE
 
 **Usages:**
 
-* Use this Profile: [Bundle Iniciar LE](StructureDefinition-BundleIniciarLE.md)
+* Use this Profile: [Bundle Iniciar LE](StructureDefinition-BundleIniciarLE.md) and [Bundle Referenciar LE](StructureDefinition-BundleReferenciarLE.md)
 * Refer to this Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
 * Examples for this Profile: [QuestionnaireResponse/MotivoDerivacionEjemplo](QuestionnaireResponse-MotivoDerivacionEjemplo.md)
 
@@ -51,7 +51,7 @@ Other representations of profile: [CSV](StructureDefinition-QuestionnaireRespons
   "name" : "QuestionnaireResponseIniciarLE",
   "title" : "QuestionnaireResponse Iniciar Motivo de la Derivación LE",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

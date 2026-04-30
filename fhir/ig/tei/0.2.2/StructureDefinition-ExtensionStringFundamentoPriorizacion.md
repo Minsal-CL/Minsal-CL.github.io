@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionStringFundamentoPriorizacion | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:ExtensionStringFundamentoPriorizacion |
+| Draft as of 2026-04-30 | *Computable Name*:ExtensionStringFundamentoPriorizacion |
 
 Extensión para fundamenta la priorización de la interconsulta
 
@@ -20,7 +20,7 @@ Extensión para fundamenta la priorización de la interconsulta
 **Usages:**
 
 * Use this Extension: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
-* Examples for this Extension: [Bundle/BundleAgendarEjemplo](Bundle-BundleAgendarEjemplo.md), [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md), [Bundle/BundlePriorizarEjemplo](Bundle-BundlePriorizarEjemplo.md), [Bundle/BundleTerminarEjemplo](Bundle-BundleTerminarEjemplo.md) and [ServiceRequest/EjemploSolicitudInterconsultaFinalizada](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md)
+* Examples for this Extension: [ServiceRequest/EjemploSolicitudInterconsultaFinalizada](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/hl7.fhir.cl.minsal.tei|current/StructureDefinition/ExtensionStringFundamentoPriorizacion)
 
@@ -47,7 +47,7 @@ Other representations of profile: [CSV](StructureDefinition-ExtensionStringFunda
   "name" : "ExtensionStringFundamentoPriorizacion",
   "title" : "Extension String Fundamento Priorizacion",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

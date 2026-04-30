@@ -51,7 +51,7 @@ Other representations of profile: [CSV](StructureDefinition-ServiceRequestLE.csv
   "name" : "ServiceRequestLE",
   "title" : "ServiceRequest LE",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -266,19 +266,6 @@ Other representations of profile: [CSV](StructureDefinition-ServiceRequestLE.csv
       "type" : [{
         "code" : "Extension",
         "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/SospechaPatologiaGes"]
-      }],
-      "mustSupport" : true
-    },
-    {
-      "id" : "ServiceRequest.extension:ProblemaSaludGES",
-      "path" : "ServiceRequest.extension",
-      "sliceName" : "ProblemaSaludGES",
-      "short" : "Indica a cual es el problema de salud GES que corresponde la interconsulta",
-      "min" : 0,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ProblemaSaludGESTEI"]
       }],
       "mustSupport" : true
     },

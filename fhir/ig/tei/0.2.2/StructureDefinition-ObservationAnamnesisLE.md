@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-ObservationAnamnesis
   "name" : "ObservationAnamnesisLE",
   "title" : "Observation Anamnesis LE",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

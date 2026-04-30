@@ -26,7 +26,7 @@ Derivado Para
 {
   "resourceType" : "CodeSystem",
   "id" : "CSDerivadoParaCodigo",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDerivadoParaCodigo",
   "version" : "0.2.2",
   "name" : "CSDerivadoParaCodigo",

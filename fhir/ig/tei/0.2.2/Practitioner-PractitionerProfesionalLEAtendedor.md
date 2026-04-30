@@ -71,7 +71,7 @@ Profile: [Prestador Profesional LE](StructureDefinition-PractitionerProfesionalL
     "_family" : {
       "extension" : [{
         "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido",
-        "valueString" : "Gutierrez"
+        "valueString" : "Torres"
       }]
     },
     "given" : ["Gonzalo"],

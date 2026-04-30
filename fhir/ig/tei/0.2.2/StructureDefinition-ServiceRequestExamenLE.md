@@ -16,7 +16,7 @@ ServiceRequestExamen LE recurso utilizado para la representación de la solicitu
 
 **Usages:**
 
-* Use this Profile: [Bundle Atender LE](StructureDefinition-BundleAtenderLE.md), [Bundle Iniciar LE](StructureDefinition-BundleIniciarLE.md) and [Bundle Revisar LE](StructureDefinition-BundleRevisarLE.md)
+* Use this Profile: [Bundle Atender LE](StructureDefinition-BundleAtenderLE.md), [Bundle Iniciar LE](StructureDefinition-BundleIniciarLE.md), [Bundle Referenciar LE](StructureDefinition-BundleReferenciarLE.md) and [Bundle Revisar LE](StructureDefinition-BundleRevisarLE.md)
 * Refer to this Profile: [CarePlan Atender LE](StructureDefinition-CarePlanAtenderLE.md) and [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
 * Examples for this Profile: [ServiceRequest/AbadrenalEjemplo](ServiceRequest-AbadrenalEjemplo.md) and [ServiceRequest/EjemploSolicitudExamen](ServiceRequest-EjemploSolicitudExamen.md)
 
@@ -51,7 +51,7 @@ Other representations of profile: [CSV](StructureDefinition-ServiceRequestExamen
   "name" : "ServiceRequestExamenLE",
   "title" : "Solicitud de Examen LE",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

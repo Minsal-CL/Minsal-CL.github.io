@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/PatientLE | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:PatientLE |
+| Draft as of 2026-04-30 | *Computable Name*:PatientLE |
 
  
 Paciente definido para el Registro Maestro de Pacientes 
@@ -43,7 +43,7 @@ Other representations of profile: [CSV](StructureDefinition-PatientLE.csv), [Exc
   "name" : "PatientLE",
   "title" : "Patient LE",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

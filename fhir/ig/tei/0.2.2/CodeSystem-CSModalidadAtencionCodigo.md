@@ -26,7 +26,7 @@ Modalidad Atencion Codigo
 {
   "resourceType" : "CodeSystem",
   "id" : "CSModalidadAtencionCodigo",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSModalidadAtencionCodigo",
   "version" : "0.2.2",
   "name" : "CSModalidadAtencionCodigo",

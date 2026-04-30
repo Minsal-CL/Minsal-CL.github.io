@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMediodeContacto | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:ExtensionMediodeContacto |
+| Draft as of 2026-04-30 | *Computable Name*:ExtensionMediodeContacto |
 
 Medio de Contacto
 
@@ -20,7 +20,7 @@ Medio de Contacto
 **Usages:**
 
 * Use this Extension: [Appointment Agendar LE](StructureDefinition-AppointmentAgendarLE.md)
-* Examples for this Extension: [Appointment/AgendaEjemplo](Appointment-AgendaEjemplo.md) and [Bundle/BundleAgendarEjemplo](Bundle-BundleAgendarEjemplo.md)
+* Examples for this Extension: [Appointment/AgendaEjemplo](Appointment-AgendaEjemplo.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/hl7.fhir.cl.minsal.tei|current/StructureDefinition/ExtensionMediodeContacto)
 
@@ -49,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-ExtensionMediodeCont
   "name" : "ExtensionMediodeContacto",
   "title" : "Medio de Contacto",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

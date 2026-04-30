@@ -26,7 +26,7 @@ Motivo Cierre Interconsulta
 {
   "resourceType" : "CodeSystem",
   "id" : "CSMotivoCierreInterconsulta",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoCierreInterconsulta",
   "version" : "0.2.2",
   "name" : "CSMotivoCierreInterconsulta",

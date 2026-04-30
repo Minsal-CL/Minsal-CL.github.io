@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/Mencion | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:Mencion |
+| Draft as of 2026-04-30 | *Computable Name*:Mencion |
 
 Mención profesional obtenida junto con el título, dato que se agrega en texto lible
 
@@ -46,7 +46,7 @@ Other representations of profile: [CSV](StructureDefinition-Mencion.csv), [Excel
   "name" : "Mencion",
   "title" : "Mención profesional añadida al título profesional",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

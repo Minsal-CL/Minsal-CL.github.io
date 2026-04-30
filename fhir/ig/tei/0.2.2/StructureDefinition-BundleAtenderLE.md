@@ -22,7 +22,7 @@ Bundle Atender LE recurso utilizado para transportar todos los datos del mensaje
 
 **Usages:**
 
-* Examples for this Profile: [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md)
+* This Profile is not used by any profiles in this Implementation Guide
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/hl7.fhir.cl.minsal.tei|current/StructureDefinition/BundleAtenderLE)
 
@@ -55,7 +55,7 @@ Other representations of profile: [CSV](StructureDefinition-BundleAtenderLE.csv)
   "name" : "BundleAtenderLE",
   "title" : "Bundle Atender LE",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

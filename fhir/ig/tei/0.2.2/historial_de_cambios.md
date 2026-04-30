@@ -9,13 +9,11 @@
 
 #### ServiceRequest LE
 
-* Se incluye la extension para validar si la solicitud corresponde a GES.
-* Se inlcuye extensión para especificar la patología ges a tratar.
-* Se incluye ejemplo para el uso de extensiones.
+* Se incluye la extension para marcar si la IC corresponde a GES.
 
-#### Bundle Iniciar LE
+#### Bundle Referenciar LE
 
-* Se genera un nuevo Ejemplo para el iniciar LE que incluya un ServiceRequest con las extensiones nuevas.
+* Se incorporan en el Bundle Referenciar los entries necesarios, provenientes del Bundle Iniciar, asociados a los `supportingInfo` del recurso `ServiceRequest`, con el objetivo de permitir actualizaciones de la IC.
 
 ### Versión 0.2.1
 

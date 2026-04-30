@@ -16,7 +16,7 @@ Condicion Diagnostico LE, recurso que se utiliza para indicar el diagnóstico
 
 **Usages:**
 
-* Use this Profile: [Bundle Atender LE](StructureDefinition-BundleAtenderLE.md) and [Bundle Iniciar LE](StructureDefinition-BundleIniciarLE.md)
+* Use this Profile: [Bundle Atender LE](StructureDefinition-BundleAtenderLE.md), [Bundle Iniciar LE](StructureDefinition-BundleIniciarLE.md) and [Bundle Referenciar LE](StructureDefinition-BundleReferenciarLE.md)
 * Refer to this Profile: [Encounter Atender LE](StructureDefinition-EncounterAtenderLE.md), [Encounter Iniciar LE](StructureDefinition-EncounterIniciarLE.md) and [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
 * Examples for this Profile: [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md) and [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md)
 
@@ -51,7 +51,7 @@ Other representations of profile: [CSV](StructureDefinition-ConditionDiagnostico
   "name" : "ConditionDiagnosticoLE",
   "title" : "Condition Diagnostico LE",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

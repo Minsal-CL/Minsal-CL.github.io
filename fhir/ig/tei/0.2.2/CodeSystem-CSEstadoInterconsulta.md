@@ -26,7 +26,7 @@ Estado Interconsulta
 {
   "resourceType" : "CodeSystem",
   "id" : "CSEstadoInterconsulta",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstadoInterconsulta",
   "version" : "0.2.2",
   "name" : "CSEstadoInterconsulta",

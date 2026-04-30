@@ -26,7 +26,7 @@ Destino Referencia Codigo
 {
   "resourceType" : "CodeSystem",
   "id" : "CSDestinoReferenciaCodigo",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDestinoReferenciaCodigo",
   "version" : "0.2.2",
   "name" : "CSDestinoReferenciaCodigo",

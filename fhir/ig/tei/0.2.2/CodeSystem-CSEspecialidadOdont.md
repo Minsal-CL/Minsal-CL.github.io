@@ -27,7 +27,7 @@ Especialidades Odontológicas
 {
   "resourceType" : "CodeSystem",
   "id" : "CSEspecialidadOdont",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEspecialidadOdont",
   "version" : "0.2.2",
   "name" : "CSEspecialidadOdont",

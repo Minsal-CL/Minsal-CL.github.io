@@ -26,7 +26,7 @@ TituloProfesional
 {
   "resourceType" : "CodeSystem",
   "id" : "CSTituloProfesional",
-  "language" : "es-CL",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSTituloProfesional",
   "version" : "0.2.2",
   "name" : "CSTituloProfesional",

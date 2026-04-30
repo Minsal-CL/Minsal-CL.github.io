@@ -8,7 +8,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ImplementationGuide/hl7.fhir.cl.minsal.tei | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:TiemposDeEsperaInteroperable |
+| Draft as of 2026-04-30 | *Computable Name*:TiemposdeEsperaInteroperable |
 
 ### Alcance
 
@@ -34,7 +34,7 @@ Los sistemas que soportan actualmente la información de las personas y tiempos 
 
 #### Descripción
 
-Se propone desarrollar de un sistema de Información que permita hacer trazabilidad del proceso desde que se solicita interconsulta para Nueva atención de Especialidad, hasta que se atiende en atención secundaria, dejando disponible esta información tanto para el paciente, como para los establecimientos de salud involucrados y el nivel central para la toma de decisiones y mejor gestión de los recursos.
+Se propone desarrollar un sistema de información que permita hacer trazabilidad del proceso desde que se solicita interconsulta para Nueva atención de Especialidad, hasta que se atiende en atención secundaria, dejando disponible esta información tanto para el paciente, como para los establecimientos de salud involucrados y el nivel central para la toma de decisiones y mejor gestión de los recursos.
 
 Este proyecto fue ejecutado por un equipo multidisciplinario del Ministerio de Salud, con la participación de profesionales del Departamento de Estadísticas e Información en Salud (DEIS), la División de Gestión de la Red Asistencial (DIGERA), la División de Atención Primaria (DIVAP) y la Unidad de Interoperabilidad del Departamento de Tecnologías de la Información y Comunicaciones (DTIC), con el apoyo del Centro Nacional de Sistemas de Información en Salud (CENS). Se ha utilizado una metodología para el re-diseño del proceso, optimizándolo y centrándolo en el paciente y se ha implementado bajo el uso estándares internacionales de interoperabilidad.
 
@@ -83,46 +83,46 @@ This publication includes IP covered under the following statements.
 
 * All content on ISO Online is copyright protected. The copyright is owned by ISO. Any use of the content, including copying of it in whole or in part, for example to another Internet site, is prohibited and would require written permission from ISO.
 
-* [Códigos de Países](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CodPais.html): [Bundle/BundleAgendarEjemplo](Bundle-BundleAgendarEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md)... Show 6 more, [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Bundle/BundleReferenciarEjemplo](Bundle-BundleReferenciarEjemplo.md), [Complejo Asistencial Dr. Víctor Ríos Ruiz (Los Ángeles)](Organization-OrganizationLEEjemplo.md), [PaisOrigenMPI](StructureDefinition-PaisOrigenMPI.md), [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md) and [Practitioner/ProfesionalAdministrativoEjemplo](Practitioner-ProfesionalAdministrativoEjemplo.md)
+* [Códigos de Países](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CodPais.html): [Complejo Asistencial Dr. Víctor Ríos Ruiz (Los Ángeles)](Organization-OrganizationLEEjemplo.md), [PaisOrigenMPI](StructureDefinition-PaisOrigenMPI.md), [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md) and [Practitioner/ProfesionalAdministrativoEjemplo](Practitioner-ProfesionalAdministrativoEjemplo.md)
 
 
 * ISO maintains the copyright on the country codes, and controls its use carefully. For further details see the ISO 3166 web page: [https://www.iso.org/iso-3166-country-codes.html](https://www.iso.org/iso-3166-country-codes.html)
 
-* [ISO 3166-1 Codes for the representation of names of countries and their subdivisions — Part 1: Country code](http://terminology.hl7.org/6.1.0/CodeSystem-ISO3166Part1.html): [AllergyIntoleranceIniciarLE](StructureDefinition-AllergyIntoleranceIniciarLE.md), [AppointmentAgendarLE](StructureDefinition-AppointmentAgendarLE.md)... Show 110 more, [BundleAgendarLE](StructureDefinition-BundleAgendarLE.md), [BundleAtenderLE](StructureDefinition-BundleAtenderLE.md), [BundleIniciarLE](StructureDefinition-BundleIniciarLE.md), [BundlePriorizarLE](StructureDefinition-BundlePriorizarLE.md), [BundleReferenciarLE](StructureDefinition-BundleReferenciarLE.md), [BundleRevisarLE](StructureDefinition-BundleRevisarLE.md), [BundleTerminarLE](StructureDefinition-BundleTerminarLE.md), [CSConsecuenciaAtencionCodigo](CodeSystem-CSConsecuenciaAtencionCodigo.md), [CSDerivadoParaCodigo](CodeSystem-CSDerivadoParaCodigo.md), [CSDestinoReferenciaCodigo](CodeSystem-CSDestinoReferenciaCodigo.md), [CSEspecialidadBioqca](CodeSystem-CSEspecialidadBioqca.md), [CSEspecialidadFarma](CodeSystem-CSEspecialidadFarma.md), [CSEspecialidadMed](CodeSystem-CSEspecialidadMed.md), [CSEspecialidadOdont](CodeSystem-CSEspecialidadOdont.md), [CSEstablecimientoDestino](CodeSystem-CSEstablecimientoDestino.md), [CSEstadoCivil](CodeSystem-CSEstadoCivil.md), [CSEstadoInterconsulta](CodeSystem-CSEstadoInterconsulta.md), [CSIndicecomorbilidad](CodeSystem-CSIndicecomorbilidad.md), [CSMediodeContacto](CodeSystem-CSMediodeContacto.md), [CSModalidadAtencionCodigo](CodeSystem-CSModalidadAtencionCodigo.md), [CSMotivoCierreInterconsulta](CodeSystem-CSMotivoCierreInterconsulta.md), [CSMotivoNoContactabilidad](CodeSystem-CSMotivoNoContactabilidad.md), [CSMotivoNoPertinenciaCodigo](CodeSystem-CSMotivoNoPertinenciaCodigo.md), [CSPertinenciaInterconsulta](CodeSystem-CSPertinenciaInterconsulta.md), [CSPractitionerTipoRolLE](CodeSystem-CSPractitionerTipoRolLE.md), [CSReligion](CodeSystem-CSReligion.md), [CSTipoConsulta](CodeSystem-CSTipoConsulta.md), [CSTipoEventoLE](CodeSystem-CSTipoEventoLE.md), [CSTipoObservacionMinsal](CodeSystem-CSTipoObservacionMinsal.md), [CSTituloProfesional](CodeSystem-CSTituloProfesional.md), [CSorigenInterconsulta](CodeSystem-CSorigenInterconsulta.md), [CarePlanAtenderLE](StructureDefinition-CarePlanAtenderLE.md), [CodigoExamen](ValueSet-CodigoExamen.md), [ConditionDiagnosticoLE](StructureDefinition-ConditionDiagnosticoLE.md), [EncounterAtenderLE](StructureDefinition-EncounterAtenderLE.md), [EncounterIniciarLE](StructureDefinition-EncounterIniciarLE.md), [ExtensionBoolAtencionPreferente](StructureDefinition-ExtensionBoolAtencionPreferente.md), [ExtensionBoolRequiereExamen](StructureDefinition-ExtensionBoolRequiereExamen.md), [ExtensionBoolResolutividadAPS](StructureDefinition-ExtensionBoolResolutividadAPS.md), [ExtensionConsecuenciaAtencionCodigo](StructureDefinition-ExtensionConsecuenciaAtencionCodigo.md), [ExtensionContactadoLE](StructureDefinition-Contactado.md), [ExtensionEspecialidadMedicaDestinoCodigo](StructureDefinition-ExtensionEspecialidadMedicaDestinoCodigo.md), [ExtensionEstadoInterconsultaCodigoLE](StructureDefinition-ExtensionEstadoInterconsultaCodigoLE.md), [ExtensionMediodeContacto](StructureDefinition-ExtensionMediodeContacto.md), [ExtensionMotivoCierreInterconsulta](StructureDefinition-ExtensionMotivoCierreInterconsulta.md), [ExtensionMotivoNoPertinencia](StructureDefinition-ExtensionMotivoNoPertinencia.md), [ExtensionOrigenInterconsulta](StructureDefinition-ExtensionOrigenInterconsulta.md), [ExtensionPertinenciaAtencionBox](StructureDefinition-ExtensionPertinenciaAtencionBox.md), [ExtensionPertinenciaInterconsulta](StructureDefinition-ExtensionPertinenciaInterconsulta.md), [ExtensionSolicitudExamenes](StructureDefinition-ExtensionSolicitudExamenes.md), [ExtensionStringFundamentoPriorizacion](StructureDefinition-ExtensionStringFundamentoPriorizacion.md), [ExtensionSubEspecialidadMedicaDestinoCodigo](StructureDefinition-ExtensionSubEspecialidadMedicaDestinoCodigo.md), [MedicationRequestLE](StructureDefinition-MedicationRequestLE.md), [Mencion](StructureDefinition-Mencion.md), [MessageHeaderLE](StructureDefinition-MessageHeaderLE.md), [ObservationAnamnesisLE](StructureDefinition-ObservationAnamnesisLE.md), [ObservationDiscapacidadLE](StructureDefinition-ObservationDiscapacidadLE.md), [ObservationIndiceComorbilidadLE](StructureDefinition-ObservationIndiceComorbilidadLE.md), [ObservationIniciarCuidadorLE](StructureDefinition-ObservationIniciarCuidadorLE.md), [ObservationResultadoExamen](StructureDefinition-ObservationResultadoExamen.md), [OrganizationLE](StructureDefinition-OrganizationLE.md), [PaisOrigenMPI](StructureDefinition-PaisOrigenMPI.md), [PatientLE](StructureDefinition-PatientLE.md), [PractitionerAdministrativoLE](StructureDefinition-PractitionerAdministrativoLE.md), [PractitionerProfesionalLE](StructureDefinition-PractitionerProfesionalLE.md), [PractitionerRoleLE](StructureDefinition-PractitionerRoleLE.md), [ProblemaSaludGES](StructureDefinition-ProblemaSaludGESTEI.md), [ProblemaSaludGESCS](CodeSystem-cs-problema-ges-tei.md), [ProblemaSaludGESVS](ValueSet-vs-problema-ges-tei.md), [PueblosAfrodescendiente](StructureDefinition-PueblosAfrodescendiente.md), [PueblosOriginarios](StructureDefinition-PueblosOriginarios.md), [PueblosOriginariosCS](CodeSystem-PueblosOriginariosCS.md), [PueblosOriginariosPerteneciente](StructureDefinition-PueblosOriginariosPerteneciente.md), [PueblosOriginariosVS](ValueSet-PueblosOriginariosVS.md), [Questionnaire/MotivoDerivacion](Questionnaire-MotivoDerivacion.md), [QuestionnaireResponseIniciarLE](StructureDefinition-QuestionnaireResponseIniciarLE.md), [Religion](StructureDefinition-Religion.md), [ServiceRequestExamenLE](StructureDefinition-ServiceRequestExamenLE.md), [ServiceRequestLE](StructureDefinition-ServiceRequestLE.md), [SituacionCalle](StructureDefinition-SituacionCalle.md), [SospechaPatologiaGes](StructureDefinition-SospechaPatologiaGes.md), [TiemposDeEsperaInteroperable](index.md), [TipoDeObservacion](ValueSet-TipoDeObservacion.md), [VSConsecuenciaAtencionCodigo](ValueSet-VSConsecuenciaAtencionCodigo.md), [VSDerivadoParaCodigo](ValueSet-VSDerivadoParaCodigo.md), [VSDestinoReferenciaCodigo](ValueSet-VSDestinoReferenciaCodigo.md), [VSEspecialidadBioqca](ValueSet-VSEspecialidadBioqca.md), [VSEspecialidadFarma](ValueSet-VSEspecialidadFarma.md), [VSEspecialidadMed](ValueSet-VSEspecialidadMed.md), [VSEspecialidadOdont](ValueSet-VSEspecialidadOdont.md), [VSEstablecimientoDestino](ValueSet-VSEstablecimientoDestino.md), [VSEstadoCivil](ValueSet-VSEstadoCivil.md), [VSEstadoInterconsulta](ValueSet-VSEstadoInterconsulta.md), [VSIdentificadorPrestador](ValueSet-VSIdentificadorPrestador.md), [VSIndicecomorbilidad](ValueSet-VSIndicecomorbilidad.md), [VSMediodeContacto](ValueSet-VSMediodeContacto.md), [VSModalidadAtencionCodigo](ValueSet-VSModalidadAtencionCodigo.md), [VSMotivoCierreInterconsulta](ValueSet-VSMotivoCierreInterconsulta.md), [VSMotivoNoContactabilidad](ValueSet-VSMotivoNoContactabilidad.md), [VSMotivoNoPertinenciaCodigo](ValueSet-VSMotivoNoPertinenciaCodigo.md), [VSPertinenciaInterconsulta](ValueSet-VSPertinenciaInterconsulta.md), [VSPractitionerTipoRolLE](ValueSet-VSPractitionerTipoRolLE.md), [VSReligion](ValueSet-VSReligion.md), [VSServicioRequerido](ValueSet-VSServicioRequerido.md), [VSTerminologiasDiag](ValueSet-VSTerminologiasDiag.md), [VSTipoConsulta](ValueSet-VSTipoConsulta.md), [VSTipoEventoLE](ValueSet-VSTipoEventoLE.md), [VSTituloProfesional](ValueSet-VSTituloProfesional.md), [VSorigenInterconsulta](ValueSet-VSorigenInterconsulta.md) and [VsEspecialidadDest](ValueSet-VsEspecialidadDest.md)
+* [ISO 3166-1 Codes for the representation of names of countries and their subdivisions — Part 1: Country code](http://terminology.hl7.org/6.1.0/CodeSystem-ISO3166Part1.html): [AllergyIntoleranceIniciarLE](StructureDefinition-AllergyIntoleranceIniciarLE.md), [AppointmentAgendarLE](StructureDefinition-AppointmentAgendarLE.md)... Show 109 more, [BundleAgendarLE](StructureDefinition-BundleAgendarLE.md), [BundleAtenderLE](StructureDefinition-BundleAtenderLE.md), [BundleIniciarLE](StructureDefinition-BundleIniciarLE.md), [BundlePriorizarLE](StructureDefinition-BundlePriorizarLE.md), [BundleReferenciarLE](StructureDefinition-BundleReferenciarLE.md), [BundleRevisarLE](StructureDefinition-BundleRevisarLE.md), [BundleTerminarLE](StructureDefinition-BundleTerminarLE.md), [CSConsecuenciaAtencionCodigo](CodeSystem-CSConsecuenciaAtencionCodigo.md), [CSDerivadoParaCodigo](CodeSystem-CSDerivadoParaCodigo.md), [CSDestinoReferenciaCodigo](CodeSystem-CSDestinoReferenciaCodigo.md), [CSEspecialidadBioqca](CodeSystem-CSEspecialidadBioqca.md), [CSEspecialidadFarma](CodeSystem-CSEspecialidadFarma.md), [CSEspecialidadMed](CodeSystem-CSEspecialidadMed.md), [CSEspecialidadOdont](CodeSystem-CSEspecialidadOdont.md), [CSEstablecimientoDestino](CodeSystem-CSEstablecimientoDestino.md), [CSEstadoCivil](CodeSystem-CSEstadoCivil.md), [CSEstadoInterconsulta](CodeSystem-CSEstadoInterconsulta.md), [CSIndicecomorbilidad](CodeSystem-CSIndicecomorbilidad.md), [CSMediodeContacto](CodeSystem-CSMediodeContacto.md), [CSModalidadAtencionCodigo](CodeSystem-CSModalidadAtencionCodigo.md), [CSMotivoCierreInterconsulta](CodeSystem-CSMotivoCierreInterconsulta.md), [CSMotivoNoContactabilidad](CodeSystem-CSMotivoNoContactabilidad.md), [CSMotivoNoPertinenciaCodigo](CodeSystem-CSMotivoNoPertinenciaCodigo.md), [CSPertinenciaInterconsulta](CodeSystem-CSPertinenciaInterconsulta.md), [CSPractitionerTipoRolLE](CodeSystem-CSPractitionerTipoRolLE.md), [CSReligion](CodeSystem-CSReligion.md), [CSTipoConsulta](CodeSystem-CSTipoConsulta.md), [CSTipoEventoLE](CodeSystem-CSTipoEventoLE.md), [CSTipoObservacionMinsal](CodeSystem-CSTipoObservacionMinsal.md), [CSTituloProfesional](CodeSystem-CSTituloProfesional.md), [CSorigenInterconsulta](CodeSystem-CSorigenInterconsulta.md), [CarePlanAtenderLE](StructureDefinition-CarePlanAtenderLE.md), [CodigoExamen](ValueSet-CodigoExamen.md), [ConditionDiagnosticoLE](StructureDefinition-ConditionDiagnosticoLE.md), [EncounterAtenderLE](StructureDefinition-EncounterAtenderLE.md), [EncounterIniciarLE](StructureDefinition-EncounterIniciarLE.md), [ExtensionBoolAtencionPreferente](StructureDefinition-ExtensionBoolAtencionPreferente.md), [ExtensionBoolRequiereExamen](StructureDefinition-ExtensionBoolRequiereExamen.md), [ExtensionBoolResolutividadAPS](StructureDefinition-ExtensionBoolResolutividadAPS.md), [ExtensionConsecuenciaAtencionCodigo](StructureDefinition-ExtensionConsecuenciaAtencionCodigo.md), [ExtensionContactadoLE](StructureDefinition-Contactado.md), [ExtensionEspecialidadMedicaDestinoCodigo](StructureDefinition-ExtensionEspecialidadMedicaDestinoCodigo.md), [ExtensionEstadoInterconsultaCodigoLE](StructureDefinition-ExtensionEstadoInterconsultaCodigoLE.md), [ExtensionMediodeContacto](StructureDefinition-ExtensionMediodeContacto.md), [ExtensionMotivoCierreInterconsulta](StructureDefinition-ExtensionMotivoCierreInterconsulta.md), [ExtensionMotivoNoPertinencia](StructureDefinition-ExtensionMotivoNoPertinencia.md), [ExtensionOrigenInterconsulta](StructureDefinition-ExtensionOrigenInterconsulta.md), [ExtensionPertinenciaAtencionBox](StructureDefinition-ExtensionPertinenciaAtencionBox.md), [ExtensionPertinenciaInterconsulta](StructureDefinition-ExtensionPertinenciaInterconsulta.md), [ExtensionSolicitudExamenes](StructureDefinition-ExtensionSolicitudExamenes.md), [ExtensionStringFundamentoPriorizacion](StructureDefinition-ExtensionStringFundamentoPriorizacion.md), [ExtensionSubEspecialidadMedicaDestinoCodigo](StructureDefinition-ExtensionSubEspecialidadMedicaDestinoCodigo.md), [MedicationRequestLE](StructureDefinition-MedicationRequestLE.md), [Mencion](StructureDefinition-Mencion.md), [MessageHeaderLE](StructureDefinition-MessageHeaderLE.md), [ObservationAnamnesisLE](StructureDefinition-ObservationAnamnesisLE.md), [ObservationDiscapacidadLE](StructureDefinition-ObservationDiscapacidadLE.md), [ObservationIndiceComorbilidadLE](StructureDefinition-ObservationIndiceComorbilidadLE.md), [ObservationIniciarCuidadorLE](StructureDefinition-ObservationIniciarCuidadorLE.md), [ObservationResultadoExamen](StructureDefinition-ObservationResultadoExamen.md), [OrganizationLE](StructureDefinition-OrganizationLE.md), [PaisOrigenMPI](StructureDefinition-PaisOrigenMPI.md), [PatientLE](StructureDefinition-PatientLE.md), [PractitionerAdministrativoLE](StructureDefinition-PractitionerAdministrativoLE.md), [PractitionerProfesionalLE](StructureDefinition-PractitionerProfesionalLE.md), [PractitionerRoleLE](StructureDefinition-PractitionerRoleLE.md), [ProblemaSaludGESCS](CodeSystem-cs-problema-ges-tei.md), [ProblemaSaludGESVS](ValueSet-vs-problema-ges-tei.md), [PueblosAfrodescendiente](StructureDefinition-PueblosAfrodescendiente.md), [PueblosOriginarios](StructureDefinition-PueblosOriginarios.md), [PueblosOriginariosCS](CodeSystem-PueblosOriginariosCS.md), [PueblosOriginariosPerteneciente](StructureDefinition-PueblosOriginariosPerteneciente.md), [PueblosOriginariosVS](ValueSet-PueblosOriginariosVS.md), [Questionnaire/MotivoDerivacion](Questionnaire-MotivoDerivacion.md), [QuestionnaireResponseIniciarLE](StructureDefinition-QuestionnaireResponseIniciarLE.md), [Religion](StructureDefinition-Religion.md), [ServiceRequestExamenLE](StructureDefinition-ServiceRequestExamenLE.md), [ServiceRequestLE](StructureDefinition-ServiceRequestLE.md), [SituacionCalle](StructureDefinition-SituacionCalle.md), [SospechaPatologiaGes](StructureDefinition-SospechaPatologiaGes.md), [TiemposdeEsperaInteroperable](index.md), [TipoDeObservacion](ValueSet-TipoDeObservacion.md), [VSConsecuenciaAtencionCodigo](ValueSet-VSConsecuenciaAtencionCodigo.md), [VSDerivadoParaCodigo](ValueSet-VSDerivadoParaCodigo.md), [VSDestinoReferenciaCodigo](ValueSet-VSDestinoReferenciaCodigo.md), [VSEspecialidadBioqca](ValueSet-VSEspecialidadBioqca.md), [VSEspecialidadFarma](ValueSet-VSEspecialidadFarma.md), [VSEspecialidadMed](ValueSet-VSEspecialidadMed.md), [VSEspecialidadOdont](ValueSet-VSEspecialidadOdont.md), [VSEstablecimientoDestino](ValueSet-VSEstablecimientoDestino.md), [VSEstadoCivil](ValueSet-VSEstadoCivil.md), [VSEstadoInterconsulta](ValueSet-VSEstadoInterconsulta.md), [VSIdentificadorPrestador](ValueSet-VSIdentificadorPrestador.md), [VSIndicecomorbilidad](ValueSet-VSIndicecomorbilidad.md), [VSMediodeContacto](ValueSet-VSMediodeContacto.md), [VSModalidadAtencionCodigo](ValueSet-VSModalidadAtencionCodigo.md), [VSMotivoCierreInterconsulta](ValueSet-VSMotivoCierreInterconsulta.md), [VSMotivoNoContactabilidad](ValueSet-VSMotivoNoContactabilidad.md), [VSMotivoNoPertinenciaCodigo](ValueSet-VSMotivoNoPertinenciaCodigo.md), [VSPertinenciaInterconsulta](ValueSet-VSPertinenciaInterconsulta.md), [VSPractitionerTipoRolLE](ValueSet-VSPractitionerTipoRolLE.md), [VSReligion](ValueSet-VSReligion.md), [VSServicioRequerido](ValueSet-VSServicioRequerido.md), [VSTerminologiasDiag](ValueSet-VSTerminologiasDiag.md), [VSTipoConsulta](ValueSet-VSTipoConsulta.md), [VSTipoEventoLE](ValueSet-VSTipoEventoLE.md), [VSTituloProfesional](ValueSet-VSTituloProfesional.md), [VSorigenInterconsulta](ValueSet-VSorigenInterconsulta.md) and [VsEspecialidadDest](ValueSet-VsEspecialidadDest.md)
 
 
 * The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved. [https://ucum.org/trac/wiki/TermsOfUse](https://ucum.org/trac/wiki/TermsOfUse)
 
-* [Unified Code for Units of Measure (UCUM)](http://terminology.hl7.org/6.1.0/CodeSystem-v3-ucum.html): [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md) and [Observation/AnticuerpoAdrenal](Observation-AnticuerpoAdrenal.md)
+* [Unified Code for Units of Measure (UCUM)](http://terminology.hl7.org/6.1.0/CodeSystem-v3-ucum.html): [Observation/AnticuerpoAdrenal](Observation-AnticuerpoAdrenal.md)
 
 
 * This material contains content from [LOINC](http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the [license](http://loinc.org/license). LOINC® is a registered United States trademark of Regenstrief Institute, Inc.
 
-* [LOINC](http://terminology.hl7.org/6.1.0/CodeSystem-v3-loinc.html): [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md)... Show 15 more, [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Bundle/BundleRevisarEjemplo](Bundle-BundleRevisarEjemplo.md), [CodigoExamen](ValueSet-CodigoExamen.md), [Observation/AnticuerpoAdrenal](Observation-AnticuerpoAdrenal.md), [Observation/EjemploObservationCuidador](Observation-EjemploObservationCuidador.md), [Observation/EjemploObservationDiscapacidadLE](Observation-EjemploObservationDiscapacidadLE.md), [ObservationAnamnesisLE](StructureDefinition-ObservationAnamnesisLE.md), [ObservationDiscapacidadLE](StructureDefinition-ObservationDiscapacidadLE.md), [ObservationIndiceComorbilidadLE](StructureDefinition-ObservationIndiceComorbilidadLE.md), [ObservationIniciarCuidadorLE](StructureDefinition-ObservationIniciarCuidadorLE.md), [ObservationResultadoExamen](StructureDefinition-ObservationResultadoExamen.md), [ServiceRequest/AbadrenalEjemplo](ServiceRequest-AbadrenalEjemplo.md), [ServiceRequest/EjemploSolicitudExamen](ServiceRequest-EjemploSolicitudExamen.md), [ServiceRequestExamenLE](StructureDefinition-ServiceRequestExamenLE.md) and [TipoDeObservacion](ValueSet-TipoDeObservacion.md)
+* [LOINC](http://terminology.hl7.org/6.1.0/CodeSystem-v3-loinc.html): [CodigoExamen](ValueSet-CodigoExamen.md), [Observation/AnticuerpoAdrenal](Observation-AnticuerpoAdrenal.md)... Show 11 more, [Observation/EjemploObservationCuidador](Observation-EjemploObservationCuidador.md), [Observation/EjemploObservationDiscapacidadLE](Observation-EjemploObservationDiscapacidadLE.md), [ObservationAnamnesisLE](StructureDefinition-ObservationAnamnesisLE.md), [ObservationDiscapacidadLE](StructureDefinition-ObservationDiscapacidadLE.md), [ObservationIndiceComorbilidadLE](StructureDefinition-ObservationIndiceComorbilidadLE.md), [ObservationIniciarCuidadorLE](StructureDefinition-ObservationIniciarCuidadorLE.md), [ObservationResultadoExamen](StructureDefinition-ObservationResultadoExamen.md), [ServiceRequest/AbadrenalEjemplo](ServiceRequest-AbadrenalEjemplo.md), [ServiceRequest/EjemploSolicitudExamen](ServiceRequest-EjemploSolicitudExamen.md), [ServiceRequestExamenLE](StructureDefinition-ServiceRequestExamenLE.md) and [TipoDeObservacion](ValueSet-TipoDeObservacion.md)
 
 
 * This material contains content that is copyright of SNOMED International. Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact [https://www.snomed.org/get-snomed](https://www.snomed.org/get-snomed) or [info@snomed.org](mailto:info@snomed.org).
 
-* [SNOMED Clinical Terms&reg; (SNOMED CT&reg;)](http://hl7.org/fhir/R4/codesystem-snomedct.html): [AllergyIntolerance/AllergyIntoleranceExample](AllergyIntolerance-AllergyIntoleranceExample.md), [AllergyIntoleranceIniciarLE](StructureDefinition-AllergyIntoleranceIniciarLE.md)... Show 23 more, [Bundle/BundleAgendarEjemplo](Bundle-BundleAgendarEjemplo.md), [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Bundle/BundlePriorizarEjemplo](Bundle-BundlePriorizarEjemplo.md), [Bundle/BundleReferenciarEjemplo](Bundle-BundleReferenciarEjemplo.md), [Bundle/BundleRevisarEjemplo](Bundle-BundleRevisarEjemplo.md), [Bundle/BundleTerminarEjemplo](Bundle-BundleTerminarEjemplo.md), [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md), [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md), [ConditionDiagnosticoLE](StructureDefinition-ConditionDiagnosticoLE.md), [Observation/AnamnesisEjemplo](Observation-AnamnesisEjemplo.md), [ObservationAnamnesisLE](StructureDefinition-ObservationAnamnesisLE.md), [ObservationDiscapacidadLE](StructureDefinition-ObservationDiscapacidadLE.md), [ObservationIndiceComorbilidadLE](StructureDefinition-ObservationIndiceComorbilidadLE.md), [ObservationIniciarCuidadorLE](StructureDefinition-ObservationIniciarCuidadorLE.md), [ServiceRequest/AbadrenalEjemplo](ServiceRequest-AbadrenalEjemplo.md), [ServiceRequest/EjemploSolicitudExamen](ServiceRequest-EjemploSolicitudExamen.md), [ServiceRequest/EjemploSolicitudInterconsultaFinalizada](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md), [ServiceRequestLE](StructureDefinition-ServiceRequestLE.md), [TipoDeObservacion](ValueSet-TipoDeObservacion.md), [VSServicioRequerido](ValueSet-VSServicioRequerido.md) and [VSTerminologiasDiag](ValueSet-VSTerminologiasDiag.md)
+* [SNOMED Clinical Terms&reg; (SNOMED CT&reg;)](http://hl7.org/fhir/R4/codesystem-snomedct.html): [AllergyIntolerance/AllergyIntoleranceExample](AllergyIntolerance-AllergyIntoleranceExample.md), [AllergyIntoleranceIniciarLE](StructureDefinition-AllergyIntoleranceIniciarLE.md)... Show 15 more, [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md), [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md), [ConditionDiagnosticoLE](StructureDefinition-ConditionDiagnosticoLE.md), [Observation/AnamnesisEjemplo](Observation-AnamnesisEjemplo.md), [ObservationAnamnesisLE](StructureDefinition-ObservationAnamnesisLE.md), [ObservationDiscapacidadLE](StructureDefinition-ObservationDiscapacidadLE.md), [ObservationIndiceComorbilidadLE](StructureDefinition-ObservationIndiceComorbilidadLE.md), [ObservationIniciarCuidadorLE](StructureDefinition-ObservationIniciarCuidadorLE.md), [ServiceRequest/AbadrenalEjemplo](ServiceRequest-AbadrenalEjemplo.md), [ServiceRequest/EjemploSolicitudExamen](ServiceRequest-EjemploSolicitudExamen.md), [ServiceRequest/EjemploSolicitudInterconsultaFinalizada](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md), [ServiceRequestLE](StructureDefinition-ServiceRequestLE.md), [TipoDeObservacion](ValueSet-TipoDeObservacion.md), [VSServicioRequerido](ValueSet-VSServicioRequerido.md) and [VSTerminologiasDiag](ValueSet-VSTerminologiasDiag.md)
 
 
 * This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: [https://terminology.hl7.org/license.html](https://terminology.hl7.org/license.html)
 
-* [AllergyIntolerance Clinical Status Codes](http://terminology.hl7.org/7.0.1/CodeSystem-allergyintolerance-clinical.html): [AllergyIntolerance/AllergyIntoleranceExample](AllergyIntolerance-AllergyIntoleranceExample.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md) and [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md)
-* [AllergyIntolerance Verification Status](http://terminology.hl7.org/7.0.1/CodeSystem-allergyintolerance-verification.html): [AllergyIntolerance/AllergyIntoleranceExample](AllergyIntolerance-AllergyIntoleranceExample.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md) and [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md)
-* [Condition Category Codes](http://terminology.hl7.org/7.0.1/CodeSystem-condition-category.html): [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md) and [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md)
-* [Condition Clinical Status Codes](http://terminology.hl7.org/7.0.1/CodeSystem-condition-clinical.html): [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md)... Show 4 more, [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md), [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md) and [ConditionDiagnosticoLE](StructureDefinition-ConditionDiagnosticoLE.md)
-* [ConditionVerificationStatus](http://terminology.hl7.org/7.0.1/CodeSystem-condition-ver-status.html): [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md)... Show 4 more, [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md), [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md) and [ConditionDiagnosticoLE](StructureDefinition-ConditionDiagnosticoLE.md)
-* [Observation Category Codes](http://terminology.hl7.org/7.0.1/CodeSystem-observation-category.html): [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md)... Show 4 more, [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Observation/AnticuerpoAdrenal](Observation-AnticuerpoAdrenal.md), [Observation/IndiceConmorbilidadEjemplo](Observation-IndiceConmorbilidadEjemplo.md) and [ObservationIndiceComorbilidadLE](StructureDefinition-ObservationIndiceComorbilidadLE.md)
+* [AllergyIntolerance Clinical Status Codes](http://terminology.hl7.org/6.1.0/CodeSystem-allergyintolerance-clinical.html): [AllergyIntolerance/AllergyIntoleranceExample](AllergyIntolerance-AllergyIntoleranceExample.md)
+* [AllergyIntolerance Verification Status](http://terminology.hl7.org/6.1.0/CodeSystem-allergyintolerance-verification.html): [AllergyIntolerance/AllergyIntoleranceExample](AllergyIntolerance-AllergyIntoleranceExample.md)
+* [Condition Category Codes](http://terminology.hl7.org/6.1.0/CodeSystem-condition-category.html): [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md) and [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md)
+* [Condition Clinical Status Codes](http://terminology.hl7.org/6.1.0/CodeSystem-condition-clinical.html): [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md), [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md) and [ConditionDiagnosticoLE](StructureDefinition-ConditionDiagnosticoLE.md)
+* [ConditionVerificationStatus](http://terminology.hl7.org/6.1.0/CodeSystem-condition-ver-status.html): [Condition/ConditionAtencionejemplo](Condition-ConditionAtencionejemplo.md), [Condition/ConditionInicialEjemplo](Condition-ConditionInicialEjemplo.md) and [ConditionDiagnosticoLE](StructureDefinition-ConditionDiagnosticoLE.md)
+* [Observation Category Codes](http://terminology.hl7.org/6.1.0/CodeSystem-observation-category.html): [Observation/AnticuerpoAdrenal](Observation-AnticuerpoAdrenal.md), [Observation/IndiceConmorbilidadEjemplo](Observation-IndiceConmorbilidadEjemplo.md) and [ObservationIndiceComorbilidadLE](StructureDefinition-ObservationIndiceComorbilidadLE.md)
 
 
 * Usado con el permiso de HL7 International, todos los derechos resevados en los Licencias de HL7 Internacional.
 
-* [Códigos de Comunas en Chile](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSCodComunasCL.html): [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Bundle/BundleReferenciarEjemplo](Bundle-BundleReferenciarEjemplo.md), [Complejo Asistencial Dr. Víctor Ríos Ruiz (Los Ángeles)](Organization-OrganizationLEEjemplo.md) and [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md)
-* [Códigos de Provincias en Chile](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSCodProvinciasCL.html): [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md) and [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md)
-* [Códigos de Regiones en Chile](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSCodRegionCL.html): [Bundle/BundleAgendarEjemplo](Bundle-BundleAgendarEjemplo.md), [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md)... Show 5 more, [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Bundle/BundleReferenciarEjemplo](Bundle-BundleReferenciarEjemplo.md), [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md), [Practitioner/PractitionerProfesionalLEEjemplo](Practitioner-PractitionerProfesionalLEEjemplo.md) and [Practitioner/ProfesionalAdministrativoEjemplo](Practitioner-ProfesionalAdministrativoEjemplo.md)
-* [Identidad de Genero](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSIdentidaddeGenero.html): [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md) and [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md)
-* [Tipo Identificador](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSTipoIdentificador.html): [Bundle/BundleAgendarEjemplo](Bundle-BundleAgendarEjemplo.md), [Bundle/BundleAtenderEjemplo](Bundle-BundleAtenderEjemplo.md)... Show 14 more, [Bundle/BundleIniciarEjemplo](Bundle-BundleIniciarEjemplo.md), [Bundle/BundleIniciarEjemplo2](Bundle-BundleIniciarEjemplo2.md), [Bundle/BundlePriorizarEjemplo](Bundle-BundlePriorizarEjemplo.md), [Bundle/BundleReferenciarEjemplo](Bundle-BundleReferenciarEjemplo.md), [Bundle/BundleRevisarEjemplo](Bundle-BundleRevisarEjemplo.md), [Bundle/BundleTerminarEjemplo](Bundle-BundleTerminarEjemplo.md), [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md), [PatientLE](StructureDefinition-PatientLE.md), [Practitioner/PractitionerProfesionalLEAtendedor](Practitioner-PractitionerProfesionalLEAtendedor.md), [Practitioner/PractitionerProfesionalLEEjemplo](Practitioner-PractitionerProfesionalLEEjemplo.md), [Practitioner/ProfesionalAdministrativoEjemplo](Practitioner-ProfesionalAdministrativoEjemplo.md), [PractitionerAdministrativoLE](StructureDefinition-PractitionerAdministrativoLE.md), [PractitionerProfesionalLE](StructureDefinition-PractitionerProfesionalLE.md) and [VSIdentificadorPrestador](ValueSet-VSIdentificadorPrestador.md)
+* [Códigos de Comunas en Chile](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSCodComunasCL.html): [Complejo Asistencial Dr. Víctor Ríos Ruiz (Los Ángeles)](Organization-OrganizationLEEjemplo.md) and [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md)
+* [Códigos de Provincias en Chile](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSCodProvinciasCL.html): [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md)
+* [Códigos de Regiones en Chile](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSCodRegionCL.html): [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md), [Practitioner/PractitionerProfesionalLEEjemplo](Practitioner-PractitionerProfesionalLEEjemplo.md) and [Practitioner/ProfesionalAdministrativoEjemplo](Practitioner-ProfesionalAdministrativoEjemplo.md)
+* [Identidad de Genero](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSIdentidaddeGenero.html): [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md)
+* [Tipo Identificador](https://hl7chile.cl/fhir/ig/clcore/1.9.2/CodeSystem-CSTipoIdentificador.html): [Patient/EjemploPatientLE](Patient-EjemploPatientLE.md), [PatientLE](StructureDefinition-PatientLE.md)... Show 6 more, [Practitioner/PractitionerProfesionalLEAtendedor](Practitioner-PractitionerProfesionalLEAtendedor.md), [Practitioner/PractitionerProfesionalLEEjemplo](Practitioner-PractitionerProfesionalLEEjemplo.md), [Practitioner/ProfesionalAdministrativoEjemplo](Practitioner-ProfesionalAdministrativoEjemplo.md), [PractitionerAdministrativoLE](StructureDefinition-PractitionerAdministrativoLE.md), [PractitionerProfesionalLE](StructureDefinition-PractitionerProfesionalLE.md) and [VSIdentificadorPrestador](ValueSet-VSIdentificadorPrestador.md)
 
 
 
@@ -135,10 +135,10 @@ This publication includes IP covered under the following statements.
   "id" : "hl7.fhir.cl.minsal.tei",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ImplementationGuide/hl7.fhir.cl.minsal.tei",
   "version" : "0.2.2",
-  "name" : "TiemposDeEsperaInteroperable",
+  "name" : "TiemposdeEsperaInteroperable",
   "title" : "Tiempos de Espera Interoperable",
   "status" : "draft",
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -167,30 +167,22 @@ This publication includes IP covered under the following statements.
   "license" : "CC0-1.0",
   "fhirVersion" : ["4.0.1"],
   "dependsOn" : [{
-    "id" : "hl7tx",
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment",
-      "valueMarkdown" : "Automatically added as a dependency - all IGs depend on HL7 Terminology"
-    }],
-    "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
-    "packageId" : "hl7.terminology.r4",
-    "version" : "7.0.1"
+    "id" : "hl7_fhir_cl_clcore",
+    "uri" : "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore",
+    "packageId" : "hl7.fhir.cl.clcore",
+    "version" : "1.9.2"
   },
   {
-    "id" : "hl7ext",
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment",
-      "valueMarkdown" : "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"
-    }],
+    "id" : "hl7_fhir_uv_extensions_r4",
     "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
     "packageId" : "hl7.fhir.uv.extensions.r4",
     "version" : "5.2.0"
   },
   {
-    "id" : "hl7_fhir_cl_clcore",
-    "uri" : "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore",
-    "packageId" : "hl7.fhir.cl.clcore",
-    "version" : "1.9.2"
+    "id" : "hl7_terminology_r4",
+    "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
+    "packageId" : "hl7.terminology.r4",
+    "version" : "5.5.0"
   }],
   "definition" : {
     "extension" : [{
@@ -212,6 +204,28 @@ This publication includes IP covered under the following statements.
       {
         "url" : "value",
         "valueString" : "draft"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueString" : "suppress-warninfo"
+      },
+      {
+        "url" : "value",
+        "valueString" : "CodeSystem.jurisdiction"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueString" : "suppress-warninfo"
+      },
+      {
+        "url" : "value",
+        "valueString" : "CodeSystem.language"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -470,7 +484,7 @@ This publication includes IP covered under the following statements.
     },
     {
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency",
-      "valueCode" : "hl7.fhir.uv.tools.r4#0.9.0"
+      "valueCode" : "hl7.fhir.uv.tools.r4#1.1.2"
     },
     {
       "extension" : [{
@@ -491,6 +505,28 @@ This publication includes IP covered under the following statements.
       {
         "url" : "value",
         "valueString" : "draft"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueCode" : "suppress-warninfo"
+      },
+      {
+        "url" : "value",
+        "valueString" : "CodeSystem.jurisdiction"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueCode" : "suppress-warninfo"
+      },
+      {
+        "url" : "value",
+        "valueString" : "CodeSystem.language"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -1010,102 +1046,6 @@ This publication includes IP covered under the following statements.
       "name" : "Ejemplo Agenda",
       "description" : "Ejemplo de la agenda de un paciente",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/AppointmentAgendarLE"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleAgendarEjemplo"
-      },
-      "name" : "Ejemplo Bundle Agendar",
-      "description" : "Ejemplo del mensaje de la agenda para la atención de la interconsulta",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleAgendarLE"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleAtenderEjemplo"
-      },
-      "name" : "Ejemplo Bundle Atender",
-      "description" : "Ejemplo del mensaje de la atención de la interconsulta",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleAtenderLE"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleIniciarEjemplo"
-      },
-      "name" : "Ejemplo Bundle Iniciar",
-      "description" : "Ejemplo de un mensaje del evento Iniciar",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleIniciarLE"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleIniciarEjemplo2"
-      },
-      "name" : "Ejemplo Bundle Iniciar con uso de las extensiones GES",
-      "description" : "Ejemplo de un mensaje del evento Iniciar con uso de las extensiones GES",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleIniciarLE"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundlePriorizarEjemplo"
-      },
-      "name" : "Ejemplo Bundle Prorización",
-      "description" : "Ejemplo del mensaje de la priorización de interconsulta",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundlePriorizarLE"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleReferenciarEjemplo"
-      },
-      "name" : "Ejemplo Bundle Referenciar",
-      "description" : "Ejemplo de un mensaje de referencia de una interconsulta",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleReferenciarLE"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleRevisarEjemplo"
-      },
-      "name" : "Ejemplo Bundle Revisar",
-      "description" : "Ejemplo del mensaje de la revisión de interconsulta",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleRevisarLE"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleTerminarEjemplo"
-      },
-      "name" : "Ejemplo Bundle Terminar",
-      "description" : "Ejemplo del mensaje del termino de una interconsulta",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/BundleTerminarLE"
     },
     {
       "extension" : [{
@@ -2133,18 +2073,6 @@ This publication includes IP covered under the following statements.
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/ProblemaSaludGESTEI"
-      },
-      "name" : "Problema GES",
-      "description" : "Indica si corresponde a que problema de salud GES",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
         "reference" : "StructureDefinition/PueblosAfrodescendiente"
       },
       "name" : "Pueblos Afrodescendiente",
@@ -2588,6 +2516,14 @@ This publication includes IP covered under the following statements.
     },
     "parameter" : [{
       "code" : "path-resource",
+      "value" : "input/resources"
+    },
+    {
+      "code" : "path-resource",
+      "value" : "fsh-generated/resources"
+    },
+    {
+      "code" : "path-resource",
       "value" : "input/capabilities"
     },
     {
@@ -2612,15 +2548,7 @@ This publication includes IP covered under the following statements.
     },
     {
       "code" : "path-resource",
-      "value" : "input/resources"
-    },
-    {
-      "code" : "path-resource",
       "value" : "input/vocabulary"
-    },
-    {
-      "code" : "path-resource",
-      "value" : "input/maps"
     },
     {
       "code" : "path-resource",
@@ -2629,10 +2557,6 @@ This publication includes IP covered under the following statements.
     {
       "code" : "path-resource",
       "value" : "input/history"
-    },
-    {
-      "code" : "path-resource",
-      "value" : "fsh-generated/resources"
     },
     {
       "code" : "path-pages",

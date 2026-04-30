@@ -23,7 +23,7 @@ Profile: [MessageHeader LE](StructureDefinition-MessageHeaderLE.md)
 
 **focus**: 
 
-* [ServiceRequest derivación del paciente a un especialista](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md)
+* [ServiceRequest Patient referral to specialist](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md)
 * [Encounter: extension = true; identifier = 123; status = finished; class = Presencial (Modalidad Atencion Codigo#1); type = Nueva; period = 2024-02-22 08:00:00-0300 --> 2024-02-22 08:30:00-0300](Encounter-AtencionEjemplo.md)
 
 

@@ -10,7 +10,9 @@ version: 7.0
 
 Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
 
-**Motivo Cierre Interconsulta**: Atención Realizada (1)
+**Estado Interconsulta Codigo**: A la espera de referencia
+
+**Motivo Cierre Interconsulta**: GES (0)
 
 **ExtBool Requiere Examen**: true
 
@@ -20,18 +22,16 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
 
 **Origen Interconsulta**: APS
 
-**Extension String Fundamento Priorizacion**: Paciente es jefe de hogar y cuidador de adulto mayor.
+**Extension String Fundamento Priorizacion**: ExtensionStringFundamentoPriorizacionEj
 
-**Estado Interconsulta Codigo**: Cerrada
+**Especialidad Médica Destino Código**: ANATOMÍA PATOLÓGICA
 
-**Especialidad Médica Destino Código**: MEDICINA INTERNA
-
-**SubEspecialidad Médica Destino Código**: ENDOCRINOLOGÍA ADULTO
+**SubEspecialidad Médica Destino Código**: ANATOMÍA PATOLÓGICA
 
 > **Pertinencia Interconsulta**
-* EvaluacionPertinencia: Pertinente Incompleta
+* EvaluacionPertinencia: Pertinente
 
-**Sospecha Patologia Ges**: false
+**Sospecha Patologia Ges**: true
 
 **identifier**: 123
 
@@ -61,8 +61,8 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
 
 **supportingInfo**: 
 
-* [Condition Adrenal antibody detected](Condition-ConditionInicialEjemplo.md)
-* [AllergyIntolerance castaña de cajú](AllergyIntolerance-AllergyIntoleranceExample.md)
+* [Condition Typhoid and paratyphoid fevers](Condition-ConditionInicialEjemplo.md)
+* [AllergyIntolerance Cashew nuts](AllergyIntolerance-AllergyIntoleranceExample.md)
 * [Observation Estrategia de cuidado integral centrado en las personas](Observation-IndiceConmorbilidadEjemplo.md)
 * [Observation Cuidador de personas con molestias relacionadas con la edad, enfermedades crónicas o fragilidad.: Paciente:Punto temporal:Tipo:Ordinal:](Observation-EjemploObservationCuidador.md)
 * [Observation Disability status](Observation-EjemploObservationDiscapacidadLE.md)
@@ -83,12 +83,22 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
     "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ServiceRequestLE"]
   },
   "extension" : [{
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionEstadoInterconsultaCodigoLE",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstadoInterconsulta",
+        "code" : "1",
+        "display" : "A la espera de referencia"
+      }]
+    }
+  },
+  {
     "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionMotivoCierreInterconsulta",
     "valueCodeableConcept" : {
       "coding" : [{
         "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSMotivoCierreInterconsulta",
-        "code" : "2",
-        "display" : "Atención Realizada (1)"
+        "code" : "1",
+        "display" : "GES (0)"
       }]
     }
   },
@@ -116,25 +126,15 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
   },
   {
     "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionStringFundamentoPriorizacion",
-    "valueString" : "Paciente es jefe de hogar y cuidador de adulto mayor."
-  },
-  {
-    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionEstadoInterconsultaCodigoLE",
-    "valueCodeableConcept" : {
-      "coding" : [{
-        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstadoInterconsulta",
-        "code" : "7",
-        "display" : "Cerrada"
-      }]
-    }
+    "valueString" : "ExtensionStringFundamentoPriorizacionEj"
   },
   {
     "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/ExtensionEspecialidadMedicaDestinoCodigo",
     "valueCodeableConcept" : {
       "coding" : [{
         "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEspecialidadMed",
-        "code" : "30",
-        "display" : "MEDICINA INTERNA"
+        "code" : "1",
+        "display" : "ANATOMÍA PATOLÓGICA"
       }]
     }
   },
@@ -143,8 +143,8 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
     "valueCodeableConcept" : {
       "coding" : [{
         "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEspecialidadMed",
-        "code" : "14",
-        "display" : "ENDOCRINOLOGÍA ADULTO"
+        "code" : "1",
+        "display" : "ANATOMÍA PATOLÓGICA"
       }]
     }
   },
@@ -154,8 +154,8 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
       "valueCodeableConcept" : {
         "coding" : [{
           "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSPertinenciaInterconsulta",
-          "code" : "3",
-          "display" : "Pertinente Incompleta"
+          "code" : "1",
+          "display" : "Pertinente"
         }]
       }
     }],
@@ -163,7 +163,7 @@ Profile: [ServiceRequest LE](StructureDefinition-ServiceRequestLE.md)
   },
   {
     "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/StructureDefinition/SospechaPatologiaGes",
-    "valueBoolean" : false
+    "valueBoolean" : true
   }],
   "identifier" : [{
     "value" : "123"

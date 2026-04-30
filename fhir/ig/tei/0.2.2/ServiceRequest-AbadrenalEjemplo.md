@@ -8,7 +8,7 @@
 
 Profile: [Solicitud de Examen LE](StructureDefinition-ServiceRequestExamenLE.md)
 
-**basedOn**: [ServiceRequest derivación del paciente a un especialista](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md)
+**basedOn**: [ServiceRequest Patient referral to specialist](ServiceRequest-EjemploSolicitudInterconsultaFinalizada.md)
 
 **status**: Draft
 

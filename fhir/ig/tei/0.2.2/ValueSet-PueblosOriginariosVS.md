@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/PueblosOriginariosVS | *Version*:0.2.2 |
-| Draft as of 2026-02-27 | *Computable Name*:PueblosOriginariosVS |
+| Draft as of 2026-04-30 | *Computable Name*:PueblosOriginariosVS |
 
  
 Pueblos Originarios de Chile 
@@ -51,7 +51,7 @@ Pueblos Originarios de Chile
   "title" : "Pueblos Originarios de Chile",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-02-27T12:08:03-03:00",
+  "date" : "2026-04-30T10:23:33-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

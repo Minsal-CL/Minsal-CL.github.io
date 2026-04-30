@@ -16,7 +16,7 @@ Set de valores utilizados para los problemas de salud ges
 
  **References** 
 
-* [Problema GES](StructureDefinition-ProblemaSaludGESTEI.md)
+This value set is not used here; it may be used elsewhere (e.g. specifications and/or implementations that use this content)
 
 ### Logical Definition (CLD)
 
@@ -45,6 +45,7 @@ Set de valores utilizados para los problemas de salud ges
 {
   "resourceType" : "ValueSet",
   "id" : "vs-problema-ges-tei",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/ValueSet/vs-problema-ges-tei",
   "version" : "0.2.2",
   "name" : "ProblemaSaludGESVS",
