@@ -1,0 +1,59 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "eis-pais-emision-vs",
+  "language" : "es",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xml:lang=\"es\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"es\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores eis-pais-emision-vs</b></p><a name=\"eis-pais-emision-vs\"> </a><a name=\"hceis-pais-emision-vs\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es</p></div><p>This value set includes codes based on the following rules:</p><ul><li>Include codes from<code>urn:iso:std:iso:3166</code><span title=\"Version is explicitly stated to be 20210120\"> version &#x1F4CD;20210120</span> where code  matches (by regex) [0-9]{3}</li><li>Include all codes defined in <a href=\"CodeSystem-eis-paises-cs.html\"><code>https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version &#x1F4E6;0.2.0</span></li></ul></div>"
+  },
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/eis-pais-emision-vs",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.2.22.48.27"
+  }],
+  "version" : "0.2.0",
+  "name" : "PaisEmisionVS",
+  "title" : "Códigos de países para asignar país de emisión de documento",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2026-03-01T00:00:00-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [{
+    "name" : "Unidad de Interoperabilidad - MINSAL",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://interoperabilidad.minsal.cl"
+    }]
+  },
+  {
+    "name" : "Jorge Mansilla",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "jorge.mansilla@minsal.cl",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Códigos de países para asignar país de emisión de documento a los pacientes",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "version" : "20210120",
+      "code" : "CL",
+      "display" : "Chile"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "version" : "20210120",
+      "filter" : [{
+        "property" : "code",
+        "op" : "regex",
+        "value" : "[0-9]{3}"
+      }]
+    },
+    {
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs"
+    }]
+  }
+}

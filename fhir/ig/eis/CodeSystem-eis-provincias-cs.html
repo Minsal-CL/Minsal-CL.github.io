@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Provincias - Guía de Estandares de Información de Salud v0.2.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"3.79"}
+    h3,h4,h5,h6{--heading-prefix:"3.79"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Estandares de Información de Salud</span>
+            <br/>
+            <span style="display:inline-block;">0.2.0 - trial-use
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+  <li>
+    <a href="changes.html">Historial de Cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>Provincias</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">This page is part of the Guía de Estandares de Informacionde Salud (v0.2.0: <a data-no-external="true" href="https://confluence.hl7.org/display/HL7/HL7+Balloting" title="Standard for Trial-Use">STU</a>1) based on <a data-no-external="true" href="http://hl7.org/fhir/R4">FHIR (HL7® FHIR® Standard) R4</a>. This is the current published version.  For a full list of available versions, see the <a data-no-external="true" href="https://interoperabilidad.minsal.cl/fhir/ig/eis/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+  
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+    <a href="#">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="CodeSystem-eis-provincias-cs.xml.html">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CodeSystem-eis-provincias-cs.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CodeSystem-eis-provincias-cs.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+  <a name="root"> </a>
+  <h2 id="root">CodeSystem: Provincias
+
+  </h2>
+
+  <table class="colsi">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-provincias-cs<button title="Click to copy URL" class="btn-copy" data-clipboard-text="https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-provincias-cs"/></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">0.2.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-provincias-cs|0.2.0"/></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="4">
+        
+          Active
+          
+            as of 2023-01-15
+          
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span style="font-family: monospace;">ProvinciasCS</span></td>
+    </tr>
+
+    <tr>
+      <td colspan="5">
+        <i>Other Identifiers:</i> OID:2.16.840.1.113883.2.22.16.31
+      </td>
+    </tr>
+
+
+
+
+  </table>
+
+<p>
+<p>Provincias</p>
+
+</p>
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <p>
+  This Code system is referenced in the content logical definition of the following value sets:
+  </p>
+
+  
+<ul>
+ <li><a href="ValueSet-eis-provincias-vs.html">ProvinciasVS</a></li>
+</ul>
+
+
+  <div xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" data-fhir="generated"><p class="res-header-id"></p><a name="eis-provincias-cs"> </a><a name="hceis-provincias-cs"> </a>
+<div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: es</p></div><p>This case-sensitive code system <code>https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-provincias-cs</code> defines the following codes:</p>
+<table class="codes" data-fhir="generated"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>
+<tr><td style="white-space:nowrap">11<a name="eis-provincias-cs-11"> </a></td>
+<td>Iquique</td>
+<td>Iquique</td></tr>
+<tr><td style="white-space:nowrap">14<a name="eis-provincias-cs-14"> </a></td>
+<td>Tamarugal</td>
+<td>Tamarugal</td></tr>
+<tr><td style="white-space:nowrap">21<a name="eis-provincias-cs-21"> </a></td>
+<td>Antofagasta</td>
+<td>Antofagasta</td></tr>
+<tr><td style="white-space:nowrap">22<a name="eis-provincias-cs-22"> </a></td>
+<td>El loa</td>
+<td>El loa</td></tr>
+<tr><td style="white-space:nowrap">23<a name="eis-provincias-cs-23"> </a></td>
+<td>Tocopilla</td>
+<td>Tocopilla</td></tr>
+<tr><td style="white-space:nowrap">31<a name="eis-provincias-cs-31"> </a></td>
+<td>Copiapó</td>
+<td>Copiapó</td></tr>
+<tr><td style="white-space:nowrap">32<a name="eis-provincias-cs-32"> </a></td>
+<td>Chañaral</td>
+<td>Chañaral</td></tr>
+<tr><td style="white-space:nowrap">33<a name="eis-provincias-cs-33"> </a></td>
+<td>Huasco</td>
+<td>Huasco</td></tr>
+<tr><td style="white-space:nowrap">41<a name="eis-provincias-cs-41"> </a></td>
+<td>Elqui</td>
+<td>Elqui</td></tr>
+<tr><td style="white-space:nowrap">42<a name="eis-provincias-cs-42"> </a></td>
+<td>Choapa</td>
+<td>Choapa</td></tr>
+<tr><td style="white-space:nowrap">43<a name="eis-provincias-cs-43"> </a></td>
+<td>Limarí</td>
+<td>Limarí</td></tr>
+<tr><td style="white-space:nowrap">51<a name="eis-provincias-cs-51"> </a></td>
+<td>Valparaíso</td>
+<td>Valparaíso</td></tr>
+<tr><td style="white-space:nowrap">52<a name="eis-provincias-cs-52"> </a></td>
+<td>Isla de pascua</td>
+<td>Isla de pascua</td></tr>
+<tr><td style="white-space:nowrap">53<a name="eis-provincias-cs-53"> </a></td>
+<td>Los andes</td>
+<td>Los andes</td></tr>
+<tr><td style="white-space:nowrap">54<a name="eis-provincias-cs-54"> </a></td>
+<td>Petorca</td>
+<td>Petorca</td></tr>
+<tr><td style="white-space:nowrap">55<a name="eis-provincias-cs-55"> </a></td>
+<td>Quillota</td>
+<td>Quillota</td></tr>
+<tr><td style="white-space:nowrap">56<a name="eis-provincias-cs-56"> </a></td>
+<td>San antonio</td>
+<td>San antonio</td></tr>
+<tr><td style="white-space:nowrap">57<a name="eis-provincias-cs-57"> </a></td>
+<td>San felipe de aconcagua</td>
+<td>San felipe de aconcagua</td></tr>
+<tr><td style="white-space:nowrap">58<a name="eis-provincias-cs-58"> </a></td>
+<td>Marga marga</td>
+<td>Marga marga</td></tr>
+<tr><td style="white-space:nowrap">61<a name="eis-provincias-cs-61"> </a></td>
+<td>Cachapoal</td>
+<td>Cachapoal</td></tr>
+<tr><td style="white-space:nowrap">62<a name="eis-provincias-cs-62"> </a></td>
+<td>Cardenal caro</td>
+<td>Cardenal caro</td></tr>
+<tr><td style="white-space:nowrap">63<a name="eis-provincias-cs-63"> </a></td>
+<td>Colchagua</td>
+<td>Colchagua</td></tr>
+<tr><td style="white-space:nowrap">71<a name="eis-provincias-cs-71"> </a></td>
+<td>Talca</td>
+<td>Talca</td></tr>
+<tr><td style="white-space:nowrap">72<a name="eis-provincias-cs-72"> </a></td>
+<td>Cauquenes</td>
+<td>Cauquenes</td></tr>
+<tr><td style="white-space:nowrap">73<a name="eis-provincias-cs-73"> </a></td>
+<td>Curicó</td>
+<td>Curicó</td></tr>
+<tr><td style="white-space:nowrap">74<a name="eis-provincias-cs-74"> </a></td>
+<td>Linares</td>
+<td>Linares</td></tr>
+<tr><td style="white-space:nowrap">81<a name="eis-provincias-cs-81"> </a></td>
+<td>Concepción</td>
+<td>Concepción</td></tr>
+<tr><td style="white-space:nowrap">82<a name="eis-provincias-cs-82"> </a></td>
+<td>Arauco</td>
+<td>Arauco</td></tr>
+<tr><td style="white-space:nowrap">83<a name="eis-provincias-cs-83"> </a></td>
+<td>Biobío</td>
+<td>Biobío</td></tr>
+<tr><td style="white-space:nowrap">91<a name="eis-provincias-cs-91"> </a></td>
+<td>Cautín</td>
+<td>Cautín</td></tr>
+<tr><td style="white-space:nowrap">92<a name="eis-provincias-cs-92"> </a></td>
+<td>Malleco</td>
+<td>Malleco</td></tr>
+<tr><td style="white-space:nowrap">101<a name="eis-provincias-cs-101"> </a></td>
+<td>Llanquihue</td>
+<td>Llanquihue</td></tr>
+<tr><td style="white-space:nowrap">102<a name="eis-provincias-cs-102"> </a></td>
+<td>Chiloé</td>
+<td>Chiloé</td></tr>
+<tr><td style="white-space:nowrap">103<a name="eis-provincias-cs-103"> </a></td>
+<td>Osorno</td>
+<td>Osorno</td></tr>
+<tr><td style="white-space:nowrap">104<a name="eis-provincias-cs-104"> </a></td>
+<td>Palena</td>
+<td>Palena</td></tr>
+<tr><td style="white-space:nowrap">111<a name="eis-provincias-cs-111"> </a></td>
+<td>Coihaique</td>
+<td>Coihaique</td></tr>
+<tr><td style="white-space:nowrap">112<a name="eis-provincias-cs-112"> </a></td>
+<td>Capitán prat</td>
+<td>Capitán prat</td></tr>
+<tr><td style="white-space:nowrap">113<a name="eis-provincias-cs-113"> </a></td>
+<td>Aisén</td>
+<td>Aisén</td></tr>
+<tr><td style="white-space:nowrap">114<a name="eis-provincias-cs-114"> </a></td>
+<td>General carrera</td>
+<td>General carrera</td></tr>
+<tr><td style="white-space:nowrap">121<a name="eis-provincias-cs-121"> </a></td>
+<td>Magallanes</td>
+<td>Magallanes</td></tr>
+<tr><td style="white-space:nowrap">122<a name="eis-provincias-cs-122"> </a></td>
+<td>Antártica chilena</td>
+<td>Antártica chilena</td></tr>
+<tr><td style="white-space:nowrap">123<a name="eis-provincias-cs-123"> </a></td>
+<td>Tierra del fuego</td>
+<td>Tierra del fuego</td></tr>
+<tr><td style="white-space:nowrap">124<a name="eis-provincias-cs-124"> </a></td>
+<td>Ultima esperanza</td>
+<td>Ultima esperanza</td></tr>
+<tr><td style="white-space:nowrap">131<a name="eis-provincias-cs-131"> </a></td>
+<td>Santiago</td>
+<td>Santiago</td></tr>
+<tr><td style="white-space:nowrap">132<a name="eis-provincias-cs-132"> </a></td>
+<td>Cordillera</td>
+<td>Cordillera</td></tr>
+<tr><td style="white-space:nowrap">133<a name="eis-provincias-cs-133"> </a></td>
+<td>Chacabuco</td>
+<td>Chacabuco</td></tr>
+<tr><td style="white-space:nowrap">134<a name="eis-provincias-cs-134"> </a></td>
+<td>Maipo</td>
+<td>Maipo</td></tr>
+<tr><td style="white-space:nowrap">135<a name="eis-provincias-cs-135"> </a></td>
+<td>Melipilla</td>
+<td>Melipilla</td></tr>
+<tr><td style="white-space:nowrap">136<a name="eis-provincias-cs-136"> </a></td>
+<td>Talagante</td>
+<td>Talagante</td></tr>
+<tr><td style="white-space:nowrap">141<a name="eis-provincias-cs-141"> </a></td>
+<td>Valdivia</td>
+<td>Valdivia</td></tr>
+<tr><td style="white-space:nowrap">142<a name="eis-provincias-cs-142"> </a></td>
+<td>Ranco</td>
+<td>Ranco</td></tr>
+<tr><td style="white-space:nowrap">151<a name="eis-provincias-cs-151"> </a></td>
+<td>Arica</td>
+<td>Arica</td></tr>
+<tr><td style="white-space:nowrap">152<a name="eis-provincias-cs-152"> </a></td>
+<td>Parinacota</td>
+<td>Parinacota</td></tr>
+<tr><td style="white-space:nowrap">161<a name="eis-provincias-cs-161"> </a></td>
+<td>Diguillín</td>
+<td>Diguillín</td></tr>
+<tr><td style="white-space:nowrap">162<a name="eis-provincias-cs-162"> </a></td>
+<td>Itata</td>
+<td>Itata</td></tr>
+<tr><td style="white-space:nowrap">163<a name="eis-provincias-cs-163"> </a></td>
+<td>Punilla</td>
+<td>Punilla</td></tr></table></div>
+
+  
+
+  <!-- insert notes if present -->
+  
+
+
+
+  
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.eis#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Aug 5, 2026 17:07-0400">2026-08-05</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/eis/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+
