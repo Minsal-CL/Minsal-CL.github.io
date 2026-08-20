@@ -2139,21 +2139,6 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 "r2bo-extension-grado-diferenciacion","Extension.value[x]","Extension.value[x]","","","",0,1,"","","","CodeableConcept {[]} {[]}
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","Grado de diferenciación tumoral según clasificación de la OMS","https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-grado-diferenciacion-vs","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
-"r2bo-extension-tipo-procedimientos-biopsias","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","Extensión Tipo de Procedimiento de Biopsia","Extensión que define los tipos de procedimientos al momento de extraer muestras de tejido","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
-","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
-ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"r2bo-extension-tipo-procedimientos-biopsias","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
-","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
-"r2bo-extension-tipo-procedimientos-biopsias","Extension.extension","Extension.extension","","","",0,0,"","","","Extension {[]} {[]}
-","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
-","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
-ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"r2bo-extension-tipo-procedimientos-biopsias","Extension.url","Extension.url","","","",1,1,"","","","uri {[]} {[]}
-","identifies the meaning of the extension","Source of the definition for the extension code - a logical name or a URL.","The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","","","","<valueUri xmlns=""http://hl7.org/fhir"" value=""https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-extension-tipo-procedimientos-biopsias""/>","","","","",,,,,"",,,,"Extension.url",1,1,"",""
-"r2bo-extension-tipo-procedimientos-biopsias","Extension.value[x]","Extension.value[x]","","","",0,1,"","","","CodeableConcept {[]} {[]}
-","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-tipo-procedimientos-biopsias-VS","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
-"
 "r2bo-informe-biopsia","DiagnosticReport","DiagnosticReport","","Report
 TestResultResultsLabsLaboratory","",0,*,"","","","null {[]} {[]}
 ","A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports","The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.","This is intended to capture a single report and is not suitable for use in displaying summary information that covers multiple reports.  For example, this resource has not been designed for laboratory cumulative reporting formats nor detailed structured reports for sequencing.","","","","","","","","",,,,,"",,,,"DiagnosticReport",0,*,"","dom-2:If the resource is contained in another resource, it SHALL NOT contain nested Resources {contained.contained.empty()}
@@ -2413,7 +2398,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 "r2bo-muestra-biopsia","Specimen.request","Specimen.request","","","",0,*,"","","","Reference {[]} {[CanonicalType[http://hl7.org/fhir/StructureDefinition/ServiceRequest|4.0.1]]}
 ","Why the specimen was collected","Details concerning a service request that required a specimen to be collected.","The request may be explicit or implied such with a ServiceRequest that requires a blood draw.","","","","","","","","",,,,,"",,,,"Specimen.request",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
-"r2bo-muestra-biopsia","Specimen.collection","Specimen.collection","","","",1,1,"Y","","","BackboneElement {[]} {[]}
+"r2bo-muestra-biopsia","Specimen.collection","Specimen.collection","","","",0,1,"Y","","","BackboneElement {[]} {[]}
 ","Datos de la colección de la muestra","Details concerning the specimen collection.","","","","","","","","","",,,,,"",,,,"Specimen.collection",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "r2bo-muestra-biopsia","Specimen.collection.id","Specimen.collection.id","","","",0,1,"","","","string {[]} {[]}
@@ -2442,21 +2427,6 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 "
 "r2bo-muestra-biopsia","Specimen.collection.method","Specimen.collection.method","","","",1,1,"Y","","","CodeableConcept {[]} {[]}
 ","Método de colección de la muestra","A coded value specifying the technique that is used to perform the procedure.","","","","","","","","","",,"extensible","","https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-procedimientos-biopsias-VS","",,,,"Specimen.collection.method",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
-"
-"r2bo-muestra-biopsia","Specimen.collection.method.id","Specimen.collection.method.id","","","",0,1,"","","","string {[]} {[]}
-","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
-"r2bo-muestra-biopsia","Specimen.collection.method.extension","Specimen.collection.method.extension","","","",1,*,"","","","Extension {[]} {[]}
-","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
-","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
-ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"r2bo-muestra-biopsia","Specimen.collection.method.extension:MetodoProcedimiento","Specimen.collection.method.extension","MetodoProcedimiento","","",1,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-extension-tipo-procedimientos-biopsias]]} {[]}
-","Método de procedimiento","Extensión que define los tipos de procedimientos al momento de extraer muestras de tejido","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
-ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"r2bo-muestra-biopsia","Specimen.collection.method.coding","Specimen.collection.method.coding","","","",0,*,"","","Y","Coding {[]} {[]}
-","Code defined by a terminology system","A reference to a code defined by a terminology system.","Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true.","Allows for alternative encodings within a code system, and translations to other code systems.","","","","","","","",,,,,"",,,,"CodeableConcept.coding",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
-"
-"r2bo-muestra-biopsia","Specimen.collection.method.text","Specimen.collection.method.text","","","",0,1,"","","Y","string {[]} {[]}
-","Plain text representation of the concept","A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.","Very often the text is the same as a displayName of one of the codings.","The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source.","","","","","","","",,,,,"",,,,"CodeableConcept.text",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "r2bo-muestra-biopsia","Specimen.collection.bodySite","Specimen.collection.bodySite","","","",1,1,"Y","","","CodeableConcept {[]} {[]}
 ","Sitio anatómico de la colección","Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens.","If the use case requires  BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [bodySite](http://hl7.org/fhir/R4/extension-bodysite.html).","","","","","","","","",,"extensible","","https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-estructuras-anatomicas-VS","",,,,"Specimen.collection.bodySite",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}

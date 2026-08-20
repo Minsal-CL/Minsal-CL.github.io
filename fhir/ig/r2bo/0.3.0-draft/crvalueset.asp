@@ -39,8 +39,6 @@
     Response.Redirect("https://interoperabilidad.minsal.cl/fhir/ig/r2bo/0.3.0-draft/ValueSet-r2bo-hallazgos-clinicos-cie11-VS.html");
   else if (id == "r2bo-tipo-especimen-vs")
     Response.Redirect("https://interoperabilidad.minsal.cl/fhir/ig/r2bo/0.3.0-draft/ValueSet-r2bo-tipo-especimen-vs.html");
-  else if (id == "r2bo-tipo-procedimientos-biopsias-VS")
-    Response.Redirect("https://interoperabilidad.minsal.cl/fhir/ig/r2bo/0.3.0-draft/ValueSet-r2bo-tipo-procedimientos-biopsias-VS.html");
   else if (id == "r2bo-categorias-pTNM-VS")
     Response.Redirect("https://interoperabilidad.minsal.cl/fhir/ig/r2bo/0.3.0-draft/ValueSet-r2bo-categorias-pTNM-VS.html");
   else if (id == "r2bo-grado-diferenciacion-vs")

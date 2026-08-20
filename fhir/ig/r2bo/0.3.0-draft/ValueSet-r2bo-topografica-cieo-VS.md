@@ -56,7 +56,7 @@ Set de valores utilizados para la topografía de la CIE-O 3.2 Tográfico
   "title" : "Set de Valores para Topografía según la CIE-O 3.2",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-20T12:25:24-04:00",
+  "date" : "2026-08-20T16:22:48-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

@@ -58,7 +58,7 @@ Códigos de tipos de reportes de biopsias en Snomed y LOINC
   "title" : "Set de Valores de los Reportes de Biopsia",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-20T12:25:24-04:00",
+  "date" : "2026-08-20T16:22:48-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

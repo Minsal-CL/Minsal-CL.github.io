@@ -57,7 +57,7 @@ Set de valores utilizados para los procedimientos al momento de extraer muestras
   "title" : "Set de Valores Para Procedimientos",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-20T12:25:24-04:00",
+  "date" : "2026-08-20T16:22:48-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -91,24 +91,6 @@ Set de valores utilizados para los procedimientos al momento de extraer muestras
         "property" : "concept",
         "op" : "descendent-of",
         "value" : "86273004"
-      }]
-    }],
-    "exclude" : [{
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/21000325107/version/20260315",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "8889005"
-      }]
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "version" : "http://snomed.info/sct/21000325107/version/20260315",
-      "filter" : [{
-        "property" : "concept",
-        "op" : "descendent-of",
-        "value" : "70871006"
       }]
     }]
   }

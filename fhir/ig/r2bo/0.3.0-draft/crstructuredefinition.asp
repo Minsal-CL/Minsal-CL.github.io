@@ -17,8 +17,6 @@
     Response.Redirect("https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition-"+id+".xml");
   else if (id == "r2bo-bundle-generar-notificacion")
     Response.Redirect("https://interoperabilidad.minsal.cl/fhir/ig/r2bo/0.3.0-draft/StructureDefinition-r2bo-bundle-generar-notificacion.html");
-  else if (id == "r2bo-extension-tipo-procedimientos-biopsias")
-    Response.Redirect("https://interoperabilidad.minsal.cl/fhir/ig/r2bo/0.3.0-draft/StructureDefinition-r2bo-extension-tipo-procedimientos-biopsias.html");
   else if (id == "r2bo-categoria-tnm")
     Response.Redirect("https://interoperabilidad.minsal.cl/fhir/ig/r2bo/0.3.0-draft/StructureDefinition-r2bo-categoria-tnm.html");
   else if (id == "r2bo-tnm-categoria-tumor-primario")

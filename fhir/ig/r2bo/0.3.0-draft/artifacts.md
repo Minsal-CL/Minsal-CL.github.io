@@ -59,7 +59,6 @@ These define constraints on FHIR data types for systems conforming to this imple
 
 | | |
 | :--- | :--- |
-| [Extensión Tipo de Procedimiento de Biopsia](StructureDefinition-r2bo-extension-tipo-procedimientos-biopsias.md) | Extensión que define los tipos de procedimientos al momento de extraer muestras de tejido |
 | [Extensión de Adendas Biopsia](StructureDefinition-r2bo-Addenda-Reportebiopsia.md) | Está es una modificación de la extension la cual es la referencia a un reporte prevío que necesita ser actualizado |
 | [Extensión del Grado de Diferenciación](StructureDefinition-r2bo-extension-grado-diferenciacion.md) | Extensión que registra el grado de diferenciación tumoral en un reporte de biopsia |
 
@@ -78,7 +77,6 @@ These define sets of codes used by systems conforming to this implementation gui
 | [Set de Valores Morfología](ValueSet-r2bo-morfologicosct-cieo-VS.md) | Set de valores utilizados para morfologías en CIE-O 3.2 Morfológico |
 | [Set de Valores Para Grado de Diferenciación](ValueSet-r2bo-grado-diferenciacion-vs.md) | Grado de diferenciación tumoral según clasificación de la OMS |
 | [Set de Valores Para Procedimientos](ValueSet-r2bo-procedimientos-biopsias-VS.md) | Set de valores utilizados para los procedimientos al momento de extraer muestras de tejido |
-| [Set de Valores Para Tipo de Procedimientos](ValueSet-r2bo-tipo-procedimientos-biopsias-VS.md) | Set de valores utilizados para los tipos de procedimientos al momento de extraer muestras de tejido |
 | [Set de Valores Para los Sitios del Cuerpo](ValueSet-r2bo-estructuras-anatomicas-VS.md) | Set de valores para las distintas estructuras corporales de donde se obtienen las muestras |
 | [Set de Valores de Resultados de Observación Post Neoadyuvancia](ValueSet-r2bo-observaciones-NeoAdyuvancia-VS.md) | Posibles valores para las observaciones realizadas en la evaluación post neoadyuvancia de un reporte de biopsia |
 | [Set de Valores de la Categoría Reportes de Biopsia](ValueSet-r2bo-categoria-reporte-biopsia-vs.md) | Códigos de tipos de categoría de reportes de biopsias en HL7 |

@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-ModeloLogicoInformeP
   "name" : "InformePatologicoR2BOLogico",
   "title" : "Modelo Lógico de Informe Patológico del R2BO",
   "status" : "draft",
-  "date" : "2026-08-20T12:25:24-04:00",
+  "date" : "2026-08-20T16:22:48-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

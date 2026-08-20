@@ -943,22 +943,6 @@ Favor referirse a la página de [Autores y contribuidores](contributors.md).
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-r2bo-extension-tipo-procedimientos-biopsias.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/r2bo-extension-tipo-procedimientos-biopsias"
-      },
-      "name" : "Extensión Tipo de Procedimiento de Biopsia",
-      "description" : "Extensión que define los tipos de procedimientos al momento de extraer muestras de tejido",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Organization"
       },
       {
@@ -1626,22 +1610,6 @@ Favor referirse a la página de [Autores y contribuidores](contributors.md).
       },
       "name" : "Set de Valores Para Procedimientos",
       "description" : "Set de valores utilizados para los procedimientos al momento de extraer muestras de tejido",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-r2bo-tipo-procedimientos-biopsias-VS.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/r2bo-tipo-procedimientos-biopsias-VS"
-      },
-      "name" : "Set de Valores Para Tipo de Procedimientos",
-      "description" : "Set de valores utilizados para los tipos de procedimientos al momento de extraer muestras de tejido",
       "exampleBoolean" : false
     },
     {

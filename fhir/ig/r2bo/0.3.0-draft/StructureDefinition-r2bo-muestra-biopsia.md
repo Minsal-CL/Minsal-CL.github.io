@@ -58,7 +58,7 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-muestra-biopsia
   "title" : "Perfil de Muestra",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-20T12:25:24-04:00",
+  "date" : "2026-08-20T16:22:48-04:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -138,7 +138,6 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-muestra-biopsia
       "id" : "Specimen.collection",
       "path" : "Specimen.collection",
       "short" : "Datos de la colección de la muestra",
-      "min" : 1,
       "mustSupport" : true
     },
     {
@@ -171,24 +170,6 @@ Other representations of profile: [CSV](StructureDefinition-r2bo-muestra-biopsia
         "strength" : "extensible",
         "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-procedimientos-biopsias-VS"
       }
-    },
-    {
-      "id" : "Specimen.collection.method.extension",
-      "path" : "Specimen.collection.method.extension",
-      "min" : 1
-    },
-    {
-      "id" : "Specimen.collection.method.extension:MetodoProcedimiento",
-      "path" : "Specimen.collection.method.extension",
-      "sliceName" : "MetodoProcedimiento",
-      "short" : "Método de procedimiento",
-      "min" : 1,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-extension-tipo-procedimientos-biopsias"]
-      }],
-      "mustSupport" : true
     },
     {
       "id" : "Specimen.collection.bodySite",
