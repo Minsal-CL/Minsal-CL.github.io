@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="r2bo-topografica-cie11-VS"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet r2bo-topografica-cie11-VS</b></p><a name="r2bo-topografica-cie11-VS"> </a><a name="hcr2bo-topografica-cie11-VS"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include codes from<a href="http://terminology.hl7.org/6.5.0/CodeSystem-ICD11MMS.html"><code>http://id.who.int/icd/release/11/mms</code></a><span title="Version is not explicitly stated. No matching Code System found"> version Not Stated (use latest from terminology server)</span> where concept  descends from 1154280071 (Anatomy and topography)</li></ul><p>This value set excludes codes based on the following rules:</p><ul><li>Exclude codes from<a href="http://terminology.hl7.org/6.5.0/CodeSystem-ICD11MMS.html"><code>http://id.who.int/icd/release/11/mms</code></a><span title="Version is not explicitly stated. No matching Code System found"> version Not Stated (use latest from terminology server)</span> where concept  descends from 1154280071 (Anatomy and topography) and classKind  = block</li></ul></div>
+  </text>
+  <url value="https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-topografica-cie11-VS"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.2.22.40.8.48.20"/>
+  </identifier>
+  <version value="0.3.0-draft"/>
+  <name value="TopograficaCIE11VS"/>
+  <title value="Set de Valores para Topografía"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2026-08-20T12:25:24-04:00"/>
+  <publisher value="Unidad de Interoperabilidad - MINSAL"/>
+  <contact>
+    <name value="Unidad de Interoperabilidad - MINSAL"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://interoperabilidad.minsal.cl"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="Franco Ulloa"/>
+    <telecom>
+      <system value="email"/>
+      <value value="franco.ulloa@minsal.cl"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Set de valores utilizados para la topografía de la CIE-11 para Anatomía y topografía"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CL"/>
+      <display value="Chile"/>
+    </coding>
+  </jurisdiction>
+  <compose>
+    <include>
+      <system value="http://id.who.int/icd/release/11/mms"/>
+      <filter>
+        <property value="concept"/>
+        <op value="descendent-of"/>
+        <value value="1154280071"/>
+      </filter>
+    </include>
+    <exclude>
+      <system value="http://id.who.int/icd/release/11/mms"/>
+      <filter>
+        <property value="concept"/>
+        <op value="descendent-of"/>
+        <value value="1154280071"/>
+      </filter>
+      <filter>
+        <property value="classKind"/>
+        <op value="="/>
+        <value value="block"/>
+      </filter>
+    </exclude>
+  </compose>
+</ValueSet>
