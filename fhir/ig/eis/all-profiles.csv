@@ -1,0 +1,400 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion","ModeloLogicoEISDireccion","","","",0,*,"","","","null {[]} {[]}
+","Modelo Logico para el tipo de dato Direccion","Modelo Logico para el tipo de dato Nombre","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.region","ModeloLogicoEISDireccion.region","","","",0,1,"","","Y","Coding {[]} {[]}
+","Es la máxima unidad administrativa en que se divide el país. La regionalización que actualmente rige en el país, comenzó a aplicarse en 1974. Actualmente existen 16 regiones","Es la máxima unidad administrativa en que se divide el país. La regionalización que actualmente rige en el país, comenzó a aplicarse en 1974. Actualmente existen 16 regiones","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.region",0,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.provincia","ModeloLogicoEISDireccion.provincia","","","",0,1,"","","Y","Coding {[]} {[]}
+","Es una subdivisión administrativa menor que la región y que puede abarcar varias comunas","Es una subdivisión administrativa menor que la región y que puede abarcar varias comunas","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.provincia",0,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.comuna","ModeloLogicoEISDireccion.comuna","","","",1,1,"","","Y","Coding {[]} {[]}
+","Es una subdivisión administrativa menor que la región que corresponde a una zona urbana, rural o mixta","Es una subdivisión administrativa menor que la región que corresponde a una zona urbana, rural o mixta","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.comuna",1,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.limiteUrbanoCensalREVISAR","ModeloLogicoEISDireccion.limiteUrbanoCensalREVISAR","","","",0,1,"","","Y","Coding {[]} {[]}
+","Indica si la dirección se encuentra dentro del área urbana o rural, según la clasificación oficial del Instituto Nacional de Estadísticas (INE) de Chile.","Indica si la dirección se encuentra dentro del área urbana o rural, según la clasificación oficial del Instituto Nacional de Estadísticas (INE) de Chile.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.limiteUrbanoCensalREVISAR",0,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.tipoDeVia","ModeloLogicoEISDireccion.tipoDeVia","","","",0,1,"","","Y","Coding {[]} {[]}
+","Corresponde al tipo o clasificación de calle. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","Corresponde al tipo o clasificación de calle. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.tipoDeVia",0,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.datoDeLaVia","ModeloLogicoEISDireccion.datoDeLaVia","","","",2,*,"","","Y","Element {[]} {[]}
+","Corresponde al nombre de la calle, avenida, pasaje, etc. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","Corresponde al nombre de la calle, avenida, pasaje, etc. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.datoDeLaVia",2,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.datoDeLaVia.id","ModeloLogicoEISDireccion.datoDeLaVia.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.datoDeLaVia.extension","ModeloLogicoEISDireccion.datoDeLaVia.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.datoDeLaVia.nombreDeLaVia","ModeloLogicoEISDireccion.datoDeLaVia.nombreDeLaVia","","","",1,1,"","","Y","string {[]} {[]}
+","Corresponden a la caracterización de la vía. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","Corresponden a la caracterización de la vía. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.datoDeLaVia.nombreDeLaVia",1,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.datoDeLaVia.numero","ModeloLogicoEISDireccion.datoDeLaVia.numero","","","",1,1,"","","Y","string {[]} {[]}
+","Corresponde al número de la dirección. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","Corresponde al número de la dirección. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.datoDeLaVia.numero",1,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.coordenadasGeograficas","ModeloLogicoEISDireccion.coordenadasGeograficas","","","",0,1,"","","Y","Element {[]} {[]}
+","Corresponde a las coordenadas geográficas de la dirección, expresadas en formato de latitud y longitud. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","Corresponde a las coordenadas geográficas de la dirección, expresadas en formato de latitud y longitud. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.coordenadasGeograficas",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.coordenadasGeograficas.id","ModeloLogicoEISDireccion.coordenadasGeograficas.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.coordenadasGeograficas.extension","ModeloLogicoEISDireccion.coordenadasGeograficas.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.coordenadasGeograficas.latitud","ModeloLogicoEISDireccion.coordenadasGeograficas.latitud","","","",1,1,"","","Y","decimal {[]} {[]}
+","Corresponde a la latitud de la dirección, expresada en formato decimal. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","Corresponde a la latitud de la dirección, expresada en formato decimal. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.coordenadasGeograficas.latitud",1,1,"",""
+"ModeloLogicoEISDireccion","ModeloLogicoEISDireccion.coordenadasGeograficas.longitud","ModeloLogicoEISDireccion.coordenadasGeograficas.longitud","","","",1,1,"","","Y","decimal {[]} {[]}
+","Corresponde a la longitud de la dirección, expresada en formato decimal. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","Corresponde a la longitud de la dirección, expresada en formato decimal. Puede utilizarse para datos de ubicación tanto de prestadores individuales, institucionales como usuarios del sistema de salud.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISDireccion.coordenadasGeograficas.longitud",1,1,"",""
+"ModeloLogicoEISNombre","ModeloLogicoEISNombre","ModeloLogicoEISNombre","","","",0,*,"","","","null {[]} {[]}
+","Modelo Logico para el tipo de dato Nombre","Modelo Logico para el tipo de dato Nombre","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"ModeloLogicoEISNombre","ModeloLogicoEISNombre.nombres","ModeloLogicoEISNombre.nombres","","","",1,*,"","","Y","string {[]} {[]}
+","Nombres de la persona natural, es la designación que dan los padres o representantes legales al momento de realizar la inscripción de nacimiento en la oficina del SRCeI.","Nombres de la persona natural, es la designación que dan los padres o representantes legales al momento de realizar la inscripción de nacimiento en la oficina del SRCeI.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISNombre.nombres",1,*,"",""
+"ModeloLogicoEISNombre","ModeloLogicoEISNombre.primerApellido","ModeloLogicoEISNombre.primerApellido","","","",1,1,"","","Y","string {[]} {[]}
+","El apellido distingue a la persona del resto de los integrantes de la sociedad y el nombre de pila, lo individualiza jurídicamente de los restantes hijos de los mismos padres.","El apellido distingue a la persona del resto de los integrantes de la sociedad y el nombre de pila, lo individualiza jurídicamente de los restantes hijos de los mismos padres.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISNombre.primerApellido",1,1,"",""
+"ModeloLogicoEISNombre","ModeloLogicoEISNombre.segundoApellido","ModeloLogicoEISNombre.segundoApellido","","","",0,1,"","","Y","string {[]} {[]}
+","El apellido distingue a la persona del resto de los integrantes de la sociedad y el nombre de pila, lo individualiza jurídicamente de los restantes hijos de los mismos padres.","El apellido distingue a la persona del resto de los integrantes de la sociedad y el nombre de pila, lo individualiza jurídicamente de los restantes hijos de los mismos padres.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISNombre.segundoApellido",0,1,"",""
+"ModeloLogicoEISNombre","ModeloLogicoEISNombre.nombreSocial","ModeloLogicoEISNombre.nombreSocial","","","",0,1,"","","Y","string {[]} {[]}
+","Nombre mediante el cual una persona se identifica y es reconocida socialmente, que puede diferir de su nombre legal registrado, especialmente en contextos de identidad de género o uso habitual.","Nombre mediante el cual una persona se identifica y es reconocida socialmente, que puede diferir de su nombre legal registrado, especialmente en contextos de identidad de género o uso habitual.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISNombre.nombreSocial",0,1,"",""
+"ModeloLogicoEISRUN","ModeloLogicoEISRUN","ModeloLogicoEISRUN","","","",0,*,"","","","null {[]} {[]}
+","Modelo Logico para el tipo de dato RUN","Modelo Logico para el tipo de dato RUN","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"ModeloLogicoEISRUN","ModeloLogicoEISRUN.run","ModeloLogicoEISRUN.run","","","",0,1,"","","Y","string {[]} {[]}
+","El RUN es el n° de identificación que entrega la mayor credibilidad para la individualización inequívoca de las personas y se debe utilizar en todas las personas que lo poseen. En Chile es único, irrepetible e intransferible que posee todo chileno resida o no en Chile.","El RUN es el n° de identificación que entrega la mayor credibilidad para la individualización inequívoca de las personas y se debe utilizar en todas las personas que lo poseen. En Chile es único, irrepetible e intransferible que posee todo chileno resida o no en Chile.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISRUN.run",0,1,"",""
+"ModeloLogicoEISRUN","ModeloLogicoEISRUN.digitoVerificador","ModeloLogicoEISRUN.digitoVerificador","","","",0,1,"","","Y","string {[]} {[]}
+","Parte de la estructura del RUN y debe permitir valor numérico, incluído el cero y la letra k mayúscula o minúscula.","Parte de la estructura del RUN y debe permitir valor numérico, incluído el cero y la letra k mayúscula o minúscula.","","","","","","","","","",,,,,"",,,,"ModeloLogicoEISRUN.digitoVerificador",0,1,"",""
+"SegundoApellido","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
+","Segundo Apellido","Segundo Apellido","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"SegundoApellido","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"SegundoApellido","Extension.extension","Extension.extension","","","",0,0,"","","","Extension {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"SegundoApellido","Extension.url","Extension.url","","","",1,1,"","","","uri {[]} {[]}
+","identifies the meaning of the extension","Source of the definition for the extension code - a logical name or a URL.","The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","","","","<valueUri xmlns=""http://hl7.org/fhir"" value=""https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/SegundoApellido""/>","","","","",,,,,"",,,,"Extension.url",1,1,"",""
+"SegundoApellido","Extension.value[x]","Extension.value[x]","","","",0,1,"","","","string {[]} {[]}
+","Segundo apellido de la persona","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,,,,"",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier","Identifier","","","",0,*,"","","","null {[]} {[]}
+","Tipo de dato para identificar un paciente en Chile","An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.","Variable de identificación","","","","","","","","",,,,,"",,,,"Identifier",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.id","Identifier.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"deis-identifier","Identifier.extension","Identifier.extension","","","",1,*,"","","","Extension {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"deis-identifier","Identifier.extension:digitoVerificador","Identifier.extension","digitoVerificador","","",1,1,"Y","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/identifier-checkDigit]]} {[]}
+","Allows for a check digit and a check digit scheme to be conveyed as part of Identifier","allow for a check digit and a check digit scheme to be conveyed as part of Identifier. The rules of the ID Type determine if the check digit is part of the ID value or sent separately.","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"deis-identifier","Identifier.use","Identifier.use","","","",0,1,"","Y","Y","code {[]} {[]}
+","usual | official | temp | secondary | old (If known)","De contar el Paciente con una Cédula de Identidad Nacional, se sugiere el uso de esta como identificador","Se definirá como official pues en una primera etapa solo se considerarán los identidicadores en esa categoría. Para una segunda etapa se abrirá este elemento para cualquier clase de identificador","Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers.","","","","","","","",,"required","","http://hl7.org/fhir/ValueSet/identifier-use","",,,,"Identifier.use",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.type","Identifier.type","","","",0,1,"","","Y","CodeableConcept {[]} {[]}
+","Tipo de documento RUN","Tipo de documento definido para RUN","This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type.","Allows users to make use of identifiers when the identifier system is not known.","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
+  <coding>
+    <system value=""https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-tipo-identificador-cs""/>
+    <code value=""1""/>
+  </coding>
+</valueCodeableConcept>","","","",,"extensible","Value Set de Tipos de Documentos y CI Nacionales","https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/eis-tipo-identificador-vs","",,,,"Identifier.type",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.type.id","Identifier.type.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"deis-identifier","Identifier.type.extension","Identifier.type.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"deis-identifier","Identifier.type.coding","Identifier.type.coding","","","",0,*,"","","Y","Coding {[]} {[]}
+","Code defined by a terminology system","A reference to a code defined by a terminology system.","Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true.","Allows for alternative encodings within a code system, and translations to other code systems.","","","","","","","",,,,,"",,,,"CodeableConcept.coding",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.type.coding.id","Identifier.type.coding.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"deis-identifier","Identifier.type.coding.extension","Identifier.type.coding.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"deis-identifier","Identifier.type.coding.system","Identifier.type.coding.system","","","",0,1,"","","Y","uri {[]} {[]}
+","Sistema de identificación de tipos de documentos","Sistema mediante el cual se obtienen los códigos para un determinado tipo de documento","En la URL del sistema se describe el set de códigos. Por ejemplo si se desea usar Cédula de identidad el código es NNxxx en donde xxx corresponde al identificador del país según la norma iso3166-1-N. Dado lo anterior si fuera Chile, el tipo de documento sería NNCL. En el Caso de Usar un Pasaporte este no requiere identificar país de origen dado que este es un elemento adicional, por lo que independiente del país el código será PPT según el VS indicado","Need to be unambiguous about the source of the definition of the symbol.","","","","","","","",,,,,"",,,,"Coding.system",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.type.coding.version","Identifier.type.coding.version","","","",0,1,"","","Y","string {[]} {[]}
+","Version of the system - if relevant","The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.","Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date.","","","","","","","","",,,,,"",,,,"Coding.version",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.type.coding.code","Identifier.type.coding.code","","","",0,1,"","","Y","code {[]} {[]}
+","Código para RUN","Código para RUN","","Need to refer to a particular code in the system.","","","","","","","",,,,,"",,,,"Coding.code",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.type.coding.display","Identifier.type.coding.display","","","",0,1,"Y","","Y","string {[]} {[]}
+","Cédula de Identidad Chilena","Glosa del Código Documento","","Need to be able to carry a human-readable meaning of the code for readers that do not know  the system.","","","","","","","",,,,,"",,,,"Coding.display",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.type.coding.userSelected","Identifier.type.coding.userSelected","","","",0,1,"","","Y","boolean {[]} {[]}
+","If this coding was chosen directly by the user","Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).","Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely.","This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing.","","","","","","","",,,,,"",,,,"Coding.userSelected",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.type.text","Identifier.type.text","","","",0,1,"","","Y","string {[]} {[]}
+","Plain text representation of the concept","A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.","Very often the text is the same as a displayName of one of the codings.","The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source.","","","","","","","",,,,,"",,,,"CodeableConcept.text",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.system","Identifier.system","","","",0,1,"","","Y","uri {[]} {[]}
+","The namespace for the identifier value","Establishes the namespace for the value - that is, a URL that describes a set values that are unique.","Identifier.system is always case sensitive.","There are many sets  of identifiers.  To perform matching of two identifiers, we need to know what set we're dealing with. The system identifies a particular set of unique identifiers.","","","","","<valueUri xmlns=""http://hl7.org/fhir"" value=""http://www.acme.com/identifiers/patient""/>","","",,,,,"",,,,"Identifier.system",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.value","Identifier.value","","","",0,1,"","","Y","string {[]} {[]}
+","Número RUN","Valor del RUN","If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value's primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [Rendered Value extension](http://hl7.org/fhir/R4/extension-rendered-value.html). Identifier.value is to be treated as case sensitive unless knowledge of the Identifier.system allows the processer to be confident that non-case-sensitive processing is safe.","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""123456""/>","","",,,,,"",,,,"Identifier.value",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.period","Identifier.period","","","",0,1,"","","Y","Period {[]} {[]}
+","Time period when id is/was valid for use","Time period during which identifier is/was valid for use.","","","","","","","","","",,,,,"",,,,"Identifier.period",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"deis-identifier","Identifier.assigner","Identifier.assigner","","","",0,1,"","","Y","Reference {[]} {[CanonicalType[http://hl7.org/fhir/StructureDefinition/Organization|4.0.1]]}
+","Organization that issued id (may be just text)","Organization that issued/manages the identifier.","The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization.","","","","","","","","",,,,,"",,,,"Identifier.assigner",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-comunas","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
+","Códigos para Comunas en Chile","Esta extensión que permite codiificar las Comunas en Chile en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-comunas","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-comunas","Extension.extension","Extension.extension","","","",0,0,"","","","Extension {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-comunas","Extension.url","Extension.url","","","",1,1,"Y","","","uri {[]} {[]}
+","identifies the meaning of the extension","Source of the definition for the extension code - a logical name or a URL.","The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","","","","<valueUri xmlns=""http://hl7.org/fhir"" value=""https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-comunas""/>","","","","",,,,,"",,,,"Extension.url",1,1,"",""
+"eis-comunas","Extension.value[x]","Extension.value[x]","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Código de Comunas","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/eis-comunas-vs","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address","Address","","","",0,*,"","","","null {[]} {[]}
+","Tipo de dato para agragar la dirección de un paciente","An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.","Variable dirección","","","","","","","","",,,,,"",,,,"Address",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.id","Address.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-direccion","Address.extension","Address.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.extension:coordenadas","Address.extension","coordenadas","","",0,1,"Y","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/geolocation|5.3.0]]} {[]}
+","Extensión para agregar coordenadas geográficas","An absolute geographic location for the address, expressed using the WGS84 datum (This is the same co-ordinate system used in KML).","The extension can be further extended to include unique geolocation identifiers, confidence, altitude, etc.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.extension:tipoDeVia","Address.extension","tipoDeVia","","",0,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-tipo-de-via]]} {[]}
+","Extensión para agregar el tipo de vía","Esta extensión que permite codificar el tipo de vía en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.use","Address.use","","","",0,1,"Y","Y","Y","code {[]} {[]}
+","Definición del tipo de domicilio home | work | temp | old (requerido)","Se especifica el tipo de dirección notificada. Esto debe ser segun los códigos definidos por HL7 FHIR","Applications can assume that an address is current unless it explicitly says that it is temporary or old.","Allows an appropriate address to be chosen from a list of many.","","","","","<valueCode xmlns=""http://hl7.org/fhir"" value=""home""/>","","",,"required","The use of an address.","http://hl7.org/fhir/ValueSet/address-use|4.0.1","",,,,"Address.use",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.type","Address.type","","","",0,1,"","","Y","code {[]} {[]}
+","postal | physical | both","Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.","The definition of Address states that ""address is intended to describe postal addresses, not physical locations"". However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](http://hl7.org/fhir/R4/location.html#) resource).","","","","","","<valueCode xmlns=""http://hl7.org/fhir"" value=""both""/>","","",,"required","The type of an address (physical / postal).","http://hl7.org/fhir/ValueSet/address-type|4.0.1","",,,,"Address.type",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.text","Address.text","","","",0,1,"Y","","Y","string {[]} {[]}
+","Campo para escribir la dirección completa","Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts.","Can provide both a text representation and parts. Applications updating an address SHALL ensure that  when both text and parts are present,  no content is included in the text that isn't found in a part.","A renderable, unencoded form.","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""137 Nowhere Street, Erewhon 9132""/>","","",,,,,"",,,,"Address.text",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.line","Address.line","","","",1,*,"Y","","Y","string {[]} {[]}
+","Calle o avenida, numero y casa o depto","Aquí se escribe toda la dirección completa","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""137 Nowhere Street""/>","","",,,,,"",,,,"Address.line",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.city","Address.city","","Municpality
+","",1,1,"Y","","Y","string {[]} {[]}
+","Campo para Comuna de residencia","Campo para Comuna de residencia.","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""Erewhon""/>","","",,,,,"",,,,"Address.city",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.city.id","Address.city.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-direccion","Address.city.extension","Address.city.extension","","","",1,*,"","","","Extension {[]} {[]}
+","Código de Comunas","Código de Comunas","","","","","","","","","",,,,,"","value:url}
+","",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.city.extension:comunas","Address.city.extension","comunas","","",1,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-comunas]]} {[]}
+","Códigos para Comunas en Chile","Esta extensión que permite codiificar las Comunas en Chile en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.city.value","Address.city.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"eis-direccion","Address.district","Address.district","","County
+","",0,1,"Y","","Y","string {[]} {[]}
+","Campo para Provincia de Residencia","Campo para Provincia de Residencia. Se usa el valueSet de códigos de provicias definidos a nivel nacional.","District is sometimes known as county, but in some regions 'county' is used in place of city (municipality), so county name should be conveyed in city instead.","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""Madison""/>","","",,,,,"",,,,"Address.district",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.district.id","Address.district.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-direccion","Address.district.extension","Address.district.extension","","","",1,*,"","","","Extension {[]} {[]}
+","Código de Regiones","Código de Regiones","","","","","","","","","",,,,,"","value:url}
+","",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.district.extension:provincias","Address.district.extension","provincias","","",1,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-provincias]]} {[]}
+","Códigos para Provincias en Chile","Esta extensión que permite codificar las Provincias en Chile en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.district.value","Address.district.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"eis-direccion","Address.state","Address.state","","Province
+Territory","",0,1,"Y","","Y","string {[]} {[]}
+","Campo para la Región","Campo Región. Se usa el valueSet de códigos de regiones definidos a nivel nacional.","","","","","","","","","",,,,,"",,,,"Address.state",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.state.id","Address.state.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-direccion","Address.state.extension","Address.state.extension","","","",1,*,"","","","Extension {[]} {[]}
+","Código de Regiones","Código de Regiones","","","","","","","","","",,,,,"","value:url}
+","",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.state.extension:regiones","Address.state.extension","regiones","","",1,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-regiones]]} {[]}
+","Códigos para Regiones en Chile","Esta extensión que permite codificar las Regiones en Chile en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.state.value","Address.state.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"eis-direccion","Address.postalCode","Address.postalCode","","Zip
+","",0,1,"","","Y","string {[]} {[]}
+","Postal code for area","A postal code designating a region defined by the postal service.","","","","","","","<valueString xmlns=""http://hl7.org/fhir"" value=""9132""/>","","",,,,,"",,,,"Address.postalCode",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.country","Address.country","","","",0,1,"Y","","Y","string {[]} {[]}
+","Campo para el País","Campo para el País","ISO 3166 3 letter codes can be used in place of a human readable country name.","","","","","","","","",,,,,"",,,,"Address.country",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-direccion","Address.country.id","Address.country.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-direccion","Address.country.extension","Address.country.extension","","","",1,*,"","","","Extension {[]} {[]}
+","Código de País","Código de País","","","","","","","","","",,,,,"","value:url}
+","",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.country.extension:paises","Address.country.extension","paises","","",1,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-paises]]} {[]}
+","Códigos para Países","Esta extensión que permite codificar los Países en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-direccion","Address.country.value","Address.country.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"eis-direccion","Address.period","Address.period","","","",0,1,"","","Y","Period {[]} {[]}
+","Time period when address was/is in use","Time period when address was/is in use.","","Allows addresses to be placed in historical context.","","","","","<valuePeriod xmlns=""http://hl7.org/fhir"">
+  <start value=""2010-03-23""/>
+  <end value=""2010-07-01""/>
+</valuePeriod>","","",,,,,"",,,,"Address.period",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-oficial","HumanName","HumanName","","","",0,*,"","","","null {[]} {[]}
+","Tipo de dato para determinar el nombre de un paciente según norma técnica","A human's name with the ability to identify parts and usage.","Tipo de dato para el nombre del Paciente","","","","","","","","",,,,,"",,,,"HumanName",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-oficial","HumanName.id","HumanName.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-nombre-oficial","HumanName.extension","HumanName.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-nombre-oficial","HumanName.use","HumanName.use","","","",1,1,"Y","Y","Y","code {[]} {[]}
+","uso del nombre del paciente","este slice corresponde al nombre registrado al momento de nacer, por lo que se fuerza el valor ""official""","Para ser considerado como el slice determinado para el uso de nombre completo, el use DEBE ser de valor de código ""official""","Allows the appropriate name for a particular context of use to be selected from among a set of names.","","","","<valueCode xmlns=""http://hl7.org/fhir"" value=""official""/>","","","",,"required","The use of a human name.","http://hl7.org/fhir/ValueSet/name-use|4.0.1","",,,,"HumanName.use",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-oficial","HumanName.text","HumanName.text","","","",0,1,"","","Y","string {[]} {[]}
+","Text representation of the full name","Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts.","Can provide both a text representation and parts. Applications updating a name SHALL ensure that when both text and parts are present,  no content is included in the text that isn't found in a part.","A renderable, unencoded form.","","","","","","","",,,,,"",,,,"HumanName.text",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-oficial","HumanName.family","HumanName.family","","surname
+","",1,1,"Y","","Y","string {[]} {[]}
+","1er Apellido","Se define el primer apellido registrado al momento de nacer o aquel que se ha inscrito legalmente en el Registro Civil","Family Name may be decomposed into specific parts using extensions (de, nl, es related cultures).","","","","","","","","",,,,,"",,,,"HumanName.family",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-oficial","HumanName.family.id","HumanName.family.id","","","",0,1,"","","","string {[]} {[]}
+","xml:id (or equivalent in JSON)","unique id for the element within a resource (for internal references)","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-nombre-oficial","HumanName.family.extension","HumanName.family.extension","","","",0,*,"","","","Extension {[]} {[]}
+","Extensión para el segundo apellido","Extensión para la declaración de un segundo apellido","","","","","","","","","",,,,,"","value:url}
+","",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-nombre-oficial","HumanName.family.extension:segundoApellido","HumanName.family.extension","segundoApellido","","",0,1,"Y","","","Extension {[CanonicalType[https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/SegundoApellido]]} {[]}
+","Segundo Apellido","Segundo Apellido","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-nombre-oficial","HumanName.family.value","HumanName.family.value","","","",0,1,"","","","string {[]} {[]}
+","Primitive value for string","The actual value","","","","","","","","","",1048576,,,,"",,,,"string.value",0,1,"",""
+"eis-nombre-oficial","HumanName.given","HumanName.given","","first name
+middle name","",1,*,"Y","","Y","string {[]} {[]}
+","Primer nombre y nombres del Paciente","Todos los nombres de los pacientes no necesariamente solo el Primer Nombre","If only initials are recorded, they may be used in place of the full name parts. Initials may be separated into multiple given names but often aren't due to paractical limitations.  This element is not called ""first name"" since given names do not always come first.","","","","","","","","",,,,,"",,,,"HumanName.given",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-oficial","HumanName.prefix","HumanName.prefix","","","",0,*,"","","Y","string {[]} {[]}
+","Parts that come before the name","Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.","","","","","","","","","",,,,,"",,,,"HumanName.prefix",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-oficial","HumanName.suffix","HumanName.suffix","","","",0,*,"","","Y","string {[]} {[]}
+","Parts that come after the name","Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.","","","","","","","","","",,,,,"",,,,"HumanName.suffix",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-oficial","HumanName.period","HumanName.period","","","",0,1,"","","Y","Period {[]} {[]}
+","Time period when name was/is in use","Indicates the period of time when this name was valid for the named person.","","Allows names to be placed in historical context.","","","","","","","",,,,,"",,,,"HumanName.period",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-social","HumanName","HumanName","","","",0,*,"","","","null {[]} {[]}
+","Tipo de dato para determinar el nombre según norma técnica","A human's name with the ability to identify parts and usage.","Tipo de dato para el nombre social","","","","","","","","",,,,,"",,,,"HumanName",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-social","HumanName.id","HumanName.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-nombre-social","HumanName.extension","HumanName.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-nombre-social","HumanName.use","HumanName.use","","","",1,1,"Y","Y","Y","code {[]} {[]}
+","uso que se le da al nombre","Este uso especifico se enfoca a la definición de un nombre social. Es por esta razón que el uso se fuerza a usual","Para ser considerado como el slice determinado para el uso de nombre social, el use DEBE ser de valor de código ""usual""","Allows the appropriate name for a particular context of use to be selected from among a set of names.","","","","<valueCode xmlns=""http://hl7.org/fhir"" value=""usual""/>","","","",,"required","The use of a human name.","http://hl7.org/fhir/ValueSet/name-use|4.0.1","",,,,"HumanName.use",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-social","HumanName.text","HumanName.text","","","",0,0,"","","Y","string {[]} {[]}
+","Text representation of the full name","Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts.","Can provide both a text representation and parts. Applications updating a name SHALL ensure that when both text and parts are present,  no content is included in the text that isn't found in a part.","A renderable, unencoded form.","","","","","","","",,,,,"",,,,"HumanName.text",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-social","HumanName.family","HumanName.family","","surname
+","",0,0,"","","Y","string {[]} {[]}
+","Family name (often called 'Surname')","The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.","Family Name may be decomposed into specific parts using extensions (de, nl, es related cultures).","","","","","","","","",,,,,"",,,,"HumanName.family",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-social","HumanName.given","HumanName.given","","first name
+middle name","",1,*,"Y","","Y","string {[]} {[]}
+","Nombre Social","Nombre Social del Paciente","If only initials are recorded, they may be used in place of the full name parts. Initials may be separated into multiple given names but often aren't due to paractical limitations.  This element is not called ""first name"" since given names do not always come first.","","","","","","","","",,,,,"",,,,"HumanName.given",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-social","HumanName.prefix","HumanName.prefix","","","",0,0,"","","Y","string {[]} {[]}
+","Parts that come before the name","Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.","","","","","","","","","",,,,,"",,,,"HumanName.prefix",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-social","HumanName.suffix","HumanName.suffix","","","",0,0,"","","Y","string {[]} {[]}
+","Parts that come after the name","Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.","","","","","","","","","",,,,,"",,,,"HumanName.suffix",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-nombre-social","HumanName.period","HumanName.period","","","",0,0,"","","Y","Period {[]} {[]}
+","Time period when name was/is in use","Indicates the period of time when this name was valid for the named person.","","Allows names to be placed in historical context.","","","","","","","",,,,,"",,,,"HumanName.period",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-paises","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
+","Códigos para Países","Esta extensión que permite codificar los Países en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-paises","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-paises","Extension.extension","Extension.extension","","","",0,0,"","","","Extension {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-paises","Extension.url","Extension.url","","","",1,1,"Y","","","uri {[]} {[]}
+","identifies the meaning of the extension","Source of the definition for the extension code - a logical name or a URL.","The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","","","","<valueUri xmlns=""http://hl7.org/fhir"" value=""https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-paises""/>","","","","",,,,,"",,,,"Extension.url",1,1,"",""
+"eis-paises","Extension.value[x]","Extension.value[x]","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Código de Países","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/eis-paises-vs","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-provincias","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
+","Códigos para Provincias en Chile","Esta extensión que permite codificar las Provincias en Chile en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-provincias","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-provincias","Extension.extension","Extension.extension","","","",0,0,"","","","Extension {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-provincias","Extension.url","Extension.url","","","",1,1,"Y","","","uri {[]} {[]}
+","identifies the meaning of the extension","Source of the definition for the extension code - a logical name or a URL.","The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","","","","<valueUri xmlns=""http://hl7.org/fhir"" value=""https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-provincias""/>","","","","",,,,,"",,,,"Extension.url",1,1,"",""
+"eis-provincias","Extension.value[x]","Extension.value[x]","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Código de Provincias","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/eis-provincias-vs","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-regiones","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
+","Códigos para Regiones en Chile","Esta extensión que permite codificar las Regiones en Chile en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-regiones","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-regiones","Extension.extension","Extension.extension","","","",0,0,"","","","Extension {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-regiones","Extension.url","Extension.url","","","",1,1,"Y","","","uri {[]} {[]}
+","identifies the meaning of the extension","Source of the definition for the extension code - a logical name or a URL.","The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","","","","<valueUri xmlns=""http://hl7.org/fhir"" value=""https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-regiones""/>","","","","",,,,,"",,,,"Extension.url",1,1,"",""
+"eis-regiones","Extension.value[x]","Extension.value[x]","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Código de Regiones","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/eis-regiones-vs","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"eis-tipo-de-via","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
+","Códigos para Tipo de Via","Esta extensión que permite codificar el tipo de vía en el campo de Dirección","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-tipo-de-via","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"eis-tipo-de-via","Extension.extension","Extension.extension","","","",0,0,"","","","Extension {[]} {[]}
+","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"eis-tipo-de-via","Extension.url","Extension.url","","","",1,1,"Y","","","uri {[]} {[]}
+","identifies the meaning of the extension","Source of the definition for the extension code - a logical name or a URL.","The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.","","","","<valueUri xmlns=""http://hl7.org/fhir"" value=""https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-tipo-de-via""/>","","","","",,,,,"",,,,"Extension.url",1,1,"",""
+"eis-tipo-de-via","Extension.value[x]","Extension.value[x]","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Código de Tipo de Via","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://interoperabilidad.minsal.cl/fhir/ig/eis/ValueSet/eis-tipo-via-vs","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"

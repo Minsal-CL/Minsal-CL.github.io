@@ -1,0 +1,312 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/CapabilityStatement/r2bo-minsal-cliente-informe> a fhir:CapabilityStatement ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "r2bo-minsal-cliente-informe"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CapabilityStatement r2bo-minsal-cliente-informe</b></p><a name=\"r2bo-minsal-cliente-informe\"> </a><a name=\"hcr2bo-minsal-cliente-informe\"> </a><h2 id=\"title\">CapabilityStatement Cliente de Origen de Informes del Repositorio de Biopsia del Ministerio de Salud</h2><ul><li>Implementation Guide Version: 0.3.0-draft </li><li>FHIR Version: 4.0.1 </li><li>Supported Formats: <code>json</code>, <code>xml</code>, <code>application/fhir+json</code>, <code>application/fhir+xml</code></li><li>Published on: 2025-03-05 15:30:00-0300 </li><li>Published by: Unidad de Interoperabilidad - MINSAL </li></ul><blockquote class=\"impl-note\"><p><strong>Note to Implementers: FHIR Capabilities</strong></p><p>Any FHIR capability may be 'allowed' by the system unless explicitly marked as 'SHALL NOT'. A few items are marked as MAY in the Implementation Guide to highlight their potential relevance to the use case.</p></blockquote><p>This CapabilityStatement imports these CapabilityStatements <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/CapabilityStatement-MPI.IHE.PIXm.Origen.html\">Indice Maestro Paciente: \"Cliente de Origen PIXm\"</a>, <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/CapabilityStatement-NID.IHE.HPD.Source.html\">Origen del Directorio de Proveedores de Atención Médica</a></p><h3 id=\"shallIGs\">SHALL Support the Following Implementation Guides</h3><ul><li><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/index.html\">https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore</a></li><li><a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/index.html\">https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid</a></li><li><a href=\"http://hl7.org/fhir/us/mcode/STU4/index.html\">http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode</a></li></ul><h2 id=\"rest\">FHIR RESTful Capabilities</h2><div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 id=\"mode1\" class=\"panel-title\">Mode: <code>client</code></h3></div><div class=\"panel-body\"><div><p>Este Cliente del Repositorio de Biopsia del Ministerio de Salud permite la creación de informes de anatomía patológica y sus resultados.</p>\n</div><div class=\"lead\"><em>Security</em></div><div class=\"row\"><div class=\"col-lg-6\">Enable CORS: no</div><div class=\"col-lg-6\">Security services supported: <code>OAuth</code></div></div><blockquote><div><p>OAuth2 usando el APIG del Ministerio de Salud para generar Tokens para enviar y acceder al respositorio</p>\n</div></blockquote><div class=\"lead\"><em>Summary of System-wide Interactions</em></div><ul><li>Supports the <code>transaction</code>interaction described as follows:<div><p>Iteracción para enviar solicitudes de un informe de biopsia y sus resultados</p>\n</div></li></ul></div></div><h3 id=\"resourcesCap1\">Capabilities by Resource/Profile</h3><h4 id=\"resourcesSummary1\">Summary</h4><p>The summary table lists the resources that are part of this configuration, and for each resource it lists:</p><ul><li>The relevant profiles (if any)</li><li>The interactions supported by each resource (<b><span class=\"bg-info\">R</span></b>ead, <b><span class=\"bg-info\">S</span></b>earch, <b><span class=\"bg-info\">U</span></b>pdate, and <b><span class=\"bg-info\">C</span></b>reate, are always shown, while <b><span class=\"bg-info\">VR</span></b>ead, <b><span class=\"bg-info\">P</span></b>atch, <b><span class=\"bg-info\">D</span></b>elete, <b><span class=\"bg-info\">H</span></b>istory on <b><span class=\"bg-info\">I</span></b>nstance, or <b><span class=\"bg-info\">H</span></b>istory on <b><span class=\"bg-info\">T</span></b>ype are only present if at least one of the resources has support for them.</li><li><span>The required, recommended, and some optional search parameters (if any). </span></li><li>The linked resources enabled for <code>_include</code></li><li>The other resources enabled for <code>_revinclude</code></li><li>The operations on the resource (if any)</li></ul><div class=\"table-responsive\"><table class=\"table table-condensed table-hover\"><thead><tr><th><b>Resource Type</b></th><th><b>Profile</b></th><th class=\"text-center\"><b title=\"GET a resource (read interaction)\">R</b></th><th class=\"text-center\"><b title=\"GET all set of resources of the type (search interaction)\">S</b></th><th class=\"text-center\"><b title=\"PUT a new resource version (update interaction)\">U</b></th><th class=\"text-center\"><b title=\"POST a new resource (create interaction)\">C</b></th><th><b title=\"Required and recommended search parameters\">Searches</b></th><th><code><b>_include</b></code></th><th><code><b>_revinclude</b></code></th><th><b>Operations</b></th></tr></thead><tbody><tr><td><a href=\"#DiagnosticReport1-1\">DiagnosticReport</a></td><td>Supported Profiles<br/>  <a href=\"StructureDefinition-r2bo-informe-biopsia.html\">Perfil del Reporte de Anatomía Patológica</a></td><td class=\"text-center\"/><td class=\"text-center\"/><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td/><td/><td/><td/></tr><tr><td><a href=\"#Observation1-2\">Observation</a></td><td><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CoreObservacionCL.html\">https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL</a><br/><em>Additional supported profiles:</em><br/>  <a href=\"StructureDefinition-r2bo-estadificacion-tnm.html\">Perfil de Grupo Estadificación TNM</a><br/>  <a href=\"StructureDefinition-r2bo-categoria-tnm.html\">Perfil de Origen para las Categorías T, N,  M (Abstracto)</a><br/>  <a href=\"StructureDefinition-r2bo-resultados-reporte-biopsia.html\">Perfil de Para Todas las Observaciones de los Resultados de Biopsias</a></td><td class=\"text-center\"/><td class=\"text-center\"/><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td/><td/><td/><td/></tr><tr><td><a href=\"#PractitionerRole1-3\">PractitionerRole</a></td><td><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CoreRolClinicoCl.html\">https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreRolClinicoCl</a><br/><em>Additional supported profiles:</em><br/>  <a href=\"StructureDefinition-r2bo-rol-profesional-minsal.html\">Perfil de Rol Profesional</a></td><td class=\"text-center\"/><td class=\"text-center\"/><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>practitioner, organization</td><td/><td/><td/></tr><tr><td><a href=\"#ServiceRequest1-4\">ServiceRequest</a></td><td>Supported Profiles<br/>  <a href=\"StructureDefinition-r2bo-solicitud-informe-apa.html\">Perfil de Solicitud de Informe de Anatomía Patológica</a></td><td class=\"text-center\"/><td class=\"text-center\"/><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>identifier</td><td/><td/><td/></tr><tr><td><a href=\"#Specimen1-5\">Specimen</a></td><td>Supported Profiles<br/>  <a href=\"StructureDefinition-r2bo-muestra-biopsia.html\">Perfil de Muestra</a></td><td class=\"text-center\"/><td class=\"text-center\"/><td class=\"text-center\">y</td><td class=\"text-center\">y</td><td>identifier</td><td/><td/><td/></tr></tbody></table></div><hr/><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"DiagnosticReport1-1\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>DiagnosticReport</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4\"><span class=\"lead\">Core FHIR Resource</span><br/><a href=\"http://hl7.org/fhir/R4/diagnosticreport.html\">DiagnosticReport</a></div><div class=\"col-lg-4\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div><div class=\"col-lg-4\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>update</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-informe-biopsia.html\">Perfil del Reporte de Anatomía Patológica</a></p></div></div><p/></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"Observation1-2\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>Observation</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6\"><span class=\"lead\">Base System Profile</span><br/><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CoreObservacionCL.html\">CL Observación</a></div><div class=\"col-lg-3\"><span class=\"lead\">Profile Conformance</span><br/><b>SHALL</b></div><div class=\"col-lg-3\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-estadificacion-tnm.html\">Perfil de Grupo Estadificación TNM</a><br/><a href=\"StructureDefinition-r2bo-categoria-tnm.html\">Perfil de Origen para las Categorías T, N,  M (Abstracto)</a><br/><a href=\"StructureDefinition-r2bo-resultados-reporte-biopsia.html\">Perfil de Para Todas las Observaciones de los Resultados de Biopsias</a></p></div><div class=\"col-lg-6\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>update</code>.</li></ul></div></div><p/></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"PractitionerRole1-3\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>PractitionerRole</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-6\"><span class=\"lead\">Base System Profile</span><br/><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CoreRolClinicoCl.html\">CL RolClinico</a></div><div class=\"col-lg-3\"><span class=\"lead\">Profile Conformance</span><br/><b>SHALL</b></div><div class=\"col-lg-3\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-rol-profesional-minsal.html\">Perfil de Rol Profesional</a></p></div><div class=\"col-lg-6\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>update</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/practitionerrole.html#search\">practitioner</a></td><td><code>reference</code></td><td><div><p>El profesional que cumple el rol</p>\n</div></td></tr><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/practitionerrole.html#search\">organization</a></td><td><code>reference</code></td><td><div><p>La identidad de la organización que representa el profesional</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"ServiceRequest1-4\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>ServiceRequest</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4\"><span class=\"lead\">Core FHIR Resource</span><br/><a href=\"http://hl7.org/fhir/R4/servicerequest.html\">ServiceRequest</a></div><div class=\"col-lg-4\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div><div class=\"col-lg-4\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>update</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-solicitud-informe-apa.html\">Perfil de Solicitud de Informe de Anatomía Patológica</a></p></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/servicerequest.html#search\">identifier</a></td><td><code>token</code></td><td><div><p>Identificador único de la solicitud</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div></div></div></div><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"Specimen1-5\" class=\"panel-title\"><span style=\"float: right;\">Resource Conformance: SHALL </span>Specimen</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4\"><span class=\"lead\">Core FHIR Resource</span><br/><a href=\"http://hl7.org/fhir/R4/specimen.html\">Specimen</a></div><div class=\"col-lg-4\"><span class=\"lead\">Reference Policy</span><br/><code>literal</code>, <code>logical</code></div><div class=\"col-lg-4\"><span class=\"lead\">Interaction summary</span><br/><ul><li>Supports <code>create</code>, <code>update</code>.</li></ul></div></div><p/><div class=\"row\"><div class=\"col-6\"><span class=\"lead\">Supported Profiles</span><p><a href=\"StructureDefinition-r2bo-muestra-biopsia.html\">Perfil de Muestra</a></p></div></div><p/><div class=\"row\"><div class=\"col-lg-7\"><span class=\"lead\">Search Parameters</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href=\"http://hl7.org/fhir/R4/specimen.html#search\">identifier</a></td><td><code>token</code></td><td><div><p>Identificador único asociado a la muestra</p>\n</div></td></tr></tbody></table></div><div class=\"col-lg-5\"> </div></div></div></div></div></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.valueInteger [ fhir:value "1"^^xsd:integer ]
+  ] ;
+  fhir:CapabilityStatement.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/CapabilityStatement/r2bo-minsal-cliente-informe"] ;
+  fhir:CapabilityStatement.version [ fhir:value "0.3.0-draft"] ;
+  fhir:CapabilityStatement.name [ fhir:value "R2BOMinsalSourceInformeCapabilityStatement"] ;
+  fhir:CapabilityStatement.title [ fhir:value "CapabilityStatement Cliente de Origen de Informes del Repositorio de Biopsia del Ministerio de Salud"] ;
+  fhir:CapabilityStatement.status [ fhir:value "active"] ;
+  fhir:CapabilityStatement.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CapabilityStatement.date [ fhir:value "2025-03-05T15:30:00-03:00"^^xsd:dateTime] ;
+  fhir:CapabilityStatement.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:CapabilityStatement.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "Franco Ulloa" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "franco.ulloa@minsal.cl" ] ;
+       fhir:ContactPoint.use [ fhir:value "work" ]
+     ]
+  ] ;
+  fhir:CapabilityStatement.description [ fhir:value "CapabilityStatement para definir las caracteristicas mínimas del cliente que realiza la creación de informes de anatomía patológica y sus resultados."] ;
+  fhir:CapabilityStatement.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:CapabilityStatement.kind [ fhir:value "requirements"] ;
+  fhir:CapabilityStatement.imports [
+     fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PIXm.Origen" ;
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PIXm.Origen>
+  ], [
+     fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/NID.IHE.HPD.Source" ;
+     fhir:index 1 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/NID.IHE.HPD.Source>
+  ] ;
+  fhir:CapabilityStatement.fhirVersion [ fhir:value "4.0.1"] ;
+  fhir:CapabilityStatement.format [
+     fhir:value "json" ;
+     fhir:index 0
+  ], [
+     fhir:value "xml" ;
+     fhir:index 1
+  ], [
+     fhir:value "application/fhir+json" ;
+     fhir:index 2
+  ], [
+     fhir:value "application/fhir+xml" ;
+     fhir:index 3
+  ] ;
+  fhir:CapabilityStatement.implementationGuide [
+     fhir:value "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore" ;
+     fhir:index 0 ;
+     fhir:link <https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore>
+  ], [
+     fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid" ;
+     fhir:index 1 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid>
+  ], [
+     fhir:value "http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode" ;
+     fhir:index 2 ;
+     fhir:link <http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode>
+  ] ;
+  fhir:CapabilityStatement.rest [
+     fhir:index 0 ;
+     fhir:CapabilityStatement.rest.mode [ fhir:value "client" ] ;
+     fhir:CapabilityStatement.rest.documentation [ fhir:value "Este Cliente del Repositorio de Biopsia del Ministerio de Salud permite la creación de informes de anatomía patológica y sus resultados." ] ;
+     fhir:CapabilityStatement.rest.security [
+       fhir:CapabilityStatement.rest.security.service [
+         fhir:index 0 ;
+         fhir:CodeableConcept.coding [
+           fhir:index 0 ;
+           fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/restful-security-service" ] ;
+           fhir:Coding.code [ fhir:value "OAuth" ]
+         ]
+       ] ;
+       fhir:CapabilityStatement.rest.security.description [ fhir:value "OAuth2 usando el APIG del Ministerio de Salud para generar Tokens para enviar y acceder al respositorio" ]
+     ] ;
+     fhir:CapabilityStatement.rest.resource [
+       fhir:index 0 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+         fhir:Extension.valueCode [ fhir:value "SHALL" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "DiagnosticReport" ] ;
+       fhir:CapabilityStatement.rest.resource.supportedProfile [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-informe-biopsia" ;
+         fhir:index 0 ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-informe-biopsia>
+       ] ;
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ]
+       ], [
+         fhir:index 1 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.referencePolicy [
+         fhir:value "literal" ;
+         fhir:index 0
+       ], [
+         fhir:value "logical" ;
+         fhir:index 1
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+         fhir:Extension.valueCode [ fhir:value "SHALL" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "Observation" ] ;
+       fhir:CapabilityStatement.rest.resource.profile [
+         fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL" ;
+         fhir:link <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreObservacionCL>
+       ] ;
+       fhir:CapabilityStatement.rest.resource.supportedProfile [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-estadificacion-tnm" ;
+         fhir:index 0 ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-estadificacion-tnm>
+       ], [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-categoria-tnm" ;
+         fhir:index 1 ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-categoria-tnm>
+       ], [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-resultados-reporte-biopsia" ;
+         fhir:index 2 ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-resultados-reporte-biopsia>
+       ] ;
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ]
+       ], [
+         fhir:index 1 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.referencePolicy [
+         fhir:value "literal" ;
+         fhir:index 0
+       ], [
+         fhir:value "logical" ;
+         fhir:index 1
+       ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+         fhir:Extension.valueCode [ fhir:value "SHALL" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "PractitionerRole" ] ;
+       fhir:CapabilityStatement.rest.resource.profile [
+         fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreRolClinicoCl" ;
+         fhir:link <https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CoreRolClinicoCl>
+       ] ;
+       fhir:CapabilityStatement.rest.resource.supportedProfile [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal" ;
+         fhir:index 0 ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal>
+       ] ;
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ]
+       ], [
+         fhir:index 1 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.referencePolicy [
+         fhir:value "literal" ;
+         fhir:index 0
+       ], [
+         fhir:value "logical" ;
+         fhir:index 1
+       ] ;
+       fhir:CapabilityStatement.rest.resource.searchParam [
+         fhir:index 0 ;
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "practitioner" ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [
+           fhir:value "http://hl7.org/fhir/SearchParameter/PractitionerRole-practitioner" ;
+           fhir:link <http://hl7.org/fhir/SearchParameter/PractitionerRole-practitioner>
+         ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "reference" ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.documentation [ fhir:value "El profesional que cumple el rol" ]
+       ], [
+         fhir:index 1 ;
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "organization" ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [
+           fhir:value "http://hl7.org/fhir/SearchParameter/PractitionerRole-organization" ;
+           fhir:link <http://hl7.org/fhir/SearchParameter/PractitionerRole-organization>
+         ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "reference" ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.documentation [ fhir:value "La identidad de la organización que representa el profesional" ]
+       ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+         fhir:Extension.valueCode [ fhir:value "SHALL" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "ServiceRequest" ] ;
+       fhir:CapabilityStatement.rest.resource.supportedProfile [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-solicitud-informe-apa" ;
+         fhir:index 0 ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-solicitud-informe-apa>
+       ] ;
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ]
+       ], [
+         fhir:index 1 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.referencePolicy [
+         fhir:value "literal" ;
+         fhir:index 0
+       ], [
+         fhir:value "logical" ;
+         fhir:index 1
+       ] ;
+       fhir:CapabilityStatement.rest.resource.searchParam [
+         fhir:index 0 ;
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "identifier" ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [
+           fhir:value "http://hl7.org/fhir/SearchParameter/clinical-identifier" ;
+           fhir:link <http://hl7.org/fhir/SearchParameter/clinical-identifier>
+         ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.documentation [ fhir:value "Identificador único de la solicitud" ]
+       ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ] ;
+         fhir:Extension.valueCode [ fhir:value "SHALL" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "Specimen" ] ;
+       fhir:CapabilityStatement.rest.resource.supportedProfile [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-muestra-biopsia" ;
+         fhir:index 0 ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-muestra-biopsia>
+       ] ;
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ]
+       ], [
+         fhir:index 1 ;
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ]
+       ] ;
+       fhir:CapabilityStatement.rest.resource.referencePolicy [
+         fhir:value "literal" ;
+         fhir:index 0
+       ], [
+         fhir:value "logical" ;
+         fhir:index 1
+       ] ;
+       fhir:CapabilityStatement.rest.resource.searchParam [
+         fhir:index 0 ;
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "identifier" ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [
+           fhir:value "http://hl7.org/fhir/SearchParameter/Specimen-identifier" ;
+           fhir:link <http://hl7.org/fhir/SearchParameter/Specimen-identifier>
+         ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ] ;
+         fhir:CapabilityStatement.rest.resource.searchParam.documentation [ fhir:value "Identificador único asociado a la muestra" ]
+       ]
+     ] ;
+     fhir:CapabilityStatement.rest.interaction [
+       fhir:index 0 ;
+       fhir:CapabilityStatement.rest.interaction.code [ fhir:value "transaction" ] ;
+       fhir:CapabilityStatement.rest.interaction.documentation [ fhir:value "Iteracción para enviar solicitudes de un informe de biopsia y sus resultados" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/CapabilityStatement/r2bo-minsal-cliente-informe.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
