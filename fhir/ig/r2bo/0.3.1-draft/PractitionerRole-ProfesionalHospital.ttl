@@ -1,0 +1,51 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital> a fhir:PractitionerRole ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ProfesionalHospital"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: PractitionerRole ProfesionalHospital</b></p><a name=\"ProfesionalHospital\"> </a><a name=\"hcProfesionalHospital\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-rol-profesional-minsal.html\">Perfil de Rol Profesional</a></p></div><p><b>practitioner</b>: <a href=\"Practitioner-profesional-hospital-collector.html\">Practitioner Juan Perez </a></p><p><b>organization</b>: <a href=\"Organization-hospital-collector.html\">Organization Hospital Dr. Hernán Henríquez Aravena (Temuco)</a></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional 1}\">MÉDICO CIRUJANO</span></p><p><b>location</b>: <a href=\"Location-r2bo-localizacion-MedicinaGeneral.html\">Location Medicina General</a></p></div>"
+  ] ;
+  fhir:PractitionerRole.practitioner [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-collector> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/profesional-hospital-collector" ]
+  ] ;
+  fhir:PractitionerRole.organization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Organization/hospital-collector> ;
+     fhir:Reference.reference [ fhir:value "Organization/hospital-collector" ]
+  ] ;
+  fhir:PractitionerRole.code [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "MÉDICO CIRUJANO" ]
+     ]
+  ] ;
+  fhir:PractitionerRole.location [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Location/r2bo-localizacion-MedicinaGeneral> ;
+     fhir:Reference.reference [ fhir:value "Location/r2bo-localizacion-MedicinaGeneral" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
