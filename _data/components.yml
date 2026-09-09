@@ -1,0 +1,71 @@
+# Catálogo de componentes de la Arquitectura Nacional de Interoperabilidad.
+# estado: operativo | implementacion | desarrollo | planificado
+#   (vocabulario compartido con _data/projects.yml)
+# El estado se infiere de los artefactos publicados (Guías de Implementación,
+# servicios en línea). Requiere validación de MINSAL — ver REFRESH.md §7.
+
+- id: empi
+  title: "Índice Maestro de Pacientes"
+  short: "EMPI"
+  plain: >-
+    Permite identificar de manera consistente a una misma persona entre
+    distintos sistemas de salud.
+  problem: >-
+    Sin un identificador común, la misma persona aparece con registros
+    distintos en cada sistema: se duplican fichas, se pierde historial y
+    aumentan los errores clínicos y administrativos.
+  estado: implementacion
+  estado_nota: "Guía de Implementación publicada (v0.2.0), en fase de pruebas."
+  standards: ["HL7 FHIR R4", "Identidad / RUN", "IHE PIX/PDQ"]
+  projects: ["tei", "snre", "quirurgico", "urgencia"]
+  ig: "https://interoperabilidad.minsal.cl/fhir/ig/mpi/"
+  detail: "/docs/componentes-de-la-arquitectura/empi.html"
+
+- id: hpd
+  title: "Directorio de Prestadores de Salud"
+  short: "Directorio"
+  plain: >-
+    Registro único de quién presta atención de salud —personas e
+    instituciones— y con qué rol.
+  problem: >-
+    La información sobre prestadores está dispersa y desactualizada, lo que
+    dificulta enrutar interconsultas, recetas y derivaciones al destino
+    correcto.
+  estado: implementacion
+  estado_nota: "Guías publicadas: prestadores individuales (v0.2.4) e institucionales (v0.1.4)."
+  standards: ["HL7 FHIR R4", "IHE HPD"]
+  projects: ["tei", "snre", "quirurgico"]
+  ig: "https://interoperabilidad.minsal.cl/fhir/ig/hpd/"
+  detail: "/docs/componentes-de-la-arquitectura/hpd.html"
+
+- id: terminologia
+  title: "Servicios Terminológicos"
+  short: "Terminología"
+  plain: >-
+    Aseguran que los códigos clínicos signifiquen lo mismo en todos los
+    sistemas (diagnósticos, exámenes, medicamentos).
+  problem: >-
+    Cada sistema usa sus propios códigos y glosarios; sin una fuente común, los
+    datos no se pueden comparar ni agregar de forma confiable.
+  estado: operativo
+  estado_nota: "Servicio FHIR en línea; acceso mediante solicitud formal."
+  standards: ["HL7 FHIR R4", "IHE mSVCM", "SNOMED CT", "LOINC", "CIE-10"]
+  projects: ["tei", "snre", "quirurgico", "urgencia"]
+  ig: "https://interoperabilidad.minsal.cl/fhir/ig/"
+  detail: "/docs/componentes-de-la-arquitectura/terminologicos.html"
+
+- id: nid
+  title: "Núcleo de Interoperabilidad de Datos"
+  short: "NID"
+  plain: >-
+    El conjunto base de datos y reglas comunes sobre el que se construyen los
+    demás intercambios de información.
+  problem: >-
+    Sin un núcleo común, cada proyecto define desde cero cómo se estructura la
+    información, multiplicando el trabajo y las incompatibilidades.
+  estado: desarrollo
+  estado_nota: "Guía de Implementación del NID en elaboración."
+  standards: ["HL7 FHIR R4"]
+  projects: ["tei", "snre", "quirurgico", "urgencia"]
+  ig: "https://interoperabilidad.minsal.cl/fhir/ig/nid/"
+  detail: "/docs/especificacion-de-la-arquitectura/arquitectura.html"

@@ -1,0 +1,6 @@
+{%- assign s = site.data.status[include.status] -%}
+{%- if s -%}
+<span class="badge badge--{{ include.status }}"{% if s.desc %} title="{{ s.desc }}"{% endif %}>
+  <span class="badge__dot" style="background:{{ s.dot }}"></span>{{ s.label }}
+</span>
+{%- endif -%}

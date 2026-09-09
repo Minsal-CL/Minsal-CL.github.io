@@ -1,0 +1,15 @@
+{%- comment -%}
+Cabecera de página de documentación: eyebrow (sección padre) + título +
+bajada (page.description) + hairline. Solo en páginas con contenido real.
+{%- endcomment -%}
+{%- unless page.url == "/" -%}
+<header class="page-header">
+  {%- if page.parent -%}
+    <p class="page-header__eyebrow">{{ page.grand_parent | default: page.parent }}</p>
+  {%- endif -%}
+  <h1 class="page-header__title">{{ page.title }}</h1>
+  {%- if page.description -%}
+    <p class="page-header__lead">{{ page.description | strip_newlines | strip }}</p>
+  {%- endif -%}
+</header>
+{%- endunless -%}

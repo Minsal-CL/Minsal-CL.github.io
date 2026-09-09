@@ -1,0 +1,55 @@
+{%- assign p = include.p -%}
+<article class="pcard" id="{{ p.id }}" data-estado="{{ p.estado }}">
+  <header class="pcard__head">
+    {% include portal/badge.html status=p.estado %}
+    <h3 class="pcard__title">{{ p.title }}</h3>
+  </header>
+
+  <p class="pcard__desc">{{ p.description }}</p>
+
+  <dl class="pcard__meta">
+    <div>
+      <dt>Guía de Implementación</dt>
+      <dd>{{ p.ig_version | default: "—" }}</dd>
+    </div>
+    <div>
+      <dt>Avance</dt>
+      <dd>{% if p.avance %}{{ p.avance }}%{% else %}<span class="muted">por definir</span>{% endif %}</dd>
+    </div>
+  </dl>
+
+  {%- if p.avance -%}
+  <div class="progress"><span style="width:{{ p.avance }}%"></span></div>
+  {%- endif -%}
+
+  {%- unless p.hito or p.periodo -%}
+  <p class="pcard__pending">Hitos y periodo: por definir por el Ministerio de Salud.</p>
+  {%- else -%}
+  <dl class="pcard__meta">
+    {% if p.hito %}<div><dt>Último hito</dt><dd>{{ p.hito }}</dd></div>{% endif %}
+    {% if p.periodo %}<div><dt>Periodo</dt><dd>{{ p.periodo }}</dd></div>{% endif %}
+  </dl>
+  {%- endunless -%}
+
+  {%- if p.components -%}
+  <div class="pcard__block">
+    <p class="pcard__label">Componentes</p>
+    <ul class="rel">
+      {%- for cid in p.components -%}
+        {%- assign co = site.data.components | where: "id", cid | first -%}
+        {%- if co %}<li><a href="{{ '/componentes.html' | relative_url }}#{{ co.id }}">{{ co.short | default: co.title }}</a></li>{% endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+  {%- endif -%}
+
+  {%- if p.standards -%}
+  <ul class="chips chips--sm">
+    {%- for st in p.standards %}<li class="chip">{{ st }}</li>{% endfor -%}
+  </ul>
+  {%- endif -%}
+
+  <footer class="pcard__foot">
+    {%- if p.ig %}<a class="lnk" href="{{ p.ig }}" target="_blank" rel="noopener">Documentación oficial ↗</a>{% endif -%}
+  </footer>
+</article>

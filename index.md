@@ -1,25 +1,104 @@
 ---
-title: Inicio
-layout: home
-nav_order: 1    
+layout: portal
+title: Portal de Interoperabilidad en Salud
+nav_exclude: true
+description: >-
+  Hacemos posible que la información de salud acompañe a las personas, sin
+  importar dónde se atiendan. Portal de Interoperabilidad del Ministerio de
+  Salud de Chile.
 ---
-# Introducción
-El [Ministerio de Salud de Chile] ha decidido impulsar una estrategia de interoperabilidad para todo el sector salud del país, con la convicción de mejorar la calidad y oportunidad de la atención de salud, mediante un sistema más integrado y transparente en el flujo y manejo de la información por todos los actores involucrados, manteniendo al paciente como eje central de es te esfuerzo. El proyecto de interoperabilidad es una iniciativa que busca lograr la comunicación y el intercambio de información entre diferentes sistemas o plataformas tecnológicas, de manera que los datos puedan ser compartidos y utilizados de manera efectiva y eficiente.
 
-El objetivo principal de este proyecto es mejorar la interoperabilidad entre los sistemas de información y los procesos de negocio, lo que permitirá una mayor eficiencia en la gestión de los datos y una mejor toma de decisiones.
+<section class="hero">
+  <div class="wrap">
+    <p class="hero__eyebrow">Ministerio de Salud · Chile</p>
+    <h1>Interoperabilidad para conectar la salud de Chile</h1>
+    <p class="hero__lead">
+      Hacemos posible que la información de salud pueda acompañar a las
+      personas, sin importar dónde se atiendan.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="{{ '/que-hacemos.html' | relative_url }}">Conocer qué hacemos</a>
+      <a class="btn btn--ghost" href="{{ '/arquitectura.html' | relative_url }}">Explorar la arquitectura</a>
+    </div>
+  </div>
+</section>
 
-Para lograr este objetivo, se requiere la implementación de estándares y protocolos comunes que permitan la comunicación entre sistemas heterogéneos. También es necesario el desarrollo de interfaces y aplicaciones que faciliten la integración de los sistemas y la interoperabilidad de los datos.
+<section class="band">
+  <div class="wrap">
+    <p class="kicker">Según tu interés</p>
+    <div class="routes">
+      <a class="route" href="{{ '/que-hacemos.html' | relative_url }}">
+        <b>Autoridades y equipos de salud</b>
+        <span>Qué resolvemos y por qué importa →</span>
+      </a>
+      <a class="route" href="{{ '/arquitectura.html' | relative_url }}">
+        <b>Arquitectos y equipos técnicos</b>
+        <span>Cómo funciona la arquitectura nacional →</span>
+      </a>
+      <a class="route" href="{{ '/recursos.html' | relative_url }}">
+        <b>Desarrolladores e implementadores</b>
+        <span>Guías FHIR, estándares y accesos →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-En conclusión, el proyecto de interoperabilidad es una iniciativa importante para mejorar la eficiencia y la efectividad de la comunicación y el intercambio de información entre diferentes sistemas. Su implementación requiere de la adopción de estándares y protocolos comunes, así como del desarrollo de interfaces y aplicaciones que faciliten la integración de los sistemas y la interoperabilidad de los datos.
+<section class="band band--tint">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker">Qué hacemos</p>
+      <h2>Cuatro capacidades para un sistema de salud conectado</h2>
+    </header>
+    <div class="cap-grid">
+      {%- for cap in site.data.capabilities -%}
+      <div class="cap">
+        <h3>{{ cap.title }}</h3>
+        <p>{{ cap.plain }}</p>
+      </div>
+      {%- endfor -%}
+    </div>
+    <p class="sec-more"><a class="lnk" href="{{ '/que-hacemos.html' | relative_url }}">Ver en detalle →</a></p>
+  </div>
+</section>
 
-El propósito de este documento es servir de esquema general de las decisiones arquitecturales para los sistemas de información en salud del país. Este documento está pensado en estar en constante evolución a medida que los estándares y políticas en este ámbito van madurando en el tiempo.
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker">Cómo lo hacemos</p>
+      <h2>El ecosistema de interoperabilidad</h2>
+      <p class="sec-intro">
+        Las personas se atienden en muchos sistemas distintos. Una arquitectura
+        nacional —con componentes comunes y estándares compartidos— los conecta,
+        y sobre ella se construyen los proyectos por proceso clínico.
+      </p>
+    </header>
+    {% include portal/ecosystem.html %}
+  </div>
+</section>
 
-## Propósito de la especificación
-- Dar una mirada general a la arquitectura de Sistemas de información de salud en Chile
-- Articular los requerimientos de los componentes de dicha arquitectura
-- Articular los flujos de trabajo actualmente identificados y los patrones que estos siguen
-- Proveer una referencia a los implementadores para su uso 
+<section class="band band--tint">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker">Proyectos</p>
+      <h2>Procesos clínicos interoperables en marcha</h2>
+    </header>
+    <div class="mini-grid">
+      {%- for p in site.data.projects -%}
+      <a class="mini" href="{{ '/proyectos.html' | relative_url }}#{{ p.id }}">
+        {% include portal/badge.html status=p.estado %}
+        <b>{{ p.title }}</b>
+        <span>{{ p.description }}</span>
+      </a>
+      {%- endfor -%}
+    </div>
+    <p class="sec-more"><a class="lnk" href="{{ '/proyectos.html' | relative_url }}">Ver el portafolio completo →</a></p>
+  </div>
+</section>
 
-
-
-[Ministerio de Salud de Chile]: https://minsal.cl
+<section class="band cta-band">
+  <div class="wrap">
+    <h2>¿Vas a implementar?</h2>
+    <p>Las Guías de Implementación FHIR, los estándares y los accesos están en Recursos.</p>
+    <a class="btn btn--primary" href="{{ '/recursos.html' | relative_url }}">Ir a Recursos</a>
+  </div>
+</section>

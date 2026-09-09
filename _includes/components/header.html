@@ -1,0 +1,26 @@
+{%- comment -%}
+Barra superior para las páginas de documentación técnica (layout: default).
+Usa la misma navegación que el portal para dar continuidad. Sticky.
+{%- endcomment -%}
+<div id="main-header" class="main-header mn-header">
+  <a class="mn-header__brand" href="{{ '/' | relative_url }}">
+    <img src="{{ site.logo | relative_url }}" alt="" width="26" height="26">
+    <span><b>Interoperabilidad</b><i>Ministerio de Salud · Chile</i></span>
+  </a>
+
+  <nav class="mn-header__nav" aria-label="Secciones">
+    {%- for item in site.data.portal_nav -%}
+      {%- unless item.match contains 'EXACT:' -%}
+        <a href="{{ item.url | relative_url }}"
+           {% if page.url contains item.match %}aria-current="page"{% endif %}>{{ item.label }}</a>
+      {%- endunless -%}
+    {%- endfor -%}
+    <a href="https://interoperabilidad.minsal.cl/fhir/ig" target="_blank" rel="noopener">Guías FHIR&nbsp;↗</a>
+  </nav>
+
+  <div class="mn-header__tools">
+    {% if site.search_enabled != false %}
+      {% include components/search_header.html %}
+    {% endif %}
+  </div>
+</div>

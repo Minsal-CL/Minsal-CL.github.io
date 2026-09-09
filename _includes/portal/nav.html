@@ -1,0 +1,91 @@
+<a class="gov-bar" href="https://www.gob.cl" target="_blank" rel="noopener">
+  <span class="gov-bar__flag" aria-hidden="true"></span>
+  Gobierno de Chile
+</a>
+
+<header class="pnav" id="pnav">
+  <div class="pnav__inner">
+    <a class="pnav__brand" href="{{ '/' | relative_url }}">
+      <img src="{{ site.logo | relative_url }}" alt="" width="30" height="30">
+      <span class="pnav__brand-text">
+        <b>Interoperabilidad en Salud</b>
+        <i>Ministerio de Salud · Chile</i>
+      </span>
+    </a>
+
+    <button class="pnav__toggle" aria-expanded="false" aria-controls="pnav-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="pnav__menu" id="pnav-menu" aria-label="Principal">
+      <ul class="pnav__links">
+        {%- for item in site.data.portal_nav -%}
+          {%- assign is_active = false -%}
+          {%- if item.match contains 'EXACT:' -%}
+            {%- assign exact = item.match | remove: 'EXACT:' -%}
+            {%- if page.url == exact -%}{%- assign is_active = true -%}{%- endif -%}
+          {%- elsif page.url contains item.match -%}
+            {%- assign is_active = true -%}
+          {%- endif -%}
+          <li>
+            <a href="{{ item.url | relative_url }}"{% if is_active %} aria-current="page"{% endif %}>{{ item.label }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+      <div class="pnav__actions">
+        {% if site.search_enabled != false %}
+          <button type="button" class="pnav__search-btn" aria-label="Buscar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+            <span>Buscar</span>
+          </button>
+        {% endif %}
+        <a class="pnav__cta" href="https://interoperabilidad.minsal.cl/fhir/ig" target="_blank" rel="noopener">Guías FHIR&nbsp;↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+(function () {
+  var nav = document.getElementById('pnav');
+  var toggle = nav && nav.querySelector('.pnav__toggle');
+  var menu = document.getElementById('pnav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+  }
+  // Sombra al hacer scroll
+  var onScroll = function () { nav.classList.toggle('is-scrolled', window.scrollY > 4); };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Overlay de búsqueda
+  var overlay = document.querySelector('.portal-search-overlay');
+  var openBtns = document.querySelectorAll('.pnav__search-btn');
+  var closeBtn = overlay && overlay.querySelector('.portal-search-close');
+  var input = overlay && overlay.querySelector('#search-input');
+  function openSearch() {
+    if (!overlay) return;
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    if (input) setTimeout(function () { input.focus(); }, 30);
+  }
+  function closeSearch() {
+    if (!overlay) return;
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+  }
+  openBtns.forEach(function (b) { b.addEventListener('click', openSearch); });
+  if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+  if (overlay) overlay.addEventListener('click', function (e) { if (e.target === overlay) closeSearch(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeSearch();
+    if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && overlay && overlay.hidden) {
+      var tag = (document.activeElement && document.activeElement.tagName) || '';
+      if (tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); openSearch(); }
+    }
+  });
+})();
+</script>

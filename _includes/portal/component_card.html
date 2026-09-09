@@ -1,0 +1,46 @@
+{%- assign c = include.c -%}
+<article class="ccard" id="{{ c.id }}">
+  <header class="ccard__head">
+    {% include portal/badge.html status=c.estado %}
+    <h3 class="ccard__title">
+      {{ c.title }}{%- if c.short %} <span class="ccard__tag">{{ c.short }}</span>{% endif -%}
+    </h3>
+  </header>
+
+  <p class="ccard__plain">{{ c.plain }}</p>
+
+  <div class="ccard__block">
+    <p class="ccard__label">Problema que resuelve</p>
+    <p>{{ c.problem }}</p>
+  </div>
+
+  {%- if c.estado_nota -%}
+  <p class="ccard__note">{{ c.estado_nota }}</p>
+  {%- endif -%}
+
+  {%- if c.standards -%}
+  <div class="ccard__block">
+    <p class="ccard__label">Estándares</p>
+    <ul class="chips chips--sm">
+      {%- for st in c.standards %}<li class="chip">{{ st }}</li>{% endfor -%}
+    </ul>
+  </div>
+  {%- endif -%}
+
+  {%- if c.projects -%}
+  <div class="ccard__block">
+    <p class="ccard__label">Proyectos relacionados</p>
+    <ul class="rel">
+      {%- for pid in c.projects -%}
+        {%- assign pr = site.data.projects | where: "id", pid | first -%}
+        {%- if pr %}<li><a href="{{ '/proyectos.html' | relative_url }}#{{ pr.id }}">{{ pr.short | default: pr.title }}</a></li>{% endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+  {%- endif -%}
+
+  <footer class="ccard__foot">
+    {%- if c.detail %}<a class="lnk" href="{{ c.detail | relative_url }}">Documentación técnica →</a>{% endif -%}
+    {%- if c.ig %}<a class="lnk lnk--muted" href="{{ c.ig }}" target="_blank" rel="noopener">Guía FHIR ↗</a>{% endif -%}
+  </footer>
+</article>

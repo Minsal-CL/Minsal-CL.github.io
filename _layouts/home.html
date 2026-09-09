@@ -1,0 +1,135 @@
+---
+layout: default
+---
+
+{%- assign d = site.data.home -%}
+
+<div class="landing">
+
+  <div class="gov-strip">
+    <div class="wrap"><span>Gobierno de Chile · Ministerio de Salud</span></div>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">{{ d.hero.eyebrow }}</p>
+      <h1>{{ d.hero.title }}</h1>
+      <p class="lead">{{ d.hero.lead }}</p>
+      <div class="actions">
+        {%- for a in d.hero.actions -%}
+          <a class="cta cta--{{ a.style }}" href="{{ a.href }}"
+             {%- if a.href contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ a.label }}</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <header>
+        <p class="kicker">{{ d.intro.kicker }}</p>
+        <h2>{{ d.intro.title }}</h2>
+      </header>
+      <p class="intro">{{ d.intro.body }}</p>
+    </div>
+  </section>
+
+  {%- for s in d.sections -%}
+  <section class="section">
+    <div class="wrap">
+      <header>
+        <p class="kicker">{{ s.kicker }}</p>
+        <h2>{{ s.title }}</h2>
+        {%- if s.intro %}<p class="intro">{{ s.intro }}</p>{% endif -%}
+      </header>
+      <div class="card-grid">
+        {%- for c in s.cards -%}
+        <a class="card" href="{{ c.href }}">
+          <span class="num">{{ c.num }}</span>
+          <h3>{{ c.title }}</h3>
+          <p>{{ c.text }}</p>
+          <span class="go">Ver documentación →</span>
+        </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endfor -%}
+
+  <section class="section standards">
+    <div class="wrap">
+      <header>
+        <p class="kicker">{{ d.standards.kicker }}</p>
+        <h2>{{ d.standards.title }}</h2>
+      </header>
+      <div class="chips">
+        {%- for chip in d.standards.chips -%}<span class="chip">{{ chip }}</span>{%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <header>
+        <p class="kicker">{{ d.principles.kicker }}</p>
+        <h2>{{ d.principles.title }}</h2>
+      </header>
+      <ul class="principles">
+        {%- for p in d.principles.items -%}<li>{{ p }}</li>{%- endfor -%}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <header>
+        <p class="kicker">{{ d.projects.kicker }}</p>
+        <h2>{{ d.projects.title }}</h2>
+      </header>
+      <div class="card-grid">
+        {%- for it in d.projects.items -%}
+        <a class="card" href="{{ it.href }}" target="_blank" rel="noopener">
+          <h3>{{ it.title }}</h3>
+          <p>{{ it.text }}</p>
+          <span class="go">Documentación oficial →</span>
+        </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <h4>Documentación</h4>
+          <ul>
+            <li><a href="/docs/especificacion-de-la-arquitectura">Especificación de la Arquitectura</a></li>
+            <li><a href="/docs/componentes-de-la-arquitectura">Componentes de la Arquitectura</a></li>
+            <li><a href="/docs/proyectos.html">Proyectos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="https://interoperabilidad.minsal.cl/fhir/ig" target="_blank" rel="noopener">Guías de Implementación (FHIR IG)</a></li>
+            <li><a href="https://forms.office.com/r/E7AaQWZMUc" target="_blank" rel="noopener">Solicitud de acceso a Servicios Terminológicos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="https://minsal.cl" target="_blank" rel="noopener">minsal.cl</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="legal">
+        Ministerio de Salud de Chile — Departamento de Tecnologías de la
+        Información y las Comunicaciones. Contenido bajo licencia MIT.
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+{{ content }}

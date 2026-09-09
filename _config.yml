@@ -1,35 +1,79 @@
 title: Interoperabilidad MINSAL
-description: Página oficial de documentación de los proyectos de interoperabilidad MINSAL-CL
+description: Documentación oficial de la estrategia de interoperabilidad en salud del Ministerio de Salud de Chile.
 theme: just-the-docs
 #remote_theme: pmarsceill/just-the-docs
 url: https://minsal-cl.github.io/
+lang: es-CL
 
 logo: "/assets/images/MINSAL.png"
-
 favicon_ico: "/assets/images/gob_favicon.ico"
 
-color_scheme: light
+# Esquema visual propio (ver _sass/color_schemes/minsal.scss)
+color_scheme: minsal
 
+# --- Navegación / chrome del tema ---
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+  preview_words_before: 4
+  preview_words_after: 4
+  tokenizer_separator: /[\s\-/]+/
+  rel_url: true
+  button: false
 
+heading_anchors: true
+back_to_top: true
+back_to_top_text: "Volver arriba"
+
+aux_links:
+  "Guías de Implementación (FHIR IG)":
+    - "https://interoperabilidad.minsal.cl/fhir/ig"
+aux_links_new_tab: true
+
+nav_external_links:
+  - title: "Sitio institucional MINSAL"
+    url: "https://minsal.cl"
+    hide_icon: false
+
+footer_content: >-
+  Ministerio de Salud de Chile — Departamento de Tecnologías de la Información y
+  las Comunicaciones. Contenido bajo licencia MIT.
+last_edit_timestamp: true
+last_edit_time_format: "%d/%m/%Y"
+gh_edit_link: false
+
+# --- Callouts (bloques destacados en contenido) ---
+callouts_level: quiet
+callouts:
+  nota:
+    title: Nota
+    color: blue
+  importante:
+    title: Importante
+    color: yellow
+  advertencia:
+    title: Advertencia
+    color: red
+  tip:
+    title: Recomendación
+    color: green
 
 # Aplica valores por defecto a archivos .md
 defaults:
-  # EJEMPLO: ocultar del menú todo lo que esté en la carpeta NID
+  # Oculta del menú el árbol de Guías de Implementación publicadas (fhir/ig)
   - scope:
-      path: "fhir/ig"     # <-- aquí pones la carpeta donde están esos 100 md
-      type: "pages"   # páginas normales
+      path: "fhir/ig"
+      type: "pages"
     values:
       nav_exclude: true
+      search_exclude: true
 
-
-#---
-#layout: default
-#title: Especificacion de la Arquitectura
-#nav_order: 2
-#has_children: true
-#---
-#layout: default
-#title: Componentes de la Arquitectura
-#nav_order: 3
-#has_children: true
-#---
+exclude:
+  - Manuales/
+  - README.md
+  - fix_bad_commit
+  - "*.code-workspace"
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
