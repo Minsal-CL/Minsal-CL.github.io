@@ -169,3 +169,11 @@ The deployment GitHub Actions workflow is heavily based on GitHub's mixed-party 
 [MIT License]: https://en.wikipedia.org/wiki/MIT_License
 [starter workflows]: https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
 [actions/starter-workflows]: https://github.com/actions/starter-workflows/blob/main/LICENSE
+
+
+pkill -f jekyll                 # para el server (puerto 4000)
+git checkout -- Gemfile.lock    # descarta cambio local
+rm .ruby-version                # v2.0.0 lo trae versionado (mismo 3.2.6)
+git checkout v2.0.0             # ahora sí cambia
+bundle install
+bundle exec jekyll serve
