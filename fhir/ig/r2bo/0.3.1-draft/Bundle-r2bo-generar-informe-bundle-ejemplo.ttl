@@ -1,0 +1,1118 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Bundle/r2bo-generar-informe-bundle-ejemplo> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "r2bo-generar-informe-bundle-ejemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-notificacion" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-bundle-generar-notificacion>
+     ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "transaction"] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "PUT" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ServiceRequest?identifier=111111101" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Patient" ] ;
+       fhir:Bundle.entry.request.ifNoneExist [ fhir:value "Patient?identifier=16182522-0" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "PractitionerRole" ] ;
+       fhir:Bundle.entry.request.ifNoneExist [ fhir:value "PractitionerRole?practitioner.identifier=5135329-3&organization.identifier=121109" ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "PractitionerRole" ] ;
+       fhir:Bundle.entry.request.ifNoneExist [ fhir:value "PractitionerRole?practitioner.identifier=19283789-2&organization.identifier=121109" ]
+     ]
+  ], [
+     fhir:index 4 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Location/r2bo-localizacion-MedicinaGeneral" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Location/r2bo-localizacion-MedicinaGeneral> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Location" ] ;
+       fhir:Bundle.entry.request.ifNoneExist [ fhir:value "Location?name=Medicina%20General" ]
+     ]
+  ], [
+     fhir:index 5 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-collector" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-collector> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Practitioner" ] ;
+       fhir:Bundle.entry.request.ifNoneExist [ fhir:value "Practitioner?identifier=5135329-3" ]
+     ]
+  ], [
+     fhir:index 6 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-anatopatologo" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-anatopatologo> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Practitioner" ] ;
+       fhir:Bundle.entry.request.ifNoneExist [ fhir:value "Practitioner?identifier=19283789-2" ]
+     ]
+  ], [
+     fhir:index 7 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Organization/hospital-collector" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Organization/hospital-collector> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Organization" ] ;
+       fhir:Bundle.entry.request.ifNoneExist [ fhir:value "Organization?identifier=121109" ]
+     ]
+  ], [
+     fhir:index 8 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "PUT" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Specimen?identifier=110101101" ]
+     ]
+  ], [
+     fhir:index 9 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/DiagnosticReport/r2bo-informe-biopsia-ex" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/DiagnosticReport/r2bo-informe-biopsia-ex> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "DiagnosticReport" ]
+     ]
+  ], [
+     fhir:index 10 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-estadificacion-tnm-ex" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-estadificacion-tnm-ex> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Observation" ]
+     ]
+  ], [
+     fhir:index 11 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-tumor-primario-ex" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-tumor-primario-ex> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Observation" ]
+     ]
+  ], [
+     fhir:index 12 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-nodo-regional-ex" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-nodo-regional-ex> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Observation" ]
+     ]
+  ], [
+     fhir:index 13 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-metastasis-distantel-ex" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-metastasis-distantel-ex> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Observation" ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> a fhir:ServiceRequest ;
+  fhir:Resource.id [ fhir:value "r2bo-solicitud-informe-apa-ej"] ;
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "2" ] ;
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-solicitud-informe-apa" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-solicitud-informe-apa>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_r2bo-solicitud-informe-apa-ej\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ServiceRequest r2bo-solicitud-informe-apa-ej</b></p><a name=\"r2bo-solicitud-informe-apa-ej\"> </a><a name=\"hcr2bo-solicitud-informe-apa-ej\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">version: 2</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-solicitud-informe-apa.html\">Perfil de Solicitud de Informe de Anatomía Patológica</a></p></div><p><b>identifier</b>: 111111101</p><p><b>status</b>: Completed</p><p><b>intent</b>: Order</p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 116784002}\">Informe de Biopsia</span></p><p><b>subject</b>: <a href=\"Patient-paciente-requiere-examen.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</a></p><p><b>requester</b>: <a href=\"PractitionerRole-ProfesionalHospital.html\">PractitionerRole MÉDICO CIRUJANO</a></p><p><b>performer</b>: <a href=\"Organization-hospital-collector.html\">Organization Hospital Dr. Hernán Henríquez Aravena (Temuco)</a></p><p><b>locationCode</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-RoleCode HLAB}\">hospital laboratory</span></p><p><b>reasonCode</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 D48.6}\">Breast</span></p><p><b>specimen</b>: <a href=\"Specimen-r2bo-specimen-example.html\">Specimen: identifier = 110101101; status = available; type = Tissue; receivedTime = 2021-06-01 00:00:00+0000; note = Resección completa de tejido mamario, posible carcinoma</a></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.value [ fhir:value "111111101" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "completed"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.priority [ fhir:value "routine"] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:116784002 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "116784002" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Informe de Biopsia" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:Reference.reference [ fhir:value "Patient/paciente-requiere-examen" ]
+  ] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/ProfesionalHospital" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Organization/hospital-collector> ;
+     fhir:Reference.reference [ fhir:value "Organization/hospital-collector" ]
+  ] ;
+  fhir:ServiceRequest.locationCode [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-RoleCode" ] ;
+       fhir:Coding.code [ fhir:value "HLAB" ] ;
+       fhir:Coding.display [ fhir:value "hospital laboratory" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.reasonCode [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/sid/icd-10" ] ;
+       fhir:Coding.version [ fhir:value "2019-covid-expanded" ] ;
+       fhir:Coding.code [ fhir:value "D48.6" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.specimen [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+     fhir:Reference.reference [ fhir:value "Specimen/r2bo-specimen-example" ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "paciente-requiere-examen"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_paciente-requiere-examen\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient paciente-requiere-examen</b></p><a name=\"paciente-requiere-examen\"> </a><a name=\"hcpaciente-requiere-examen\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/StructureDefinition-MINSALPaciente.html\">MINSAL Paciente</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td>true</td><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td>false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Known Marital status of Patient\">Marital Status:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEstadoCivil 01}\">Soltero(a)</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\">RUN/16182522-0 (use: official, )</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\"><ul><li><a href=\"tel:+56912387678\">+56912387678</a></li><li>Avenida Las Torres 3456, Departamento 702 null null null (home)</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Sexo Biologico del paciente\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-SexoBiologico.html\">Sexo Biologico del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{http://hl7.org/fhir/administrative-gender female}\">Femenina</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"País de origen del paciente\"><a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/StructureDefinition-PaisOrigenMPI.html\">País de origen del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{urn:iso:std:iso:3166 858}\">Uruguay</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Extensión para describir si el paciente pertenece algún pueblo originario\">Pueblos Originarios:</td><td colspan=\"3\"><ul><li>pertenece: false</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Esta extensión incluye códigos de países\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CodigoPaises.html\">Código de Países</a></td><td colspan=\"3\"><span title=\"Codes:{urn:iso:std:iso:3166 152}\">Chile</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Religión\"><a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/StructureDefinition-Religion.html\">Religión</a></td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSReligion 9}\">Ninguna, ateo, agnóstico</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Identidad De Género\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-IdentidadDeGenero.html\">Identidad De Género</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero 2}\">Femenina</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Pueblos Afrodescendiente\"><a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/StructureDefinition-PueblosAfrodescendiente.html\">Pueblos Afrodescendiente</a></td><td colspan=\"3\">false</td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdentidadDeGenero" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero" ] ;
+         fhir:Coding.code [ fhir:value "2" ] ;
+         fhir:Coding.display [ fhir:value "Femenina" ]
+       ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoBiologico" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://hl7.org/fhir/administrative-gender" ] ;
+         fhir:Coding.code [ fhir:value "female" ] ;
+         fhir:Coding.display [ fhir:value "Female" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "Femenina" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+         fhir:Coding.code [ fhir:value "152" ] ;
+         fhir:Coding.display [ fhir:value "Chile" ]
+       ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PaisOrigenMPI" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+         fhir:Coding.code [ fhir:value "858" ] ;
+         fhir:Coding.display [ fhir:value "Uruguay" ]
+       ]
+     ]
+  ], [
+     fhir:index 4 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/Religion" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSReligion" ] ;
+         fhir:Coding.code [ fhir:value "9" ] ;
+         fhir:Coding.display [ fhir:value "Ninguna, ateo, agnóstico" ]
+       ]
+     ]
+  ], [
+     fhir:index 5 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PueblosAfrodescendiente" ] ;
+     fhir:Extension.valueBoolean [ fhir:value "false"^^xsd:boolean ]
+  ], [
+     fhir:index 6 ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "pertenece" ] ;
+       fhir:Extension.valueBoolean [ fhir:value "false"^^xsd:boolean ]
+     ] ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PueblosOriginariosMPI" ]
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ] ;
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "urn:oid:2.16.840.1.113883.2.22.1.152.787300" ] ;
+     fhir:Identifier.value [ fhir:value "16182522-0" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ] ;
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "5" ] ;
+         fhir:Coding.display [ fhir:value "PPN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "urn:oid:2.16.840.1.113883.2.22.0.2.102100.50.10" ] ;
+     fhir:Identifier.value [ fhir:value "ACL123456789876" ]
+  ] ;
+  fhir:Patient.active [ fhir:value "true"^^xsd:boolean] ;
+  fhir:Patient.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [
+       fhir:value "Castilla" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "Muñoz" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "Javiera" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Patient.telecom [
+     fhir:index 0 ;
+     fhir:ContactPoint.system [ fhir:value "phone" ] ;
+     fhir:ContactPoint.value [ fhir:value "+56912387678" ] ;
+     fhir:ContactPoint.use [ fhir:value "mobile" ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "female"] ;
+  fhir:Patient.birthDate [ fhir:value "1995-12-12"^^xsd:date] ;
+  fhir:Patient.deceasedBoolean [ fhir:value "false"^^xsd:boolean] ;
+  fhir:Patient.address [
+     fhir:index 0 ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "latitude" ] ;
+         fhir:Extension.valueDecimal [ fhir:value "-33.4265"^^xsd:decimal ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "longitude" ] ;
+         fhir:Extension.valueDecimal [ fhir:value "-70.56652"^^xsd:decimal ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/geolocation" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/SituacionCalle" ] ;
+       fhir:Extension.valueBoolean [ fhir:value "false"^^xsd:boolean ]
+     ] ;
+     fhir:Address.use [ fhir:value "home" ] ;
+     fhir:Address.line [
+       fhir:value "Avenida Las Torres 3456, Departamento 702" ;
+       fhir:index 0
+     ] ;
+     fhir:Address.city [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL" ] ;
+             fhir:Coding.code [ fhir:value "13118" ] ;
+             fhir:Coding.display [ fhir:value "Macul" ]
+           ]
+         ]
+       ]
+     ] ;
+     fhir:Address.district [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL" ] ;
+             fhir:Coding.code [ fhir:value "131" ] ;
+             fhir:Coding.display [ fhir:value "Santiago" ]
+           ]
+         ]
+       ]
+     ] ;
+     fhir:Address.state [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL" ] ;
+             fhir:Coding.code [ fhir:value "13" ] ;
+             fhir:Coding.display [ fhir:value "Metropolitana de Santiago" ]
+           ]
+         ]
+       ]
+     ] ;
+     fhir:Address.country [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ]
+     ]
+  ] ;
+  fhir:Patient.maritalStatus [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEstadoCivil" ] ;
+       fhir:Coding.code [ fhir:value "01" ] ;
+       fhir:Coding.display [ fhir:value "Soltero(a)" ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital> a fhir:PractitionerRole ;
+  fhir:Resource.id [ fhir:value "ProfesionalHospital"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_ProfesionalHospital\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PractitionerRole ProfesionalHospital</b></p><a name=\"ProfesionalHospital\"> </a><a name=\"hcProfesionalHospital\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-rol-profesional-minsal.html\">Perfil de Rol Profesional</a></p></div><p><b>practitioner</b>: <a href=\"Practitioner-profesional-hospital-collector.html\">Practitioner Juan Perez </a></p><p><b>organization</b>: <a href=\"Organization-hospital-collector.html\">Organization Hospital Dr. Hernán Henríquez Aravena (Temuco)</a></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional 1}\">MÉDICO CIRUJANO</span></p><p><b>location</b>: <a href=\"Location-r2bo-localizacion-MedicinaGeneral.html\">Location Medicina General</a></p></div>"
+  ] ;
+  fhir:PractitionerRole.practitioner [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-collector> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/profesional-hospital-collector" ]
+  ] ;
+  fhir:PractitionerRole.organization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Organization/hospital-collector> ;
+     fhir:Reference.reference [ fhir:value "Organization/hospital-collector" ]
+  ] ;
+  fhir:PractitionerRole.code [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "MÉDICO CIRUJANO" ]
+     ]
+  ] ;
+  fhir:PractitionerRole.location [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Location/r2bo-localizacion-MedicinaGeneral> ;
+     fhir:Reference.reference [ fhir:value "Location/r2bo-localizacion-MedicinaGeneral" ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital> a fhir:PractitionerRole ;
+  fhir:Resource.id [ fhir:value "r2bo-anatopatologo-hospital"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-rol-profesional-minsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_r2bo-anatopatologo-hospital\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PractitionerRole r2bo-anatopatologo-hospital</b></p><a name=\"r2bo-anatopatologo-hospital\"> </a><a name=\"hcr2bo-anatopatologo-hospital\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-rol-profesional-minsal.html\">Perfil de Rol Profesional</a></p></div><p><b>practitioner</b>: <a href=\"Practitioner-profesional-hospital-anatopatologo.html\">Practitioner Patricia Gutierrez </a></p><p><b>organization</b>: <a href=\"Organization-hospital-collector.html\">Organization Hospital Dr. Hernán Henríquez Aravena (Temuco)</a></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional 1}\">MÉDICO CIRUJANO</span></p><p><b>specialty</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadMed 1}\">ANATOMÍA PATOLÓGICA</span></p></div>"
+  ] ;
+  fhir:PractitionerRole.practitioner [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-anatopatologo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/profesional-hospital-anatopatologo" ]
+  ] ;
+  fhir:PractitionerRole.organization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Organization/hospital-collector> ;
+     fhir:Reference.reference [ fhir:value "Organization/hospital-collector" ]
+  ] ;
+  fhir:PractitionerRole.code [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "MÉDICO CIRUJANO" ]
+     ]
+  ] ;
+  fhir:PractitionerRole.specialty [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadMed" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "ANATOMÍA PATOLÓGICA" ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Location/r2bo-localizacion-MedicinaGeneral> a fhir:Location ;
+  fhir:Resource.id [ fhir:value "r2bo-localizacion-MedicinaGeneral"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-servicio-solicitante" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-servicio-solicitante>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Location_r2bo-localizacion-MedicinaGeneral\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Location r2bo-localizacion-MedicinaGeneral</b></p><a name=\"r2bo-localizacion-MedicinaGeneral\"> </a><a name=\"hcr2bo-localizacion-MedicinaGeneral\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-servicio-solicitante.html\">Servicio Solicitante del Informe</a></p></div><p><b>name</b>: Medicina General</p></div>"
+  ] ;
+  fhir:Location.name [ fhir:value "Medicina General"] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-collector> a fhir:Practitioner ;
+  fhir:Resource.id [ fhir:value "profesional-hospital-collector"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_profesional-hospital-collector\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practitioner profesional-hospital-collector</b></p><a name=\"profesional-hospital-collector\"> </a><a name=\"hcprofesional-hospital-collector\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/StructureDefinition-MINSALPrestadorProfesional.html\">Prestador Profesional</a></p></div><p><b>identifier</b>: RUN/5135329-3 (use: official, )</p><p><b>name</b>: Juan Perez </p><p><b>birthDate</b>: 1991-05-18</p><h3>Qualifications</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>cert</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional 1}\">MÉDICO CIRUJANO</span></td></tr></table></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "01" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.value [ fhir:value "5135329-3" ]
+  ] ;
+  fhir:Practitioner.name [
+     fhir:index 0 ;
+     fhir:HumanName.family [
+       fhir:value "Perez" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "Perez" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "Juan" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Practitioner.birthDate [ fhir:value "1991-05-18"^^xsd:date] ;
+  fhir:Practitioner.qualification [
+     fhir:index 0 ;
+     fhir:Practitioner.qualification.identifier [
+       fhir:index 0 ;
+       fhir:Identifier.value [ fhir:value "cert" ]
+     ] ;
+     fhir:Practitioner.qualification.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "MÉDICO CIRUJANO" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "MÉDICO CIRUJANO" ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Practitioner/profesional-hospital-anatopatologo> a fhir:Practitioner ;
+  fhir:Resource.id [ fhir:value "profesional-hospital-anatopatologo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_profesional-hospital-anatopatologo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practitioner profesional-hospital-anatopatologo</b></p><a name=\"profesional-hospital-anatopatologo\"> </a><a name=\"hcprofesional-hospital-anatopatologo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/StructureDefinition-MINSALPrestadorProfesional.html\">Prestador Profesional</a></p></div><p><b>identifier</b>: RUN/19283789-2 (use: official, )</p><p><b>name</b>: Patricia Gutierrez </p><p><b>gender</b>: Female</p><p><b>birthDate</b>: 1983-11-18</p><blockquote><p><b>qualification</b></p><p><b>identifier</b>: cert</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional 1}\">MÉDICO CIRUJANO</span></p></blockquote><blockquote><p><b>qualification</b></p><p><b>identifier</b>: esp</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadMed 30}\">MEDICINA INTERNA</span></p></blockquote><blockquote><p><b>qualification</b></p><p><b>identifier</b>: subesp</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadMed 1}\">ANATOMÍA PATOLÓGICA</span></p></blockquote></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "01" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.value [ fhir:value "19283789-2" ]
+  ] ;
+  fhir:Practitioner.name [
+     fhir:index 0 ;
+     fhir:HumanName.family [ fhir:value "Gutierrez" ] ;
+     fhir:HumanName.given [
+       fhir:value "Patricia" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Practitioner.gender [ fhir:value "female"] ;
+  fhir:Practitioner.birthDate [ fhir:value "1983-11-18"^^xsd:date] ;
+  fhir:Practitioner.qualification [
+     fhir:index 0 ;
+     fhir:Practitioner.qualification.identifier [
+       fhir:index 0 ;
+       fhir:Identifier.value [ fhir:value "cert" ]
+     ] ;
+     fhir:Practitioner.qualification.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "MÉDICO CIRUJANO" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "MÉDICO CIRUJANO" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Practitioner.qualification.identifier [
+       fhir:index 0 ;
+       fhir:Identifier.value [ fhir:value "esp" ]
+     ] ;
+     fhir:Practitioner.qualification.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadMed" ] ;
+         fhir:Coding.code [ fhir:value "30" ] ;
+         fhir:Coding.display [ fhir:value "MEDICINA INTERNA" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "MEDICINA INTERNA" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Practitioner.qualification.identifier [
+       fhir:index 0 ;
+       fhir:Identifier.value [ fhir:value "subesp" ]
+     ] ;
+     fhir:Practitioner.qualification.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadMed" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "ANATOMÍA PATOLÓGICA" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "ANATOMÍA PATOLÓGICA" ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Organization/hospital-collector> a fhir:Organization ;
+  fhir:Resource.id [ fhir:value "hospital-collector"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorOrganizacional" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorOrganizacional>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_hospital-collector\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organization hospital-collector</b></p><a name=\"hospital-collector\"> </a><a name=\"hchospital-collector\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/StructureDefinition-MINSALPrestadorOrganizacional.html\">Prestador Institucional</a></p></div><p><b>identifier</b>: 121109</p><p><b>name</b>: Hospital Dr. Hernán Henríquez Aravena (Temuco)</p></div>"
+  ] ;
+  fhir:Organization.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.value [ fhir:value "121109" ]
+  ] ;
+  fhir:Organization.name [ fhir:value "Hospital Dr. Hernán Henríquez Aravena (Temuco)"] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> a fhir:Specimen ;
+  fhir:Resource.id [ fhir:value "r2bo-specimen-example"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-muestra-biopsia" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-muestra-biopsia>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Specimen_r2bo-specimen-example\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Specimen r2bo-specimen-example</b></p><a name=\"r2bo-specimen-example\"> </a><a name=\"hcr2bo-specimen-example\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-muestra-biopsia.html\">Perfil de Muestra</a></p></div><p><b>identifier</b>: 110101101</p><p><b>status</b>: Available</p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0487 TISS}\">Tissue</span></p><p><b>subject</b>: <a href=\"Patient-paciente-requiere-examen.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</a></p><p><b>receivedTime</b>: 2021-06-01 00:00:00+0000</p><h3>Collections</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Collector</b></td><td><b>Collected[x]</b></td><td><b>Method</b></td><td><b>BodySite</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-ProfesionalHospital.html\">PractitionerRole MÉDICO CIRUJANO</a></td><td>2021-06-01 10:00:00+0000</td><td><span title=\"Codes:{http://snomed.info/sct 122548005}\">Biopsy of breast</span></td><td><span title=\"Codes:{http://snomed.info/sct 76752008}\">Breast structure</span></td></tr></table><p><b>note</b>: </p><blockquote><div><p>Resección completa de tejido mamario, posible carcinoma</p>\n</div></blockquote></div>"
+  ] ;
+  fhir:Specimen.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.value [ fhir:value "110101101" ]
+  ] ;
+  fhir:Specimen.status [ fhir:value "available"] ;
+  fhir:Specimen.type [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0487" ] ;
+       fhir:Coding.code [ fhir:value "TISS" ] ;
+       fhir:Coding.display [ fhir:value "Tissue" ]
+     ]
+  ] ;
+  fhir:Specimen.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:Reference.reference [ fhir:value "Patient/paciente-requiere-examen" ]
+  ] ;
+  fhir:Specimen.receivedTime [ fhir:value "2021-06-01T00:00:00Z"^^xsd:dateTime] ;
+  fhir:Specimen.collection [
+     fhir:Specimen.collection.collector [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/ProfesionalHospital> ;
+       fhir:Reference.reference [ fhir:value "PractitionerRole/ProfesionalHospital" ]
+     ] ;
+     fhir:Specimen.collection.collectedDateTime [ fhir:value "2021-06-01T10:00:00Z"^^xsd:dateTime ] ;
+     fhir:Specimen.collection.method [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         a sct:122548005 ;
+         fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+         fhir:Coding.code [ fhir:value "122548005" ]
+       ]
+     ] ;
+     fhir:Specimen.collection.bodySite [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-laterality-qualifier" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             a sct:7771000 ;
+             fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+             fhir:Coding.code [ fhir:value "7771000" ]
+           ]
+         ]
+       ] ;
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         a sct:76752008 ;
+         fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+         fhir:Coding.code [ fhir:value "76752008" ]
+       ]
+     ]
+  ] ;
+  fhir:Specimen.note [
+     fhir:index 0 ;
+     fhir:Annotation.text [ fhir:value "Resección completa de tejido mamario, posible carcinoma" ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/DiagnosticReport/r2bo-informe-biopsia-ex> a fhir:DiagnosticReport ;
+  fhir:Resource.id [ fhir:value "r2bo-informe-biopsia-ex"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-informe-biopsia" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-informe-biopsia>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_r2bo-informe-biopsia-ex\"> </a><p class=\"res-header-id\"><b>Generated Narrative: DiagnosticReport r2bo-informe-biopsia-ex</b></p><a name=\"r2bo-informe-biopsia-ex\"> </a><a name=\"hcr2bo-informe-biopsia-ex\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-informe-biopsia.html\">Perfil del Reporte de Anatomía Patológica</a></p></div><h2><span title=\"Codes:{http://loinc.org 66110-8}\">Informe de Biopsia de Mama</span> (<span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 PAT}\">Pathology (gross &amp; histopath, not surgical)</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td>Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</td></tr><tr><td>Reported</td><td>2021-08-01 10:00:00-0400</td></tr><tr><td>Performer</td><td> <a href=\"PractitionerRole-r2bo-anatopatologo-hospital.html\">PractitionerRole MÉDICO CIRUJANO</a></td></tr><tr><td>Identifier</td><td> r2bo-2020-0001</td></tr></table><p><b>Report Details</b></p><table class=\"grid\"><tr><td><b>Code</b></td><td><b>Value</b></td><td><b>Flags</b></td><td><b>Relevant Time</b></td></tr><tr><td><a href=\"Observation-r2bo-estadificacion-tnm-ex.html\"><span title=\"Codes:{http://snomed.info/sct 399588009}\">Pathologic TNM stage grouping</span></a></td><td><span title=\"Codes:{http://loinc.org LA3651-2}\">Stage IV</span></td><td>Final</td><td>2021-06-01 12:00:00-0400</td></tr></table><p>Carcinoma ductal infiltrante de mama, grado histológico 2, estadio pT2N2M1, con márgenes quirúrgicos positivos y con evidencia de necrosis tumoral</p><p><b>Coded Conclusions:</b></p><ul><li><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/icd-o-3 8500/3}\">Carcinoma ductal infiltrante</span></li><li><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/icd-o-3 C50.9}\">Mama</span></li></ul></div>"
+  ] ;
+  fhir:DiagnosticReport.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.value [ fhir:value "r2bo-2020-0001" ]
+  ] ;
+  fhir:DiagnosticReport.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/r2bo-solicitud-informe-apa-ej" ]
+  ] ;
+  fhir:DiagnosticReport.status [ fhir:value "final"] ;
+  fhir:DiagnosticReport.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "PAT" ] ;
+       fhir:Coding.display [ fhir:value "Pathology (gross & histopath, not surgical)" ]
+     ]
+  ] ;
+  fhir:DiagnosticReport.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:66110-8 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "66110-8" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Informe de Biopsia de Mama" ]
+  ] ;
+  fhir:DiagnosticReport.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:Reference.reference [ fhir:value "Patient/paciente-requiere-examen" ]
+  ] ;
+  fhir:DiagnosticReport.issued [ fhir:value "2021-08-01T10:00:00-04:00"^^xsd:dateTime] ;
+  fhir:DiagnosticReport.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/r2bo-anatopatologo-hospital" ]
+  ] ;
+  fhir:DiagnosticReport.specimen [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+     fhir:Reference.reference [ fhir:value "Specimen/r2bo-specimen-example" ]
+  ] ;
+  fhir:DiagnosticReport.result [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-estadificacion-tnm-ex> ;
+     fhir:Reference.reference [ fhir:value "Observation/r2bo-estadificacion-tnm-ex" ]
+  ] ;
+  fhir:DiagnosticReport.conclusion [ fhir:value "Carcinoma ductal infiltrante de mama, grado histológico 2, estadio pT2N2M1, con márgenes quirúrgicos positivos y con evidencia de necrosis tumoral"] ;
+  fhir:DiagnosticReport.conclusionCode [
+     fhir:index 0 ;
+     fhir:Element.id [ fhir:value "Morfologico" ] ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/icd-o-3" ] ;
+       fhir:Coding.code [ fhir:value "8500/3" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Carcinoma ductal infiltrante" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Element.id [ fhir:value "Topografico" ] ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/icd-o-3" ] ;
+       fhir:Coding.code [ fhir:value "C50.9" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Mama" ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-estadificacion-tnm-ex> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "r2bo-estadificacion-tnm-ex"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-estadificacion-tnm" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-estadificacion-tnm>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_r2bo-estadificacion-tnm-ex\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation r2bo-estadificacion-tnm-ex</b></p><a name=\"r2bo-estadificacion-tnm-ex\"> </a><a name=\"hcr2bo-estadificacion-tnm-ex\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-estadificacion-tnm.html\">Perfil de Grupo Estadificación TNM</a></p></div><p><b>basedOn</b>: <a href=\"ServiceRequest-r2bo-solicitud-informe-apa-ej.html\">ServiceRequest Pathologist report</a></p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 399588009}\">Pathologic TNM stage grouping</span></p><p><b>subject</b>: <a href=\"Patient-paciente-requiere-examen.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</a></p><p><b>effective</b>: 2021-06-01 12:00:00-0400</p><p><b>performer</b>: <a href=\"PractitionerRole-r2bo-anatopatologo-hospital.html\">PractitionerRole MÉDICO CIRUJANO</a></p><p><b>value</b>: <span title=\"Codes:{http://loinc.org LA3651-2}\">Stage IV</span></p><p><b>specimen</b>: <a href=\"Specimen-r2bo-specimen-example.html\">Specimen: identifier = 110101101; status = available; type = Tissue; receivedTime = 2021-06-01 00:00:00+0000; note = Resección completa de tejido mamario, posible carcinoma</a></p><p><b>hasMember</b>: </p><ul><li><a href=\"Observation-r2bo-tnm-categoria-tumor-primario-ex.html\">Observation pT category</a></li><li><a href=\"Observation-r2bo-tnm-categoria-nodo-regional-ex.html\">Observation pN category</a></li><li><a href=\"Observation-r2bo-tnm-categoria-metastasis-distantel-ex.html\">Observation pM category</a></li></ul></div>"
+  ] ;
+  fhir:Observation.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/r2bo-solicitud-informe-apa-ej" ]
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "laboratory" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:399588009 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "399588009" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:Reference.reference [ fhir:value "Patient/paciente-requiere-examen" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2021-06-01T12:00:00-04:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/r2bo-anatopatologo-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:LA3651-2 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "LA3651-2" ] ;
+       fhir:Coding.display [ fhir:value "Stage IV" ]
+     ]
+  ] ;
+  fhir:Observation.specimen [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+     fhir:Reference.reference [ fhir:value "Specimen/r2bo-specimen-example" ]
+  ] ;
+  fhir:Observation.hasMember [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-tumor-primario-ex> ;
+     fhir:Reference.reference [ fhir:value "Observation/r2bo-tnm-categoria-tumor-primario-ex" ]
+  ], [
+     fhir:index 1 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-nodo-regional-ex> ;
+     fhir:Reference.reference [ fhir:value "Observation/r2bo-tnm-categoria-nodo-regional-ex" ]
+  ], [
+     fhir:index 2 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-metastasis-distantel-ex> ;
+     fhir:Reference.reference [ fhir:value "Observation/r2bo-tnm-categoria-metastasis-distantel-ex" ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-tumor-primario-ex> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "r2bo-tnm-categoria-tumor-primario-ex"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-tnm-categoria-tumor-primario" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-tnm-categoria-tumor-primario>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_r2bo-tnm-categoria-tumor-primario-ex\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation r2bo-tnm-categoria-tumor-primario-ex</b></p><a name=\"r2bo-tnm-categoria-tumor-primario-ex\"> </a><a name=\"hcr2bo-tnm-categoria-tumor-primario-ex\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-tnm-categoria-tumor-primario.html\">Perfil de Categoria TNM Tumor Primario</a></p></div><p><b>basedOn</b>: <a href=\"ServiceRequest-r2bo-solicitud-informe-apa-ej.html\">ServiceRequest Pathologist report</a></p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 384625004}\">pT category</span></p><p><b>subject</b>: <a href=\"Patient-paciente-requiere-examen.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</a></p><p><b>effective</b>: 2021-06-01 12:00:00-0400</p><p><b>performer</b>: <a href=\"PractitionerRole-r2bo-anatopatologo-hospital.html\">PractitionerRole MÉDICO CIRUJANO</a></p><p><b>value</b>: <span title=\"Codes:{http://loinc.org LA3628-0}\">T2</span></p><p><b>specimen</b>: <a href=\"Specimen-r2bo-specimen-example.html\">Specimen: identifier = 110101101; status = available; type = Tissue; receivedTime = 2021-06-01 00:00:00+0000; note = Resección completa de tejido mamario, posible carcinoma</a></p></div>"
+  ] ;
+  fhir:Observation.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/r2bo-solicitud-informe-apa-ej" ]
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "laboratory" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:384625004 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "384625004" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:Reference.reference [ fhir:value "Patient/paciente-requiere-examen" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2021-06-01T12:00:00-04:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/r2bo-anatopatologo-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:LA3628-0 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "LA3628-0" ] ;
+       fhir:Coding.display [ fhir:value "T2" ]
+     ]
+  ] ;
+  fhir:Observation.specimen [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+     fhir:Reference.reference [ fhir:value "Specimen/r2bo-specimen-example" ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-nodo-regional-ex> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "r2bo-tnm-categoria-nodo-regional-ex"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-tnm-categoria-nodo-regional" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-tnm-categoria-nodo-regional>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_r2bo-tnm-categoria-nodo-regional-ex\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation r2bo-tnm-categoria-nodo-regional-ex</b></p><a name=\"r2bo-tnm-categoria-nodo-regional-ex\"> </a><a name=\"hcr2bo-tnm-categoria-nodo-regional-ex\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-tnm-categoria-nodo-regional.html\">Perfil de Categoria TNM Nodos Regional</a></p></div><p><b>basedOn</b>: <a href=\"ServiceRequest-r2bo-solicitud-informe-apa-ej.html\">ServiceRequest Pathologist report</a></p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 371494008}\">pN category</span></p><p><b>subject</b>: <a href=\"Patient-paciente-requiere-examen.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</a></p><p><b>effective</b>: 2021-06-01 12:00:00-0400</p><p><b>performer</b>: <a href=\"PractitionerRole-r2bo-anatopatologo-hospital.html\">PractitionerRole MÉDICO CIRUJANO</a></p><p><b>value</b>: <span title=\"Codes:{http://loinc.org LA4534-9}\">N2</span></p><p><b>specimen</b>: <a href=\"Specimen-r2bo-specimen-example.html\">Specimen: identifier = 110101101; status = available; type = Tissue; receivedTime = 2021-06-01 00:00:00+0000; note = Resección completa de tejido mamario, posible carcinoma</a></p></div>"
+  ] ;
+  fhir:Observation.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/r2bo-solicitud-informe-apa-ej" ]
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "laboratory" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:371494008 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "371494008" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:Reference.reference [ fhir:value "Patient/paciente-requiere-examen" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2021-06-01T12:00:00-04:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/r2bo-anatopatologo-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:LA4534-9 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "LA4534-9" ] ;
+       fhir:Coding.display [ fhir:value "N2" ]
+     ]
+  ] ;
+  fhir:Observation.specimen [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+     fhir:Reference.reference [ fhir:value "Specimen/r2bo-specimen-example" ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Observation/r2bo-tnm-categoria-metastasis-distantel-ex> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "r2bo-tnm-categoria-metastasis-distantel-ex"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-tnm-categoria-metastasis-distante" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/StructureDefinition/r2bo-tnm-categoria-metastasis-distante>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_r2bo-tnm-categoria-metastasis-distantel-ex\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation r2bo-tnm-categoria-metastasis-distantel-ex</b></p><a name=\"r2bo-tnm-categoria-metastasis-distantel-ex\"> </a><a name=\"hcr2bo-tnm-categoria-metastasis-distantel-ex\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-r2bo-tnm-categoria-metastasis-distante.html\">Perfil de Categoria TNM de Metástasis Distante</a></p></div><p><b>basedOn</b>: <a href=\"ServiceRequest-r2bo-solicitud-informe-apa-ej.html\">ServiceRequest Pathologist report</a></p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 371497001}\">pM category</span></p><p><b>subject</b>: <a href=\"Patient-paciente-requiere-examen.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( PPN: ACL123456789876 (use: official, ))</a></p><p><b>effective</b>: 2021-06-01 12:00:00-0400</p><p><b>performer</b>: <a href=\"PractitionerRole-r2bo-anatopatologo-hospital.html\">PractitionerRole MÉDICO CIRUJANO</a></p><p><b>value</b>: <span title=\"Codes:{http://loinc.org LA4628-9}\">M1</span></p><p><b>specimen</b>: <a href=\"Specimen-r2bo-specimen-example.html\">Specimen: identifier = 110101101; status = available; type = Tissue; receivedTime = 2021-06-01 00:00:00+0000; note = Resección completa de tejido mamario, posible carcinoma</a></p></div>"
+  ] ;
+  fhir:Observation.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ServiceRequest/r2bo-solicitud-informe-apa-ej> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/r2bo-solicitud-informe-apa-ej" ]
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "laboratory" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:371497001 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "371497001" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Patient/paciente-requiere-examen> ;
+     fhir:Reference.reference [ fhir:value "Patient/paciente-requiere-examen" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2021-06-01T12:00:00-04:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/PractitionerRole/r2bo-anatopatologo-hospital> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/r2bo-anatopatologo-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:LA4628-9 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "LA4628-9" ] ;
+       fhir:Coding.display [ fhir:value "M1" ]
+     ]
+  ] ;
+  fhir:Observation.specimen [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Specimen/r2bo-specimen-example> ;
+     fhir:Reference.reference [ fhir:value "Specimen/r2bo-specimen-example" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/Bundle/r2bo-generar-informe-bundle-ejemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
