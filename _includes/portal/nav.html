@@ -60,7 +60,7 @@
             <span>Buscar</span>
           </button>
         {% endif %}
-        <a class="pnav__cta" href="https://interoperabilidad.minsal.cl/fhir/ig" target="_blank" rel="noopener">Guías FHIR&nbsp;↗</a>
+        <a class="pnav__cta" href="{{ '/fhir/ig' | relative_url }}" target="_blank" rel="noopener">Guías FHIR&nbsp;↗</a>
       </div>
     </nav>
   </div>
@@ -68,6 +68,7 @@
 
 <script>
 (function () {
+  function initPortalNav() {
   var nav = document.getElementById('pnav');
   var toggle = nav && nav.querySelector('.pnav__toggle');
   var menu = document.getElementById('pnav-menu');
@@ -82,31 +83,12 @@
   var onScroll = function () { nav.classList.toggle('is-scrolled', window.scrollY > 4); };
   onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
-  // Overlay de búsqueda
-  var overlay = document.querySelector('.portal-search-overlay');
-  var openBtns = document.querySelectorAll('.pnav__search-btn');
-  var closeBtn = overlay && overlay.querySelector('.portal-search-close');
-  var input = overlay && overlay.querySelector('#search-input');
-  function openSearch() {
-    if (!overlay) return;
-    overlay.hidden = false;
-    document.body.style.overflow = 'hidden';
-    if (input) setTimeout(function () { input.focus(); }, 30);
   }
-  function closeSearch() {
-    if (!overlay) return;
-    overlay.hidden = true;
-    document.body.style.overflow = '';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPortalNav);
+  } else {
+    initPortalNav();
   }
-  openBtns.forEach(function (b) { b.addEventListener('click', openSearch); });
-  if (closeBtn) closeBtn.addEventListener('click', closeSearch);
-  if (overlay) overlay.addEventListener('click', function (e) { if (e.target === overlay) closeSearch(); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeSearch();
-    if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && overlay && overlay.hidden) {
-      var tag = (document.activeElement && document.activeElement.tagName) || '';
-      if (tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); openSearch(); }
-    }
-  });
 })();
 </script>

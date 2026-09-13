@@ -95,7 +95,6 @@ description: >-
       </p>
     </header>
     <ul class="doc-links">
-      <li><a href="{{ '/docs/especificacion-de-la-arquitectura' | relative_url }}">Especificación de la Arquitectura</a><span>Marco general y modelo de gobernanza</span></li>
       <li><a href="{{ '/docs/especificacion-de-la-arquitectura/principios-arquitectura.html' | relative_url }}">Principios arquitecturales</a><span>Los 11 principios rectores</span></li>
       <li><a href="{{ '/docs/especificacion-de-la-arquitectura/estandares-perfiles.html' | relative_url }}">Estándares y perfiles</a><span>HL7 FHIR, DICOM, SNOMED CT, LOINC, CIE</span></li>
     </ul>

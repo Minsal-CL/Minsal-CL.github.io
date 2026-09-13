@@ -1,0 +1,60 @@
+<div class="portal-search-overlay" hidden>
+  <div class="portal-search-panel" role="dialog" aria-modal="true" aria-label="Buscar en el portal">
+    <div class="search" role="search">
+      <div class="search-input-wrap">
+        <input type="text" id="search-input" class="search-input" tabindex="0"
+               placeholder="Buscar en el portal..." aria-label="Buscar" autocomplete="off">
+        <label for="search-input" class="search-label">
+          <svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg>
+        </label>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+    <button type="button" class="portal-search-close" aria-label="Cerrar búsqueda">Esc</button>
+  </div>
+</div>
+<script>
+(function () {
+  var overlay = document.querySelector('.portal-search-overlay');
+  var searchButton = document.querySelector('.pnav__search-btn');
+  var searchInput = overlay && overlay.querySelector('#search-input');
+  var closeButton = overlay && overlay.querySelector('.portal-search-close');
+  if (!overlay || !searchButton || !searchInput) return;
+
+  function openSearch(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    searchInput.focus();
+  }
+
+  function closeSearch() {
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+    searchButton.focus();
+  }
+
+  searchButton.addEventListener('click', openSearch, true);
+  if (closeButton) closeButton.addEventListener('click', closeSearch);
+  overlay.addEventListener('click', function (event) {
+    if (event.target.closest('.search-result')) {
+      event.stopPropagation();
+      return;
+    }
+    if (event.target === overlay) closeSearch();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !overlay.hidden) {
+      closeSearch();
+      return;
+    }
+    if ((event.key === '/' || (event.key === 'k' && (event.metaKey || event.ctrlKey))) && overlay.hidden) {
+      var tagName = (document.activeElement && document.activeElement.tagName) || '';
+      if (tagName !== 'INPUT' && tagName !== 'TEXTAREA') openSearch(event);
+    }
+  });
+})();
+</script>

@@ -95,10 +95,15 @@ description: >-
   </div>
 </section>
 
-<section class="band cta-band">
+<section class="band">
   <div class="wrap">
-    <h2>¿Vas a implementar?</h2>
-    <p>Las Guías de Implementación FHIR, los estándares y los accesos están en Recursos.</p>
-    <a class="btn btn--primary" href="{{ '/recursos.html' | relative_url }}">Ir a Recursos</a>
+    <header class="sec-head">
+      <h2 class="kicker">¿Vas a implementar?</h2>
+      <p>Las Guías de Implementación FHIR, los estándares y los accesos están en Recursos.</p>
+    </header>
+    <div class="mini-grid">
+      <a class="btn btn--primary" href="{{ '/recursos.html' | relative_url }}">Ir a Recursos</a>
+    </div>
+    
   </div>
 </section>
