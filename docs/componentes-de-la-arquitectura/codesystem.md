@@ -4,6 +4,7 @@ title: CodeSystem
 parent: Servicios Terminológicos
 nav_order: 1
 grand_parent: Componentes de la Arquitectura
+description: Consulta y validación de sistemas de códigos clínicos mediante recursos FHIR.
 ---
 
 # CodeSystem
@@ -44,6 +45,7 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
 
 #### Respuesta de Ejemplo
 
+{% capture code_system_by_url %}
 ```json
 {
     "resourceType": "Bundle",
@@ -182,6 +184,11 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
     ]
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: CodeSystem por URL</summary>
+{{ code_system_by_url | markdownify }}
+</details>
 
 
 ## Obtener versión de un CodeSystem 
@@ -204,6 +211,7 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
 
 #### Respuesta de Ejemplo
 
+{% capture code_system_by_version %}
 ```json
 {
     "resourceType": "Bundle",
@@ -240,6 +248,11 @@ La solicitud de un CodeSystem sin versiones devuelve la `versión liberada más 
     ]
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: CodeSystem por versión</summary>
+{{ code_system_by_version | markdownify }}
+</details>
 
 <!-- ## Obtener una lista de las versiones de un CodeSystem
 
@@ -272,6 +285,7 @@ This request returns all `released` versions for a given code system. Note that 
 
 #### Respuesta de Ejemplo
 
+{% capture code_system_list %}
 ```json
 {
     "resourceType": "Bundle",
@@ -587,6 +601,11 @@ Esta solicitud devuelve las versiones más recientes de todos los Code System.
     ]
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: lista de CodeSystem</summary>
+{{ code_system_list | markdownify }}
+</details>
 
 <!-- ## Create CodeSystem
 
@@ -943,6 +962,7 @@ Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas par
 
 #### Respuesta de Ejemplo
 
+{% capture code_system_lookup %}
 ```json
 {
     "resourceType": "Parameters",
@@ -1532,6 +1552,11 @@ Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas par
     ]
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: detalle de concepto mediante $lookup</summary>
+{{ code_system_lookup | markdownify }}
+</details>
 
 
 ### $validate-code

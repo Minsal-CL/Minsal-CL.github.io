@@ -4,6 +4,7 @@ title: Conceptmap
 parent: Servicios Terminológicos
 nav_order: 3
 grand_parent: Componentes de la Arquitectura
+description: Consulta de mapas de conceptos y traducción entre sistemas de códigos mediante FHIR.
 ---
 
 # ConceptMap
@@ -239,6 +240,7 @@ This request returns all `released` versions for a given conceptmap. Note that t
 
 #### Example Response
 
+{% capture concept_map_list %}
 ```json
 {
     "resourceType": "Bundle",
@@ -510,6 +512,11 @@ Esta solicitud devuelve las versiones más recientes de todos los conceptmaps.
     ]
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: lista de ConceptMaps</summary>
+{{ concept_map_list | markdownify }}
+</details>
 
 
 ## Operaciones FHIR 

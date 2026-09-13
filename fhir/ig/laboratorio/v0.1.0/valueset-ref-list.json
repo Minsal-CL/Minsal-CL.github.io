@@ -1,0 +1,26 @@
+{
+  "codeSystems" : [{
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio",
+    "version" : "0.2.1",
+    "status" : "active",
+    "name" : "VSMotivoCancelacionSolicitudLaboratorio",
+    "title" : "Motivo de Cancelación de Solicitud de Laboratorio",
+    "description" : "Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra.",
+    "systems" : ["http://snomed.info/sct"],
+    "uses" : {
+    },
+    "StructureDefinition-MinsalServiceRequestLab.html" : "Solicitud de Laboratorio MINSAL"
+  },
+  {
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-rechazo-muestra-laboratorio",
+    "version" : "0.2.1",
+    "status" : "active",
+    "name" : "VSMotivoRechazoMuestraLaboratorio",
+    "title" : "Motivo de Rechazo de Muestra de Laboratorio",
+    "description" : "Subconjunto del catálogo oficial HL7 v2 Tabla 0490 (Specimen Reject Reason) con los motivos de rechazo de muestra reconocidos por esta guía: cantidad insuficiente, coagulación y problema de etiquetado. Este ValueSet no define códigos propios; selecciona un subconjunto del CodeSystem externo `http://terminology.hl7.org/CodeSystem/v2-0490`, el mismo catálogo que usa HL7 v2 en el segmento SPM-21. Binding extensible: si en el futuro se identifica un motivo de rechazo no incluido aquí (por ejemplo hemólisis o contaminación), puede usarse cualquier otro código válido del mismo CodeSystem.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v2-0490"],
+    "uses" : {
+    },
+    "StructureDefinition-MinsalEspecimenLaboratorio.html" : "Espécimen de Laboratorio MINSAL"
+  }]
+}

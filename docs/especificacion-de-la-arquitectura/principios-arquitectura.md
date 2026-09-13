@@ -7,9 +7,14 @@ nav_order: 2
 
 # Principios Arquitecturales
 
-Para favorecer el nivel de madurez del sistema de salud chileno, acelerar la adopción y aumentar la apropiación de nuevos modelos de atención de salud que permita avanzar hacia un sistema de salud nacional interoperable, se han tenido a la vista los siguientes principios rectores: 
+Para elevar la madurez del sistema de salud chileno, acelerar la adopción y favorecer nuevos modelos de atención, la arquitectura se guía por los siguientes principios rectores.
 
+<div class="doc-summary">
+	<p class="doc-summary__eyebrow">Criterios de diseño</p>
+	<p>Estos principios deben orientar las decisiones de arquitectura, adquisición, implementación y evolución de las soluciones que intercambian información de salud.</p>
+</div>
 
+{: .principles-list }
 1. Disponibilidad y accesibilidad de la información: Es esencial eliminar las barreras que puedan dificultar o restringir el acceso, tales como las barreras físicas, tecnológicas o de comunicación. 
 
 2. Implementabilidad: Es fundamental simplificar la implementación eficaz de los estándares vigentes, teniendo en cuenta la posibilidad de futuras actualizaciones de estos estándares, las cuales deberán ser consensuadas. 

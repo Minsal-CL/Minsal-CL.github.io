@@ -7,9 +7,27 @@ nav_order: 3
 
 # Estándares y Perfiles
 
-Con el objetivo de sustentar la implementación de esta estrategia que asegure la calidad y disponibilidad de los datos clínicos y de las aplicaciones que los procesan y con ello que la información esté disponible de forma segura cuando y donde se necesite, se ha definido una arquitectura orientada a servicios y elástica basada en estándares sintácticos y semánticos desarrollado por organizaciones internacionales y de amplio uso a nivel mundial, como HL7 FHIR® (por su nombre en inglés Health Level Seven – Fast Health Interoperability Resources), DICOM, la familia de clasificaciones internacionales de la OMS13, SNOMED-CT, LOINC o la Terminología Farmaceútica Chilena. Será el comité técnico el encargado de definir cuales serán los estándares más adecuados de utilizar para cada proceso clínico.  
+Para asegurar la calidad, disponibilidad y uso seguro de los datos clínicos, se ha definido una arquitectura orientada a servicios basada en estándares sintácticos y semánticos de amplio uso internacional. El comité técnico define los estándares más adecuados para cada proceso clínico.
 
-El Ministerio deberá revisar, al menos cada dos años, los estándares definidos a través de este lineamiento a fin de determinar si éstas requieren o no de actualización. La revisión de los estándares definidos debe considerar los siguientes criterios:  
+<div class="doc-summary">
+	<p class="doc-summary__eyebrow">Intercambio con significado</p>
+	<p>Los estándares sintácticos definen cómo viajan los datos; los estándares semánticos aseguran que diagnósticos, observaciones y conceptos clínicos mantengan el mismo significado entre sistemas.</p>
+</div>
+
+<div class="doc-grid">
+	<div class="doc-card">
+		<span class="doc-card__label">Sintácticos</span>
+		<strong>FHIR y DICOM</strong>
+		<span>Definen estructuras, servicios y formatos para intercambiar datos clínicos e imágenes.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">Semánticos</span>
+		<strong>CIE, SNOMED CT y LOINC</strong>
+		<span>Permiten codificar, recuperar y comparar información clínica de forma consistente.</span>
+	</div>
+</div>
+
+El Ministerio deberá revisar, al menos cada dos años, los estándares definidos a través de este lineamiento para determinar si requieren actualización. La revisión debe considerar los siguientes criterios:
 
 1. Adoptar los estándares internacionales emitidos por organismos reconocidos en la materia, en su ausencia se considerará los estándares de carácter regional y, sólo cuando ninguno de ellos se encuentre disponible, observará los de desarrollo nacional. 
 
@@ -23,11 +41,11 @@ Una de las principales áreas de preocupación que aborda la nueva estrategia de
 
 ### Estándares Sintácticos  
 
-#### HL7 Fast Healthcare Interoperability Resources 
+#### HL7 Fast Healthcare Interoperability Resources (FHIR)
 
 FHIR es el acrónimo de Fast Healthcare Interoperability Resources (FHIR), estándar que fue creado en 2011 por HL7 Internacional. Es una especificación técnica para intercambio de datos, basada en tecnologías y formatos estándar (JSON, XML, REST, etc.), define objetos de datos estándar (recursos) que pueden componerse para formar cualquier tipo de comunicación, desde la notificación de una medición de la presión arterial hasta la consulta de artículos disponibles en un inventario. Los recursos son la unidad básica de interoperabilidad, la unidad más pequeña a intercambiar y contiene información computable. Su implementación es fácil y de bajo costo y cuenta con el apoyo de una amplia comunidad global. 
 
-El Ministerio de Salud ha decidido usar FHIR en su versión R4 como estándar sintáctico, ya que es la versión más actualizada y robusta respecto de sus revisiones por la organización HL7. 
+El Ministerio de Salud ha decidido usar FHIR en su versión R4 como estándar sintáctico, por ser una versión madura y ampliamente adoptada.
 
 #### Digital Imaging and Communications in Medicine (DICOM)
 

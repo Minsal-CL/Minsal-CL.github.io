@@ -28,7 +28,28 @@
             {%- assign is_active = true -%}
           {%- endif -%}
           <li>
+            {%- if item.label == 'Componentes' -%}
+            <details class="pnav__dropdown">
+              <summary{% if is_active %} aria-current="page"{% endif %}>{{ item.label }}</summary>
+              <div class="pnav__dropdown-panel">
+                <a href="{{ '/docs/componentes-de-la-arquitectura/empi.html' | relative_url }}">
+                  <strong>Índice Maestro de Pacientes</strong>
+                  <span>Identificación consistente de pacientes entre sistemas.</span>
+                </a>
+                <a href="{{ '/docs/componentes-de-la-arquitectura/hpd.html' | relative_url }}">
+                  <strong>Directorio de Prestadores</strong>
+                  <span>Información confiable de personas e instituciones de salud.</span>
+                </a>
+                <a href="{{ '/docs/componentes-de-la-arquitectura/terminologicos.html' | relative_url }}">
+                  <strong>Servicios Terminológicos</strong>
+                  <span>Códigos y conceptos clínicos con significado compartido.</span>
+                </a>
+                <a class="pnav__dropdown-all" href="{{ item.url | relative_url }}">Ver todos los componentes</a>
+              </div>
+            </details>
+            {%- else -%}
             <a href="{{ item.url | relative_url }}"{% if is_active %} aria-current="page"{% endif %}>{{ item.label }}</a>
+            {%- endif -%}
           </li>
         {%- endfor -%}
       </ul>

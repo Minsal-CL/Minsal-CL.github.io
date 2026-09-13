@@ -4,17 +4,42 @@ title: Servicios Terminológicos
 parent: Componentes de la Arquitectura
 nav_order: 3
 has_children: true
+description: Recursos y operaciones FHIR para consultar, validar y relacionar conceptos clínicos.
 ---
 
 
 # Servicios Terminológicos
 
-Uno de los Componentes de la Arquitectura son los Servicios Terminológicos. 
+Los Servicios Terminológicos son una capacidad compartida de la Arquitectura Nacional de Interoperabilidad. Permiten que diagnósticos, exámenes, medicamentos y otros conceptos clínicos se interpreten de la misma forma entre sistemas.
 
-El servicio de terminología FHIR-MINSAL permite a los usuarios consumir recursos en formato FHIR. El servicio de terminología  FHIR se implementa sobre la base del perfil compartido ValueSets, CodeSystems y ConceptMaps (mSVCM) de IHE (Integrating the Healthcare Enterprise). Basado en el perfil mSVCM, el servicio de terminología FHIR brinda la capacidad de recuperar ValueSets, CodeSystems y ConceptMaps junto con la capacidad de realizar operaciones FHIR en estos recursos.
+<div class="doc-summary">
+	<p class="doc-summary__eyebrow">Servicio FHIR</p>
+	<p>El servicio de terminología FHIR-MINSAL entrega recursos y operaciones para consultar, validar y relacionar conceptos clínicos. Su acceso se habilita mediante solicitud formal.</p>
+</div>
 
-En el siguiente link podrá ingresar su solicitud de acceso a los servicios terminológicos de MINSAL
+## Alcance del servicio
 
-* [Solicitud de Acceso Servicios Terminológicos](https://forms.office.com/r/E7AaQWZMUc)
+El servicio de terminología FHIR-MINSAL permite consumir recursos en formato FHIR. Se implementa sobre el perfil compartido <em>ValueSets, CodeSystems and ConceptMaps</em> (mSVCM) de IHE y permite recuperar artefactos terminológicos junto con las operaciones FHIR asociadas.
 
-[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/2557824-82309463-9096-4290-a7ad-7d9f83c1b2c4?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D2557824-82309463-9096-4290-a7ad-7d9f83c1b2c4%26entityType%3Dcollection%26workspaceId%3D2c8246b5-3153-494d-9187-5b88f417997e#?env%5BPRODUCCION%5D=W3sia2V5IjoiYmFzZVVybCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2FwaWNsb3VkLm1pbnNhbC5jbC9zdC9maGlyIiwiY29tcGxldGVTZXNzaW9uVmFsdWUiOiJodHRwczovL2FwaWNsb3VkLm1pbnNhbC5jbC9zdC9maGlyIiwic2Vzc2lvbkluZGV4IjowfSx7ImtleSI6ImNsaWVudElEIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoiZGVmYXVsdCIsInNlc3Npb25WYWx1ZSI6InRlc3QiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6InRlc3QiLCJzZXNzaW9uSW5kZXgiOjF9LHsia2V5IjoiY2xpZW50U0VDUkVUIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoiZGVmYXVsdCIsInNlc3Npb25WYWx1ZSI6InRlc3QiLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6InRlc3QiLCJzZXNzaW9uSW5kZXgiOjJ9XQ==)
+| Recurso | Uso principal |
+| --- | --- |
+| `CodeSystem` | Publica los códigos y conceptos disponibles en una terminología. |
+| `ValueSet` | Define conjuntos de códigos utilizables para un contexto clínico o administrativo. |
+| `ConceptMap` | Expresa relaciones o equivalencias entre códigos de distintos sistemas. |
+
+## Capacidades
+
+Las operaciones disponibles dependen del recurso y de los permisos otorgados al consumidor. Entre las capacidades esperadas se encuentran:
+
+- Consulta de `CodeSystem`, `ValueSet` y `ConceptMap` en formato FHIR.
+- Expansión de conjuntos de valores para obtener códigos utilizables en una transacción.
+- Validación de códigos frente a un sistema de códigos o conjunto de valores.
+- Consulta de relaciones y equivalencias entre terminologías mediante mapas de conceptos.
+
+## Terminologías de referencia
+
+El servicio respalda la adopción de terminologías y clasificaciones priorizadas por la arquitectura, entre ellas SNOMED CT, LOINC y CIE-10, junto con los artefactos definidos en las guías de implementación vigentes.
+
+{: .importante }
+> La disponibilidad de una terminología, versión o conjunto de valores debe confirmarse durante la integración. No todos los artefactos son necesariamente públicos ni aplican a todos los procesos clínicos.
+

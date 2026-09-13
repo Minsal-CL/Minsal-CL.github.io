@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hl7.fhir.cl.minsal.laboratorio"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: GuiaDeImplementacion hl7.fhir.cl.minsal.laboratorio</b></p><a name="hl7.fhir.cl.minsal.laboratorio"> </a><a name="hchl7.fhir.cl.minsal.laboratorio"> </a><h2>LaboratorioClinico</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio</pre><div><p>Guía de Implementación FHIR R4 para el intercambio de solicitudes y resultados de laboratorio clínico, incluyendo transformación desde HL7 v2, resolución de pacientes mediante MPI y codificación de prestaciones FONASA/LOINC.</p>
+</div></div>
+  </text>
+  <url value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio"/>
+  <version value="0.2.1"/>
+  <name value="LaboratorioClinico"/>
+  <title value="Guía de Implementación FHIR - Laboratorio Clínico"/>
+  <status value="draft"/>
+  <date value="2026-09-10T11:13:46-03:00"/>
+  <publisher value="Unidad de Interoperabilidad - MINSAL"/>
+  <contact>
+    <name value="Unidad de Interoperabilidad - MINSAL"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://interoperabilidad.minsal.cl"/>
+    </telecom>
+  </contact>
+  <description value="Guía de Implementación FHIR R4 para el intercambio de solicitudes y resultados de laboratorio clínico, incluyendo transformación desde HL7 v2, resolución de pacientes mediante MPI y codificación de prestaciones FONASA/LOINC."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CL"/>
+      <display value="Chile"/>
+    </coding>
+  </jurisdiction>
+  <packageId value="hl7.fhir.cl.minsal.laboratorio"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn id="hl7tx">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on HL7 Terminology"/>
+    </extension>
+    <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
+    <packageId value="hl7.terminology.r4"/>
+    <version value="7.3.0"/>
+  </dependsOn>
+  <dependsOn id="hl7ext">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"/>
+    </extension>
+    <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
+    <packageId value="hl7.fhir.uv.extensions.r4"/>
+    <version value="5.3.0"/>
+  </dependsOn>
+  <dependsOn id="hl7_fhir_cl_clcore">
+    <uri value="https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore"/>
+    <packageId value="hl7.fhir.cl.clcore"/>
+    <version value="1.8.5"/>
+  </dependsOn>
+  <definition>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2026+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="ci-build"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
+      <valueCode value="hl7.fhir.uv.tools.r4#1.1.2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2026+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="ci-build"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/BundleSolicitudMultipleEjemplo"/>
+      </reference>
+      <name value="Bundle de solicitud con cinco prestaciones FONASA"/>
+      <description value="TransacciÃ³n FHIR que crea cinco prestaciones FONASA pertenecientes a una misma solicitud de laboratorio. El paciente, el profesional solicitante y el laboratorio ejecutor se asumen preexistentes en el servidor de destino (ver Inicio, secciÃ³n &quot;Solicitud con mÃºltiples prestaciones&quot;), por lo que no se incluyen como entradas propias de este Bundle."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/MinsalBundleSolicitudLaboratorio"/>
+      </reference>
+      <name value="Bundle de Solicitud de Laboratorio MINSAL"/>
+      <description value="Perfil para el envío transaccional de una o más prestaciones de laboratorio que pertenecen a una misma orden. Exige al menos una entrada `MinsalServiceRequestLab` y valida que todas las entradas de solicitud comparten el mismo `requisition`. Paciente, profesional solicitante y establecimiento se asumen preexistentes en el servidor de destino (resueltos previamente mediante el flujo de identidad descrito en Arquitectura); por eso se incluyen aquí solo como entradas opcionales, para el establecimiento que decida enviarlos junto con la solicitud en vez de asumir su preexistencia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/CodigoPrestacionFonasa"/>
+      </reference>
+      <name value="Códigos de prestaciones FONASA"/>
+      <description value="Identificador canónico provisional para códigos de prestaciones FONASA. El contenido es administrado externamente por el servicio terminológico."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Specimen"/>
+      </extension>
+      <reference>
+        <reference value="Specimen/EspecimenRechazadoEjemplo"/>
+      </reference>
+      <name value="EspÃ©cimen rechazado por coagulaciÃ³n"/>
+      <description value="Muestra recibida en el laboratorio y rechazada por coagulaciÃ³n. SegÃºn lo acordado, la solicitud original no se reutiliza: se debe generar una nueva ServiceRequest con nuevo identificador y nueva etiqueta (ver Casos de uso, Caso de uso 4)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Specimen"/>
+      </extension>
+      <reference>
+        <reference value="Specimen/EspecimenEjemplo"/>
+      </reference>
+      <name value="Espécimen de ejemplo"/>
+      <description value="Muestra de sangre venosa asociada a la prestación de Hemograma del ejemplo de solicitud múltiple."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/MinsalEspecimenLaboratorio"/>
+      </reference>
+      <name value="Espécimen de Laboratorio MINSAL"/>
+      <description value="Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (por ejemplo, en el segmento SPM de ORM^O01/ORU^R01)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/EstablecimientoOrigenEjemplo"/>
+      </reference>
+      <name value="Establecimiento de origen de ejemplo"/>
+      <description value="Organización que origina la solicitud de laboratorio, identificada con un Código de Establecimiento DEIS real y vigente (ver [Códigos de establecimientos de salud vigentes](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes), referencia ya usada como criterio de identificación de organizaciones en NID): 116105, Hospital Dr. César Garavagno Burotto (Hospital de Talca), Servicio de Salud del Maule. `identifier.system` usa `http://deis.minsal.cl/establecimientos`, el mismo URI que ya usan las guías de Tiempos de Espera Quirúrgico y Urgencia para este mismo dato; CoreOrganizacionCl aún no fija un `system` oficial (queda pendiente en su definición), por lo que se adopta este URI como estándar de facto compartido, en vez de crear uno propio de esta guía."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/LaboratorioEjecutorEjemplo"/>
+      </reference>
+      <name value="Laboratorio ejecutor de ejemplo"/>
+      <description value="Laboratorio clínico interno del mismo establecimiento (116105, Hospital de Talca) que ejecuta las prestaciones solicitadas; escenario habitual en hospitales públicos, que procesan sus exámenes de rutina (hemograma, glicemia, perfil bioquímico) en su propio laboratorio en vez de derivarlos a un tercero. Mismo `system` de Código de Establecimiento DEIS que el establecimiento de origen."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/motivo-cancelacion-solicitud-laboratorio"/>
+      </reference>
+      <name value="Motivo de Cancelación de Solicitud de Laboratorio"/>
+      <description value="Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/motivo-rechazo-muestra-laboratorio"/>
+      </reference>
+      <name value="Motivo de Rechazo de Muestra de Laboratorio"/>
+      <description value="Subconjunto del catálogo oficial HL7 v2 Tabla 0490 (Specimen Reject Reason) con los motivos de rechazo de muestra reconocidos por esta guía: cantidad insuficiente, coagulación y problema de etiquetado. Este ValueSet no define códigos propios; selecciona un subconjunto del CodeSystem externo `http://terminology.hl7.org/CodeSystem/v2-0490`, el mismo catálogo que usa HL7 v2 en el segmento SPM-21. Binding extensible: si en el futuro se identifica un motivo de rechazo no incluido aquí (por ejemplo hemólisis o contaminación), puede usarse cualquier otro código válido del mismo CodeSystem."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/OrganizacionParticipanteLaboratorio"/>
+      </reference>
+      <name value="Organización participante en el flujo de laboratorio"/>
+      <description value="Perfil para representar establecimientos de origen, laboratorios ejecutores y otras organizaciones participantes en el intercambio de solicitudes y resultados de laboratorio. Extiende el perfil de organización de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Organization de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Patient"/>
+      </extension>
+      <reference>
+        <reference value="Patient/PacienteEjemplo"/>
+      </reference>
+      <name value="Paciente de ejemplo"/>
+      <description value="Ejemplo ficticio de un paciente utilizado para validar el perfil. Usa un identificador RUN con el tipo y el sistema de identificación reales definidos por NID, y cumple las cardinalidades obligatorias heredadas de CL-Core (CorePacienteCl): nombre oficial con uso, apellido y nombre; sexo administrativo; fecha de nacimiento."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/PacienteLaboratorio"/>
+      </reference>
+      <name value="Paciente de Laboratorio"/>
+      <description value="Perfil de paciente utilizado en las solicitudes y resultados de laboratorio. Extiende el perfil de paciente de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Patient de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/PrestacionBilirrubinaEjemplo"/>
+      </reference>
+      <name value="PrestaciÃ³n FONASA: Bilirrubina total"/>
+      <description value="PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/PrestacionColesterolTotalEjemplo"/>
+      </reference>
+      <name value="PrestaciÃ³n FONASA: Colesterol total"/>
+      <description value="PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/PrestacionGlicemiaEjemplo"/>
+      </reference>
+      <name value="PrestaciÃ³n FONASA: Glucosa (glicemia)"/>
+      <description value="PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/PrestacionHemogramaEjemplo"/>
+      </reference>
+      <name value="PrestaciÃ³n FONASA: Hemograma"/>
+      <description value="PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/PrestacionNitrogenoUreicoEjemplo"/>
+      </reference>
+      <name value="PrestaciÃ³n FONASA: NitrÃ³geno ureico"/>
+      <description value="PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/MinsalPractitionerLaboratorio"/>
+      </reference>
+      <name value="Profesional de Laboratorio MINSAL"/>
+      <description value="Perfil para representar al profesional solicitante, ejecutor o interpretador de resultados en el flujo de laboratorio. Extiende el perfil de prestador de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Practitioner de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/ProfesionalSolicitanteEjemplo"/>
+      </reference>
+      <name value="Profesional solicitante de ejemplo"/>
+      <description value="Profesional ficticio que solicita las prestaciones del ejemplo. Usa la slice `identifier[run]` ya definida por CorePrestadorCl (CL-Core), con el mismo `system` de referencia que usa la guÃ­a MPI/HPD de MINSAL para el RUN de prestadores (`https://api.cl/system/run`, ver `IG_hpd`)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ResultadoDiagnosticoLaboratorio"/>
+      </reference>
+      <name value="Resultado diagnóstico de laboratorio"/>
+      <description value="Perfil para representar el resultado de una solicitud de laboratorio y el informe PDF recibido desde un mensaje HL7 v2 ORU^R01."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/SolicitudCanceladaNoPresentacionEjemplo"/>
+      </reference>
+      <name value="Solicitud cancelada por no presentaciÃ³n del paciente"/>
+      <description value="Solicitud de laboratorio cancelada porque el paciente no concurriÃ³ a la toma de muestra. No existe Specimen asociado (ver Casos de uso, Caso de uso 4)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/MinsalServiceRequestLab"/>
+      </reference>
+      <name value="Solicitud de Laboratorio MINSAL"/>
+      <description value="Perfil para representar una solicitud de examen de laboratorio clínico en el modelo canónico nacional FHIR R4."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <page>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+        <valueUrl value="toc.html"/>
+      </extension>
+      <nameUrl value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="index.html"/>
+        </extension>
+        <nameUrl value="index.html"/>
+        <title value="Inicio"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="arquitectura.html"/>
+        </extension>
+        <nameUrl value="arquitectura.html"/>
+        <title value="Arquitectura"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="casos-de-uso.html"/>
+        </extension>
+        <nameUrl value="casos-de-uso.html"/>
+        <title value="Casos de uso"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="mapeo-v2-fhir.html"/>
+        </extension>
+        <nameUrl value="mapeo-v2-fhir.html"/>
+        <title value="Mapeo HL7 v2 a FHIR"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="historial-de-cambios.html"/>
+        </extension>
+        <nameUrl value="historial-de-cambios.html"/>
+        <title value="Historial de cambios"/>
+        <generation value="markdown"/>
+      </page>
+    </page>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/capabilities"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/examples"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/extensions"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/models"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/operations"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/profiles"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/vocabulary"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/maps"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/testing"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/history"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="fsh-generated/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="template/config"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="input/images"/>
+    </parameter>
+    <parameter>
+      <code value="path-tx-cache"/>
+      <value value="input-cache/txcache"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

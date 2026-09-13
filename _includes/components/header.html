@@ -11,8 +11,29 @@ Usa la misma navegación que el portal para dar continuidad. Sticky.
   <nav class="mn-header__nav" aria-label="Secciones">
     {%- for item in site.data.portal_nav -%}
       {%- unless item.match contains 'EXACT:' -%}
+        {%- if item.label == 'Componentes' -%}
+        <details class="mn-nav-dropdown">
+          <summary{% if page.url contains item.match %} aria-current="page"{% endif %}>{{ item.label }}</summary>
+          <div class="mn-nav-dropdown__panel">
+            <a href="{{ '/docs/componentes-de-la-arquitectura/empi.html' | relative_url }}">
+              <strong>Índice Maestro de Pacientes</strong>
+              <span>Identificación consistente de pacientes entre sistemas.</span>
+            </a>
+            <a href="{{ '/docs/componentes-de-la-arquitectura/hpd.html' | relative_url }}">
+              <strong>Directorio de Prestadores</strong>
+              <span>Información confiable de personas e instituciones de salud.</span>
+            </a>
+            <a href="{{ '/docs/componentes-de-la-arquitectura/terminologicos.html' | relative_url }}">
+              <strong>Servicios Terminológicos</strong>
+              <span>Códigos y conceptos clínicos con significado compartido.</span>
+            </a>
+            <a class="mn-nav-dropdown__all" href="{{ item.url | relative_url }}">Ver todos los componentes</a>
+          </div>
+        </details>
+        {%- else -%}
         <a href="{{ item.url | relative_url }}"
            {% if page.url contains item.match %}aria-current="page"{% endif %}>{{ item.label }}</a>
+        {%- endif -%}
       {%- endunless -%}
     {%- endfor -%}
     <a href="https://interoperabilidad.minsal.cl/fhir/ig" target="_blank" rel="noopener">Guías FHIR&nbsp;↗</a>

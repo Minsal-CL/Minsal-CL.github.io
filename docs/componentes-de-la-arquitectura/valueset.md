@@ -4,6 +4,7 @@ layout: default
 parent: Servicios Terminológicos
 grand_parent: Componentes de la Arquitectura
 nav_order: 2
+description: Consulta, validación y expansión de conjuntos de valores en formato FHIR.
 ---
 
 # Valueset
@@ -40,6 +41,7 @@ La solicitud sin versión de un ValueSet devuelve `la versión más reciente lib
 
 #### Respuesta de ejemplo
 
+{% capture value_set_by_url %}
 ```json
 {
     "resourceType": "Bundle",
@@ -73,6 +75,11 @@ La solicitud sin versión de un ValueSet devuelve `la versión más reciente lib
     ]
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: ValueSet por URL</summary>
+{{ value_set_by_url | markdownify }}
+</details>
 
 ## Obtener versión de un ValueSet
 
@@ -93,6 +100,7 @@ La solicitud sin versión de un ValueSet devuelve `la versión más reciente lib
 
 #### Respuesta de ejemplo
 
+{% capture value_set_by_version %}
 ```json
 {
     "resourceType": "Bundle",
@@ -126,6 +134,11 @@ La solicitud sin versión de un ValueSet devuelve `la versión más reciente lib
     ]
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: ValueSet por versión</summary>
+{{ value_set_by_version | markdownify }}
+</details>
 
 
 ## Obtener una lista de ValueSets
@@ -150,6 +163,7 @@ Esta solicitud devuelve las versiones más recientes de todos los ValueSets.
 
 #### Respuesta de ejemplo
 
+{% capture value_set_list %}
 ```json
 {
     "resourceType": "Bundle",
@@ -211,7 +225,13 @@ Esta solicitud devuelve las versiones más recientes de todos los ValueSets.
     ]
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: lista de ValueSets</summary>
+{{ value_set_list | markdownify }}
+</details>
 
+{% comment %}
 <!-- ## Create ValueSet
 
 The ValueSet can be created in two ways either using global namespace or owner namespace. The server returns HTTP `201 Created` on succussful operation. 
@@ -526,7 +546,9 @@ As per mSVCM profile, following FHIR operations are supported for a valueset:
         }
     ]
 }
-``` -->
+```
+-->
+{% endcomment %}
 
 ### $expand
 
@@ -563,6 +585,7 @@ La expansión del conjunto de valores devuelta por esta consulta debe tratarse c
 
 #### Respuesta de ejemplo
 
+{% capture value_set_expand %}
 ```json
 {
     "resourceType": "ValueSet",
@@ -605,3 +628,8 @@ La expansión del conjunto de valores devuelta por esta consulta debe tratarse c
     }
 }
 ```
+{% endcapture %}
+<details class="technical-details">
+<summary>Ver respuesta completa: expansión del ValueSet</summary>
+{{ value_set_expand | markdownify }}
+</details>
