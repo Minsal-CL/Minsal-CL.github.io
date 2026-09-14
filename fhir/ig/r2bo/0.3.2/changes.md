@@ -1,0 +1,41 @@
+# Historial de Cambios - Repositorio de Reportes de Biopsias Oncológicas v0.3.2
+
+* [**Table of Contents**](toc.md)
+* **Historial de Cambios**
+
+## Historial de Cambios
+
+| |
+| :--- |
+| *Page standards status:*[Informative](http://hl7.org/fhir/R4/versions.html#std-process) |
+
+### Versión 0.3.2
+
+* En la [muestra](StructureDefinition-r2bo-muestra-biopsia.md) se incluye una descripción en texto libre del procedimiento.
+* Redacción de las páginas de contenido
+
+### Versión 0.3.1
+
+* Se actualizaron las codificaciones para las observaciones de TNM de SNOMED a las de LOINC para simplificar su implementación.
+* Se actualizaron los ejemplos de TNM y estadificación.
+
+### Versión 0.3.0
+
+* Se elimina la generación de Documentos en FHIR y sus recursos Asociados.
+* Se depreca el mapeo de SNOMED CT a CIE-O-3 y CIE-10. En cambio se utilizará CIE-11 con mapeos a la CIE-10 y a la CIE-O-3.
+* Se actualizaron los diagramas y la documentación.
+* Se quitaron datos de la [muestra](StructureDefinition-r2bo-muestra-biopsia.md).
+
+### Versión 0.2.0
+
+Se eliminaron observaciones específicas con sus ValueSet para disminuir la complejidad de la guía de implementación.
+
+### Versión 0.1.1
+
+* Se crearon los perfiles para generar documento FHIR, inspirados en la guía de [HL7 Europa Imaging Study Report](https://build.fhir.org/ig/hl7-eu/imaging/).
+* Se incluyó un Composition, 2 extensiones para referencias circulares entre Composition y DiagnosticReport, y el perfil BodyStructure para las conclusiones de la topografía y morfología.
+
+### Versión 0.1.0
+
+Se crearon los primeros perfiles inspirados en los modelos lógicos.
+

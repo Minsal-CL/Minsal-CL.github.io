@@ -1,0 +1,80 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-hallazgos-clinicos-cie11-VS> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "r2bo-hallazgos-clinicos-cie11-VS"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet r2bo-hallazgos-clinicos-cie11-VS</b></p><a name=\"r2bo-hallazgos-clinicos-cie11-VS\"> </a><a name=\"hcr2bo-hallazgos-clinicos-cie11-VS\"> </a><ul><li>Include codes from<a href=\"http://terminology.hl7.org/6.5.0/CodeSystem-ICD11MMS.html\"><code>http://id.who.int/icd/release/11/mms</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span> where concept  descends from 1630407678 (Neoplasms) and classKind  = category</li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-hallazgos-clinicos-cie11-VS"] ;
+  fhir:ValueSet.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "urn:ietf:rfc:3986" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:2.16.840.1.113883.2.22.40.8.48.7" ]
+  ] ;
+  fhir:ValueSet.version [ fhir:value "0.3.2"] ;
+  fhir:ValueSet.name [ fhir:value "HallazgosClinicosCIE11VS"] ;
+  fhir:ValueSet.title [ fhir:value "ValueSet Para Hallazgos Clínicos de la CIE 11 para neoplasias"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-09-14T12:43:42-03:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "Franco Ulloa" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "email" ] ;
+       fhir:ContactPoint.value [ fhir:value "franco.ulloa@minsal.cl" ] ;
+       fhir:ContactPoint.use [ fhir:value "work" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Este ValueSet contiene los códigos de la CIE 11 para hallazgos clínicos de neoplasias, que son utilizados en la definición de perfiles de recursos FHIR para la interoperabilidad en salud."] ;
+  fhir:ValueSet.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://id.who.int/icd/release/11/mms" ] ;
+       fhir:ValueSet.compose.include.filter [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.filter.property [ fhir:value "concept" ] ;
+         fhir:ValueSet.compose.include.filter.op [ fhir:value "descendent-of" ] ;
+         fhir:ValueSet.compose.include.filter.value [ fhir:value "1630407678" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.filter.property [ fhir:value "classKind" ] ;
+         fhir:ValueSet.compose.include.filter.op [ fhir:value "=" ] ;
+         fhir:ValueSet.compose.include.filter.value [ fhir:value "category" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-hallazgos-clinicos-cie11-VS.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

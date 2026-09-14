@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Consideraciones de Diseño - Repositorio de Reportes de Biopsias Oncológicas v0.3.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Repositorio de Reportes de Biopsias Oncológicas</span>
+            <br/>
+            <span style="display:inline-block;">0.3.2 - trial-use
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Especificaciones Tecnicas
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="design-consideration.html">Consideraciones de Diseño</a>
+      </li>
+      <li>
+        <a href="InteraccionesConServidor.html">Interaciones Repositorio</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="changes.html">Historial de Cambios</a>
+  </li>
+  <li>
+    <a href="Downloads.html">Descargas</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artefactos
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html#behavior-capability-statements">Capability Statements</a>
+      </li>
+      <li>
+        <a href="artifacts.html#structures-logical-models">Modelos Lógicos</a>
+      </li>
+      <li>
+        <a href="artifacts.html#structures-resource-profiles">Perfiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#structures-extension-definitions">Extensiones</a>
+      </li>
+      <li>
+        <a href="artifacts.html#terminology-value-sets">Value Sets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#terminology-code-systems">Code Systems</a>
+      </li>
+      <li>
+        <a href="artifacts.html#example-example-instances">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Consideraciones de Diseño</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">This page is part of the Repositorio de Reportes de Biopsias Oncológicas (v0.3.2: <a data-no-external="true" href="https://confluence.hl7.org/display/HL7/HL7+Balloting" title="Standard for Trial-Use">STU</a>1) based on <a data-no-external="true" href="http://hl7.org/fhir/R4">FHIR (HL7® FHIR® Standard) R4</a>. This is the current published version in its permanent home (it will always be available at this URL).  For a full list of available versions, see the <a data-no-external="true" href="https://interoperabilidad.minsal.cl/fhir/ig/r2bo/history.html">Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Consideraciones de Diseño</h2>
+  
+
+
+
+
+
+  <table class="colsi">
+    <tr>
+  
+      <td>
+        <i>Page standards status:</i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standard Status">Informative</a>
+        
+      </td>
+  
+  
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<p>Las secciones en este capítulo tratan sobre las consideraciones de diseño que dirigieron partes importantes en el modelamiento de esta guía.</p>
+
+<h3 id="representación-fhir-de-la-notificación-obligatoria-de-cáncer">Representación FHIR de la Notificación Obligatoria de Cáncer</h3>
+
+<p>En esta guía de implementación se sigue el enfoque de un estudio de anatomía patológica representado por un recurso <code class="language-plaintext highlighter-rouge">DiagnosticReport</code>, el cual contiene los datos mínimos para cumplir con la notificación obligatoria, más un pdf con el informe completo.</p>
+
+<p>El siguiente diagrama representa una vista general de los perfiles especificados en esta guía.</p>
+
+<p>La relación más importante comienza desde el recurso DiagnosticReport <a href="StructureDefinition-r2bo-informe-biopsia.html">R2BOInformeBiopsia</a> desde la perspectiva REST.</p>
+<div>
+<p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="DESCRIPTION" height="411.3px" preserveAspectRatio="none" style="width:837px;height:411px;background:#FFFFFF;" version="1.1" viewBox="0 0 837 411" width="837.9px" zoomAndPan="magnify"><defs /><g><!--entity diagnosticReport--><g class="entity" data-entity="diagnosticReport" data-source-line="6" data-uid="ent0002" id="entity_diagnosticReport"><a href="StructureDefinition-r2bo-informe-biopsia.html" target="_top" title="StructureDefinition-r2bo-informe-biopsia.html" xlink:actuate="onRequest" xlink:href="StructureDefinition-r2bo-informe-biopsia.html" xlink:show="new" xlink:title="StructureDefinition-r2bo-informe-biopsia.html" xlink:type="simple"><rect fill="#F1F1F1" height="36.5484" rx="2.25" ry="2.25" style="stroke:#181818;stroke-width:0.45;" width="312.7641" x="101.25" y="6.3" /><polygon fill="#F1F1F1" points="398.7141,10.8,398.7141,23.4,409.5141,23.4,409.5141,16.2,404.1141,10.8,398.7141,10.8" style="stroke:#181818;stroke-width:0.45;" /><line style="stroke:#181818;stroke-width:0.45;" x1="404.1141" x2="404.1141" y1="10.8" y2="16.2" /><line style="stroke:#181818;stroke-width:0.45;" x1="409.5141" x2="404.1141" y1="16.2" y2="16.2" /><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="285.7641" x="110.25" y="31.0799">DiagnosticReport: Reporte de Anatom&#237;a Patol&#243;gica</text></a></g><!--entity result--><g class="entity" data-entity="result" data-source-line="7" data-uid="ent0003" id="entity_result"><a href="StructureDefinition-r2bo-resultados-reporte-biopsia.html" target="_top" title="StructureDefinition-r2bo-resultados-reporte-biopsia.html" xlink:actuate="onRequest" xlink:href="StructureDefinition-r2bo-resultados-reporte-biopsia.html" xlink:show="new" xlink:title="StructureDefinition-r2bo-resultados-reporte-biopsia.html" xlink:type="simple"><rect fill="#F1F1F1" height="36.5484" rx="2.25" ry="2.25" style="stroke:#181818;stroke-width:0.45;" width="461.9215" x="27" y="97.2" /><polygon fill="#F1F1F1" points="473.6215,101.7,473.6215,114.3,484.4215,114.3,484.4215,107.1,479.0215,101.7,473.6215,101.7" style="stroke:#181818;stroke-width:0.45;" /><line style="stroke:#181818;stroke-width:0.45;" x1="479.0215" x2="479.0215" y1="101.7" y2="107.1" /><line style="stroke:#181818;stroke-width:0.45;" x1="484.4215" x2="479.0215" y1="107.1" y2="107.1" /><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="434.9215" x="36" y="121.9799">Observation Results: Todas las Observaciones de los Resultados de Biopsias</text></a></g><!--entity humanPatient--><g class="entity" data-entity="humanPatient" data-source-line="8" data-uid="ent0004" id="entity_humanPatient"><rect fill="#F1F1F1" height="36.5484" rx="2.25" ry="2.25" style="stroke:#181818;stroke-width:0.45;" width="172.6752" x="99.45" y="369.9" /><polygon fill="#F1F1F1" points="256.8252,374.4,256.8252,387,267.6252,387,267.6252,379.8,262.2252,374.4,256.8252,374.4" style="stroke:#181818;stroke-width:0.45;" /><line style="stroke:#181818;stroke-width:0.45;" x1="262.2252" x2="262.2252" y1="374.4" y2="379.8" /><line style="stroke:#181818;stroke-width:0.45;" x1="267.6252" x2="262.2252" y1="379.8" y2="379.8" /><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="145.6752" x="108.45" y="394.6799">Patient: Paciente MINSAL</text></g><!--entity Practitioner--><g class="entity" data-entity="Practitioner" data-source-line="9" data-uid="ent0005" id="entity_Practitioner"><rect fill="#F1F1F1" height="36.5484" rx="2.25" ry="2.25" style="stroke:#181818;stroke-width:0.45;" width="222.3923" x="604.8" y="369.9" /><polygon fill="#F1F1F1" points="811.8923,374.4,811.8923,387,822.6923,387,822.6923,379.8,817.2923,374.4,811.8923,374.4" style="stroke:#181818;stroke-width:0.45;" /><line style="stroke:#181818;stroke-width:0.45;" x1="817.2923" x2="817.2923" y1="374.4" y2="379.8" /><line style="stroke:#181818;stroke-width:0.45;" x1="822.6923" x2="817.2923" y1="379.8" y2="379.8" /><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="191.8916" x="613.8" y="394.6799">Practitioner: Prestador Profesional</text></g><!--entity PractitionerRole--><g class="entity" data-entity="PractitionerRole" data-source-line="10" data-uid="ent0006" id="entity_PractitionerRole"><a href="StructureDefinition-r2bo-rol-profesional-minsal.html" target="_top" title="StructureDefinition-r2bo-rol-profesional-minsal.html" xlink:actuate="onRequest" xlink:href="StructureDefinition-r2bo-rol-profesional-minsal.html" xlink:show="new" xlink:title="StructureDefinition-r2bo-rol-profesional-minsal.html" xlink:type="simple"><rect fill="#F1F1F1" height="36.5484" rx="2.25" ry="2.25" style="stroke:#181818;stroke-width:0.45;" width="209.0848" x="539.55" y="279" /><polygon fill="#F1F1F1" points="733.3348,283.5,733.3348,296.1,744.1348,296.1,744.1348,288.9,738.7348,283.5,733.3348,283.5" style="stroke:#181818;stroke-width:0.45;" /><line style="stroke:#181818;stroke-width:0.45;" x1="738.7348" x2="738.7348" y1="283.5" y2="288.9" /><line style="stroke:#181818;stroke-width:0.45;" x1="744.1348" x2="738.7348" y1="288.9" y2="288.9" /><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="182.0848" x="548.55" y="303.7799">PractitionerRole: Rol Profesional</text></a></g><!--entity ServiceRequest--><g class="entity" data-entity="ServiceRequest" data-source-line="11" data-uid="ent0007" id="entity_ServiceRequest"><a href="StructureDefinition-r2bo-solicitud-informe-apa.html" target="_top" title="StructureDefinition-r2bo-solicitud-informe-apa.html" xlink:actuate="onRequest" xlink:href="StructureDefinition-r2bo-solicitud-informe-apa.html" xlink:show="new" xlink:title="StructureDefinition-r2bo-solicitud-informe-apa.html" xlink:type="simple"><rect fill="#F1F1F1" height="36.5484" rx="2.25" ry="2.25" style="stroke:#181818;stroke-width:0.45;" width="371.5928" x="72" y="279" /><polygon fill="#F1F1F1" points="428.2928,283.5,428.2928,296.1,439.0928,296.1,439.0928,288.9,433.6928,283.5,428.2928,283.5" style="stroke:#181818;stroke-width:0.45;" /><line style="stroke:#181818;stroke-width:0.45;" x1="433.6928" x2="433.6928" y1="283.5" y2="288.9" /><line style="stroke:#181818;stroke-width:0.45;" x1="439.0928" x2="433.6928" y1="288.9" y2="288.9" /><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="344.5928" x="81" y="303.7799">ServiceRequest: Solicitud de Informe de Anatom&#237;a Patol&#243;gica</text></a></g><!--entity Specimen--><g class="entity" data-entity="Specimen" data-source-line="12" data-uid="ent0008" id="entity_Specimen"><a href="StructureDefinition-r2bo-muestra-biopsia.html" target="_top" title="StructureDefinition-r2bo-muestra-biopsia.html" xlink:actuate="onRequest" xlink:href="StructureDefinition-r2bo-muestra-biopsia.html" xlink:show="new" xlink:title="StructureDefinition-r2bo-muestra-biopsia.html" xlink:type="simple"><rect fill="#F1F1F1" height="36.5484" rx="2.25" ry="2.25" style="stroke:#181818;stroke-width:0.45;" width="135.5458" x="396" y="188.1" /><polygon fill="#F1F1F1" points="516.2458,192.6,516.2458,205.2,527.0458,205.2,527.0458,198,521.6458,192.6,516.2458,192.6" style="stroke:#181818;stroke-width:0.45;" /><line style="stroke:#181818;stroke-width:0.45;" x1="521.6458" x2="521.6458" y1="192.6" y2="198" /><line style="stroke:#181818;stroke-width:0.45;" x1="527.0458" x2="521.6458" y1="198" y2="198" /><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="108.5458" x="405" y="212.8799">Specimen: Muestra</text></a></g><!--entity Organization--><g class="entity" data-entity="Organization" data-source-line="13" data-uid="ent0009" id="entity_Organization"><rect fill="#F1F1F1" height="36.5484" rx="2.25" ry="2.25" style="stroke:#181818;stroke-width:0.45;" width="179.6827" x="392.85" y="369.9" /><polygon fill="#F1F1F1" points="557.2327,374.4,557.2327,387,568.0327,387,568.0327,379.8,562.6327,374.4,557.2327,374.4" style="stroke:#181818;stroke-width:0.45;" /><line style="stroke:#181818;stroke-width:0.45;" x1="562.6327" x2="562.6327" y1="374.4" y2="379.8" /><line style="stroke:#181818;stroke-width:0.45;" x1="568.0327" x2="562.6327" y1="379.8" y2="379.8" /><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="152.6827" x="401.85" y="394.6799">Organization: Organizaci&#243;n</text></g><!--link diagnosticReport to result--><g class="link" data-entity-1="diagnosticReport" data-entity-2="result" data-source-line="27" data-uid="lnk10" id="link_diagnosticReport_result"><path d="M257.85,43.587 C257.85,59.292 257.85,76.14 257.85,91.755" fill="none" id="diagnosticReport-to-result" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="257.85,97.155,261.45,89.055,257.85,92.655,254.25,89.055,257.85,97.155" style="stroke:#181818;stroke-width:0.9;" /></g><!--link diagnosticReport to humanPatient--><g class="link" data-entity-1="diagnosticReport" data-entity-2="humanPatient" data-source-line="28" data-uid="lnk11" id="link_diagnosticReport_humanPatient"><path d="M101.196,18.9 C49.707,18.9 5.4,18.9 5.4,18.9 C5.4,18.9 5.4,395.1 5.4,395.1 C5.4,395.1 47.61,395.1 93.924,395.1" fill="none" id="diagnosticReport-to-humanPatient" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="99.324,395.1,91.224,391.5,94.824,395.1,91.224,398.7,99.324,395.1" style="stroke:#181818;stroke-width:0.9;" /></g><!--link diagnosticReport to PractitionerRole--><g class="link" data-entity-1="diagnosticReport" data-entity-2="PractitionerRole" data-source-line="29" data-uid="lnk12" id="link_diagnosticReport_PractitionerRole"><path d="M414.576,18.9 C534.249,18.9 678.753,18.9 678.753,18.9 C678.753,18.9 678.753,210.888 678.753,273.339" fill="none" id="diagnosticReport-to-PractitionerRole" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="678.753,278.739,682.353,270.639,678.753,274.239,675.153,270.639,678.753,278.739" style="stroke:#181818;stroke-width:0.9;" /></g><!--link diagnosticReport to ServiceRequest--><g class="link" data-entity-1="diagnosticReport" data-entity-2="ServiceRequest" data-source-line="30" data-uid="lnk13" id="link_diagnosticReport_ServiceRequest"><path d="M101.061,31.5 C54.747,31.5 16.2,31.5 16.2,31.5 C16.2,31.5 16.2,297.9 16.2,297.9 C16.2,297.9 34.254,297.9 66.546,297.9" fill="none" id="diagnosticReport-to-ServiceRequest" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="71.946,297.9,63.846,294.3,67.446,297.9,63.846,301.5,71.946,297.9" style="stroke:#181818;stroke-width:0.9;" /></g><!--link diagnosticReport to Specimen--><g class="link" data-entity-1="diagnosticReport" data-entity-2="Specimen" data-source-line="31" data-uid="lnk14" id="link_diagnosticReport_Specimen"><path d="M414.504,31.5 C465.993,31.5 510.3,31.5 510.3,31.5 C510.3,31.5 510.3,137.259 510.3,182.421" fill="none" id="diagnosticReport-to-Specimen" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="510.3,187.821,513.9,179.721,510.3,183.321,506.7,179.721,510.3,187.821" style="stroke:#181818;stroke-width:0.9;" /></g><!--link result to humanPatient--><g class="link" data-entity-1="result" data-entity-2="humanPatient" data-source-line="41" data-uid="lnk15" id="link_result_humanPatient"><path d="M49.5,134.415 C49.5,195.156 49.5,382.5 49.5,382.5 C49.5,382.5 66.816,382.5 93.708,382.5" fill="none" id="result-to-humanPatient" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="99.108,382.5,91.008,378.9,94.608,382.5,91.008,386.1,99.108,382.5" style="stroke:#181818;stroke-width:0.9;" /></g><!--link result to PractitionerRole--><g class="link" data-entity-1="result" data-entity-2="PractitionerRole" data-source-line="42" data-uid="lnk16" id="link_result_PractitionerRole"><path d="M488.745,116.1 C554.742,116.1 609.147,116.1 609.147,116.1 C609.147,116.1 609.147,226.989 609.147,273.321" fill="none" id="result-to-PractitionerRole" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="609.147,278.721,612.747,270.621,609.147,274.221,605.547,270.621,609.147,278.721" style="stroke:#181818;stroke-width:0.9;" /></g><!--link result to ServiceRequest--><g class="link" data-entity-1="result" data-entity-2="ServiceRequest" data-source-line="43" data-uid="lnk17" id="link_result_ServiceRequest"><path d="M234,134.424 C234,169.353 234,238.527 234,273.384" fill="none" id="result-to-ServiceRequest" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="234,278.784,237.6,270.684,234,274.284,230.4,270.684,234,278.784" style="stroke:#181818;stroke-width:0.9;" /></g><!--link result to Specimen--><g class="link" data-entity-1="result" data-entity-2="Specimen" data-source-line="44" data-uid="lnk18" id="link_result_Specimen"><path d="M442.35,134.487 C442.35,150.192 442.35,167.04 442.35,182.655" fill="none" id="result-to-Specimen" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="442.35,188.055,445.95,179.955,442.35,183.555,438.75,179.955,442.35,188.055" style="stroke:#181818;stroke-width:0.9;" /></g><!--link ServiceRequest to humanPatient--><g class="link" data-entity-1="ServiceRequest" data-entity-2="humanPatient" data-source-line="46" data-uid="lnk19" id="link_ServiceRequest_humanPatient"><path d="M157.05,316.287 C157.05,331.992 157.05,348.84 157.05,364.455" fill="none" id="ServiceRequest-to-humanPatient" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="157.05,369.855,160.65,361.755,157.05,365.355,153.45,361.755,157.05,369.855" style="stroke:#181818;stroke-width:0.9;" /></g><!--link Specimen to humanPatient--><g class="link" data-entity-1="Specimen" data-entity-2="humanPatient" data-source-line="48" data-uid="lnk20" id="link_Specimen_humanPatient"><path d="M473.103,225.225 C473.103,262.566 473.103,342.9 473.103,342.9 C473.103,342.9 214.65,342.9 214.65,342.9 C214.65,342.9 214.65,351.882 214.65,364.464" fill="none" id="Specimen-to-humanPatient" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="214.65,369.864,218.25,361.764,214.65,365.364,211.05,361.764,214.65,369.864" style="stroke:#181818;stroke-width:0.9;" /></g><!--link Specimen to PractitionerRole--><g class="link" data-entity-1="Specimen" data-entity-2="PractitionerRole" data-source-line="49" data-uid="lnk21" id="link_Specimen_PractitionerRole"><path d="M502.497,225.036 C502.497,251.73 502.497,297.9 502.497,297.9 C502.497,297.9 512.874,297.9 533.898,297.9" fill="none" id="Specimen-to-PractitionerRole" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="539.298,297.9,531.198,294.3,534.798,297.9,531.198,301.5,539.298,297.9" style="stroke:#181818;stroke-width:0.9;" /></g><!--link Specimen to ServiceRequest--><g class="link" data-entity-1="Specimen" data-entity-2="ServiceRequest" data-source-line="50" data-uid="lnk22" id="link_Specimen_ServiceRequest"><path d="M419.85,225.387 C419.85,241.092 419.85,257.94 419.85,273.555" fill="none" id="Specimen-to-ServiceRequest" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="419.85,278.955,423.45,270.855,419.85,274.455,416.25,270.855,419.85,278.955" style="stroke:#181818;stroke-width:0.9;" /></g><!--link PractitionerRole to Practitioner--><g class="link" data-entity-1="PractitionerRole" data-entity-2="Practitioner" data-source-line="52" data-uid="lnk23" id="link_PractitionerRole_Practitioner"><path d="M676.575,316.287 C676.575,331.992 676.575,348.84 676.575,364.455" fill="none" id="PractitionerRole-to-Practitioner" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="676.575,369.855,680.175,361.755,676.575,365.355,672.975,361.755,676.575,369.855" style="stroke:#181818;stroke-width:0.9;" /></g><!--link PractitionerRole to Organization--><g class="link" data-entity-1="PractitionerRole" data-entity-2="Organization" data-source-line="53" data-uid="lnk24" id="link_PractitionerRole_Organization"><path d="M556.2,316.287 C556.2,331.992 556.2,348.84 556.2,364.455" fill="none" id="PractitionerRole-to-Organization" style="stroke:#181818;stroke-width:0.9;" /><polygon fill="#181818" points="556.2,369.855,559.8,361.755,556.2,365.355,552.6,361.755,556.2,369.855" style="stroke:#181818;stroke-width:0.9;" /></g></g></svg></p>
+<p>Figura 1 - Vista general de la Relación de los Perfiles</p>
+<p></p>
+</div>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2025+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.r2bo#0.3.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 14, 2026 12:43-0300">2026-09-14</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> 
+<!-- <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/r2bo"></a> -->
+</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

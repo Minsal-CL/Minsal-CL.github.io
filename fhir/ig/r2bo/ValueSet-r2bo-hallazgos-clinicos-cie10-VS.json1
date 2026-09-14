@@ -1,0 +1,59 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "r2bo-hallazgos-clinicos-cie10-VS",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet r2bo-hallazgos-clinicos-cie10-VS</b></p><a name=\"r2bo-hallazgos-clinicos-cie10-VS\"> </a><a name=\"hcr2bo-hallazgos-clinicos-cie10-VS\"> </a><ul><li>Include codes from<code>http://hl7.org/fhir/sid/icd-10</code><span title=\"Version is explicitly stated to be 2019-covid-expanded\"> version &#x1F4CD;2019-covid-expanded</span> where concept  descends from II (Neoplasms) and kind  = category</li></ul></div>"
+  },
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/r2bo/ValueSet/r2bo-hallazgos-clinicos-cie10-VS",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.2.22.40.8.48.6"
+  }],
+  "version" : "0.3.2",
+  "name" : "HallazgosClinicosCIE10VS",
+  "title" : "ValueSet Para Hallazgos Clínicos",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2026-09-14T12:54:10-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [{
+    "name" : "Unidad de Interoperabilidad - MINSAL",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://interoperabilidad.minsal.cl"
+    }]
+  },
+  {
+    "name" : "Franco Ulloa",
+    "telecom" : [{
+      "system" : "email",
+      "value" : "franco.ulloa@minsal.cl",
+      "use" : "work"
+    }]
+  }],
+  "description" : "Este ValueSet contiene los códigos que representan las neoplasias de la CIE 10",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "CL",
+      "display" : "Chile"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10",
+      "version" : "2019-covid-expanded",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "descendent-of",
+        "value" : "II"
+      },
+      {
+        "property" : "kind",
+        "op" : "=",
+        "value" : "category"
+      }]
+    }]
+  }
+}
