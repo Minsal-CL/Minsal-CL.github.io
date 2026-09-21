@@ -14,25 +14,65 @@ Para elevar la madurez del sistema de salud chileno, acelerar la adopción y fav
 	<p>Estos principios deben orientar las decisiones de arquitectura, adquisición, implementación y evolución de las soluciones que intercambian información de salud.</p>
 </div>
 
-{: .principles-list }
-1. Disponibilidad y accesibilidad de la información: Es esencial eliminar las barreras que puedan dificultar o restringir el acceso, tales como las barreras físicas, tecnológicas o de comunicación. 
+<div class="doc-grid">
+	<div class="doc-card">
+		<span class="doc-card__label">01</span>
+		<strong>Disponibilidad y accesibilidad de la información</strong>
+		<span>Es esencial eliminar las barreras que puedan dificultar o restringir el acceso, tales como las barreras físicas, tecnológicas o de comunicación.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">02</span>
+		<strong>Implementabilidad</strong>
+		<span>Es fundamental simplificar la implementación eficaz de los estándares vigentes, teniendo en cuenta la posibilidad de futuras actualizaciones de estos estándares, las cuales deberán ser consensuadas.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">03</span>
+		<strong>Privacidad</strong>
+		<span>El derecho fundamental de una persona a controlar su información personal y decidir cómo se recopila, utiliza, almacena y comparte, incorporado desde el inicio del diseño y desarrollo de sistemas y tecnologías: consentimiento, acceso a la información personal y transparencia en su uso.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">04</span>
+		<strong>Seguridad de la información y ciberseguridad</strong>
+		<span>Estándares y protocolos compartidos, con cifrado y autenticación en las comunicaciones para prevenir accesos no autorizados, verificar integridad de los datos, y planes de contingencia y recuperación que mantengan la seguridad en situaciones de fallo.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">05</span>
+		<strong>Neutralidad tecnológica</strong>
+		<span>Seleccionar las tecnologías más adecuadas según necesidades y requisitos, sin dependencias de conocimiento, información o datos involucradas en la elección.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">06</span>
+		<strong>Actualización</strong>
+		<span>Mantener las plataformas al día con tecnologías que no estén obsoletas ni carezcan de soporte, y preservar los contenidos de formatos de archivo electrónicos que queden en desuso.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">07</span>
+		<strong>Equivalencia funcional</strong>
+		<span>Los actos suscritos de manera electrónica son válidos y generan los mismos efectos legales que si hubieran sido realizados en formato físico en papel.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">08</span>
+		<strong>Fidelidad</strong>
+		<span>La información debe registrarse y conservarse de manera íntegra y en orden sucesivo, asegurando su exactitud, preservación y posibilidad de reproducción.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">09</span>
+		<strong>Cooperación</strong>
+		<span>Es esencial cooperar efectivamente entre instituciones en la utilización de medios electrónicos.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">10</span>
+		<strong>Identificación y autenticación unívoca</strong>
+		<span>Verificar de manera inequívoca la identidad de un usuario o entidad antes de otorgarle acceso a un sistema, aplicación o recurso: que quien intenta acceder es quien afirma ser.</span>
+	</div>
+	<div class="doc-card">
+		<span class="doc-card__label">11</span>
+		<strong>Confidencialidad</strong>
+		<span>Proteger la información sensible o privada de manera que solo las personas o entidades autorizadas tengan acceso a ella.</span>
+	</div>
+</div>
 
-2. Implementabilidad: Es fundamental simplificar la implementación eficaz de los estándares vigentes, teniendo en cuenta la posibilidad de futuras actualizaciones de estos estándares, las cuales deberán ser consensuadas. 
-
-3. Privacidad: Se refiere al derecho fundamental de una persona a controlar su información personal y decidir cómo se recopila, utiliza, almacena y comparte, debiendo ser incorporada desde el inicio del diseño y desarrollo de sistemas y tecnologías. Puede abordar aspectos como el consentimiento para la recopilación de datos, el acceso a la información personal y la transparencia en la utilización de datos personales. 
-
-4. Seguridad de la Información y Ciberseguridad: Es fundamental establecer estándares y protocolos de comunicación compartidos. Esto implica la implementación de cifrado y autenticación en las comunicaciones para prevenir accesos no autorizados y garantizar la confidencialidad de los datos. Asimismo, es esencial establecer procedimientos seguros para el intercambio de información, verificando la integridad de los datos. Además, se deben diseñar planes de contingencia y recuperación que consideren la interoperabilidad, con el propósito de mantener la seguridad en situaciones de fallo. 
-
-5. Neutralidad tecnológica: Se deben seleccionar las tecnologías más adecuadas según las necesidades y requisitos para el desarrollo, adquisición, uso o comercialización, sin que haya dependencias de conocimiento, como la información o los datos, involucradas en esta elección 
-
-6. Actualización: Es esencial mantener las plataformas al día con tecnologías que no estén obsoletas ni carezcan de soporte. Además, se deben implementar medidas para preservar los contenidos de formatos de archivo electrónicos que queden en desuso. 
-
-7. Equivalencia funcional: Los actos suscritos de manera electrónica serán válidos y generarán los mismos efectos legales que si hubieran sido realizados en formato físico en papel. 
-
-8. Fidelidad: La información debe ser registrada y conservada de manera íntegra y en un orden sucesivo, asegurando su exactitud, preservación y posibilidad de reproducción. 
-
-9. Cooperación: Es esencial cooperar efectivamente entre instituciones en la utilización de medios electrónicos 
-
-10. Identificación y autenticación unívoca: Se debe verificar de manera inequívoca la identidad de un usuario o entidad antes de otorgarle acceso a un sistema, aplicación o recurso. Implica asegurarse de que la persona o entidad que intenta acceder es quien afirma ser y no otra persona no autorizada 
-
-11. Confidencialidad: Es fundamental proteger la información sensible o privada de manera que solo las personas o entidades autorizadas tengan acceso a ella. 
+<div class="doc-summary">
+	<p class="doc-summary__eyebrow">Marco legal</p>
+	<p>La protección de la información y el resguardo de datos sensibles se exige desde el diseño, conforme a la Ley N.° 21.663 (Ciberseguridad) y la Ley N.° 21.719 (Protección de Datos Personales).</p>
+</div>

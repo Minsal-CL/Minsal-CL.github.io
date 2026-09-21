@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Historial de cambios - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1</title>
+    <title>Historial de cambios - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -68,7 +68,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
             <br/>
-            <span style="display:inline-block;">0.2.1 - ci-build
+            <span style="display:inline-block;">0.3.0 - ci-build
 
 
 
@@ -149,7 +149,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.2.1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Historial de cambios</h2>
   
 
@@ -168,18 +168,25 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#historial-de-cambios" id="markdown-toc-historial-de-cambios">Historial de cambios</a>    <ul>
-      <li><a href="#versión-021" id="markdown-toc-versión-021">Versión 0.2.1</a>        <ul>
+      <li><a href="#versión-030" id="markdown-toc-versión-030">Versión 0.3.0</a>        <ul>
+          <li><a href="#reenfoque-de-alcance" id="markdown-toc-reenfoque-de-alcance">Reenfoque de alcance</a></li>
           <li><a href="#perfiles" id="markdown-toc-perfiles">Perfiles</a></li>
-          <li><a href="#terminología" id="markdown-toc-terminología">Terminología</a></li>
+          <li><a href="#ejemplos" id="markdown-toc-ejemplos">Ejemplos</a></li>
           <li><a href="#documentación" id="markdown-toc-documentación">Documentación</a></li>
+        </ul>
+      </li>
+      <li><a href="#versión-021" id="markdown-toc-versión-021">Versión 0.2.1</a>        <ul>
+          <li><a href="#perfiles-1" id="markdown-toc-perfiles-1">Perfiles</a></li>
+          <li><a href="#terminología" id="markdown-toc-terminología">Terminología</a></li>
+          <li><a href="#documentación-1" id="markdown-toc-documentación-1">Documentación</a></li>
           <li><a href="#corrección-de-mapeo" id="markdown-toc-corrección-de-mapeo">Corrección de mapeo</a></li>
         </ul>
       </li>
       <li><a href="#versión-020" id="markdown-toc-versión-020">Versión 0.2.0</a>        <ul>
-          <li><a href="#perfiles-1" id="markdown-toc-perfiles-1">Perfiles</a></li>
+          <li><a href="#perfiles-2" id="markdown-toc-perfiles-2">Perfiles</a></li>
           <li><a href="#identificación-de-la-guía" id="markdown-toc-identificación-de-la-guía">Identificación de la guía</a></li>
           <li><a href="#dependencias" id="markdown-toc-dependencias">Dependencias</a></li>
-          <li><a href="#documentación-1" id="markdown-toc-documentación-1">Documentación</a></li>
+          <li><a href="#documentación-2" id="markdown-toc-documentación-2">Documentación</a></li>
         </ul>
       </li>
       <li><a href="#versión-010" id="markdown-toc-versión-010">Versión 0.1.0</a></li>
@@ -190,9 +197,48 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <h1 id="historial-de-cambios">Historial de cambios</h1>
 
-<h2 id="versión-021">Versión 0.2.1</h2>
+<h2 id="versión-030">Versión 0.3.0</h2>
+
+<h3 id="reenfoque-de-alcance">Reenfoque de alcance</h3>
+
+<ul>
+  <li>Se prioriza la recepción del resultado de laboratorio por sobre la profundización del proceso interno de solicitud y toma de muestra. El Caso de uso 3 (resultado atomizado por prestación) pasa de "Fase 2, a futuro" a tener la misma prioridad que el Caso de uso 2 (informe PDF) en esta fase; los perfiles de <code class="language-plaintext highlighter-rouge">Observation</code> para el resultado atómico quedan en diseño.</li>
+  <li>El Caso de uso 1 (creación de solicitud) se mantiene en sus dos modalidades ya publicadas (FHIR nativo, HL7 v2), sin agregar actos intermedios de aceptación de la muestra en el laboratorio ni escenarios de derivación entre establecimientos distintos. Se aclara que el mismo <code class="language-plaintext highlighter-rouge">Bundle</code> de la solicitud puede incluir el o los <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> cuando el emisor ya conoce los datos de la muestra al momento de generarla.</li>
+  <li>La profundización del proceso de solicitud y toma de muestra (actos intermedios, derivación entre establecimientos) queda documentada como Fase 2, a futuro, fuera del alcance de esta versión.</li>
+</ul>
 
 <h3 id="perfiles">Perfiles</h3>
+
+<h4 id="minsalespecimenlaboratorio">MinsalEspecimenLaboratorio</h4>
+
+<ul>
+  <li>Se retira la extensión <code class="language-plaintext highlighter-rouge">motivoRechazo</code> (<code class="language-plaintext highlighter-rouge">specimen-reject-reason</code>) y el <code class="language-plaintext highlighter-rouge">ValueSet</code> <code class="language-plaintext highlighter-rouge">VSMotivoRechazoMuestraLaboratorio</code>: dependen de modelar la recepción y evaluación de la muestra por parte del laboratorio, que queda para la Fase 2. El motivo de cancelación por no presentación del paciente (<code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab.motivoCancelacion</code>) no depende de eso y se mantiene.</li>
+  <li>Se retira el ejemplo <code class="language-plaintext highlighter-rouge">EspecimenRechazadoEjemplo</code>, ligado a la extensión retirada.</li>
+</ul>
+
+<h4 id="resultadodiagnosticolaboratorio">ResultadoDiagnosticoLaboratorio</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">basedOn</code> pasa de <code class="language-plaintext highlighter-rouge">1..* MS</code> a <code class="language-plaintext highlighter-rouge">0..* MS</code>: un laboratorio puede emitir un resultado (PDF y/o dato atómico) sin una <code class="language-plaintext highlighter-rouge">ServiceRequest</code> previa registrada en el Bus, cuando el examen se originó y procesó íntegramente en su propio sistema. Cuando exista una solicitud registrada, se recomienda referenciarla siempre mediante <code class="language-plaintext highlighter-rouge">basedOn</code> (ver <code class="language-plaintext highlighter-rouge">^comment</code> del elemento y "Definición de alcance" en Casos de uso, Caso de uso 2).</li>
+</ul>
+
+<h3 id="ejemplos">Ejemplos</h3>
+
+<ul>
+  <li>Nuevo <code class="language-plaintext highlighter-rouge">ResultadoMultipleEjemplo</code> (<code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code>): primer ejemplo de informe de resultado de la guía. Responde con un único informe (PDF embebido) a las cinco prestaciones de <code class="language-plaintext highlighter-rouge">BundleSolicitudMultipleEjemplo</code>, reflejando el patrón de informe único por orden agrupada.</li>
+  <li>Nuevo <code class="language-plaintext highlighter-rouge">ResultadoIndependienteEjemplo</code> (<code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code>): informe sin <code class="language-plaintext highlighter-rouge">basedOn</code>, para el caso de un laboratorio que envía su resultado sin solicitud previa registrada en el Bus.</li>
+  <li>Se corrige una corrupción de doble codificación UTF-8 en <code class="language-plaintext highlighter-rouge">CancelacionEjemplo.fsh</code> (afectaba tildes y "ó"/"í" en varios campos de texto).</li>
+</ul>
+
+<h3 id="documentación">Documentación</h3>
+
+<ul>
+  <li><strong>Casos de uso</strong>: se actualiza la tabla "Alcance por fases" y la introducción de UC3 para reflejar el reenfoque. Caso de uso 4 queda con un solo flujo (no presentación del paciente); se retira el flujo de rechazo de muestra y se reduce la tabla de terminología de cancelación a un solo motivo. Se reemplaza el "Punto abierto" sobre <code class="language-plaintext highlighter-rouge">basedOn</code> por "Definición de alcance": el resultado puede recibirse sin solicitud previa registrada en el Bus. <strong>Inicio</strong>: se agrega una referencia a la recepción del resultado atómico junto al informe PDF.</li>
+</ul>
+
+<h2 id="versión-021">Versión 0.2.1</h2>
+
+<h3 id="perfiles-1">Perfiles</h3>
 
 <h4 id="minsalbundlesolicitudlaboratorio-nuevo">MinsalBundleSolicitudLaboratorio (nuevo)</h4>
 
@@ -211,7 +257,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><code class="language-plaintext highlighter-rouge">OrganizacionParticipanteLaboratorio.identifier.system</code> adopta <code class="language-plaintext highlighter-rouge">http://deis.minsal.cl/establecimientos</code>, el mismo URI que ya usan las guías de Tiempos de Espera Quirúrgico e IG_Urgencia para el Código DEIS del establecimiento, en vez de un URI propio de esta guía. CoreOrganizacionCl no fija aún un <code class="language-plaintext highlighter-rouge">system</code> oficial para este dato.</li>
 </ul>
 
-<h4 id="minsalespecimenlaboratorio">MinsalEspecimenLaboratorio</h4>
+<h4 id="minsalespecimenlaboratorio-1">MinsalEspecimenLaboratorio</h4>
 
 <ul>
   <li>Nueva extensión <code class="language-plaintext highlighter-rouge">motivoRechazo</code> (<code class="language-plaintext highlighter-rouge">http://hl7.org/fhir/StructureDefinition/specimen-reject-reason</code>, 0..1 MS), para documentar el motivo cuando <code class="language-plaintext highlighter-rouge">status = #unsatisfactory</code>. Ligada a <code class="language-plaintext highlighter-rouge">VSMotivoRechazoMuestraLaboratorio</code> (extensible).</li>
@@ -224,7 +270,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li>Nuevo <code class="language-plaintext highlighter-rouge">VSMotivoCancelacionSolicitudLaboratorio</code>: referencia el código SNOMED CT <code class="language-plaintext highlighter-rouge">270426007</code> ("Did not attend"), sin definir códigos propios.</li>
 </ul>
 
-<h3 id="documentación">Documentación</h3>
+<h3 id="documentación-1">Documentación</h3>
 
 <ul>
   <li><strong>Casos de uso</strong>: nuevo Caso de uso 4 (cancelación o anulación de solicitud), con los dos flujos de rechazo de muestra y no presentación del paciente, y su terminología.</li>
@@ -240,7 +286,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h2 id="versión-020">Versión 0.2.0</h2>
 
-<h3 id="perfiles-1">Perfiles</h3>
+<h3 id="perfiles-2">Perfiles</h3>
 
 <h4 id="pacientelaboratorio">PacienteLaboratorio</h4>
 
@@ -285,7 +331,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li>Se agrega dependencia con <code class="language-plaintext highlighter-rouge">hl7.fhir.cl.clcore</code> versión 1.8.5.</li>
 </ul>
 
-<h3 id="documentación-1">Documentación</h3>
+<h3 id="documentación-2">Documentación</h3>
 
 <ul>
   <li>Nueva página <strong>Casos de uso</strong>: actores del flujo, los dos puntos de integración (FHIR directo y HL7 v2 homologado), alcance por fases, y tres casos de uso con diagramas de secuencia (creación de solicitud con variantes FHIR y HL7 v2, recepción de resultado con informe PDF, y resultado atomizado por prestación documentado como fase futura).</li>
@@ -318,7 +364,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.2.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 10, 2026 11:13-0300">2026-09-10</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Sep 15, 2026 10:16-0300">2026-09-15</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

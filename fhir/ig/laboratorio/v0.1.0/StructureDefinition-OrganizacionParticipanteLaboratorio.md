@@ -1,4 +1,4 @@
-# Organización participante en el flujo de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Organización participante en el flujo de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio | *Version*:0.2.1 |
-| Draft as of 2026-09-10 | *Computable Name*:OrganizacionParticipanteLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio | *Version*:0.3.0 |
+| Draft as of 2026-09-15 | *Computable Name*:OrganizacionParticipanteLaboratorio |
 
  
 Perfil para representar establecimientos de origen, laboratorios ejecutores y otras organizaciones participantes en el intercambio de solicitudes y resultados de laboratorio. Extiende el perfil de organización de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Organization de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-OrganizacionParticip
   "resourceType" : "StructureDefinition",
   "id" : "OrganizacionParticipanteLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio",
-  "version" : "0.2.1",
+  "version" : "0.3.0",
   "name" : "OrganizacionParticipanteLaboratorio",
   "title" : "Organización participante en el flujo de laboratorio",
   "status" : "draft",
-  "date" : "2026-09-10T11:13:46-03:00",
+  "date" : "2026-09-15T10:16:15-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

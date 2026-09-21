@@ -1,4 +1,4 @@
-# Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * **Casos de uso**
@@ -33,25 +33,25 @@ Ambos puntos convergen en el mismo modelo canónico definido por esta guía. Un 
 
 ## Alcance por fases
 
-La guía define una entrada gradual de mensajes:
+Esta guía prioriza la estandarización del **resultado** de laboratorio, que es el punto donde el Bus de Interoperabilidad aporta mayor valor con menor dependencia de la madurez de integración de cada establecimiento. El proceso interno de solicitud y toma de muestra se cubre en su forma más simple (dos modalidades de envío, sin distinguir actos intermedios de aceptación en bandeja ni escenarios de derivación entre establecimientos), y se profundizará en una fase posterior, cuando existan acuerdos de integración más maduros con los sistemas HIS y LIS.
 
 | | | |
 | :--- | :--- | :--- |
-| Fase 1 (alcance de esta versión) | Creación de solicitud (UC1) y resultado con informe PDF (UC2) | En desarrollo, con perfiles y ejemplos publicados |
-| Fase 2 (a futuro) | Resultado atomizado por prestación (UC3) | Pendiente de diseño, descrito de forma conceptual en esta página |
+| Fase 1 (alcance de esta versión) | Creación de solicitud (UC1, en sus dos modalidades) y recepción del resultado, tanto como informe PDF (UC2) como dato atómico por prestación (UC3) | UC1 y UC2 en desarrollo, con perfiles y ejemplos publicados; UC3 priorizado en esta fase, con perfiles de`Observation`en diseño |
+| Fase 2 (a futuro) | Profundización del proceso de solicitud y toma de muestra: actos intermedios de aceptación de la muestra en el laboratorio, y escenarios de derivación entre establecimientos distintos | Fuera del alcance de esta versión |
 
-> Punto abierto: aún no está definido si la implementación exigirá siempre solicitud y resultado en conjunto, o si el resultado podrá recibirse sin una solicitud previa registrada en el Bus. Recibir solo resultados simplifica la integración inicial, pero sin la solicitud no es posible saber que un paciente está en lista de espera de un examen. MINSAL levantará esta información formalmente vía oficio a los establecimientos (para saber si generan solicitud en origen, si la tienen integrada, o si la ingresan directamente en el laboratorio) antes de definir el flujo con mayor precisión. Mientras no se resuelva, esta guía documenta UC1 y UC2 como flujos que pueden operar de forma independiente (ver "Resultados de laboratorio" en [Inicio](index.md)), pero recomienda registrar siempre la solicitud cuando el establecimiento la genere.
+> Definición de alcance: `ResultadoDiagnosticoLaboratorio.basedOn` no es obligatorio. La implementación no exige siempre solicitud y resultado en conjunto: un laboratorio puede enviar su resultado (PDF y/o dato atómico) sin una solicitud previa registrada en el Bus, cuando el examen se originó y se procesó íntegramente en su propio sistema. Cuando el establecimiento sí genera y registra la solicitud en el Bus, se recomienda referenciarla siempre mediante `basedOn`, ya que permite trazabilidad y saber que un paciente está en lista de espera de un examen. MINSAL levantará vía oficio a los establecimientos la información sobre cómo cada uno genera sus solicitudes (en origen, integrada, o directo en el laboratorio), lo que podrá afinar esta recomendación a futuro sin cambiar la cardinalidad ya definida.
 
 ## Caso de uso 1: Creación de solicitud de laboratorio
 
 Un establecimiento genera una o más prestaciones de laboratorio para un paciente y las envía al Bus de Interoperabilidad, donde quedan disponibles para el laboratorio ejecutor y para consulta posterior (por ejemplo, al recibir el resultado).
 
-Recurso focal: `MinsalServiceRequestLab` (perfil de `ServiceRequest`). Cuando la orden agrupa varias prestaciones, se crea un `ServiceRequest` por cada una, compartiendo el mismo `requisition` (ver "Solicitud con múltiples prestaciones" en [Inicio](index.md)).
+Recurso focal: `MinsalServiceRequestLab` (perfil de `ServiceRequest`). Cuando la orden agrupa varias prestaciones, se crea un `ServiceRequest` por cada una, compartiendo el mismo `requisition` (ver "Solicitud con múltiples prestaciones" en [Inicio](index.md)). Cuando el emisor ya conoce los datos de la muestra al momento de generar la solicitud, el mismo `Bundle` puede incluir también el o los recursos `MinsalEspecimenLaboratorio` correspondientes; esta guía no exige un acto separado para asociar la muestra.
 
 ### UC1-a: Establecimiento con integración FHIR nativa
 
 1. El establecimiento resuelve la identidad del paciente contra el MPI (directamente o a través del Bus, según el acuerdo de integración) y obtiene o confirma`PacienteLaboratorio`.
-1. El establecimiento construye uno o más recursos`MinsalServiceRequestLab`, referenciando al paciente, al profesional solicitante (`MinsalPractitionerLaboratorio`) y a la organización de origen (`OrganizacionParticipanteLaboratorio`).
+1. El establecimiento construye uno o más recursos`MinsalServiceRequestLab`, referenciando al paciente, al profesional solicitante (`MinsalPractitionerLaboratorio`) y a la organización de origen (`OrganizacionParticipanteLaboratorio`), junto con el o los`MinsalEspecimenLaboratorio`cuando ya se conocen.
 1. El establecimiento envía un`Bundle`de tipo`transaction`con`POST`a la raíz del servidor del Bus.
 1. El Bus valida los recursos contra los perfiles de esta guía y, si son correctos, los registra y responde con el estado de cada entrada.
 
@@ -92,15 +92,15 @@ GET [URL_Base]/ServiceRequest?requisition=[valor_requisition]
 
 El laboratorio ejecutor procesa la muestra y genera un resultado, que incluye al menos el informe en PDF. Este caso de uso corresponde a la Fase 1 de esta guía: solicitud y resultado con PDF, sin resultado atomizado por prestación.
 
-Recurso focal: `ResultadoDiagnosticoLaboratorio` (perfil de `DiagnosticReport`), con el PDF codificado en `presentedForm.data`.
+Recurso focal: `ResultadoDiagnosticoLaboratorio` (perfil de `DiagnosticReport`), con el PDF codificado en `presentedForm.data`. Ver el ejemplo `ResultadoMultipleEjemplo`: un informe único que responde a las cinco prestaciones agrupadas de `BundleSolicitudMultipleEjemplo` mediante `basedOn`. Ver también el ejemplo `ResultadoIndependienteEjemplo`: un informe que llega sin ninguna solicitud previa registrada en el Bus (`basedOn` ausente), caso de un laboratorio cuyo examen se originó y procesó íntegramente en su propio sistema.
 
-1. El laboratorio genera el resultado, referenciando en`basedOn`la solicitud original (`MinsalServiceRequestLab`).
+1. El laboratorio genera el resultado. Si existe una solicitud registrada en el Bus (`MinsalServiceRequestLab`), la referencia en`basedOn`; si el examen se originó y procesó íntegramente en el propio laboratorio, sin solicitud previa registrada en el Bus,`basedOn`se omite (ver "Definición de alcance" más arriba).
 1. Si el origen es HL7 v2, el mensaje`ORU^R01`incluye el PDF en Base64 en`OBX-5`(tipo`ED`); el Bus lo transforma a`DiagnosticReport.presentedForm`según[Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.md).
 1. Si el origen es FHIR nativo, el laboratorio construye directamente`ResultadoDiagnosticoLaboratorio`con`presentedForm`.
-1. El Bus valida que`basedOn`resuelva contra una solicitud existente y publica el resultado en el modelo canónico.
-1. El Portal Ciudadano y otros consumidores autorizados consultan el resultado por paciente o por solicitud.
+1. Si`basedOn`está presente, el Bus valida que resuelva contra una solicitud existente; publica el resultado en el modelo canónico en ambos casos.
+1. El Portal Ciudadano y otros consumidores autorizados consultan el resultado por paciente o, cuando exista, por solicitud.
 
-sequenceDiagram participant LIS as Laboratorio (LIS) participant Bus as Bus de Interoperabilidad participant Portal as Portal Ciudadano LIS->>Bus: ORU^R01 (PDF Base64) / POST DiagnosticReport Bus->>Bus: valida basedOn -> ServiceRequest Bus->>Bus: transforma a ResultadoDiagnosticoLaboratorio Bus-->>LIS: ACK / 200 Portal->>Bus: GET DiagnosticReport Bus-->>Portal: resultado + PDF
+sequenceDiagram participant LIS as Laboratorio (LIS) participant Bus as Bus de Interoperabilidad participant Portal as Portal Ciudadano LIS->>Bus: ORU^R01 (PDF Base64) / POST DiagnosticReport Bus->>Bus: valida basedOn -> ServiceRequest (si viene informado) Bus->>Bus: transforma a ResultadoDiagnosticoLaboratorio Bus-->>LIS: ACK / 200 Portal->>Bus: GET DiagnosticReport Bus-->>Portal: resultado + PDF
 
 ### Operaciones
 
@@ -123,9 +123,9 @@ GET [URL_Base]/DiagnosticReport?based-on=[id_ServiceRequest]
 
 ```
 
-## Caso de uso 3 (Fase 2, a futuro): Resultado atomizado por prestación
+## Caso de uso 3: Resultado atomizado por prestación
 
-Este caso de uso está fuera del alcance de la versión actual de la guía. Se documenta aquí de forma conceptual porque corresponde al siguiente paso natural después de consolidar UC1 y UC2, y porque condiciona decisiones de perfilamiento que conviene anticipar (por ejemplo, la estructura de `DiagnosticReport.result`).
+Este caso de uso tiene la misma prioridad que UC2 en esta fase: ambos son formas válidas de recibir el resultado final, y un establecimiento puede optar por una, la otra, o ambas según su capacidad de integración. Los perfiles de `Observation` para este caso están en diseño; esta página documenta los puntos que deben resolverse antes de publicarlos.
 
 A diferencia de UC2, donde el PDF se transporta como documento opaco, el resultado atomizado exige representar cada resultado individual como un recurso `Observation` estructurado, referenciado desde `DiagnosticReport.result`. Esto requiere resolver, además de la identidad del paciente y la homologación de la prestación:
 
@@ -138,17 +138,7 @@ Los mensajes HL7 v2 de origen para este caso siguen siendo `ORU^R01`, pero con m
 
 ## Caso de uso 4: Cancelación o anulación de una solicitud
 
-Una solicitud puede cancelarse antes de que el laboratorio emita un resultado, por dos causas distintas: la muestra fue rechazada después de recibida, o el paciente no concurrió a la toma de muestra. Ambas causas se representan de forma distinta en esta guía, porque una involucra un `Specimen` y la otra no.
-
-### UC4-a: Rechazo de la muestra
-
-1. El laboratorio recibe la muestra y determina que no es apta para el análisis.
-1. El laboratorio registra`MinsalEspecimenLaboratorio.status = #unsatisfactory`y documenta el motivo mediante la extensión`specimen-reject-reason`, con un código del catálogo oficial HL7 v2 Tabla 0490 (ver "Terminología de cancelación" más abajo).
-1. La solicitud rechazada no se reutiliza: el establecimiento genera una nueva`MinsalServiceRequestLab`con nuevo identificador y nueva etiqueta, evitando el riesgo de reimprimir la etiqueta original. La solicitud original conserva su estado sin modificarse; la trazabilidad hacia la nueva solicitud queda documentada en`note`, a formalizar en una etapa posterior si se requiere una referencia estructurada.
-
-sequenceDiagram participant LIS as Laboratorio (LIS) participant Bus as Bus de Interoperabilidad LIS->>Bus: PUT Specimen (status=unsatisfactory, motivo=v2-0490) Bus->>Bus: valida contra MinsalEspecimenLaboratorio Bus-->>LIS: 200 OK Note over LIS,Bus: Se genera una nueva ServiceRequest con nuevo identificador y nueva etiqueta
-
-### UC4-b: Paciente no se presenta a la toma de muestra
+Una solicitud puede cancelarse antes de que el laboratorio emita un resultado. En esta fase, la guía cubre la causa que depende únicamente del `ServiceRequest`, sin requerir modelar la recepción o evaluación de la muestra por parte del laboratorio: el paciente no concurre a la toma de muestra.
 
 1. El paciente no concurre a la toma de muestra. No existe ningún`Specimen`asociado a la solicitud.
 1. El establecimiento o el laboratorio actualiza`MinsalServiceRequestLab.status = #revoked`y documenta el motivo mediante la extensión`request-statusReason`, con el código SNOMED CT correspondiente a "no presentación".
@@ -159,10 +149,9 @@ sequenceDiagram participant Est as Establecimiento / LIS participant Bus as Bus 
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| Muestra insuficiente | `MinsalEspecimenLaboratorio` | `specimen-reject-reason` | `v2-0490#QS`"Quantity not sufficient" |
-| Muestra coagulada | `MinsalEspecimenLaboratorio` | `specimen-reject-reason` | `v2-0490#RC`"Clotting" |
-| Muestra mal etiquetada | `MinsalEspecimenLaboratorio` | `specimen-reject-reason` | `v2-0490#RM`"Labeling" |
 | Paciente no se presenta | `MinsalServiceRequestLab` | `request-statusReason` | SNOMED CT`270426007`"Did not attend" |
 
-Ninguno de estos cuatro motivos define un código propio de esta guía. Los tres primeros reutilizan el catálogo oficial HL7 v2 Tabla 0490 (`http://terminology.hl7.org/CodeSystem/v2-0490`), el mismo que usa el segmento `SPM` de HL7 v2; el cuarto reutiliza SNOMED CT. Las dos extensiones (`specimen-reject-reason` y `request-statusReason`) son extensiones oficiales publicadas por HL7, no definiciones propias de MINSAL. El binding de ambos ValueSets de esta guía (`VSMotivoRechazoMuestraLaboratorio` y `VSMotivoCancelacionSolicitudLaboratorio`) es extensible: sugiere estos códigos como los motivos esperados, sin impedir usar otro código válido del mismo catálogo externo si se identifica un motivo no cubierto.
+Este motivo no define un código propio de esta guía: reutiliza SNOMED CT. La extensión `request-statusReason` es una extensión oficial publicada por HL7, no una definición propia de MINSAL. El binding del ValueSet `VSMotivoCancelacionSolicitudLaboratorio` es extensible: sugiere este código como el motivo esperado, sin impedir usar otro código válido del mismo catálogo externo si se identifica un motivo no cubierto.
+
+El rechazo de una muestra ya recibida por el laboratorio (por ejemplo, por cantidad insuficiente, coagulación o etiquetado defectuoso) no se cubre en esta fase, porque depende de modelar la recepción y evaluación de la muestra por parte del laboratorio, que queda para una fase posterior (ver "Alcance por fases").
 

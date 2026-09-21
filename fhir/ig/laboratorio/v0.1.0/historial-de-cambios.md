@@ -1,4 +1,4 @@
-# Historial de cambios - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Historial de cambios - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * **Historial de cambios**
@@ -6,6 +6,35 @@
 ## Historial de cambios
 
 # Historial de cambios
+
+## Versión 0.3.0
+
+### Reenfoque de alcance
+
+* Se prioriza la recepción del resultado de laboratorio por sobre la profundización del proceso interno de solicitud y toma de muestra. El Caso de uso 3 (resultado atomizado por prestación) pasa de "Fase 2, a futuro" a tener la misma prioridad que el Caso de uso 2 (informe PDF) en esta fase; los perfiles de `Observation` para el resultado atómico quedan en diseño.
+* El Caso de uso 1 (creación de solicitud) se mantiene en sus dos modalidades ya publicadas (FHIR nativo, HL7 v2), sin agregar actos intermedios de aceptación de la muestra en el laboratorio ni escenarios de derivación entre establecimientos distintos. Se aclara que el mismo `Bundle` de la solicitud puede incluir el o los `MinsalEspecimenLaboratorio` cuando el emisor ya conoce los datos de la muestra al momento de generarla.
+* La profundización del proceso de solicitud y toma de muestra (actos intermedios, derivación entre establecimientos) queda documentada como Fase 2, a futuro, fuera del alcance de esta versión.
+
+### Perfiles
+
+#### MinsalEspecimenLaboratorio
+
+* Se retira la extensión `motivoRechazo` (`specimen-reject-reason`) y el `ValueSet` `VSMotivoRechazoMuestraLaboratorio`: dependen de modelar la recepción y evaluación de la muestra por parte del laboratorio, que queda para la Fase 2. El motivo de cancelación por no presentación del paciente (`MinsalServiceRequestLab.motivoCancelacion`) no depende de eso y se mantiene.
+* Se retira el ejemplo `EspecimenRechazadoEjemplo`, ligado a la extensión retirada.
+
+#### ResultadoDiagnosticoLaboratorio
+
+* `basedOn` pasa de `1..* MS` a `0..* MS`: un laboratorio puede emitir un resultado (PDF y/o dato atómico) sin una `ServiceRequest` previa registrada en el Bus, cuando el examen se originó y procesó íntegramente en su propio sistema. Cuando exista una solicitud registrada, se recomienda referenciarla siempre mediante `basedOn` (ver `^comment` del elemento y "Definición de alcance" en Casos de uso, Caso de uso 2).
+
+### Ejemplos
+
+* Nuevo `ResultadoMultipleEjemplo` (`ResultadoDiagnosticoLaboratorio`): primer ejemplo de informe de resultado de la guía. Responde con un único informe (PDF embebido) a las cinco prestaciones de `BundleSolicitudMultipleEjemplo`, reflejando el patrón de informe único por orden agrupada.
+* Nuevo `ResultadoIndependienteEjemplo` (`ResultadoDiagnosticoLaboratorio`): informe sin `basedOn`, para el caso de un laboratorio que envía su resultado sin solicitud previa registrada en el Bus.
+* Se corrige una corrupción de doble codificación UTF-8 en `CancelacionEjemplo.fsh` (afectaba tildes y "ó"/"í" en varios campos de texto).
+
+### Documentación
+
+* **Casos de uso**: se actualiza la tabla "Alcance por fases" y la introducción de UC3 para reflejar el reenfoque. Caso de uso 4 queda con un solo flujo (no presentación del paciente); se retira el flujo de rechazo de muestra y se reduce la tabla de terminología de cancelación a un solo motivo. Se reemplaza el "Punto abierto" sobre `basedOn` por "Definición de alcance": el resultado puede recibirse sin solicitud previa registrada en el Bus. **Inicio**: se agrega una referencia a la recepción del resultado atómico junto al informe PDF.
 
 ## Versión 0.2.1
 

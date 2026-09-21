@@ -277,7 +277,7 @@ body.portal .portal-main { display: block; }
 .portal .cap h3::before { content: ""; display: block; width: 28px; height: 3px; border-radius: 2px; background: var(--p-blue); margin-bottom: .8rem; }
 .portal .cap p { margin: 0; color: var(--p-muted); }
 
-.portal .cap-list { display: grid; gap: 2rem; }
+.portal .cap-list { display: grid; gap: 2rem; list-style: none; margin: 0; padding: 0; }
 .portal .cap-row { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; padding-bottom: 2rem; border-bottom: 1px solid var(--p-line-soft); }
 .portal .cap-row:last-child { border-bottom: 0; padding-bottom: 0; }
 .portal .cap-row__mark {
@@ -286,7 +286,27 @@ body.portal .portal-main { display: block; }
   background: var(--p-blue-tint); color: var(--p-blue);
   font-weight: 700; font-size: 1.05rem;
 }
-.portal .cap-row h2 { font-size: 1.4rem; margin-bottom: .5rem; }
+.portal .cap-row h2, .portal .cap-row h3 { font-size: 1.4rem; margin-bottom: .5rem; }
+
+// --- Trayectoria: línea de tiempo vertical con conector ----
+.portal .cap-list--timeline { gap: 0; }
+.portal .cap-list--timeline .cap-row {
+  position: relative;
+  padding-bottom: 2rem;
+  border-bottom: 0;
+}
+.portal .cap-list--timeline .cap-row:last-child { padding-bottom: 0; }
+.portal .cap-list--timeline .cap-row__mark { position: relative; z-index: 1; }
+.portal .cap-list--timeline .cap-row:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  bottom: 0;
+  left: 1.5rem;
+  width: 2px;
+  background: var(--p-line);
+  transform: translateX(-1px);
+}
 .portal .cap-row__plain { margin: 0 0 .6rem; font-size: 1.05rem; color: var(--p-ink); }
 .portal .cap-row__detail { margin: 0; color: var(--p-muted); font-size: .96rem; }
 

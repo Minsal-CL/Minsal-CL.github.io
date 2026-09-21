@@ -1,4 +1,4 @@
-# Solicitud de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Solicitud de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab | *Version*:0.2.1 |
-| Draft as of 2026-09-10 | *Computable Name*:MinsalServiceRequestLab |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab | *Version*:0.3.0 |
+| Draft as of 2026-09-15 | *Computable Name*:MinsalServiceRequestLab |
 
  
 Perfil para representar una solicitud de examen de laboratorio clínico en el modelo canónico nacional FHIR R4. 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalServiceRequest
   "resourceType" : "StructureDefinition",
   "id" : "MinsalServiceRequestLab",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab",
-  "version" : "0.2.1",
+  "version" : "0.3.0",
   "name" : "MinsalServiceRequestLab",
   "title" : "Solicitud de Laboratorio MINSAL",
   "status" : "draft",
-  "date" : "2026-09-10T11:13:46-03:00",
+  "date" : "2026-09-15T10:16:15-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

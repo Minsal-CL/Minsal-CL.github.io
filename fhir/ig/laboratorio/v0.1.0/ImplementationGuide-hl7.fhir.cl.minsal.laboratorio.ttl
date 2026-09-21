@@ -13,11 +13,11 @@
      fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: GuiaDeImplementacion hl7.fhir.cl.minsal.laboratorio</b></p><a name=\"hl7.fhir.cl.minsal.laboratorio\"> </a><a name=\"hchl7.fhir.cl.minsal.laboratorio\"> </a><h2>LaboratorioClinico</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio</pre><div><p>Guía de Implementación FHIR R4 para el intercambio de solicitudes y resultados de laboratorio clínico, incluyendo transformación desde HL7 v2, resolución de pacientes mediante MPI y codificación de prestaciones FONASA/LOINC.</p>\n</div></div>"
   ] ;
   fhir:ImplementationGuide.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio"] ;
-  fhir:ImplementationGuide.version [ fhir:value "0.2.1"] ;
+  fhir:ImplementationGuide.version [ fhir:value "0.3.0"] ;
   fhir:ImplementationGuide.name [ fhir:value "LaboratorioClinico"] ;
   fhir:ImplementationGuide.title [ fhir:value "Guía de Implementación FHIR - Laboratorio Clínico"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-09-10T11:13:46-03:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-09-15T10:16:15-03:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;
@@ -700,7 +700,7 @@
          fhir:Reference.reference [ fhir:value "Bundle/BundleSolicitudMultipleEjemplo" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de solicitud con cinco prestaciones FONASA" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "TransacciÃ³n FHIR que crea cinco prestaciones FONASA pertenecientes a una misma solicitud de laboratorio. El paciente, el profesional solicitante y el laboratorio ejecutor se asumen preexistentes en el servidor de destino (ver Inicio, secciÃ³n \"Solicitud con mÃºltiples prestaciones\"), por lo que no se incluyen como entradas propias de este Bundle." ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Transacción FHIR que crea cinco prestaciones FONASA pertenecientes a una misma solicitud de laboratorio. El paciente, el profesional solicitante y el laboratorio ejecutor se asumen preexistentes en el servidor de destino (ver Inicio, sección \"Solicitud con múltiples prestaciones\"), por lo que no se incluyen como entradas propias de este Bundle." ] ;
        fhir:ImplementationGuide.definition.resource.exampleCanonical [
          fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio" ;
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio>
@@ -741,23 +741,6 @@
          fhir:Extension.valueString [ fhir:value "Specimen" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Specimen/EspecimenRechazadoEjemplo> ;
-         fhir:Reference.reference [ fhir:value "Specimen/EspecimenRechazadoEjemplo" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "EspÃ©cimen rechazado por coagulaciÃ³n" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Muestra recibida en el laboratorio y rechazada por coagulaciÃ³n. SegÃºn lo acordado, la solicitud original no se reutiliza: se debe generar una nueva ServiceRequest con nuevo identificador y nueva etiqueta (ver Casos de uso, Caso de uso 4)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleCanonical [
-         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio" ;
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio>
-       ]
-     ], [
-       fhir:index 4 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "Specimen" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Specimen/EspecimenEjemplo> ;
          fhir:Reference.reference [ fhir:value "Specimen/EspecimenEjemplo" ]
        ] ;
@@ -768,7 +751,7 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio>
        ]
      ], [
-       fhir:index 5 ;
+       fhir:index 4 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -782,7 +765,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (por ejemplo, en el segmento SPM de ORM^O01/ORU^R01)." ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 6 ;
+       fhir:index 5 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -799,7 +782,41 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio>
        ]
      ], [
+       fhir:index 6 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "DiagnosticReport" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/DiagnosticReport/ResultadoMultipleEjemplo> ;
+         fhir:Reference.reference [ fhir:value "DiagnosticReport/ResultadoMultipleEjemplo" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Informe de resultado de ejemplo" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Informe único de laboratorio, con el PDF del informe embebido en base64, que responde a las cinco prestaciones de `BundleSolicitudMultipleEjemplo` (mismo `requisition`, `SOL-MULTIPLE-001`). El contenido del PDF es un documento mínimo de ejemplo, no corresponde a un informe real de un paciente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio>
+       ]
+     ], [
        fhir:index 7 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "DiagnosticReport" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/DiagnosticReport/ResultadoIndependienteEjemplo> ;
+         fhir:Reference.reference [ fhir:value "DiagnosticReport/ResultadoIndependienteEjemplo" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Informe de resultado independiente, sin solicitud previa" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Informe de laboratorio que llega sin ninguna `ServiceRequest` previa registrada en el Bus (sin `basedOn`), caso de un laboratorio cuyo examen se originó y procesó íntegramente en su propio sistema (ver Casos de uso, Caso de uso 2, 'Definición de alcance'). El contenido del PDF es un documento mínimo de ejemplo, no corresponde a un informe real de un paciente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio>
+       ]
+     ], [
+       fhir:index 8 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -816,7 +833,7 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio>
        ]
      ], [
-       fhir:index 8 ;
+       fhir:index 9 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -828,20 +845,6 @@
        ] ;
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Motivo de Cancelación de Solicitud de Laboratorio" ] ;
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index 9 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-rechazo-muestra-laboratorio> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/motivo-rechazo-muestra-laboratorio" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Motivo de Rechazo de Muestra de Laboratorio" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Subconjunto del catálogo oficial HL7 v2 Tabla 0490 (Specimen Reject Reason) con los motivos de rechazo de muestra reconocidos por esta guía: cantidad insuficiente, coagulación y problema de etiquetado. Este ValueSet no define códigos propios; selecciona un subconjunto del CodeSystem externo `http://terminology.hl7.org/CodeSystem/v2-0490`, el mismo catálogo que usa HL7 v2 en el segmento SPM-21. Binding extensible: si en el futuro se identifica un motivo de rechazo no incluido aquí (por ejemplo hemólisis o contaminación), puede usarse cualquier otro código válido del mismo CodeSystem." ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index 10 ;
@@ -899,8 +902,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionBilirrubinaEjemplo> ;
          fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionBilirrubinaEjemplo" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "PrestaciÃ³n FONASA: Bilirrubina total" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple." ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestación FONASA: Bilirrubina total" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple." ] ;
        fhir:ImplementationGuide.definition.resource.exampleCanonical [
          fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
@@ -916,8 +919,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionColesterolTotalEjemplo> ;
          fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionColesterolTotalEjemplo" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "PrestaciÃ³n FONASA: Colesterol total" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple." ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestación FONASA: Colesterol total" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple." ] ;
        fhir:ImplementationGuide.definition.resource.exampleCanonical [
          fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
@@ -933,8 +936,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionGlicemiaEjemplo> ;
          fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionGlicemiaEjemplo" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "PrestaciÃ³n FONASA: Glucosa (glicemia)" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple." ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestación FONASA: Glucosa (glicemia)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple." ] ;
        fhir:ImplementationGuide.definition.resource.exampleCanonical [
          fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
@@ -950,8 +953,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionHemogramaEjemplo> ;
          fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionHemogramaEjemplo" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "PrestaciÃ³n FONASA: Hemograma" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple." ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestación FONASA: Hemograma" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple." ] ;
        fhir:ImplementationGuide.definition.resource.exampleCanonical [
          fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
@@ -967,8 +970,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionNitrogenoUreicoEjemplo> ;
          fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionNitrogenoUreicoEjemplo" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "PrestaciÃ³n FONASA: NitrÃ³geno ureico" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple." ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestación FONASA: Nitrógeno ureico" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple." ] ;
        fhir:ImplementationGuide.definition.resource.exampleCanonical [
          fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
@@ -999,7 +1002,7 @@
          fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteEjemplo" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional solicitante de ejemplo" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional ficticio que solicita las prestaciones del ejemplo. Usa la slice `identifier[run]` ya definida por CorePrestadorCl (CL-Core), con el mismo `system` de referencia que usa la guÃ­a MPI/HPD de MINSAL para el RUN de prestadores (`https://api.cl/system/run`, ver `IG_hpd`)." ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional ficticio que solicita las prestaciones del ejemplo. Usa la slice `identifier[run]` ya definida por CorePrestadorCl (CL-Core), con el mismo `system` de referencia que usa la guía MPI/HPD de MINSAL para el RUN de prestadores (`https://api.cl/system/run`, ver `IG_hpd`)." ] ;
        fhir:ImplementationGuide.definition.resource.exampleCanonical [
          fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio" ;
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio>
@@ -1029,8 +1032,8 @@
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/SolicitudCanceladaNoPresentacionEjemplo> ;
          fhir:Reference.reference [ fhir:value "ServiceRequest/SolicitudCanceladaNoPresentacionEjemplo" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Solicitud cancelada por no presentaciÃ³n del paciente" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Solicitud de laboratorio cancelada porque el paciente no concurriÃ³ a la toma de muestra. No existe Specimen asociado (ver Casos de uso, Caso de uso 4)." ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Solicitud cancelada por no presentación del paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Solicitud de laboratorio cancelada porque el paciente no concurrió a la toma de muestra. No existe Specimen asociado (ver Casos de uso, Caso de uso 4)." ] ;
        fhir:ImplementationGuide.definition.resource.exampleCanonical [
          fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
          fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>

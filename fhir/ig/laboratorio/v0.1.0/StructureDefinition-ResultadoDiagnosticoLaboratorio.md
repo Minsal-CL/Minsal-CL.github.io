@@ -1,4 +1,4 @@
-# Resultado diagnóstico de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Resultado diagnóstico de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio | *Version*:0.2.1 |
-| Draft as of 2026-09-10 | *Computable Name*:ResultadoDiagnosticoLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio | *Version*:0.3.0 |
+| Draft as of 2026-09-15 | *Computable Name*:ResultadoDiagnosticoLaboratorio |
 
  
 Perfil para representar el resultado de una solicitud de laboratorio y el informe PDF recibido desde un mensaje HL7 v2 ORU^R01. 
@@ -17,6 +17,7 @@ Perfil para representar el resultado de una solicitud de laboratorio y el inform
 **Usages:**
 
 * Refer to this Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md)
+* Examples for this Profile: [DiagnosticReport/ResultadoIndependienteEjemplo](DiagnosticReport-ResultadoIndependienteEjemplo.md) and [DiagnosticReport/ResultadoMultipleEjemplo](DiagnosticReport-ResultadoMultipleEjemplo.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.laboratorio|current/StructureDefinition/StructureDefinition-ResultadoDiagnosticoLaboratorio.json)
 
@@ -37,11 +38,11 @@ Other representations of profile: [CSV](StructureDefinition-ResultadoDiagnostico
   "resourceType" : "StructureDefinition",
   "id" : "ResultadoDiagnosticoLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio",
-  "version" : "0.2.1",
+  "version" : "0.3.0",
   "name" : "ResultadoDiagnosticoLaboratorio",
   "title" : "Resultado diagnóstico de laboratorio",
   "status" : "draft",
-  "date" : "2026-09-10T11:13:46-03:00",
+  "date" : "2026-09-15T10:16:15-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -98,7 +99,7 @@ Other representations of profile: [CSV](StructureDefinition-ResultadoDiagnostico
     {
       "id" : "DiagnosticReport.basedOn",
       "path" : "DiagnosticReport.basedOn",
-      "min" : 1,
+      "comment" : "En esta fase, el laboratorio puede emitir un resultado sin una solicitud (`ServiceRequest`) previa registrada en el Bus, cuando el examen se originó y procesó completamente en el sistema del propio laboratorio (ver Casos de uso, Alcance por fases). Cuando exista una solicitud registrada, se recomienda referenciarla mediante `basedOn`.",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"]

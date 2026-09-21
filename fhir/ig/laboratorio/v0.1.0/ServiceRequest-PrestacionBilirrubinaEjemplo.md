@@ -1,10 +1,10 @@
-# PrestaciÃ³n FONASA: Bilirrubina total - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Prestación FONASA: Bilirrubina total - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
-* **PrestaciÃ³n FONASA: Bilirrubina total**
+* **Prestación FONASA: Bilirrubina total**
 
-## Example ServiceRequest: PrestaciÃ³n FONASA: Bilirrubina total
+## Example ServiceRequest: Prestación FONASA: Bilirrubina total
 
 Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md)
 
@@ -24,7 +24,7 @@ Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequ
 
 **authoredOn**: 2026-08-28 10:00:00-0400
 
-**requester**: [Practitioner MarÃ­a GonzÃ¡lez ](Practitioner-ProfesionalSolicitanteEjemplo.md)
+**requester**: [Practitioner María González ](Practitioner-ProfesionalSolicitanteEjemplo.md)
 
 **performer**: [Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)](Organization-LaboratorioEjecutorEjemplo.md)
 

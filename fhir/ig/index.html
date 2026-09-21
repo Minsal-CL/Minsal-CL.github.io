@@ -1,0 +1,34 @@
+---
+layout: portal
+title: Guías de Implementación FHIR
+nav_exclude: true
+search_exclude: true
+description: >-
+  Índice de las Guías de Implementación FHIR de la Arquitectura Nacional de
+  Interoperabilidad. Cada una vive publicada en interoperabilidad.minsal.cl.
+---
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="kicker">FHIR IG</p>
+    <h1>Guías de Implementación FHIR</h1>
+    <p class="page-hero__lead">
+      Este directorio (<code>fhir/ig/</code>) no se sirve en el sitio de
+      desarrollo local por su volumen de archivos. Cada guía está publicada
+      en <a href="https://interoperabilidad.minsal.cl/fhir/ig">interoperabilidad.minsal.cl</a>.
+    </p>
+  </div>
+</section>
+
+<section class="band prose-band">
+  <div class="wrap wrap--narrow">
+    {%- assign ig_section = site.data.resources | where: "title", "Guías de Implementación (FHIR IG)" | first -%}
+    <ul class="doc-links">
+      {%- for l in ig_section.links -%}
+      <li>
+        <a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} ↗</a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>

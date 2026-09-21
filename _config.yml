@@ -69,6 +69,12 @@ defaults:
       nav_exclude: true
       search_exclude: true
 
+# Excepción puntual: fhir/ está excluido del build (ver abajo) por volumen,
+# pero este índice local sí debe generarse para que el botón "Guías FHIR"
+# resuelva algo en desarrollo local.
+include:
+  - fhir/ig/index.html
+
 exclude:
   - Manuales/
   - README.md
@@ -77,3 +83,4 @@ exclude:
   - vendor/
   - Gemfile
   - Gemfile.lock
+  - fhir/

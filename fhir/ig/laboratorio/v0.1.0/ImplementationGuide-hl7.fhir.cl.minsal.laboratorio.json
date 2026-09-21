@@ -6,11 +6,11 @@
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: GuiaDeImplementacion hl7.fhir.cl.minsal.laboratorio</b></p><a name=\"hl7.fhir.cl.minsal.laboratorio\"> </a><a name=\"hchl7.fhir.cl.minsal.laboratorio\"> </a><h2>LaboratorioClinico</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio</pre><div><p>Guía de Implementación FHIR R4 para el intercambio de solicitudes y resultados de laboratorio clínico, incluyendo transformación desde HL7 v2, resolución de pacientes mediante MPI y codificación de prestaciones FONASA/LOINC.</p>\n</div></div>"
   },
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio",
-  "version" : "0.2.1",
+  "version" : "0.3.0",
   "name" : "LaboratorioClinico",
   "title" : "Guía de Implementación FHIR - Laboratorio Clínico",
   "status" : "draft",
-  "date" : "2026-09-10T11:13:46-03:00",
+  "date" : "2026-09-15T10:16:15-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -620,7 +620,7 @@
         "reference" : "Bundle/BundleSolicitudMultipleEjemplo"
       },
       "name" : "Bundle de solicitud con cinco prestaciones FONASA",
-      "description" : "TransacciÃ³n FHIR que crea cinco prestaciones FONASA pertenecientes a una misma solicitud de laboratorio. El paciente, el profesional solicitante y el laboratorio ejecutor se asumen preexistentes en el servidor de destino (ver Inicio, secciÃ³n \"Solicitud con mÃºltiples prestaciones\"), por lo que no se incluyen como entradas propias de este Bundle.",
+      "description" : "Transacción FHIR que crea cinco prestaciones FONASA pertenecientes a una misma solicitud de laboratorio. El paciente, el profesional solicitante y el laboratorio ejecutor se asumen preexistentes en el servidor de destino (ver Inicio, sección \"Solicitud con múltiples prestaciones\"), por lo que no se incluyen como entradas propias de este Bundle.",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio"
     },
     {
@@ -646,18 +646,6 @@
       "name" : "Códigos de prestaciones FONASA",
       "description" : "Identificador canónico provisional para códigos de prestaciones FONASA. El contenido es administrado externamente por el servicio terminológico.",
       "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Specimen"
-      }],
-      "reference" : {
-        "reference" : "Specimen/EspecimenRechazadoEjemplo"
-      },
-      "name" : "EspÃ©cimen rechazado por coagulaciÃ³n",
-      "description" : "Muestra recibida en el laboratorio y rechazada por coagulaciÃ³n. SegÃºn lo acordado, la solicitud original no se reutiliza: se debe generar una nueva ServiceRequest con nuevo identificador y nueva etiqueta (ver Casos de uso, Caso de uso 4).",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio"
     },
     {
       "extension" : [{
@@ -698,6 +686,30 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "DiagnosticReport"
+      }],
+      "reference" : {
+        "reference" : "DiagnosticReport/ResultadoMultipleEjemplo"
+      },
+      "name" : "Informe de resultado de ejemplo",
+      "description" : "Informe único de laboratorio, con el PDF del informe embebido en base64, que responde a las cinco prestaciones de `BundleSolicitudMultipleEjemplo` (mismo `requisition`, `SOL-MULTIPLE-001`). El contenido del PDF es un documento mínimo de ejemplo, no corresponde a un informe real de un paciente.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "DiagnosticReport"
+      }],
+      "reference" : {
+        "reference" : "DiagnosticReport/ResultadoIndependienteEjemplo"
+      },
+      "name" : "Informe de resultado independiente, sin solicitud previa",
+      "description" : "Informe de laboratorio que llega sin ninguna `ServiceRequest` previa registrada en el Bus (sin `basedOn`), caso de un laboratorio cuyo examen se originó y procesó íntegramente en su propio sistema (ver Casos de uso, Caso de uso 2, 'Definición de alcance'). El contenido del PDF es un documento mínimo de ejemplo, no corresponde a un informe real de un paciente.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Organization"
       }],
       "reference" : {
@@ -717,18 +729,6 @@
       },
       "name" : "Motivo de Cancelación de Solicitud de Laboratorio",
       "description" : "Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/motivo-rechazo-muestra-laboratorio"
-      },
-      "name" : "Motivo de Rechazo de Muestra de Laboratorio",
-      "description" : "Subconjunto del catálogo oficial HL7 v2 Tabla 0490 (Specimen Reject Reason) con los motivos de rechazo de muestra reconocidos por esta guía: cantidad insuficiente, coagulación y problema de etiquetado. Este ValueSet no define códigos propios; selecciona un subconjunto del CodeSystem externo `http://terminology.hl7.org/CodeSystem/v2-0490`, el mismo catálogo que usa HL7 v2 en el segmento SPM-21. Binding extensible: si en el futuro se identifica un motivo de rechazo no incluido aquí (por ejemplo hemólisis o contaminación), puede usarse cualquier otro código válido del mismo CodeSystem.",
       "exampleBoolean" : false
     },
     {
@@ -775,8 +775,8 @@
       "reference" : {
         "reference" : "ServiceRequest/PrestacionBilirrubinaEjemplo"
       },
-      "name" : "PrestaciÃ³n FONASA: Bilirrubina total",
-      "description" : "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple.",
+      "name" : "Prestación FONASA: Bilirrubina total",
+      "description" : "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"
     },
     {
@@ -787,8 +787,8 @@
       "reference" : {
         "reference" : "ServiceRequest/PrestacionColesterolTotalEjemplo"
       },
-      "name" : "PrestaciÃ³n FONASA: Colesterol total",
-      "description" : "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple.",
+      "name" : "Prestación FONASA: Colesterol total",
+      "description" : "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"
     },
     {
@@ -799,8 +799,8 @@
       "reference" : {
         "reference" : "ServiceRequest/PrestacionGlicemiaEjemplo"
       },
-      "name" : "PrestaciÃ³n FONASA: Glucosa (glicemia)",
-      "description" : "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple.",
+      "name" : "Prestación FONASA: Glucosa (glicemia)",
+      "description" : "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"
     },
     {
@@ -811,8 +811,8 @@
       "reference" : {
         "reference" : "ServiceRequest/PrestacionHemogramaEjemplo"
       },
-      "name" : "PrestaciÃ³n FONASA: Hemograma",
-      "description" : "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple.",
+      "name" : "Prestación FONASA: Hemograma",
+      "description" : "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"
     },
     {
@@ -823,8 +823,8 @@
       "reference" : {
         "reference" : "ServiceRequest/PrestacionNitrogenoUreicoEjemplo"
       },
-      "name" : "PrestaciÃ³n FONASA: NitrÃ³geno ureico",
-      "description" : "PrestaciÃ³n de laboratorio identificada mediante cÃ³digo FONASA dentro de una solicitud mÃºltiple.",
+      "name" : "Prestación FONASA: Nitrógeno ureico",
+      "description" : "Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"
     },
     {
@@ -848,7 +848,7 @@
         "reference" : "Practitioner/ProfesionalSolicitanteEjemplo"
       },
       "name" : "Profesional solicitante de ejemplo",
-      "description" : "Profesional ficticio que solicita las prestaciones del ejemplo. Usa la slice `identifier[run]` ya definida por CorePrestadorCl (CL-Core), con el mismo `system` de referencia que usa la guÃ­a MPI/HPD de MINSAL para el RUN de prestadores (`https://api.cl/system/run`, ver `IG_hpd`).",
+      "description" : "Profesional ficticio que solicita las prestaciones del ejemplo. Usa la slice `identifier[run]` ya definida por CorePrestadorCl (CL-Core), con el mismo `system` de referencia que usa la guía MPI/HPD de MINSAL para el RUN de prestadores (`https://api.cl/system/run`, ver `IG_hpd`).",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio"
     },
     {
@@ -871,8 +871,8 @@
       "reference" : {
         "reference" : "ServiceRequest/SolicitudCanceladaNoPresentacionEjemplo"
       },
-      "name" : "Solicitud cancelada por no presentaciÃ³n del paciente",
-      "description" : "Solicitud de laboratorio cancelada porque el paciente no concurriÃ³ a la toma de muestra. No existe Specimen asociado (ver Casos de uso, Caso de uso 4).",
+      "name" : "Solicitud cancelada por no presentación del paciente",
+      "description" : "Solicitud de laboratorio cancelada porque el paciente no concurrió a la toma de muestra. No existe Specimen asociado (ver Casos de uso, Caso de uso 4).",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab"
     },
     {

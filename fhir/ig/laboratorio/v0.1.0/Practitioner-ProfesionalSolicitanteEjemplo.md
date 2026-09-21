@@ -1,4 +1,4 @@
-# Profesional solicitante de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Profesional solicitante de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -10,7 +10,7 @@ Profile: [Profesional de Laboratorio MINSAL](StructureDefinition-MinsalPractitio
 
 **identifier**: RUN/9876543-3 (use: official, )
 
-**name**: MarÃ­a GonzÃ¡lez 
+**name**: María González 
 
 
 
@@ -36,8 +36,8 @@ Profile: [Profesional de Laboratorio MINSAL](StructureDefinition-MinsalPractitio
     "value" : "9876543-3"
   }],
   "name" : [{
-    "family" : "GonzÃ¡lez",
-    "given" : ["MarÃ­a"]
+    "family" : "González",
+    "given" : ["María"]
   }]
 }
 

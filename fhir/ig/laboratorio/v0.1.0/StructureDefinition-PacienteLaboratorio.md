@@ -1,4 +1,4 @@
-# Paciente de Laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Paciente de Laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio | *Version*:0.2.1 |
-| Draft as of 2026-09-10 | *Computable Name*:PacienteLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio | *Version*:0.3.0 |
+| Draft as of 2026-09-15 | *Computable Name*:PacienteLaboratorio |
 
  
 Perfil de paciente utilizado en las solicitudes y resultados de laboratorio. Extiende el perfil de paciente de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Patient de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-PacienteLaboratorio.
   "resourceType" : "StructureDefinition",
   "id" : "PacienteLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio",
-  "version" : "0.2.1",
+  "version" : "0.3.0",
   "name" : "PacienteLaboratorio",
   "title" : "Paciente de Laboratorio",
   "status" : "draft",
-  "date" : "2026-09-10T11:13:46-03:00",
+  "date" : "2026-09-15T10:16:15-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

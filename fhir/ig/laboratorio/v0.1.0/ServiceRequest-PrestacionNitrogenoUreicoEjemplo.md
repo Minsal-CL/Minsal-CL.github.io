@@ -1,10 +1,10 @@
-# PrestaciÃ³n FONASA: NitrÃ³geno ureico - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Prestación FONASA: Nitrógeno ureico - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
-* **PrestaciÃ³n FONASA: NitrÃ³geno ureico**
+* **Prestación FONASA: Nitrógeno ureico**
 
-## Example ServiceRequest: PrestaciÃ³n FONASA: NitrÃ³geno ureico
+## Example ServiceRequest: Prestación FONASA: Nitrógeno ureico
 
 Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md)
 
@@ -18,13 +18,13 @@ Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequ
 
 **category**: Laboratory
 
-**code**: NitrÃ³geno ureico
+**code**: Nitrógeno ureico
 
 **subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
 
 **authoredOn**: 2026-08-28 10:00:00-0400
 
-**requester**: [Practitioner MarÃ­a GonzÃ¡lez ](Practitioner-ProfesionalSolicitanteEjemplo.md)
+**requester**: [Practitioner María González ](Practitioner-ProfesionalSolicitanteEjemplo.md)
 
 **performer**: [Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)](Organization-LaboratorioEjecutorEjemplo.md)
 
@@ -67,9 +67,9 @@ Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequ
     "coding" : [{
       "system" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa",
       "code" : "0302057",
-      "display" : "NitrÃ³geno ureico"
+      "display" : "Nitrógeno ureico"
     }],
-    "text" : "NitrÃ³geno ureico"
+    "text" : "Nitrógeno ureico"
   },
   "subject" : {
     "reference" : "Patient/PacienteEjemplo"

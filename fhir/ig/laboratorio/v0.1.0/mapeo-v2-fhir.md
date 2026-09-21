@@ -1,4 +1,4 @@
-# Mapeo HL7 v2 a FHIR - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Mapeo HL7 v2 a FHIR - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * **Mapeo HL7 v2 a FHIR**

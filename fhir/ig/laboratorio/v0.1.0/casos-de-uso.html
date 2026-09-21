@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1</title>
+    <title>Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -68,7 +68,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
             <br/>
-            <span style="display:inline-block;">0.2.1 - ci-build
+            <span style="display:inline-block;">0.3.0 - ci-build
 
 
 
@@ -149,7 +149,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.2.1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Casos de uso</h2>
   
 
@@ -182,10 +182,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           <li><a href="#operaciones-1" id="markdown-toc-operaciones-1">Operaciones</a></li>
         </ul>
       </li>
-      <li><a href="#caso-de-uso-3-fase-2-a-futuro-resultado-atomizado-por-prestación" id="markdown-toc-caso-de-uso-3-fase-2-a-futuro-resultado-atomizado-por-prestación">Caso de uso 3 (Fase 2, a futuro): Resultado atomizado por prestación</a></li>
+      <li><a href="#caso-de-uso-3-resultado-atomizado-por-prestación" id="markdown-toc-caso-de-uso-3-resultado-atomizado-por-prestación">Caso de uso 3: Resultado atomizado por prestación</a></li>
       <li><a href="#caso-de-uso-4-cancelación-o-anulación-de-una-solicitud" id="markdown-toc-caso-de-uso-4-cancelación-o-anulación-de-una-solicitud">Caso de uso 4: Cancelación o anulación de una solicitud</a>        <ul>
-          <li><a href="#uc4-a-rechazo-de-la-muestra" id="markdown-toc-uc4-a-rechazo-de-la-muestra">UC4-a: Rechazo de la muestra</a></li>
-          <li><a href="#uc4-b-paciente-no-se-presenta-a-la-toma-de-muestra" id="markdown-toc-uc4-b-paciente-no-se-presenta-a-la-toma-de-muestra">UC4-b: Paciente no se presenta a la toma de muestra</a></li>
           <li><a href="#terminología-de-cancelación" id="markdown-toc-terminología-de-cancelación">Terminología de cancelación</a></li>
         </ul>
       </li>
@@ -250,7 +248,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h2 id="alcance-por-fases">Alcance por fases</h2>
 
-<p>La guía define una entrada gradual de mensajes:</p>
+<p>Esta guía prioriza la estandarización del <strong>resultado</strong> de laboratorio, que es el punto donde el Bus de Interoperabilidad aporta mayor valor con menor dependencia de la madurez de integración de cada establecimiento. El proceso interno de solicitud y toma de muestra se cubre en su forma más simple (dos modalidades de envío, sin distinguir actos intermedios de aceptación en bandeja ni escenarios de derivación entre establecimientos), y se profundizará en una fase posterior, cuando existan acuerdos de integración más maduros con los sistemas HIS y LIS.</p>
 
 <table>
   <thead>
@@ -263,32 +261,32 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td>Fase 1 (alcance de esta versión)</td>
-      <td>Creación de solicitud (UC1) y resultado con informe PDF (UC2)</td>
-      <td>En desarrollo, con perfiles y ejemplos publicados</td>
+      <td>Creación de solicitud (UC1, en sus dos modalidades) y recepción del resultado, tanto como informe PDF (UC2) como dato atómico por prestación (UC3)</td>
+      <td>UC1 y UC2 en desarrollo, con perfiles y ejemplos publicados; UC3 priorizado en esta fase, con perfiles de <code class="language-plaintext highlighter-rouge">Observation</code> en diseño</td>
     </tr>
     <tr>
       <td>Fase 2 (a futuro)</td>
-      <td>Resultado atomizado por prestación (UC3)</td>
-      <td>Pendiente de diseño, descrito de forma conceptual en esta página</td>
+      <td>Profundización del proceso de solicitud y toma de muestra: actos intermedios de aceptación de la muestra en el laboratorio, y escenarios de derivación entre establecimientos distintos</td>
+      <td>Fuera del alcance de esta versión</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>Punto abierto: aún no está definido si la implementación exigirá siempre solicitud y resultado en conjunto, o si el resultado podrá recibirse sin una solicitud previa registrada en el Bus. Recibir solo resultados simplifica la integración inicial, pero sin la solicitud no es posible saber que un paciente está en lista de espera de un examen. MINSAL levantará esta información formalmente vía oficio a los establecimientos (para saber si generan solicitud en origen, si la tienen integrada, o si la ingresan directamente en el laboratorio) antes de definir el flujo con mayor precisión. Mientras no se resuelva, esta guía documenta UC1 y UC2 como flujos que pueden operar de forma independiente (ver "Resultados de laboratorio" en <a href="index.html">Inicio</a>), pero recomienda registrar siempre la solicitud cuando el establecimiento la genere.</p>
+  <p>Definición de alcance: <code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio.basedOn</code> no es obligatorio. La implementación no exige siempre solicitud y resultado en conjunto: un laboratorio puede enviar su resultado (PDF y/o dato atómico) sin una solicitud previa registrada en el Bus, cuando el examen se originó y se procesó íntegramente en su propio sistema. Cuando el establecimiento sí genera y registra la solicitud en el Bus, se recomienda referenciarla siempre mediante <code class="language-plaintext highlighter-rouge">basedOn</code>, ya que permite trazabilidad y saber que un paciente está en lista de espera de un examen. MINSAL levantará vía oficio a los establecimientos la información sobre cómo cada uno genera sus solicitudes (en origen, integrada, o directo en el laboratorio), lo que podrá afinar esta recomendación a futuro sin cambiar la cardinalidad ya definida.</p>
 </blockquote>
 
 <h2 id="caso-de-uso-1-creación-de-solicitud-de-laboratorio">Caso de uso 1: Creación de solicitud de laboratorio</h2>
 
 <p>Un establecimiento genera una o más prestaciones de laboratorio para un paciente y las envía al Bus de Interoperabilidad, donde quedan disponibles para el laboratorio ejecutor y para consulta posterior (por ejemplo, al recibir el resultado).</p>
 
-<p>Recurso focal: <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code> (perfil de <code class="language-plaintext highlighter-rouge">ServiceRequest</code>). Cuando la orden agrupa varias prestaciones, se crea un <code class="language-plaintext highlighter-rouge">ServiceRequest</code> por cada una, compartiendo el mismo <code class="language-plaintext highlighter-rouge">requisition</code> (ver "Solicitud con múltiples prestaciones" en <a href="index.html">Inicio</a>).</p>
+<p>Recurso focal: <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code> (perfil de <code class="language-plaintext highlighter-rouge">ServiceRequest</code>). Cuando la orden agrupa varias prestaciones, se crea un <code class="language-plaintext highlighter-rouge">ServiceRequest</code> por cada una, compartiendo el mismo <code class="language-plaintext highlighter-rouge">requisition</code> (ver "Solicitud con múltiples prestaciones" en <a href="index.html">Inicio</a>). Cuando el emisor ya conoce los datos de la muestra al momento de generar la solicitud, el mismo <code class="language-plaintext highlighter-rouge">Bundle</code> puede incluir también el o los recursos <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> correspondientes; esta guía no exige un acto separado para asociar la muestra.</p>
 
 <h3 id="uc1-a-establecimiento-con-integración-fhir-nativa">UC1-a: Establecimiento con integración FHIR nativa</h3>
 
 <ol>
   <li>El establecimiento resuelve la identidad del paciente contra el MPI (directamente o a través del Bus, según el acuerdo de integración) y obtiene o confirma <code class="language-plaintext highlighter-rouge">PacienteLaboratorio</code>.</li>
-  <li>El establecimiento construye uno o más recursos <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>, referenciando al paciente, al profesional solicitante (<code class="language-plaintext highlighter-rouge">MinsalPractitionerLaboratorio</code>) y a la organización de origen (<code class="language-plaintext highlighter-rouge">OrganizacionParticipanteLaboratorio</code>).</li>
+  <li>El establecimiento construye uno o más recursos <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>, referenciando al paciente, al profesional solicitante (<code class="language-plaintext highlighter-rouge">MinsalPractitionerLaboratorio</code>) y a la organización de origen (<code class="language-plaintext highlighter-rouge">OrganizacionParticipanteLaboratorio</code>), junto con el o los <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> cuando ya se conocen.</li>
   <li>El establecimiento envía un <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code> con <code class="language-plaintext highlighter-rouge">POST</code> a la raíz del servidor del Bus.</li>
   <li>El Bus valida los recursos contra los perfiles de esta guía y, si son correctos, los registra y responde con el estado de cada entrada.</li>
 </ol>
@@ -346,14 +344,14 @@ sequenceDiagram
 
 <p>El laboratorio ejecutor procesa la muestra y genera un resultado, que incluye al menos el informe en PDF. Este caso de uso corresponde a la Fase 1 de esta guía: solicitud y resultado con PDF, sin resultado atomizado por prestación.</p>
 
-<p>Recurso focal: <code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code> (perfil de <code class="language-plaintext highlighter-rouge">DiagnosticReport</code>), con el PDF codificado en <code class="language-plaintext highlighter-rouge">presentedForm.data</code>.</p>
+<p>Recurso focal: <code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code> (perfil de <code class="language-plaintext highlighter-rouge">DiagnosticReport</code>), con el PDF codificado en <code class="language-plaintext highlighter-rouge">presentedForm.data</code>. Ver el ejemplo <code class="language-plaintext highlighter-rouge">ResultadoMultipleEjemplo</code>: un informe único que responde a las cinco prestaciones agrupadas de <code class="language-plaintext highlighter-rouge">BundleSolicitudMultipleEjemplo</code> mediante <code class="language-plaintext highlighter-rouge">basedOn</code>. Ver también el ejemplo <code class="language-plaintext highlighter-rouge">ResultadoIndependienteEjemplo</code>: un informe que llega sin ninguna solicitud previa registrada en el Bus (<code class="language-plaintext highlighter-rouge">basedOn</code> ausente), caso de un laboratorio cuyo examen se originó y procesó íntegramente en su propio sistema.</p>
 
 <ol>
-  <li>El laboratorio genera el resultado, referenciando en <code class="language-plaintext highlighter-rouge">basedOn</code> la solicitud original (<code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>).</li>
+  <li>El laboratorio genera el resultado. Si existe una solicitud registrada en el Bus (<code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>), la referencia en <code class="language-plaintext highlighter-rouge">basedOn</code>; si el examen se originó y procesó íntegramente en el propio laboratorio, sin solicitud previa registrada en el Bus, <code class="language-plaintext highlighter-rouge">basedOn</code> se omite (ver "Definición de alcance" más arriba).</li>
   <li>Si el origen es HL7 v2, el mensaje <code class="language-plaintext highlighter-rouge">ORU^R01</code> incluye el PDF en Base64 en <code class="language-plaintext highlighter-rouge">OBX-5</code> (tipo <code class="language-plaintext highlighter-rouge">ED</code>); el Bus lo transforma a <code class="language-plaintext highlighter-rouge">DiagnosticReport.presentedForm</code> según <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>.</li>
   <li>Si el origen es FHIR nativo, el laboratorio construye directamente <code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code> con <code class="language-plaintext highlighter-rouge">presentedForm</code>.</li>
-  <li>El Bus valida que <code class="language-plaintext highlighter-rouge">basedOn</code> resuelva contra una solicitud existente y publica el resultado en el modelo canónico.</li>
-  <li>El Portal Ciudadano y otros consumidores autorizados consultan el resultado por paciente o por solicitud.</li>
+  <li>Si <code class="language-plaintext highlighter-rouge">basedOn</code> está presente, el Bus valida que resuelva contra una solicitud existente; publica el resultado en el modelo canónico en ambos casos.</li>
+  <li>El Portal Ciudadano y otros consumidores autorizados consultan el resultado por paciente o, cuando exista, por solicitud.</li>
 </ol>
 
 <div class="mermaid">
@@ -362,7 +360,7 @@ sequenceDiagram
     participant Bus as Bus de Interoperabilidad
     participant Portal as Portal Ciudadano
     LIS-&gt;&gt;Bus: ORU^R01 (PDF Base64) / POST DiagnosticReport
-    Bus-&gt;&gt;Bus: valida basedOn -&gt; ServiceRequest
+    Bus-&gt;&gt;Bus: valida basedOn -&gt; ServiceRequest (si viene informado)
     Bus-&gt;&gt;Bus: transforma a ResultadoDiagnosticoLaboratorio
     Bus--&gt;&gt;LIS: ACK / 200
     Portal-&gt;&gt;Bus: GET DiagnosticReport
@@ -384,9 +382,9 @@ sequenceDiagram
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [URL_Base]/DiagnosticReport?based-on=[id_ServiceRequest]
 </code></pre></div></div>
 
-<h2 id="caso-de-uso-3-fase-2-a-futuro-resultado-atomizado-por-prestación">Caso de uso 3 (Fase 2, a futuro): Resultado atomizado por prestación</h2>
+<h2 id="caso-de-uso-3-resultado-atomizado-por-prestación">Caso de uso 3: Resultado atomizado por prestación</h2>
 
-<p>Este caso de uso está fuera del alcance de la versión actual de la guía. Se documenta aquí de forma conceptual porque corresponde al siguiente paso natural después de consolidar UC1 y UC2, y porque condiciona decisiones de perfilamiento que conviene anticipar (por ejemplo, la estructura de <code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>).</p>
+<p>Este caso de uso tiene la misma prioridad que UC2 en esta fase: ambos son formas válidas de recibir el resultado final, y un establecimiento puede optar por una, la otra, o ambas según su capacidad de integración. Los perfiles de <code class="language-plaintext highlighter-rouge">Observation</code> para este caso están en diseño; esta página documenta los puntos que deben resolverse antes de publicarlos.</p>
 
 <p>A diferencia de UC2, donde el PDF se transporta como documento opaco, el resultado atomizado exige representar cada resultado individual como un recurso <code class="language-plaintext highlighter-rouge">Observation</code> estructurado, referenciado desde <code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>. Esto requiere resolver, además de la identidad del paciente y la homologación de la prestación:</p>
 
@@ -401,27 +399,7 @@ sequenceDiagram
 
 <h2 id="caso-de-uso-4-cancelación-o-anulación-de-una-solicitud">Caso de uso 4: Cancelación o anulación de una solicitud</h2>
 
-<p>Una solicitud puede cancelarse antes de que el laboratorio emita un resultado, por dos causas distintas: la muestra fue rechazada después de recibida, o el paciente no concurrió a la toma de muestra. Ambas causas se representan de forma distinta en esta guía, porque una involucra un <code class="language-plaintext highlighter-rouge">Specimen</code> y la otra no.</p>
-
-<h3 id="uc4-a-rechazo-de-la-muestra">UC4-a: Rechazo de la muestra</h3>
-
-<ol>
-  <li>El laboratorio recibe la muestra y determina que no es apta para el análisis.</li>
-  <li>El laboratorio registra <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio.status = #unsatisfactory</code> y documenta el motivo mediante la extensión <code class="language-plaintext highlighter-rouge">specimen-reject-reason</code>, con un código del catálogo oficial HL7 v2 Tabla 0490 (ver "Terminología de cancelación" más abajo).</li>
-  <li>La solicitud rechazada no se reutiliza: el establecimiento genera una nueva <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code> con nuevo identificador y nueva etiqueta, evitando el riesgo de reimprimir la etiqueta original. La solicitud original conserva su estado sin modificarse; la trazabilidad hacia la nueva solicitud queda documentada en <code class="language-plaintext highlighter-rouge">note</code>, a formalizar en una etapa posterior si se requiere una referencia estructurada.</li>
-</ol>
-
-<div class="mermaid">
-sequenceDiagram
-    participant LIS as Laboratorio (LIS)
-    participant Bus as Bus de Interoperabilidad
-    LIS-&gt;&gt;Bus: PUT Specimen (status=unsatisfactory, motivo=v2-0490)
-    Bus-&gt;&gt;Bus: valida contra MinsalEspecimenLaboratorio
-    Bus--&gt;&gt;LIS: 200 OK
-    Note over LIS,Bus: Se genera una nueva ServiceRequest con nuevo identificador y nueva etiqueta
-</div>
-
-<h3 id="uc4-b-paciente-no-se-presenta-a-la-toma-de-muestra">UC4-b: Paciente no se presenta a la toma de muestra</h3>
+<p>Una solicitud puede cancelarse antes de que el laboratorio emita un resultado. En esta fase, la guía cubre la causa que depende únicamente del <code class="language-plaintext highlighter-rouge">ServiceRequest</code>, sin requerir modelar la recepción o evaluación de la muestra por parte del laboratorio: el paciente no concurre a la toma de muestra.</p>
 
 <ol>
   <li>El paciente no concurre a la toma de muestra. No existe ningún <code class="language-plaintext highlighter-rouge">Specimen</code> asociado a la solicitud.</li>
@@ -450,24 +428,6 @@ sequenceDiagram
   </thead>
   <tbody>
     <tr>
-      <td>Muestra insuficiente</td>
-      <td><code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code></td>
-      <td><code class="language-plaintext highlighter-rouge">specimen-reject-reason</code></td>
-      <td><code class="language-plaintext highlighter-rouge">v2-0490#QS</code> "Quantity not sufficient"</td>
-    </tr>
-    <tr>
-      <td>Muestra coagulada</td>
-      <td><code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code></td>
-      <td><code class="language-plaintext highlighter-rouge">specimen-reject-reason</code></td>
-      <td><code class="language-plaintext highlighter-rouge">v2-0490#RC</code> "Clotting"</td>
-    </tr>
-    <tr>
-      <td>Muestra mal etiquetada</td>
-      <td><code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code></td>
-      <td><code class="language-plaintext highlighter-rouge">specimen-reject-reason</code></td>
-      <td><code class="language-plaintext highlighter-rouge">v2-0490#RM</code> "Labeling"</td>
-    </tr>
-    <tr>
       <td>Paciente no se presenta</td>
       <td><code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code></td>
       <td><code class="language-plaintext highlighter-rouge">request-statusReason</code></td>
@@ -476,7 +436,9 @@ sequenceDiagram
   </tbody>
 </table>
 
-<p>Ninguno de estos cuatro motivos define un código propio de esta guía. Los tres primeros reutilizan el catálogo oficial HL7 v2 Tabla 0490 (<code class="language-plaintext highlighter-rouge">http://terminology.hl7.org/CodeSystem/v2-0490</code>), el mismo que usa el segmento <code class="language-plaintext highlighter-rouge">SPM</code> de HL7 v2; el cuarto reutiliza SNOMED CT. Las dos extensiones (<code class="language-plaintext highlighter-rouge">specimen-reject-reason</code> y <code class="language-plaintext highlighter-rouge">request-statusReason</code>) son extensiones oficiales publicadas por HL7, no definiciones propias de MINSAL. El binding de ambos ValueSets de esta guía (<code class="language-plaintext highlighter-rouge">VSMotivoRechazoMuestraLaboratorio</code> y <code class="language-plaintext highlighter-rouge">VSMotivoCancelacionSolicitudLaboratorio</code>) es extensible: sugiere estos códigos como los motivos esperados, sin impedir usar otro código válido del mismo catálogo externo si se identifica un motivo no cubierto.</p>
+<p>Este motivo no define un código propio de esta guía: reutiliza SNOMED CT. La extensión <code class="language-plaintext highlighter-rouge">request-statusReason</code> es una extensión oficial publicada por HL7, no una definición propia de MINSAL. El binding del ValueSet <code class="language-plaintext highlighter-rouge">VSMotivoCancelacionSolicitudLaboratorio</code> es extensible: sugiere este código como el motivo esperado, sin impedir usar otro código válido del mismo catálogo externo si se identifica un motivo no cubierto.</p>
+
+<p>El rechazo de una muestra ya recibida por el laboratorio (por ejemplo, por cantidad insuficiente, coagulación o etiquetado defectuoso) no se cubre en esta fase, porque depende de modelar la recepción y evaluación de la muestra por parte del laboratorio, que queda para una fase posterior (ver "Alcance por fases").</p>
 
 
 
@@ -497,7 +459,7 @@ sequenceDiagram
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.2.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 10, 2026 11:13-0300">2026-09-10</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Sep 15, 2026 10:16-0300">2026-09-15</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

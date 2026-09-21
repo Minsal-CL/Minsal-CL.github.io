@@ -1,4 +1,4 @@
-# Motivo de Cancelación de Solicitud de Laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Motivo de Cancelación de Solicitud de Laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio | *Version*:0.2.1 |
-| Active as of 2026-09-10 | *Computable Name*:VSMotivoCancelacionSolicitudLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio | *Version*:0.3.0 |
+| Active as of 2026-09-15 | *Computable Name*:VSMotivoCancelacionSolicitudLaboratorio |
 
  
 Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra. 
@@ -46,12 +46,12 @@ Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de m
   "resourceType" : "ValueSet",
   "id" : "motivo-cancelacion-solicitud-laboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio",
-  "version" : "0.2.1",
+  "version" : "0.3.0",
   "name" : "VSMotivoCancelacionSolicitudLaboratorio",
   "title" : "Motivo de Cancelación de Solicitud de Laboratorio",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-09-10T11:13:46-03:00",
+  "date" : "2026-09-15T10:16:15-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

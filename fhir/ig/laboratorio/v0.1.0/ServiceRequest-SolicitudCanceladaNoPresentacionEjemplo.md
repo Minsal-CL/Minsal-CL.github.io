@@ -1,10 +1,10 @@
-# Solicitud cancelada por no presentaciÃ³n del paciente - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Solicitud cancelada por no presentación del paciente - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
-* **Solicitud cancelada por no presentaciÃ³n del paciente**
+* **Solicitud cancelada por no presentación del paciente**
 
-## Example ServiceRequest: Solicitud cancelada por no presentaciÃ³n del paciente
+## Example ServiceRequest: Solicitud cancelada por no presentación del paciente
 
 Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md)
 
@@ -26,7 +26,7 @@ Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequ
 
 **authoredOn**: 2026-09-08 08:00:00-0400
 
-**requester**: [Practitioner MarÃ­a GonzÃ¡lez ](Practitioner-ProfesionalSolicitanteEjemplo.md)
+**requester**: [Practitioner María González ](Practitioner-ProfesionalSolicitanteEjemplo.md)
 
 **performer**: [Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)](Organization-LaboratorioEjecutorEjemplo.md)
 

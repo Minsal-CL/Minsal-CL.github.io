@@ -40,7 +40,7 @@
   --mn-hero:    clamp(2rem, 1.4rem + 3vw, 3.75rem);
   --mn-page-title: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
 
-  --mn-measure: 44rem; // ancho de línea de lectura
+  --mn-measure: 68rem; // ancho de línea de lectura
 
   --mn-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
@@ -189,19 +189,6 @@ h1, h2, h3, h4, h5, h6,
 .doc-card strong { color: var(--mn-ink); font-size: var(--mn-step-1); }
 .doc-card span:last-child { font-size: .9rem; line-height: 1.45; }
 .doc-card__label { color: var(--mn-teal-600); font-size: var(--mn-step--1); font-weight: 700; }
-.principles-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-  gap: .7rem 1rem;
-  max-width: none !important;
-  padding-left: 1.7rem;
-}
-.principles-list li {
-  padding: .8rem .9rem .8rem .25rem;
-  border-bottom: 1px solid var(--mn-border);
-}
-.principles-list li::marker { color: var(--mn-teal-600) !important; }
-
 @media (prefers-reduced-motion: reduce) {
   .doc-card { transition: none; }
 }
@@ -780,10 +767,21 @@ a.card:hover .go { color: var(--mn-blue-700); }
 
 // --- Área de contenido centrada -----------------------------------------
 .main-content-wrap {
-  max-width: 76rem;
+  max-width: 92rem;
   padding: clamp(2rem, 4.5vw, 3.25rem) clamp(1.25rem, 5vw, 4rem) 5rem;
   margin-inline: auto;
 }
+
+// Las tablas no siguen el ancho de lectura de p/li: pueden usar todo
+// el espacio del contenedor para evitar que columnas con texto largo
+// (versión, organismo, uso) queden apretadas.
+.main-content .table-wrapper,
+.main-content table { max-width: none; }
+// Respeta los anchos de <colgroup> cuando la tabla los define, en vez
+// de distribuir el espacio parejo entre columnas de contenido disímil.
+.main-content table:has(colgroup) { table-layout: fixed; }
+.main-content table:has(colgroup) td,
+.main-content table:has(colgroup) th { min-width: 0; }
 
 // --- Migas ----------------------------------------------------
 .breadcrumb-nav { margin-bottom: 1.25rem; }
@@ -861,6 +859,9 @@ a.card:hover .go { color: var(--mn-blue-700); }
 .technical-details[open] > summary::before { content: "-"; }
 .technical-details pre.highlight,
 .technical-details figure.highlight { margin: 1rem; }
+.technical-details__body { padding: 1.1rem 1.25rem; }
+.technical-details__body > :first-child { margin-top: 0; }
+.technical-details__body > :last-child { margin-bottom: 0; }
 
 // --- Callouts / bloques del tema, más presentes -----------------------
 .main-content .callout,

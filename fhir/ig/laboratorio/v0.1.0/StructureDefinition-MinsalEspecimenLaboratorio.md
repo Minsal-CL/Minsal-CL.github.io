@@ -1,4 +1,4 @@
-# Espécimen de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.2.1
+# Espécimen de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio | *Version*:0.2.1 |
-| Draft as of 2026-09-10 | *Computable Name*:MinsalEspecimenLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio | *Version*:0.3.0 |
+| Draft as of 2026-09-15 | *Computable Name*:MinsalEspecimenLaboratorio |
 
  
 Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (por ejemplo, en el segmento SPM de ORM^O01/ORU^R01). 
@@ -17,7 +17,7 @@ Perfil para representar la muestra biológica asociada a una solicitud de labora
 **Usages:**
 
 * Refer to this Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md) and [Resultado diagnóstico de laboratorio](StructureDefinition-ResultadoDiagnosticoLaboratorio.md)
-* Examples for this Profile: [Specimen/EspecimenEjemplo](Specimen-EspecimenEjemplo.md) and [Specimen/EspecimenRechazadoEjemplo](Specimen-EspecimenRechazadoEjemplo.md)
+* Examples for this Profile: [Specimen/EspecimenEjemplo](Specimen-EspecimenEjemplo.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.laboratorio|current/StructureDefinition/StructureDefinition-MinsalEspecimenLaboratorio.json)
 
@@ -38,11 +38,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalEspecimenLabor
   "resourceType" : "StructureDefinition",
   "id" : "MinsalEspecimenLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio",
-  "version" : "0.2.1",
+  "version" : "0.3.0",
   "name" : "MinsalEspecimenLaboratorio",
   "title" : "Espécimen de Laboratorio MINSAL",
   "status" : "draft",
-  "date" : "2026-09-10T11:13:46-03:00",
+  "date" : "2026-09-15T10:16:15-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -84,39 +84,6 @@ Other representations of profile: [CSV](StructureDefinition-MinsalEspecimenLabor
     "element" : [{
       "id" : "Specimen",
       "path" : "Specimen"
-    },
-    {
-      "id" : "Specimen.extension",
-      "path" : "Specimen.extension",
-      "slicing" : {
-        "discriminator" : [{
-          "type" : "value",
-          "path" : "url"
-        }],
-        "ordered" : false,
-        "rules" : "open"
-      }
-    },
-    {
-      "id" : "Specimen.extension:motivoRechazo",
-      "path" : "Specimen.extension",
-      "sliceName" : "motivoRechazo",
-      "short" : "Motivo de rechazo de la muestra",
-      "min" : 0,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/specimen-reject-reason"]
-      }],
-      "mustSupport" : true
-    },
-    {
-      "id" : "Specimen.extension:motivoRechazo.value[x]",
-      "path" : "Specimen.extension.value[x]",
-      "binding" : {
-        "strength" : "extensible",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-rechazo-muestra-laboratorio"
-      }
     },
     {
       "id" : "Specimen.identifier",

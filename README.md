@@ -176,4 +176,5 @@ git checkout -- Gemfile.lock    # descarta cambio local
 rm .ruby-version                # v2.0.0 lo trae versionado (mismo 3.2.6)
 git checkout v2.0.0             # ahora sí cambia
 bundle install
-bundle exec jekyll serve
+alias jdev='bundle exec jekyll serve --host 0.0.0.0 --port 4001 -l -I --config _config.yml'            
+jdev 

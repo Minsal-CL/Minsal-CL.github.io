@@ -76,24 +76,33 @@ description: >-
   </div>
 </section>
 
+
 <section class="band band--tint">
   <div class="wrap">
     <header class="sec-head">
-      <p class="kicker">Proyectos</p>
-      <h2>Procesos clínicos interoperables en marcha</h2>
+      <h2>Proyectos Priorizados 2026</h2>
     </header>
-    <div class="mini-grid">
-      {%- for p in site.data.projects -%}
-      <a class="mini" href="{{ '/proyectos.html' | relative_url }}#{{ p.id }}">
-        {% include portal/badge.html status=p.estado %}
-        <b>{{ p.title }}</b>
-        <span>{{ p.description }}</span>
-      </a>
-      {%- endfor -%}
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="doc-card__label">Receta electrónica</span>
+        <strong>Prescripción digital, segura y verificable</strong>
+        <span>Permite emitir y validar recetas en formato estándar, reduciendo errores de transcripción y facilitando su dispensación en cualquier punto de la red.</span>
+      </div>
+      <div class="doc-card">
+        <span class="doc-card__label">Historia clínica compartida</span>
+        <strong>Información clínica disponible donde se atiende la persona</strong>
+        <span>Da acceso a un resumen clínico interoperable entre establecimientos, favoreciendo la continuidad del cuidado y decisiones basadas en información completa.</span>
+      </div>
+      <div class="doc-card">
+        <span class="doc-card__label">Trazabilidad de medicamentos</span>
+        <strong>Seguimiento de la receta a la dispensación</strong>
+        <span>Vincula prescripción, dispensación y lote con terminología estandarizada, fortaleciendo la seguridad del paciente y la gestión farmacéutica.</span>
+      </div>
     </div>
-    <p class="sec-more"><a class="lnk" href="{{ '/proyectos.html' | relative_url }}">Ver el portafolio completo →</a></p>
   </div>
 </section>
+
+
 
 <section class="band">
   <div class="wrap">
