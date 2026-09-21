@@ -1,0 +1,73 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/DiagnosticReport/ResultadoIndependienteEjemplo> a fhir:DiagnosticReport ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ResultadoIndependienteEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: InformeDiagnostico ResultadoIndependienteEjemplo</b></p><a name=\"ResultadoIndependienteEjemplo\"> </a><a name=\"hcResultadoIndependienteEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ResultadoDiagnosticoLaboratorio.html\">Resultado diagnóstico de laboratorio</a></p></div><h2><span title=\"Codes:{http://loinc.org 11502-2}\">Informe de laboratorio</span> (<span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}\">Laboratory</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td>Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</td></tr><tr><td>Relevant Time</td><td>2026-08-28 09:15:00-0400</td></tr><tr><td>Reported</td><td>2026-08-28 09:40:00-0400</td></tr><tr><td>Performer</td><td> <a href=\"Organization-LaboratorioEjecutorEjemplo.html\">Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)</a></td></tr><tr><td>Identifier</td><td> <code>https://ejemplo.cl/informes-laboratorio</code>/INF-INDEPENDIENTE-001</td></tr><tr><td>Presented Form</td><td> application/pdf: JVBERi0xLjQKMSAwIG9iago8PCAvVHlw...</td></tr></table><p><b>Report Details</b></p></div>"
+  ] ;
+  fhir:DiagnosticReport.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/informes-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "INF-INDEPENDIENTE-001" ]
+  ] ;
+  fhir:DiagnosticReport.status [ fhir:value "final"] ;
+  fhir:DiagnosticReport.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "LAB" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:DiagnosticReport.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:11502-2 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "11502-2" ] ;
+       fhir:Coding.display [ fhir:value "Reporte de laboratorio: Paciente:Punto temporal:Tipo:Documento:" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Informe de laboratorio" ]
+  ] ;
+  fhir:DiagnosticReport.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.effectiveDateTime [ fhir:value "2026-08-28T09:15:00-04:00"^^xsd:dateTime] ;
+  fhir:DiagnosticReport.issued [ fhir:value "2026-08-28T09:40:00-04:00"^^xsd:dateTime] ;
+  fhir:DiagnosticReport.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Organization/LaboratorioEjecutorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjecutorEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.presentedForm [
+     fhir:index 0 ;
+     fhir:Attachment.contentType [ fhir:value "application/pdf" ] ;
+     fhir:Attachment.data [ fhir:value "JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvQ29udGVudHMgNCAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL0xlbmd0aCAxNjQgPj4Kc3RyZWFtCkJUIC9GMSAxNiBUZiA3MiA3MDAgVGQgKEluZm9ybWUgZGUgTGFib3JhdG9yaW8gLSBEb2N1bWVudG8gZGUgZWplbXBsbykgVGogRVQKQlQgL0YxIDEyIFRmIDcyIDY3MCBUZCAoUmVzdWx0YWRvIGluZGVwZW5kaWVudGUsIHNpbiBzb2xpY2l0dWQgcHJldmlhIGVuIGVsIEJ1cykgVGogRVQKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqCjw8IC9UeXBlIC9Gb250IC9TdWJ0eXBlIC9UeXBlMSAvQmFzZUZvbnQgL0hlbHZldGljYSA+PgplbmRvYmoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDExNSAwMDAwMCBuIAowMDAwMDAwMjQxIDAwMDAwIG4gCjAwMDAwMDA0NTUgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSA2IC9Sb290IDEgMCBSID4+CnN0YXJ0eHJlZgo1MjUKJSVFT0Y="^^xsd:base64Binary ] ;
+     fhir:Attachment.title [ fhir:value "Informe de laboratorio (independiente)" ] ;
+     fhir:Attachment.creation [ fhir:value "2026-08-28T09:40:00-04:00"^^xsd:dateTime ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/DiagnosticReport/ResultadoIndependienteEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

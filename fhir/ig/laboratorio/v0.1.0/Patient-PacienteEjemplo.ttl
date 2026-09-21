@@ -1,0 +1,54 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> a fhir:Patient ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "PacienteEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Paciente PacienteEjemplo</b></p><a name=\"PacienteEjemplo\"> </a><a name=\"hcPacienteEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PacienteLaboratorio.html\">Paciente de Laboratorio</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</p><hr/></div>"
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "01" ] ;
+         fhir:Coding.display [ fhir:value "Run" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/paciente/identificador/run" ] ;
+     fhir:Identifier.value [ fhir:value "12345678-5" ]
+  ] ;
+  fhir:Patient.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [ fhir:value "Pérez" ] ;
+     fhir:HumanName.given [
+       fhir:value "Ana" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "female"] ;
+  fhir:Patient.birthDate [ fhir:value "1990-01-02"^^xsd:date] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

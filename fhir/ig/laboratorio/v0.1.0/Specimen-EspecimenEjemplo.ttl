@@ -1,0 +1,66 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Specimen/EspecimenEjemplo> a fhir:Specimen ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EspecimenEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Especimen EspecimenEjemplo</b></p><a name=\"EspecimenEjemplo\"> </a><a name=\"hcEspecimenEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalEspecimenLaboratorio.html\">Espécimen de Laboratorio MINSAL</a></p></div><p><b>identifier</b>: <code>https://ejemplo.cl/identificadores/especimenes</code>/ESP-MULTIPLE-001-HEM</p><p><b>status</b>: Available</p><p><b>type</b>: <span title=\"Codes:{http://snomed.info/sct 119297000}\">Blood specimen (specimen)</span></p><p><b>subject</b>: <a href=\"Patient-PacienteEjemplo.html\">Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</a></p><p><b>request</b>: <a href=\"ServiceRequest-PrestacionHemogramaEjemplo.html\">ServiceRequest Hemograma</a></p><h3>Collections</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Collected[x]</b></td><td><b>Method</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-08-28 10:15:00-0400</td><td><span title=\"Codes:\">Punción venosa</span></td></tr></table><h3>Containers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:\">Tubo de vacío con EDTA potásico</span></td></tr></table></div>"
+  ] ;
+  fhir:Specimen.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/identificadores/especimenes" ] ;
+     fhir:Identifier.value [ fhir:value "ESP-MULTIPLE-001-HEM" ]
+  ] ;
+  fhir:Specimen.status [ fhir:value "available"] ;
+  fhir:Specimen.type [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:119297000 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "119297000" ] ;
+       fhir:Coding.display [ fhir:value "Blood specimen (specimen)" ]
+     ]
+  ] ;
+  fhir:Specimen.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:Specimen.request [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionHemogramaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionHemogramaEjemplo" ]
+  ] ;
+  fhir:Specimen.collection [
+     fhir:Specimen.collection.collectedDateTime [ fhir:value "2026-08-28T10:15:00-04:00"^^xsd:dateTime ] ;
+     fhir:Specimen.collection.method [
+       fhir:CodeableConcept.text [ fhir:value "Punción venosa" ]
+     ]
+  ] ;
+  fhir:Specimen.container [
+     fhir:index 0 ;
+     fhir:Specimen.container.type [
+       fhir:CodeableConcept.text [ fhir:value "Tubo de vacío con EDTA potásico" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Specimen/EspecimenEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,65 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "motivo-cancelacion-solicitud-laboratorio"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores motivo-cancelacion-solicitud-laboratorio</b></p><a name=\"motivo-cancelacion-solicitud-laboratorio\"> </a><a name=\"hcmotivo-cancelacion-solicitud-laboratorio\"> </a><ul><li>Include these codes as defined in <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Spanish (es)</b></td></tr><tr><td><a href=\"http://snomed.info/id/270426007\">270426007</a></td><td>Did not attend - no reason</td><td>Paciente no se presenta</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio"] ;
+  fhir:ValueSet.version [ fhir:value "0.5.0"] ;
+  fhir:ValueSet.name [ fhir:value "VSMotivoCancelacionSolicitudLaboratorio"] ;
+  fhir:ValueSet.title [ fhir:value "Motivo de Cancelación de Solicitud de Laboratorio"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-09-21T17:12:23-03:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra."] ;
+  fhir:ValueSet.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "270426007" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Did not attend - no reason" ] ;
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0 ;
+           fhir:ValueSet.compose.include.concept.designation.language [ fhir:value "es" ] ;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Paciente no se presenta" ]
+         ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

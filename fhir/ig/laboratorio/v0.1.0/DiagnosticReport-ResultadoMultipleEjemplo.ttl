@@ -1,0 +1,115 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/DiagnosticReport/ResultadoMultipleEjemplo> a fhir:DiagnosticReport ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ResultadoMultipleEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: InformeDiagnostico ResultadoMultipleEjemplo</b></p><a name=\"ResultadoMultipleEjemplo\"> </a><a name=\"hcResultadoMultipleEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-ResultadoDiagnosticoLaboratorio.html\">Resultado diagnóstico de laboratorio</a></p></div><h2><span title=\"Codes:{http://loinc.org 11502-2}\">Informe de laboratorio</span> (<span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}\">Laboratory</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td>Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</td></tr><tr><td>Relevant Time</td><td>2026-08-28 14:30:00-0400</td></tr><tr><td>Reported</td><td>2026-08-28 15:00:00-0400</td></tr><tr><td>Performer</td><td> <a href=\"Organization-LaboratorioEjecutorEjemplo.html\">Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)</a></td></tr><tr><td>Identifier</td><td> <code>https://ejemplo.cl/informes-laboratorio</code>/INF-MULTIPLE-001</td></tr><tr><td>Presented Form</td><td> application/pdf: JVBERi0xLjQKMSAwIG9iago8PCAvVHlw...</td></tr></table><p><b>Report Details</b></p><table class=\"grid\"><tr><td><b>Code</b></td><td><b>Value</b></td><td><b>Reference Range</b></td><td><b>Flags</b></td><td><b>Relevant Time</b></td><td><b>Reported</b></td></tr><tr><td><a href=\"Bundle-BundleResultadoMultipleEjemplo.html#urn-uuid-77777777-7777-4777-8777-777777777777\"><span title=\"Codes:{http://loinc.org 718-7}\">Hemoglobina</span></a></td><td>13.2 g/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codeg/dL = 'g/dL')</span></td><td>Rango de referencia adulta (mujer)</td><td>Final</td><td>2026-08-28 11:00:00-0400</td><td>2026-08-28 11:30:00-0400</td></tr><tr><td><a href=\"Bundle-BundleResultadoMultipleEjemplo.html#urn-uuid-88888888-8888-4888-8888-888888888888\"><span title=\"Codes:{http://loinc.org 2345-7}\">Glucosa (glicemia)</span></a></td><td>320 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td><td>Rango de referencia en ayunas</td><td>Final, <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation HH}\">Critical high</span></td><td>2026-08-28 11:00:00-0400</td><td>2026-08-28 11:30:00-0400</td></tr><tr><td><a href=\"Bundle-BundleResultadoMultipleEjemplo.html#urn-uuid-99999999-9999-4999-8999-999999999999\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0302067}\">Colesterol total</span></a></td><td>195 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td><td>Deseable: menor a 200 mg/dL</td><td>Final</td><td>2026-08-28 11:00:00-0400</td><td>2026-08-28 11:30:00-0400</td></tr></table></div>"
+  ] ;
+  fhir:DiagnosticReport.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/informes-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "INF-MULTIPLE-001" ]
+  ] ;
+  fhir:DiagnosticReport.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionHemogramaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionHemogramaEjemplo" ]
+  ], [
+     fhir:index 1 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionGlicemiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionGlicemiaEjemplo" ]
+  ], [
+     fhir:index 2 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionBilirrubinaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionBilirrubinaEjemplo" ]
+  ], [
+     fhir:index 3 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionNitrogenoUreicoEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionNitrogenoUreicoEjemplo" ]
+  ], [
+     fhir:index 4 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionColesterolTotalEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionColesterolTotalEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.status [ fhir:value "final"] ;
+  fhir:DiagnosticReport.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "LAB" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:DiagnosticReport.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:11502-2 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "11502-2" ] ;
+       fhir:Coding.display [ fhir:value "Reporte de laboratorio: Paciente:Punto temporal:Tipo:Documento:" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Informe de laboratorio" ]
+  ] ;
+  fhir:DiagnosticReport.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.effectiveDateTime [ fhir:value "2026-08-28T14:30:00-04:00"^^xsd:dateTime] ;
+  fhir:DiagnosticReport.issued [ fhir:value "2026-08-28T15:00:00-04:00"^^xsd:dateTime] ;
+  fhir:DiagnosticReport.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Organization/LaboratorioEjecutorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjecutorEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.specimen [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Specimen/EspecimenEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Specimen/EspecimenEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.result [
+     fhir:index 0 ;
+     fhir:Reference.reference [ fhir:value "urn:uuid:77777777-7777-4777-8777-777777777777" ] ;
+     fhir:Reference.type [ fhir:value "Observation" ] ;
+     fhir:Reference.display [ fhir:value "Hemoglobina" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Reference.reference [ fhir:value "urn:uuid:88888888-8888-4888-8888-888888888888" ] ;
+     fhir:Reference.type [ fhir:value "Observation" ] ;
+     fhir:Reference.display [ fhir:value "Glucosa (glicemia)" ]
+  ], [
+     fhir:index 2 ;
+     fhir:Reference.reference [ fhir:value "urn:uuid:99999999-9999-4999-8999-999999999999" ] ;
+     fhir:Reference.type [ fhir:value "Observation" ] ;
+     fhir:Reference.display [ fhir:value "Colesterol total" ]
+  ] ;
+  fhir:DiagnosticReport.presentedForm [
+     fhir:index 0 ;
+     fhir:Attachment.contentType [ fhir:value "application/pdf" ] ;
+     fhir:Attachment.data [ fhir:value "JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA1IDAgUiA+PiA+PiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvQ29udGVudHMgNCAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL0xlbmd0aCAxNTQgPj4Kc3RyZWFtCkJUIC9GMSAxNiBUZiA3MiA3MDAgVGQgKEluZm9ybWUgZGUgTGFib3JhdG9yaW8gLSBEb2N1bWVudG8gZGUgZWplbXBsbykgVGogRVQKQlQgL0YxIDEyIFRmIDcyIDY3MCBUZCAoU29saWNpdHVkIFNPTC1NVUxUSVBMRS0wMDEgLSBIb3NwaXRhbCBkZSBUYWxjYSkgVGogRVQKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqCjw8IC9UeXBlIC9Gb250IC9TdWJ0eXBlIC9UeXBlMSAvQmFzZUZvbnQgL0hlbHZldGljYSA+PgplbmRvYmoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDExNSAwMDAwMCBuIAowMDAwMDAwMjQxIDAwMDAwIG4gCjAwMDAwMDA0NDYgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSA2IC9Sb290IDEgMCBSID4+CnN0YXJ0eHJlZgo1MTYKJSVFT0Y="^^xsd:base64Binary ] ;
+     fhir:Attachment.title [ fhir:value "Informe de laboratorio" ] ;
+     fhir:Attachment.creation [ fhir:value "2026-08-28T15:00:00-04:00"^^xsd:dateTime ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/DiagnosticReport/ResultadoMultipleEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
