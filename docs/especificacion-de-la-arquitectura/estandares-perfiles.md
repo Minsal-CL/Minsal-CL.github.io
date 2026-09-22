@@ -1,14 +1,34 @@
 ---
-layout: default
+layout: portal
 title: Estándares y Perfiles
-parent: Especificación de la Arquitectura
-nav_order: 3
+nav_exclude: true
 last_reviewed: 2026-09-18
+description: >-
+  Estándares sintácticos y semánticos adoptados para representar e
+  intercambiar datos clínicos, imágenes y productos.
+breadcrumbs:
+  - title: "Arquitectura"
+    url: "/arquitectura.html"
+  - title: "Especificación de la Arquitectura"
+    url: "/docs/especificacion-de-la-arquitectura"
 ---
 
-# Estándares y Perfiles
+<section class="hero">
+  <div class="wrap">
+    <p class="hero__eyebrow">Documentación técnica</p>
+    <h2>Estándares y Perfiles</h2>
+    <p class="page">
+      Para asegurar la calidad, disponibilidad y uso seguro de los datos
+      clínicos, se ha definido una arquitectura orientada a servicios basada
+      en estándares sintácticos y semánticos de amplio uso internacional. El
+      comité técnico define los estándares más adecuados para cada proceso
+      clínico.
+    </p>
+  </div>
+</section>
 
-Para asegurar la calidad, disponibilidad y uso seguro de los datos clínicos, se ha definido una arquitectura orientada a servicios basada en estándares sintácticos y semánticos de amplio uso internacional. El comité técnico define los estándares más adecuados para cada proceso clínico.
+<section class="band prose-band">
+  <div class="wrap doc-body" markdown="1">
 
 <div class="doc-summary">
 	<p class="doc-summary__eyebrow">Intercambio con significado</p>
@@ -182,3 +202,23 @@ El propósito es facilitar el intercambio electrónico y registro de resultados 
 	<p class="doc-summary__eyebrow">Vigencia de esta información</p>
 	<p>Esta página se actualizó por última vez el {{ page.last_reviewed }}. Los siguientes datos cambian con el tiempo y conviene verificarlos con la fuente oficial antes de tomar decisiones de implementación: la edición de <a href="#cie--clasificación-internacional-y-estadística-de-enfermedades-y-problemas-relacionados-con-la-salud">CIE-10 en uso</a> y el estado de los pilotos de CIE-11, la periodicidad de los mapeos semestrales de la <a href="#snomed-ct--systematized-nomenclature-of-medicine--clinical-terms">Oficina FIC para SNOMED CT</a>, y las normas técnicas vigentes de <a href="#gs1">GS1</a> para trazabilidad (actualmente NT 226 y NT 247).</p>
 </div>
+
+  </div>
+</section>
+
+<section class="band next-band">
+  <div class="wrap">
+    <h2>Enlaces de interés</h2>
+    <p>Sigue explorando la especificación de la arquitectura.</p>
+    <div class="routes">
+      <a class="route" href="{{ '/docs/especificacion-de-la-arquitectura/principios-arquitectura.html' | relative_url }}">
+        <b>Principios Arquitecturales</b>
+        <span>Los criterios que guían el diseño y la implementación →</span>
+      </a>
+      <a class="route" href="{{ '/arquitectura.html' | relative_url }}">
+        <b>Arquitectura</b>
+        <span>La Arquitectura Nacional de Interoperabilidad →</span>
+      </a>
+    </div>
+  </div>
+</section>

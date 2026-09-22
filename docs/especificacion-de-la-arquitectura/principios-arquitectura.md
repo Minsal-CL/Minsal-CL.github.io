@@ -1,13 +1,31 @@
 ---
-layout: default
+layout: portal
 title: Principios Arquitecturales
-parent: Especificación de la Arquitectura
-nav_order: 2
+nav_exclude: true
+description: >-
+  Los criterios que guían el diseño, la implementación y la evolución de las
+  soluciones que intercambian información de salud.
+breadcrumbs:
+  - title: "Arquitectura"
+    url: "/arquitectura.html"
+  - title: "Especificación de la Arquitectura"
+    url: "/docs/especificacion-de-la-arquitectura"
 ---
 
-# Principios Arquitecturales
+<section class="hero">
+  <div class="wrap">
+    <p class="hero__eyebrow">Documentación técnica</p>
+    <h2>Principios Arquitecturales</h2>
+    <p class="page">
+      Para elevar la madurez del sistema de salud chileno, acelerar la
+      adopción y favorecer nuevos modelos de atención, la arquitectura se
+      guía por los siguientes principios rectores.
+    </p>
+  </div>
+</section>
 
-Para elevar la madurez del sistema de salud chileno, acelerar la adopción y favorecer nuevos modelos de atención, la arquitectura se guía por los siguientes principios rectores.
+<section class="band prose-band">
+  <div class="wrap doc-body" markdown="1">
 
 <div class="doc-summary">
 	<p class="doc-summary__eyebrow">Criterios de diseño</p>
@@ -76,3 +94,23 @@ Para elevar la madurez del sistema de salud chileno, acelerar la adopción y fav
 	<p class="doc-summary__eyebrow">Marco legal</p>
 	<p>La protección de la información y el resguardo de datos sensibles se exige desde el diseño, conforme a la Ley N.° 21.663 (Ciberseguridad) y la Ley N.° 21.719 (Protección de Datos Personales).</p>
 </div>
+
+  </div>
+</section>
+
+<section class="band next-band">
+  <div class="wrap">
+    <h2>Enlaces de interés</h2>
+    <p>Sigue explorando la especificación de la arquitectura.</p>
+    <div class="routes">
+      <a class="route" href="{{ '/docs/especificacion-de-la-arquitectura/estandares-perfiles.html' | relative_url }}">
+        <b>Estándares y Perfiles</b>
+        <span>Los estándares técnicos y semánticos adoptados →</span>
+      </a>
+      <a class="route" href="{{ '/arquitectura.html' | relative_url }}">
+        <b>Arquitectura</b>
+        <span>La Arquitectura Nacional de Interoperabilidad →</span>
+      </a>
+    </div>
+  </div>
+</section>

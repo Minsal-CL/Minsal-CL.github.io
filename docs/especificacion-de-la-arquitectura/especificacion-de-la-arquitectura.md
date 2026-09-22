@@ -1,14 +1,32 @@
 ---
-layout: default
+layout: portal
 title: Especificación de la Arquitectura
-nav_order: 2
-has_children: true
+nav_exclude: true
 permalink: /docs/especificacion-de-la-arquitectura
+description: >-
+  El marco común para intercambiar información de salud entre instituciones,
+  establecimientos y sistemas: decisiones de arquitectura, principios y
+  estándares.
+breadcrumbs:
+  - title: "Arquitectura"
+    url: "/arquitectura.html"
 ---
 
-# Especificación de la Arquitectura
+<section class="page-hero">
+  <div class="wrap">
+    {% include portal/breadcrumbs.html %}
+    <p class="hero__eyebrow">Documentación técnica</p>
+    <h1>Especificación de la Arquitectura</h1>
+    <p class="page-hero__lead">
+      Esta especificación define el marco común para intercambiar información
+      de salud de manera segura, comprensible y sostenible entre
+      instituciones, establecimientos y sistemas.
+    </p>
+  </div>
+</section>
 
-Esta especificación define el marco común para intercambiar información de salud de manera segura, comprensible y sostenible entre instituciones, establecimientos y sistemas.
+<section class="band prose-band">
+  <div class="wrap doc-body" markdown="1">
 
 <div class="doc-summary">
 	<p class="doc-summary__eyebrow">Marco de referencia</p>
@@ -39,3 +57,6 @@ La arquitectura nacional de interoperabilidad combina capacidades compartidas co
 
 {: .nota }
 > Este marco es una referencia para la definición de normas técnicas, guías de implementación y procesos de adopción de estándares en el sector salud.
+
+  </div>
+</section>

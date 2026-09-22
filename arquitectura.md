@@ -205,11 +205,11 @@ description: >-
           <p class="cap-row__detail">La interoperabilidad se traduce en un servicio nacional visible para personas, prescriptores y dispensadores.</p>
         </div>
       </li>
-      <li class="cap-row">
+      <li class="cap-row" id="hcc">
         <div class="cap-row__mark">10</div>
         <div class="cap-row__body">
           <h3>2026+ · HCC + Receta + Trazabilidad</h3>
-          <p class="cap-row__detail">Consolidación de una capacidad nacional para compartir información clínica y farmacológica, centrada en las personas.</p>
+          <p class="cap-row__detail">Consolidación de una capacidad nacional para compartir información clínica y farmacológica, centrada en las personas. Ver <a href="{{ '/receta-trazabilidad/' | relative_url }}">Receta Nacional y Trazabilidad de Medicamentos →</a></p>
         </div>
       </li>
     </ol>

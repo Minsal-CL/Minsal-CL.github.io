@@ -1,13 +1,35 @@
 ---
-layout: default
+layout: portal
 title: Arquitectura
-parent: Especificación de la Arquitectura
-nav_order: 1
+nav_exclude: true
+description: >-
+  Gobernanza transversal, estándares compartidos y modelo híbrido para el
+  manejo de activos de información.
+breadcrumbs:
+  - title: "Arquitectura"
+    url: "/arquitectura.html"
+  - title: "Especificación de la Arquitectura"
+    url: "/docs/especificacion-de-la-arquitectura"
 ---
 
-# Introducción
+<section class="page-hero">
+  <div class="wrap">
+    {% include portal/breadcrumbs.html %}
+    <p class="hero__eyebrow">Documentación técnica</p>
+    <h1>Arquitectura</h1>
+    <p class="page-hero__lead">
+      Para lograr la interoperabilidad se define una estrategia tecnológica
+      basada en gobernanza transversal, estándares compartidos y un modelo
+      híbrido para el manejo de activos de información. Este enfoque permite
+      la movilidad de la información dentro de la red asistencial,
+      manteniendo una arquitectura coherente, sostenible, confiable y
+      resiliente.
+    </p>
+  </div>
+</section>
 
-Para lograr la interoperabilidad se define una estrategia tecnológica basada en gobernanza transversal, estándares compartidos y un modelo híbrido para el manejo de activos de información. Este enfoque permite la movilidad de la información dentro de la red asistencial, manteniendo una arquitectura coherente, sostenible, confiable y resiliente.
+<section class="band prose-band">
+  <div class="wrap doc-body" markdown="1">
 
 <div class="doc-summary">
 	<p class="doc-summary__eyebrow">Modelo híbrido</p>
@@ -48,3 +70,6 @@ La implementación de procesos clínicos interoperables será coordinada por un 
 
 {: .nota }
 > El modelo describe cómo se relacionan capacidades compartidas, estándares y sistemas de la red. Su implementación se concreta mediante guías y normas técnicas para cada proceso clínico.
+
+  </div>
+</section>

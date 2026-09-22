@@ -1,0 +1,12 @@
+{%- if page.breadcrumbs -%}
+<nav aria-label="Ruta de navegación" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    {%- for crumb in page.breadcrumbs -%}
+    <li class="breadcrumb-nav-list-item">
+      <a href="{{ crumb.url | relative_url }}">{{ crumb.title }}</a>
+    </li>
+    {%- endfor -%}
+    <li class="breadcrumb-nav-list-item"><span>{{ page.title }}</span></li>
+  </ol>
+</nav>
+{%- endif -%}
