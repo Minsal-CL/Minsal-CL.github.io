@@ -1,4 +1,4 @@
-# Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
+# Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
 
 * [**Table of Contents**](toc.md)
 * **Casos de uso**
@@ -37,7 +37,7 @@ Esta guía prioriza la estandarización del **resultado** de laboratorio, que es
 
 | | | |
 | :--- | :--- | :--- |
-| Fase 1 (alcance de esta versión) | Creación de solicitud (UC1, en sus dos modalidades) y recepción del resultado, tanto como informe PDF (UC2) como dato atómico por prestación (UC3) | UC1 y UC2 en desarrollo, con perfiles y ejemplos publicados; UC3 priorizado en esta fase, con perfiles de`Observation`en diseño |
+| Fase 1 (alcance de esta versión) | Creación de solicitud (UC1, en sus dos modalidades) y recepción del resultado, con prioridad de entrega en el informe PDF (UC2); el resultado atómico por prestación (UC3) se diseña en paralelo | UC1 y UC2 en desarrollo, con perfiles y ejemplos publicados; UC3 en diseño, con prioridad de entrega secundaria respecto a UC2, como desarrollo propio de esta guía |
 | Fase 2 (a futuro) | Profundización del proceso de solicitud y toma de muestra: actos intermedios de aceptación de la muestra en el laboratorio, y escenarios de derivación entre establecimientos distintos | Fuera del alcance de esta versión |
 
 > Definición de alcance: `ResultadoDiagnosticoLaboratorio.basedOn` no es obligatorio. La implementación no exige siempre solicitud y resultado en conjunto: un laboratorio puede enviar su resultado (PDF y/o dato atómico) sin una solicitud previa registrada en el Bus, cuando el examen se originó y se procesó íntegramente en su propio sistema. Cuando el establecimiento sí genera y registra la solicitud en el Bus, se recomienda referenciarla siempre mediante `basedOn`, ya que permite trazabilidad y saber que un paciente está en lista de espera de un examen. MINSAL levantará vía oficio a los establecimientos la información sobre cómo cada uno genera sus solicitudes (en origen, integrada, o directo en el laboratorio), lo que podrá afinar esta recomendación a futuro sin cambiar la cardinalidad ya definida.
@@ -94,6 +94,8 @@ El laboratorio ejecutor procesa la muestra y genera un resultado, que incluye al
 
 Recurso focal: `ResultadoDiagnosticoLaboratorio` (perfil de `DiagnosticReport`), con el PDF codificado en `presentedForm.data`. Ver el ejemplo `ResultadoMultipleEjemplo`: un informe único que responde a las cinco prestaciones agrupadas de `BundleSolicitudMultipleEjemplo` mediante `basedOn`. Ver también el ejemplo `ResultadoIndependienteEjemplo`: un informe que llega sin ninguna solicitud previa registrada en el Bus (`basedOn` ausente), caso de un laboratorio cuyo examen se originó y procesó íntegramente en su propio sistema.
 
+Cuando el laboratorio informa el resultado atómico junto con el PDF (Caso de uso 3), ambos se envían en un único `Bundle` de tipo `transaction`, perfil `MinsalBundleResultadoLaboratorio`, simétrico al de la solicitud (`MinsalBundleSolicitudLaboratorio`): una entrada `informe` (`ResultadoDiagnosticoLaboratorio`) y una o más entradas `observacion` (`MinsalObservacionLaboratorio`). Un invariante propio del Bundle (`resultado-observaciones-referenciadas`) exige que el informe referencie, mediante `result`, a todas las observaciones incluidas en el mismo Bundle, para que no queden resultados atomizados sueltos sin vínculo desde el informe. Ver el ejemplo `BundleResultadoMultipleEjemplo`: agrupa `ResultadoMultipleEjemplo` con dos de sus cinco resultados atomizados (Hemoglobina y Glucosa), reflejando que un establecimiento puede adoptar el dato atómico de forma parcial, analito por analito, sin que eso afecte la entrega del PDF completo.
+
 1. El laboratorio genera el resultado. Si existe una solicitud registrada en el Bus (`MinsalServiceRequestLab`), la referencia en`basedOn`; si el examen se originó y procesó íntegramente en el propio laboratorio, sin solicitud previa registrada en el Bus,`basedOn`se omite (ver "Definición de alcance" más arriba).
 1. Si el origen es HL7 v2, el mensaje`ORU^R01`incluye el PDF en Base64 en`OBX-5`(tipo`ED`); el Bus lo transforma a`DiagnosticReport.presentedForm`según[Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.md).
 1. Si el origen es FHIR nativo, el laboratorio construye directamente`ResultadoDiagnosticoLaboratorio`con`presentedForm`.
@@ -106,6 +108,13 @@ sequenceDiagram participant LIS as Laboratorio (LIS) participant Bus as Bus de I
 
 ```
 POST [URL_Base]/DiagnosticReport
+
+```
+
+Cuando el establecimiento informa también el resultado atómico (Caso de uso 3), se recomienda `Bundle` de tipo `transaction`, perfil `MinsalBundleResultadoLaboratorio`, con el informe y sus observaciones asociadas:
+
+```
+POST [URL_Base]/
 
 ```
 
@@ -125,16 +134,32 @@ GET [URL_Base]/DiagnosticReport?based-on=[id_ServiceRequest]
 
 ## Caso de uso 3: Resultado atomizado por prestación
 
-Este caso de uso tiene la misma prioridad que UC2 en esta fase: ambos son formas válidas de recibir el resultado final, y un establecimiento puede optar por una, la otra, o ambas según su capacidad de integración. Los perfiles de `Observation` para este caso están en diseño; esta página documenta los puntos que deben resolverse antes de publicarlos.
+La prioridad de entrega de esta fase es el Caso de uso 2 (informe PDF): es el mecanismo que todo laboratorio debe soportar como mínimo para publicar su resultado. Este caso de uso sigue dentro del alcance de la guía, con prioridad de entrega secundaria respecto a UC2, y se define como desarrollo propio de Laboratorio, sin depender de la sincronización con la propuesta de otra guía de dominio. Un establecimiento puede optar por PDF, por resultado atómico, o por ambos según su capacidad de integración.
 
-A diferencia de UC2, donde el PDF se transporta como documento opaco, el resultado atomizado exige representar cada resultado individual como un recurso `Observation` estructurado, referenciado desde `DiagnosticReport.result`. Esto requiere resolver, además de la identidad del paciente y la homologación de la prestación:
+A diferencia de UC2, donde el PDF se transporta como documento opaco, el resultado atomizado representa cada resultado individual como un recurso `Observation` (perfil `MinsalObservacionLaboratorio`), referenciado desde `DiagnosticReport.result`. Un panel de exámenes con varios analitos (por ejemplo, Hemograma) se representa con varias instancias de `Observation`, una por analito, todas enlazadas mediante `Observation.basedOn` a la misma `ServiceRequest` de la prestación; el agrupamiento del panel se resuelve por esa referencia compartida, sin usar `Observation.hasMember` ni `Observation.component`.
 
-* Homologación de cada resultado individual (por ejemplo, hemoglobina, hematocrito) a un código LOINC u otro catálogo acordado, cuando el sistema de origen solo informe el nombre local del analito.
-* Homologación de unidades de medida a UCUM, cuando el sistema de origen use notación local o abreviada.
-* Representación de valores críticos y su interpretación (`Observation.interpretation`), incluyendo la política de notificación cuando corresponda.
-* Trazabilidad entre el resultado atomizado y el PDF firmado, cuando ambos coexistan, para evitar que difieran entre sí.
+1. El laboratorio genera el informe y, para las prestaciones que decide informar de forma atómica, sus resultados individuales (`Observation`, uno por analito).
+1. Ambos se envían juntos en un único`Bundle`de tipo`transaction`, perfil`MinsalBundleResultadoLaboratorio`(ver ejemplo`BundleResultadoMultipleEjemplo`).
+1. El Bus valida el Bundle contra los perfiles de esta guía, incluido el invariante`resultado-observaciones-referenciadas`: el informe debe referenciar, mediante`result`, a todas las`Observation`incluidas en el mismo Bundle.
+1. El Bus transforma y publica ambos recursos en el modelo canónico; responde con el estado de cada entrada.
+1. El Portal Ciudadano u otro consumidor autorizado puede consultar el resultado atomizado de forma independiente del PDF, por ejemplo por paciente y código LOINC.
 
-Los mensajes HL7 v2 de origen para este caso siguen siendo `ORU^R01`, pero con múltiples segmentos `OBX` por resultado individual en lugar de un único `OBX` con el PDF. El mapeo campo a campo de `OBX` ya está definido en [Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.md) y aplica también a este caso; lo pendiente de diseño es la política de homologación de unidades y valores críticos, no la transformación estructural.
+sequenceDiagram participant LIS as Laboratorio (LIS) participant Bus as Bus de Interoperabilidad participant Portal as Portal Ciudadano LIS->>Bus: ORU^R01 (múltiples OBX) / POST Bundle(transaction) [informe + observaciones] Bus->>Bus: valida informe.result referencia todas las Observation (resultado-observaciones-referenciadas) Bus->>Bus: transforma a ResultadoDiagnosticoLaboratorio + MinsalObservacionLaboratorio Bus-->>LIS: ACK / 200 Portal->>Bus: GET Observation?patient=[id_paciente]&code=[codigo_LOINC] Bus-->>Portal: resultado atomizado por analito
+
+El perfil resuelve los siguientes puntos de diseño:
+
+* Homologación de cada resultado individual a un código LOINC o FONASA en `Observation.code`, según el tipo de prestación (ver ejemplos `ObservacionHemoglobinaEjemplo` y `ObservacionColesterolFonasaEjemplo`): 
+* Prestaciones multianalito (paneles, por ejemplo Hemograma): un código FONASA identifica la prestación completa, pero no cada analito que produce (hemoglobina, hematocrito, leucocitos, etc.); usar ese mismo código FONASA como `Observation.code` en cada analito los dejaría indistinguibles entre sí. Estos casos requieren código LOINC por analito.
+* Prestaciones de un solo resultado (por ejemplo Glucosa, Bilirrubina total, Nitrógeno ureico, Colesterol total): el código FONASA de la prestación identifica sin ambigüedad ese único valor, por lo que puede usarse directamente como `Observation.code`, sin necesidad de homologar a LOINC.
+ 
+* Unidades de medida en UCUM, exigidas directamente desde el LIS (`Observation.valueQuantity.system` fijo a `unitsofmeasure.org`), sin tabla de homologación intermedia en esta fase.
+* Valores críticos mediante `Observation.interpretation`, reutilizando el CodeSystem internacional `v3-ObservationInterpretation` (`HH`/`LL`/`H`/`L`), sin crear código propio MINSAL.
+* Rango de referencia (`Observation.referenceRange`), con `low`, `high` o `text`.
+* Empaquetamiento junto al informe en un único `Bundle` transaccional (`MinsalBundleResultadoLaboratorio`, ver Caso de uso 2), en vez de un envío separado del informe y de cada resultado atomizado.
+
+Queda pendiente de diseño, para una fase posterior: la trazabilidad entre el resultado atomizado y el PDF firmado cuando ambos coexistan (para evitar que difieran entre sí), y el filtrado de resultados por área del laboratorio (`category:studyType`/`category:specialty`, deferidos a Fase 2).
+
+Los mensajes HL7 v2 de origen para este caso siguen siendo `ORU^R01`, pero con múltiples segmentos `OBX` por resultado individual en lugar de un único `OBX` con el PDF. El mapeo campo a campo de `OBX` ya está definido en [Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.md) y aplica también a este caso.
 
 ## Caso de uso 4: Cancelación o anulación de una solicitud
 

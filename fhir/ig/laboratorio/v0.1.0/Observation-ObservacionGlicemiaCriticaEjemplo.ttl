@@ -1,0 +1,102 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Observation/ObservacionGlicemiaCriticaEjemplo> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ObservacionGlicemiaCriticaEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalObservacionLaboratorio" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalObservacionLaboratorio>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observación ObservacionGlicemiaCriticaEjemplo</b></p><a name=\"ObservacionGlicemiaCriticaEjemplo\"> </a><a name=\"hcObservacionGlicemiaCriticaEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalObservacionLaboratorio.html\">Resultado atomizado de laboratorio MINSAL</a></p></div><p><b>identifier</b>: <code>https://ejemplo.cl/resultados-laboratorio</code>/SOL-MULTIPLE-001-GLU-GLU</p><p><b>basedOn</b>: <a href=\"ServiceRequest-PrestacionGlicemiaEjemplo.html\">ServiceRequest Glucosa (glicemia)</a></p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 2345-7}\">Glucosa (glicemia)</span></p><p><b>subject</b>: <a href=\"Patient-PacienteEjemplo.html\">Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</a></p><p><b>effective</b>: 2026-08-28 11:00:00-0400</p><p><b>issued</b>: 2026-08-28 11:30:00-0400</p><p><b>performer</b>: <a href=\"Organization-LaboratorioEjecutorEjemplo.html\">Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)</a></p><p><b>value</b>: 320 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></p><p><b>interpretation</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation HH}\">Critical high</span></p><h3>ReferenceRanges</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Low</b></td><td><b>High</b></td><td><b>Text</b></td></tr><tr><td style=\"display: none\">*</td><td>70 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td><td>100 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td><td>Rango de referencia en ayunas</td></tr></table></div>"
+  ] ;
+  fhir:Observation.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/resultados-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001-GLU-GLU" ]
+  ] ;
+  fhir:Observation.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ServiceRequest/PrestacionGlicemiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/PrestacionGlicemiaEjemplo" ]
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "laboratory" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:2345-7 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "2345-7" ] ;
+       fhir:Coding.display [ fhir:value "Glucosa: Suero o Plasma : Punto temporal: Concentración de masa: Cuantitativo:" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Glucosa (glicemia)" ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-08-28T11:00:00-04:00"^^xsd:dateTime] ;
+  fhir:Observation.issued [ fhir:value "2026-08-28T11:30:00-04:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Organization/LaboratorioEjecutorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjecutorEjemplo" ]
+  ] ;
+  fhir:Observation.valueQuantity [
+     fhir:Quantity.value [ fhir:value "320"^^xsd:decimal ] ;
+     fhir:Quantity.unit [ fhir:value "mg/dL" ] ;
+     fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ] ;
+     fhir:Quantity.code [ fhir:value "mg/dL" ]
+  ] ;
+  fhir:Observation.interpretation [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation" ] ;
+       fhir:Coding.code [ fhir:value "HH" ] ;
+       fhir:Coding.display [ fhir:value "Critical high" ]
+     ]
+  ] ;
+  fhir:Observation.referenceRange [
+     fhir:index 0 ;
+     fhir:Observation.referenceRange.low [
+       fhir:Quantity.value [ fhir:value "70"^^xsd:decimal ] ;
+       fhir:Quantity.unit [ fhir:value "mg/dL" ] ;
+       fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ] ;
+       fhir:Quantity.code [ fhir:value "mg/dL" ]
+     ] ;
+     fhir:Observation.referenceRange.high [
+       fhir:Quantity.value [ fhir:value "100"^^xsd:decimal ] ;
+       fhir:Quantity.unit [ fhir:value "mg/dL" ] ;
+       fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ] ;
+       fhir:Quantity.code [ fhir:value "mg/dL" ]
+     ] ;
+     fhir:Observation.referenceRange.text [ fhir:value "Rango de referencia en ayunas" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Observation/ObservacionGlicemiaCriticaEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

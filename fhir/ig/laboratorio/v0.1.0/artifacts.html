@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Artifacts Summary - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0</title>
+    <title>Artifacts Summary - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -68,7 +68,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
             <br/>
-            <span style="display:inline-block;">0.3.0 - ci-build
+            <span style="display:inline-block;">0.5.0 - ci-build
 
 
 
@@ -149,7 +149,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.5.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Artifacts Summary</h2>
   
   
@@ -184,6 +184,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalBundleResultadoLaboratorio.html"
+                  title="StructureDefinition/MinsalBundleResultadoLaboratorio">Bundle de Resultado de Laboratorio MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para el envío transaccional del resultado de una o más prestaciones de laboratorio: el informe (<code class="language-plaintext highlighter-rouge">DiagnosticReport</code>, perfil <code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code>) y, cuando el establecimiento opta por informar también el dato atómico por analito (Caso de uso 3), sus resultados individuales (<code class="language-plaintext highlighter-rouge">Observation</code>, perfil <code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code>). Simétrico a <code class="language-plaintext highlighter-rouge">MinsalBundleSolicitudLaboratorio</code> del lado de la solicitud. Paciente y establecimiento ejecutor se asumen preexistentes en el servidor de destino (mismo criterio que en la solicitud); por eso se incluyen aquí solo como entradas opcionales, para el establecimiento que decida enviarlos junto con la transacción en vez de asumir su preexistencia.</p>
+</td>
+         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-MinsalBundleSolicitudLaboratorio.html"
@@ -227,6 +236,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>Perfil para representar al profesional solicitante, ejecutor o interpretador de resultados en el flujo de laboratorio. Extiende el perfil de prestador de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Practitioner de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalObservacionLaboratorio.html"
+                  title="StructureDefinition/MinsalObservacionLaboratorio">Resultado atomizado de laboratorio MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar un resultado individual de una prestación de laboratorio (un analito o un resultado cualitativo), cuando el establecimiento opta por informar el dato atómico además de o en vez del informe PDF (ver Casos de uso, Caso de uso 3). Un panel de exámenes con varios analitos (ej. Hemograma) se representa con varias instancias de este perfil, todas enlazadas mediante <code class="language-plaintext highlighter-rouge">basedOn</code> a la misma <code class="language-plaintext highlighter-rouge">ServiceRequest</code> de la prestación, sin usar <code class="language-plaintext highlighter-rouge">hasMember</code> ni <code class="language-plaintext highlighter-rouge">component</code>. Perfil diseñado con referencia a CH LAB-Report (HL7 Suiza) v2.0.0, adaptado al modelo de solicitud propio de esta guía (ver ENTREGA_DESARROLLO.md).</p>
 </td>
          </tr>
          <tr>
@@ -291,6 +309,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
+               <a href="Bundle-BundleResultadoMultipleEjemplo.html"
+                  title="Bundle/BundleResultadoMultipleEjemplo">Bundle de resultado con informe PDF y dos resultados atomizados</a>
+            </td>
+            <td>
+<p>Transacción FHIR que crea el informe único de <code class="language-plaintext highlighter-rouge">ResultadoMultipleEjemplo</code> (PDF) junto con tres de sus resultados atomizados, correspondientes a tres de las cinco prestaciones de <code class="language-plaintext highlighter-rouge">BundleSolicitudMultipleEjemplo</code>: <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code> y <code class="language-plaintext highlighter-rouge">ObservacionGlicemiaCriticaEjemplo</code> con código LOINC, y <code class="language-plaintext highlighter-rouge">ObservacionColesterolFonasaEjemplo</code> con código FONASA puro (sin LOINC), ilustrando los dos escenarios de codificación admitidos por <code class="language-plaintext highlighter-rouge">Observation.code</code> en la misma transacción. El paciente y el laboratorio ejecutor se asumen preexistentes en el servidor de destino, por lo que no se incluyen como entradas propias de este Bundle.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="Bundle-BundleSolicitudMultipleEjemplo.html"
                   title="Bundle/BundleSolicitudMultipleEjemplo">Bundle de solicitud con cinco prestaciones FONASA</a>
             </td>
@@ -321,7 +348,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                   title="DiagnosticReport/ResultadoMultipleEjemplo">Informe de resultado de ejemplo</a>
             </td>
             <td>
-<p>Informe único de laboratorio, con el PDF del informe embebido en base64, que responde a las cinco prestaciones de <code class="language-plaintext highlighter-rouge">BundleSolicitudMultipleEjemplo</code> (mismo <code class="language-plaintext highlighter-rouge">requisition</code>, <code class="language-plaintext highlighter-rouge">SOL-MULTIPLE-001</code>). El contenido del PDF es un documento mínimo de ejemplo, no corresponde a un informe real de un paciente.</p>
+<p>Informe único de laboratorio, con el PDF del informe embebido en base64, que responde a las cinco prestaciones de <code class="language-plaintext highlighter-rouge">BundleSolicitudMultipleEjemplo</code> (mismo <code class="language-plaintext highlighter-rouge">requisition</code>, <code class="language-plaintext highlighter-rouge">SOL-MULTIPLE-001</code>). El contenido del PDF es un documento mínimo de ejemplo, no corresponde a un informe real de un paciente. De las cinco prestaciones, tres se informan también como resultado atomizado (Caso de uso 3, ver <code class="language-plaintext highlighter-rouge">result</code>): Hemoglobina y Glucosa con código LOINC (prestaciones de un solo analito dentro de un panel, u homologadas), y Colesterol total con código FONASA puro, sin LOINC (prestación de un solo resultado, ver <code class="language-plaintext highlighter-rouge">ObservacionColesterolFonasaEjemplo</code>); las otras dos (Bilirrubina total, Nitrógeno ureico) solo quedan cubiertas por el PDF, reflejando que un establecimiento puede adoptar el dato atómico de forma parcial, analito por analito. <code class="language-plaintext highlighter-rouge">result</code> referencia directamente el <code class="language-plaintext highlighter-rouge">urn:uuid</code> de cada <code class="language-plaintext highlighter-rouge">Observation</code> dentro de <code class="language-plaintext highlighter-rouge">BundleResultadoMultipleEjemplo</code>, siguiendo la regla estándar de FHIR para referencias internas entre recursos nuevos de una misma transacción (el recurso referenciado todavía no tiene un id asignado por el servidor al momento de construir el Bundle).</p>
 </td>
          </tr>
          <tr>
@@ -406,6 +433,33 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="Observation-ObservacionColesterolFonasaEjemplo.html"
+                  title="Observation/ObservacionColesterolFonasaEjemplo">Resultado atomizado de ejemplo: Colesterol total, codificado en FONASA</a>
+            </td>
+            <td>
+<p>Resultado numérico de la prestación de Colesterol total (<code class="language-plaintext highlighter-rouge">PrestacionColesterolTotalEjemplo</code>), codificado directamente con el código FONASA de la prestación en <code class="language-plaintext highlighter-rouge">code</code>, sin LOINC. A diferencia de Hemograma (prestación multianalito, ver <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code>), Colesterol total es una prestación de un solo resultado: el código FONASA <code class="language-plaintext highlighter-rouge">0302067</code> identifica sin ambigüedad este único valor, por lo que no es necesario homologar a LOINC para representarlo de forma atómica. Este ejemplo, junto con <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code> (LOINC), ilustra los dos escenarios de codificación admitidos por <code class="language-plaintext highlighter-rouge">Observation.code</code> (ver Casos de uso, Caso de uso 3).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Observation-ObservacionGlicemiaCriticaEjemplo.html"
+                  title="Observation/ObservacionGlicemiaCriticaEjemplo">Resultado atomizado de ejemplo: Glicemia con valor crítico</a>
+            </td>
+            <td>
+<p>Resultado numérico de la prestación de Glucosa (glicemia) (<code class="language-plaintext highlighter-rouge">PrestacionGlicemiaEjemplo</code>), con valor sobre el rango de referencia marcado como crítico mediante <code class="language-plaintext highlighter-rouge">interpretation</code> = HH (Critical high), reutilizando el CodeSystem internacional v3-ObservationInterpretation.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Observation-ObservacionHemoglobinaEjemplo.html"
+                  title="Observation/ObservacionHemoglobinaEjemplo">Resultado atomizado de ejemplo: Hemoglobina</a>
+            </td>
+            <td>
+<p>Resultado numérico dentro del rango de referencia, correspondiente a uno de los analitos del panel de Hemograma (<code class="language-plaintext highlighter-rouge">PrestacionHemogramaEjemplo</code>). El agrupamiento del panel se resuelve mediante <code class="language-plaintext highlighter-rouge">basedOn</code> compartido hacia esa misma <code class="language-plaintext highlighter-rouge">ServiceRequest</code>, no mediante <code class="language-plaintext highlighter-rouge">hasMember</code>.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="ServiceRequest-SolicitudCanceladaNoPresentacionEjemplo.html"
                   title="ServiceRequest/SolicitudCanceladaNoPresentacionEjemplo">Solicitud cancelada por no presentación del paciente</a>
             </td>
@@ -433,7 +487,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Sep 15, 2026 10:16-0300">2026-09-15</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.5.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 21, 2026 17:12-0300">2026-09-21</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

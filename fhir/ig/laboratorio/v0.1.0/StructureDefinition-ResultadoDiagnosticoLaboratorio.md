@@ -1,4 +1,4 @@
-# Resultado diagnóstico de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
+# Resultado diagnóstico de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,14 +8,15 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio | *Version*:0.3.0 |
-| Draft as of 2026-09-15 | *Computable Name*:ResultadoDiagnosticoLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio | *Version*:0.5.0 |
+| Draft as of 2026-09-21 | *Computable Name*:ResultadoDiagnosticoLaboratorio |
 
  
 Perfil para representar el resultado de una solicitud de laboratorio y el informe PDF recibido desde un mensaje HL7 v2 ORU^R01. 
 
 **Usages:**
 
+* Use this Profile: [Bundle de Resultado de Laboratorio MINSAL](StructureDefinition-MinsalBundleResultadoLaboratorio.md)
 * Refer to this Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md)
 * Examples for this Profile: [DiagnosticReport/ResultadoIndependienteEjemplo](DiagnosticReport-ResultadoIndependienteEjemplo.md) and [DiagnosticReport/ResultadoMultipleEjemplo](DiagnosticReport-ResultadoMultipleEjemplo.md)
 
@@ -38,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-ResultadoDiagnostico
   "resourceType" : "StructureDefinition",
   "id" : "ResultadoDiagnosticoLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio",
-  "version" : "0.3.0",
+  "version" : "0.5.0",
   "name" : "ResultadoDiagnosticoLaboratorio",
   "title" : "Resultado diagnóstico de laboratorio",
   "status" : "draft",
-  "date" : "2026-09-15T10:16:15-03:00",
+  "date" : "2026-09-21T17:12:23-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -87,10 +88,6 @@ Other representations of profile: [CSV](StructureDefinition-ResultadoDiagnostico
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
-      "id" : "DiagnosticReport",
-      "path" : "DiagnosticReport"
-    },
-    {
       "id" : "DiagnosticReport.identifier",
       "path" : "DiagnosticReport.identifier",
       "min" : 1,
@@ -193,6 +190,11 @@ Other representations of profile: [CSV](StructureDefinition-ResultadoDiagnostico
     {
       "id" : "DiagnosticReport.result",
       "path" : "DiagnosticReport.result",
+      "comment" : "Referencia al resultado atómico por analito (Caso de uso 3), cuando el establecimiento lo informa además del PDF. Cada instancia de MinsalObservacionLaboratorio referencia a su vez, mediante basedOn, la ServiceRequest específica de su prestación.",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalObservacionLaboratorio"]
+      }],
       "mustSupport" : true
     },
     {

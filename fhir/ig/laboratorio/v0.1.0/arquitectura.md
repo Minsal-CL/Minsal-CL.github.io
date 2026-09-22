@@ -1,4 +1,4 @@
-# Arquitectura - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
+# Arquitectura - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
 
 * [**Table of Contents**](toc.md)
 * **Arquitectura**

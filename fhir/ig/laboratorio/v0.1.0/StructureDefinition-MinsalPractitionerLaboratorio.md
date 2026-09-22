@@ -1,4 +1,4 @@
-# Profesional de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
+# Profesional de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio | *Version*:0.3.0 |
-| Draft as of 2026-09-15 | *Computable Name*:MinsalPractitionerLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio | *Version*:0.5.0 |
+| Draft as of 2026-09-21 | *Computable Name*:MinsalPractitionerLaboratorio |
 
  
 Perfil para representar al profesional solicitante, ejecutor o interpretador de resultados en el flujo de laboratorio. Extiende el perfil de prestador de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Practitioner de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. 
@@ -17,7 +17,7 @@ Perfil para representar al profesional solicitante, ejecutor o interpretador de 
 **Usages:**
 
 * Use this Profile: [Bundle de Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalBundleSolicitudLaboratorio.md)
-* Refer to this Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md) and [Resultado diagnóstico de laboratorio](StructureDefinition-ResultadoDiagnosticoLaboratorio.md)
+* Refer to this Profile: [Resultado atomizado de laboratorio MINSAL](StructureDefinition-MinsalObservacionLaboratorio.md), [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md) and [Resultado diagnóstico de laboratorio](StructureDefinition-ResultadoDiagnosticoLaboratorio.md)
 * Examples for this Profile: [Practitioner/ProfesionalSolicitanteEjemplo](Practitioner-ProfesionalSolicitanteEjemplo.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.laboratorio|current/StructureDefinition/StructureDefinition-MinsalPractitionerLaboratorio.json)
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalPractitionerLa
   "resourceType" : "StructureDefinition",
   "id" : "MinsalPractitionerLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio",
-  "version" : "0.3.0",
+  "version" : "0.5.0",
   "name" : "MinsalPractitionerLaboratorio",
   "title" : "Profesional de Laboratorio MINSAL",
   "status" : "draft",
-  "date" : "2026-09-15T10:16:15-03:00",
+  "date" : "2026-09-21T17:12:23-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

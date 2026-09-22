@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0</title>
+    <title>Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -68,7 +68,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
             <br/>
-            <span style="display:inline-block;">0.3.0 - ci-build
+            <span style="display:inline-block;">0.5.0 - ci-build
 
 
 
@@ -149,7 +149,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.5.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Casos de uso</h2>
   
 
@@ -261,8 +261,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td>Fase 1 (alcance de esta versión)</td>
-      <td>Creación de solicitud (UC1, en sus dos modalidades) y recepción del resultado, tanto como informe PDF (UC2) como dato atómico por prestación (UC3)</td>
-      <td>UC1 y UC2 en desarrollo, con perfiles y ejemplos publicados; UC3 priorizado en esta fase, con perfiles de <code class="language-plaintext highlighter-rouge">Observation</code> en diseño</td>
+      <td>Creación de solicitud (UC1, en sus dos modalidades) y recepción del resultado, con prioridad de entrega en el informe PDF (UC2); el resultado atómico por prestación (UC3) se diseña en paralelo</td>
+      <td>UC1 y UC2 en desarrollo, con perfiles y ejemplos publicados; UC3 en diseño, con prioridad de entrega secundaria respecto a UC2, como desarrollo propio de esta guía</td>
     </tr>
     <tr>
       <td>Fase 2 (a futuro)</td>
@@ -346,6 +346,8 @@ sequenceDiagram
 
 <p>Recurso focal: <code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code> (perfil de <code class="language-plaintext highlighter-rouge">DiagnosticReport</code>), con el PDF codificado en <code class="language-plaintext highlighter-rouge">presentedForm.data</code>. Ver el ejemplo <code class="language-plaintext highlighter-rouge">ResultadoMultipleEjemplo</code>: un informe único que responde a las cinco prestaciones agrupadas de <code class="language-plaintext highlighter-rouge">BundleSolicitudMultipleEjemplo</code> mediante <code class="language-plaintext highlighter-rouge">basedOn</code>. Ver también el ejemplo <code class="language-plaintext highlighter-rouge">ResultadoIndependienteEjemplo</code>: un informe que llega sin ninguna solicitud previa registrada en el Bus (<code class="language-plaintext highlighter-rouge">basedOn</code> ausente), caso de un laboratorio cuyo examen se originó y procesó íntegramente en su propio sistema.</p>
 
+<p>Cuando el laboratorio informa el resultado atómico junto con el PDF (Caso de uso 3), ambos se envían en un único <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, perfil <code class="language-plaintext highlighter-rouge">MinsalBundleResultadoLaboratorio</code>, simétrico al de la solicitud (<code class="language-plaintext highlighter-rouge">MinsalBundleSolicitudLaboratorio</code>): una entrada <code class="language-plaintext highlighter-rouge">informe</code> (<code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code>) y una o más entradas <code class="language-plaintext highlighter-rouge">observacion</code> (<code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code>). Un invariante propio del Bundle (<code class="language-plaintext highlighter-rouge">resultado-observaciones-referenciadas</code>) exige que el informe referencie, mediante <code class="language-plaintext highlighter-rouge">result</code>, a todas las observaciones incluidas en el mismo Bundle, para que no queden resultados atomizados sueltos sin vínculo desde el informe. Ver el ejemplo <code class="language-plaintext highlighter-rouge">BundleResultadoMultipleEjemplo</code>: agrupa <code class="language-plaintext highlighter-rouge">ResultadoMultipleEjemplo</code> con dos de sus cinco resultados atomizados (Hemoglobina y Glucosa), reflejando que un establecimiento puede adoptar el dato atómico de forma parcial, analito por analito, sin que eso afecte la entrega del PDF completo.</p>
+
 <ol>
   <li>El laboratorio genera el resultado. Si existe una solicitud registrada en el Bus (<code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>), la referencia en <code class="language-plaintext highlighter-rouge">basedOn</code>; si el examen se originó y procesó íntegramente en el propio laboratorio, sin solicitud previa registrada en el Bus, <code class="language-plaintext highlighter-rouge">basedOn</code> se omite (ver "Definición de alcance" más arriba).</li>
   <li>Si el origen es HL7 v2, el mensaje <code class="language-plaintext highlighter-rouge">ORU^R01</code> incluye el PDF en Base64 en <code class="language-plaintext highlighter-rouge">OBX-5</code> (tipo <code class="language-plaintext highlighter-rouge">ED</code>); el Bus lo transforma a <code class="language-plaintext highlighter-rouge">DiagnosticReport.presentedForm</code> según <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>.</li>
@@ -372,6 +374,11 @@ sequenceDiagram
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [URL_Base]/DiagnosticReport
 </code></pre></div></div>
 
+<p>Cuando el establecimiento informa también el resultado atómico (Caso de uso 3), se recomienda <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, perfil <code class="language-plaintext highlighter-rouge">MinsalBundleResultadoLaboratorio</code>, con el informe y sus observaciones asociadas:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [URL_Base]/
+</code></pre></div></div>
+
 <p>Consulta del resultado por paciente, para el Portal Ciudadano u otro consumidor autorizado:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [URL_Base]/DiagnosticReport?patient.identifier=[identificador_paciente]
@@ -384,18 +391,49 @@ sequenceDiagram
 
 <h2 id="caso-de-uso-3-resultado-atomizado-por-prestación">Caso de uso 3: Resultado atomizado por prestación</h2>
 
-<p>Este caso de uso tiene la misma prioridad que UC2 en esta fase: ambos son formas válidas de recibir el resultado final, y un establecimiento puede optar por una, la otra, o ambas según su capacidad de integración. Los perfiles de <code class="language-plaintext highlighter-rouge">Observation</code> para este caso están en diseño; esta página documenta los puntos que deben resolverse antes de publicarlos.</p>
+<p>La prioridad de entrega de esta fase es el Caso de uso 2 (informe PDF): es el mecanismo que todo laboratorio debe soportar como mínimo para publicar su resultado. Este caso de uso sigue dentro del alcance de la guía, con prioridad de entrega secundaria respecto a UC2, y se define como desarrollo propio de Laboratorio, sin depender de la sincronización con la propuesta de otra guía de dominio. Un establecimiento puede optar por PDF, por resultado atómico, o por ambos según su capacidad de integración.</p>
 
-<p>A diferencia de UC2, donde el PDF se transporta como documento opaco, el resultado atomizado exige representar cada resultado individual como un recurso <code class="language-plaintext highlighter-rouge">Observation</code> estructurado, referenciado desde <code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>. Esto requiere resolver, además de la identidad del paciente y la homologación de la prestación:</p>
+<p>A diferencia de UC2, donde el PDF se transporta como documento opaco, el resultado atomizado representa cada resultado individual como un recurso <code class="language-plaintext highlighter-rouge">Observation</code> (perfil <code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code>), referenciado desde <code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>. Un panel de exámenes con varios analitos (por ejemplo, Hemograma) se representa con varias instancias de <code class="language-plaintext highlighter-rouge">Observation</code>, una por analito, todas enlazadas mediante <code class="language-plaintext highlighter-rouge">Observation.basedOn</code> a la misma <code class="language-plaintext highlighter-rouge">ServiceRequest</code> de la prestación; el agrupamiento del panel se resuelve por esa referencia compartida, sin usar <code class="language-plaintext highlighter-rouge">Observation.hasMember</code> ni <code class="language-plaintext highlighter-rouge">Observation.component</code>.</p>
+
+<ol>
+  <li>El laboratorio genera el informe y, para las prestaciones que decide informar de forma atómica, sus resultados individuales (<code class="language-plaintext highlighter-rouge">Observation</code>, uno por analito).</li>
+  <li>Ambos se envían juntos en un único <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code>, perfil <code class="language-plaintext highlighter-rouge">MinsalBundleResultadoLaboratorio</code> (ver ejemplo <code class="language-plaintext highlighter-rouge">BundleResultadoMultipleEjemplo</code>).</li>
+  <li>El Bus valida el Bundle contra los perfiles de esta guía, incluido el invariante <code class="language-plaintext highlighter-rouge">resultado-observaciones-referenciadas</code>: el informe debe referenciar, mediante <code class="language-plaintext highlighter-rouge">result</code>, a todas las <code class="language-plaintext highlighter-rouge">Observation</code> incluidas en el mismo Bundle.</li>
+  <li>El Bus transforma y publica ambos recursos en el modelo canónico; responde con el estado de cada entrada.</li>
+  <li>El Portal Ciudadano u otro consumidor autorizado puede consultar el resultado atomizado de forma independiente del PDF, por ejemplo por paciente y código LOINC.</li>
+</ol>
+
+<div class="mermaid">
+sequenceDiagram
+    participant LIS as Laboratorio (LIS)
+    participant Bus as Bus de Interoperabilidad
+    participant Portal as Portal Ciudadano
+    LIS-&gt;&gt;Bus: ORU^R01 (múltiples OBX) / POST Bundle(transaction) [informe + observaciones]
+    Bus-&gt;&gt;Bus: valida informe.result referencia todas las Observation (resultado-observaciones-referenciadas)
+    Bus-&gt;&gt;Bus: transforma a ResultadoDiagnosticoLaboratorio + MinsalObservacionLaboratorio
+    Bus--&gt;&gt;LIS: ACK / 200
+    Portal-&gt;&gt;Bus: GET Observation?patient=[id_paciente]&amp;code=[codigo_LOINC]
+    Bus--&gt;&gt;Portal: resultado atomizado por analito
+</div>
+
+<p>El perfil resuelve los siguientes puntos de diseño:</p>
 
 <ul>
-  <li>Homologación de cada resultado individual (por ejemplo, hemoglobina, hematocrito) a un código LOINC u otro catálogo acordado, cuando el sistema de origen solo informe el nombre local del analito.</li>
-  <li>Homologación de unidades de medida a UCUM, cuando el sistema de origen use notación local o abreviada.</li>
-  <li>Representación de valores críticos y su interpretación (<code class="language-plaintext highlighter-rouge">Observation.interpretation</code>), incluyendo la política de notificación cuando corresponda.</li>
-  <li>Trazabilidad entre el resultado atomizado y el PDF firmado, cuando ambos coexistan, para evitar que difieran entre sí.</li>
+  <li>Homologación de cada resultado individual a un código LOINC o FONASA en <code class="language-plaintext highlighter-rouge">Observation.code</code>, según el tipo de prestación (ver ejemplos <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code> y <code class="language-plaintext highlighter-rouge">ObservacionColesterolFonasaEjemplo</code>):
+    <ul>
+      <li>Prestaciones multianalito (paneles, por ejemplo Hemograma): un código FONASA identifica la prestación completa, pero no cada analito que produce (hemoglobina, hematocrito, leucocitos, etc.); usar ese mismo código FONASA como <code class="language-plaintext highlighter-rouge">Observation.code</code> en cada analito los dejaría indistinguibles entre sí. Estos casos requieren código LOINC por analito.</li>
+      <li>Prestaciones de un solo resultado (por ejemplo Glucosa, Bilirrubina total, Nitrógeno ureico, Colesterol total): el código FONASA de la prestación identifica sin ambigüedad ese único valor, por lo que puede usarse directamente como <code class="language-plaintext highlighter-rouge">Observation.code</code>, sin necesidad de homologar a LOINC.</li>
+    </ul>
+  </li>
+  <li>Unidades de medida en UCUM, exigidas directamente desde el LIS (<code class="language-plaintext highlighter-rouge">Observation.valueQuantity.system</code> fijo a <code class="language-plaintext highlighter-rouge">unitsofmeasure.org</code>), sin tabla de homologación intermedia en esta fase.</li>
+  <li>Valores críticos mediante <code class="language-plaintext highlighter-rouge">Observation.interpretation</code>, reutilizando el CodeSystem internacional <code class="language-plaintext highlighter-rouge">v3-ObservationInterpretation</code> (<code class="language-plaintext highlighter-rouge">HH</code>/<code class="language-plaintext highlighter-rouge">LL</code>/<code class="language-plaintext highlighter-rouge">H</code>/<code class="language-plaintext highlighter-rouge">L</code>), sin crear código propio MINSAL.</li>
+  <li>Rango de referencia (<code class="language-plaintext highlighter-rouge">Observation.referenceRange</code>), con <code class="language-plaintext highlighter-rouge">low</code>, <code class="language-plaintext highlighter-rouge">high</code> o <code class="language-plaintext highlighter-rouge">text</code>.</li>
+  <li>Empaquetamiento junto al informe en un único <code class="language-plaintext highlighter-rouge">Bundle</code> transaccional (<code class="language-plaintext highlighter-rouge">MinsalBundleResultadoLaboratorio</code>, ver Caso de uso 2), en vez de un envío separado del informe y de cada resultado atomizado.</li>
 </ul>
 
-<p>Los mensajes HL7 v2 de origen para este caso siguen siendo <code class="language-plaintext highlighter-rouge">ORU^R01</code>, pero con múltiples segmentos <code class="language-plaintext highlighter-rouge">OBX</code> por resultado individual en lugar de un único <code class="language-plaintext highlighter-rouge">OBX</code> con el PDF. El mapeo campo a campo de <code class="language-plaintext highlighter-rouge">OBX</code> ya está definido en <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a> y aplica también a este caso; lo pendiente de diseño es la política de homologación de unidades y valores críticos, no la transformación estructural.</p>
+<p>Queda pendiente de diseño, para una fase posterior: la trazabilidad entre el resultado atomizado y el PDF firmado cuando ambos coexistan (para evitar que difieran entre sí), y el filtrado de resultados por área del laboratorio (<code class="language-plaintext highlighter-rouge">category:studyType</code>/<code class="language-plaintext highlighter-rouge">category:specialty</code>, deferidos a Fase 2).</p>
+
+<p>Los mensajes HL7 v2 de origen para este caso siguen siendo <code class="language-plaintext highlighter-rouge">ORU^R01</code>, pero con múltiples segmentos <code class="language-plaintext highlighter-rouge">OBX</code> por resultado individual en lugar de un único <code class="language-plaintext highlighter-rouge">OBX</code> con el PDF. El mapeo campo a campo de <code class="language-plaintext highlighter-rouge">OBX</code> ya está definido en <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a> y aplica también a este caso.</p>
 
 <h2 id="caso-de-uso-4-cancelación-o-anulación-de-una-solicitud">Caso de uso 4: Cancelación o anulación de una solicitud</h2>
 
@@ -459,7 +497,7 @@ sequenceDiagram
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Sep 15, 2026 10:16-0300">2026-09-15</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.5.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 21, 2026 17:12-0300">2026-09-21</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

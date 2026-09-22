@@ -1,4 +1,4 @@
-# Organización participante en el flujo de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
+# Organización participante en el flujo de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,16 +8,16 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio | *Version*:0.3.0 |
-| Draft as of 2026-09-15 | *Computable Name*:OrganizacionParticipanteLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio | *Version*:0.5.0 |
+| Draft as of 2026-09-21 | *Computable Name*:OrganizacionParticipanteLaboratorio |
 
  
 Perfil para representar establecimientos de origen, laboratorios ejecutores y otras organizaciones participantes en el intercambio de solicitudes y resultados de laboratorio. Extiende el perfil de organización de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Organization de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. 
 
 **Usages:**
 
-* Use this Profile: [Bundle de Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalBundleSolicitudLaboratorio.md)
-* Refer to this Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md), [Organización participante en el flujo de laboratorio](StructureDefinition-OrganizacionParticipanteLaboratorio.md) and [Resultado diagnóstico de laboratorio](StructureDefinition-ResultadoDiagnosticoLaboratorio.md)
+* Use this Profile: [Bundle de Resultado de Laboratorio MINSAL](StructureDefinition-MinsalBundleResultadoLaboratorio.md) and [Bundle de Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalBundleSolicitudLaboratorio.md)
+* Refer to this Profile: [Resultado atomizado de laboratorio MINSAL](StructureDefinition-MinsalObservacionLaboratorio.md), [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md), [Organización participante en el flujo de laboratorio](StructureDefinition-OrganizacionParticipanteLaboratorio.md) and [Resultado diagnóstico de laboratorio](StructureDefinition-ResultadoDiagnosticoLaboratorio.md)
 * Examples for this Profile: [Hospital Dr. César Garavagno Burotto (Hospital de Talca)](Organization-EstablecimientoOrigenEjemplo.md) and [Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)](Organization-LaboratorioEjecutorEjemplo.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.laboratorio|current/StructureDefinition/StructureDefinition-OrganizacionParticipanteLaboratorio.json)
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-OrganizacionParticip
   "resourceType" : "StructureDefinition",
   "id" : "OrganizacionParticipanteLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio",
-  "version" : "0.3.0",
+  "version" : "0.5.0",
   "name" : "OrganizacionParticipanteLaboratorio",
   "title" : "Organización participante en el flujo de laboratorio",
   "status" : "draft",
-  "date" : "2026-09-15T10:16:15-03:00",
+  "date" : "2026-09-21T17:12:23-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

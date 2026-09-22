@@ -1,4 +1,4 @@
-# Informe de resultado de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
+# Informe de resultado de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -20,6 +20,25 @@ Profile: [Resultado diagnóstico de laboratorio](StructureDefinition-ResultadoDi
 | Presented Form | application/pdf: JVBERi0xLjQKMSAwIG9iago8PCAvVHlw... |
 
 **Report Details**
+
+* **Code**: [Hemoglobina](Bundle-BundleResultadoMultipleEjemplo.md#urn-uuid-77777777-7777-4777-8777-777777777777)
+  * **Value**: 13.2 g/dL (Details: UCUM codeg/dL = 'g/dL')
+  * **Reference Range**: Rango de referencia adulta (mujer)
+  * **Flags**: Final
+  * **Relevant Time**: 2026-08-28 11:00:00-0400
+  * **Reported**: 2026-08-28 11:30:00-0400
+* **Code**: [Glucosa (glicemia)](Bundle-BundleResultadoMultipleEjemplo.md#urn-uuid-88888888-8888-4888-8888-888888888888)
+  * **Value**: 320 mg/dL (Details: UCUM codemg/dL = 'mg/dL')
+  * **Reference Range**: Rango de referencia en ayunas
+  * **Flags**: Final,Critical high
+  * **Relevant Time**: 2026-08-28 11:00:00-0400
+  * **Reported**: 2026-08-28 11:30:00-0400
+* **Code**: [Colesterol total](Bundle-BundleResultadoMultipleEjemplo.md#urn-uuid-99999999-9999-4999-8999-999999999999)
+  * **Value**: 195 mg/dL (Details: UCUM codemg/dL = 'mg/dL')
+  * **Reference Range**: Deseable: menor a 200 mg/dL
+  * **Flags**: Final
+  * **Relevant Time**: 2026-08-28 11:00:00-0400
+  * **Reported**: 2026-08-28 11:30:00-0400
 
 
 
@@ -77,6 +96,21 @@ Profile: [Resultado diagnóstico de laboratorio](StructureDefinition-ResultadoDi
   }],
   "specimen" : [{
     "reference" : "Specimen/EspecimenEjemplo"
+  }],
+  "result" : [{
+    "reference" : "urn:uuid:77777777-7777-4777-8777-777777777777",
+    "type" : "Observation",
+    "display" : "Hemoglobina"
+  },
+  {
+    "reference" : "urn:uuid:88888888-8888-4888-8888-888888888888",
+    "type" : "Observation",
+    "display" : "Glucosa (glicemia)"
+  },
+  {
+    "reference" : "urn:uuid:99999999-9999-4999-8999-999999999999",
+    "type" : "Observation",
+    "display" : "Colesterol total"
   }],
   "presentedForm" : [{
     "contentType" : "application/pdf",

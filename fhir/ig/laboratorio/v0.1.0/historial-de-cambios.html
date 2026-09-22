@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Historial de cambios - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0</title>
+    <title>Historial de cambios - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -68,7 +68,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
             <br/>
-            <span style="display:inline-block;">0.3.0 - ci-build
+            <span style="display:inline-block;">0.5.0 - ci-build
 
 
 
@@ -149,7 +149,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.5.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Historial de cambios</h2>
   
 
@@ -168,6 +168,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#historial-de-cambios" id="markdown-toc-historial-de-cambios">Historial de cambios</a>    <ul>
+      <li><a href="#versión-050" id="markdown-toc-versión-050">Versión 0.5.0</a>        <ul>
+          <li><a href="#perfil-bundle-para-el-resultado-uc2uc3" id="markdown-toc-perfil-bundle-para-el-resultado-uc2uc3">Perfil <code class="language-plaintext highlighter-rouge">Bundle</code> para el resultado (UC2/UC3)</a></li>
+        </ul>
+      </li>
+      <li><a href="#versión-040" id="markdown-toc-versión-040">Versión 0.4.0</a>        <ul>
+          <li><a href="#perfil-observation-para-resultado-atomizado-uc3" id="markdown-toc-perfil-observation-para-resultado-atomizado-uc3">Perfil <code class="language-plaintext highlighter-rouge">Observation</code> para resultado atomizado (UC3)</a></li>
+        </ul>
+      </li>
+      <li><a href="#versión-031" id="markdown-toc-versión-031">Versión 0.3.1</a>        <ul>
+          <li><a href="#repriorización-de-uc3-respecto-a-uc2" id="markdown-toc-repriorización-de-uc3-respecto-a-uc2">Repriorización de UC3 respecto a UC2</a></li>
+        </ul>
+      </li>
       <li><a href="#versión-030" id="markdown-toc-versión-030">Versión 0.3.0</a>        <ul>
           <li><a href="#reenfoque-de-alcance" id="markdown-toc-reenfoque-de-alcance">Reenfoque de alcance</a></li>
           <li><a href="#perfiles" id="markdown-toc-perfiles">Perfiles</a></li>
@@ -196,6 +208,43 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 </div>
 <h1 id="historial-de-cambios">Historial de cambios</h1>
+
+<h2 id="versión-050">Versión 0.5.0</h2>
+
+<h3 id="perfil-bundle-para-el-resultado-uc2uc3">Perfil <code class="language-plaintext highlighter-rouge">Bundle</code> para el resultado (UC2/UC3)</h3>
+
+<ul>
+  <li>Nuevo perfil <code class="language-plaintext highlighter-rouge">MinsalBundleResultadoLaboratorio</code> (<code class="language-plaintext highlighter-rouge">Bundle</code>), tipo <code class="language-plaintext highlighter-rouge">transaction</code>, simétrico a <code class="language-plaintext highlighter-rouge">MinsalBundleSolicitudLaboratorio</code> del lado de la solicitud. Slicing cerrado de <code class="language-plaintext highlighter-rouge">entry</code> por perfil de recurso: <code class="language-plaintext highlighter-rouge">informe</code> (<code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code>, 1..1), <code class="language-plaintext highlighter-rouge">observacion</code> (<code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code>, 0..*), y <code class="language-plaintext highlighter-rouge">paciente</code>, <code class="language-plaintext highlighter-rouge">organizacion</code>, <code class="language-plaintext highlighter-rouge">especimen</code> (opcionales, para el establecimiento que decida enviarlos junto con la transacción en vez de asumir su preexistencia).</li>
+  <li>Invariante <code class="language-plaintext highlighter-rouge">resultado-observaciones-referenciadas</code>: cuando el Bundle incluye entradas de <code class="language-plaintext highlighter-rouge">Observation</code>, el informe debe referenciarlas todas mediante <code class="language-plaintext highlighter-rouge">result</code>, para evitar resultados atomizados sueltos sin vínculo desde el informe.</li>
+  <li>Origen de esta mejora: consulta directa de la jefatura del proyecto sobre si el resultado también debería viajar como Bundle, igual que la solicitud. Se evaluó primero contra <code class="language-plaintext highlighter-rouge">CH LAB-Report</code> (HL7 Suiza) y <code class="language-plaintext highlighter-rouge">HL7 Europe Laboratory Report</code> (la guía base de la que deriva la suiza), que optan por un Bundle de tipo <code class="language-plaintext highlighter-rouge">document</code> con una <code class="language-plaintext highlighter-rouge">Composition</code> obligatoria. Se decide mantener <code class="language-plaintext highlighter-rouge">transaction</code>, sin <code class="language-plaintext highlighter-rouge">Composition</code>, por ser consistente con el resto de la guía y con el alcance ya acotado de esta fase; se deja registrada la adopción del patrón <code class="language-plaintext highlighter-rouge">document</code>/<code class="language-plaintext highlighter-rouge">Composition</code> como evaluación explícita para una fase futura (comparación completa en el documento de referencia de esta decisión, continuidad de desarrollo, no publicado en el sitio).</li>
+  <li><code class="language-plaintext highlighter-rouge">ResultadoMultipleEjemplo</code> ahora usa este perfil en vez de enviarse por separado de sus observaciones: se agrega <code class="language-plaintext highlighter-rouge">result</code> referenciando <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code>, <code class="language-plaintext highlighter-rouge">ObservacionGlicemiaCriticaEjemplo</code> y <code class="language-plaintext highlighter-rouge">ObservacionColesterolFonasaEjemplo</code> (tres de las cinco prestaciones del ejemplo).</li>
+  <li>Nuevo ejemplo <code class="language-plaintext highlighter-rouge">BundleResultadoMultipleEjemplo</code>: agrupa el informe con tres de sus cinco resultados atomizados, reflejando adopción parcial del dato atómico, analito por analito.</li>
+  <li>Nuevo ejemplo <code class="language-plaintext highlighter-rouge">ObservacionColesterolFonasaEjemplo</code>: resultado atomizado codificado con código FONASA puro (sin LOINC), para prestaciones de un solo resultado (a diferencia de Hemograma, multianalito, que requiere LOINC por analito). Regla documentada en <code class="language-plaintext highlighter-rouge">casos-de-uso.md</code>.</li>
+</ul>
+
+<h2 id="versión-040">Versión 0.4.0</h2>
+
+<h3 id="perfil-observation-para-resultado-atomizado-uc3">Perfil <code class="language-plaintext highlighter-rouge">Observation</code> para resultado atomizado (UC3)</h3>
+
+<ul>
+  <li>Nuevo perfil <code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code> (<code class="language-plaintext highlighter-rouge">Observation</code>), diseñado con referencia a <code class="language-plaintext highlighter-rouge">CH LAB-Report</code> (HL7 Suiza) v2.0.0, la guía suiza específica de resultados de laboratorio (distinta de <code class="language-plaintext highlighter-rouge">CH LAB-Order</code>, que solo cubre la orden y se había usado como referencia en versiones anteriores).</li>
+  <li>Decisión de diseño: un panel de exámenes con varios analitos se representa con varias instancias de <code class="language-plaintext highlighter-rouge">Observation</code>, todas enlazadas mediante <code class="language-plaintext highlighter-rouge">basedOn</code> a la misma <code class="language-plaintext highlighter-rouge">ServiceRequest</code> de la prestación. No se replica el patrón suizo <code class="language-plaintext highlighter-rouge">hasMember</code>/<code class="language-plaintext highlighter-rouge">component</code>, porque la agrupación ya la resuelve el modelo de solicitud de esta guía (<code class="language-plaintext highlighter-rouge">requisition</code> compartido entre <code class="language-plaintext highlighter-rouge">ServiceRequest</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">interpretation</code> reutiliza el CodeSystem internacional <code class="language-plaintext highlighter-rouge">v3-ObservationInterpretation</code> (HH/LL/H/L) para valores críticos, sin crear código propio MINSAL.</li>
+  <li><code class="language-plaintext highlighter-rouge">valueQuantity</code> exige UCUM directo desde el LIS, sin tabla de homologación intermedia en esta fase.</li>
+  <li><code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio.result</code> ahora referencia explícitamente <code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code>.</li>
+  <li>Dos ejemplos nuevos: <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code> (resultado numérico dentro de rango, con UCUM y rango de referencia) y <code class="language-plaintext highlighter-rouge">ObservacionGlicemiaCriticaEjemplo</code> (valor crítico, <code class="language-plaintext highlighter-rouge">interpretation</code> = HH).</li>
+  <li>Detalle completo de las 5 decisiones de diseño en el documento de propuesta de este perfil (continuidad de desarrollo, no publicado en el sitio).</li>
+</ul>
+
+<h2 id="versión-031">Versión 0.3.1</h2>
+
+<h3 id="repriorización-de-uc3-respecto-a-uc2">Repriorización de UC3 respecto a UC2</h3>
+
+<ul>
+  <li>Por instrucción explícita de la jefatura del proyecto: el Caso de uso 2 (informe PDF) pasa a ser la única prioridad de entrega de esta fase. El Caso de uso 3 (resultado atomizado por prestación) deja la prioridad conjunta con UC2 que se le había dado en la versión 0.3.0, y pasa a prioridad de entrega secundaria, sin salir del alcance de la guía.</li>
+  <li>El diseño del perfil <code class="language-plaintext highlighter-rouge">Observation</code> para UC3 se define explícitamente como desarrollo propio de esta guía, sin depender de la sincronización con la propuesta de otra guía de dominio mencionada como pendiente en la versión anterior.</li>
+  <li>Cambio de alcance y documentación únicamente (Casos de uso, Inicio); no se modifica ningún perfil FSH en esta versión, porque el perfil <code class="language-plaintext highlighter-rouge">Observation</code> de UC3 todavía no existe.</li>
+</ul>
 
 <h2 id="versión-030">Versión 0.3.0</h2>
 
@@ -364,7 +413,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Sep 15, 2026 10:16-0300">2026-09-15</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.5.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 21, 2026 17:12-0300">2026-09-21</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

@@ -1,4 +1,4 @@
-# Historial de cambios - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
+# Historial de cambios - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
 
 * [**Table of Contents**](toc.md)
 * **Historial de cambios**
@@ -6,6 +6,37 @@
 ## Historial de cambios
 
 # Historial de cambios
+
+## Versión 0.5.0
+
+### Perfil Bundle para el resultado (UC2/UC3)
+
+* Nuevo perfil `MinsalBundleResultadoLaboratorio` (`Bundle`), tipo `transaction`, simétrico a `MinsalBundleSolicitudLaboratorio` del lado de la solicitud. Slicing cerrado de `entry` por perfil de recurso: `informe` (`ResultadoDiagnosticoLaboratorio`, 1..1), `observacion` (`MinsalObservacionLaboratorio`, 0..*), y `paciente`, `organizacion`, `especimen` (opcionales, para el establecimiento que decida enviarlos junto con la transacción en vez de asumir su preexistencia).
+* Invariante `resultado-observaciones-referenciadas`: cuando el Bundle incluye entradas de `Observation`, el informe debe referenciarlas todas mediante `result`, para evitar resultados atomizados sueltos sin vínculo desde el informe.
+* Origen de esta mejora: consulta directa de la jefatura del proyecto sobre si el resultado también debería viajar como Bundle, igual que la solicitud. Se evaluó primero contra `CH LAB-Report` (HL7 Suiza) y `HL7 Europe Laboratory Report` (la guía base de la que deriva la suiza), que optan por un Bundle de tipo `document` con una `Composition` obligatoria. Se decide mantener `transaction`, sin `Composition`, por ser consistente con el resto de la guía y con el alcance ya acotado de esta fase; se deja registrada la adopción del patrón `document`/`Composition` como evaluación explícita para una fase futura (comparación completa en el documento de referencia de esta decisión, continuidad de desarrollo, no publicado en el sitio).
+* `ResultadoMultipleEjemplo` ahora usa este perfil en vez de enviarse por separado de sus observaciones: se agrega `result` referenciando `ObservacionHemoglobinaEjemplo`, `ObservacionGlicemiaCriticaEjemplo` y `ObservacionColesterolFonasaEjemplo` (tres de las cinco prestaciones del ejemplo).
+* Nuevo ejemplo `BundleResultadoMultipleEjemplo`: agrupa el informe con tres de sus cinco resultados atomizados, reflejando adopción parcial del dato atómico, analito por analito.
+* Nuevo ejemplo `ObservacionColesterolFonasaEjemplo`: resultado atomizado codificado con código FONASA puro (sin LOINC), para prestaciones de un solo resultado (a diferencia de Hemograma, multianalito, que requiere LOINC por analito). Regla documentada en `casos-de-uso.md`.
+
+## Versión 0.4.0
+
+### Perfil Observation para resultado atomizado (UC3)
+
+* Nuevo perfil `MinsalObservacionLaboratorio` (`Observation`), diseñado con referencia a `CH LAB-Report` (HL7 Suiza) v2.0.0, la guía suiza específica de resultados de laboratorio (distinta de `CH LAB-Order`, que solo cubre la orden y se había usado como referencia en versiones anteriores).
+* Decisión de diseño: un panel de exámenes con varios analitos se representa con varias instancias de `Observation`, todas enlazadas mediante `basedOn` a la misma `ServiceRequest` de la prestación. No se replica el patrón suizo `hasMember`/`component`, porque la agrupación ya la resuelve el modelo de solicitud de esta guía (`requisition` compartido entre `ServiceRequest`).
+* `interpretation` reutiliza el CodeSystem internacional `v3-ObservationInterpretation` (HH/LL/H/L) para valores críticos, sin crear código propio MINSAL.
+* `valueQuantity` exige UCUM directo desde el LIS, sin tabla de homologación intermedia en esta fase.
+* `ResultadoDiagnosticoLaboratorio.result` ahora referencia explícitamente `MinsalObservacionLaboratorio`.
+* Dos ejemplos nuevos: `ObservacionHemoglobinaEjemplo` (resultado numérico dentro de rango, con UCUM y rango de referencia) y `ObservacionGlicemiaCriticaEjemplo` (valor crítico, `interpretation` = HH).
+* Detalle completo de las 5 decisiones de diseño en el documento de propuesta de este perfil (continuidad de desarrollo, no publicado en el sitio).
+
+## Versión 0.3.1
+
+### Repriorización de UC3 respecto a UC2
+
+* Por instrucción explícita de la jefatura del proyecto: el Caso de uso 2 (informe PDF) pasa a ser la única prioridad de entrega de esta fase. El Caso de uso 3 (resultado atomizado por prestación) deja la prioridad conjunta con UC2 que se le había dado en la versión 0.3.0, y pasa a prioridad de entrega secundaria, sin salir del alcance de la guía.
+* El diseño del perfil `Observation` para UC3 se define explícitamente como desarrollo propio de esta guía, sin depender de la sincronización con la propuesta de otra guía de dominio mencionada como pendiente en la versión anterior.
+* Cambio de alcance y documentación únicamente (Casos de uso, Inicio); no se modifica ningún perfil FSH en esta versión, porque el perfil `Observation` de UC3 todavía no existe.
 
 ## Versión 0.3.0
 

@@ -1,4 +1,4 @@
-# Informe de resultado independiente, sin solicitud previa - Guía de Implementación FHIR - Laboratorio Clínico v0.3.0
+# Informe de resultado independiente, sin solicitud previa - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
