@@ -7,10 +7,10 @@ description: >-
   funciona y qué componentes la conforman.
 ---
 
-<section class="page">
+<section class="hero">
   <div class="wrap">
-    <p class="kicker">Arquitectura</p>
-    <h1>La Arquitectura Nacional de Interoperabilidad</h1>
+    <p class="hero__eyebrow">Arquitectura</p>
+    <h2>La Arquitectura Nacional de Interoperabilidad</h2>
     <p class="page">
       Un marco de acuerdo mínimo para que la información de salud pueda
       intercambiarse de forma segura entre instituciones, con la persona como

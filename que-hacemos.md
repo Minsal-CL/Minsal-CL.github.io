@@ -7,10 +7,10 @@ description: >-
   nacionales y definimos estándares para la salud de Chile.
 ---
 
-<section class="page">
+<section class="hero">
   <div class="wrap">
-    <p class="kicker">Qué hacemos</p>
-    <h1>Que la información de salud llegue donde se necesita, en el momento que se necesista y a quien lo necesita</h1>
+    <p class="hero__eyebrow">Qué hacemos</p>
+    <h2 class="page">Que la información de salud llegue donde se necesita, en el momento que se necesista y a quien lo necesita</h2>
     <p class="page">
       El Ministerio de Salud impulsa una estrategia de interoperabilidad para todo el sector: un sistema más integrado, donde el flujo de información a la persona como eje central de la atención.
     </p>

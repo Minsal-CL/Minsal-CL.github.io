@@ -1,25 +1,35 @@
 ---
-layout: default
+layout: portal
 title: CodeSystem
-parent: Servicios Terminológicos
-nav_order: 1
-grand_parent: Componentes de la Arquitectura
 description: Consulta y validación de sistemas de códigos clínicos mediante recursos FHIR.
 ---
 
-# CodeSystem
+<section class="page-hero">
+  <div class="wrap">
+    <p class="hero__eyebrow">Servicios Terminológicos</p>
+    <h1>CodeSystem</h1>
+    <p class="page-hero__lead">
+      El servicio terminológico FHIR MINSAL convierte las fuentes terminológicas en recursos CodeSystem y provee la posibilidad de interactuar con estos en el formato FHIR. Los CodeSystem pueden ser recuperados usando su Namespace Global (url canónica).
+    </p>
+  </div>
+</section>
 
-## Introducción
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker">Vínculos</p>
+      <h2>Especificaciones relacionadas</h2>
+    </header>
+    <ul>
+      <li><a href="https://www.hl7.org/fhir/codesystem.html#resource">Especificación FHIR CodeSystem</a></li>
+      <li><a href="https://www.hl7.org/fhir/codesystem-operation-lookup.html">Especificación FHIR de $lookup CodeSystem</a></li>
+      <li><a href="https://www.hl7.org/fhir/codesystem-operation-validate-code.html">Especificación FHIR de $validate-code CodeSystem</a></li>
+    </ul>
+  </div>
+</section>
 
-El servicio terminológico FHIR MINSAL convierte las fuentes terminológicas en recursos CodeSystem y provee la posibilidad de interactuar con estos en el formato FHIR. 
-
-Los Codesystem pueden ser recuperados usando su Namespace Global (url canónica).
-
-Vínculos:
-* [Especificación FHIR CodeSystem](https://www.hl7.org/fhir/codesystem.html#resource)
-* [Especificación FHIR de $lookup CodeSystem](https://www.hl7.org/fhir/codesystem-operation-lookup.html)
-* [Especificación FHIR de $validate-code CodeSystem](https://www.hl7.org/fhir/codesystem-operation-validate-code.html)
-
+<section class="band">
+<div class="wrap main-content main-content--doc" markdown="1">
 
 ## Obtener un único CodeSystem
 
@@ -1609,3 +1619,6 @@ Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas par
     ]
 }
 ```
+
+</div>
+</section>

@@ -7,11 +7,11 @@ description: >-
   Interoperabilidad: qué resuelven, su estado y los proyectos que los usan.
 ---
 
-<section class="page-hero">
+<section class="hero">
   <div class="wrap">
-    <p class="kicker">Componentes</p>
-    <h1>Los servicios comunes de la interoperabilidad</h1>
-    <p class="page-hero__lead">
+    <p class="hero__eyebrow">Componentes</p>
+    <h2>Los servicios comunes de la interoperabilidad</h2>
+    <p class="page">
       Piezas reutilizables sobre las que se construye cada proyecto. Cada una
       resuelve un problema concreto y se conecta con estándares y proyectos.
     </p>

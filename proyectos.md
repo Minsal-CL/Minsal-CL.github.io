@@ -7,11 +7,11 @@ description: >-
   involucrados y documentación oficial de cada uno.
 ---
 
-<section class="page-hero">
+<section class="hero">
   <div class="wrap">
-    <p class="kicker">Proyectos</p>
-    <h1>Portafolio de procesos clínicos interoperables</h1>
-    <p class="page-hero__lead">
+    <p class="hero__eyebrow">Proyectos</p>
+    <h2>Portafolio de procesos clínicos interoperables</h2>
+    <p class="page">
       Cada proyecto lleva la interoperabilidad a un proceso clínico concreto,
       reutilizando los componentes comunes de la arquitectura nacional.
     </p>

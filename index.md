@@ -11,8 +11,8 @@ description: >-
 <section class="hero">
   <div class="wrap">
     <p class="hero__eyebrow">Ministerio de Salud · Chile</p>
-    <h1>Interoperabilidad para conectar la salud de Chile</h1>
-    <p class="hero__lead">
+    <h2>Interoperabilidad para conectar la salud de Chile</h2>
+    <p class="page">
       Hacemos posible que la información de salud pueda acompañar a las
       personas, sin importar dónde se atiendan.
     </p>

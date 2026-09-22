@@ -1,24 +1,34 @@
 ---
-layout: default
+layout: portal
 title: Conceptmap
-parent: Servicios Terminológicos
-nav_order: 3
-grand_parent: Componentes de la Arquitectura
 description: Consulta de mapas de conceptos y traducción entre sistemas de códigos mediante FHIR.
 ---
 
-# ConceptMap
+<section class="page-hero">
+  <div class="wrap">
+    <p class="hero__eyebrow">Servicios Terminológicos</p>
+    <h1>ConceptMap</h1>
+    <p class="page-hero__lead">
+      El servicio terminológico FHIR MINSAL convierte las fuentes terminológicas en recursos ConceptMap y provee la posibilidad de interactuar con estos en el formato FHIR. Los ConceptMap pueden ser recuperados usando su Namespace Global (url canónica).
+    </p>
+  </div>
+</section>
 
-## Introducción
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker">Vínculos</p>
+      <h2>Especificaciones relacionadas</h2>
+    </header>
+    <ul>
+      <li><a href="https://www.hl7.org/fhir/conceptmap.html#resource">Especificación FHIR ConceptMap</a></li>
+      <li><a href="https://www.hl7.org/fhir/conceptmap-operation-translate.html">Especificación FHIR ConceptMap $translate</a></li>
+    </ul>
+  </div>
+</section>
 
-El servicio terminológico FHIR MINSAL convierte las fuentes terminológicas en recursos Conceptmap y provee la posibilidad de interactuar con estos en el formato FHIR. 
-
-
-Los ConceptMap pueden ser recuperados usando su Namespace Global (url canónica).
-
-Links:
-* [Especificación FHIR ConceptMap](https://www.hl7.org/fhir/conceptmap.html#resource)
-* [Especificación FHIR ConceptMap $translate](https://www.hl7.org/fhir/conceptmap-operation-translate.html)
+<section class="band">
+<div class="wrap main-content main-content--doc" markdown="1">
 
 <!-- 
 ## Obtener un único ConceptMap
@@ -630,3 +640,6 @@ Según el perfil mSVCM, las siguientes operaciones FHIR deben ser soportadas par
     ]
 }
 ```
+
+</div>
+</section>

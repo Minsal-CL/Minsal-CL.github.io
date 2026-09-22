@@ -7,11 +7,11 @@ description: >-
   técnica para implementar la interoperabilidad en salud.
 ---
 
-<section class="page-hero">
+<section class="hero">
   <div class="wrap">
-    <p class="kicker">Recursos</p>
-    <h1>Todo lo técnico, en un solo lugar</h1>
-    <p class="page-hero__lead">
+    <p class="hero__eyebrow">Recursos</p>
+    <h2>Todo lo técnico, en un solo lugar</h2>
+    <p class="page">
       Guías de Implementación, especificación de la arquitectura, estándares y
       accesos para equipos técnicos e implementadores.
     </p>

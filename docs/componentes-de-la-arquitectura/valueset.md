@@ -1,24 +1,35 @@
 ---
 title: ValueSet
-layout: default
-parent: Servicios Terminológicos
-grand_parent: Componentes de la Arquitectura
-nav_order: 2
+layout: portal
 description: Consulta, validación y expansión de conjuntos de valores en formato FHIR.
 ---
 
-# Valueset
+<section class="page-hero">
+  <div class="wrap">
+    <p class="hero__eyebrow">Servicios Terminológicos</p>
+    <h1>ValueSet</h1>
+    <p class="page-hero__lead">
+      El servicio FHIR MINSAL convierte conjuntos de valores en recursos ValueSet de FHIR y provee la posibilidad de interactuar con ellos en formato FHIR. Los ValueSet pueden ser recuperados usando sus url canónicas.
+    </p>
+  </div>
+</section>
 
-## Introducción
+<section class="band">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker">Vínculos</p>
+      <h2>Especificaciones relacionadas</h2>
+    </header>
+    <ul>
+      <li><a href="https://www.hl7.org/fhir/valueset.html#resource">Especificación FHIR ValueSet</a></li>
+      <li><a href="https://www.hl7.org/fhir/valueset-operation-validate-code.html">Especificación FHIR ValueSet $validate-code</a></li>
+      <li><a href="https://www.hl7.org/fhir/valueset-operation-expand.html">Especificación FHIR ValueSet $expand</a></li>
+    </ul>
+  </div>
+</section>
 
-El servicio FHIR MINSAL convierte conjuntos de valores en recursos ValueSet de FHIR y provee la posibilidad de interactuar con ellos en formato FHIR.
-
-Los ValueSet pueden ser recuperados usando sus url canónicas.
-
-Links:
-* [Especificación FHIR ValueSet](https://www.hl7.org/fhir/valueset.html#resource)
-* [Especificación FHIR ValueSet $validate-code](https://www.hl7.org/fhir/valueset-operation-validate-code.html)
-* [Especificación FHIR ValueSet $expand](https://www.hl7.org/fhir/valueset-operation-expand.html)
+<section class="band">
+<div class="wrap main-content main-content--doc" markdown="1">
 
 ## Obtener un único ValueSet
 
@@ -633,3 +644,6 @@ La expansión del conjunto de valores devuelta por esta consulta debe tratarse c
 <summary>Ver respuesta completa: expansión del ValueSet</summary>
 {{ value_set_expand | markdownify }}
 </details>
+
+</div>
+</section>
