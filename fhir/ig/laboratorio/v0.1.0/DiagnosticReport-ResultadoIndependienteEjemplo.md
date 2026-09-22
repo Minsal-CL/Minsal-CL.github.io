@@ -1,4 +1,4 @@
-# Informe de resultado independiente, sin solicitud previa - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Informe de resultado independiente, sin solicitud previa - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -12,7 +12,7 @@ Profile: [Resultado diagnóstico de laboratorio](StructureDefinition-ResultadoDi
 
 | | |
 | :--- | :--- |
-| Subject | Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, )) |
+| Subject | Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: RunPacienteNid#12345678-5 (use: official, )) |
 | Relevant Time | 2026-08-28 09:15:00-0400 |
 | Reported | 2026-08-28 09:40:00-0400 |
 | Performer | [Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)](Organization-LaboratorioEjecutorEjemplo.md) |

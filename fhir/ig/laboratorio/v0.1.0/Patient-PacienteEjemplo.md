@@ -1,4 +1,4 @@
-# Paciente de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Paciente de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,7 +8,7 @@
 
 Profile: [Paciente de Laboratorio](StructureDefinition-PacienteLaboratorio.md)
 
-Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))
+Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: RunPacienteNid#12345678-5 (use: official, ))
 
 -------
 

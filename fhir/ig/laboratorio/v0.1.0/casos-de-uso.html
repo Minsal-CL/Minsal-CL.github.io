@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0</title>
+    <title>Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -68,7 +68,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
             <br/>
-            <span style="display:inline-block;">0.5.0 - ci-build
+            <span style="display:inline-block;">0.5.1 - ci-build
 
 
 
@@ -149,7 +149,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.5.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.5.1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Casos de uso</h2>
   
 
@@ -441,14 +441,14 @@ sequenceDiagram
 
 <ol>
   <li>El paciente no concurre a la toma de muestra. No existe ningún <code class="language-plaintext highlighter-rouge">Specimen</code> asociado a la solicitud.</li>
-  <li>El establecimiento o el laboratorio actualiza <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab.status = #revoked</code> y documenta el motivo mediante la extensión <code class="language-plaintext highlighter-rouge">request-statusReason</code>, con el código SNOMED CT correspondiente a "no presentación".</li>
+  <li>El establecimiento o el laboratorio actualiza <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab.status = #revoked</code> y documenta el motivo mediante la extensión <code class="language-plaintext highlighter-rouge">request-statusReason</code>, con el código administrativo MINSAL correspondiente a "no presentación".</li>
 </ol>
 
 <div class="mermaid">
 sequenceDiagram
     participant Est as Establecimiento / LIS
     participant Bus as Bus de Interoperabilidad
-    Est-&gt;&gt;Bus: PUT ServiceRequest (status=revoked, motivo=SNOMED CT)
+    Est-&gt;&gt;Bus: PUT ServiceRequest (status=revoked, motivo=no-presentacion)
     Bus-&gt;&gt;Bus: valida contra MinsalServiceRequestLab
     Bus--&gt;&gt;Est: 200 OK
 </div>
@@ -469,12 +469,12 @@ sequenceDiagram
       <td>Paciente no se presenta</td>
       <td><code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code></td>
       <td><code class="language-plaintext highlighter-rouge">request-statusReason</code></td>
-      <td>SNOMED CT <code class="language-plaintext highlighter-rouge">270426007</code> "Did not attend"</td>
+      <td><code class="language-plaintext highlighter-rouge">no-presentacion</code> "Paciente no se presenta (sin motivo informado)" (CodeSystem MINSAL <code class="language-plaintext highlighter-rouge">CSMotivoAdministrativoCancelacionLaboratorio</code>), acompañado de SNOMED CT <code class="language-plaintext highlighter-rouge">410543007</code> "Did not attend" como codificación aproximada</td>
     </tr>
   </tbody>
 </table>
 
-<p>Este motivo no define un código propio de esta guía: reutiliza SNOMED CT. La extensión <code class="language-plaintext highlighter-rouge">request-statusReason</code> es una extensión oficial publicada por HL7, no una definición propia de MINSAL. El binding del ValueSet <code class="language-plaintext highlighter-rouge">VSMotivoCancelacionSolicitudLaboratorio</code> es extensible: sugiere este código como el motivo esperado, sin impedir usar otro código válido del mismo catálogo externo si se identifica un motivo no cubierto.</p>
+<p>Este motivo usa un código administrativo propio de MINSAL, no un código clínico inventado: se creó porque el concepto SNOMED CT originalmente usado para este propósito (<code class="language-plaintext highlighter-rouge">270426007</code> "Did not attend - no reason") fue inactivado por SNOMED International sin reemplazo directo, al tratarse de un concepto que SNOMED International considera administrativo y fuera del foco de la jerarquía de hallazgos clínicos. El concepto SNOMED CT activo más cercano (<code class="language-plaintext highlighter-rouge">410543007</code> "Did not attend") no cubre por sí solo la ausencia de motivo, por lo que se agrega como segunda codificación aproximada, no como reemplazo exacto. La extensión <code class="language-plaintext highlighter-rouge">request-statusReason</code> es una extensión oficial publicada por HL7, no una definición propia de MINSAL; lo propio de MINSAL es solo el código del motivo. El binding del ValueSet <code class="language-plaintext highlighter-rouge">VSMotivoCancelacionSolicitudLaboratorio</code> es extensible: sugiere este código como el motivo esperado, sin impedir usar otro código si se identifica un motivo no cubierto.</p>
 
 <p>El rechazo de una muestra ya recibida por el laboratorio (por ejemplo, por cantidad insuficiente, coagulación o etiquetado defectuoso) no se cubre en esta fase, porque depende de modelar la recepción y evaluación de la muestra por parte del laboratorio, que queda para una fase posterior (ver "Alcance por fases").</p>
 
@@ -497,7 +497,7 @@ sequenceDiagram
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.5.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 21, 2026 17:12-0300">2026-09-21</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.5.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Sep 22, 2026 09:29-0300">2026-09-22</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

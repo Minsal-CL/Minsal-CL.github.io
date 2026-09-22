@@ -1,4 +1,4 @@
-# Organización participante en el flujo de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Organización participante en el flujo de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:OrganizacionParticipanteLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:OrganizacionParticipanteLaboratorio |
 
  
 Perfil para representar establecimientos de origen, laboratorios ejecutores y otras organizaciones participantes en el intercambio de solicitudes y resultados de laboratorio. Extiende el perfil de organización de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Organization de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-OrganizacionParticip
   "resourceType" : "StructureDefinition",
   "id" : "OrganizacionParticipanteLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "OrganizacionParticipanteLaboratorio",
   "title" : "Organización participante en el flujo de laboratorio",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -91,7 +91,8 @@ Other representations of profile: [CSV](StructureDefinition-OrganizacionParticip
       "id" : "Organization.identifier",
       "path" : "Organization.identifier",
       "short" : "Código DEIS del establecimiento (ver Código de Establecimiento DEIS)",
-      "comment" : "CoreOrganizacionCl aún no fija un `system` oficial para este identificador. Esta guía adopta `http://deis.minsal.cl/establecimientos`, el mismo URI usado por las guías de Tiempos de Espera Quirúrgico e IG_Urgencia, como estándar de facto compartido en el portafolio MINSAL, en vez de definir un URI propio."
+      "comment" : "CoreOrganizacionCl aún no fija un `system` oficial para este identificador. Esta guía adopta `http://deis.minsal.cl/establecimientos`, el mismo URI usado por las guías de Tiempos de Espera Quirúrgico e IG_Urgencia, como estándar de facto compartido en el portafolio MINSAL, en vez de definir un URI propio.",
+      "min" : 1
     },
     {
       "id" : "Organization.active",

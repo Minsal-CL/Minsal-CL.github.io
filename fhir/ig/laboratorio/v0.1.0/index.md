@@ -1,4 +1,4 @@
-# Inicio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Inicio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * **Inicio**
@@ -7,8 +7,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:LaboratorioClinico |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:LaboratorioClinico |
 
 # Guía de Implementación FHIR R4 - Laboratorio
 
@@ -156,11 +156,11 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
   "resourceType" : "ImplementationGuide",
   "id" : "hl7.fhir.cl.minsal.laboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "LaboratorioClinico",
   "title" : "Guía de Implementación FHIR - Laboratorio Clínico",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -204,7 +204,7 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
     "id" : "hl7_fhir_cl_clcore",
     "uri" : "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore",
     "packageId" : "hl7.fhir.cl.clcore",
-    "version" : "1.8.5"
+    "version" : "1.9.3"
   }],
   "definition" : {
     "extension" : [{
@@ -226,6 +226,17 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
       {
         "url" : "value",
         "valueString" : "ci-build"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueString" : "path-expansion-params"
+      },
+      {
+        "url" : "value",
+        "valueString" : "../../input/resources/Parameters-manifest.json"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -483,6 +494,12 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
     {
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters",
+      "valueReference" : {
+        "reference" : "Parameters/expansion-parameters"
+      }
+    },
+    {
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency",
       "valueCode" : "hl7.fhir.uv.tools.r4#1.1.2"
     },
@@ -505,6 +522,17 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
       {
         "url" : "value",
         "valueString" : "ci-build"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueCode" : "path-expansion-params"
+      },
+      {
+        "url" : "value",
+        "valueString" : "../../input/resources/Parameters-manifest.json"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -828,6 +856,22 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "NamingSystem-NSEstablecimientoDeis.html"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/NSEstablecimientoDeis"
+      },
+      "name" : "Código de Establecimiento DEIS",
+      "description" : "Identificador nacional de establecimientos de salud, administrado por el Departamento de Estadísticas e Información de Salud (DEIS) de MINSAL. Adoptado como estándar de facto por esta guía para `Organization.identifier` de establecimientos (ver Casos de uso), y usado también por otras guías del portafolio Minsal-CL. La definición y gobernanza del catálogo de códigos DEIS corresponde al propio DEIS, no a esta guía; este recurso solo declara el dominio para que el IG Publisher lo resuelva localmente al validar los ejemplos.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
       },
       {
@@ -870,7 +914,7 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
         "reference" : "StructureDefinition/MinsalEspecimenLaboratorio"
       },
       "name" : "Espécimen de Laboratorio MINSAL",
-      "description" : "Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (por ejemplo, en el segmento SPM de ORM^O01/ORU^R01).",
+      "description" : "Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (grupo SPM/SAC de OML^O21, mensaje objetivo para laboratorio, o en ORU^R01 al momento del resultado; ORM^O01 no incluye SPM/SAC en el estándar base, ver [Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.html)).",
       "exampleBoolean" : false
     },
     {
@@ -888,6 +932,22 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
       "name" : "Establecimiento de origen de ejemplo",
       "description" : "Organización que origina la solicitud de laboratorio, identificada con un Código de Establecimiento DEIS real y vigente (ver [Códigos de establecimientos de salud vigentes](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes), referencia ya usada como criterio de identificación de organizaciones en NID): 116105, Hospital Dr. César Garavagno Burotto (Hospital de Talca), Servicio de Salud del Maule. `identifier.system` usa `http://deis.minsal.cl/establecimientos`, el mismo URI que ya usan las guías de Tiempos de Espera Quirúrgico y Urgencia para este mismo dato; CoreOrganizacionCl aún no fija un `system` oficial (queda pendiente en su definición), por lo que se adopta este URI como estándar de facto compartido, en vez de crear uno propio de esta guía.",
       "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "NamingSystem-NSOrdenGrupoLaboratorio.html"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/NSOrdenGrupoLaboratorio"
+      },
+      "name" : "Identificador de Orden Agrupadora de Laboratorio (por establecimiento)",
+      "description" : "Dominio de identificador para `ServiceRequest.requisition` (número de orden agrupadora que comparten todas las prestaciones de una misma solicitud de laboratorio, ver `MinsalServiceRequestLab.requisition`). El URI sigue el patrón `.../identificador/orden-grupo/{códigoEstablecimientoDEIS}`, uno distinto por establecimiento asignador, para evitar colisiones entre establecimientos que reutilicen el mismo número local de orden. El código numérico de este ejemplo (116105) corresponde al establecimiento usado en los ejemplos de esta guía; no es un valor fijo universal, cada establecimiento real recibe su propio URI reemplazando ese segmento por su propio código DEIS.",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -940,6 +1000,22 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-motivo-administrativo-cancelacion-laboratorio.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/motivo-administrativo-cancelacion-laboratorio"
+      },
+      "name" : "Motivo Administrativo de Cancelación de Solicitud de Laboratorio",
+      "description" : "CodeSystem local MINSAL para motivos administrativos de cancelación de una solicitud de laboratorio antes de la toma de muestra. Se crea porque el concepto SNOMED CT 270426007 |Did not attend - no reason (finding)|, usado originalmente para este propósito, fue inactivado por SNOMED International (release GP/FP de enero de 2024) sin reemplazo directo (\"No replacement\"): SNOMED International considera este tipo de concepto \"Did not attend X\" como administrativo, fuera del foco de la jerarquía de hallazgos clínicos (Clinical finding), y no publica un concepto activo equivalente con el significado exacto \"no se presentó, sin motivo informado\". El concepto SNOMED CT activo más próximo, 410543007 |Did not attend (qualifier value)|, no cubre por sí solo la ausencia de motivo; puede agregarse como codificación SNOMED CT aproximada adicional en el mismo `CodeableConcept`, pero no reemplaza el código local.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
       },
       {
@@ -950,7 +1026,7 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
         "reference" : "ValueSet/motivo-cancelacion-solicitud-laboratorio"
       },
       "name" : "Motivo de Cancelación de Solicitud de Laboratorio",
-      "description" : "Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra.",
+      "description" : "Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Referencia el código local `no-presentacion` del CodeSystem MINSAL `CSMotivoAdministrativoCancelacionLaboratorio`, creado porque el concepto SNOMED CT usado originalmente para este motivo (270426007) fue inactivado por SNOMED International sin reemplazo directo (ver descripción del CodeSystem). Binding extensible: permite agregar otros códigos, locales o de catálogos externos, si se identifican nuevos motivos de cancelación sin muestra.",
       "exampleBoolean" : false
     },
     {
@@ -999,6 +1075,22 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
       },
       "name" : "Paciente de Laboratorio",
       "description" : "Perfil de paciente utilizado en las solicitudes y resultados de laboratorio. Extiende el perfil de paciente de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Patient de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Parameters"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Parameters-manifest.html"
+      }],
+      "reference" : {
+        "reference" : "Parameters/manifest"
+      },
+      "name" : "Parámetros de expansión de la guía",
+      "description" : "Fija la edición SNOMED CT (Internacional, módulo 900000000000207008) usada por el IG Publisher al expandir/validar ValueSets de esta guía. No es un ejemplo clínico.",
       "exampleBoolean" : false
     },
     {
@@ -1191,6 +1283,38 @@ Las reglas detalladas se encuentran en la página [Mapeo HL7 v2 a FHIR](mapeo-v2
       },
       "name" : "Resultado diagnóstico de laboratorio",
       "description" : "Perfil para representar el resultado de una solicitud de laboratorio y el informe PDF recibido desde un mensaje HL7 v2 ORU^R01.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "NamingSystem-NSRunPacienteNid.html"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/NSRunPacienteNid"
+      },
+      "name" : "RUN de Paciente (dominio NID)",
+      "description" : "Dominio de identificador para el RUN (Rol Único Nacional) de un paciente, propio de la guía NID (Núcleo de Identificación) de MINSAL. No debe confundirse con el dominio del RUN de prestador individual (ver `NSRunPrestador`), gestionado por un registro distinto (MPI/IG_hpd). La definición y gobernanza de este dominio corresponde a NID, no a esta guía.",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "NamingSystem-NSRunPrestador.html"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/NSRunPrestador"
+      },
+      "name" : "RUN de Prestador Individual (dominio HPD/MPI)",
+      "description" : "Dominio de identificador para el RUN (Rol Único Nacional) de un prestador individual (profesional o administrativo de salud), tal como lo usa el repositorio real `IG_hpd` (Maestro de Prestadores Individuales, MPI de MINSAL) en sus propios ejemplos de prestador. No debe confundirse con el dominio del RUN de paciente (ver `NSRunPacienteNid`), gestionado por un registro distinto (NID): un mismo número de RUN puede corresponder a un dominio u otro según el rol de la persona (ver Arquitectura). La definición y gobernanza de este dominio corresponde al MPI/IG_hpd, no a esta guía.",
       "exampleBoolean" : false
     },
     {

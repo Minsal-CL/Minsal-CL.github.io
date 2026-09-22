@@ -1,4 +1,4 @@
-# Arquitectura - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Arquitectura - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * **Arquitectura**
@@ -14,7 +14,7 @@ Las guías de implementación FHIR de Chile siguen una jerarquía de herencia, d
 1. **HL7 Internacional**: especificación base FHIR R4.
 1. **CL-Core**(`hl7.fhir.cl.clcore`, mantenida por HL7 Chile): guía transversal para Chile. Es agnóstica de dominio y no es normativa: hereda terminología de la guía ACE del DEIS pero solo la sugiere, sin obligarla.
 1. **NID**(Núcleo de Interoperabilidad de Datos, mantenida por la Unidad de Interoperabilidad de MINSAL): núcleo normativo de MINSAL. Es más restrictiva que CL-Core, porque obliga elementos que en CL-Core son opcionales (por ejemplo, el identificador del paciente y el uso de la terminología de la ACE para el sexo registral) y define los perfiles transversales de paciente, prestador individual y organización que usan los proyectos MINSAL.
-1. **Esta guía (Laboratorio)**: guía de dominio específico. Declara dependencia formal con CL-Core 1.8.5 y se alinea conceptualmente con los perfiles de identidad de NID para paciente, prestador y organización (ver "Resolución de identidad mediante MPI" más abajo). La dependencia formal de paquete con NID queda pendiente de definición técnica.
+1. **Esta guía (Laboratorio)**: guía de dominio específico. Declara dependencia formal con CL-Core 1.9.3 y se alinea conceptualmente con los perfiles de identidad de NID para paciente, prestador y organización (ver "Resolución de identidad mediante MPI" más abajo). La dependencia formal de paquete con NID queda pendiente de definición técnica.
 
 ## Flujo de integración con el Bus de Interoperabilidad
 
@@ -22,10 +22,10 @@ flowchart LR SOL["Solicitud de Laboratorio"] --> API SOL --> REC["Recepción"] R
 
 El flujo cubre dos caminos independientes que convergen en el mismo Bus de Interoperabilidad y en el mismo Portal Ciudadano:
 
-1. Solicitud de Laboratorio: ingresa al Bus por la API, el paso "Transforma" homologa los códigos consultando el servicio terminológico y arma el recurso FHIR (`MinsalServiceRequestLab`), que queda disponible en el Portal Ciudadano.
-1. Resultado de Laboratorio: la Recepción del resultado produce un PDF (`PDF Resultado`), que también entra al mismo paso "Transforma" del Bus, se homologa contra el servicio terminológico igual que la solicitud, y se publica como recurso FHIR (`ResultadoDiagnosticoLaboratorio`con el PDF en`presentedForm`) hacia el Portal Ciudadano.
+1. Solicitud de Laboratorio: ingresa al Bus por la API, el paso "Transforma" homologa el código de la prestación (`ServiceRequest.code`) consultando el servicio terminológico y arma el recurso FHIR (`MinsalServiceRequestLab`), que queda disponible en el Portal Ciudadano.
+1. Resultado de Laboratorio: la Recepción del resultado produce un PDF (`PDF Resultado`), que entra al mismo paso "Transforma" del Bus. Lo que se homologa contra el servicio terminológico es el código del examen o resultado (`DiagnosticReport.code`y, cuando existe resultado atomizado,`Observation.code`), no el contenido del PDF: el binario se conserva sin alteración en`presentedForm.data`y se publica junto al recurso FHIR (`ResultadoDiagnosticoLaboratorio`) hacia el Portal Ciudadano.
 
-Este flujo confirma, a nivel de arquitectura de integración, el diseño ya adoptado por esta guía: solicitud y resultado son dos flujos independientes (ver [Inicio](index.md)) que comparten el mismo mecanismo de homologación terminológica (FONASA/LOINC) antes de transformarse a FHIR.
+Este flujo confirma, a nivel de arquitectura de integración, el diseño ya adoptado por esta guía: solicitud y resultado son dos flujos independientes (ver [Inicio](index.md)) cuyos códigos (`ServiceRequest.code`, `DiagnosticReport.code`, `Observation.code`) pasan por el mismo mecanismo de homologación terminológica (FONASA/LOINC) antes de transformarse a FHIR; el documento PDF en sí no se homologa ni se transforma, solo se transporta.
 
 ## Visión general
 
@@ -98,6 +98,8 @@ Ejemplo conceptual:
 ```
 
 Los URI de los dominios nacionales deben ser los publicados o confirmados por MINSAL. Los valores ilustrativos no deben utilizarse como URI productivos.
+
+> **Nota: el RUN no tiene un único `system`, depende del rol de la persona.** Esta guía usa dos URI distintos para el mismo tipo de documento (RUN), según a quién identifique: para el paciente, `identifier[RUN].system = "https://interoperabilidad.minsal.cl/fhir/ig/nid/paciente/identificador/run"` (dominio de identidad de NID/MPI, ver `MinsalPacienteLaboratorio`); para el prestador individual (`MinsalPractitionerLaboratorio`), `identifier[run].system = "https://api.cl/system/run"` (mismo valor usado por el repositorio real `IG_hpd`, MPI de MINSAL, en sus ejemplos de prestador). No son intercambiables: el RUN de un paciente y el RUN de un prestador son gestionados por registros/dominios distintos (NID para pacientes, HPD para profesionales), aunque el número de RUN como tal sea el mismo documento nacional. Una integración que reciba un RUN debe resolver primero si corresponde a un paciente o a un prestador antes de fijar el `system`; no debe asumirse un único URI de RUN válido para toda la guía.
 
 ## Responsabilidades
 

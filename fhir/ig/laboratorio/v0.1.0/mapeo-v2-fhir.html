@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Mapeo HL7 v2 a FHIR - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0</title>
+    <title>Mapeo HL7 v2 a FHIR - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -68,7 +68,7 @@
         <div id="ig-status">
           <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
             <br/>
-            <span style="display:inline-block;">0.5.0 - ci-build
+            <span style="display:inline-block;">0.5.1 - ci-build
 
 
 
@@ -149,7 +149,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.5.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.5.1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Mapeo HL7 v2 a FHIR</h2>
   
 
@@ -165,8 +165,24 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#mapeo-hl7-v2-a-fhir-r4" id="markdown-toc-mapeo-hl7-v2-a-fhir-r4">Mapeo HL7 v2 a FHIR R4</a>    <ul>
+      <li><a href="#alcance" id="markdown-toc-alcance">Alcance</a></li>
+      <li><a href="#mapeo-de-solicitud-omlo21-mensaje-objetivo-y-ormo01-legacy" id="markdown-toc-mapeo-de-solicitud-omlo21-mensaje-objetivo-y-ormo01-legacy">Mapeo de solicitud: OML^O21 (mensaje objetivo) y ORM^O01 (legacy)</a>        <ul>
+          <li><a href="#reglas-de-consistencia-de-la-solicitud" id="markdown-toc-reglas-de-consistencia-de-la-solicitud">Reglas de consistencia de la solicitud</a></li>
+          <li><a href="#mapeo-del-espécimen-spm--sac--minsalespecimenlaboratorio" id="markdown-toc-mapeo-del-espécimen-spm--sac--minsalespecimenlaboratorio">Mapeo del espécimen: SPM / SAC → MinsalEspecimenLaboratorio</a></li>
+        </ul>
+      </li>
+      <li><a href="#flujo-de-resultados" id="markdown-toc-flujo-de-resultados">Flujo de resultados</a></li>
+      <li><a href="#mapeo-principal" id="markdown-toc-mapeo-principal">Mapeo principal</a></li>
+      <li><a href="#pdf-encapsulado" id="markdown-toc-pdf-encapsulado">PDF encapsulado</a></li>
+      <li><a href="#identificación-del-sistema-terminológico" id="markdown-toc-identificación-del-sistema-terminológico">Identificación del sistema terminológico</a></li>
+      <li><a href="#resultado-atomizado-por-prestación-caso-de-uso-3" id="markdown-toc-resultado-atomizado-por-prestación-caso-de-uso-3">Resultado atomizado por prestación (Caso de uso 3)</a></li>
+    </ul>
+  </li>
+</ul>
+
 </div>
 <h1 id="mapeo-hl7-v2-a-fhir-r4">Mapeo HL7 v2 a FHIR R4</h1>
 
@@ -174,11 +190,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>Esta sección define la transformación estructural de mensajes HL7 v2 a recursos FHIR R4. La transformación de estructura es independiente de la validación o traducción de códigos realizada por el servicio terminológico.</p>
 
-<h2 id="mapeo-de-solicitud-ormo01">Mapeo de solicitud ORM^O01</h2>
+<h2 id="mapeo-de-solicitud-omlo21-mensaje-objetivo-y-ormo01-legacy">Mapeo de solicitud: OML^O21 (mensaje objetivo) y ORM^O01 (legacy)</h2>
 
 <p>La columna <strong>¿Transformado?</strong> indica representación en FHIR, no traducción terminológica.</p>
 
-<p>Esta misma tabla aplica a <code class="language-plaintext highlighter-rouge">OML^O21</code> para la solicitud de laboratorio. <code class="language-plaintext highlighter-rouge">OML^O21</code> reutiliza los mismos segmentos <code class="language-plaintext highlighter-rouge">MSH</code>, <code class="language-plaintext highlighter-rouge">PID</code>, <code class="language-plaintext highlighter-rouge">PV1</code>, <code class="language-plaintext highlighter-rouge">ORC</code> y <code class="language-plaintext highlighter-rouge">OBR</code>; la diferencia respecto a <code class="language-plaintext highlighter-rouge">ORM^O01</code> está en el evento de disparo y en que <code class="language-plaintext highlighter-rouge">OML^O21</code> permite agrupar explícitamente varias órdenes bajo un mismo contenedor de especímenes (segmento <code class="language-plaintext highlighter-rouge">SPM</code>), lo cual se representa igual en FHIR mediante <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> y la referencia compartida en <code class="language-plaintext highlighter-rouge">ServiceRequest.specimen</code>. Mientras no se confirme una diferencia de mapeo específica, ambos mensajes se transforman con las mismas reglas de esta sección.</p>
+<p><code class="language-plaintext highlighter-rouge">OML^O21</code> es el mensaje objetivo de esta guía para la solicitud de laboratorio. HL7 introdujo <code class="language-plaintext highlighter-rouge">OML^O21</code> específicamente para órdenes de laboratorio: además de los segmentos <code class="language-plaintext highlighter-rouge">MSH</code>, <code class="language-plaintext highlighter-rouge">PID</code>, <code class="language-plaintext highlighter-rouge">PV1</code>, <code class="language-plaintext highlighter-rouge">ORC</code> y <code class="language-plaintext highlighter-rouge">OBR</code> que comparte con <code class="language-plaintext highlighter-rouge">ORM^O01</code>, <code class="language-plaintext highlighter-rouge">OML^O21</code> incorpora el grupo <code class="language-plaintext highlighter-rouge">SPM</code>/<code class="language-plaintext highlighter-rouge">SAC</code> para representar el espécimen y su contenedor de forma estructurada, algo que <code class="language-plaintext highlighter-rouge">ORM^O01</code> no contempla en el estándar base (por ser un mensaje de orden genérico, no especializado en laboratorio). Esta especialización permite mapear la muestra a <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> sin depender de extensiones o campos fuera de propósito.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ORM^O01</code> se admite como mensaje legacy, para los establecimientos cuyo HIS todavía no emite <code class="language-plaintext highlighter-rouge">OML^O21</code>: sus segmentos <code class="language-plaintext highlighter-rouge">MSH</code>, <code class="language-plaintext highlighter-rouge">PID</code>, <code class="language-plaintext highlighter-rouge">PV1</code>, <code class="language-plaintext highlighter-rouge">ORC</code> y <code class="language-plaintext highlighter-rouge">OBR</code> se transforman con las mismas reglas de la tabla siguiente. Si el establecimiento emisor solo dispone de <code class="language-plaintext highlighter-rouge">ORM^O01</code> y necesita informar la muestra, debe hacerlo mediante un <code class="language-plaintext highlighter-rouge">Bundle</code> FHIR nativo que incluya <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> junto al <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code> (ver <a href="casos-de-uso.html">Casos de uso</a>), ya que el segmento <code class="language-plaintext highlighter-rouge">SPM</code> no forma parte de <code class="language-plaintext highlighter-rouge">ORM^O01</code> en el estándar. Se recomienda a los establecimientos nuevos implementar directamente <code class="language-plaintext highlighter-rouge">OML^O21</code>; <code class="language-plaintext highlighter-rouge">ORM^O01</code> no debe usarse en integraciones nuevas de laboratorio.</p>
 
 <table>
   <thead>
@@ -234,11 +252,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MSH-9</code></td>
-      <td><code class="language-plaintext highlighter-rouge">ORM^O01</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OML^O21</code></td>
       <td>Sí</td>
       <td><code class="language-plaintext highlighter-rouge">MessageHeader.eventCoding</code></td>
       <td>MessageHeader</td>
-      <td>Sistema v2-0003, código <code class="language-plaintext highlighter-rouge">O01</code></td>
+      <td>Sistema v2-0003, código <code class="language-plaintext highlighter-rouge">O21</code>. Si el emisor solo dispone de <code class="language-plaintext highlighter-rouge">ORM^O01</code> (legacy), el código es <code class="language-plaintext highlighter-rouge">O01</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MSH-10</code></td>
@@ -446,6 +464,82 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><code class="language-plaintext highlighter-rouge">ORC-4</code> (Placer Group Number) se transforma a <code class="language-plaintext highlighter-rouge">ServiceRequest.requisition</code>, con <code class="language-plaintext highlighter-rouge">system</code> = URI del establecimiento (código DEIS, ver <a href="index.html#solicitud-con-múltiples-prestaciones">Inicio</a>) y <code class="language-plaintext highlighter-rouge">value</code> = el valor recibido en el campo, sin modificar. <code class="language-plaintext highlighter-rouge">requisition</code> es must-support en <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>; todas las prestaciones de una misma orden deben compartir el mismo par <code class="language-plaintext highlighter-rouge">system</code>+<code class="language-plaintext highlighter-rouge">value</code>.</li>
 </ul>
 
+<h3 id="mapeo-del-espécimen-spm--sac--minsalespecimenlaboratorio">Mapeo del espécimen: SPM / SAC → MinsalEspecimenLaboratorio</h3>
+
+<p>Cuando el mensaje es <code class="language-plaintext highlighter-rouge">OML^O21</code> y el emisor ya conoce los datos de la muestra al momento de generar la solicitud, el grupo <code class="language-plaintext highlighter-rouge">SPM</code>/<code class="language-plaintext highlighter-rouge">SAC</code> se transforma en una instancia de <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code>, referenciada desde <code class="language-plaintext highlighter-rouge">ServiceRequest.specimen</code>. Si la orden agrupa varias prestaciones sobre la misma muestra, todas comparten la referencia al mismo <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo v2</th>
+      <th>Significado</th>
+      <th>¿Transformado?</th>
+      <th>Elemento FHIR R4</th>
+      <th>Regla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-2</code></td>
+      <td>Identificador del espécimen (placer/filler)</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.identifier</code></td>
+      <td>Conservar valor y autoridad asignadora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-4</code></td>
+      <td>Tipo de espécimen</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.type</code></td>
+      <td>Transformar CE/CWE a <code class="language-plaintext highlighter-rouge">CodeableConcept</code>; no homologar automáticamente a SNOMED CT</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-8</code></td>
+      <td>Sitio anatómico de origen</td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.collection.bodySite</code></td>
+      <td>Según acuerdo de interfaz; puede venir como texto libre</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-17</code></td>
+      <td>Fecha/hora de toma de la muestra</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.collection.collected[x]</code></td>
+      <td>Convertir a <code class="language-plaintext highlighter-rouge">dateTime</code> o <code class="language-plaintext highlighter-rouge">Period</code> según granularidad</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-24</code></td>
+      <td>Condición o rechazo del espécimen</td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.status</code> / <code class="language-plaintext highlighter-rouge">Specimen.note</code></td>
+      <td>Aplicar ConceptMap si el código es reconocido; de lo contrario conservar como texto</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SAC-3</code></td>
+      <td>Identificador del contenedor</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.container.identifier</code></td>
+      <td>Conservar valor y autoridad asignadora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SAC-17</code></td>
+      <td>Tipo de contenedor</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.container.type</code></td>
+      <td>Transformar CE/CWE a <code class="language-plaintext highlighter-rouge">CodeableConcept</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SAC-23</code> / <code class="language-plaintext highlighter-rouge">SAC-24</code></td>
+      <td>Cantidad y unidad del contenedor</td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.container.specimenQuantity</code></td>
+      <td>Preferir UCUM cuando la unidad venga identificada</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">Specimen.request</code> se completa con la referencia al <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code> correspondiente, y <code class="language-plaintext highlighter-rouge">Specimen.subject</code> con <code class="language-plaintext highlighter-rouge">PacienteLaboratorio</code>, igual que en el <code class="language-plaintext highlighter-rouge">Bundle</code> FHIR nativo. Si <code class="language-plaintext highlighter-rouge">ORM^O01</code> (legacy) no trae <code class="language-plaintext highlighter-rouge">SPM</code>/<code class="language-plaintext highlighter-rouge">SAC</code>, la muestra no se representa en ese envío; queda pendiente para un mensaje posterior o para el flujo de resultado, si el laboratorio la informa recién en <code class="language-plaintext highlighter-rouge">ORU^R01</code>.</p>
+
 <h2 id="flujo-de-resultados">Flujo de resultados</h2>
 
 <div class="mermaid">
@@ -624,19 +718,19 @@ OBR|1|||CODIGO_FONASA^Descripción de la prestación^FONASA
 
 <p>Cuando el terminológico entregue una traducción validada, el código original debe conservarse y la codificación traducida puede agregarse como un segundo <code class="language-plaintext highlighter-rouge">Coding</code>, manteniendo trazabilidad del proceso.</p>
 
-<h2 id="fase-2-a-futuro-resultado-atomizado-por-prestación">Fase 2 (a futuro): resultado atomizado por prestación</h2>
+<h2 id="resultado-atomizado-por-prestación-caso-de-uso-3">Resultado atomizado por prestación (Caso de uso 3)</h2>
 
-<p>Esta sección es conceptual y no forma parte del alcance actual de la guía; se documenta porque corresponde a la etapa siguiente después de consolidar solicitud y resultado con PDF (ver <a href="casos-de-uso.html">Casos de uso</a>).</p>
+<p>Esta sección está en el alcance de la versión actual de la guía, con prioridad de entrega secundaria respecto al informe PDF (Caso de uso 2, ver <a href="casos-de-uso.html">Casos de uso</a>).</p>
 
-<p>El mensaje de origen sigue siendo <code class="language-plaintext highlighter-rouge">ORU^R01</code>, pero en lugar de un único <code class="language-plaintext highlighter-rouge">OBX</code> con el PDF en Base64, cada resultado individual llega en su propio segmento <code class="language-plaintext highlighter-rouge">OBX</code> y se transforma en un recurso <code class="language-plaintext highlighter-rouge">Observation</code> independiente, referenciado desde <code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>. El mapeo de <code class="language-plaintext highlighter-rouge">OBX-3</code>, <code class="language-plaintext highlighter-rouge">OBX-5</code>, <code class="language-plaintext highlighter-rouge">OBX-6</code>, <code class="language-plaintext highlighter-rouge">OBX-7</code>, <code class="language-plaintext highlighter-rouge">OBX-8</code> y <code class="language-plaintext highlighter-rouge">OBX-11</code> de la tabla anterior aplica sin cambios a cada <code class="language-plaintext highlighter-rouge">OBX</code> individual.</p>
+<p>El mensaje de origen sigue siendo <code class="language-plaintext highlighter-rouge">ORU^R01</code>, pero en lugar de un único <code class="language-plaintext highlighter-rouge">OBX</code> con el PDF en Base64, cada resultado individual llega en su propio segmento <code class="language-plaintext highlighter-rouge">OBX</code> y se transforma en un recurso <code class="language-plaintext highlighter-rouge">Observation</code> independiente (perfil <code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code>), referenciado desde <code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>. El mapeo de <code class="language-plaintext highlighter-rouge">OBX-3</code>, <code class="language-plaintext highlighter-rouge">OBX-5</code>, <code class="language-plaintext highlighter-rouge">OBX-6</code>, <code class="language-plaintext highlighter-rouge">OBX-7</code>, <code class="language-plaintext highlighter-rouge">OBX-8</code> y <code class="language-plaintext highlighter-rouge">OBX-11</code> de la tabla de la sección <a href="#mapeo-principal">Mapeo principal</a> aplica sin cambios a cada <code class="language-plaintext highlighter-rouge">OBX</code> individual. Cuando el informe también trae la muestra, <code class="language-plaintext highlighter-rouge">Observation.specimen</code> referencia el mismo <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> que ya se describió para la solicitud.</p>
 
-<p>Lo que queda pendiente de diseño para este caso, y que no corresponde resolver únicamente con el mapeo estructural, es:</p>
+<p>Ambos recursos (<code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code> y las <code class="language-plaintext highlighter-rouge">Observation</code> atomizadas) se empaquetan en un único <code class="language-plaintext highlighter-rouge">Bundle</code> transaccional, perfil <code class="language-plaintext highlighter-rouge">MinsalBundleResultadoLaboratorio</code> (ver ejemplo <code class="language-plaintext highlighter-rouge">BundleResultadoMultipleEjemplo</code>), simétrico al de la solicitud.</p>
+
+<p>Queda pendiente de diseño, para una fase posterior, y que no corresponde resolver únicamente con el mapeo estructural:</p>
 
 <ul>
-  <li>La política de homologación de cada analito a LOINC cuando el sistema de origen solo informe el nombre local de la prestación o del resultado.</li>
-  <li>La homologación de unidades de medida a UCUM en <code class="language-plaintext highlighter-rouge">OBX-6</code>, cuando el sistema de origen use notación local.</li>
-  <li>El tratamiento de valores críticos informados en <code class="language-plaintext highlighter-rouge">OBX-8</code> y su eventual notificación adicional, más allá de <code class="language-plaintext highlighter-rouge">Observation.interpretation</code>.</li>
   <li>La convivencia entre el resultado atomizado y el PDF firmado del mismo informe, para evitar que ambas representaciones difieran entre sí.</li>
+  <li>El filtrado de resultados por área del laboratorio (<code class="language-plaintext highlighter-rouge">category:studyType</code>/<code class="language-plaintext highlighter-rouge">category:specialty</code>).</li>
 </ul>
 
 
@@ -658,7 +752,7 @@ OBR|1|||CODIGO_FONASA^Descripción de la prestación^FONASA
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.5.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 21, 2026 17:12-0300">2026-09-21</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.5.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Sep 22, 2026 09:29-0300">2026-09-22</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

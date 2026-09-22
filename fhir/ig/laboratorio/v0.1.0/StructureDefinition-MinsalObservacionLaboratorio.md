@@ -1,4 +1,4 @@
-# Resultado atomizado de laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Resultado atomizado de laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalObservacionLaboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:MinsalObservacionLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalObservacionLaboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:MinsalObservacionLaboratorio |
 
  
 Perfil para representar un resultado individual de una prestación de laboratorio (un analito o un resultado cualitativo), cuando el establecimiento opta por informar el dato atómico además de o en vez del informe PDF (ver Casos de uso, Caso de uso 3). Un panel de exámenes con varios analitos (ej. Hemograma) se representa con varias instancias de este perfil, todas enlazadas mediante `basedOn` a la misma `ServiceRequest` de la prestación, sin usar `hasMember` ni `component`. Perfil diseñado con referencia a CH LAB-Report (HL7 Suiza) v2.0.0, adaptado al modelo de solicitud propio de esta guía (ver ENTREGA_DESARROLLO.md). 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalObservacionLab
   "resourceType" : "StructureDefinition",
   "id" : "MinsalObservacionLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalObservacionLaboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "MinsalObservacionLaboratorio",
   "title" : "Resultado atomizado de laboratorio MINSAL",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

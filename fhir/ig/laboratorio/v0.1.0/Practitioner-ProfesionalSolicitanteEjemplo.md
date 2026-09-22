@@ -1,4 +1,4 @@
-# Profesional solicitante de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Profesional solicitante de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -27,8 +27,8 @@ Profile: [Profesional de Laboratorio MINSAL](StructureDefinition-MinsalPractitio
     "use" : "official",
     "type" : {
       "coding" : [{
-        "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentificadores",
-        "code" : "1",
+        "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+        "code" : "01",
         "display" : "RUN"
       }]
     },

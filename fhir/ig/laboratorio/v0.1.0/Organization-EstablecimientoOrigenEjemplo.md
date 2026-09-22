@@ -1,4 +1,4 @@
-# Establecimiento de origen de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Establecimiento de origen de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,7 +8,7 @@
 
 Profile: [Organización participante en el flujo de laboratorio](StructureDefinition-OrganizacionParticipanteLaboratorio.md)
 
-**identifier**: `http://deis.minsal.cl/establecimientos`/116105
+**identifier**: [EstablecimientoDeis](NamingSystem-NSEstablecimientoDeis.md)/116105
 
 **active**: true
 

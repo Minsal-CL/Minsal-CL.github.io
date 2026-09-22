@@ -1,4 +1,4 @@
-# Bundle de Resultado de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Bundle de Resultado de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleResultadoLaboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:MinsalBundleResultadoLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleResultadoLaboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:MinsalBundleResultadoLaboratorio |
 
  
 Perfil para el envío transaccional del resultado de una o más prestaciones de laboratorio: el informe (`DiagnosticReport`, perfil `ResultadoDiagnosticoLaboratorio`) y, cuando el establecimiento opta por informar también el dato atómico por analito (Caso de uso 3), sus resultados individuales (`Observation`, perfil `MinsalObservacionLaboratorio`). Simétrico a `MinsalBundleSolicitudLaboratorio` del lado de la solicitud. Paciente y establecimiento ejecutor se asumen preexistentes en el servidor de destino (mismo criterio que en la solicitud); por eso se incluyen aquí solo como entradas opcionales, para el establecimiento que decida enviarlos junto con la transacción en vez de asumir su preexistencia. 
@@ -37,11 +37,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalBundleResultad
   "resourceType" : "StructureDefinition",
   "id" : "MinsalBundleResultadoLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleResultadoLaboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "MinsalBundleResultadoLaboratorio",
   "title" : "Bundle de Resultado de Laboratorio MINSAL",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

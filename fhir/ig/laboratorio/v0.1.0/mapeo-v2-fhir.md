@@ -1,4 +1,4 @@
-# Mapeo HL7 v2 a FHIR - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Mapeo HL7 v2 a FHIR - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * **Mapeo HL7 v2 a FHIR**
@@ -11,11 +11,13 @@
 
 Esta sección define la transformación estructural de mensajes HL7 v2 a recursos FHIR R4. La transformación de estructura es independiente de la validación o traducción de códigos realizada por el servicio terminológico.
 
-## Mapeo de solicitud ORM^O01
+## Mapeo de solicitud: OML^O21 (mensaje objetivo) y ORM^O01 (legacy)
 
 La columna **¿Transformado?** indica representación en FHIR, no traducción terminológica.
 
-Esta misma tabla aplica a `OML^O21` para la solicitud de laboratorio. `OML^O21` reutiliza los mismos segmentos `MSH`, `PID`, `PV1`, `ORC` y `OBR`; la diferencia respecto a `ORM^O01` está en el evento de disparo y en que `OML^O21` permite agrupar explícitamente varias órdenes bajo un mismo contenedor de especímenes (segmento `SPM`), lo cual se representa igual en FHIR mediante `MinsalEspecimenLaboratorio` y la referencia compartida en `ServiceRequest.specimen`. Mientras no se confirme una diferencia de mapeo específica, ambos mensajes se transforman con las mismas reglas de esta sección.
+`OML^O21` es el mensaje objetivo de esta guía para la solicitud de laboratorio. HL7 introdujo `OML^O21` específicamente para órdenes de laboratorio: además de los segmentos `MSH`, `PID`, `PV1`, `ORC` y `OBR` que comparte con `ORM^O01`, `OML^O21` incorpora el grupo `SPM`/`SAC` para representar el espécimen y su contenedor de forma estructurada, algo que `ORM^O01` no contempla en el estándar base (por ser un mensaje de orden genérico, no especializado en laboratorio). Esta especialización permite mapear la muestra a `MinsalEspecimenLaboratorio` sin depender de extensiones o campos fuera de propósito.
+
+`ORM^O01` se admite como mensaje legacy, para los establecimientos cuyo HIS todavía no emite `OML^O21`: sus segmentos `MSH`, `PID`, `PV1`, `ORC` y `OBR` se transforman con las mismas reglas de la tabla siguiente. Si el establecimiento emisor solo dispone de `ORM^O01` y necesita informar la muestra, debe hacerlo mediante un `Bundle` FHIR nativo que incluya `MinsalEspecimenLaboratorio` junto al `MinsalServiceRequestLab` (ver [Casos de uso](casos-de-uso.md)), ya que el segmento `SPM` no forma parte de `ORM^O01` en el estándar. Se recomienda a los establecimientos nuevos implementar directamente `OML^O21`; `ORM^O01` no debe usarse en integraciones nuevas de laboratorio.
 
 | | | | | | |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -24,7 +26,7 @@ Esta misma tabla aplica a `OML^O21` para la solicitud de laboratorio. `OML^O21` 
 | `MSH-5` | `LIS` | Sí | `MessageHeader.destination.name` | MessageHeader | Aplicación receptora |
 | `MSH-6` | `LABORATORIO` | Parcial | `MessageHeader.destination.receiver` | Organization | Resolver la organización receptora |
 | `MSH-7` | `20260824153000` | Sí | `Bundle.timestamp` | Bundle | Aplicar política horaria si no existe offset |
-| `MSH-9` | `ORM^O01` | Sí | `MessageHeader.eventCoding` | MessageHeader | Sistema v2-0003, código`O01` |
+| `MSH-9` | `OML^O21` | Sí | `MessageHeader.eventCoding` | MessageHeader | Sistema v2-0003, código`O21`. Si el emisor solo dispone de`ORM^O01`(legacy), el código es`O01` |
 | `MSH-10` | `MSG000001` | Sí | `Bundle.identifier` | Bundle | No usar como`MessageHeader.id` |
 | `PID-3` | `12345678-9^^^HOSPITAL_001^PI` | Sí | `PacienteLaboratorio.identifier` | PacienteLaboratorio | Conservar valor, tipo y autoridad |
 | `PID-5` | `PEREZ^JUAN^CARLOS` | Sí | `PacienteLaboratorio.name` | PacienteLaboratorio | Separar apellido y nombres |
@@ -58,6 +60,23 @@ Esta misma tabla aplica a `OML^O21` para la solicitud de laboratorio. `OML^O21` 
 * `requester` proviene de `ORC-12` u `OBR-16`, según el acuerdo.
 * En `OBR-4`, el emisor identifica LOINC, FONASA o sistema local; el terminológico valida o traduce.
 * `ORC-4` (Placer Group Number) se transforma a `ServiceRequest.requisition`, con `system` = URI del establecimiento (código DEIS, ver [Inicio](index.md#solicitud-con-múltiples-prestaciones)) y `value` = el valor recibido en el campo, sin modificar. `requisition` es must-support en `MinsalServiceRequestLab`; todas las prestaciones de una misma orden deben compartir el mismo par `system`+`value`.
+
+### Mapeo del espécimen: SPM / SAC → MinsalEspecimenLaboratorio
+
+Cuando el mensaje es `OML^O21` y el emisor ya conoce los datos de la muestra al momento de generar la solicitud, el grupo `SPM`/`SAC` se transforma en una instancia de `MinsalEspecimenLaboratorio`, referenciada desde `ServiceRequest.specimen`. Si la orden agrupa varias prestaciones sobre la misma muestra, todas comparten la referencia al mismo `MinsalEspecimenLaboratorio`.
+
+| | | | | |
+| :--- | :--- | :--- | :--- | :--- |
+| `SPM-2` | Identificador del espécimen (placer/filler) | Sí | `Specimen.identifier` | Conservar valor y autoridad asignadora |
+| `SPM-4` | Tipo de espécimen | Sí | `Specimen.type` | Transformar CE/CWE a`CodeableConcept`; no homologar automáticamente a SNOMED CT |
+| `SPM-8` | Sitio anatómico de origen | Parcial | `Specimen.collection.bodySite` | Según acuerdo de interfaz; puede venir como texto libre |
+| `SPM-17` | Fecha/hora de toma de la muestra | Sí | `Specimen.collection.collected[x]` | Convertir a`dateTime`o`Period`según granularidad |
+| `SPM-24` | Condición o rechazo del espécimen | Parcial | `Specimen.status`/`Specimen.note` | Aplicar ConceptMap si el código es reconocido; de lo contrario conservar como texto |
+| `SAC-3` | Identificador del contenedor | Sí | `Specimen.container.identifier` | Conservar valor y autoridad asignadora |
+| `SAC-17` | Tipo de contenedor | Sí | `Specimen.container.type` | Transformar CE/CWE a`CodeableConcept` |
+| `SAC-23`/`SAC-24` | Cantidad y unidad del contenedor | Parcial | `Specimen.container.specimenQuantity` | Preferir UCUM cuando la unidad venga identificada |
+
+`Specimen.request` se completa con la referencia al `MinsalServiceRequestLab` correspondiente, y `Specimen.subject` con `PacienteLaboratorio`, igual que en el `Bundle` FHIR nativo. Si `ORM^O01` (legacy) no trae `SPM`/`SAC`, la muestra no se representa en ese envío; queda pendiente para un mensaje posterior o para el flujo de resultado, si el laboratorio la informa recién en `ORU^R01`.
 
 ## Flujo de resultados
 
@@ -119,16 +138,16 @@ Las reglas son:
 
 Cuando el terminológico entregue una traducción validada, el código original debe conservarse y la codificación traducida puede agregarse como un segundo `Coding`, manteniendo trazabilidad del proceso.
 
-## Fase 2 (a futuro): resultado atomizado por prestación
+## Resultado atomizado por prestación (Caso de uso 3)
 
-Esta sección es conceptual y no forma parte del alcance actual de la guía; se documenta porque corresponde a la etapa siguiente después de consolidar solicitud y resultado con PDF (ver [Casos de uso](casos-de-uso.md)).
+Esta sección está en el alcance de la versión actual de la guía, con prioridad de entrega secundaria respecto al informe PDF (Caso de uso 2, ver [Casos de uso](casos-de-uso.md)).
 
-El mensaje de origen sigue siendo `ORU^R01`, pero en lugar de un único `OBX` con el PDF en Base64, cada resultado individual llega en su propio segmento `OBX` y se transforma en un recurso `Observation` independiente, referenciado desde `DiagnosticReport.result`. El mapeo de `OBX-3`, `OBX-5`, `OBX-6`, `OBX-7`, `OBX-8` y `OBX-11` de la tabla anterior aplica sin cambios a cada `OBX` individual.
+El mensaje de origen sigue siendo `ORU^R01`, pero en lugar de un único `OBX` con el PDF en Base64, cada resultado individual llega en su propio segmento `OBX` y se transforma en un recurso `Observation` independiente (perfil `MinsalObservacionLaboratorio`), referenciado desde `DiagnosticReport.result`. El mapeo de `OBX-3`, `OBX-5`, `OBX-6`, `OBX-7`, `OBX-8` y `OBX-11` de la tabla de la sección [Mapeo principal](#mapeo-principal) aplica sin cambios a cada `OBX` individual. Cuando el informe también trae la muestra, `Observation.specimen` referencia el mismo `MinsalEspecimenLaboratorio` que ya se describió para la solicitud.
 
-Lo que queda pendiente de diseño para este caso, y que no corresponde resolver únicamente con el mapeo estructural, es:
+Ambos recursos (`ResultadoDiagnosticoLaboratorio` y las `Observation` atomizadas) se empaquetan en un único `Bundle` transaccional, perfil `MinsalBundleResultadoLaboratorio` (ver ejemplo `BundleResultadoMultipleEjemplo`), simétrico al de la solicitud.
 
-* La política de homologación de cada analito a LOINC cuando el sistema de origen solo informe el nombre local de la prestación o del resultado.
-* La homologación de unidades de medida a UCUM en `OBX-6`, cuando el sistema de origen use notación local.
-* El tratamiento de valores críticos informados en `OBX-8` y su eventual notificación adicional, más allá de `Observation.interpretation`.
+Queda pendiente de diseño, para una fase posterior, y que no corresponde resolver únicamente con el mapeo estructural:
+
 * La convivencia entre el resultado atomizado y el PDF firmado del mismo informe, para evitar que ambas representaciones difieran entre sí.
+* El filtrado de resultados por área del laboratorio (`category:studyType`/`category:specialty`).
 

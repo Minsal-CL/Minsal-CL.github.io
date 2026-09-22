@@ -1,4 +1,4 @@
-# Resultado diagnóstico de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Resultado diagnóstico de laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:ResultadoDiagnosticoLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:ResultadoDiagnosticoLaboratorio |
 
  
 Perfil para representar el resultado de una solicitud de laboratorio y el informe PDF recibido desde un mensaje HL7 v2 ORU^R01. 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-ResultadoDiagnostico
   "resourceType" : "StructureDefinition",
   "id" : "ResultadoDiagnosticoLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/ResultadoDiagnosticoLaboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "ResultadoDiagnosticoLaboratorio",
   "title" : "Resultado diagnóstico de laboratorio",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

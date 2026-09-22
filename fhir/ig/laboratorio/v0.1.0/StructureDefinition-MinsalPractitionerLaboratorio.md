@@ -1,4 +1,4 @@
-# Profesional de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Profesional de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:MinsalPractitionerLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:MinsalPractitionerLaboratorio |
 
  
 Perfil para representar al profesional solicitante, ejecutor o interpretador de resultados en el flujo de laboratorio. Extiende el perfil de prestador de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Practitioner de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalPractitionerLa
   "resourceType" : "StructureDefinition",
   "id" : "MinsalPractitionerLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalPractitionerLaboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "MinsalPractitionerLaboratorio",
   "title" : "Profesional de Laboratorio MINSAL",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -88,6 +88,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalPractitionerLa
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
+      "id" : "Practitioner.identifier",
+      "path" : "Practitioner.identifier",
+      "min" : 1
+    },
+    {
       "id" : "Practitioner.name",
       "path" : "Practitioner.name",
       "min" : 1,

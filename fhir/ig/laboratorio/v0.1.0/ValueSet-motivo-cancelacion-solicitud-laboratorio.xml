@@ -3,15 +3,15 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="motivo-cancelacion-solicitud-laboratorio"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores motivo-cancelacion-solicitud-laboratorio</b></p><a name="motivo-cancelacion-solicitud-laboratorio"> </a><a name="hcmotivo-cancelacion-solicitud-laboratorio"> </a><ul><li>Include these codes as defined in <a href="http://www.snomed.org/"><code>http://snomed.info/sct</code></a><span title="Version is not explicitly stated. No matching Code System found"> version Not Stated (use latest from terminology server)</span><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Spanish (es)</b></td></tr><tr><td><a href="http://snomed.info/id/270426007">270426007</a></td><td>Did not attend - no reason</td><td>Paciente no se presenta</td></tr></table></li></ul></div>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores motivo-cancelacion-solicitud-laboratorio</b></p><a name="motivo-cancelacion-solicitud-laboratorio"> </a><a name="hcmotivo-cancelacion-solicitud-laboratorio"> </a><ul><li>Include these codes as defined in <a href="CodeSystem-motivo-administrativo-cancelacion-laboratorio.html"><code>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/motivo-administrativo-cancelacion-laboratorio</code></a><span title="Version is not explicitly stated, which means it is fixed to the version provided in this specification"> version &#x1F4E6;0.5.1</span><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href="CodeSystem-motivo-administrativo-cancelacion-laboratorio.html#motivo-administrativo-cancelacion-laboratorio-no-presentacion">no-presentacion</a></td><td>Paciente no se presenta (sin motivo informado)</td><td>El paciente no concurrió a la toma de muestra y no se registró un motivo específico. Sin `Specimen` asociado.</td></tr></table></li></ul></div>
   </text>
   <url value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio"/>
-  <version value="0.5.0"/>
+  <version value="0.5.1"/>
   <name value="VSMotivoCancelacionSolicitudLaboratorio"/>
   <title value="Motivo de Cancelación de Solicitud de Laboratorio"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2026-09-21T17:12:23-03:00"/>
+  <date value="2026-09-22T09:29:02-03:00"/>
   <publisher value="Unidad de Interoperabilidad - MINSAL"/>
   <contact>
     <name value="Unidad de Interoperabilidad - MINSAL"/>
@@ -20,7 +20,7 @@
       <value value="https://interoperabilidad.minsal.cl"/>
     </telecom>
   </contact>
-  <description value="Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra."/>
+  <description value="Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Referencia el código local `no-presentacion` del CodeSystem MINSAL `CSMotivoAdministrativoCancelacionLaboratorio`, creado porque el concepto SNOMED CT usado originalmente para este motivo (270426007) fue inactivado por SNOMED International sin reemplazo directo (ver descripción del CodeSystem). Binding extensible: permite agregar otros códigos, locales o de catálogos externos, si se identifican nuevos motivos de cancelación sin muestra."/>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
@@ -30,14 +30,10 @@
   </jurisdiction>
   <compose>
     <include>
-      <system value="http://snomed.info/sct"/>
+      <system value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/motivo-administrativo-cancelacion-laboratorio"/>
       <concept>
-        <code value="270426007"/>
-        <display value="Did not attend - no reason"/>
-        <designation>
-          <language value="es"/>
-          <value value="Paciente no se presenta"/>
-        </designation>
+        <code value="no-presentacion"/>
+        <display value="Paciente no se presenta (sin motivo informado)"/>
       </concept>
     </include>
   </compose>

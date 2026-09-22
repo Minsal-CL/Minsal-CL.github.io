@@ -7,11 +7,11 @@
 </div></div>
   </text>
   <url value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ImplementationGuide/hl7.fhir.cl.minsal.laboratorio"/>
-  <version value="0.5.0"/>
+  <version value="0.5.1"/>
   <name value="LaboratorioClinico"/>
   <title value="Guía de Implementación FHIR - Laboratorio Clínico"/>
   <status value="draft"/>
-  <date value="2026-09-21T17:12:23-03:00"/>
+  <date value="2026-09-22T09:29:02-03:00"/>
   <publisher value="Unidad de Interoperabilidad - MINSAL"/>
   <contact>
     <name value="Unidad de Interoperabilidad - MINSAL"/>
@@ -50,7 +50,7 @@
   <dependsOn id="hl7_fhir_cl_clcore">
     <uri value="https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore"/>
     <packageId value="hl7.fhir.cl.clcore"/>
-    <version value="1.8.5"/>
+    <version value="1.9.3"/>
   </dependsOn>
   <definition>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -67,6 +67,14 @@
       </extension>
       <extension url="value">
         <valueString value="ci-build"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-expansion-params"/>
+      </extension>
+      <extension url="value">
+        <valueString value="../../input/resources/Parameters-manifest.json"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -253,6 +261,11 @@
         <valueString value="true"/>
       </extension>
     </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters">
+      <valueReference>
+        <reference value="Parameters/expansion-parameters"/>
+      </valueReference>
+    </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
       <valueCode value="hl7.fhir.uv.tools.r4#1.1.2"/>
     </extension>
@@ -270,6 +283,14 @@
       </extension>
       <extension url="value">
         <valueString value="ci-build"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-expansion-params"/>
+      </extension>
+      <extension url="value">
+        <valueString value="../../input/resources/Parameters-manifest.json"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -502,6 +523,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="NamingSystem"/>
+      </extension>
+      <reference>
+        <reference value="NamingSystem/NSEstablecimientoDeis"/>
+      </reference>
+      <name value="Código de Establecimiento DEIS"/>
+      <description value="Identificador nacional de establecimientos de salud, administrado por el Departamento de Estadísticas e Información de Salud (DEIS) de MINSAL. Adoptado como estándar de facto por esta guía para `Organization.identifier` de establecimientos (ver Casos de uso), y usado también por otras guías del portafolio Minsal-CL. La definición y gobernanza del catálogo de códigos DEIS corresponde al propio DEIS, no a esta guía; este recurso solo declara el dominio para que el IG Publisher lo resuelva localmente al validar los ejemplos."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="CodeSystem"/>
       </extension>
       <reference>
@@ -530,7 +562,7 @@
         <reference value="StructureDefinition/MinsalEspecimenLaboratorio"/>
       </reference>
       <name value="Espécimen de Laboratorio MINSAL"/>
-      <description value="Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (por ejemplo, en el segmento SPM de ORM^O01/ORU^R01)."/>
+      <description value="Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (grupo SPM/SAC de OML^O21, mensaje objetivo para laboratorio, o en ORU^R01 al momento del resultado; ORM^O01 no incluye SPM/SAC en el estándar base, ver [Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.html))."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -543,6 +575,17 @@
       <name value="Establecimiento de origen de ejemplo"/>
       <description value="Organización que origina la solicitud de laboratorio, identificada con un Código de Establecimiento DEIS real y vigente (ver [Códigos de establecimientos de salud vigentes](https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes), referencia ya usada como criterio de identificación de organizaciones en NID): 116105, Hospital Dr. César Garavagno Burotto (Hospital de Talca), Servicio de Salud del Maule. `identifier.system` usa `http://deis.minsal.cl/establecimientos`, el mismo URI que ya usan las guías de Tiempos de Espera Quirúrgico y Urgencia para este mismo dato; CoreOrganizacionCl aún no fija un `system` oficial (queda pendiente en su definición), por lo que se adopta este URI como estándar de facto compartido, en vez de crear uno propio de esta guía."/>
       <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/OrganizacionParticipanteLaboratorio"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="NamingSystem"/>
+      </extension>
+      <reference>
+        <reference value="NamingSystem/NSOrdenGrupoLaboratorio"/>
+      </reference>
+      <name value="Identificador de Orden Agrupadora de Laboratorio (por establecimiento)"/>
+      <description value="Dominio de identificador para `ServiceRequest.requisition` (número de orden agrupadora que comparten todas las prestaciones de una misma solicitud de laboratorio, ver `MinsalServiceRequestLab.requisition`). El URI sigue el patrón `.../identificador/orden-grupo/{códigoEstablecimientoDEIS}`, uno distinto por establecimiento asignador, para evitar colisiones entre establecimientos que reutilicen el mismo número local de orden. El código numérico de este ejemplo (116105) corresponde al establecimiento usado en los ejemplos de esta guía; no es un valor fijo universal, cada establecimiento real recibe su propio URI reemplazando ese segmento por su propio código DEIS."/>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -579,13 +622,24 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/motivo-administrativo-cancelacion-laboratorio"/>
+      </reference>
+      <name value="Motivo Administrativo de Cancelación de Solicitud de Laboratorio"/>
+      <description value="CodeSystem local MINSAL para motivos administrativos de cancelación de una solicitud de laboratorio antes de la toma de muestra. Se crea porque el concepto SNOMED CT 270426007 |Did not attend - no reason (finding)|, usado originalmente para este propósito, fue inactivado por SNOMED International (release GP/FP de enero de 2024) sin reemplazo directo (&quot;No replacement&quot;): SNOMED International considera este tipo de concepto &quot;Did not attend X&quot; como administrativo, fuera del foco de la jerarquía de hallazgos clínicos (Clinical finding), y no publica un concepto activo equivalente con el significado exacto &quot;no se presentó, sin motivo informado&quot;. El concepto SNOMED CT activo más próximo, 410543007 |Did not attend (qualifier value)|, no cubre por sí solo la ausencia de motivo; puede agregarse como codificación SNOMED CT aproximada adicional en el mismo `CodeableConcept`, pero no reemplaza el código local."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="ValueSet"/>
       </extension>
       <reference>
         <reference value="ValueSet/motivo-cancelacion-solicitud-laboratorio"/>
       </reference>
       <name value="Motivo de Cancelación de Solicitud de Laboratorio"/>
-      <description value="Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra."/>
+      <description value="Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Referencia el código local `no-presentacion` del CodeSystem MINSAL `CSMotivoAdministrativoCancelacionLaboratorio`, creado porque el concepto SNOMED CT usado originalmente para este motivo (270426007) fue inactivado por SNOMED International sin reemplazo directo (ver descripción del CodeSystem). Binding extensible: permite agregar otros códigos, locales o de catálogos externos, si se identifican nuevos motivos de cancelación sin muestra."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -619,6 +673,17 @@
       </reference>
       <name value="Paciente de Laboratorio"/>
       <description value="Perfil de paciente utilizado en las solicitudes y resultados de laboratorio. Extiende el perfil de paciente de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Patient de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Parameters"/>
+      </extension>
+      <reference>
+        <reference value="Parameters/manifest"/>
+      </reference>
+      <name value="Parámetros de expansión de la guía"/>
+      <description value="Fija la edición SNOMED CT (Internacional, módulo 900000000000207008) usada por el IG Publisher al expandir/validar ValueSets de esta guía. No es un ejemplo clínico."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -751,6 +816,28 @@
       </reference>
       <name value="Resultado diagnóstico de laboratorio"/>
       <description value="Perfil para representar el resultado de una solicitud de laboratorio y el informe PDF recibido desde un mensaje HL7 v2 ORU^R01."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="NamingSystem"/>
+      </extension>
+      <reference>
+        <reference value="NamingSystem/NSRunPacienteNid"/>
+      </reference>
+      <name value="RUN de Paciente (dominio NID)"/>
+      <description value="Dominio de identificador para el RUN (Rol Único Nacional) de un paciente, propio de la guía NID (Núcleo de Identificación) de MINSAL. No debe confundirse con el dominio del RUN de prestador individual (ver `NSRunPrestador`), gestionado por un registro distinto (MPI/IG_hpd). La definición y gobernanza de este dominio corresponde a NID, no a esta guía."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="NamingSystem"/>
+      </extension>
+      <reference>
+        <reference value="NamingSystem/NSRunPrestador"/>
+      </reference>
+      <name value="RUN de Prestador Individual (dominio HPD/MPI)"/>
+      <description value="Dominio de identificador para el RUN (Rol Único Nacional) de un prestador individual (profesional o administrativo de salud), tal como lo usa el repositorio real `IG_hpd` (Maestro de Prestadores Individuales, MPI de MINSAL) en sus propios ejemplos de prestador. No debe confundirse con el dominio del RUN de paciente (ver `NSRunPacienteNid`), gestionado por un registro distinto (NID): un mismo número de RUN puede corresponder a un dominio u otro según el rol de la persona (ver Arquitectura). La definición y gobernanza de este dominio corresponde al MPI/IG_hpd, no a esta guía."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>

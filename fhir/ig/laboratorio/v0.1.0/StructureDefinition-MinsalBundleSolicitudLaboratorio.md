@@ -1,4 +1,4 @@
-# Bundle de Solicitud de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Bundle de Solicitud de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:MinsalBundleSolicitudLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:MinsalBundleSolicitudLaboratorio |
 
  
 Perfil para el envío transaccional de una o más prestaciones de laboratorio que pertenecen a una misma orden. Exige al menos una entrada `MinsalServiceRequestLab` y valida que todas las entradas de solicitud comparten el mismo `requisition`. Paciente, profesional solicitante y establecimiento se asumen preexistentes en el servidor de destino (resueltos previamente mediante el flujo de identidad descrito en Arquitectura); por eso se incluyen aquí solo como entradas opcionales, para el establecimiento que decida enviarlos junto con la solicitud en vez de asumir su preexistencia. 
@@ -37,11 +37,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalBundleSolicitu
   "resourceType" : "StructureDefinition",
   "id" : "MinsalBundleSolicitudLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "MinsalBundleSolicitudLaboratorio",
   "title" : "Bundle de Solicitud de Laboratorio MINSAL",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

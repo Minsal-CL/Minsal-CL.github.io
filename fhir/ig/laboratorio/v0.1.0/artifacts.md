@@ -1,4 +1,4 @@
-# Artifacts Summary - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Artifacts Summary - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * **Artifacts Summary**
@@ -15,7 +15,7 @@ These define constraints on FHIR resources for systems conforming to this implem
 | :--- | :--- |
 | [Bundle de Resultado de Laboratorio MINSAL](StructureDefinition-MinsalBundleResultadoLaboratorio.md) | Perfil para el envío transaccional del resultado de una o más prestaciones de laboratorio: el informe (`DiagnosticReport`, perfil `ResultadoDiagnosticoLaboratorio`) y, cuando el establecimiento opta por informar también el dato atómico por analito (Caso de uso 3), sus resultados individuales (`Observation`, perfil `MinsalObservacionLaboratorio`). Simétrico a `MinsalBundleSolicitudLaboratorio` del lado de la solicitud. Paciente y establecimiento ejecutor se asumen preexistentes en el servidor de destino (mismo criterio que en la solicitud); por eso se incluyen aquí solo como entradas opcionales, para el establecimiento que decida enviarlos junto con la transacción en vez de asumir su preexistencia. |
 | [Bundle de Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalBundleSolicitudLaboratorio.md) | Perfil para el envío transaccional de una o más prestaciones de laboratorio que pertenecen a una misma orden. Exige al menos una entrada `MinsalServiceRequestLab` y valida que todas las entradas de solicitud comparten el mismo `requisition`. Paciente, profesional solicitante y establecimiento se asumen preexistentes en el servidor de destino (resueltos previamente mediante el flujo de identidad descrito en Arquitectura); por eso se incluyen aquí solo como entradas opcionales, para el establecimiento que decida enviarlos junto con la solicitud en vez de asumir su preexistencia. |
-| [Espécimen de Laboratorio MINSAL](StructureDefinition-MinsalEspecimenLaboratorio.md) | Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (por ejemplo, en el segmento SPM de ORM^O01/ORU^R01). |
+| [Espécimen de Laboratorio MINSAL](StructureDefinition-MinsalEspecimenLaboratorio.md) | Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (grupo SPM/SAC de OML^O21, mensaje objetivo para laboratorio, o en ORU^R01 al momento del resultado; ORM^O01 no incluye SPM/SAC en el estándar base, ver [Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.md)). |
 | [Organización participante en el flujo de laboratorio](StructureDefinition-OrganizacionParticipanteLaboratorio.md) | Perfil para representar establecimientos de origen, laboratorios ejecutores y otras organizaciones participantes en el intercambio de solicitudes y resultados de laboratorio. Extiende el perfil de organización de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Organization de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. |
 | [Paciente de Laboratorio](StructureDefinition-PacienteLaboratorio.md) | Perfil de paciente utilizado en las solicitudes y resultados de laboratorio. Extiende el perfil de paciente de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Patient de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. |
 | [Profesional de Laboratorio MINSAL](StructureDefinition-MinsalPractitionerLaboratorio.md) | Perfil para representar al profesional solicitante, ejecutor o interpretador de resultados en el flujo de laboratorio. Extiende el perfil de prestador de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Practitioner de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. |
@@ -29,7 +29,7 @@ These define sets of codes used by systems conforming to this implementation gui
 
 | | |
 | :--- | :--- |
-| [Motivo de Cancelación de Solicitud de Laboratorio](ValueSet-motivo-cancelacion-solicitud-laboratorio.md) | Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra. |
+| [Motivo de Cancelación de Solicitud de Laboratorio](ValueSet-motivo-cancelacion-solicitud-laboratorio.md) | Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Referencia el código local `no-presentacion` del CodeSystem MINSAL `CSMotivoAdministrativoCancelacionLaboratorio`, creado porque el concepto SNOMED CT usado originalmente para este motivo (270426007) fue inactivado por SNOMED International sin reemplazo directo (ver descripción del CodeSystem). Binding extensible: permite agregar otros códigos, locales o de catálogos externos, si se identifican nuevos motivos de cancelación sin muestra. |
 
 ### Terminology: Code Systems 
 
@@ -38,6 +38,22 @@ These define new code systems used by systems conforming to this implementation 
 | | |
 | :--- | :--- |
 | [Códigos de prestaciones FONASA](CodeSystem-CodigoPrestacionFonasa.md) | Identificador canónico provisional para códigos de prestaciones FONASA. El contenido es administrado externamente por el servicio terminológico. |
+| [Motivo Administrativo de Cancelación de Solicitud de Laboratorio](CodeSystem-motivo-administrativo-cancelacion-laboratorio.md) | 
+| | | | | |
+| :--- | :--- | :--- | :--- | :--- |
+| CodeSystem local MINSAL para motivos administrativos de cancelación de una solicitud de laboratorio antes de la toma de muestra. Se crea porque el concepto SNOMED CT 270426007 | Did not attend - no reason (finding) | , usado originalmente para este propósito, fue inactivado por SNOMED International (release GP/FP de enero de 2024) sin reemplazo directo ("No replacement"): SNOMED International considera este tipo de concepto "Did not attend X" como administrativo, fuera del foco de la jerarquía de hallazgos clínicos (Clinical finding), y no publica un concepto activo equivalente con el significado exacto "no se presentó, sin motivo informado". El concepto SNOMED CT activo más próximo, 410543007 | Did not attend (qualifier value) | , no cubre por sí solo la ausencia de motivo; puede agregarse como codificación SNOMED CT aproximada adicional en el mismo`CodeableConcept`, pero no reemplaza el código local. |
+ |
+
+### Terminology: Naming Systems 
+
+These define identifier and/or code system identities used by systems conforming to this implementation guide.
+
+| | |
+| :--- | :--- |
+| [Código de Establecimiento DEIS](NamingSystem-NSEstablecimientoDeis.md) | Identificador nacional de establecimientos de salud, administrado por el Departamento de Estadísticas e Información de Salud (DEIS) de MINSAL. Adoptado como estándar de facto por esta guía para `Organization.identifier` de establecimientos (ver Casos de uso), y usado también por otras guías del portafolio Minsal-CL. La definición y gobernanza del catálogo de códigos DEIS corresponde al propio DEIS, no a esta guía; este recurso solo declara el dominio para que el IG Publisher lo resuelva localmente al validar los ejemplos. |
+| [Identificador de Orden Agrupadora de Laboratorio (por establecimiento)](NamingSystem-NSOrdenGrupoLaboratorio.md) | Dominio de identificador para `ServiceRequest.requisition` (número de orden agrupadora que comparten todas las prestaciones de una misma solicitud de laboratorio, ver `MinsalServiceRequestLab.requisition`). El URI sigue el patrón `.../identificador/orden-grupo/{códigoEstablecimientoDEIS}`, uno distinto por establecimiento asignador, para evitar colisiones entre establecimientos que reutilicen el mismo número local de orden. El código numérico de este ejemplo (116105) corresponde al establecimiento usado en los ejemplos de esta guía; no es un valor fijo universal, cada establecimiento real recibe su propio URI reemplazando ese segmento por su propio código DEIS. |
+| [RUN de Paciente (dominio NID)](NamingSystem-NSRunPacienteNid.md) | Dominio de identificador para el RUN (Rol Único Nacional) de un paciente, propio de la guía NID (Núcleo de Identificación) de MINSAL. No debe confundirse con el dominio del RUN de prestador individual (ver `NSRunPrestador`), gestionado por un registro distinto (MPI/IG_hpd). La definición y gobernanza de este dominio corresponde a NID, no a esta guía. |
+| [RUN de Prestador Individual (dominio HPD/MPI)](NamingSystem-NSRunPrestador.md) | Dominio de identificador para el RUN (Rol Único Nacional) de un prestador individual (profesional o administrativo de salud), tal como lo usa el repositorio real `IG_hpd` (Maestro de Prestadores Individuales, MPI de MINSAL) en sus propios ejemplos de prestador. No debe confundirse con el dominio del RUN de paciente (ver `NSRunPacienteNid`), gestionado por un registro distinto (NID): un mismo número de RUN puede corresponder a un dominio u otro según el rol de la persona (ver Arquitectura). La definición y gobernanza de este dominio corresponde al MPI/IG_hpd, no a esta guía. |
 
 ### Example: Example Instances 
 
@@ -63,4 +79,12 @@ These are example instances that show what data produced and consumed by systems
 | [Resultado atomizado de ejemplo: Glicemia con valor crítico](Observation-ObservacionGlicemiaCriticaEjemplo.md) | Resultado numérico de la prestación de Glucosa (glicemia) (`PrestacionGlicemiaEjemplo`), con valor sobre el rango de referencia marcado como crítico mediante `interpretation` = HH (Critical high), reutilizando el CodeSystem internacional v3-ObservationInterpretation. |
 | [Resultado atomizado de ejemplo: Hemoglobina](Observation-ObservacionHemoglobinaEjemplo.md) | Resultado numérico dentro del rango de referencia, correspondiente a uno de los analitos del panel de Hemograma (`PrestacionHemogramaEjemplo`). El agrupamiento del panel se resuelve mediante `basedOn` compartido hacia esa misma `ServiceRequest`, no mediante `hasMember`. |
 | [Solicitud cancelada por no presentación del paciente](ServiceRequest-SolicitudCanceladaNoPresentacionEjemplo.md) | Solicitud de laboratorio cancelada porque el paciente no concurrió a la toma de muestra. No existe Specimen asociado (ver Casos de uso, Caso de uso 4). |
+
+### Other 
+
+These are resources that are used within this implementation guide that do not fit into one of the other categories.
+
+| | |
+| :--- | :--- |
+| [Parámetros de expansión de la guía](Parameters-manifest.md) | Fija la edición SNOMED CT (Internacional, módulo 900000000000207008) usada por el IG Publisher al expandir/validar ValueSets de esta guía. No es un ejemplo clínico. |
 

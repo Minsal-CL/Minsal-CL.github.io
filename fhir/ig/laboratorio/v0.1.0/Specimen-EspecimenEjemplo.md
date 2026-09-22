@@ -1,4 +1,4 @@
-# Espécimen de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Espécimen de ejemplo - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -14,7 +14,7 @@ Profile: [Espécimen de Laboratorio MINSAL](StructureDefinition-MinsalEspecimenL
 
 **type**: Blood specimen (specimen)
 
-**subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
+**subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: RunPacienteNid#12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
 
 **request**: [ServiceRequest Hemograma](ServiceRequest-PrestacionHemogramaEjemplo.md)
 

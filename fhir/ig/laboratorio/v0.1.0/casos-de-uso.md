@@ -1,4 +1,4 @@
-# Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Casos de uso - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * **Casos de uso**
@@ -166,17 +166,17 @@ Los mensajes HL7 v2 de origen para este caso siguen siendo `ORU^R01`, pero con m
 Una solicitud puede cancelarse antes de que el laboratorio emita un resultado. En esta fase, la guía cubre la causa que depende únicamente del `ServiceRequest`, sin requerir modelar la recepción o evaluación de la muestra por parte del laboratorio: el paciente no concurre a la toma de muestra.
 
 1. El paciente no concurre a la toma de muestra. No existe ningún`Specimen`asociado a la solicitud.
-1. El establecimiento o el laboratorio actualiza`MinsalServiceRequestLab.status = #revoked`y documenta el motivo mediante la extensión`request-statusReason`, con el código SNOMED CT correspondiente a "no presentación".
+1. El establecimiento o el laboratorio actualiza`MinsalServiceRequestLab.status = #revoked`y documenta el motivo mediante la extensión`request-statusReason`, con el código administrativo MINSAL correspondiente a "no presentación".
 
-sequenceDiagram participant Est as Establecimiento / LIS participant Bus as Bus de Interoperabilidad Est->>Bus: PUT ServiceRequest (status=revoked, motivo=SNOMED CT) Bus->>Bus: valida contra MinsalServiceRequestLab Bus-->>Est: 200 OK
+sequenceDiagram participant Est as Establecimiento / LIS participant Bus as Bus de Interoperabilidad Est->>Bus: PUT ServiceRequest (status=revoked, motivo=no-presentacion) Bus->>Bus: valida contra MinsalServiceRequestLab Bus-->>Est: 200 OK
 
 ### Terminología de cancelación
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| Paciente no se presenta | `MinsalServiceRequestLab` | `request-statusReason` | SNOMED CT`270426007`"Did not attend" |
+| Paciente no se presenta | `MinsalServiceRequestLab` | `request-statusReason` | `no-presentacion`"Paciente no se presenta (sin motivo informado)" (CodeSystem MINSAL`CSMotivoAdministrativoCancelacionLaboratorio`), acompañado de SNOMED CT`410543007`"Did not attend" como codificación aproximada |
 
-Este motivo no define un código propio de esta guía: reutiliza SNOMED CT. La extensión `request-statusReason` es una extensión oficial publicada por HL7, no una definición propia de MINSAL. El binding del ValueSet `VSMotivoCancelacionSolicitudLaboratorio` es extensible: sugiere este código como el motivo esperado, sin impedir usar otro código válido del mismo catálogo externo si se identifica un motivo no cubierto.
+Este motivo usa un código administrativo propio de MINSAL, no un código clínico inventado: se creó porque el concepto SNOMED CT originalmente usado para este propósito (`270426007` "Did not attend - no reason") fue inactivado por SNOMED International sin reemplazo directo, al tratarse de un concepto que SNOMED International considera administrativo y fuera del foco de la jerarquía de hallazgos clínicos. El concepto SNOMED CT activo más cercano (`410543007` "Did not attend") no cubre por sí solo la ausencia de motivo, por lo que se agrega como segunda codificación aproximada, no como reemplazo exacto. La extensión `request-statusReason` es una extensión oficial publicada por HL7, no una definición propia de MINSAL; lo propio de MINSAL es solo el código del motivo. El binding del ValueSet `VSMotivoCancelacionSolicitudLaboratorio` es extensible: sugiere este código como el motivo esperado, sin impedir usar otro código si se identifica un motivo no cubierto.
 
 El rechazo de una muestra ya recibida por el laboratorio (por ejemplo, por cantidad insuficiente, coagulación o etiquetado defectuoso) no se cubre en esta fase, porque depende de modelar la recepción y evaluación de la muestra por parte del laboratorio, que queda para una fase posterior (ver "Alcance por fases").
 

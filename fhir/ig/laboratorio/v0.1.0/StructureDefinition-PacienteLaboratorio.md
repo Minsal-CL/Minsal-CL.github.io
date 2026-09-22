@@ -1,4 +1,4 @@
-# Paciente de Laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Paciente de Laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,8 +8,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:PacienteLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:PacienteLaboratorio |
 
  
 Perfil de paciente utilizado en las solicitudes y resultados de laboratorio. Extiende el perfil de paciente de CL-Core (hl7.fhir.cl.clcore) en lugar del recurso base Patient de FHIR R4, para alinearse con el resto del portafolio de guías MINSAL. 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-PacienteLaboratorio.
   "resourceType" : "StructureDefinition",
   "id" : "PacienteLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/PacienteLaboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "PacienteLaboratorio",
   "title" : "Paciente de Laboratorio",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -102,7 +102,8 @@ Other representations of profile: [CSV](StructureDefinition-PacienteLaboratorio.
         }],
         "description" : "Se distingue el identificador nacional (RUN) de otros identificadores locales o extranjeros.",
         "rules" : "open"
-      }
+      },
+      "min" : 1
     },
     {
       "id" : "Patient.identifier.type",
@@ -148,6 +149,7 @@ Other representations of profile: [CSV](StructureDefinition-PacienteLaboratorio.
     {
       "id" : "Patient.name",
       "path" : "Patient.name",
+      "min" : 1,
       "mustSupport" : true
     }]
   }

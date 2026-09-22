@@ -1,4 +1,4 @@
-# Espécimen de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Espécimen de Laboratorio MINSAL - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,11 +8,11 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio | *Version*:0.5.0 |
-| Draft as of 2026-09-21 | *Computable Name*:MinsalEspecimenLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio | *Version*:0.5.1 |
+| Draft as of 2026-09-22 | *Computable Name*:MinsalEspecimenLaboratorio |
 
  
-Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (por ejemplo, en el segmento SPM de ORM^O01/ORU^R01). 
+Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (grupo SPM/SAC de OML^O21, mensaje objetivo para laboratorio, o en ORU^R01 al momento del resultado; ORM^O01 no incluye SPM/SAC en el estándar base, ver [Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.md)). 
 
 **Usages:**
 
@@ -39,11 +39,11 @@ Other representations of profile: [CSV](StructureDefinition-MinsalEspecimenLabor
   "resourceType" : "StructureDefinition",
   "id" : "MinsalEspecimenLaboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalEspecimenLaboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "MinsalEspecimenLaboratorio",
   "title" : "Espécimen de Laboratorio MINSAL",
   "status" : "draft",
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -52,7 +52,7 @@ Other representations of profile: [CSV](StructureDefinition-MinsalEspecimenLabor
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (por ejemplo, en el segmento SPM de ORM^O01/ORU^R01).",
+  "description" : "Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (grupo SPM/SAC de OML^O21, mensaje objetivo para laboratorio, o en ORU^R01 al momento del resultado; ORM^O01 no incluye SPM/SAC en el estándar base, ver [Mapeo HL7 v2 a FHIR](mapeo-v2-fhir.html)).",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",

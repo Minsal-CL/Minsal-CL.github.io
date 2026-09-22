@@ -1,4 +1,4 @@
-# Motivo de Cancelación de Solicitud de Laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Motivo de Cancelación de Solicitud de Laboratorio - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,11 +8,11 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio | *Version*:0.5.0 |
-| Active as of 2026-09-21 | *Computable Name*:VSMotivoCancelacionSolicitudLaboratorio |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio | *Version*:0.5.1 |
+| Active as of 2026-09-22 | *Computable Name*:VSMotivoCancelacionSolicitudLaboratorio |
 
  
-Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra. 
+Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Referencia el código local `no-presentacion` del CodeSystem MINSAL `CSMotivoAdministrativoCancelacionLaboratorio`, creado porque el concepto SNOMED CT usado originalmente para este motivo (270426007) fue inactivado por SNOMED International sin reemplazo directo (ver descripción del CodeSystem). Binding extensible: permite agregar otros códigos, locales o de catálogos externos, si se identifican nuevos motivos de cancelación sin muestra. 
 
  **References** 
 
@@ -46,12 +46,12 @@ Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de m
   "resourceType" : "ValueSet",
   "id" : "motivo-cancelacion-solicitud-laboratorio",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-cancelacion-solicitud-laboratorio",
-  "version" : "0.5.0",
+  "version" : "0.5.1",
   "name" : "VSMotivoCancelacionSolicitudLaboratorio",
   "title" : "Motivo de Cancelación de Solicitud de Laboratorio",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-09-21T17:12:23-03:00",
+  "date" : "2026-09-22T09:29:02-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -60,7 +60,7 @@ Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de m
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Este ValueSet no define códigos propios; referencia el CodeSystem externo SNOMED CT. Binding extensible: permite agregar otros códigos SNOMED CT si se identifican nuevos motivos de cancelación sin muestra.",
+  "description" : "Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Referencia el código local `no-presentacion` del CodeSystem MINSAL `CSMotivoAdministrativoCancelacionLaboratorio`, creado porque el concepto SNOMED CT usado originalmente para este motivo (270426007) fue inactivado por SNOMED International sin reemplazo directo (ver descripción del CodeSystem). Binding extensible: permite agregar otros códigos, locales o de catálogos externos, si se identifican nuevos motivos de cancelación sin muestra.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -70,14 +70,10 @@ Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de m
   }],
   "compose" : {
     "include" : [{
-      "system" : "http://snomed.info/sct",
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/motivo-administrativo-cancelacion-laboratorio",
       "concept" : [{
-        "code" : "270426007",
-        "display" : "Did not attend - no reason",
-        "designation" : [{
-          "language" : "es",
-          "value" : "Paciente no se presenta"
-        }]
+        "code" : "no-presentacion",
+        "display" : "Paciente no se presenta (sin motivo informado)"
       }]
     }]
   }

@@ -1,4 +1,4 @@
-# Solicitud cancelada por no presentación del paciente - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Solicitud cancelada por no presentación del paciente - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -8,11 +8,11 @@
 
 Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequestLab.md)
 
-**Request status reason**: Did not attend - no reason
+**Request status reason**: Paciente no se presenta (sin motivo informado)
 
 **identifier**: Placer Identifier/SOL-MULTIPLE-003-HEM
 
-**requisition**: `https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105`/SOL-MULTIPLE-003
+**requisition**: [OrdenGrupoLaboratorio](NamingSystem-NSOrdenGrupoLaboratorio.md)/SOL-MULTIPLE-003
 
 **status**: Revoked
 
@@ -22,7 +22,7 @@ Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequ
 
 **code**: Hemograma
 
-**subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
+**subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: RunPacienteNid#12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
 
 **authoredOn**: 2026-09-08 08:00:00-0400
 
@@ -45,9 +45,14 @@ Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequ
     "url" : "http://hl7.org/fhir/StructureDefinition/request-statusReason",
     "valueCodeableConcept" : {
       "coding" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/motivo-administrativo-cancelacion-laboratorio",
+        "code" : "no-presentacion",
+        "display" : "Paciente no se presenta (sin motivo informado)"
+      },
+      {
         "system" : "http://snomed.info/sct",
-        "code" : "270426007",
-        "display" : "Did not attend - no reason"
+        "code" : "410543007",
+        "display" : "Did not attend"
       }]
     }
   }],

@@ -1,4 +1,4 @@
-# Resultado atomizado de ejemplo: Colesterol total, codificado en FONASA - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Resultado atomizado de ejemplo: Colesterol total, codificado en FONASA - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -18,7 +18,7 @@ Profile: [Resultado atomizado de laboratorio MINSAL](StructureDefinition-MinsalO
 
 **code**: Colesterol total
 
-**subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
+**subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: RunPacienteNid#12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
 
 **effective**: 2026-08-28 11:00:00-0400
 

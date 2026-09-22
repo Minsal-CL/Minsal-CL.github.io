@@ -1,4 +1,4 @@
-# Prestación FONASA: Nitrógeno ureico - Guía de Implementación FHIR - Laboratorio Clínico v0.5.0
+# Prestación FONASA: Nitrógeno ureico - Guía de Implementación FHIR - Laboratorio Clínico v0.5.1
 
 * [**Table of Contents**](toc.md)
 * [**Artifacts Summary**](artifacts.md)
@@ -10,7 +10,7 @@ Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequ
 
 **identifier**: Placer Identifier/SOL-MULTIPLE-001-NUR
 
-**requisition**: `https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105`/SOL-MULTIPLE-001
+**requisition**: [OrdenGrupoLaboratorio](NamingSystem-NSOrdenGrupoLaboratorio.md)/SOL-MULTIPLE-001
 
 **status**: Active
 
@@ -20,7 +20,7 @@ Profile: [Solicitud de Laboratorio MINSAL](StructureDefinition-MinsalServiceRequ
 
 **code**: Nitrógeno ureico
 
-**subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
+**subject**: [Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: RunPacienteNid#12345678-5 (use: official, ))](Patient-PacienteEjemplo.md)
 
 **authoredOn**: 2026-08-28 10:00:00-0400
 
