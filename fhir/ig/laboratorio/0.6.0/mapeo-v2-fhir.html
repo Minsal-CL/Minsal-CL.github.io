@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Mapeo HL7 v2 a FHIR - Guía de Implementación FHIR - Laboratorio Clínico v0.6.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
+            <br/>
+            <span style="display:inline-block;">0.6.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Mapeo HL7 v2 a FHIR</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.6.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Mapeo HL7 v2 a FHIR</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#mapeo-hl7-v2-a-fhir-r4" id="markdown-toc-mapeo-hl7-v2-a-fhir-r4">Mapeo HL7 v2 a FHIR R4</a>    <ul>
+      <li><a href="#alcance" id="markdown-toc-alcance">Alcance</a></li>
+      <li><a href="#mapeo-de-solicitud-omlo21-mensaje-objetivo-y-ormo01-legacy" id="markdown-toc-mapeo-de-solicitud-omlo21-mensaje-objetivo-y-ormo01-legacy">Mapeo de solicitud: OML^O21 (mensaje objetivo) y ORM^O01 (legacy)</a>        <ul>
+          <li><a href="#reglas-de-consistencia-de-la-solicitud" id="markdown-toc-reglas-de-consistencia-de-la-solicitud">Reglas de consistencia de la solicitud</a></li>
+          <li><a href="#mapeo-del-espécimen-spm--sac--minsalespecimenlaboratorio" id="markdown-toc-mapeo-del-espécimen-spm--sac--minsalespecimenlaboratorio">Mapeo del espécimen: SPM / SAC → MinsalEspecimenLaboratorio</a></li>
+        </ul>
+      </li>
+      <li><a href="#flujo-de-resultados" id="markdown-toc-flujo-de-resultados">Flujo de resultados</a></li>
+      <li><a href="#mapeo-principal" id="markdown-toc-mapeo-principal">Mapeo principal</a></li>
+      <li><a href="#pdf-encapsulado" id="markdown-toc-pdf-encapsulado">PDF encapsulado</a></li>
+      <li><a href="#identificación-del-sistema-terminológico" id="markdown-toc-identificación-del-sistema-terminológico">Identificación del sistema terminológico</a></li>
+      <li><a href="#resultado-atomizado-por-prestación-caso-de-uso-3" id="markdown-toc-resultado-atomizado-por-prestación-caso-de-uso-3">Resultado atomizado por prestación (Caso de uso 3)</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="mapeo-hl7-v2-a-fhir-r4">Mapeo HL7 v2 a FHIR R4</h1>
+
+<h2 id="alcance">Alcance</h2>
+
+<p>Esta sección define la transformación estructural de mensajes HL7 v2 a recursos FHIR R4. La transformación de estructura es independiente de la validación o traducción de códigos realizada por el servicio terminológico.</p>
+
+<h2 id="mapeo-de-solicitud-omlo21-mensaje-objetivo-y-ormo01-legacy">Mapeo de solicitud: OML^O21 (mensaje objetivo) y ORM^O01 (legacy)</h2>
+
+<p>La columna <strong>¿Transformado?</strong> indica representación en FHIR, no traducción terminológica.</p>
+
+<p><code class="language-plaintext highlighter-rouge">OML^O21</code> es el mensaje objetivo de esta guía para la solicitud de laboratorio. HL7 introdujo <code class="language-plaintext highlighter-rouge">OML^O21</code> específicamente para órdenes de laboratorio: además de los segmentos <code class="language-plaintext highlighter-rouge">MSH</code>, <code class="language-plaintext highlighter-rouge">PID</code>, <code class="language-plaintext highlighter-rouge">PV1</code>, <code class="language-plaintext highlighter-rouge">ORC</code> y <code class="language-plaintext highlighter-rouge">OBR</code> que comparte con <code class="language-plaintext highlighter-rouge">ORM^O01</code>, <code class="language-plaintext highlighter-rouge">OML^O21</code> incorpora el grupo <code class="language-plaintext highlighter-rouge">SPM</code>/<code class="language-plaintext highlighter-rouge">SAC</code> para representar el espécimen y su contenedor de forma estructurada, algo que <code class="language-plaintext highlighter-rouge">ORM^O01</code> no contempla en el estándar base (por ser un mensaje de orden genérico, no especializado en laboratorio). Esta especialización permite mapear la muestra a <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> sin depender de extensiones o campos fuera de propósito.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ORM^O01</code> se admite como mensaje legacy, para los establecimientos cuyo HIS todavía no emite <code class="language-plaintext highlighter-rouge">OML^O21</code>: sus segmentos <code class="language-plaintext highlighter-rouge">MSH</code>, <code class="language-plaintext highlighter-rouge">PID</code>, <code class="language-plaintext highlighter-rouge">PV1</code>, <code class="language-plaintext highlighter-rouge">ORC</code> y <code class="language-plaintext highlighter-rouge">OBR</code> se transforman con las mismas reglas de la tabla siguiente. Si el establecimiento emisor solo dispone de <code class="language-plaintext highlighter-rouge">ORM^O01</code> y necesita informar la muestra, debe hacerlo mediante un <code class="language-plaintext highlighter-rouge">Bundle</code> FHIR nativo que incluya <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> junto al <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code> (ver <a href="casos-de-uso.html">Casos de uso</a>), ya que el segmento <code class="language-plaintext highlighter-rouge">SPM</code> no forma parte de <code class="language-plaintext highlighter-rouge">ORM^O01</code> en el estándar. Se recomienda a los establecimientos nuevos implementar directamente <code class="language-plaintext highlighter-rouge">OML^O21</code>; <code class="language-plaintext highlighter-rouge">ORM^O01</code> no debe usarse en integraciones nuevas de laboratorio.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo v2</th>
+      <th>Valor de ejemplo</th>
+      <th>¿Transformado?</th>
+      <th>Elemento FHIR R4</th>
+      <th>Recurso</th>
+      <th>Regla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RCE</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.source.name</code></td>
+      <td>MessageHeader</td>
+      <td>Informar también <code class="language-plaintext highlighter-rouge">source.endpoint</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">HOSPITAL_001</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.sender</code></td>
+      <td>Organization</td>
+      <td>Organización emisora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">LIS</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.destination.name</code></td>
+      <td>MessageHeader</td>
+      <td>Aplicación receptora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-6</code></td>
+      <td><code class="language-plaintext highlighter-rouge">LABORATORIO</code></td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.destination.receiver</code></td>
+      <td>Organization</td>
+      <td>Resolver la organización receptora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-7</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260824153000</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.timestamp</code></td>
+      <td>Bundle</td>
+      <td>Aplicar política horaria si no existe offset</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-9</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OML^O21</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.eventCoding</code></td>
+      <td>MessageHeader</td>
+      <td>Sistema v2-0003, código <code class="language-plaintext highlighter-rouge">O21</code>. Si el emisor solo dispone de <code class="language-plaintext highlighter-rouge">ORM^O01</code> (legacy), el código es <code class="language-plaintext highlighter-rouge">O01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MSG000001</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.identifier</code></td>
+      <td>Bundle</td>
+      <td>No usar como <code class="language-plaintext highlighter-rouge">MessageHeader.id</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">12345678-9^^^HOSPITAL_001^PI</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.identifier</code></td>
+      <td>PacienteLaboratorio</td>
+      <td>Conservar valor, tipo y autoridad</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PEREZ^JUAN^CARLOS</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.name</code></td>
+      <td>PacienteLaboratorio</td>
+      <td>Separar apellido y nombres</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-7</code></td>
+      <td><code class="language-plaintext highlighter-rouge">19800115</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.birthDate</code></td>
+      <td>PacienteLaboratorio</td>
+      <td>Convertir a fecha FHIR</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-8</code></td>
+      <td><code class="language-plaintext highlighter-rouge">M</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.gender</code></td>
+      <td>PacienteLaboratorio</td>
+      <td>Aplicar ConceptMap, por ejemplo <code class="language-plaintext highlighter-rouge">M → male</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-11</code></td>
+      <td>dirección</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.address</code></td>
+      <td>PacienteLaboratorio</td>
+      <td>Normalizar país según acuerdo</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-13</code></td>
+      <td><code class="language-plaintext highlighter-rouge">+56912345678</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.telecom</code></td>
+      <td>PacienteLaboratorio</td>
+      <td><code class="language-plaintext highlighter-rouge">system=phone</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">O</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.class</code></td>
+      <td>Encounter</td>
+      <td>Aplicar ConceptMap, habitualmente <code class="language-plaintext highlighter-rouge">O → AMB</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AMBULATORIO^BOX01^HOSPITAL_001</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.location.location</code></td>
+      <td>Encounter, Location</td>
+      <td>Crear o resolver <code class="language-plaintext highlighter-rouge">Location</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-7</code></td>
+      <td>médico tratante</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.participant.individual</code></td>
+      <td>Encounter, Practitioner</td>
+      <td>Tipo de participación acordado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">NW</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.status</code>, <code class="language-plaintext highlighter-rouge">intent</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Para nueva orden: <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">order</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SOL123456</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.identifier</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Tipo <code class="language-plaintext highlighter-rouge">PLAC</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">LAB123456</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.identifier</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Tipo <code class="language-plaintext highlighter-rouge">FILL</code> si está asignado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SOL-MULTIPLE-001</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.requisition</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Placer Group Number: identificador de la orden agrupadora cuando la solicitud contiene más de una prestación. No confundir con <code class="language-plaintext highlighter-rouge">OBR-4</code>, que identifica el examen, no el grupo (ver regla más abajo)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7</code></td>
+      <td>temporización</td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.occurrence[x]</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Solo componentes válidos</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-8</code></td>
+      <td><code class="language-plaintext highlighter-rouge">^^^20260824153000</code></td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Es orden padre; el valor está desplazado y no es una fecha de ejecución</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-9</code></td>
+      <td>fecha de transacción</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.authoredOn</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Fuente preferida para autoría</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-11</code></td>
+      <td>proveedor</td>
+      <td>No como requester</td>
+      <td>—</td>
+      <td>Practitioner</td>
+      <td>En v2.3 es Verified By</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-12</code></td>
+      <td>solicitante</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.requester</code></td>
+      <td>Practitioner</td>
+      <td>Usar si está poblado correctamente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-2</code> / <code class="language-plaintext highlighter-rouge">OBR-3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SOL123456</code> / <code class="language-plaintext highlighter-rouge">LAB123456</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.identifier</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Validar contra ORC-2/ORC-3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">HEM001^HEMOGRAMA COMPLETO^L</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.code</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Conservar código y sistema; no añadir LOINC automáticamente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-6</code></td>
+      <td>fecha solicitada</td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.occurrenceDateTime</code></td>
+      <td>MinsalServiceRequestLab</td>
+      <td>Según acuerdo de interfaz</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-7</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260824153000</code></td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.occurrence[x]</code> o <code class="language-plaintext highlighter-rouge">Specimen.collection.collected[x]</code></td>
+      <td>ServiceRequest, Specimen</td>
+      <td>No corresponde a <code class="language-plaintext highlighter-rouge">authoredOn</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-16</code></td>
+      <td>solicitante</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.requester</code></td>
+      <td>Practitioner</td>
+      <td>Puede ser la fuente autoritativa</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="reglas-de-consistencia-de-la-solicitud">Reglas de consistencia de la solicitud</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ORC-2/OBR-2</code> y <code class="language-plaintext highlighter-rouge">ORC-3/OBR-3</code> deben coincidir.</li>
+  <li><code class="language-plaintext highlighter-rouge">ORC-8</code> no se convierte a <code class="language-plaintext highlighter-rouge">occurrenceDateTime</code>; representa la orden padre.</li>
+  <li><code class="language-plaintext highlighter-rouge">authoredOn</code> se obtiene preferentemente de <code class="language-plaintext highlighter-rouge">ORC-9</code>, no de <code class="language-plaintext highlighter-rouge">OBR-7</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">requester</code> proviene de <code class="language-plaintext highlighter-rouge">ORC-12</code> u <code class="language-plaintext highlighter-rouge">OBR-16</code>, según el acuerdo.</li>
+  <li>En <code class="language-plaintext highlighter-rouge">OBR-4</code>, el emisor identifica LOINC, FONASA o sistema local; el terminológico valida o traduce.</li>
+  <li><code class="language-plaintext highlighter-rouge">ORC-4</code> (Placer Group Number) se transforma a <code class="language-plaintext highlighter-rouge">ServiceRequest.requisition</code>, con <code class="language-plaintext highlighter-rouge">system</code> = URI del establecimiento (código DEIS, ver <a href="index.html#solicitud-con-múltiples-prestaciones">Inicio</a>) y <code class="language-plaintext highlighter-rouge">value</code> = el valor recibido en el campo, sin modificar. <code class="language-plaintext highlighter-rouge">requisition</code> es must-support en <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>; todas las prestaciones de una misma orden deben compartir el mismo par <code class="language-plaintext highlighter-rouge">system</code>+<code class="language-plaintext highlighter-rouge">value</code>.</li>
+</ul>
+
+<h3 id="mapeo-del-espécimen-spm--sac--minsalespecimenlaboratorio">Mapeo del espécimen: SPM / SAC → MinsalEspecimenLaboratorio</h3>
+
+<p>Cuando el mensaje es <code class="language-plaintext highlighter-rouge">OML^O21</code> y el emisor ya conoce los datos de la muestra al momento de generar la solicitud, el grupo <code class="language-plaintext highlighter-rouge">SPM</code>/<code class="language-plaintext highlighter-rouge">SAC</code> se transforma en una instancia de <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code>, referenciada desde <code class="language-plaintext highlighter-rouge">ServiceRequest.specimen</code>. Si la orden agrupa varias prestaciones sobre la misma muestra, todas comparten la referencia al mismo <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo v2</th>
+      <th>Significado</th>
+      <th>¿Transformado?</th>
+      <th>Elemento FHIR R4</th>
+      <th>Regla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-2</code></td>
+      <td>Identificador del espécimen (placer/filler)</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.identifier</code></td>
+      <td>Conservar valor y autoridad asignadora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-4</code></td>
+      <td>Tipo de espécimen</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.type</code></td>
+      <td>Transformar CE/CWE a <code class="language-plaintext highlighter-rouge">CodeableConcept</code>; no homologar automáticamente a SNOMED CT</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-8</code></td>
+      <td>Sitio anatómico de origen</td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.collection.bodySite</code></td>
+      <td>Según acuerdo de interfaz; puede venir como texto libre</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-17</code></td>
+      <td>Fecha/hora de toma de la muestra</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.collection.collected[x]</code></td>
+      <td>Convertir a <code class="language-plaintext highlighter-rouge">dateTime</code> o <code class="language-plaintext highlighter-rouge">Period</code> según granularidad</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SPM-24</code></td>
+      <td>Condición o rechazo del espécimen</td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.status</code> / <code class="language-plaintext highlighter-rouge">Specimen.note</code></td>
+      <td>Aplicar ConceptMap si el código es reconocido; de lo contrario conservar como texto</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SAC-3</code></td>
+      <td>Identificador del contenedor</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.container.identifier</code></td>
+      <td>Conservar valor y autoridad asignadora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SAC-17</code></td>
+      <td>Tipo de contenedor</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.container.type</code></td>
+      <td>Transformar CE/CWE a <code class="language-plaintext highlighter-rouge">CodeableConcept</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SAC-23</code> / <code class="language-plaintext highlighter-rouge">SAC-24</code></td>
+      <td>Cantidad y unidad del contenedor</td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">Specimen.container.specimenQuantity</code></td>
+      <td>Preferir UCUM cuando la unidad venga identificada</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">Specimen.request</code> se completa con la referencia al <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code> correspondiente, y <code class="language-plaintext highlighter-rouge">Specimen.subject</code> con <code class="language-plaintext highlighter-rouge">PacienteLaboratorio</code>, igual que en el <code class="language-plaintext highlighter-rouge">Bundle</code> FHIR nativo. Si <code class="language-plaintext highlighter-rouge">ORM^O01</code> (legacy) no trae <code class="language-plaintext highlighter-rouge">SPM</code>/<code class="language-plaintext highlighter-rouge">SAC</code>, la muestra no se representa en ese envío; queda pendiente para un mensaje posterior o para el flujo de resultado, si el laboratorio la informa recién en <code class="language-plaintext highlighter-rouge">ORU^R01</code>.</p>
+
+<h2 id="flujo-de-resultados">Flujo de resultados</h2>
+
+<div class="mermaid">
+flowchart TD
+    MSG["ORU^R01"] --&gt; MSH[MSH] --&gt; BUN["Bundle / MessageHeader"]
+    MSG --&gt; PID[PID] --&gt; PAC["PacienteLaboratorio (Patient)"]
+    MSG --&gt; PV1[PV1] --&gt; ENC[Encounter]
+    MSG --&gt; ORC["ORC / OBR"] --&gt; DR["ResultadoDiagnosticoLaboratorio (DiagnosticReport)"]
+    DR --&gt; OBX1["OBX de resultados"] --&gt; OBS["Observation[]"]
+    DR --&gt; OBX2["OBX con PDF"] --&gt; PF["DiagnosticReport.presentedForm"]
+</div>
+
+<p><code class="language-plaintext highlighter-rouge">DiagnosticReport.basedOn</code> debe apuntar al <code class="language-plaintext highlighter-rouge">ServiceRequest</code> original. La referencia se resuelve usando los identificadores de orden enviados en <code class="language-plaintext highlighter-rouge">ORC-2</code>, <code class="language-plaintext highlighter-rouge">ORC-3</code>, <code class="language-plaintext highlighter-rouge">OBR-2</code> u <code class="language-plaintext highlighter-rouge">OBR-3</code>, según el acuerdo de integración.</p>
+
+<h2 id="mapeo-principal">Mapeo principal</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>HL7 v2</th>
+      <th>Significado</th>
+      <th>FHIR R4</th>
+      <th>Regla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10</code></td>
+      <td>Identificador del mensaje</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.identifier</code></td>
+      <td>Conservar para trazabilidad del intercambio</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-7</code></td>
+      <td>Fecha del mensaje</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.timestamp</code></td>
+      <td>Convertir a <code class="language-plaintext highlighter-rouge">instant</code> incluyendo zona horaria cuando esté disponible</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-3</code></td>
+      <td>Identificador del paciente</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.identifier</code></td>
+      <td>Conservar valor, tipo y autoridad asignadora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-5</code></td>
+      <td>Nombre del paciente</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.name</code></td>
+      <td>Separar apellidos y nombres según los componentes v2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-7</code></td>
+      <td>Fecha de nacimiento</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.birthDate</code></td>
+      <td>Convertir a fecha FHIR</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-8</code></td>
+      <td>Sexo administrativo</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteLaboratorio.gender</code></td>
+      <td>Aplicar tabla de equivalencias acordada</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-2</code></td>
+      <td>Clase de atención</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.class</code></td>
+      <td>Aplicar tabla de equivalencias v2 a FHIR</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-19</code></td>
+      <td>Identificador de atención</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.identifier</code></td>
+      <td>Conservar sistema y valor</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2</code> / <code class="language-plaintext highlighter-rouge">OBR-2</code></td>
+      <td>Número de orden del solicitante</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.identifier</code> y resolución de <code class="language-plaintext highlighter-rouge">basedOn</code></td>
+      <td>Buscar el <code class="language-plaintext highlighter-rouge">ServiceRequest.identifier</code> correspondiente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-3</code> / <code class="language-plaintext highlighter-rouge">OBR-3</code></td>
+      <td>Número asignado por el laboratorio</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.identifier</code></td>
+      <td>Conservar como identificador del ejecutor</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4</code></td>
+      <td>Examen o panel informado</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.code</code></td>
+      <td>Transformar CE/CWE a <code class="language-plaintext highlighter-rouge">CodeableConcept</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-7</code></td>
+      <td>Fecha de la observación</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.effectiveDateTime</code></td>
+      <td>Usar periodo si también existe fecha de término</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-22</code></td>
+      <td>Fecha de emisión/cambio</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.issued</code></td>
+      <td>Convertir a <code class="language-plaintext highlighter-rouge">instant</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-25</code></td>
+      <td>Estado del resultado</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.status</code></td>
+      <td>Aplicar ConceptMap de estados</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-3</code></td>
+      <td>Código de observación</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation.code</code></td>
+      <td>Transformar CE/CWE a <code class="language-plaintext highlighter-rouge">CodeableConcept</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-5</code></td>
+      <td>Valor del resultado</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation.value[x]</code></td>
+      <td>El tipo depende de <code class="language-plaintext highlighter-rouge">OBX-2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-6</code></td>
+      <td>Unidad</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation.valueQuantity.unit/code/system</code></td>
+      <td>Preferir UCUM cuando venga identificado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-7</code></td>
+      <td>Rango de referencia</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation.referenceRange</code></td>
+      <td>Conservar texto si no puede estructurarse</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-8</code></td>
+      <td>Interpretación</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation.interpretation</code></td>
+      <td>Aplicar tabla de equivalencias</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-11</code></td>
+      <td>Estado del resultado</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation.status</code></td>
+      <td>Por ejemplo, <code class="language-plaintext highlighter-rouge">F</code> se transforma a <code class="language-plaintext highlighter-rouge">final</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pdf-encapsulado">PDF encapsulado</h2>
+
+<p>Si <code class="language-plaintext highlighter-rouge">OBX-5</code> contiene un PDF Base64, se transforma a <code class="language-plaintext highlighter-rouge">DiagnosticReport.presentedForm.data</code>, con <code class="language-plaintext highlighter-rouge">presentedForm.contentType</code> igual a <code class="language-plaintext highlighter-rouge">application/pdf</code>. El receptor debe validar el Base64 y la firma del archivo.</p>
+
+<p>El tipo recomendado en HL7 v2 es <code class="language-plaintext highlighter-rouge">OBX-2 = ED</code>. Si una integración existente utiliza <code class="language-plaintext highlighter-rouge">FT</code>, la excepción debe documentarse en el acuerdo de interfaz y solo debe tratarse como PDF cuando las validaciones de contenido sean satisfactorias.</p>
+
+<h2 id="identificación-del-sistema-terminológico">Identificación del sistema terminológico</h2>
+
+<p>El emisor debe enviar el código del examen en <code class="language-plaintext highlighter-rouge">OBR-4</code> y el código de cada resultado en <code class="language-plaintext highlighter-rouge">OBX-3</code>, indicando el sistema en el componente correspondiente del dato CE/CWE.</p>
+
+<p>Ejemplos:</p>
+
+<pre><code class="language-hl7">OBR|1|||58410-2^CBC panel - Blood by Automated count^LN
+OBR|1|||CODIGO_FONASA^Descripción de la prestación^FONASA
+</code></pre>
+
+<p>Las reglas son:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">LN</code> se transforma a <code class="language-plaintext highlighter-rouge">Coding.system = http://loinc.org</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">FONASA</code> se transforma al URI canónico acordado para ese catálogo en el servicio terminológico.</li>
+  <li>El código recibido se conserva en <code class="language-plaintext highlighter-rouge">Coding.code</code> y su descripción en <code class="language-plaintext highlighter-rouge">Coding.display</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CodeableConcept.text</code> es solo una descripción legible; no identifica el sistema de códigos.</li>
+  <li>La traducción entre FONASA y LOINC, si corresponde, la realiza el servicio terminológico. No se infiere durante el mapeo estructural.</li>
+  <li>Si el sistema no viene identificado, el mensaje no debe homologarse automáticamente; debe rechazarse o quedar pendiente según la política de integración.</li>
+</ul>
+
+<p>Cuando el terminológico entregue una traducción validada, el código original debe conservarse y la codificación traducida puede agregarse como un segundo <code class="language-plaintext highlighter-rouge">Coding</code>, manteniendo trazabilidad del proceso.</p>
+
+<h2 id="resultado-atomizado-por-prestación-caso-de-uso-3">Resultado atomizado por prestación (Caso de uso 3)</h2>
+
+<p>Esta sección está en el alcance de la versión actual de la guía, con prioridad de entrega secundaria respecto al informe PDF (Caso de uso 2, ver <a href="casos-de-uso.html">Casos de uso</a>).</p>
+
+<p>El mensaje de origen sigue siendo <code class="language-plaintext highlighter-rouge">ORU^R01</code>, pero en lugar de un único <code class="language-plaintext highlighter-rouge">OBX</code> con el PDF en Base64, cada resultado individual llega en su propio segmento <code class="language-plaintext highlighter-rouge">OBX</code> y se transforma en un recurso <code class="language-plaintext highlighter-rouge">Observation</code> independiente (perfil <code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code>), referenciado desde <code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>. El mapeo de <code class="language-plaintext highlighter-rouge">OBX-3</code>, <code class="language-plaintext highlighter-rouge">OBX-5</code>, <code class="language-plaintext highlighter-rouge">OBX-6</code>, <code class="language-plaintext highlighter-rouge">OBX-7</code>, <code class="language-plaintext highlighter-rouge">OBX-8</code> y <code class="language-plaintext highlighter-rouge">OBX-11</code> de la tabla de la sección <a href="#mapeo-principal">Mapeo principal</a> aplica sin cambios a cada <code class="language-plaintext highlighter-rouge">OBX</code> individual. Cuando el informe también trae la muestra, <code class="language-plaintext highlighter-rouge">Observation.specimen</code> referencia el mismo <code class="language-plaintext highlighter-rouge">MinsalEspecimenLaboratorio</code> que ya se describió para la solicitud.</p>
+
+<p>Ambos recursos (<code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code> y las <code class="language-plaintext highlighter-rouge">Observation</code> atomizadas) se empaquetan en un único <code class="language-plaintext highlighter-rouge">Bundle</code> transaccional, perfil <code class="language-plaintext highlighter-rouge">MinsalBundleResultadoLaboratorio</code> (ver ejemplo <code class="language-plaintext highlighter-rouge">BundleResultadoMultipleEjemplo</code>), simétrico al de la solicitud.</p>
+
+<p>Queda pendiente de diseño, para una fase posterior, y que no corresponde resolver únicamente con el mapeo estructural:</p>
+
+<ul>
+  <li>La convivencia entre el resultado atomizado y el PDF firmado del mismo informe, para evitar que ambas representaciones difieran entre sí.</li>
+  <li>El filtrado de resultados por área del laboratorio (<code class="language-plaintext highlighter-rouge">category:studyType</code>/<code class="language-plaintext highlighter-rouge">category:specialty</code>).</li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.6.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 23, 2026 17:16-0300">2026-09-23</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

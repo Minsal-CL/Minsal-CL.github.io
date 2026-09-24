@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Artifacts Summary - Guía de Implementación FHIR - Laboratorio Clínico v0.6.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6.0"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Laboratorio Clínico</span>
+            <br/>
+            <span style="display:inline-block;">0.6.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Artifacts Summary</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Laboratorio Clínico - Local Development build (v0.6.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Artifacts Summary</h2>
+  
+  
+  
+  <!--DO NOT EDIT THIS FILE - It is generated by https://github.com/HL7/ig-template-base/blob/master/scripts/createArtifactSummary.xslt and any changes made will be overwritten--><div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://hl7.org/fhir"
+     xmlns:html="http://www.w3.org/1999/xhtml"
+     class="markdown-toc">
+   <p>Contents:</p>
+   <ul>
+      <li>
+         <a href="#1">Structures: Resource Profiles</a>
+      </li>
+      <li>
+         <a href="#2">Terminology: Value Sets</a>
+      </li>
+      <li>
+         <a href="#3">Terminology: Code Systems</a>
+      </li>
+      <li>
+         <a href="#4">Terminology: Naming Systems</a>
+      </li>
+      <li>
+         <a href="#5">Example: Example Instances</a>
+      </li>
+      <li>
+         <a href="#6">Other</a>
+      </li>
+   </ul>
+</div>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://hl7.org/fhir"
+     xmlns:html="http://www.w3.org/1999/xhtml">
+   <p>This page provides a list of the FHIR artifacts defined as part of this implementation guide.</p>
+   <a name="1"> </a>
+   <h3>Structures: Resource Profiles </h3>
+    <p>These define constraints on FHIR resources for systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalBundleResultadoLaboratorio.html"
+                  title="StructureDefinition/MinsalBundleResultadoLaboratorio">Bundle de Resultado de Laboratorio MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para el envío transaccional del resultado de una o más prestaciones de laboratorio: el informe (<code class="language-plaintext highlighter-rouge">DiagnosticReport</code>, perfil <code class="language-plaintext highlighter-rouge">ResultadoDiagnosticoLaboratorio</code>) y, cuando el establecimiento opta por informar también el dato atómico por analito (Caso de uso 3), sus resultados individuales (<code class="language-plaintext highlighter-rouge">Observation</code>, perfil <code class="language-plaintext highlighter-rouge">MinsalObservacionLaboratorio</code>). Simétrico a <code class="language-plaintext highlighter-rouge">MinsalBundleSolicitudLaboratorio</code> del lado de la solicitud. Paciente y establecimiento ejecutor se asumen preexistentes en el servidor de destino (mismo criterio que en la solicitud); por eso se incluyen aquí solo como entradas opcionales, para el establecimiento que decida enviarlos junto con la transacción en vez de asumir su preexistencia.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalBundleSolicitudLaboratorio.html"
+                  title="StructureDefinition/MinsalBundleSolicitudLaboratorio">Bundle de Solicitud de Laboratorio MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para el envío transaccional de una o más prestaciones de laboratorio que pertenecen a una misma orden. Exige al menos una entrada <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code> y valida que todas las entradas de solicitud comparten el mismo <code class="language-plaintext highlighter-rouge">requisition</code>. Paciente, profesional solicitante y establecimiento se asumen preexistentes en el servidor de destino (resueltos previamente mediante el flujo de identidad descrito en Arquitectura); por eso se incluyen aquí solo como entradas opcionales, para el establecimiento que decida enviarlos junto con la solicitud en vez de asumir su preexistencia.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalEspecimenLaboratorio.html"
+                  title="StructureDefinition/MinsalEspecimenLaboratorio">Espécimen de Laboratorio MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar la muestra biológica asociada a una solicitud de laboratorio, cuando el sistema de origen informa esta información en el mensaje HL7 v2 (grupo SPM/SAC de OML^O21, mensaje objetivo para laboratorio, o en ORU^R01 al momento del resultado; ORM^O01 no incluye SPM/SAC en el estándar base, ver <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-OrganizacionParticipanteLaboratorio.html"
+                  title="StructureDefinition/OrganizacionParticipanteLaboratorio">Organización participante en el flujo de laboratorio</a>
+            </td>
+            <td>
+<p>Perfil para representar establecimientos de origen, laboratorios ejecutores y otras organizaciones participantes en el intercambio de solicitudes y resultados de laboratorio. Extiende <code class="language-plaintext highlighter-rouge">MINSALPrestadorOrganizacional</code> (guía NID/HPD, Núcleo de Interoperabilidad de Datos), el núcleo normativo real de MINSAL para prestadores institucionales, en vez del perfil más laxo de CL-Core. Cierra [DT-009] junto con <code class="language-plaintext highlighter-rouge">PacienteLaboratorio</code> y <code class="language-plaintext highlighter-rouge">MinsalPractitionerLaboratorio</code>.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-PacienteLaboratorio.html"
+                  title="StructureDefinition/PacienteLaboratorio">Paciente de Laboratorio</a>
+            </td>
+            <td>
+<p>Perfil de paciente utilizado en las solicitudes y resultados de laboratorio. Extiende <code class="language-plaintext highlighter-rouge">MINSALPaciente</code> (guía NID, Núcleo de Interoperabilidad de Datos), el núcleo normativo real de MINSAL para identidad de paciente, en vez del perfil más laxo de CL-Core. Cierra [DT-009]: la guía ya documentaba un flujo de resolución de identidad contra el MPI de NID, sin declarar la dependencia de paquete formal hasta esta versión.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalPractitionerLaboratorio.html"
+                  title="StructureDefinition/MinsalPractitionerLaboratorio">Profesional de Laboratorio MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar al profesional solicitante, ejecutor o interpretador de resultados en el flujo de laboratorio. Extiende <code class="language-plaintext highlighter-rouge">MINSALPrestadorProfesional</code> (guía NID/HPD, Núcleo de Interoperabilidad de Datos), el núcleo normativo real de MINSAL para prestadores individuales, en vez del perfil más laxo de CL-Core. Cierra [DT-009] junto con <code class="language-plaintext highlighter-rouge">PacienteLaboratorio</code> y <code class="language-plaintext highlighter-rouge">OrganizacionParticipanteLaboratorio</code>.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalObservacionLaboratorio.html"
+                  title="StructureDefinition/MinsalObservacionLaboratorio">Resultado atomizado de laboratorio MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar un resultado individual de una prestación de laboratorio (un analito o un resultado cualitativo), cuando el establecimiento opta por informar el dato atómico además de o en vez del informe PDF (ver Casos de uso, Caso de uso 3). Un panel de exámenes con varios analitos (ej. Hemograma) se representa con varias instancias de este perfil, todas enlazadas mediante <code class="language-plaintext highlighter-rouge">basedOn</code> a la misma <code class="language-plaintext highlighter-rouge">ServiceRequest</code> de la prestación, sin usar <code class="language-plaintext highlighter-rouge">hasMember</code> ni <code class="language-plaintext highlighter-rouge">component</code>. Perfil diseñado con referencia a CH LAB-Report (HL7 Suiza) v2.0.0, adaptado al modelo de solicitud propio de esta guía (ver ENTREGA_DESARROLLO.md).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-ResultadoDiagnosticoLaboratorio.html"
+                  title="StructureDefinition/ResultadoDiagnosticoLaboratorio">Resultado diagnóstico de laboratorio</a>
+            </td>
+            <td>
+<p>Perfil para representar el resultado de una solicitud de laboratorio y el informe PDF recibido desde un mensaje HL7 v2 ORU^R01.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalServiceRequestLab.html"
+                  title="StructureDefinition/MinsalServiceRequestLab">Solicitud de Laboratorio MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar una solicitud de examen de laboratorio clínico en el modelo canónico nacional FHIR R4.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="2"> </a>
+   <h3>Terminology: Value Sets </h3>
+    <p>These define sets of codes used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-motivo-cancelacion-solicitud-laboratorio.html"
+                  title="ValueSet/motivo-cancelacion-solicitud-laboratorio">Motivo de Cancelación de Solicitud de Laboratorio</a>
+            </td>
+            <td>
+<p>Motivo por el cual una solicitud de laboratorio se cancela antes de la toma de muestra, sin que exista un Specimen asociado (por ejemplo, el paciente no concurre a la toma de muestra). Referencia el código local <code class="language-plaintext highlighter-rouge">no-presentacion</code> del CodeSystem MINSAL <code class="language-plaintext highlighter-rouge">CSMotivoAdministrativoCancelacionLaboratorio</code>, creado porque el concepto SNOMED CT usado originalmente para este motivo (270426007) fue inactivado por SNOMED International sin reemplazo directo (ver descripción del CodeSystem). Binding extensible: permite agregar otros códigos, locales o de catálogos externos, si se identifican nuevos motivos de cancelación sin muestra.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="3"> </a>
+   <h3>Terminology: Code Systems </h3>
+    <p>These define new code systems used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-CodigoPrestacionFonasa.html"
+                  title="CodeSystem/CodigoPrestacionFonasa">Códigos de prestaciones FONASA</a>
+            </td>
+            <td>
+<p>Identificador canónico provisional para códigos de prestaciones FONASA. El contenido es administrado externamente por el servicio terminológico.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-motivo-administrativo-cancelacion-laboratorio.html"
+                  title="CodeSystem/motivo-administrativo-cancelacion-laboratorio">Motivo Administrativo de Cancelación de Solicitud de Laboratorio</a>
+            </td>
+            <td>
+<table>
+  <tbody>
+    <tr>
+      <td>CodeSystem local MINSAL para motivos administrativos de cancelación de una solicitud de laboratorio antes de la toma de muestra. Se crea porque el concepto SNOMED CT 270426007</td>
+      <td>Did not attend - no reason (finding)</td>
+      <td>, usado originalmente para este propósito, fue inactivado por SNOMED International (release GP/FP de enero de 2024) sin reemplazo directo ("No replacement"): SNOMED International considera este tipo de concepto "Did not attend X" como administrativo, fuera del foco de la jerarquía de hallazgos clínicos (Clinical finding), y no publica un concepto activo equivalente con el significado exacto "no se presentó, sin motivo informado". El concepto SNOMED CT activo más próximo, 410543007</td>
+      <td>Did not attend (qualifier value)</td>
+      <td>, no cubre por sí solo la ausencia de motivo; puede agregarse como codificación SNOMED CT aproximada adicional en el mismo <code class="language-plaintext highlighter-rouge">CodeableConcept</code>, pero no reemplaza el código local.</td>
+    </tr>
+  </tbody>
+</table>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="4"> </a>
+   <h3>Terminology: Naming Systems </h3>
+    <p>These define identifier and/or code system identities used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="NamingSystem-NSEstablecimientoDeis.html"
+                  title="NamingSystem/NSEstablecimientoDeis">Código de Establecimiento DEIS</a>
+            </td>
+            <td>
+<p>Identificador nacional de establecimientos de salud, administrado por el Departamento de Estadísticas e Información de Salud (DEIS) de MINSAL. Adoptado como estándar de facto por esta guía para <code class="language-plaintext highlighter-rouge">Organization.identifier</code> de establecimientos (ver Casos de uso), y usado también por otras guías del portafolio Minsal-CL. La definición y gobernanza del catálogo de códigos DEIS corresponde al propio DEIS, no a esta guía; este recurso solo declara el dominio para que el IG Publisher lo resuelva localmente al validar los ejemplos.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="NamingSystem-NSOrdenGrupoLaboratorio.html"
+                  title="NamingSystem/NSOrdenGrupoLaboratorio">Identificador de Orden Agrupadora de Laboratorio (por establecimiento)</a>
+            </td>
+            <td>
+<p>Dominio de identificador para <code class="language-plaintext highlighter-rouge">ServiceRequest.requisition</code> (número de orden agrupadora que comparten todas las prestaciones de una misma solicitud de laboratorio, ver <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab.requisition</code>). El URI sigue el patrón <code class="language-plaintext highlighter-rouge">.../identificador/orden-grupo/{códigoEstablecimientoDEIS}</code>, uno distinto por establecimiento asignador, para evitar colisiones entre establecimientos que reutilicen el mismo número local de orden. El código numérico de este ejemplo (116105) corresponde al establecimiento usado en los ejemplos de esta guía; no es un valor fijo universal, cada establecimiento real recibe su propio URI reemplazando ese segmento por su propio código DEIS.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="NamingSystem-NSRunPacienteNid.html"
+                  title="NamingSystem/NSRunPacienteNid">RUN de Paciente (dominio NID)</a>
+            </td>
+            <td>
+<p>Dominio de identificador para el RUN (Rol Único Nacional) de un paciente, propio de la guía NID (Núcleo de Identificación) de MINSAL. No debe confundirse con el dominio del RUN de prestador individual (ver <code class="language-plaintext highlighter-rouge">NSRunPrestador</code>), gestionado por un registro distinto (MPI/IG_hpd). La definición y gobernanza de este dominio corresponde a NID, no a esta guía.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="NamingSystem-NSRunPrestador.html"
+                  title="NamingSystem/NSRunPrestador">RUN de Prestador Individual (dominio HPD/MPI)</a>
+            </td>
+            <td>
+<p>Dominio de identificador para el RUN (Rol Único Nacional) de un prestador individual (profesional o administrativo de salud), tal como lo usa el repositorio real <code class="language-plaintext highlighter-rouge">IG_hpd</code> (Maestro de Prestadores Individuales, MPI de MINSAL) en sus propios ejemplos de prestador. No debe confundirse con el dominio del RUN de paciente (ver <code class="language-plaintext highlighter-rouge">NSRunPacienteNid</code>), gestionado por un registro distinto (NID): un mismo número de RUN puede corresponder a un dominio u otro según el rol de la persona (ver Arquitectura). La definición y gobernanza de este dominio corresponde al MPI/IG_hpd, no a esta guía.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="5"> </a>
+   <h3>Example: Example Instances </h3>
+    <p>These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Bundle-BundleResultadoMultipleEjemplo.html"
+                  title="Bundle/BundleResultadoMultipleEjemplo">Bundle de resultado con informe PDF y dos resultados atomizados</a>
+            </td>
+            <td>
+<p>Transacción FHIR que crea el informe único de <code class="language-plaintext highlighter-rouge">ResultadoMultipleEjemplo</code> (PDF) junto con tres de sus resultados atomizados, correspondientes a tres de las cinco prestaciones de <code class="language-plaintext highlighter-rouge">BundleSolicitudMultipleEjemplo</code>: <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code> y <code class="language-plaintext highlighter-rouge">ObservacionGlicemiaCriticaEjemplo</code> con código LOINC, y <code class="language-plaintext highlighter-rouge">ObservacionColesterolFonasaEjemplo</code> con código FONASA puro (sin LOINC), ilustrando los dos escenarios de codificación admitidos por <code class="language-plaintext highlighter-rouge">Observation.code</code> en la misma transacción. El paciente y el laboratorio ejecutor se asumen preexistentes en el servidor de destino, por lo que no se incluyen como entradas propias de este Bundle.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Bundle-BundleSolicitudMultipleEjemplo.html"
+                  title="Bundle/BundleSolicitudMultipleEjemplo">Bundle de solicitud con cinco prestaciones FONASA</a>
+            </td>
+            <td>
+<p>Transacción FHIR que crea cinco prestaciones FONASA pertenecientes a una misma solicitud de laboratorio. El paciente, el profesional solicitante y el laboratorio ejecutor se asumen preexistentes en el servidor de destino (ver Inicio, sección "Solicitud con múltiples prestaciones"), por lo que no se incluyen como entradas propias de este Bundle.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Specimen-EspecimenEjemplo.html" title="Specimen/EspecimenEjemplo">Espécimen de ejemplo</a>
+            </td>
+            <td>
+<p>Muestra de sangre venosa asociada a la prestación de Hemograma del ejemplo de solicitud múltiple.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Organization-EstablecimientoOrigenEjemplo.html"
+                  title="Organization/EstablecimientoOrigenEjemplo">Establecimiento de origen de ejemplo</a>
+            </td>
+            <td>
+<p>Organización que origina la solicitud de laboratorio, identificada con un Código de Establecimiento DEIS real y vigente (ver <a href="https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes">Códigos de establecimientos de salud vigentes</a>, referencia ya usada como criterio de identificación de organizaciones en NID): 116105, Hospital Dr. César Garavagno Burotto (Hospital de Talca), Servicio de Salud del Maule. <code class="language-plaintext highlighter-rouge">identifier.system</code> usa <code class="language-plaintext highlighter-rouge">http://deis.minsal.cl/establecimientos</code>, el mismo URI que ya usan las guías de Tiempos de Espera Quirúrgico y Urgencia para este mismo dato; CoreOrganizacionCl aún no fija un <code class="language-plaintext highlighter-rouge">system</code> oficial (queda pendiente en su definición), por lo que se adopta este URI como estándar de facto compartido, en vez de crear uno propio de esta guía.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="DiagnosticReport-ResultadoMultipleEjemplo.html"
+                  title="DiagnosticReport/ResultadoMultipleEjemplo">Informe de resultado de ejemplo</a>
+            </td>
+            <td>
+<p>Informe único de laboratorio, con el PDF del informe embebido en base64, que responde a las cinco prestaciones de <code class="language-plaintext highlighter-rouge">BundleSolicitudMultipleEjemplo</code> (mismo <code class="language-plaintext highlighter-rouge">requisition</code>, <code class="language-plaintext highlighter-rouge">SOL-MULTIPLE-001</code>). El contenido del PDF es un documento mínimo de ejemplo, no corresponde a un informe real de un paciente. De las cinco prestaciones, tres se informan también como resultado atomizado (Caso de uso 3, ver <code class="language-plaintext highlighter-rouge">result</code>): Hemoglobina y Glucosa con código LOINC (prestaciones de un solo analito dentro de un panel, u homologadas), y Colesterol total con código FONASA puro, sin LOINC (prestación de un solo resultado, ver <code class="language-plaintext highlighter-rouge">ObservacionColesterolFonasaEjemplo</code>); las otras dos (Bilirrubina total, Nitrógeno ureico) solo quedan cubiertas por el PDF, reflejando que un establecimiento puede adoptar el dato atómico de forma parcial, analito por analito. <code class="language-plaintext highlighter-rouge">result</code> referencia directamente el <code class="language-plaintext highlighter-rouge">urn:uuid</code> de cada <code class="language-plaintext highlighter-rouge">Observation</code> dentro de <code class="language-plaintext highlighter-rouge">BundleResultadoMultipleEjemplo</code>, siguiendo la regla estándar de FHIR para referencias internas entre recursos nuevos de una misma transacción (el recurso referenciado todavía no tiene un id asignado por el servidor al momento de construir el Bundle).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="DiagnosticReport-ResultadoIndependienteEjemplo.html"
+                  title="DiagnosticReport/ResultadoIndependienteEjemplo">Informe de resultado independiente, sin solicitud previa</a>
+            </td>
+            <td>
+<p>Informe de laboratorio que llega sin ninguna <code class="language-plaintext highlighter-rouge">ServiceRequest</code> previa registrada en el Bus (sin <code class="language-plaintext highlighter-rouge">basedOn</code>), caso de un laboratorio cuyo examen se originó y procesó íntegramente en su propio sistema (ver Casos de uso, Caso de uso 2, 'Definición de alcance'). El contenido del PDF es un documento mínimo de ejemplo, no corresponde a un informe real de un paciente.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Organization-LaboratorioEjecutorEjemplo.html"
+                  title="Organization/LaboratorioEjecutorEjemplo">Laboratorio ejecutor de ejemplo</a>
+            </td>
+            <td>
+<p>Laboratorio clínico interno del mismo establecimiento (116105, Hospital de Talca) que ejecuta las prestaciones solicitadas; escenario habitual en hospitales públicos, que procesan sus exámenes de rutina (hemograma, glicemia, perfil bioquímico) en su propio laboratorio en vez de derivarlos a un tercero. Mismo <code class="language-plaintext highlighter-rouge">system</code> de Código de Establecimiento DEIS que el establecimiento de origen.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Patient-PacienteEjemplo.html" title="Patient/PacienteEjemplo">Paciente de ejemplo</a>
+            </td>
+            <td>
+<p>Ejemplo ficticio de un paciente utilizado para validar el perfil. Cumple el set de datos obligatorio de <code class="language-plaintext highlighter-rouge">MINSALPaciente</code> (NID): identificador con tipo y país de emisión, nombre oficial, sexo registral, fecha de nacimiento, estado de fallecimiento, medio de contacto y las 3 extensiones obligatorias de identidad (identidad de género, nacionalidad, país de origen). Valores de terminología (identidad de género, país) tomados del propio ejemplo real de NID (<code class="language-plaintext highlighter-rouge">MinsalPacienteEjemplo</code>) para no inventar códigos nuevos.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ServiceRequest-PrestacionBilirrubinaEjemplo.html"
+                  title="ServiceRequest/PrestacionBilirrubinaEjemplo">Prestación FONASA: Bilirrubina total</a>
+            </td>
+            <td>
+<p>Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ServiceRequest-PrestacionColesterolTotalEjemplo.html"
+                  title="ServiceRequest/PrestacionColesterolTotalEjemplo">Prestación FONASA: Colesterol total</a>
+            </td>
+            <td>
+<p>Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ServiceRequest-PrestacionGlicemiaEjemplo.html"
+                  title="ServiceRequest/PrestacionGlicemiaEjemplo">Prestación FONASA: Glucosa (glicemia)</a>
+            </td>
+            <td>
+<p>Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ServiceRequest-PrestacionHemogramaEjemplo.html"
+                  title="ServiceRequest/PrestacionHemogramaEjemplo">Prestación FONASA: Hemograma</a>
+            </td>
+            <td>
+<p>Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ServiceRequest-PrestacionNitrogenoUreicoEjemplo.html"
+                  title="ServiceRequest/PrestacionNitrogenoUreicoEjemplo">Prestación FONASA: Nitrógeno ureico</a>
+            </td>
+            <td>
+<p>Prestación de laboratorio identificada mediante código FONASA dentro de una solicitud múltiple.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Practitioner-ProfesionalSolicitanteEjemplo.html"
+                  title="Practitioner/ProfesionalSolicitanteEjemplo">Profesional solicitante de ejemplo</a>
+            </td>
+            <td>
+<p>Profesional ficticio que solicita las prestaciones del ejemplo. Desde que <code class="language-plaintext highlighter-rouge">MinsalPractitionerLaboratorio</code> extiende <code class="language-plaintext highlighter-rouge">MINSALPrestadorProfesional</code> (NID/HPD), la slice <code class="language-plaintext highlighter-rouge">identifier[run]</code>, el título profesional (<code class="language-plaintext highlighter-rouge">qualification[TituloProfesional]</code>) y la fecha de nacimiento quedan fijados/obligatorios por ese perfil, no por esta guía; los valores de terminología del título se copian del propio ejemplo real de NID/HPD (<code class="language-plaintext highlighter-rouge">EjemploPractiProf</code>) para no inventar códigos nuevos.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Observation-ObservacionColesterolFonasaEjemplo.html"
+                  title="Observation/ObservacionColesterolFonasaEjemplo">Resultado atomizado de ejemplo: Colesterol total, codificado en FONASA</a>
+            </td>
+            <td>
+<p>Resultado numérico de la prestación de Colesterol total (<code class="language-plaintext highlighter-rouge">PrestacionColesterolTotalEjemplo</code>), codificado directamente con el código FONASA de la prestación en <code class="language-plaintext highlighter-rouge">code</code>, sin LOINC. A diferencia de Hemograma (prestación multianalito, ver <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code>), Colesterol total es una prestación de un solo resultado: el código FONASA <code class="language-plaintext highlighter-rouge">0302067</code> identifica sin ambigüedad este único valor, por lo que no es necesario homologar a LOINC para representarlo de forma atómica. Este ejemplo, junto con <code class="language-plaintext highlighter-rouge">ObservacionHemoglobinaEjemplo</code> (LOINC), ilustra los dos escenarios de codificación admitidos por <code class="language-plaintext highlighter-rouge">Observation.code</code> (ver Casos de uso, Caso de uso 3).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Observation-ObservacionGlicemiaCriticaEjemplo.html"
+                  title="Observation/ObservacionGlicemiaCriticaEjemplo">Resultado atomizado de ejemplo: Glicemia con valor crítico</a>
+            </td>
+            <td>
+<p>Resultado numérico de la prestación de Glucosa (glicemia) (<code class="language-plaintext highlighter-rouge">PrestacionGlicemiaEjemplo</code>), con valor sobre el rango de referencia marcado como crítico mediante <code class="language-plaintext highlighter-rouge">interpretation</code> = HH (Critical high), reutilizando el CodeSystem internacional v3-ObservationInterpretation.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Observation-ObservacionHemoglobinaEjemplo.html"
+                  title="Observation/ObservacionHemoglobinaEjemplo">Resultado atomizado de ejemplo: Hemoglobina</a>
+            </td>
+            <td>
+<p>Resultado numérico dentro del rango de referencia, correspondiente a uno de los analitos del panel de Hemograma (<code class="language-plaintext highlighter-rouge">PrestacionHemogramaEjemplo</code>). El agrupamiento del panel se resuelve mediante <code class="language-plaintext highlighter-rouge">basedOn</code> compartido hacia esa misma <code class="language-plaintext highlighter-rouge">ServiceRequest</code>, no mediante <code class="language-plaintext highlighter-rouge">hasMember</code>.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ServiceRequest-SolicitudCanceladaNoPresentacionEjemplo.html"
+                  title="ServiceRequest/SolicitudCanceladaNoPresentacionEjemplo">Solicitud cancelada por no presentación del paciente</a>
+            </td>
+            <td>
+<p>Solicitud de laboratorio cancelada porque el paciente no concurrió a la toma de muestra. No existe Specimen asociado (ver Casos de uso, Caso de uso 4).</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="6"> </a>
+   <h3>Other </h3>
+    <p>These are resources that are used within this implementation guide that do not fit into one of the other categories.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Parameters-manifest.html" title="Parameters/manifest">Parámetros de expansión de la guía</a>
+            </td>
+            <td>
+<p>Fija la edición SNOMED CT (Internacional, módulo 900000000000207008) usada por el IG Publisher al expandir/validar ValueSets de esta guía. No es un ejemplo clínico.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.laboratorio#0.6.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 23, 2026 17:16-0300">2026-09-23</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+
