@@ -1,15 +1,15 @@
 # Clasificación de la consulta - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Clasificación de la consulta**
 
 ## CodeSystem: Clasificación de la consulta (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/clasificacion-consulta | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:CSClasificacionConsulta |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:CSClasificacionConsulta |
 
  
 Clasificación médico-legal de la consulta (CMBD Urgencia: CLASIFICACIÓN DE LA CONSULTA). 
@@ -26,13 +26,13 @@ Clasificación médico-legal de la consulta (CMBD Urgencia: CLASIFICACIÓN DE LA
 {
   "resourceType" : "CodeSystem",
   "id" : "clasificacion-consulta",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/clasificacion-consulta",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta",
   "version" : "0.2.0",
   "name" : "CSClasificacionConsulta",
   "title" : "Clasificación de la consulta",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

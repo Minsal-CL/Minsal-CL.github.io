@@ -1,15 +1,15 @@
 # Medio de llegada - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Medio de llegada**
 
 ## Extension: Medio de llegada (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/medio-llegada | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:MedioLlegada |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/medio-llegada | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:MedioLlegada |
 
 Medio de transporte con que el paciente llega a la unidad de urgencia.
 
@@ -22,7 +22,7 @@ Medio de transporte con que el paciente llega a la unidad de urgencia.
 * Use this Extension: [Encuentro de urgencia](StructureDefinition-encuentro-urgencia.md)
 * Examples for this Extension: [Bundle/BundleAdmisionEj](Bundle-BundleAdmisionEj.md) and [Bundle/BundleAltaEj](Bundle-BundleAltaEj.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-medio-llegada.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-medio-llegada.json)
 
 ### Formal Views of Extension Content
 
@@ -44,13 +44,13 @@ Other representations of profile: [CSV](StructureDefinition-medio-llegada.csv), 
 {
   "resourceType" : "StructureDefinition",
   "id" : "medio-llegada",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/medio-llegada",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/medio-llegada",
   "version" : "0.2.0",
   "name" : "MedioLlegada",
   "title" : "Medio de llegada",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -97,17 +97,19 @@ Other representations of profile: [CSV](StructureDefinition-medio-llegada.csv), 
     {
       "id" : "Extension.url",
       "path" : "Extension.url",
-      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/medio-llegada"
+      "short" : "URL que identifica la extensión",
+      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/medio-llegada"
     },
     {
       "id" : "Extension.value[x]",
       "path" : "Extension.value[x]",
+      "short" : "Medio de llegada del paciente",
       "type" : [{
         "code" : "CodeableConcept"
       }],
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-medio-llegada"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-medio-llegada"
       }
     }]
   }

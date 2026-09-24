@@ -1,15 +1,15 @@
 # Diagnósticos de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Diagnósticos de urgencia**
 
 ## ValueSet: Diagnósticos de urgencia (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-diagnostico-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:VSDiagnosticoUrgencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-diagnostico-urgencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:VSDiagnosticoUrgencia |
 
  
 Diagnósticos codificados en CIE-10 (preferente) o SNOMED CT. Se acepta texto libre cuando el diagnóstico no está codificado. 
@@ -45,13 +45,13 @@ Diagnósticos codificados en CIE-10 (preferente) o SNOMED CT. Se acepta texto li
 {
   "resourceType" : "ValueSet",
   "id" : "vs-diagnostico-urgencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-diagnostico-urgencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-diagnostico-urgencia",
   "version" : "0.2.0",
   "name" : "VSDiagnosticoUrgencia",
   "title" : "Diagnósticos de urgencia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

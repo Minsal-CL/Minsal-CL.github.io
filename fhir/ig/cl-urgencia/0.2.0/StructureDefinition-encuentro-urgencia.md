@@ -1,15 +1,15 @@
 # Encuentro de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Encuentro de urgencia**
 
 ## Resource Profile: Encuentro de urgencia 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:EncuentroUrgencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:EncuentroUrgencia |
 
  
 Episodio de atención en una unidad de urgencia, desde la admisión hasta el alta o el abandono. Basado en EncounterCL de CL-Core. Es el recurso que la red usa para saber que el paciente estuvo en urgencia, cuándo y cómo terminó. 
@@ -19,7 +19,7 @@ Episodio de atención en una unidad de urgencia, desde la admisión hasta el alt
 * Derived from this Profile: [Encuentro de urgencia - estado en el abandono](StructureDefinition-encuentro-urgencia-abandono.md), [Encuentro de urgencia - estado en la admisión](StructureDefinition-encuentro-urgencia-admision.md) and [Encuentro de urgencia - estado en el alta](StructureDefinition-encuentro-urgencia-alta.md)
 * Refer to this Profile: [Diagnóstico de urgencia](StructureDefinition-diagnostico-urgencia.md), [Documento de la atención de urgencia](StructureDefinition-documento-urgencia.md) and [Indicación de medicamento al alta](StructureDefinition-indicacion-medicamento-urgencia.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-encuentro-urgencia.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-encuentro-urgencia.json)
 
 ### Formal Views of Profile Content
 
@@ -37,12 +37,12 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
 {
   "resourceType" : "StructureDefinition",
   "id" : "encuentro-urgencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia",
   "version" : "0.2.0",
   "name" : "EncuentroUrgencia",
   "title" : "Encuentro de urgencia",
   "status" : "draft",
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -89,19 +89,20 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     "element" : [{
       "id" : "Encounter",
       "path" : "Encounter",
+      "short" : "Episodio de atención de urgencia",
       "constraint" : [{
         "key" : "urg-enc-1",
         "severity" : "error",
         "human" : "Un episodio finalizado debe informar la fecha y hora de término (period.end).",
         "expression" : "status = 'finished' implies period.end.exists()",
-        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia"
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"
       },
       {
         "key" : "urg-enc-2",
         "severity" : "error",
         "human" : "Un episodio finalizado debe informar el destino de egreso o el tipo de abandono.",
         "expression" : "status = 'finished' implies hospitalization.dischargeDisposition.exists()",
-        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia"
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"
       }]
     },
     {
@@ -114,7 +115,8 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
         }],
         "ordered" : false,
         "rules" : "open"
-      }
+      },
+      "short" : "Datos del CMBD sin elemento FHIR (previsión, leyes, clasificación, pronóstico, pertinencia)"
     },
     {
       "id" : "Encounter.extension:prevision",
@@ -124,7 +126,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/prevision"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/prevision"]
       }],
       "mustSupport" : true
     },
@@ -136,7 +138,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "max" : "*",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ley-previsional"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/ley-previsional"]
       }],
       "mustSupport" : true
     },
@@ -148,7 +150,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/clasificacion-consulta"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/clasificacion-consulta"]
       }]
     },
     {
@@ -159,7 +161,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pronostico-medico-legal"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pronostico-medico-legal"]
       }]
     },
     {
@@ -170,7 +172,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pertinencia"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pertinencia"]
       }]
     },
     {
@@ -183,12 +185,14 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.identifier.system",
       "path" : "Encounter.identifier.system",
+      "short" : "Sistema del ID DAU; identifica al establecimiento",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "Encounter.identifier.value",
       "path" : "Encounter.identifier.value",
+      "short" : "ID DAU",
       "min" : 1,
       "mustSupport" : true
     },
@@ -198,12 +202,13 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "short" : "in-progress (admitido) | finished (alta o abandono) | entered-in-error",
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-estado-encuentro-urgencia"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-estado-encuentro-urgencia"
       }
     },
     {
       "id" : "Encounter.class",
       "path" : "Encounter.class",
+      "short" : "Clase de encuentro: EMER (urgencia)",
       "patternCoding" : {
         "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
         "code" : "EMER"
@@ -215,12 +220,13 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "short" : "Unidad de atención: pediatría, adulto, gineco-obstétrica, odontológica...",
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-unidad-atencion"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-unidad-atencion"
       }
     },
     {
       "id" : "Encounter.subject",
       "path" : "Encounter.subject",
+      "short" : "Paciente atendido",
       "min" : 1,
       "type" : [{
         "code" : "Reference",
@@ -235,6 +241,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.participant.individual",
       "path" : "Encounter.participant.individual",
+      "short" : "Profesional",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional"]
@@ -243,6 +250,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.period",
       "path" : "Encounter.period",
+      "short" : "Inicio (admisión) y término (alta o abandono) del episodio",
       "min" : 1
     },
     {
@@ -265,6 +273,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.reasonCode.text",
       "path" : "Encounter.reasonCode.text",
+      "short" : "Motivo de consulta en texto libre",
       "min" : 1,
       "mustSupport" : true
     },
@@ -281,21 +290,24 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.diagnosis.use",
       "path" : "Encounter.diagnosis.use",
+      "short" : "AD (hipótesis de ingreso) | DD (diagnóstico de egreso)",
       "min" : 1,
       "mustSupport" : true,
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-uso-diagnostico"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico"
       }
     },
     {
       "id" : "Encounter.diagnosis.rank",
       "path" : "Encounter.diagnosis.rank",
+      "short" : "Orden del diagnóstico (1 = principal)",
       "mustSupport" : true
     },
     {
       "id" : "Encounter.hospitalization",
       "path" : "Encounter.hospitalization",
+      "short" : "Datos de llegada y egreso de la urgencia",
       "mustSupport" : true
     },
     {
@@ -308,7 +320,8 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
         }],
         "ordered" : false,
         "rules" : "open"
-      }
+      },
+      "short" : "Medio de llegada"
     },
     {
       "id" : "Encounter.hospitalization.extension:medioLlegada",
@@ -318,7 +331,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/medio-llegada"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/medio-llegada"]
       }],
       "mustSupport" : true
     },
@@ -329,7 +342,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "mustSupport" : true,
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-procedencia"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-procedencia"
       }
     },
     {
@@ -345,12 +358,13 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "mustSupport" : true,
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-destino-egreso"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-destino-egreso"
       }
     },
     {
       "id" : "Encounter.serviceProvider",
       "path" : "Encounter.serviceProvider",
+      "short" : "Establecimiento que realiza la atención",
       "min" : 1,
       "type" : [{
         "code" : "Reference",

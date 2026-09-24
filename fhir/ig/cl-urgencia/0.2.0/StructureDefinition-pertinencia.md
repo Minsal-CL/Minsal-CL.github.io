@@ -1,15 +1,15 @@
 # Pertinencia de la atención - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Pertinencia de la atención**
 
 ## Extension: Pertinencia de la atención (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pertinencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:Pertinencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pertinencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:Pertinencia |
 
 Indica si la consulta fue pertinente para una unidad de urgencia.
 
@@ -22,7 +22,7 @@ Indica si la consulta fue pertinente para una unidad de urgencia.
 * Use this Extension: [Encuentro de urgencia](StructureDefinition-encuentro-urgencia.md)
 * Examples for this Extension: [Bundle/BundleAltaEj](Bundle-BundleAltaEj.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-pertinencia.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-pertinencia.json)
 
 ### Formal Views of Extension Content
 
@@ -42,13 +42,13 @@ Other representations of profile: [CSV](StructureDefinition-pertinencia.csv), [E
 {
   "resourceType" : "StructureDefinition",
   "id" : "pertinencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pertinencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pertinencia",
   "version" : "0.2.0",
   "name" : "Pertinencia",
   "title" : "Pertinencia de la atención",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -95,11 +95,13 @@ Other representations of profile: [CSV](StructureDefinition-pertinencia.csv), [E
     {
       "id" : "Extension.url",
       "path" : "Extension.url",
-      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pertinencia"
+      "short" : "URL que identifica la extensión",
+      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pertinencia"
     },
     {
       "id" : "Extension.value[x]",
       "path" : "Extension.value[x]",
+      "short" : "true si la consulta fue pertinente para urgencia",
       "type" : [{
         "code" : "boolean"
       }]

@@ -1,15 +1,15 @@
 # Clasificación de la consulta - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Clasificación de la consulta**
 
 ## Extension: Clasificación de la consulta (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/clasificacion-consulta | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:ClasificacionConsulta |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/clasificacion-consulta | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:ClasificacionConsulta |
 
 Clasificación médico-legal de la consulta registrada en la admisión.
 
@@ -22,7 +22,7 @@ Clasificación médico-legal de la consulta registrada en la admisión.
 * Use this Extension: [Encuentro de urgencia](StructureDefinition-encuentro-urgencia.md)
 * Examples for this Extension: [Bundle/BundleAdmisionEj](Bundle-BundleAdmisionEj.md) and [Bundle/BundleAltaEj](Bundle-BundleAltaEj.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-clasificacion-consulta.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-clasificacion-consulta.json)
 
 ### Formal Views of Extension Content
 
@@ -44,13 +44,13 @@ Other representations of profile: [CSV](StructureDefinition-clasificacion-consul
 {
   "resourceType" : "StructureDefinition",
   "id" : "clasificacion-consulta",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/clasificacion-consulta",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/clasificacion-consulta",
   "version" : "0.2.0",
   "name" : "ClasificacionConsulta",
   "title" : "Clasificación de la consulta",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -97,17 +97,19 @@ Other representations of profile: [CSV](StructureDefinition-clasificacion-consul
     {
       "id" : "Extension.url",
       "path" : "Extension.url",
-      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/clasificacion-consulta"
+      "short" : "URL que identifica la extensión",
+      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/clasificacion-consulta"
     },
     {
       "id" : "Extension.value[x]",
       "path" : "Extension.value[x]",
+      "short" : "Clasificación médico-legal de la consulta",
       "type" : [{
         "code" : "CodeableConcept"
       }],
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-clasificacion-consulta"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-clasificacion-consulta"
       }
     }]
   }

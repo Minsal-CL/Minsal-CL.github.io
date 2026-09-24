@@ -1,15 +1,15 @@
 # Pronóstico médico-legal - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Pronóstico médico-legal**
 
 ## ValueSet: Pronóstico médico-legal (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-pronostico-medico-legal | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:VSPronosticoMedicoLegal |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-pronostico-medico-legal | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:VSPronosticoMedicoLegal |
 
  
 Pronóstico médico-legal registrado al cierre de la atención. 
@@ -45,13 +45,13 @@ Pronóstico médico-legal registrado al cierre de la atención.
 {
   "resourceType" : "ValueSet",
   "id" : "vs-pronostico-medico-legal",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-pronostico-medico-legal",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-pronostico-medico-legal",
   "version" : "0.2.0",
   "name" : "VSPronosticoMedicoLegal",
   "title" : "Pronóstico médico-legal",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -70,7 +70,7 @@ Pronóstico médico-legal registrado al cierre de la atención.
   }],
   "compose" : {
     "include" : [{
-      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/pronostico-medico-legal"
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/pronostico-medico-legal"
     }]
   }
 }

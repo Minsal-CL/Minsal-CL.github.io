@@ -1,15 +1,15 @@
 # Encuentro de urgencia - estado en la admisión - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Encuentro de urgencia - estado en la admisión**
 
 ## Resource Profile: Encuentro de urgencia - estado en la admisión 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia-admision | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:EncuentroUrgenciaAdmision |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-admision | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:EncuentroUrgenciaAdmision |
 
  
 Reglas del episodio de urgencia al momento de la admisión: abierto (in-progress), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono. 
@@ -18,7 +18,7 @@ Reglas del episodio de urgencia al momento de la admisión: abierto (in-progress
 
 * Use this Profile: [Bundle de admisión de urgencia](StructureDefinition-bundle-admision-urgencia.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-encuentro-urgencia-admision.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-encuentro-urgencia-admision.json)
 
 ### Formal Views of Profile Content
 
@@ -36,12 +36,12 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
 {
   "resourceType" : "StructureDefinition",
   "id" : "encuentro-urgencia-admision",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia-admision",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-admision",
   "version" : "0.2.0",
   "name" : "EncuentroUrgenciaAdmision",
   "title" : "Encuentro de urgencia - estado en la admisión",
   "status" : "draft",
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -82,7 +82,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
   "kind" : "resource",
   "abstract" : false,
   "type" : "Encounter",
-  "baseDefinition" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia",
+  "baseDefinition" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{

@@ -1,7 +1,7 @@
 # Hospital de ejemplo - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Hospital de ejemplo**
 
 ## Example Organization: Hospital de ejemplo

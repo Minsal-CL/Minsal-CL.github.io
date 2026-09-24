@@ -7,8 +7,8 @@
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:UrgenciaAdmisionAlta |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ImplementationGuide/hl7.fhir.cl.minsal.urgencia.eventos | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:UrgenciaAdmisionAlta |
 
 ## Objetivo
 
@@ -108,13 +108,13 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
 ```json
 {
   "resourceType" : "ImplementationGuide",
-  "id" : "hl7.fhir.cl.minsal.urgencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ImplementationGuide/hl7.fhir.cl.minsal.urgencia",
+  "id" : "hl7.fhir.cl.minsal.urgencia.eventos",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ImplementationGuide/hl7.fhir.cl.minsal.urgencia.eventos",
   "version" : "0.2.0",
   "name" : "UrgenciaAdmisionAlta",
   "title" : "Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono)",
   "status" : "draft",
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -131,7 +131,7 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       "display" : "Chile"
     }]
   }],
-  "packageId" : "hl7.fhir.cl.minsal.urgencia",
+  "packageId" : "hl7.fhir.cl.minsal.urgencia.eventos",
   "license" : "CC0-1.0",
   "fhirVersion" : ["4.0.1"],
   "dependsOn" : [{
@@ -273,7 +273,7 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       {
         "url" : "value",
-        "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html"
+        "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/history.html"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -552,7 +552,7 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       {
         "url" : "value",
-        "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html"
+        "valueString" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/history.html"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -721,55 +721,42 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     }],
+    "grouping" : [{
+      "id" : "bundles",
+      "name" : "Bundles por evento",
+      "description" : "Un `Bundle` de tipo `transaction` por cada evento de la atención de urgencia (admisión, alta y abandono) y su estructura común."
+    },
+    {
+      "id" : "encuentro",
+      "name" : "Encuentro de urgencia",
+      "description" : "El episodio de urgencia (`Encounter`) y las reglas que debe cumplir en cada evento. Es un solo recurso que se actualiza en la admisión, el alta o el abandono."
+    },
+    {
+      "id" : "clinicos",
+      "name" : "Contenido clínico",
+      "description" : "Diagnóstico, indicación de medicamentos al alta y referencia al documento clínico en PDF. Paciente, profesional y establecimiento usan directamente los perfiles del NID."
+    },
+    {
+      "id" : "extensiones",
+      "name" : "Extensiones",
+      "description" : "Datos del CMBD de Urgencia sin elemento FHIR equivalente. Todas son opcionales."
+    },
+    {
+      "id" : "conjuntos-valores",
+      "name" : "Conjuntos de valores",
+      "description" : "Códigos permitidos en cada elemento codificado de la guía."
+    },
+    {
+      "id" : "sistemas-codigos",
+      "name" : "Sistemas de códigos",
+      "description" : "Códigos locales de la guía, tomados del CMBD de Urgencia del DEIS. Se mantienen experimentales hasta su publicación en el Servidor Terminológico Nacional."
+    },
+    {
+      "id" : "ejemplos",
+      "name" : "Ejemplos",
+      "description" : "Un episodio con admisión y alta, otro cerrado por abandono (fuga), y los actores que participan."
+    }],
     "resource" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "Bundle-BundleAbandonoEj.html"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleAbandonoEj"
-      },
-      "name" : "Bundle de abandono (fuga)",
-      "description" : "Cierre del episodio DAU-2026-000456 porque la paciente se retiró sin alta médica.",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-abandono-urgencia"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-bundle-abandono-urgencia.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/bundle-abandono-urgencia"
-      },
-      "name" : "Bundle de abandono de urgencia",
-      "description" : "Evento abandono: el paciente se retira voluntariamente sin alta médica (fuga o NEA). Cierra el episodio (Encounter en finished). Si alcanzó a ser evaluado, puede incluir la hipótesis diagnóstica y el documento clínico.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "Bundle-BundleAdmisionEj.html"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleAdmisionEj"
-      },
-      "name" : "Bundle de admisión",
-      "description" : "Admisión de la paciente a urgencia: abre el episodio DAU-2026-000123.",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-admision-urgencia"
-    },
-    {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
@@ -783,23 +770,8 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Bundle de admisión de urgencia",
       "description" : "Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en in-progress) y avisa a la red que el paciente se encuentra en atención.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Bundle"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "Bundle-BundleAltaEj.html"
-      }],
-      "reference" : {
-        "reference" : "Bundle/BundleAltaEj"
-      },
-      "name" : "Bundle de alta",
-      "description" : "Alta a domicilio del episodio DAU-2026-000123 con diagnóstico, indicación de medicamento y PDF.",
-      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-alta-urgencia"
+      "exampleBoolean" : false,
+      "groupingId" : "bundles"
     },
     {
       "extension" : [{
@@ -815,7 +787,25 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Bundle de alta de urgencia",
       "description" : "Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso, destino, medicamentos indicados y el documento clínico en PDF.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "bundles"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-bundle-abandono-urgencia.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/bundle-abandono-urgencia"
+      },
+      "name" : "Bundle de abandono de urgencia",
+      "description" : "Evento abandono: el paciente se retira voluntariamente sin alta médica (fuga o NEA). Cierra el episodio (Encounter en finished). Si alcanzó a ser evaluado, puede incluir la hipótesis diagnóstica y el documento clínico.",
+      "exampleBoolean" : false,
+      "groupingId" : "bundles"
     },
     {
       "extension" : [{
@@ -831,183 +821,8 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Bundle de urgencia (base)",
       "description" : "Estructura común de los tres Bundle de urgencia. No se usa directamente: se usa el perfil del evento correspondiente.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Organization"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "Organization-EstablecimientoDestinoEj.html"
-      }],
-      "reference" : {
-        "reference" : "Organization/EstablecimientoDestinoEj"
-      },
-      "name" : "CESFAM de ejemplo",
-      "description" : "Establecimiento de atención primaria al que se deriva a la paciente para control.",
-      "exampleBoolean" : true
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-clasificacion-consulta.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/clasificacion-consulta"
-      },
-      "name" : "Clasificación de la consulta",
-      "description" : "Clasificación médico-legal de la consulta registrada en la admisión.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-clasificacion-consulta.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/vs-clasificacion-consulta"
-      },
-      "name" : "Clasificación de la consulta",
-      "description" : "Clasificación médico-legal de la consulta de urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-clasificacion-consulta.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/clasificacion-consulta"
-      },
-      "name" : "Clasificación de la consulta",
-      "description" : "Clasificación médico-legal de la consulta (CMBD Urgencia: CLASIFICACIÓN DE LA CONSULTA).",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-destino-alta.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/vs-destino-alta"
-      },
-      "name" : "Destino al alta de urgencia",
-      "description" : "Destinos válidos para el evento de alta.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-destino-alta.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/destino-alta"
-      },
-      "name" : "Destino al alta de urgencia",
-      "description" : "Destino indicado por el profesional al dar el alta de urgencia (CMBD Urgencia: DESTINO_ALTA; NT 149 con ajustes DGTIC).",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-destino-egreso.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/vs-destino-egreso"
-      },
-      "name" : "Destino de egreso de urgencia",
-      "description" : "Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de alta y tipos de abandono.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-diagnostico-urgencia.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/diagnostico-urgencia"
-      },
-      "name" : "Diagnóstico de urgencia",
-      "description" : "Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD (hipótesis, confirmado, descartado) se expresa con `verificationStatus`.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-diagnostico-ges.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/diagnostico-ges"
-      },
-      "name" : "Diagnóstico GES",
-      "description" : "Indica si el diagnóstico corresponde a un problema de salud con Garantías Explícitas en Salud (GES).",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-diagnostico-urgencia.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/vs-diagnostico-urgencia"
-      },
-      "name" : "Diagnósticos de urgencia",
-      "description" : "Diagnósticos codificados en CIE-10 (preferente) o SNOMED CT. Se acepta texto libre cuando el diagnóstico no está codificado.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-documento-urgencia.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/documento-urgencia"
-      },
-      "name" : "Documento de la atención de urgencia",
-      "description" : "Referencia al documento clínico de la atención (DAU o epicrisis de urgencia) en PDF. Permite a cualquier establecimiento de la red descubrir y descargar el detalle clínico completo.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "bundles"
     },
     {
       "extension" : [{
@@ -1023,39 +838,8 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Encuentro de urgencia",
       "description" : "Episodio de atención en una unidad de urgencia, desde la admisión hasta el alta o el abandono. Basado en EncounterCL de CL-Core. Es el recurso que la red usa para saber que el paciente estuvo en urgencia, cuándo y cómo terminó.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-encuentro-urgencia-abandono.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/encuentro-urgencia-abandono"
-      },
-      "name" : "Encuentro de urgencia - estado en el abandono",
-      "description" : "Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-encuentro-urgencia-alta.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/encuentro-urgencia-alta"
-      },
-      "name" : "Encuentro de urgencia - estado en el alta",
-      "description" : "Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "encuentro"
     },
     {
       "extension" : [{
@@ -1071,39 +855,59 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Encuentro de urgencia - estado en la admisión",
       "description" : "Reglas del episodio de urgencia al momento de la admisión: abierto (in-progress), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "encuentro"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
+        "valueString" : "StructureDefinition:resource"
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-estado-encuentro-urgencia.html"
+        "valueUri" : "StructureDefinition-encuentro-urgencia-alta.html"
       }],
       "reference" : {
-        "reference" : "ValueSet/vs-estado-encuentro-urgencia"
+        "reference" : "StructureDefinition/encuentro-urgencia-alta"
       },
-      "name" : "Estado del encuentro de urgencia",
-      "description" : "Subconjunto de estados de Encounter usados en urgencia.",
-      "exampleBoolean" : false
+      "name" : "Encuentro de urgencia - estado en el alta",
+      "description" : "Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado.",
+      "exampleBoolean" : false,
+      "groupingId" : "encuentro"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Organization"
+        "valueString" : "StructureDefinition:resource"
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "Organization-EstablecimientoUrgenciaEj.html"
+        "valueUri" : "StructureDefinition-encuentro-urgencia-abandono.html"
       }],
       "reference" : {
-        "reference" : "Organization/EstablecimientoUrgenciaEj"
+        "reference" : "StructureDefinition/encuentro-urgencia-abandono"
       },
-      "name" : "Hospital de ejemplo",
-      "description" : "Establecimiento emisor identificado por su código DEIS, conforme a MINSALPrestadorOrganizacional del NID.",
-      "exampleBoolean" : true
+      "name" : "Encuentro de urgencia - estado en el abandono",
+      "description" : "Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado.",
+      "exampleBoolean" : false,
+      "groupingId" : "encuentro"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-diagnostico-urgencia.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/diagnostico-urgencia"
+      },
+      "name" : "Diagnóstico de urgencia",
+      "description" : "Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD (hipótesis, confirmado, descartado) se expresa con `verificationStatus`.",
+      "exampleBoolean" : false,
+      "groupingId" : "clinicos"
     },
     {
       "extension" : [{
@@ -1119,23 +923,25 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Indicación de medicamento al alta",
       "description" : "Medicamento indicado al alta de urgencia para que el paciente continúe su tratamiento. Acepta nombre genérico y posología en texto libre (CMBD: INDICACIÓN DE FÁRMACOS e ID RECETA).",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "clinicos"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
+        "valueString" : "StructureDefinition:resource"
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-ley-previsional.html"
+        "valueUri" : "StructureDefinition-documento-urgencia.html"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/ley-previsional"
+        "reference" : "StructureDefinition/documento-urgencia"
       },
-      "name" : "Ley previsional o programa",
-      "description" : "Ley social o programa que cubre la atención de urgencia. Usa la terminología del NID; el binding es extensible porque el NID aún no incluye PRAIS (código 05 del CMBD).",
-      "exampleBoolean" : false
+      "name" : "Documento de la atención de urgencia",
+      "description" : "Referencia al documento clínico de la atención (DAU o epicrisis de urgencia) en PDF. Permite a cualquier establecimiento de la red descubrir y descargar el detalle clínico completo.",
+      "exampleBoolean" : false,
+      "groupingId" : "clinicos"
     },
     {
       "extension" : [{
@@ -1151,87 +957,8 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Medio de llegada",
       "description" : "Medio de transporte con que el paciente llega a la unidad de urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-medio-llegada.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/vs-medio-llegada"
-      },
-      "name" : "Medio de llegada",
-      "description" : "Medio de llegada del paciente a urgencia.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-medio-llegada.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/medio-llegada"
-      },
-      "name" : "Medio de llegada",
-      "description" : "Medio de transporte con que el paciente llega a urgencia (CMBD Urgencia: LLEGADA).",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Practitioner"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "Practitioner-ProfesionalUrgenciaEj.html"
-      }],
-      "reference" : {
-        "reference" : "Practitioner/ProfesionalUrgenciaEj"
-      },
-      "name" : "Médica de urgencia",
-      "description" : "Médica cirujana que da el alta, conforme a MINSALPrestadorProfesional del NID.",
-      "exampleBoolean" : true
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Patient"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "Patient-PacienteUrgenciaEj.html"
-      }],
-      "reference" : {
-        "reference" : "Patient/PacienteUrgenciaEj"
-      },
-      "name" : "Paciente de urgencia",
-      "description" : "Paciente chilena identificada por RUN, conforme a MINSALPaciente del NID.",
-      "exampleBoolean" : true
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-pertinencia.html"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/pertinencia"
-      },
-      "name" : "Pertinencia de la atención",
-      "description" : "Indica si la consulta fue pertinente para una unidad de urgencia.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "extensiones"
     },
     {
       "extension" : [{
@@ -1247,39 +974,42 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Previsión de salud",
       "description" : "Previsión de salud del paciente al momento de la atención y, si es FONASA, su tramo.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "extensiones"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
+        "valueString" : "StructureDefinition:extension"
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-procedencia.html"
+        "valueUri" : "StructureDefinition-ley-previsional.html"
       }],
       "reference" : {
-        "reference" : "ValueSet/vs-procedencia"
+        "reference" : "StructureDefinition/ley-previsional"
       },
-      "name" : "Procedencia del paciente",
-      "description" : "Procedencia del paciente al consultar en urgencia.",
-      "exampleBoolean" : false
+      "name" : "Ley previsional o programa",
+      "description" : "Ley social o programa que cubre la atención de urgencia. Usa la terminología del NID; el binding es extensible porque el NID aún no incluye PRAIS (código 05 del CMBD).",
+      "exampleBoolean" : false,
+      "groupingId" : "extensiones"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
+        "valueString" : "StructureDefinition:extension"
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-procedencia.html"
+        "valueUri" : "StructureDefinition-clasificacion-consulta.html"
       }],
       "reference" : {
-        "reference" : "CodeSystem/procedencia"
+        "reference" : "StructureDefinition/clasificacion-consulta"
       },
-      "name" : "Procedencia del paciente",
-      "description" : "Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PACIENTE).",
-      "exampleBoolean" : false
+      "name" : "Clasificación de la consulta",
+      "description" : "Clasificación médico-legal de la consulta registrada en la admisión.",
+      "exampleBoolean" : false,
+      "groupingId" : "extensiones"
     },
     {
       "extension" : [{
@@ -1295,7 +1025,42 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Pronóstico médico-legal",
       "description" : "Pronóstico médico-legal registrado al cierre de la atención.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "extensiones"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-pertinencia.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/pertinencia"
+      },
+      "name" : "Pertinencia de la atención",
+      "description" : "Indica si la consulta fue pertinente para una unidad de urgencia.",
+      "exampleBoolean" : false,
+      "groupingId" : "extensiones"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-diagnostico-ges.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/diagnostico-ges"
+      },
+      "name" : "Diagnóstico GES",
+      "description" : "Indica si el diagnóstico corresponde a un problema de salud con Garantías Explícitas en Salud (GES).",
+      "exampleBoolean" : false,
+      "groupingId" : "extensiones"
     },
     {
       "extension" : [{
@@ -1304,30 +1069,15 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-pronostico-medico-legal.html"
+        "valueUri" : "ValueSet-vs-estado-encuentro-urgencia.html"
       }],
       "reference" : {
-        "reference" : "ValueSet/vs-pronostico-medico-legal"
+        "reference" : "ValueSet/vs-estado-encuentro-urgencia"
       },
-      "name" : "Pronóstico médico-legal",
-      "description" : "Pronóstico médico-legal registrado al cierre de la atención.",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-pronostico-medico-legal.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/pronostico-medico-legal"
-      },
-      "name" : "Pronóstico médico-legal",
-      "description" : "Pronóstico médico-legal registrado al cierre (CMBD Urgencia: PRONÓSTICO MÉDICO LEGAL).",
-      "exampleBoolean" : false
+      "name" : "Estado del encuentro de urgencia",
+      "description" : "Subconjunto de estados de Encounter usados en urgencia.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
     },
     {
       "extension" : [{
@@ -1336,30 +1086,32 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-vs-tipo-abandono.html"
+        "valueUri" : "ValueSet-vs-procedencia.html"
       }],
       "reference" : {
-        "reference" : "ValueSet/vs-tipo-abandono"
+        "reference" : "ValueSet/vs-procedencia"
       },
-      "name" : "Tipo de abandono de la atención",
-      "description" : "Tipos de abandono válidos para el evento de abandono.",
-      "exampleBoolean" : false
+      "name" : "Procedencia del paciente",
+      "description" : "Procedencia del paciente al consultar en urgencia.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
+        "valueString" : "ValueSet"
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-tipo-abandono.html"
+        "valueUri" : "ValueSet-vs-medio-llegada.html"
       }],
       "reference" : {
-        "reference" : "CodeSystem/tipo-abandono"
+        "reference" : "ValueSet/vs-medio-llegada"
       },
-      "name" : "Tipo de abandono de la atención",
-      "description" : "Momento en que el paciente abandona voluntariamente la atención de urgencia. Códigos alineados con la versión 0.1.2-ballot de esta guía.",
-      "exampleBoolean" : false
+      "name" : "Medio de llegada",
+      "description" : "Medio de llegada del paciente a urgencia.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
     },
     {
       "extension" : [{
@@ -1375,23 +1127,110 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Unidad de atención de urgencia",
       "description" : "Tipo de atención de urgencia asignada en la admisión.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
+        "valueString" : "ValueSet"
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-unidad-atencion.html"
+        "valueUri" : "ValueSet-vs-clasificacion-consulta.html"
       }],
       "reference" : {
-        "reference" : "CodeSystem/unidad-atencion"
+        "reference" : "ValueSet/vs-clasificacion-consulta"
       },
-      "name" : "Unidad de atención de urgencia",
-      "description" : "Tipo de atención asignada en la admisión (CMBD Urgencia: UNIDAD DE ATENCIÓN).",
-      "exampleBoolean" : false
+      "name" : "Clasificación de la consulta",
+      "description" : "Clasificación médico-legal de la consulta de urgencia.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-vs-destino-egreso.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/vs-destino-egreso"
+      },
+      "name" : "Destino de egreso de urgencia",
+      "description" : "Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de alta y tipos de abandono.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-vs-destino-alta.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/vs-destino-alta"
+      },
+      "name" : "Destino al alta de urgencia",
+      "description" : "Destinos válidos para el evento de alta.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-vs-tipo-abandono.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/vs-tipo-abandono"
+      },
+      "name" : "Tipo de abandono de la atención",
+      "description" : "Tipos de abandono válidos para el evento de abandono.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-vs-pronostico-medico-legal.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/vs-pronostico-medico-legal"
+      },
+      "name" : "Pronóstico médico-legal",
+      "description" : "Pronóstico médico-legal registrado al cierre de la atención.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-vs-diagnostico-urgencia.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/vs-diagnostico-urgencia"
+      },
+      "name" : "Diagnósticos de urgencia",
+      "description" : "Diagnósticos codificados en CIE-10 (preferente) o SNOMED CT. Se acepta texto libre cuando el diagnóstico no está codificado.",
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
     },
     {
       "extension" : [{
@@ -1407,7 +1246,246 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
       },
       "name" : "Uso del diagnóstico en el episodio",
       "description" : "Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso.",
-      "exampleBoolean" : false
+      "exampleBoolean" : false,
+      "groupingId" : "conjuntos-valores"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-procedencia.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/procedencia"
+      },
+      "name" : "Procedencia del paciente",
+      "description" : "Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PACIENTE).",
+      "exampleBoolean" : false,
+      "groupingId" : "sistemas-codigos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-medio-llegada.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/medio-llegada"
+      },
+      "name" : "Medio de llegada",
+      "description" : "Medio de transporte con que el paciente llega a urgencia (CMBD Urgencia: LLEGADA).",
+      "exampleBoolean" : false,
+      "groupingId" : "sistemas-codigos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-unidad-atencion.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/unidad-atencion"
+      },
+      "name" : "Unidad de atención de urgencia",
+      "description" : "Tipo de atención asignada en la admisión (CMBD Urgencia: UNIDAD DE ATENCIÓN).",
+      "exampleBoolean" : false,
+      "groupingId" : "sistemas-codigos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-clasificacion-consulta.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/clasificacion-consulta"
+      },
+      "name" : "Clasificación de la consulta",
+      "description" : "Clasificación médico-legal de la consulta (CMBD Urgencia: CLASIFICACIÓN DE LA CONSULTA).",
+      "exampleBoolean" : false,
+      "groupingId" : "sistemas-codigos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-destino-alta.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/destino-alta"
+      },
+      "name" : "Destino al alta de urgencia",
+      "description" : "Destino indicado por el profesional al dar el alta de urgencia (CMBD Urgencia: DESTINO_ALTA; NT 149 con ajustes DGTIC).",
+      "exampleBoolean" : false,
+      "groupingId" : "sistemas-codigos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-tipo-abandono.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/tipo-abandono"
+      },
+      "name" : "Tipo de abandono de la atención",
+      "description" : "Momento en que el paciente abandona voluntariamente la atención de urgencia. Códigos alineados con CodeSystem abandono de la guía de Urgencia publicada (hl7.fhir.cl.minsal.urgencia 0.1.2-ballot).",
+      "exampleBoolean" : false,
+      "groupingId" : "sistemas-codigos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-pronostico-medico-legal.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/pronostico-medico-legal"
+      },
+      "name" : "Pronóstico médico-legal",
+      "description" : "Pronóstico médico-legal registrado al cierre (CMBD Urgencia: PRONÓSTICO MÉDICO LEGAL).",
+      "exampleBoolean" : false,
+      "groupingId" : "sistemas-codigos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-BundleAdmisionEj.html"
+      }],
+      "reference" : {
+        "reference" : "Bundle/BundleAdmisionEj"
+      },
+      "name" : "Bundle de admisión",
+      "description" : "Admisión de la paciente a urgencia: abre el episodio DAU-2026-000123.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia",
+      "groupingId" : "ejemplos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-BundleAltaEj.html"
+      }],
+      "reference" : {
+        "reference" : "Bundle/BundleAltaEj"
+      },
+      "name" : "Bundle de alta",
+      "description" : "Alta a domicilio del episodio DAU-2026-000123 con diagnóstico, indicación de medicamento y PDF.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-alta-urgencia",
+      "groupingId" : "ejemplos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-BundleAbandonoEj.html"
+      }],
+      "reference" : {
+        "reference" : "Bundle/BundleAbandonoEj"
+      },
+      "name" : "Bundle de abandono (fuga)",
+      "description" : "Cierre del episodio DAU-2026-000456 porque la paciente se retiró sin alta médica.",
+      "exampleCanonical" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-abandono-urgencia",
+      "groupingId" : "ejemplos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Patient"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Patient-PacienteUrgenciaEj.html"
+      }],
+      "reference" : {
+        "reference" : "Patient/PacienteUrgenciaEj"
+      },
+      "name" : "Paciente de urgencia",
+      "description" : "Paciente chilena identificada por RUN, conforme a MINSALPaciente del NID.",
+      "exampleBoolean" : true,
+      "groupingId" : "ejemplos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Practitioner"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Practitioner-ProfesionalUrgenciaEj.html"
+      }],
+      "reference" : {
+        "reference" : "Practitioner/ProfesionalUrgenciaEj"
+      },
+      "name" : "Médica de urgencia",
+      "description" : "Médica cirujana que da el alta, conforme a MINSALPrestadorProfesional del NID.",
+      "exampleBoolean" : true,
+      "groupingId" : "ejemplos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Organization-EstablecimientoUrgenciaEj.html"
+      }],
+      "reference" : {
+        "reference" : "Organization/EstablecimientoUrgenciaEj"
+      },
+      "name" : "Hospital de ejemplo",
+      "description" : "Establecimiento emisor identificado por su código DEIS, conforme a MINSALPrestadorOrganizacional del NID.",
+      "exampleBoolean" : true,
+      "groupingId" : "ejemplos"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Organization-EstablecimientoDestinoEj.html"
+      }],
+      "reference" : {
+        "reference" : "Organization/EstablecimientoDestinoEj"
+      },
+      "name" : "CESFAM de ejemplo",
+      "description" : "Establecimiento de atención primaria al que se deriva a la paciente para control.",
+      "exampleBoolean" : true,
+      "groupingId" : "ejemplos"
     }],
     "page" : {
       "extension" : [{
@@ -1460,6 +1538,15 @@ DocumentReference .. ¿Dónde está el documento clínico completo? → PDF
         }],
         "nameUrl" : "mapeo-cmbd.html",
         "title" : "Mapeo CMBD",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "artifacts.html"
+        }],
+        "nameUrl" : "artifacts.html",
+        "title" : "Artefactos",
         "generation" : "markdown"
       },
       {

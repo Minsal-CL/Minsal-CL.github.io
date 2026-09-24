@@ -44,8 +44,8 @@
 	  <script src="assets/js/prism.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"6"}
-    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -152,7 +152,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) - Local Development build (v0.2.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) - Local Development build (v0.2.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Historial de cambios</h2>
   
 
@@ -171,6 +171,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#versión-020" id="markdown-toc-versión-020">Versión 0.2.0</a>    <ul>
+      <li><a href="#identidad-de-la-guía" id="markdown-toc-identidad-de-la-guía">Identidad de la guía</a></li>
       <li><a href="#alcance-funcional" id="markdown-toc-alcance-funcional">Alcance funcional</a></li>
       <li><a href="#estructura" id="markdown-toc-estructura">Estructura</a></li>
       <li><a href="#dependencias" id="markdown-toc-dependencias">Dependencias</a></li>
@@ -207,22 +208,30 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>Rediseño de la guía hacia un <strong>modelo de eventos mínimo</strong> orientado a la continuidad de la atención en la red. Reemplaza el modelo documental de las versiones 0.1.x.</p>
 
+<h3 id="identidad-de-la-guía">Identidad de la guía</h3>
+
+<ul>
+  <li><strong>Paquete y canonical propios:</strong> <code class="language-plaintext highlighter-rouge">hl7.fhir.cl.minsal.urgencia.eventos</code> y <code class="language-plaintext highlighter-rouge">https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos</code>. Esta guía es distinta de la guía de Urgencia publicada (<code class="language-plaintext highlighter-rouge">hl7.fhir.cl.minsal.urgencia</code> 0.1.2-ballot) y convive con ella; antes compartían <code class="language-plaintext highlighter-rouge">id</code> y canonical, lo que habría hecho competir ambas guías por la misma URL y el mismo paquete.</li>
+</ul>
+
 <h3 id="alcance-funcional">Alcance funcional</h3>
 
 <ul>
   <li><strong>Tres eventos:</strong> la atención se informa mediante tres transacciones: <strong>admisión</strong>, <strong>alta</strong> y <strong>abandono</strong> (fuga o NEA). Reemplaza el envío único de un documento al cierre.</li>
   <li><strong>Encounter como recurso central:</strong> un único episodio que se abre en la admisión (<code class="language-plaintext highlighter-rouge">in-progress</code>) y se cierra con el alta o el abandono (<code class="language-plaintext highlighter-rouge">finished</code>). Los eventos se correlacionan por el ID DAU (<code class="language-plaintext highlighter-rouge">Encounter.identifier</code>).</li>
   <li><strong>Contenido clínico mínimo:</strong> diagnóstico de egreso, medicamentos indicados al alta y referencia al PDF del DAU. El detalle clínico queda en el PDF.</li>
-  <li><strong>Abandono:</strong> fuga y NEA se unifican en el evento <code class="language-plaintext highlighter-rouge">abandono</code> y se distinguen por el tipo de abandono (códigos alineados con la versión 0.1.2-ballot).</li>
+  <li><strong>Abandono:</strong> fuga y NEA se unifican en el evento <code class="language-plaintext highlighter-rouge">abandono</code> y se distinguen por el tipo de abandono (códigos alineados con la guía de Urgencia publicada (<code class="language-plaintext highlighter-rouge">hl7.fhir.cl.minsal.urgencia</code> 0.1.2-ballot)).</li>
   <li><strong>CMBD de Urgencia:</strong> se incorpora el mapeo campo a campo del CMBD (DEIS) a FHIR, con sus dominios como CodeSystems locales.</li>
 </ul>
 
 <h3 id="estructura">Estructura</h3>
 
 <ul>
-  <li><strong><code class="language-plaintext highlighter-rouge">Bundle.type = transaction</code></strong> en lugar de <code class="language-plaintext highlighter-rouge">Bundle.type = document</code> con <code class="language-plaintext highlighter-rouge">Composition</code>, alineado con la versión 0.1.2-ballot.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Bundle.type = transaction</code></strong> en lugar de <code class="language-plaintext highlighter-rouge">Bundle.type = document</code> con <code class="language-plaintext highlighter-rouge">Composition</code>, igual que la guía de Urgencia publicada (<code class="language-plaintext highlighter-rouge">hl7.fhir.cl.minsal.urgencia</code> 0.1.2-ballot).</li>
   <li><strong><code class="language-plaintext highlighter-rouge">PUT</code> condicional por identificador</strong> en todas las entradas: el ID DAU correlaciona los eventos y un reenvío no duplica recursos. Diagnóstico, indicación de medicamento y documento exigen identificador.</li>
   <li><strong>HCC (Portal Ciudadano)</strong> se incorpora como consumidor en los diagramas de arquitectura y casos de uso.</li>
+  <li><strong>Índice de artefactos en español:</strong> grupos propios (Bundles por evento, Encuentro de urgencia, Contenido clínico, Extensiones, Conjuntos de valores, Sistemas de códigos, Ejemplos) en lugar de los grupos automáticos en inglés de la plantilla.</li>
+  <li><strong>Descripciones de elementos en español:</strong> todos los elementos que la guía restringe o marca como obligatorios de soportar tienen su texto corto (<code class="language-plaintext highlighter-rouge">short</code>) en español.</li>
   <li><strong>Se elimina <code class="language-plaintext highlighter-rouge">Composition</code>:</strong> el <code class="language-plaintext highlighter-rouge">DocumentReference</code> basta para descubrir y acceder al PDF.</li>
 </ul>
 
@@ -485,12 +494,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 23, 2026 16:36-0300">2026-09-23</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 24, 2026 11:47-0300">2026-09-24</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
-<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Historial de versiones</a></a>
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/history.html">Historial de versiones</a></a>
 
           </span>
         </p>

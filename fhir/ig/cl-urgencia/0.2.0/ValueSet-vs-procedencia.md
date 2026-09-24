@@ -1,15 +1,15 @@
 # Procedencia del paciente - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Procedencia del paciente**
 
 ## ValueSet: Procedencia del paciente (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-procedencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:VSProcedencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-procedencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:VSProcedencia |
 
  
 Procedencia del paciente al consultar en urgencia. 
@@ -45,13 +45,13 @@ Procedencia del paciente al consultar en urgencia.
 {
   "resourceType" : "ValueSet",
   "id" : "vs-procedencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-procedencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-procedencia",
   "version" : "0.2.0",
   "name" : "VSProcedencia",
   "title" : "Procedencia del paciente",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -70,7 +70,7 @@ Procedencia del paciente al consultar en urgencia.
   }],
   "compose" : {
     "include" : [{
-      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia"
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia"
     }]
   }
 }

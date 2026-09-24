@@ -1,15 +1,15 @@
 # Encuentro de urgencia - estado en el abandono - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Encuentro de urgencia - estado en el abandono**
 
 ## Resource Profile: Encuentro de urgencia - estado en el abandono 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia-abandono | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:EncuentroUrgenciaAbandono |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-abandono | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:EncuentroUrgenciaAbandono |
 
  
 Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. 
@@ -18,7 +18,7 @@ Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin
 
 * Use this Profile: [Bundle de abandono de urgencia](StructureDefinition-bundle-abandono-urgencia.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-encuentro-urgencia-abandono.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-encuentro-urgencia-abandono.json)
 
 ### Formal Views of Profile Content
 
@@ -36,12 +36,12 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
 {
   "resourceType" : "StructureDefinition",
   "id" : "encuentro-urgencia-abandono",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia-abandono",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-abandono",
   "version" : "0.2.0",
   "name" : "EncuentroUrgenciaAbandono",
   "title" : "Encuentro de urgencia - estado en el abandono",
   "status" : "draft",
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -82,7 +82,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
   "kind" : "resource",
   "abstract" : false,
   "type" : "Encounter",
-  "baseDefinition" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia",
+  "baseDefinition" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
@@ -107,7 +107,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
       "min" : 1,
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-tipo-abandono"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-abandono"
       }
     }]
   }

@@ -1,15 +1,15 @@
 # Ley previsional o programa - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Ley previsional o programa**
 
 ## Extension: Ley previsional o programa (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ley-previsional | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:LeyPrevisional |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/ley-previsional | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:LeyPrevisional |
 
 Ley social o programa que cubre la atención de urgencia. Usa la terminología del NID; el binding es extensible porque el NID aún no incluye PRAIS (código 05 del CMBD).
 
@@ -22,7 +22,7 @@ Ley social o programa que cubre la atención de urgencia. Usa la terminología d
 * Use this Extension: [Encuentro de urgencia](StructureDefinition-encuentro-urgencia.md)
 * Examples for this Extension: [Bundle/BundleAdmisionEj](Bundle-BundleAdmisionEj.md) and [Bundle/BundleAltaEj](Bundle-BundleAltaEj.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-ley-previsional.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-ley-previsional.json)
 
 ### Formal Views of Extension Content
 
@@ -44,13 +44,13 @@ Other representations of profile: [CSV](StructureDefinition-ley-previsional.csv)
 {
   "resourceType" : "StructureDefinition",
   "id" : "ley-previsional",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ley-previsional",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/ley-previsional",
   "version" : "0.2.0",
   "name" : "LeyPrevisional",
   "title" : "Ley previsional o programa",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -97,11 +97,13 @@ Other representations of profile: [CSV](StructureDefinition-ley-previsional.csv)
     {
       "id" : "Extension.url",
       "path" : "Extension.url",
-      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ley-previsional"
+      "short" : "URL que identifica la extensión",
+      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/ley-previsional"
     },
     {
       "id" : "Extension.value[x]",
       "path" : "Extension.value[x]",
+      "short" : "Ley previsional o programa",
       "type" : [{
         "code" : "CodeableConcept"
       }],

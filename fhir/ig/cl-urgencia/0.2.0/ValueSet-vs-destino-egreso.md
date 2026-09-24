@@ -1,15 +1,15 @@
 # Destino de egreso de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Destino de egreso de urgencia**
 
 ## ValueSet: Destino de egreso de urgencia (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-destino-egreso | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:VSDestinoEgreso |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-destino-egreso | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:VSDestinoEgreso |
 
  
 Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de alta y tipos de abandono. 
@@ -45,13 +45,13 @@ Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de
 {
   "resourceType" : "ValueSet",
   "id" : "vs-destino-egreso",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-destino-egreso",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-destino-egreso",
   "version" : "0.2.0",
   "name" : "VSDestinoEgreso",
   "title" : "Destino de egreso de urgencia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -70,10 +70,10 @@ Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de
   }],
   "compose" : {
     "include" : [{
-      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-alta"
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/destino-alta"
     },
     {
-      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-abandono"
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono"
     }]
   }
 }

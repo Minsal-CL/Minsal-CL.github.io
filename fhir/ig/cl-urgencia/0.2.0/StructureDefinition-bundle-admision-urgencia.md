@@ -1,15 +1,15 @@
 # Bundle de admisión de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Bundle de admisión de urgencia**
 
 ## Resource Profile: Bundle de admisión de urgencia 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-admision-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:BundleAdmisionUrgencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:BundleAdmisionUrgencia |
 
  
 Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en in-progress) y avisa a la red que el paciente se encuentra en atención. 
@@ -18,7 +18,7 @@ Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encount
 
 * Examples for this Profile: [Bundle/BundleAdmisionEj](Bundle-BundleAdmisionEj.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-bundle-admision-urgencia.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-bundle-admision-urgencia.json)
 
 ### Formal Views of Profile Content
 
@@ -36,12 +36,12 @@ Other representations of profile: [CSV](StructureDefinition-bundle-admision-urge
 {
   "resourceType" : "StructureDefinition",
   "id" : "bundle-admision-urgencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-admision-urgencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia",
   "version" : "0.2.0",
   "name" : "BundleAdmisionUrgencia",
   "title" : "Bundle de admisión de urgencia",
   "status" : "draft",
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -82,7 +82,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-admision-urge
   "kind" : "resource",
   "abstract" : false,
   "type" : "Bundle",
-  "baseDefinition" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-urgencia",
+  "baseDefinition" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia",
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
@@ -93,6 +93,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-admision-urge
       "id" : "Bundle.entry:encuentro",
       "path" : "Bundle.entry",
       "sliceName" : "encuentro",
+      "short" : "Episodio de urgencia",
       "min" : 1,
       "max" : "1",
       "mustSupport" : true
@@ -100,10 +101,16 @@ Other representations of profile: [CSV](StructureDefinition-bundle-admision-urge
     {
       "id" : "Bundle.entry:encuentro.resource",
       "path" : "Bundle.entry.resource",
+      "short" : "Episodio de urgencia",
       "type" : [{
         "code" : "Encounter",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia-admision"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-admision"]
       }]
+    },
+    {
+      "id" : "Bundle.entry:encuentro.request",
+      "path" : "Bundle.entry.request",
+      "short" : "PUT Encounter?identifier=[sistema DAU]|[ID DAU]"
     }]
   }
 }

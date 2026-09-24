@@ -1,7 +1,7 @@
 # Bundle de abandono (fuga) - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Bundle de abandono (fuga)**
 
 ## Example Bundle: Bundle de abandono (fuga)
@@ -15,7 +15,7 @@
   "resourceType" : "Bundle",
   "id" : "BundleAbandonoEj",
   "meta" : {
-    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-abandono-urgencia"]
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-abandono-urgencia"]
   },
   "type" : "transaction",
   "entry" : [{
@@ -145,11 +145,11 @@
       "resourceType" : "Encounter",
       "id" : "EpisodioDAU456EstadoAbandono",
       "meta" : {
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia-abandono"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-abandono"]
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_EpisodioDAU456EstadoAbandono\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro EpisodioDAU456EstadoAbandono</b></p><a name=\"EpisodioDAU456EstadoAbandono\"> </a><a name=\"hcEpisodioDAU456EstadoAbandono\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-abandono.html\">Encuentro de urgencia - estado en el abandono</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/dau</code>/DAU-2026-000456</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>period</b>: 2026-09-20 21:10:00-0300 --&gt; 2026-09-20 23:05:00-0300</p><p><b>reasonCode</b>: <span title=\"Codes:\">Cefalea intensa</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td><td><b>Use</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0021-4000-8000-000000000021\">Condition Headache</a></td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/diagnosis-role AD}\">Admission diagnosis</span></td></tr></table><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>AdmitSource</b></td><td><b>DischargeDisposition</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia 6}\">Espontáneo</span></td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-abandono 2}\">Abandono durante la atención médica (fuga)</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_EpisodioDAU456EstadoAbandono\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro EpisodioDAU456EstadoAbandono</b></p><a name=\"EpisodioDAU456EstadoAbandono\"> </a><a name=\"hcEpisodioDAU456EstadoAbandono\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-abandono.html\">Encuentro de urgencia - estado en el abandono</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/dau</code>/DAU-2026-000456</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>period</b>: 2026-09-20 21:10:00-0300 --&gt; 2026-09-20 23:05:00-0300</p><p><b>reasonCode</b>: <span title=\"Codes:\">Cefalea intensa</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td><td><b>Use</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0021-4000-8000-000000000021\">Condition Headache</a></td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/diagnosis-role AD}\">Admission diagnosis</span></td></tr></table><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>AdmitSource</b></td><td><b>DischargeDisposition</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia 6}\">Espontáneo</span></td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono 2}\">Abandono durante la atención médica (fuga)</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
       },
       "identifier" : [{
         "system" : "https://hospital-ejemplo.cl/fhir/sid/dau",
@@ -162,7 +162,7 @@
       },
       "serviceType" : {
         "coding" : [{
-          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-atencion",
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion",
           "code" : "02",
           "display" : "Atención de adulto"
         }]
@@ -192,14 +192,14 @@
       "hospitalization" : {
         "admitSource" : {
           "coding" : [{
-            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia",
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia",
             "code" : "6",
             "display" : "Espontáneo"
           }]
         },
         "dischargeDisposition" : {
           "coding" : [{
-            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-abandono",
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono",
             "code" : "2",
             "display" : "Abandono durante la atención médica (fuga)"
           }]
@@ -220,7 +220,7 @@
       "resourceType" : "Condition",
       "id" : "HipotesisAbandonoEj",
       "meta" : {
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/diagnostico-urgencia"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia"]
       },
       "text" : {
         "status" : "generated",

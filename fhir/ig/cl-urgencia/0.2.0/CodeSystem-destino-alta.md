@@ -1,15 +1,15 @@
 # Destino al alta de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Destino al alta de urgencia**
 
 ## CodeSystem: Destino al alta de urgencia (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-alta | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:CSDestinoAlta |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/destino-alta | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:CSDestinoAlta |
 
  
 Destino indicado por el profesional al dar el alta de urgencia (CMBD Urgencia: DESTINO_ALTA; NT 149 con ajustes DGTIC). 
@@ -27,13 +27,13 @@ Destino indicado por el profesional al dar el alta de urgencia (CMBD Urgencia: D
 {
   "resourceType" : "CodeSystem",
   "id" : "destino-alta",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-alta",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/destino-alta",
   "version" : "0.2.0",
   "name" : "CSDestinoAlta",
   "title" : "Destino al alta de urgencia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

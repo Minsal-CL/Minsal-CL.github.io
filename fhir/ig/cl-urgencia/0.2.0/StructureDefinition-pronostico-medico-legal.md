@@ -1,15 +1,15 @@
 # Pronóstico médico-legal - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Pronóstico médico-legal**
 
 ## Extension: Pronóstico médico-legal (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pronostico-medico-legal | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:PronosticoMedicoLegal |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pronostico-medico-legal | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:PronosticoMedicoLegal |
 
 Pronóstico médico-legal registrado al cierre de la atención.
 
@@ -22,7 +22,7 @@ Pronóstico médico-legal registrado al cierre de la atención.
 * Use this Extension: [Encuentro de urgencia](StructureDefinition-encuentro-urgencia.md)
 * Examples for this Extension: [Bundle/BundleAltaEj](Bundle-BundleAltaEj.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-pronostico-medico-legal.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-pronostico-medico-legal.json)
 
 ### Formal Views of Extension Content
 
@@ -44,13 +44,13 @@ Other representations of profile: [CSV](StructureDefinition-pronostico-medico-le
 {
   "resourceType" : "StructureDefinition",
   "id" : "pronostico-medico-legal",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pronostico-medico-legal",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pronostico-medico-legal",
   "version" : "0.2.0",
   "name" : "PronosticoMedicoLegal",
   "title" : "Pronóstico médico-legal",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -97,17 +97,19 @@ Other representations of profile: [CSV](StructureDefinition-pronostico-medico-le
     {
       "id" : "Extension.url",
       "path" : "Extension.url",
-      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pronostico-medico-legal"
+      "short" : "URL que identifica la extensión",
+      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pronostico-medico-legal"
     },
     {
       "id" : "Extension.value[x]",
       "path" : "Extension.value[x]",
+      "short" : "Pronóstico médico-legal",
       "type" : [{
         "code" : "CodeableConcept"
       }],
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-pronostico-medico-legal"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-pronostico-medico-legal"
       }
     }]
   }

@@ -1,15 +1,15 @@
 # Tipo de abandono de la atención - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Tipo de abandono de la atención**
 
 ## ValueSet: Tipo de abandono de la atención (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-tipo-abandono | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:VSTipoAbandono |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-abandono | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:VSTipoAbandono |
 
  
 Tipos de abandono válidos para el evento de abandono. 
@@ -45,13 +45,13 @@ Tipos de abandono válidos para el evento de abandono.
 {
   "resourceType" : "ValueSet",
   "id" : "vs-tipo-abandono",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-tipo-abandono",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-abandono",
   "version" : "0.2.0",
   "name" : "VSTipoAbandono",
   "title" : "Tipo de abandono de la atención",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -70,7 +70,7 @@ Tipos de abandono válidos para el evento de abandono.
   }],
   "compose" : {
     "include" : [{
-      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-abandono"
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono"
     }]
   }
 }

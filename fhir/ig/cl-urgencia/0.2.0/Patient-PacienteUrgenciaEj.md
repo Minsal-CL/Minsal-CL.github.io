@@ -1,7 +1,7 @@
 # Paciente de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Paciente de urgencia**
 
 ## Example Patient: Paciente de urgencia

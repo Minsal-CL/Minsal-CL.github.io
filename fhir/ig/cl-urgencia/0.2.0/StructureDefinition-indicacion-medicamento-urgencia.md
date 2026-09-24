@@ -1,15 +1,15 @@
 # Indicación de medicamento al alta - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Indicación de medicamento al alta**
 
 ## Resource Profile: Indicación de medicamento al alta 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/indicacion-medicamento-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:IndicacionMedicamentoUrgencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/indicacion-medicamento-urgencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:IndicacionMedicamentoUrgencia |
 
  
 Medicamento indicado al alta de urgencia para que el paciente continúe su tratamiento. Acepta nombre genérico y posología en texto libre (CMBD: INDICACIÓN DE FÁRMACOS e ID RECETA). 
@@ -18,7 +18,7 @@ Medicamento indicado al alta de urgencia para que el paciente continúe su trata
 
 * Use this Profile: [Bundle de alta de urgencia](StructureDefinition-bundle-alta-urgencia.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-indicacion-medicamento-urgencia.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-indicacion-medicamento-urgencia.json)
 
 ### Formal Views of Profile Content
 
@@ -36,12 +36,12 @@ Other representations of profile: [CSV](StructureDefinition-indicacion-medicamen
 {
   "resourceType" : "StructureDefinition",
   "id" : "indicacion-medicamento-urgencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/indicacion-medicamento-urgencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/indicacion-medicamento-urgencia",
   "version" : "0.2.0",
   "name" : "IndicacionMedicamentoUrgencia",
   "title" : "Indicación de medicamento al alta",
   "status" : "draft",
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -91,6 +91,11 @@ Other representations of profile: [CSV](StructureDefinition-indicacion-medicamen
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
+      "id" : "MedicationRequest",
+      "path" : "MedicationRequest",
+      "short" : "Medicamento indicado al alta de urgencia"
+    },
+    {
       "id" : "MedicationRequest.identifier",
       "path" : "MedicationRequest.identifier",
       "short" : "Identificador de la indicación en el HIS/RCE (llave del PUT condicional)",
@@ -100,29 +105,34 @@ Other representations of profile: [CSV](StructureDefinition-indicacion-medicamen
     {
       "id" : "MedicationRequest.identifier.system",
       "path" : "MedicationRequest.identifier.system",
+      "short" : "Sistema de identificadores de indicaciones del establecimiento",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "MedicationRequest.identifier.value",
       "path" : "MedicationRequest.identifier.value",
+      "short" : "Identificador de la indicación",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "MedicationRequest.status",
       "path" : "MedicationRequest.status",
+      "short" : "Estado de la indicación (active al alta)",
       "mustSupport" : true
     },
     {
       "id" : "MedicationRequest.intent",
       "path" : "MedicationRequest.intent",
+      "short" : "order: indicación médica",
       "patternCode" : "order",
       "mustSupport" : true
     },
     {
       "id" : "MedicationRequest.medication[x]",
       "path" : "MedicationRequest.medication[x]",
+      "short" : "Medicamento indicado",
       "type" : [{
         "code" : "CodeableConcept"
       }],
@@ -138,6 +148,7 @@ Other representations of profile: [CSV](StructureDefinition-indicacion-medicamen
     {
       "id" : "MedicationRequest.subject",
       "path" : "MedicationRequest.subject",
+      "short" : "Paciente",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente"]
@@ -147,22 +158,25 @@ Other representations of profile: [CSV](StructureDefinition-indicacion-medicamen
     {
       "id" : "MedicationRequest.encounter",
       "path" : "MedicationRequest.encounter",
+      "short" : "Episodio de urgencia en que se indica",
       "min" : 1,
       "type" : [{
         "code" : "Reference",
-        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia"]
+        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"]
       }],
       "mustSupport" : true
     },
     {
       "id" : "MedicationRequest.authoredOn",
       "path" : "MedicationRequest.authoredOn",
+      "short" : "Fecha y hora de la indicación",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "MedicationRequest.requester",
       "path" : "MedicationRequest.requester",
+      "short" : "Profesional que indica",
       "min" : 1,
       "type" : [{
         "code" : "Reference",
@@ -179,6 +193,7 @@ Other representations of profile: [CSV](StructureDefinition-indicacion-medicamen
     {
       "id" : "MedicationRequest.dosageInstruction",
       "path" : "MedicationRequest.dosageInstruction",
+      "short" : "Posología",
       "min" : 1,
       "mustSupport" : true
     },

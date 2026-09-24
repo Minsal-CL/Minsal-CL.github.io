@@ -1,15 +1,15 @@
 # Documento de la atención de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Documento de la atención de urgencia**
 
 ## Resource Profile: Documento de la atención de urgencia 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/documento-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:DocumentoUrgencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/documento-urgencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:DocumentoUrgencia |
 
  
 Referencia al documento clínico de la atención (DAU o epicrisis de urgencia) en PDF. Permite a cualquier establecimiento de la red descubrir y descargar el detalle clínico completo. 
@@ -18,7 +18,7 @@ Referencia al documento clínico de la atención (DAU o epicrisis de urgencia) e
 
 * Use this Profile: [Bundle de abandono de urgencia](StructureDefinition-bundle-abandono-urgencia.md) and [Bundle de alta de urgencia](StructureDefinition-bundle-alta-urgencia.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-documento-urgencia.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-documento-urgencia.json)
 
 ### Formal Views of Profile Content
 
@@ -36,12 +36,12 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
 {
   "resourceType" : "StructureDefinition",
   "id" : "documento-urgencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/documento-urgencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/documento-urgencia",
   "version" : "0.2.0",
   "name" : "DocumentoUrgencia",
   "title" : "Documento de la atención de urgencia",
   "status" : "draft",
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -101,6 +101,11 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
+      "id" : "DocumentReference",
+      "path" : "DocumentReference",
+      "short" : "Referencia al documento clínico de urgencia (PDF)"
+    },
+    {
       "id" : "DocumentReference.masterIdentifier",
       "path" : "DocumentReference.masterIdentifier",
       "short" : "Identificador único del documento (llave del PUT condicional)",
@@ -110,24 +115,28 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
     {
       "id" : "DocumentReference.masterIdentifier.system",
       "path" : "DocumentReference.masterIdentifier.system",
+      "short" : "Sistema de identificadores de documentos del establecimiento",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "DocumentReference.masterIdentifier.value",
       "path" : "DocumentReference.masterIdentifier.value",
+      "short" : "Identificador del documento",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "DocumentReference.status",
       "path" : "DocumentReference.status",
+      "short" : "current: documento vigente",
       "patternCode" : "current",
       "mustSupport" : true
     },
     {
       "id" : "DocumentReference.type",
       "path" : "DocumentReference.type",
+      "short" : "Tipo de documento: LOINC 59258-4 (resumen de alta de urgencia)",
       "min" : 1,
       "patternCodeableConcept" : {
         "coding" : [{
@@ -140,6 +149,7 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
     {
       "id" : "DocumentReference.subject",
       "path" : "DocumentReference.subject",
+      "short" : "Paciente",
       "min" : 1,
       "type" : [{
         "code" : "Reference",
@@ -150,12 +160,14 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
     {
       "id" : "DocumentReference.date",
       "path" : "DocumentReference.date",
+      "short" : "Fecha y hora de emisión del documento",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "DocumentReference.author",
       "path" : "DocumentReference.author",
+      "short" : "Profesional o establecimiento autor",
       "min" : 1,
       "type" : [{
         "code" : "Reference",
@@ -167,6 +179,7 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
     {
       "id" : "DocumentReference.custodian",
       "path" : "DocumentReference.custodian",
+      "short" : "Establecimiento que custodia el documento",
       "min" : 1,
       "type" : [{
         "code" : "Reference",
@@ -177,12 +190,14 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
     {
       "id" : "DocumentReference.content",
       "path" : "DocumentReference.content",
+      "short" : "Contenido del documento",
       "max" : "1",
       "mustSupport" : true
     },
     {
       "id" : "DocumentReference.content.attachment.contentType",
       "path" : "DocumentReference.content.attachment.contentType",
+      "short" : "Tipo MIME: application/pdf",
       "min" : 1,
       "patternCode" : "application/pdf",
       "mustSupport" : true
@@ -197,27 +212,31 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
     {
       "id" : "DocumentReference.content.attachment.title",
       "path" : "DocumentReference.content.attachment.title",
+      "short" : "Nombre del documento",
       "mustSupport" : true
     },
     {
       "id" : "DocumentReference.content.attachment.creation",
       "path" : "DocumentReference.content.attachment.creation",
+      "short" : "Fecha de creación del PDF",
       "mustSupport" : true
     },
     {
       "id" : "DocumentReference.context",
       "path" : "DocumentReference.context",
+      "short" : "Contexto clínico del documento",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "DocumentReference.context.encounter",
       "path" : "DocumentReference.context.encounter",
+      "short" : "Episodio de urgencia",
       "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "Reference",
-        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia"]
+        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"]
       }],
       "mustSupport" : true
     }]

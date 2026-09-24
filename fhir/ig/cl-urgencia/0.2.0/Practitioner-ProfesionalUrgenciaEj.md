@@ -1,7 +1,7 @@
 # Médica de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Médica de urgencia**
 
 ## Example Practitioner: Médica de urgencia

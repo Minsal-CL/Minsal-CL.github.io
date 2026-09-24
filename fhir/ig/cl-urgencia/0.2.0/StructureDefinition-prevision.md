@@ -1,15 +1,15 @@
 # Previsión de salud - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Previsión de salud**
 
 ## Extension: Previsión de salud (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/prevision | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:Prevision |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/prevision | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:Prevision |
 
 Previsión de salud del paciente al momento de la atención y, si es FONASA, su tramo.
 
@@ -22,7 +22,7 @@ Previsión de salud del paciente al momento de la atención y, si es FONASA, su 
 * Use this Extension: [Encuentro de urgencia](StructureDefinition-encuentro-urgencia.md)
 * Examples for this Extension: [Bundle/BundleAdmisionEj](Bundle-BundleAdmisionEj.md) and [Bundle/BundleAltaEj](Bundle-BundleAltaEj.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-prevision.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-prevision.json)
 
 ### Formal Views of Extension Content
 
@@ -44,13 +44,13 @@ Other representations of profile: [CSV](StructureDefinition-prevision.csv), [Exc
 {
   "resourceType" : "StructureDefinition",
   "id" : "prevision",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/prevision",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/prevision",
   "version" : "0.2.0",
   "name" : "Prevision",
   "title" : "Previsión de salud",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -92,6 +92,7 @@ Other representations of profile: [CSV](StructureDefinition-prevision.csv), [Exc
     {
       "id" : "Extension.extension",
       "path" : "Extension.extension",
+      "short" : "Previsión y tramo FONASA",
       "min" : 1
     },
     {
@@ -111,11 +112,13 @@ Other representations of profile: [CSV](StructureDefinition-prevision.csv), [Exc
     {
       "id" : "Extension.extension:prevision.url",
       "path" : "Extension.extension.url",
+      "short" : "Nombre de la subextensión",
       "fixedUri" : "prevision"
     },
     {
       "id" : "Extension.extension:prevision.value[x]",
       "path" : "Extension.extension.value[x]",
+      "short" : "Código de previsión (NID)",
       "type" : [{
         "code" : "CodeableConcept"
       }],
@@ -141,11 +144,13 @@ Other representations of profile: [CSV](StructureDefinition-prevision.csv), [Exc
     {
       "id" : "Extension.extension:tramoFonasa.url",
       "path" : "Extension.extension.url",
+      "short" : "Nombre de la subextensión",
       "fixedUri" : "tramoFonasa"
     },
     {
       "id" : "Extension.extension:tramoFonasa.value[x]",
       "path" : "Extension.extension.value[x]",
+      "short" : "Tramo FONASA A, B, C o D (NID)",
       "type" : [{
         "code" : "CodeableConcept"
       }],
@@ -157,7 +162,8 @@ Other representations of profile: [CSV](StructureDefinition-prevision.csv), [Exc
     {
       "id" : "Extension.url",
       "path" : "Extension.url",
-      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/prevision"
+      "short" : "URL que identifica la extensión",
+      "fixedUri" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/prevision"
     },
     {
       "id" : "Extension.value[x]",

@@ -1,7 +1,7 @@
 # Bundle de alta - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Bundle de alta**
 
 ## Example Bundle: Bundle de alta
@@ -15,7 +15,7 @@
   "resourceType" : "Bundle",
   "id" : "BundleAltaEj",
   "meta" : {
-    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-alta-urgencia"]
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-alta-urgencia"]
   },
   "type" : "transaction",
   "entry" : [{
@@ -219,11 +219,11 @@
       "resourceType" : "Encounter",
       "id" : "EpisodioDAU123EstadoAlta",
       "meta" : {
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia-alta"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-alta"]
       },
       "text" : {
         "status" : "extensions",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_EpisodioDAU123EstadoAlta\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro EpisodioDAU123EstadoAlta</b></p><a name=\"EpisodioDAU123EstadoAlta\"> </a><a name=\"hcEpisodioDAU123EstadoAlta\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-alta.html\">Encuentro de urgencia - estado en el alta</a></p></div><blockquote><p><b>Previsión de salud</b></p><ul><li>prevision: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSPrevision 1}\">FONASA</span></li><li>tramoFonasa: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTramosFONASA B}\">FONASA B</span></li></ul></blockquote><p><b>Ley previsional o programa</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSLeyPrevisionales 96}\">Ninguna</span></p><p><b>Clasificación de la consulta</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/clasificacion-consulta 09}\">Otros</span></p><p><b>Pertinencia de la atención</b>: true</p><p><b>Pronóstico médico-legal</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/pronostico-medico-legal 04}\">Sin lesiones</span></p><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/dau</code>/DAU-2026-000123</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType DIS}\">discharger</span></td><td><a href=\"Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0004-4000-8000-000000000004\">Practitioner Ana Pérez </a></td></tr></table><p><b>period</b>: 2026-09-09 10:00:00-0300 --&gt; 2026-09-09 12:30:00-0300</p><p><b>reasonCode</b>: <span title=\"Codes:\">Dolor abdominal de 12 horas de evolución</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td><td><b>Use</b></td><td><b>Rank</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0020-4000-8000-000000000020\">Condition Gastritis, unspecified</a></td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/diagnosis-role DD}\">Discharge diagnosis</span></td><td>1</td></tr></table><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Extension</b></td><td><b>AdmitSource</b></td><td><b>Destination</b></td><td><b>DischargeDisposition</b></td></tr><tr><td style=\"display: none\">*</td><td/><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia 6}\">Espontáneo</span></td><td><a href=\"Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0003-4000-8000-000000000003\">Organization CESFAM de Ejemplo</a></td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-alta 05}\">Domicilio</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_EpisodioDAU123EstadoAlta\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro EpisodioDAU123EstadoAlta</b></p><a name=\"EpisodioDAU123EstadoAlta\"> </a><a name=\"hcEpisodioDAU123EstadoAlta\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-alta.html\">Encuentro de urgencia - estado en el alta</a></p></div><blockquote><p><b>Previsión de salud</b></p><ul><li>prevision: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSPrevision 1}\">FONASA</span></li><li>tramoFonasa: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTramosFONASA B}\">FONASA B</span></li></ul></blockquote><p><b>Ley previsional o programa</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSLeyPrevisionales 96}\">Ninguna</span></p><p><b>Clasificación de la consulta</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta 09}\">Otros</span></p><p><b>Pertinencia de la atención</b>: true</p><p><b>Pronóstico médico-legal</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/pronostico-medico-legal 04}\">Sin lesiones</span></p><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/dau</code>/DAU-2026-000123</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType DIS}\">discharger</span></td><td><a href=\"Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0004-4000-8000-000000000004\">Practitioner Ana Pérez </a></td></tr></table><p><b>period</b>: 2026-09-09 10:00:00-0300 --&gt; 2026-09-09 12:30:00-0300</p><p><b>reasonCode</b>: <span title=\"Codes:\">Dolor abdominal de 12 horas de evolución</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td><td><b>Use</b></td><td><b>Rank</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0020-4000-8000-000000000020\">Condition Gastritis, unspecified</a></td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/diagnosis-role DD}\">Discharge diagnosis</span></td><td>1</td></tr></table><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Extension</b></td><td><b>AdmitSource</b></td><td><b>Destination</b></td><td><b>DischargeDisposition</b></td></tr><tr><td style=\"display: none\">*</td><td/><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia 6}\">Espontáneo</span></td><td><a href=\"Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0003-4000-8000-000000000003\">Organization CESFAM de Ejemplo</a></td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/destino-alta 05}\">Domicilio</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
       },
       "extension" : [{
         "extension" : [{
@@ -246,10 +246,10 @@
             }]
           }
         }],
-        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/prevision"
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/prevision"
       },
       {
-        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/ley-previsional",
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/ley-previsional",
         "valueCodeableConcept" : {
           "coding" : [{
             "system" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSLeyPrevisionales",
@@ -259,24 +259,24 @@
         }
       },
       {
-        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/clasificacion-consulta",
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/clasificacion-consulta",
         "valueCodeableConcept" : {
           "coding" : [{
-            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/clasificacion-consulta",
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta",
             "code" : "09",
             "display" : "Otros"
           }]
         }
       },
       {
-        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pertinencia",
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pertinencia",
         "valueBoolean" : true
       },
       {
-        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/pronostico-medico-legal",
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pronostico-medico-legal",
         "valueCodeableConcept" : {
           "coding" : [{
-            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/pronostico-medico-legal",
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/pronostico-medico-legal",
             "code" : "04",
             "display" : "Sin lesiones"
           }]
@@ -293,7 +293,7 @@
       },
       "serviceType" : {
         "coding" : [{
-          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-atencion",
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion",
           "code" : "02",
           "display" : "Atención de adulto"
         }]
@@ -335,10 +335,10 @@
       }],
       "hospitalization" : {
         "extension" : [{
-          "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/medio-llegada",
+          "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/medio-llegada",
           "valueCodeableConcept" : {
             "coding" : [{
-              "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/medio-llegada",
+              "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/medio-llegada",
               "code" : "6",
               "display" : "Vehículo particular"
             }]
@@ -346,7 +346,7 @@
         }],
         "admitSource" : {
           "coding" : [{
-            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia",
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia",
             "code" : "6",
             "display" : "Espontáneo"
           }]
@@ -356,7 +356,7 @@
         },
         "dischargeDisposition" : {
           "coding" : [{
-            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/destino-alta",
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/destino-alta",
             "code" : "05",
             "display" : "Domicilio"
           }]
@@ -377,14 +377,14 @@
       "resourceType" : "Condition",
       "id" : "DiagnosticoAltaEj",
       "meta" : {
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/diagnostico-urgencia"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia"]
       },
       "text" : {
         "status" : "extensions",
         "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_DiagnosticoAltaEj\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condición DiagnosticoAltaEj</b></p><a name=\"DiagnosticoAltaEj\"> </a><a name=\"hcDiagnosticoAltaEj\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-diagnostico-urgencia.html\">Diagnóstico de urgencia</a></p></div><p><b>Diagnóstico GES</b>: false</p><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/diagnosticos</code>/DG-2026-88001</p><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 K29.7}\">Gastritis aguda</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>encounter</b>: <a href=\"Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0011-4000-8000-000000000011\">Encounter: extension = ,Ninguna,Otros,true,Sin lesiones; identifier = https://hospital-ejemplo.cl/fhir/sid/dau#DAU-2026-000123; status = finished; class = emergency (ActCode#EMER); serviceType = Atención de adulto; period = 2026-09-09 10:00:00-0300 --&gt; 2026-09-09 12:30:00-0300; reasonCode = </a></p><p><b>recordedDate</b>: 2026-09-09 12:20:00-0300</p><p><b>recorder</b>: <a href=\"Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0004-4000-8000-000000000004\">Practitioner Ana Pérez </a></p></div>"
       },
       "extension" : [{
-        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/diagnostico-ges",
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-ges",
         "valueBoolean" : false
       }],
       "identifier" : [{
@@ -433,7 +433,7 @@
       "resourceType" : "MedicationRequest",
       "id" : "IndicacionMedicamentoEj",
       "meta" : {
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/indicacion-medicamento-urgencia"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/indicacion-medicamento-urgencia"]
       },
       "text" : {
         "status" : "generated",
@@ -477,7 +477,7 @@
       "resourceType" : "DocumentReference",
       "id" : "DocumentoAltaEj",
       "meta" : {
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/documento-urgencia"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/documento-urgencia"]
       },
       "text" : {
         "status" : "generated",

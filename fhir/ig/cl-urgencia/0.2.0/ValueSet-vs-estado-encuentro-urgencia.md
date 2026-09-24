@@ -1,15 +1,15 @@
 # Estado del encuentro de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Estado del encuentro de urgencia**
 
 ## ValueSet: Estado del encuentro de urgencia (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-estado-encuentro-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:VSEstadoEncuentroUrgencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-estado-encuentro-urgencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:VSEstadoEncuentroUrgencia |
 
  
 Subconjunto de estados de Encounter usados en urgencia. 
@@ -45,13 +45,13 @@ Subconjunto de estados de Encounter usados en urgencia.
 {
   "resourceType" : "ValueSet",
   "id" : "vs-estado-encuentro-urgencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-estado-encuentro-urgencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-estado-encuentro-urgencia",
   "version" : "0.2.0",
   "name" : "VSEstadoEncuentroUrgencia",
   "title" : "Estado del encuentro de urgencia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

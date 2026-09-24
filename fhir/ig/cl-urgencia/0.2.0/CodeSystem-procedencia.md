@@ -1,15 +1,15 @@
 # Procedencia del paciente - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Procedencia del paciente**
 
 ## CodeSystem: Procedencia del paciente (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:CSProcedencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:CSProcedencia |
 
  
 Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PACIENTE). 
@@ -26,13 +26,13 @@ Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PAC
 {
   "resourceType" : "CodeSystem",
   "id" : "procedencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia",
   "version" : "0.2.0",
   "name" : "CSProcedencia",
   "title" : "Procedencia del paciente",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

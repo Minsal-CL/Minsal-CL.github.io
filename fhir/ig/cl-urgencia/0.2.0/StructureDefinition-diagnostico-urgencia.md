@@ -1,15 +1,15 @@
 # Diagnóstico de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Diagnóstico de urgencia**
 
 ## Resource Profile: Diagnóstico de urgencia 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/diagnostico-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:DiagnosticoUrgencia |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:DiagnosticoUrgencia |
 
  
 Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD (hipótesis, confirmado, descartado) se expresa con `verificationStatus`. 
@@ -18,7 +18,7 @@ Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreD
 
 * Use this Profile: [Bundle de abandono de urgencia](StructureDefinition-bundle-abandono-urgencia.md) and [Bundle de alta de urgencia](StructureDefinition-bundle-alta-urgencia.md)
 
-You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia|current/StructureDefinition/StructureDefinition-diagnostico-urgencia.json)
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-diagnostico-urgencia.json)
 
 ### Formal Views of Profile Content
 
@@ -36,12 +36,12 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
 {
   "resourceType" : "StructureDefinition",
   "id" : "diagnostico-urgencia",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/diagnostico-urgencia",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia",
   "version" : "0.2.0",
   "name" : "DiagnosticoUrgencia",
   "title" : "Diagnóstico de urgencia",
   "status" : "draft",
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -96,6 +96,11 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
+      "id" : "Condition",
+      "path" : "Condition",
+      "short" : "Hipótesis o diagnóstico de egreso de urgencia"
+    },
+    {
       "id" : "Condition.extension",
       "path" : "Condition.extension",
       "slicing" : {
@@ -105,7 +110,8 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
         }],
         "ordered" : false,
         "rules" : "open"
-      }
+      },
+      "short" : "Diagnóstico GES"
     },
     {
       "id" : "Condition.extension:ges",
@@ -115,7 +121,7 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/diagnostico-ges"]
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-ges"]
       }],
       "mustSupport" : true
     },
@@ -129,12 +135,14 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
     {
       "id" : "Condition.identifier.system",
       "path" : "Condition.identifier.system",
+      "short" : "Sistema de identificadores de diagnósticos del establecimiento",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "Condition.identifier.value",
       "path" : "Condition.identifier.value",
+      "short" : "Identificador del diagnóstico",
       "min" : 1,
       "mustSupport" : true
     },
@@ -151,23 +159,26 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
       "min" : 1,
       "binding" : {
         "strength" : "preferred",
-        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-diagnostico-urgencia"
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-diagnostico-urgencia"
       }
     },
     {
       "id" : "Condition.code.coding",
       "path" : "Condition.code.coding",
+      "short" : "Código CIE-10 o SNOMED CT",
       "mustSupport" : true
     },
     {
       "id" : "Condition.code.text",
       "path" : "Condition.code.text",
+      "short" : "Diagnóstico en texto, tal como lo registró el profesional",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "Condition.subject",
       "path" : "Condition.subject",
+      "short" : "Paciente",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente"]
@@ -176,21 +187,24 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
     {
       "id" : "Condition.encounter",
       "path" : "Condition.encounter",
+      "short" : "Episodio de urgencia",
       "min" : 1,
       "type" : [{
         "code" : "Reference",
-        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia"]
+        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"]
       }],
       "mustSupport" : true
     },
     {
       "id" : "Condition.recordedDate",
       "path" : "Condition.recordedDate",
+      "short" : "Fecha y hora de registro del diagnóstico",
       "mustSupport" : true
     },
     {
       "id" : "Condition.recorder",
       "path" : "Condition.recorder",
+      "short" : "Profesional que registra el diagnóstico",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional"]

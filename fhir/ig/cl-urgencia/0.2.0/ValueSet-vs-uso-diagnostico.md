@@ -1,15 +1,15 @@
 # Uso del diagnóstico en el episodio - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Uso del diagnóstico en el episodio**
 
 ## ValueSet: Uso del diagnóstico en el episodio (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-uso-diagnostico | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:VSUsoDiagnostico |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:VSUsoDiagnostico |
 
  
 Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso. 
@@ -45,13 +45,13 @@ Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico 
 {
   "resourceType" : "ValueSet",
   "id" : "vs-uso-diagnostico",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/ValueSet/vs-uso-diagnostico",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico",
   "version" : "0.2.0",
   "name" : "VSUsoDiagnostico",
   "title" : "Uso del diagnóstico en el episodio",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

@@ -1,15 +1,15 @@
 # Unidad de atención de urgencia - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
 
 * [**Table of Contents**](toc.md)
-* [**Artifacts Summary**](artifacts.md)
+* [**Artefactos**](artifacts.md)
 * **Unidad de atención de urgencia**
 
 ## CodeSystem: Unidad de atención de urgencia (Experimental) 
 
 | | |
 | :--- | :--- |
-| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-atencion | *Version*:0.2.0 |
-| Draft as of 2026-09-23 | *Computable Name*:CSUnidadAtencion |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion | *Version*:0.2.0 |
+| Draft as of 2026-09-24 | *Computable Name*:CSUnidadAtencion |
 
  
 Tipo de atención asignada en la admisión (CMBD Urgencia: UNIDAD DE ATENCIÓN). 
@@ -26,13 +26,13 @@ Tipo de atención asignada en la admisión (CMBD Urgencia: UNIDAD DE ATENCIÓN).
 {
   "resourceType" : "CodeSystem",
   "id" : "unidad-atencion",
-  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-atencion",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion",
   "version" : "0.2.0",
   "name" : "CSUnidadAtencion",
   "title" : "Unidad de atención de urgencia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-23T16:36:45-03:00",
+  "date" : "2026-09-24T11:47:41-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
