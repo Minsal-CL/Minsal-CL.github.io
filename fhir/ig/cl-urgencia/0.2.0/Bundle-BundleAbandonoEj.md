@@ -1,0 +1,262 @@
+# Bundle de abandono (fuga) - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Bundle de abandono (fuga)**
+
+## Example Bundle: Bundle de abandono (fuga)
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "BundleAbandonoEj",
+  "meta" : {
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/bundle-abandono-urgencia"]
+  },
+  "type" : "transaction",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:6f1c2a10-0001-4000-8000-000000000001",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "PacienteUrgenciaEj",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_PacienteUrgenciaEj\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente PacienteUrgenciaEj</b></p><a name=\"PacienteUrgenciaEj\"> </a><a name=\"hcPacienteUrgenciaEj\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-MINSALPaciente.html\">MINSAL Paciente</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td>true</td><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\"><a href=\"tel:+56912345678\">+56912345678</a></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Sexo Biologico del paciente\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.2/StructureDefinition-SexoBiologico.html\">Sexo Biologico del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{http://hl7.org/fhir/administrative-gender female}\">Female</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"País de origen del paciente\"><a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-PaisOrigenMPI.html\">País de origen del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais 152}\">Chile</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Esta extensión incluye códigos de países\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.2/StructureDefinition-CodigoPaises.html\">Código de Países</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais 152}\">Chile</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Identidad De Género\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.2/StructureDefinition-IdentidadDeGenero.html\">Identidad De Género</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero 2}\">Femenina</span></td></tr></table></div>"
+      },
+      "extension" : [{
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdentidadDeGenero",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero",
+            "code" : "2",
+            "display" : "Femenina"
+          }]
+        }
+      },
+      {
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoBiologico",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "http://hl7.org/fhir/administrative-gender",
+            "code" : "female",
+            "display" : "Female"
+          }]
+        }
+      },
+      {
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais",
+            "code" : "152",
+            "display" : "Chile"
+          }]
+        }
+      },
+      {
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PaisOrigenMPI",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais",
+            "code" : "152",
+            "display" : "Chile"
+          }]
+        }
+      }],
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "extension" : [{
+            "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises",
+            "valueCodeableConcept" : {
+              "coding" : [{
+                "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais",
+                "code" : "152",
+                "display" : "Chile"
+              }]
+            }
+          }],
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+            "code" : "01",
+            "display" : "RUN"
+          }]
+        },
+        "system" : "urn:oid:2.16.840.1.113883.2.22.1.152.787300",
+        "value" : "11111111-1"
+      }],
+      "active" : true,
+      "name" : [{
+        "use" : "official",
+        "family" : "Carmona",
+        "given" : ["María"]
+      }],
+      "telecom" : [{
+        "system" : "phone",
+        "value" : "+56912345678",
+        "use" : "mobile"
+      }],
+      "gender" : "female",
+      "birthDate" : "1975-04-12",
+      "deceasedBoolean" : false
+    },
+    "request" : {
+      "method" : "PUT",
+      "url" : "Patient?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:6f1c2a10-0002-4000-8000-000000000002",
+    "resource" : {
+      "resourceType" : "Organization",
+      "id" : "EstablecimientoUrgenciaEj",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorOrganizacional"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_EstablecimientoUrgenciaEj\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organización EstablecimientoUrgenciaEj</b></p><a name=\"EstablecimientoUrgenciaEj\"> </a><a name=\"hcEstablecimientoUrgenciaEj\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-MINSALPrestadorOrganizacional.html\">Prestador Institucional</a></p></div><p><b>identifier</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino</code>/112100</p><p><b>active</b>: true</p><p><b>name</b>: Hospital de Ejemplo</p><p><b>partOf</b>: Servicio de Salud Metropolitano Sur Oriente</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino",
+        "value" : "112100"
+      }],
+      "active" : true,
+      "name" : "Hospital de Ejemplo",
+      "partOf" : {
+        "display" : "Servicio de Salud Metropolitano Sur Oriente"
+      }
+    },
+    "request" : {
+      "method" : "PUT",
+      "url" : "Organization?identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:6f1c2a10-0012-4000-8000-000000000012",
+    "resource" : {
+      "resourceType" : "Encounter",
+      "id" : "EpisodioDAU456EstadoAbandono",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/encuentro-urgencia-abandono"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_EpisodioDAU456EstadoAbandono\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro EpisodioDAU456EstadoAbandono</b></p><a name=\"EpisodioDAU456EstadoAbandono\"> </a><a name=\"hcEpisodioDAU456EstadoAbandono\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-abandono.html\">Encuentro de urgencia - estado en el abandono</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/dau</code>/DAU-2026-000456</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>period</b>: 2026-09-20 21:10:00-0300 --&gt; 2026-09-20 23:05:00-0300</p><p><b>reasonCode</b>: <span title=\"Codes:\">Cefalea intensa</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td><td><b>Use</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0021-4000-8000-000000000021\">Condition Headache</a></td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/diagnosis-role AD}\">Admission diagnosis</span></td></tr></table><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>AdmitSource</b></td><td><b>DischargeDisposition</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia 6}\">Espontáneo</span></td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-abandono 2}\">Abandono durante la atención médica (fuga)</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://hospital-ejemplo.cl/fhir/sid/dau",
+        "value" : "DAU-2026-000456"
+      }],
+      "status" : "finished",
+      "class" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code" : "EMER"
+      },
+      "serviceType" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/unidad-atencion",
+          "code" : "02",
+          "display" : "Atención de adulto"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:6f1c2a10-0001-4000-8000-000000000001"
+      },
+      "period" : {
+        "start" : "2026-09-20T21:10:00-03:00",
+        "end" : "2026-09-20T23:05:00-03:00"
+      },
+      "reasonCode" : [{
+        "text" : "Cefalea intensa"
+      }],
+      "diagnosis" : [{
+        "condition" : {
+          "reference" : "urn:uuid:6f1c2a10-0021-4000-8000-000000000021"
+        },
+        "use" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code" : "AD",
+            "display" : "Admission diagnosis"
+          }]
+        }
+      }],
+      "hospitalization" : {
+        "admitSource" : {
+          "coding" : [{
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/procedencia",
+            "code" : "6",
+            "display" : "Espontáneo"
+          }]
+        },
+        "dischargeDisposition" : {
+          "coding" : [{
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/tipo-abandono",
+            "code" : "2",
+            "display" : "Abandono durante la atención médica (fuga)"
+          }]
+        }
+      },
+      "serviceProvider" : {
+        "reference" : "urn:uuid:6f1c2a10-0002-4000-8000-000000000002"
+      }
+    },
+    "request" : {
+      "method" : "PUT",
+      "url" : "Encounter?identifier=https://hospital-ejemplo.cl/fhir/sid/dau|DAU-2026-000456"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:6f1c2a10-0021-4000-8000-000000000021",
+    "resource" : {
+      "resourceType" : "Condition",
+      "id" : "HipotesisAbandonoEj",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia/StructureDefinition/diagnostico-urgencia"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_HipotesisAbandonoEj\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condición HipotesisAbandonoEj</b></p><a name=\"HipotesisAbandonoEj\"> </a><a name=\"hcHipotesisAbandonoEj\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-diagnostico-urgencia.html\">Diagnóstico de urgencia</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/diagnosticos</code>/DG-2026-90112</p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status provisional}\">Provisional</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 R51}\">Cefalea en estudio</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>encounter</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0012-4000-8000-000000000012\">Encounter: identifier = https://hospital-ejemplo.cl/fhir/sid/dau#DAU-2026-000456; status = finished; class = emergency (ActCode#EMER); serviceType = Atención de adulto; period = 2026-09-20 21:10:00-0300 --&gt; 2026-09-20 23:05:00-0300; reasonCode = </a></p><p><b>recordedDate</b>: 2026-09-20 22:00:00-0300</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://hospital-ejemplo.cl/fhir/sid/diagnosticos",
+        "value" : "DG-2026-90112"
+      }],
+      "verificationStatus" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code" : "provisional"
+        }]
+      },
+      "code" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/sid/icd-10",
+          "code" : "R51",
+          "display" : "Headache"
+        }],
+        "text" : "Cefalea en estudio"
+      },
+      "subject" : {
+        "reference" : "urn:uuid:6f1c2a10-0001-4000-8000-000000000001"
+      },
+      "encounter" : {
+        "reference" : "urn:uuid:6f1c2a10-0012-4000-8000-000000000012"
+      },
+      "recordedDate" : "2026-09-20T22:00:00-03:00"
+    },
+    "request" : {
+      "method" : "PUT",
+      "url" : "Condition?identifier=https://hospital-ejemplo.cl/fhir/sid/diagnosticos|DG-2026-90112"
+    }
+  }]
+}
+
+```

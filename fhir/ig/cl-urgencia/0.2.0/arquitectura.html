@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Arquitectura - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono)</span>
+            <br/>
+            <span style="display:inline-block;">0.2.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="modelo.html">Modelo de eventos</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-cmbd.html">Mapeo CMBD</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Arquitectura</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) - Local Development build (v0.2.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Arquitectura</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h2 id="participantes">Participantes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sistema</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HIS / RCE del establecimiento</td>
+      <td>Envía las transacciones de admisión, alta y abandono. Publica el PDF del DAU.</td>
+    </tr>
+    <tr>
+      <td>Bus de Interoperabilidad MINSAL</td>
+      <td>Recibe, valida y aplica las transacciones en el repositorio.</td>
+    </tr>
+    <tr>
+      <td>MPI MINSAL</td>
+      <td>Resuelve la identidad única del paciente.</td>
+    </tr>
+    <tr>
+      <td>Servidor Terminológico Nacional</td>
+      <td>Valida los códigos.</td>
+    </tr>
+    <tr>
+      <td>Repositorio FHIR</td>
+      <td>Conserva el estado vigente de cada episodio y la referencia a su documento.</td>
+    </tr>
+    <tr>
+      <td>Red asistencial</td>
+      <td>APS, especialidad, otros hospitales y SAMU. Consultan el repositorio para dar continuidad.</td>
+    </tr>
+    <tr>
+      <td>HCC (Portal Ciudadano)</td>
+      <td>Muestra al paciente sus atenciones de urgencia y el documento DAU.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="flujo">Flujo</h2>
+
+<div class="diagrama-urgencia">
+flowchart LR
+    HIS["HIS / RCE"] --&gt;|"POST transaction<br />admisión · alta · abandono"| BUS["Bus de<br />Interoperabilidad"]
+    BUS --&gt; VAL["Validación<br />perfil + terminología"]
+    VAL --&gt; MPI["Identidad<br />MPI"]
+    MPI --&gt; REP["Repositorio FHIR"]
+    REP --&gt;|"consulta"| RED["Red asistencial<br />APS · especialidad · hospitales"]
+    REP --&gt;|"consulta"| HCC["HCC<br />Portal Ciudadano"]
+    RED -.-&gt;|"descarga PDF"| HIS
+    HCC -.-&gt;|"descarga PDF"| HIS
+    VAL -.-&gt;|"OperationOutcome"| HIS
+</div>
+
+<h2 id="envío">Envío</h2>
+
+<p>El HIS/RCE envía cada transacción a la base FHIR del Bus:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST [base]
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:...",
+      "resource": { "resourceType": "Encounter", ... },
+      "request": { "method": "PUT", "url": "Encounter?identifier=[sistema DAU]|[ID DAU]" }
+    },
+    ...
+  ]
+}
+</span></code></pre></div></div>
+
+<p>El envío debe ocurrir <strong>en el momento del evento</strong> (tiempo real o casi real), no en lotes al final del día: el valor para la continuidad depende de que la red se entere mientras el paciente está en urgencia o recién egresado.</p>
+
+<h2 id="respuesta">Respuesta</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resultado</th>
+      <th>HTTP</th>
+      <th>Cuerpo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Transacción aplicada</td>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction-response</code> con el resultado de cada entrada (<code class="language-plaintext highlighter-rouge">201 Created</code> o <code class="language-plaintext highlighter-rouge">200 OK</code>)</td>
+    </tr>
+    <tr>
+      <td>Error de estructura, perfil o terminología</td>
+      <td><code class="language-plaintext highlighter-rouge">400</code> / <code class="language-plaintext highlighter-rouge">422</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OperationOutcome</code> con el detalle por elemento; no se aplica ninguna entrada</td>
+    </tr>
+    <tr>
+      <td>Identificador condicional ambiguo (más de un recurso coincide)</td>
+      <td><code class="language-plaintext highlighter-rouge">412</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OperationOutcome</code></td>
+    </tr>
+    <tr>
+      <td>Identidad no resuelta en MPI</td>
+      <td><code class="language-plaintext highlighter-rouge">422</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OperationOutcome</code>; el HIS/RCE corrige y reenvía</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si el HIS/RCE no recibe respuesta, puede <strong>reenviar la misma transacción</strong>: el <code class="language-plaintext highlighter-rouge">PUT</code> condicional evita duplicados.</p>
+
+<h2 id="procesamiento-en-el-bus">Procesamiento en el Bus</h2>
+
+<ol>
+  <li>Validar el <code class="language-plaintext highlighter-rouge">Bundle</code> contra el perfil del evento (<a href="StructureDefinition-bundle-admision-urgencia.html">admisión</a>, <a href="StructureDefinition-bundle-alta-urgencia.html">alta</a> o <a href="StructureDefinition-bundle-abandono-urgencia.html">abandono</a>).</li>
+  <li>Validar los códigos contra el Servidor Terminológico.</li>
+  <li>Resolver el <code class="language-plaintext highlighter-rouge">Patient</code> contra MPI y agregar el identificador MPI.</li>
+  <li>Aplicar la transacción en el repositorio. Cada <code class="language-plaintext highlighter-rouge">PUT</code> condicional crea o actualiza el recurso según su identificador.</li>
+  <li>Registrar la trazabilidad: emisor, fecha de recepción, resultado de validación y respuesta.</li>
+</ol>
+
+<h2 id="identidad-del-paciente">Identidad del paciente</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resultado MPI</th>
+      <th>Acción del Bus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identidad única encontrada</td>
+      <td>Asociar el episodio al paciente MPI.</td>
+    </tr>
+    <tr>
+      <td>Paciente no encontrado</td>
+      <td>Ejecutar la transacción MPI de creación.</td>
+    </tr>
+    <tr>
+      <td>Identidad duplicada o contradictoria</td>
+      <td>Rechazar y enviar a conciliación.</td>
+    </tr>
+    <tr>
+      <td>RUN con dígito verificador inválido</td>
+      <td>Rechazar la transacción.</td>
+    </tr>
+    <tr>
+      <td>MPI no disponible</td>
+      <td>Responder error transitorio; el HIS/RCE reintenta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los pacientes sin RUN (extranjeros, recién nacidos, NN) se envían con el identificador disponible: pasaporte, RUN de la madre o identificador local del establecimiento.</p>
+
+<h2 id="consulta-desde-la-red-y-hcc">Consulta desde la red y HCC</h2>
+
+<p>La red asistencial y HCC (Portal Ciudadano) consultan el repositorio con búsquedas FHIR estándar:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err"># Atenciones de urgencia de un paciente
+GET [base]/Encounter?patient.identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1&amp;class=EMER
+
+# Pacientes actualmente en urgencia en un establecimiento
+GET [base]/Encounter?service-provider.identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100&amp;class=EMER&amp;status=in-progress
+
+# Diagnósticos de egreso y documento de una atención
+GET [base]/Condition?encounter=Encounter/[id]
+GET [base]/DocumentReference?encounter=Encounter/[id]
+</span></code></pre></div></div>
+
+<p>Para enterarse de un evento apenas ocurre (por ejemplo, el CESFAM del paciente ante un alta o una fuga), el consumidor crea una <code class="language-plaintext highlighter-rouge">Subscription</code> sobre <code class="language-plaintext highlighter-rouge">Encounter</code> con <code class="language-plaintext highlighter-rouge">class=EMER</code>.</p>
+
+<p>El PDF se descarga desde <code class="language-plaintext highlighter-rouge">DocumentReference.content.attachment.url</code>, publicado por el establecimiento emisor (o replicado en el repositorio, según el acuerdo institucional).</p>
+
+<h2 id="seguridad">Seguridad</h2>
+
+<ul>
+  <li>Transporte cifrado (TLS 1.2 o superior).</li>
+  <li>Autenticación del sistema emisor ante el Bus (mecanismo definido por MINSAL).</li>
+  <li>La URL del PDF debe exigir autenticación; no debe ser pública.</li>
+  <li>HCC muestra al paciente solo sus propias atenciones.</li>
+  <li>El acceso de la red se rige por las políticas de acceso y el consentimiento del paciente cuando corresponda.</li>
+</ul>
+
+<!--
+  Renderiza los diagramas de esta guía como SVG dentro de la página.
+  La plantilla usa mermaid con securityLevel "sandbox" (iframe), que no ajusta
+  el alto al diagrama y lo corta o deja espacio vacío. "strict" es igual de
+  seguro para contenido propio (sin scripts ni clics) y el alto es automático.
+-->
+<style>
+  .diagrama-urgencia { margin: 1em 0; overflow-x: auto; }
+  .diagrama-urgencia svg { max-width: 100%; height: auto; }
+</style>
+
+<script>
+  window.addEventListener('load', function () {
+    if (!window.mermaid) return;
+    mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' });
+    mermaid.run({ querySelector: '.diagrama-urgencia' });
+  });
+</script>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 23, 2026 16:36-0300">2026-09-23</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

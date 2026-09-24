@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Bundle de alta - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7.39"}
+    h3,h4,h5,h6{--heading-prefix:"7.39"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono)</span>
+            <br/>
+            <span style="display:inline-block;">0.2.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="modelo.html">Modelo de eventos</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-cmbd.html">Mapeo CMBD</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>Bundle de alta</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) - Local Development build (v0.2.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+
+  
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+    <a href="#">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="Bundle-BundleAltaEj.xml.html">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Bundle-BundleAltaEj.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Bundle-BundleAltaEj.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+
+  <a name="root"> </a>
+
+
+  <h2 id="root">Example Bundle: Bundle de alta</h2>
+
+
+
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <div data-fhir="generated"><p class="res-header-id"/><a name="BundleAltaEj"> </a><a name="hcBundleAltaEj"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-bundle-alta-urgencia.html">Bundle de alta de urgencia</a></p></div><p>Bundle BundleAltaEj of type transaction</p><a name="urn-uuid-6f1c2a10-0001-4000-8000-000000000001"> </a><a name="Patient_PacienteUrgenciaEj"> </a><a name="hcPatient_PacienteUrgenciaEj"> </a><hr/><p>Entry 1 - fullUrl = urn:uuid:6f1c2a10-0001-4000-8000-000000000001</p><p>Rec}:</p><blockquote><p class="res-header-id"/><a name="BundleAltaEj/PacienteUrgenciaEj"> </a><a name="hcBundleAltaEj/PacienteUrgenciaEj"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-MINSALPaciente.html">MINSAL Paciente</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</p><hr/><table class="grid" data-fhir="generated"><tr><td style="background-color: #f3f5da" title="Record is active">Active:</td><td>true</td><td style="background-color: #f3f5da" title="Known status of Patient">Deceased:</td><td colspan="3">false</td></tr><tr><td style="background-color: #f3f5da" title="Ways to contact the Patient">Contact Detail</td><td colspan="3"><a href="tel:+56912345678">+56912345678</a></td></tr><tr><td style="background-color: #f3f5da" title="Sexo Biologico del paciente"><a href="https://hl7chile.cl/fhir/ig/clcore/1.9.2/StructureDefinition-SexoBiologico.html">Sexo Biologico del paciente</a></td><td colspan="3"><span title="Codes:{http://hl7.org/fhir/administrative-gender female}">Female</span></td></tr><tr><td style="background-color: #f3f5da" title="País de origen del paciente"><a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-PaisOrigenMPI.html">País de origen del paciente</a></td><td colspan="3"><span title="Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais 152}">Chile</span></td></tr><tr><td style="background-color: #f3f5da" title="Esta extensión incluye códigos de países"><a href="https://hl7chile.cl/fhir/ig/clcore/1.9.2/StructureDefinition-CodigoPaises.html">Código de Países</a></td><td colspan="3"><span title="Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais 152}">Chile</span></td></tr><tr><td style="background-color: #f3f5da" title="Identidad De Género"><a href="https://hl7chile.cl/fhir/ig/clcore/1.9.2/StructureDefinition-IdentidadDeGenero.html">Identidad De Género</a></td><td colspan="3"><span title="Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero 2}">Femenina</span></td></tr></table></blockquote><p>Request:</p><pre>PUT Patient?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1
+</pre><a name="urn-uuid-6f1c2a10-0002-4000-8000-000000000002"> </a><a name="Organization_EstablecimientoUrgenciaEj"> </a><a name="hcOrganization_EstablecimientoUrgenciaEj"> </a><hr/><p>Entry 2 - fullUrl = urn:uuid:6f1c2a10-0002-4000-8000-000000000002</p><p>Rec}:</p><blockquote><p class="res-header-id"/><a name="BundleAltaEj/EstablecimientoUrgenciaEj"> </a><a name="hcBundleAltaEj/EstablecimientoUrgenciaEj"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-MINSALPrestadorOrganizacional.html">Prestador Institucional</a></p></div><p><b>identifier</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino</code>/112100</p><p><b>active</b>: true</p><p><b>name</b>: Hospital de Ejemplo</p><p><b>partOf</b>: Servicio de Salud Metropolitano Sur Oriente</p></blockquote><p>Request:</p><pre>PUT Organization?identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100
+</pre><a name="urn-uuid-6f1c2a10-0003-4000-8000-000000000003"> </a><a name="Organization_EstablecimientoDestinoEj"> </a><a name="hcOrganization_EstablecimientoDestinoEj"> </a><hr/><p>Entry 3 - fullUrl = urn:uuid:6f1c2a10-0003-4000-8000-000000000003</p><p>Rec}:</p><blockquote><p class="res-header-id"/><a name="BundleAltaEj/EstablecimientoDestinoEj"> </a><a name="hcBundleAltaEj/EstablecimientoDestinoEj"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-MINSALPrestadorOrganizacional.html">Prestador Institucional</a></p></div><p><b>identifier</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino</code>/112307</p><p><b>active</b>: true</p><p><b>name</b>: CESFAM de Ejemplo</p></blockquote><p>Request:</p><pre>PUT Organization?identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112307
+</pre><a name="urn-uuid-6f1c2a10-0004-4000-8000-000000000004"> </a><a name="Practitioner_ProfesionalUrgenciaEj"> </a><a name="hcPractitioner_ProfesionalUrgenciaEj"> </a><hr/><p>Entry 4 - fullUrl = urn:uuid:6f1c2a10-0004-4000-8000-000000000004</p><p>Rec}:</p><blockquote><p class="res-header-id"/><a name="BundleAltaEj/ProfesionalUrgenciaEj"> </a><a name="hcBundleAltaEj/ProfesionalUrgenciaEj"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-MINSALPrestadorProfesional.html">Prestador Profesional</a></p></div><p><b>identifier</b>: RUN/22222222-2 (use: official, )</p><p><b>active</b>: true</p><p><b>name</b>: Ana Pérez </p><p><b>gender</b>: Female</p><p><b>birthDate</b>: 1985-06-20</p><h3>Qualifications</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style="display: none">*</td><td>cert</td><td><span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional 1}">Médico cirujano</span></td></tr></table></blockquote><p>Request:</p><pre>PUT Practitioner?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|22222222-2
+</pre><a name="urn-uuid-6f1c2a10-0011-4000-8000-000000000011"> </a><a name="Encounter_EpisodioDAU123EstadoAlta"> </a><a name="hcEncounter_EpisodioDAU123EstadoAlta"> </a><hr/><p>Entry 5 - fullUrl = urn:uuid:6f1c2a10-0011-4000-8000-000000000011</p><p>Rec}:</p><blockquote><p class="res-header-id"/><a name="BundleAltaEj/EpisodioDAU123EstadoAlta"> </a><a name="hcBundleAltaEj/EpisodioDAU123EstadoAlta"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-encuentro-urgencia-alta.html">Encuentro de urgencia - estado en el alta</a></p></div><blockquote><p><b>Previsión de salud</b></p><ul><li>prevision: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSPrevision 1}">FONASA</span></li><li>tramoFonasa: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTramosFONASA B}">FONASA B</span></li></ul></blockquote><p><b>Ley previsional o programa</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSLeyPrevisionales 96}">Ninguna</span></p><p><b>Clasificación de la consulta</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/clasificacion-consulta 09}">Otros</span></p><p><b>Pertinencia de la atención</b>: true</p><p><b>Pronóstico médico-legal</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia/CodeSystem/pronostico-medico-legal 04}">Sin lesiones</span></p><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/dau</code>/DAU-2026-000123</p><p><b>status</b>: completed</p><p><b>class</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ActCode EMER}">emergency</span></p><p><b>serviceType</b>: No display for Encounter.serviceType  (concept: Atención de adulto)</p><p><b>subject</b>: <a href="Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>serviceProvider</b>: <a href="Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002">Organization Hospital de Ejemplo</a></p><h3>Participants</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Type</b></td></tr><tr><td style="display: none">*</td><td><span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ParticipationType DIS}">discharger</span></td></tr></table><h3>Diagnoses</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Condition</b></td><td><b>Use</b></td></tr><tr><td style="display: none">*</td><td>No display for Encounter.diagnosis.condition  (reference: -&gt;Condition Gastritis, unspecified)</td><td><span title="Codes:{http://terminology.hl7.org/CodeSystem/diagnosis-role DD}">Discharge diagnosis</span></td></tr></table></blockquote><p>Request:</p><pre>PUT Encounter?identifier=https://hospital-ejemplo.cl/fhir/sid/dau|DAU-2026-000123
+</pre><a name="urn-uuid-6f1c2a10-0020-4000-8000-000000000020"> </a><a name="Condition_DiagnosticoAltaEj"> </a><a name="hcCondition_DiagnosticoAltaEj"> </a><hr/><p>Entry 6 - fullUrl = urn:uuid:6f1c2a10-0020-4000-8000-000000000020</p><p>Rec}:</p><blockquote><p class="res-header-id"/><a name="BundleAltaEj/DiagnosticoAltaEj"> </a><a name="hcBundleAltaEj/DiagnosticoAltaEj"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-diagnostico-urgencia.html">Diagnóstico de urgencia</a></p></div><p><b>Diagnóstico GES</b>: false</p><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/diagnosticos</code>/DG-2026-88001</p><p><b>clinicalStatus</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}">Active</span></p><p><b>verificationStatus</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}">Confirmed</span></p><p><b>code</b>: <span title="Codes:{http://hl7.org/fhir/sid/icd-10 K29.7}">Gastritis aguda</span></p><p><b>subject</b>: <a href="Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>encounter</b>: <a href="Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0011-4000-8000-000000000011">Encounter: extension = ,Ninguna,Otros,true,Sin lesiones; identifier = https://hospital-ejemplo.cl/fhir/sid/dau#DAU-2026-000123; status = finished; class = emergency (ActCode#EMER); serviceType = Atención de adulto; period = 2026-09-09 10:00:00-0300 --&gt; 2026-09-09 12:30:00-0300; reasonCode = </a></p><p><b>recordedDate</b>: 2026-09-09 12:20:00-0300</p></blockquote><p>Request:</p><pre>PUT Condition?identifier=https://hospital-ejemplo.cl/fhir/sid/diagnosticos|DG-2026-88001
+</pre><a name="urn-uuid-6f1c2a10-0030-4000-8000-000000000030"> </a><a name="MedicationRequest_IndicacionMedicamentoEj"> </a><a name="hcMedicationRequest_IndicacionMedicamentoEj"> </a><hr/><p>Entry 7 - fullUrl = urn:uuid:6f1c2a10-0030-4000-8000-000000000030</p><p>Rec}:</p><blockquote><p class="res-header-id"/><a name="BundleAltaEj/IndicacionMedicamentoEj"> </a><a name="hcBundleAltaEj/IndicacionMedicamentoEj"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-indicacion-medicamento-urgencia.html">Indicación de medicamento al alta</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/indicaciones</code>/IND-2026-5501-1</p><p><b>groupIdentifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/recetas</code>/REC-2026-5501</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>subject</b>: <a href="Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>encounter</b>: <a href="Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0011-4000-8000-000000000011">Encounter: extension = ,Ninguna,Otros,true,Sin lesiones; identifier = https://hospital-ejemplo.cl/fhir/sid/dau#DAU-2026-000123; status = finished; class = emergency (ActCode#EMER); serviceType = Atención de adulto; period = 2026-09-09 10:00:00-0300 --&gt; 2026-09-09 12:30:00-0300; reasonCode = </a></p><p><b>authoredOn</b>: 2026-09-09 12:25:00-0300</p><p><b>requester</b>: <a href="Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0004-4000-8000-000000000004">Practitioner Ana Pérez </a></p><h3>DosageInstructions</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Text</b></td></tr><tr><td style="display: none">*</td><td>1 cápsula cada 12 horas por 14 días</td></tr></table></blockquote><p>Request:</p><pre>PUT MedicationRequest?identifier=https://hospital-ejemplo.cl/fhir/sid/indicaciones|IND-2026-5501-1
+</pre><a name="urn-uuid-6f1c2a10-0040-4000-8000-000000000040"> </a><a name="DocumentReference_DocumentoAltaEj"> </a><a name="hcDocumentReference_DocumentoAltaEj"> </a><hr/><p>Entry 8 - fullUrl = urn:uuid:6f1c2a10-0040-4000-8000-000000000040</p><p>Rec}:</p><blockquote><p class="res-header-id"/><a name="BundleAltaEj/DocumentoAltaEj"> </a><a name="hcBundleAltaEj/DocumentoAltaEj"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-documento-urgencia.html">Documento de la atención de urgencia</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/documentos</code>/DOC-DAU-2026-000123</p><p><b>status</b>: Current</p><p><b>type</b>: <span title="Codes:{http://loinc.org 59258-4}">Nota de resumen de alta:Departamento de Emergencia :Punto temporal:Tipo:Documento:{Role}</span></p><p><b>subject</b>: <a href="Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><blockquote><p><b>context</b></p><a href="Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0011-4000-8000-000000000011">Encounter: extension = ,Ninguna,Otros,true,Sin lesiones; identifier = https://hospital-ejemplo.cl/fhir/sid/dau#DAU-2026-000123; status = finished; class = emergency (ActCode#EMER); serviceType = Atención de adulto; period = 2026-09-09 10:00:00-0300 --&gt; 2026-09-09 12:30:00-0300; reasonCode = </a></blockquote><p><b>date</b>: 2026-09-09 12:30:00-0300</p><p><b>author</b>: <a href="Bundle-BundleAltaEj.html#urn-uuid-6f1c2a10-0004-4000-8000-000000000004">Practitioner Ana Pérez </a></p><p><b>custodian</b>: <a href="Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002">Organization Hospital de Ejemplo</a></p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class="grid"><tr><td style="display: none">-</td><td><b>ContentType</b></td><td><b>Url</b></td><td><b>Title</b></td><td><b>Creation</b></td></tr><tr><td style="display: none">*</td><td>application/pdf</td><td><a href="https://his.hospital-ejemplo.cl/documentos/DAU-2026-000123.pdf">https://his.hospital-ejemplo.cl/documentos/DAU-2026-000123.pdf</a></td><td>Dato de Atención de Urgencia DAU-2026-000123</td><td>2026-09-09 12:30:00-0300</td></tr></table></blockquote></blockquote><p>Request:</p><pre>PUT DocumentReference?identifier=https://hospital-ejemplo.cl/fhir/sid/documentos|DOC-DAU-2026-000123
+</pre></div>
+
+  
+
+  <!-- insert notes if present -->
+  
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 23, 2026 16:36-0300">2026-09-23</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

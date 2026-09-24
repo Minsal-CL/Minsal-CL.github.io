@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Modelo de eventos - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono)</span>
+            <br/>
+            <span style="display:inline-block;">0.2.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="modelo.html">Modelo de eventos</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-cmbd.html">Mapeo CMBD</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Modelo de eventos</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) - Local Development build (v0.2.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Modelo de eventos</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h2 id="un-episodio-un-encounter">Un episodio, un Encounter</h2>
+
+<p>Cada atención de urgencia es <strong>un solo <code class="language-plaintext highlighter-rouge">Encounter</code></strong> durante toda su vida. Los Bundle de admisión, alta o abandono <strong>no crean encuentros nuevos</strong>: envían el mismo <code class="language-plaintext highlighter-rouge">Encounter</code>, identificado por el mismo <strong>ID DAU</strong>, con su estado actualizado.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10:00  Bundle de admisión
+       PUT Encounter?identifier=[sistema DAU]|DAU-2026-000123
+       No existe → el servidor lo CREA ......... Encounter/abc  v1  status = in-progress
+
+12:30  Bundle de alta
+       PUT Encounter?identifier=[sistema DAU]|DAU-2026-000123
+       Ya existe → el servidor lo ACTUALIZA .... Encounter/abc  v2  status = finished
+                                                               + period.end, destino, diagnóstico
+</code></pre></div></div>
+
+<p>En el repositorio queda <strong>un solo recurso</strong> con dos versiones. El historial (<code class="language-plaintext highlighter-rouge">GET Encounter/abc/_history</code>) muestra cómo cambió.</p>
+
+<div class="diagrama-urgencia">
+sequenceDiagram
+    participant HIS as HIS/RCE
+    participant REP as Repositorio FHIR
+    HIS-&gt;&gt;REP: Admisión: PUT Encounter?identifier=…|DAU-2026-000123 (in-progress)
+    REP--&gt;&gt;HIS: 201 Created → Encounter/abc v1
+    HIS-&gt;&gt;REP: Alta: PUT Encounter?identifier=…|DAU-2026-000123 (finished)
+    REP--&gt;&gt;HIS: 200 OK → Encounter/abc v2
+</div>
+
+<p>Por eso la guía tiene tres perfiles de <code class="language-plaintext highlighter-rouge">Encounter</code> y dos ejemplos del mismo episodio:</p>
+
+<ul>
+  <li><strong>Perfiles</strong> <a href="StructureDefinition-encuentro-urgencia-admision.html">estado en la admisión</a>, <a href="StructureDefinition-encuentro-urgencia-alta.html">estado en el alta</a> y <a href="StructureDefinition-encuentro-urgencia-abandono.html">estado en el abandono</a>: son las <strong>reglas</strong> que debe cumplir el mismo <code class="language-plaintext highlighter-rouge">Encounter</code> en cada momento. Por ejemplo, un alta sin fecha de término o un abandono con destino "domicilio" se rechazan.</li>
+  <li><strong>Ejemplos</strong> <code class="language-plaintext highlighter-rouge">EpisodioDAU123EstadoAdmision</code> y <code class="language-plaintext highlighter-rouge">EpisodioDAU123EstadoAlta</code>: son <strong>dos fotos del mismo recurso</strong>, tal como lo envía el HIS a las 10:00 y a las 12:30. Tienen el mismo ID DAU.</li>
+</ul>
+
+<h2 id="estructura-de-una-transacción">Estructura de una transacción</h2>
+
+<p>Los tres eventos usan la misma estructura: un <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code> en que <strong>cada entrada es un <code class="language-plaintext highlighter-rouge">PUT</code> condicional por identificador</strong>.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bundle (type = transaction)
+├── Encounter ......... PUT Encounter?identifier=[sistema DAU]|[ID DAU]
+├── Patient ........... PUT Patient?identifier=[sistema]|[RUN u otro]
+├── Organization ...... PUT Organization?identifier=[sistema DEIS]|[código]   (emisor y destino)
+├── Practitioner ...... PUT Practitioner?identifier=[sistema]|[RUN]            (opcional)
+└── ... recursos del evento, también con PUT condicional:
+    ├── Condition ............ PUT Condition?identifier=...
+    ├── MedicationRequest .... PUT MedicationRequest?identifier=...
+    └── DocumentReference .... PUT DocumentReference?identifier=...
+</code></pre></div></div>
+
+<p>El <code class="language-plaintext highlighter-rouge">PUT</code> condicional <strong>crea</strong> el recurso si no existe y lo <strong>actualiza</strong> si ya existe. De ahí salen tres propiedades del modelo:</p>
+
+<ul>
+  <li><strong>Correlación sin lógica adicional:</strong> la admisión crea el <code class="language-plaintext highlighter-rouge">Encounter</code>; el alta o el abandono actualizan ese mismo <code class="language-plaintext highlighter-rouge">Encounter</code>, porque comparten el ID DAU (ver <a href="#un-episodio-un-encounter">Un episodio, un Encounter</a>).</li>
+  <li><strong>Reenvío seguro:</strong> si el HIS/RCE reintenta una transacción, no se duplican pacientes, episodios ni diagnósticos.</li>
+  <li><strong>Transacción autocontenida:</strong> trae siempre paciente, establecimiento y encuentro. Un alta sin admisión previa crea el episodio igual.</li>
+</ul>
+
+<p>Dentro de la transacción los recursos se referencian entre sí por su <code class="language-plaintext highlighter-rouge">fullUrl</code> (<code class="language-plaintext highlighter-rouge">urn:uuid:...</code>). El servidor reemplaza esas referencias por los ids reales al procesarla.</p>
+
+<div class="diagrama-urgencia">
+flowchart LR
+    E["Encounter<br />episodio urgencia"] --&gt;|subject| P["Patient<br />MINSALPaciente"]
+    E --&gt;|serviceProvider| O["Organization<br />MINSALPrestadorOrganizacional"]
+    E --&gt;|participant| PR["Practitioner<br />MINSALPrestadorProfesional"]
+    E --&gt;|diagnosis| C["Condition<br />diagnóstico"]
+    MR["MedicationRequest<br />indicación al alta"] --&gt;|encounter| E
+    DR["DocumentReference"] --&gt;|context.encounter| E
+    DR --&gt;|attachment.url| PDF["PDF DAU"]
+</div>
+
+<h2 id="cómo-se-reconoce-el-evento">Cómo se reconoce el evento</h2>
+
+<p>No hay un recurso que diga "esto es un alta". El evento se deduce del estado del <code class="language-plaintext highlighter-rouge">Encounter</code>, que cada perfil de transacción obliga:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Perfil</th>
+      <th><code class="language-plaintext highlighter-rouge">Encounter.status</code></th>
+      <th><code class="language-plaintext highlighter-rouge">Encounter.hospitalization.dischargeDisposition</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Admisión</td>
+      <td><a href="StructureDefinition-bundle-admision-urgencia.html">Bundle de admisión</a></td>
+      <td><code class="language-plaintext highlighter-rouge">in-progress</code></td>
+      <td>No se envía</td>
+    </tr>
+    <tr>
+      <td>Alta</td>
+      <td><a href="StructureDefinition-bundle-alta-urgencia.html">Bundle de alta</a></td>
+      <td><code class="language-plaintext highlighter-rouge">finished</code></td>
+      <td><a href="ValueSet-vs-destino-alta.html">Destino de alta</a></td>
+    </tr>
+    <tr>
+      <td>Abandono</td>
+      <td><a href="StructureDefinition-bundle-abandono-urgencia.html">Bundle de abandono</a></td>
+      <td><code class="language-plaintext highlighter-rouge">finished</code></td>
+      <td><a href="ValueSet-vs-tipo-abandono.html">Tipo de abandono</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Quien necesite reaccionar a un evento (por ejemplo, avisar al CESFAM de un alta o de una fuga) lo hace suscribiéndose a los cambios de <code class="language-plaintext highlighter-rouge">Encounter</code> en el repositorio.</p>
+
+<h2 id="contenido-por-evento">Contenido por evento</h2>
+
+<p><strong>Obligatorio</strong> = la transacción se rechaza si falta. <strong>Si existe</strong> = se envía cuando el HIS/RCE tiene el dato.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recurso / dato</th>
+      <th>Admisión</th>
+      <th>Alta</th>
+      <th>Abandono</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient</code></td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Organization</code> (emisor)</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">in-progress</code></td>
+      <td><code class="language-plaintext highlighter-rouge">finished</code></td>
+      <td><code class="language-plaintext highlighter-rouge">finished</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.period.start</code> (admisión)</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.period.end</code></td>
+      <td>No se envía</td>
+      <td>Obligatorio (alta)</td>
+      <td>Obligatorio (abandono)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.reasonCode</code> (motivo de consulta)</td>
+      <td>Si existe</td>
+      <td>Si existe</td>
+      <td>Si existe</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.hospitalization.admitSource</code> (procedencia)</td>
+      <td>Si existe</td>
+      <td>Si existe</td>
+      <td>Si existe</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.hospitalization.dischargeDisposition</code></td>
+      <td>No se envía</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.hospitalization.destination</code></td>
+      <td>—</td>
+      <td>Si hay traslado o derivación</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Condition</code> (diagnóstico)</td>
+      <td>—</td>
+      <td>Obligatorio, al menos uno (<code class="language-plaintext highlighter-rouge">DD</code>)</td>
+      <td>Si existe (hipótesis <code class="language-plaintext highlighter-rouge">AD</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MedicationRequest</code></td>
+      <td>—</td>
+      <td>Si existe</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code> (PDF)</td>
+      <td>—</td>
+      <td>Obligatorio</td>
+      <td>Si existe</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner</code></td>
+      <td>Si existe</td>
+      <td>Si existe (quien da el alta)</td>
+      <td>Si existe</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="identificadores">Identificadores</h2>
+
+<p>Cada recurso de la transacción debe traer un identificador estable, que es la llave del <code class="language-plaintext highlighter-rouge">PUT</code> condicional:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recurso</th>
+      <th>Identificador</th>
+      <th>Ejemplo de <code class="language-plaintext highlighter-rouge">request.url</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter</code></td>
+      <td>ID DAU del establecimiento</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter?identifier=https://hospital.cl/sid/dau\|DAU-2026-000123</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Patient</code></td>
+      <td>RUN (o pasaporte, RUN madre, identificador local)</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300\|11111111-1</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Organization</code></td>
+      <td>Código DEIS</td>
+      <td><code class="language-plaintext highlighter-rouge">Organization?identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino\|112100</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner</code></td>
+      <td>RUN</td>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300\|22222222-2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Condition</code></td>
+      <td>Id del diagnóstico en el HIS/RCE</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition?identifier=https://hospital.cl/sid/diagnosticos\|DG-88001</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MedicationRequest</code></td>
+      <td>Id de la indicación en el HIS/RCE</td>
+      <td><code class="language-plaintext highlighter-rouge">MedicationRequest?identifier=https://hospital.cl/sid/indicaciones\|IND-5501-1</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">masterIdentifier</code> del documento</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference?identifier=https://hospital.cl/sid/documentos\|DOC-000123</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El ID DAU debe ser <strong>único</strong> en el establecimiento, <strong>no reutilizarse</strong> nunca y ser <strong>el mismo</strong> en las tres transacciones del episodio. El <code class="language-plaintext highlighter-rouge">system</code> identifica al establecimiento, por lo que el par <code class="language-plaintext highlighter-rouge">system|value</code> es único a nivel nacional.</p>
+
+<h2 id="reglas-de-negocio">Reglas de negocio</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Regla</th>
+      <th>Dónde se valida</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Todas las entradas usan <code class="language-plaintext highlighter-rouge">PUT</code> condicional por identificador.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-tx-put-condicional</code></td>
+    </tr>
+    <tr>
+      <td>Un episodio <code class="language-plaintext highlighter-rouge">finished</code> debe tener <code class="language-plaintext highlighter-rouge">period.end</code>.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-enc-1</code></td>
+    </tr>
+    <tr>
+      <td>Un episodio <code class="language-plaintext highlighter-rouge">finished</code> debe tener destino o tipo de abandono.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-enc-2</code></td>
+    </tr>
+    <tr>
+      <td>El alta usa solo destinos de alta; el abandono usa solo tipos de abandono.</td>
+      <td>Perfiles <code class="language-plaintext highlighter-rouge">EncuentroUrgenciaAlta</code> y <code class="language-plaintext highlighter-rouge">EncuentroUrgenciaAbandono</code></td>
+    </tr>
+    <tr>
+      <td>La transacción se aplica completa o no se aplica.</td>
+      <td>Servidor FHIR (semántica de <code class="language-plaintext highlighter-rouge">transaction</code>)</td>
+    </tr>
+    <tr>
+      <td>El HIS/RCE no debe enviar una admisión de un episodio ya cerrado: el <code class="language-plaintext highlighter-rouge">PUT</code> lo reabriría.</td>
+      <td>HIS/RCE; el Bus puede rechazarla</td>
+    </tr>
+    <tr>
+      <td>Para anular un episodio enviado por error se reenvía el <code class="language-plaintext highlighter-rouge">Encounter</code> con <code class="language-plaintext highlighter-rouge">status = entered-in-error</code>.</td>
+      <td>HIS/RCE</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="fuga-y-nea">Fuga y NEA</h2>
+
+<p>Ambos son <strong>abandono voluntario</strong> y se informan con la Bundle de abandono. Se distinguen por el <a href="CodeSystem-tipo-abandono.html">tipo de abandono</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Significado</th>
+      <th>Cuándo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">1</code></td>
+      <td>Abandono antes de la atención médica (NEA, No Espera Atención)</td>
+      <td>El paciente se va antes de ser evaluado por el profesional.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">2</code></td>
+      <td>Abandono durante la atención médica (fuga)</td>
+      <td>El paciente se va después de iniciada la atención, sin alta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">period.end</code> corresponde a la fecha y hora en que el equipo <strong>constata</strong> el abandono.</p>
+
+<h2 id="qué-no-incluye-este-modelo">Qué no incluye este modelo</h2>
+
+<p>Para mantener el modelo mínimo, los siguientes datos <strong>no</strong> se envían como recursos estructurados. Siguen disponibles en el PDF:</p>
+
+<ul>
+  <li>Categorización (ESI u otra).</li>
+  <li>Signos vitales, anamnesis, examen físico y evolución.</li>
+  <li>Solicitudes y resultados de exámenes (tienen sus propias guías de laboratorio e imagenología).</li>
+  <li>Procedimientos y medicamentos administrados durante la atención.</li>
+</ul>
+
+<p>El modelo puede crecer agregando recursos a las transacciones sin cambiar su núcleo (paciente, establecimiento, encuentro, documento).</p>
+
+<!--
+  Renderiza los diagramas de esta guía como SVG dentro de la página.
+  La plantilla usa mermaid con securityLevel "sandbox" (iframe), que no ajusta
+  el alto al diagrama y lo corta o deja espacio vacío. "strict" es igual de
+  seguro para contenido propio (sin scripts ni clics) y el alto es automático.
+-->
+<style>
+  .diagrama-urgencia { margin: 1em 0; overflow-x: auto; }
+  .diagrama-urgencia svg { max-width: 100%; height: auto; }
+</style>
+
+<script>
+  window.addEventListener('load', function () {
+    if (!window.mermaid) return;
+    mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' });
+    mermaid.run({ querySelector: '.diagrama-urgencia' });
+  });
+</script>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 23, 2026 16:36-0300">2026-09-23</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Mapeo CMBD - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono)</span>
+            <br/>
+            <span style="display:inline-block;">0.2.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="modelo.html">Modelo de eventos</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-cmbd.html">Mapeo CMBD</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Mapeo CMBD</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) - Local Development build (v0.2.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Mapeo CMBD</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<p>Correspondencia entre los campos del <strong>Conjunto Mínimo Básico de Datos (CMBD) de Urgencia</strong> del DEIS y los elementos FHIR de esta guía. Permite que un mismo mensaje sirva a la continuidad de la atención y a la estadística nacional.</p>
+
+<p><strong>Evento</strong> indica la primera transacción en que se informa el dato; las transacciones siguientes lo repiten si sigue vigente.</p>
+
+<p>Paciente, profesional y establecimiento usan directamente los perfiles del <a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/artifacts.html">NID 0.4.6</a>; los códigos de previsión, tramo FONASA, leyes previsionales y título profesional también son los del NID. Los códigos del NID no llevan cero a la izquierda: <code class="language-plaintext highlighter-rouge">01 FONASA</code> del CMBD se envía como <code class="language-plaintext highlighter-rouge">1</code>.</p>
+
+<p>Convenciones de formato:</p>
+
+<ul>
+  <li>Fecha y hora del CMBD (<code class="language-plaintext highlighter-rouge">DDMMAAAA</code> + <code class="language-plaintext highlighter-rouge">HH:MM</code>) se envían como un solo <code class="language-plaintext highlighter-rouge">dateTime</code> ISO 8601 con zona horaria: <code class="language-plaintext highlighter-rouge">2026-09-09T10:00:00-03:00</code>.</li>
+  <li>Los códigos del CMBD se envían tal cual, con el <code class="language-plaintext highlighter-rouge">system</code> del CodeSystem correspondiente.</li>
+</ul>
+
+<h2 id="identificación-del-prestador">Identificación del prestador</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COD SS</td>
+      <td><code class="language-plaintext highlighter-rouge">Organization.partOf</code> (referencia al Servicio de Salud)</td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>COD ESTAB</td>
+      <td><code class="language-plaintext highlighter-rouge">Organization.identifier.value</code> (system <code class="language-plaintext highlighter-rouge">https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino</code>)</td>
+      <td>Admisión</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="identificación-del-dau">Identificación del DAU</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID DAU</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.identifier.value</code></td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>ID ATENCION</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.identifier</code> (segundo identificador, si difiere del ID DAU)</td>
+      <td>Admisión</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="datos-del-paciente">Datos del paciente</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID_BD_PERSONAS</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.identifier</code> (system MPI). Lo agrega el Bus al resolver identidad.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>ID PACIENTE</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.identifier</code> con tipo <code class="language-plaintext highlighter-rouge">12</code> Número de ficha clínica sistema local</td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>RUN + DV</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.identifier.value</code> = <code class="language-plaintext highlighter-rouge">RUN-DV</code>, tipo <code class="language-plaintext highlighter-rouge">01</code> RUN</td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>TIPO_IDENTIFICACION</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.identifier.type</code> (ver tabla de equivalencias)</td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>FECHA NACIMIENTO</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.birthDate</code></td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>SEXO</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.extension[SexoBiologico]</code> (<a href="https://hl7chile.cl/fhir/ig/clcore/CodeSystem-CSSexoListadoDeis.html">CL-Core CSSexoListadoDeis</a>) y <code class="language-plaintext highlighter-rouge">Patient.gender</code></td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>TELÉFONO CONTACTO</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient.telecom</code> (<code class="language-plaintext highlighter-rouge">system = phone</code>)</td>
+      <td>Admisión</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Equivalencia TIPO_IDENTIFICACION → CL-Core <code class="language-plaintext highlighter-rouge">CSTipoIdentificador</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CMBD</th>
+      <th>CL-Core</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1 RUN</td>
+      <td><code class="language-plaintext highlighter-rouge">01</code> RUN</td>
+    </tr>
+    <tr>
+      <td>2 Pasaporte</td>
+      <td><code class="language-plaintext highlighter-rouge">05</code> PPN</td>
+    </tr>
+    <tr>
+      <td>3 RUN materno</td>
+      <td><code class="language-plaintext highlighter-rouge">03</code> RUN Madre</td>
+    </tr>
+    <tr>
+      <td>4 Sin RUN</td>
+      <td><code class="language-plaintext highlighter-rouge">12</code> Número de ficha clínica sistema local</td>
+    </tr>
+    <tr>
+      <td>9 Otro</td>
+      <td><code class="language-plaintext highlighter-rouge">14</code> Otro</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Equivalencia SEXO → <code class="language-plaintext highlighter-rouge">Patient.gender</code>: <code class="language-plaintext highlighter-rouge">01 → male</code>, <code class="language-plaintext highlighter-rouge">02 → female</code>, <code class="language-plaintext highlighter-rouge">03 → other</code>, <code class="language-plaintext highlighter-rouge">99 → unknown</code>.</p>
+
+<p>Datos que exige <code class="language-plaintext highlighter-rouge">MINSALPaciente</code> aunque el CMBD no los incluye: identidad de género, nacionalidad, país de origen, país emisor del documento, teléfono, fecha de nacimiento, sexo y si está fallecido.</p>
+
+<h2 id="previsión">Previsión</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PREVISIÓN</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.extension[prevision].extension[prevision]</code> (<a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/CodeSystem-CSPrevision.html">NID CSPrevision</a>)</td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>CLASIFICACIÓN BENEFICIARIO FONASA</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.extension[prevision].extension[tramoFonasa]</code> (<a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/CodeSystem-CSTramosFONASA.html">NID CSTramosFONASA</a>)</td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>LEYES PREVISIONALES</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.extension[leyPrevisional]</code> (0..*) (<a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/CodeSystem-CSLeyPrevisionales.html">NID CSLeyPrevisionales</a>)</td>
+      <td>Admisión</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="admisión">Admisión</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FECHA_ADM + HORA_ADM</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.period.start</code></td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>PROCEDENCIA DEL PACIENTE</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.hospitalization.admitSource</code> (<a href="CodeSystem-procedencia.html">CSProcedencia</a>)</td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>UNIDAD DE ATENCIÓN</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.serviceType</code> (<a href="CodeSystem-unidad-atencion.html">CSUnidadAtencion</a>)</td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>MOT_CONSULTA</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.reasonCode.text</code></td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>CLASIFICACIÓN DE LA CONSULTA</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.extension[clasificacionConsulta]</code></td>
+      <td>Admisión</td>
+    </tr>
+    <tr>
+      <td>LLEGADA</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.hospitalization.extension[medioLlegada]</code> (<a href="CodeSystem-medio-llegada.html">CSMedioLlegada</a>)</td>
+      <td>Admisión</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="atención-clínica">Atención clínica</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FECHA_ATENCION + HORA_ATENCION</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.recordedDate</code> de la hipótesis diagnóstica</td>
+      <td>Alta / Abandono</td>
+    </tr>
+    <tr>
+      <td>HIPOTESIS_DIAG</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.code.text</code> con <code class="language-plaintext highlighter-rouge">verificationStatus = provisional</code>, referenciada en <code class="language-plaintext highlighter-rouge">Encounter.diagnosis</code> con <code class="language-plaintext highlighter-rouge">use = AD</code></td>
+      <td>Alta / Abandono</td>
+    </tr>
+    <tr>
+      <td>COD_DIAG + TIPO_COD_DIAG</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.code.coding</code> (el <code class="language-plaintext highlighter-rouge">system</code> indica el tipo de codificación)</td>
+      <td>Alta / Abandono</td>
+    </tr>
+    <tr>
+      <td>INDICACIÓN DE FÁRMACOS</td>
+      <td>Un <code class="language-plaintext highlighter-rouge">MedicationRequest</code> por fármaco: <code class="language-plaintext highlighter-rouge">medicationCodeableConcept.text</code> + <code class="language-plaintext highlighter-rouge">dosageInstruction.text</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>ID RECETA</td>
+      <td><code class="language-plaintext highlighter-rouge">MedicationRequest.groupIdentifier</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>SOLIC_MEDIOS_DIAG / DESCRIP_MEDIOS_DIAG</td>
+      <td>No se envía estructurado; queda en el PDF</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Equivalencia TIPO_COD_DIAG → <code class="language-plaintext highlighter-rouge">Condition.code.coding.system</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CMBD</th>
+      <th>system</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01 CIE-10</td>
+      <td><code class="language-plaintext highlighter-rouge">http://hl7.org/fhir/sid/icd-10</code></td>
+    </tr>
+    <tr>
+      <td>02 TAPSA</td>
+      <td>Pendiente de definir por el DEIS</td>
+    </tr>
+    <tr>
+      <td>03 SNOMED</td>
+      <td><code class="language-plaintext highlighter-rouge">http://snomed.info/sct</code></td>
+    </tr>
+    <tr>
+      <td>04 Otros</td>
+      <td>Solo <code class="language-plaintext highlighter-rouge">Condition.code.text</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="alta-médica">Alta médica</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FECHA_ALTA + HORA_ALTA</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.period.end</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>DIAG_FINAL</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.code.text</code>, referenciada en <code class="language-plaintext highlighter-rouge">Encounter.diagnosis</code> con <code class="language-plaintext highlighter-rouge">use = DD</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>TIPO_DIAG</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.verificationStatus</code>: <code class="language-plaintext highlighter-rouge">01 → provisional</code>, <code class="language-plaintext highlighter-rouge">02 → confirmed</code>, <code class="language-plaintext highlighter-rouge">03 → refuted</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>COD_DIAG + TIPO_COD_DIAG</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.code.coding</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>CONDICIÓN AL CIERRE</td>
+      <td>Se deduce del destino: <code class="language-plaintext highlighter-rouge">03 Fallecido</code> → fallecido; otro → vivo</td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>PRONÓSTICO MÉDICO LEGAL</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.extension[pronosticoMedicoLegal]</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>DESTINO_ALTA</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.hospitalization.dischargeDisposition</code> (<a href="CodeSystem-destino-alta.html">CSDestinoAlta</a>)</td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>GES</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.extension[ges]</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>PERTINENCIA</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.extension[pertinencia]</code></td>
+      <td>Alta</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="profesional-que-da-el-alta">Profesional que da el alta</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ID PROFESIONAL ALTA</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.participant.individual</code> → <code class="language-plaintext highlighter-rouge">Practitioner</code> (<code class="language-plaintext highlighter-rouge">participant.type = DIS</code>)</td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>RUN + DV</td>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner.identifier[run]</code></td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>TÍTULO PROFESIONAL</td>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner.qualification[TituloProfesional].code</code> (<a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/CodeSystem-CSTituloProfesional.html">NID CSTituloProfesional</a>)</td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>ESPECIALIDAD MÉDICA</td>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner.qualification[EspecialidadMedica].code</code> (<a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/CodeSystem-CSEspecialidadMed.html">NID CSEspecialidadMed</a>)</td>
+      <td>Alta</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="otros">Otros</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo CMBD</th>
+      <th>Elemento FHIR</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABANDONO</td>
+      <td>Bundle de abandono + <code class="language-plaintext highlighter-rouge">Encounter.hospitalization.dischargeDisposition</code> (<a href="CodeSystem-tipo-abandono.html">CSTipoAbandono</a>)</td>
+      <td>Abandono</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="campos-no-incluidos">Campos no incluidos</h2>
+
+<p>Los campos de <strong>categorización</strong> (CATEGORIZACIÓN ESI, PRIMERA_CATE, ULTIMA_CATE, fechas, horas, profesionales y número de categorizaciones) quedan fuera del alcance de esta versión, por decisión de la versión 0.1.2.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 23, 2026 16:36-0300">2026-09-23</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/urgencia/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+
