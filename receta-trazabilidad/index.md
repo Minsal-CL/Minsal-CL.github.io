@@ -26,27 +26,26 @@ description: >-
   <div class="wrap wrap--narrow">
     <header class="sec-head">
       <p class="kicker">Por qué existe</p>
-      <h2>La segunda línea de la Estrategia Nacional de Interoperabilidad</h2>
+      <h2>Hacia un medicamento trazable de extremo a extremo</h2>
     </header>
     <div class="step">
       <p class="step__n">El problema</p>
       <p>
-        Hoy no es posible enlazar de forma confiable lo que un profesional
-        recetó con lo que efectivamente se entregó en una farmacia. Tampoco
-        es posible saber, de manera sistemática, de qué lote proviene el
-        medicamento que recibió cada paciente ni reconstruir su origen a lo
-        largo de la cadena de abastecimiento.
+        Hoy existen brechas para conectar el ciclo completo del medicamento: desde que un profesional lo prescribe hasta que es dispensado al paciente.<br>
+        No es posible relacionar de forma confiable qué se prescribió con qué se dispensó, ni reconstruir sistemáticamente qué medicamento recibió cada paciente, de qué lote provino y cuál fue su recorrido a través de la cadena de abastecimiento.
       </p>
     </div>
     <div class="step">
       <p class="step__n">La respuesta</p>
       <p>
-        Dos proyectos complementarios: la <strong>Receta Nacional</strong>,
-        que estandariza la prescripción y la dispensación entre sistemas, y
-        la <strong>Trazabilidad de Medicamentos</strong>, que reconstruye la
-        traza logística —origen, lote y cadena de custodia— de cada
-        medicamento entregado.
+        Dos proyectos complementarios permiten abordar este desafío: <br><strong>Receta Nacional</strong><br>
+        Estandariza e interoperabiliza la prescripción y dispensación, permitiendo conectar lo indicado por el profesional con lo efectivamente dispensado.<br><strong>Trazabilidad de Medicamentos</strong><br>Permite reconstruir la traza logística del medicamento, desde su origen y lote hasta su entrega al paciente, fortaleciendo la identificación y seguimiento a lo largo de la cadena de abastecimiento.
       </p>
+    </div>
+    <div class="step">
+      <p class="step__n">El objetivo</p>
+      <p>
+        Construir una visión continua y trazable del medicamento, conectando la dimensión clínica de la prescripción con la dimensión logística de su dispensación y abastecimiento.</p>
     </div>
   </div>
 </section>
