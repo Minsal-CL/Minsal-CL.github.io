@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Casos de uso - Guía de Implementación FHIR - Imagenología v0.3.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Imagenología</span>
+            <br/>
+            <span style="display:inline-block;">0.3.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Casos de uso</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Imagenología - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Casos de uso</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#casos-de-uso" id="markdown-toc-casos-de-uso">Casos de uso</a>    <ul>
+      <li><a href="#objetivo" id="markdown-toc-objetivo">Objetivo</a></li>
+      <li><a href="#actores" id="markdown-toc-actores">Actores</a></li>
+      <li><a href="#puntos-de-integración" id="markdown-toc-puntos-de-integración">Puntos de integración</a></li>
+      <li><a href="#alcance-por-fases" id="markdown-toc-alcance-por-fases">Alcance por fases</a></li>
+      <li><a href="#caso-de-uso-1-solicitud-de-examen-imagenológico" id="markdown-toc-caso-de-uso-1-solicitud-de-examen-imagenológico">Caso de uso 1: Solicitud de examen imagenológico</a>        <ul>
+          <li><a href="#uc1-a-establecimiento-con-integración-fhir-nativa" id="markdown-toc-uc1-a-establecimiento-con-integración-fhir-nativa">UC1-a: Establecimiento con integración FHIR nativa</a></li>
+          <li><a href="#uc1-b-establecimiento-con-integración-hl7-v2" id="markdown-toc-uc1-b-establecimiento-con-integración-hl7-v2">UC1-b: Establecimiento con integración HL7 v2</a></li>
+          <li><a href="#restricciones-que-debe-verificar-el-bus" id="markdown-toc-restricciones-que-debe-verificar-el-bus">Restricciones que debe verificar el Bus</a></li>
+          <li><a href="#operaciones" id="markdown-toc-operaciones">Operaciones</a></li>
+        </ul>
+      </li>
+      <li><a href="#caso-de-uso-2-informe-radiológico-con-pdf" id="markdown-toc-caso-de-uso-2-informe-radiológico-con-pdf">Caso de uso 2: Informe radiológico con PDF</a>        <ul>
+          <li><a href="#ciclo-de-vida-del-informe" id="markdown-toc-ciclo-de-vida-del-informe">Ciclo de vida del informe</a></li>
+          <li><a href="#operaciones-1" id="markdown-toc-operaciones-1">Operaciones</a></li>
+        </ul>
+      </li>
+      <li><a href="#fuera-de-alcance-sincronización-de-pacientes-adt" id="markdown-toc-fuera-de-alcance-sincronización-de-pacientes-adt">Fuera de alcance: sincronización de pacientes (ADT)</a></li>
+      <li><a href="#fase-2-a-futuro" id="markdown-toc-fase-2-a-futuro">Fase 2 (a futuro)</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="casos-de-uso">Casos de uso</h1>
+
+<h2 id="objetivo">Objetivo</h2>
+
+<p>Ejemplificar los flujos de mensajería asociados al intercambio de solicitudes de examen imagenológico e informes radiológicos, mostrando para cada actor qué mensaje debe enviar y qué respuesta debe recibir.</p>
+
+<h2 id="actores">Actores</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Actor</th>
+      <th>Rol en el flujo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Establecimiento de origen (HIS / RCE / CPOE)</td>
+      <td>Genera la solicitud de examen y recibe el informe radiológico</td>
+    </tr>
+    <tr>
+      <td>Bus de Interoperabilidad MINSAL</td>
+      <td>Valida el mensaje, homologa estructura (HL7 v2 a FHIR) y terminología, y transforma a los recursos de esta guía</td>
+    </tr>
+    <tr>
+      <td>Servicio terminológico</td>
+      <td>Valida o traduce los códigos de procedimiento</td>
+    </tr>
+    <tr>
+      <td>MPI (Índice Maestro de Pacientes)</td>
+      <td>Resuelve la identidad del paciente; ver <a href="arquitectura.html">Arquitectura</a></td>
+    </tr>
+    <tr>
+      <td>RIS</td>
+      <td>Agenda el estudio, registra su ejecución y genera el informe radiológico</td>
+    </tr>
+    <tr>
+      <td>PACS</td>
+      <td>Almacena las imágenes y las expone mediante DICOMweb</td>
+    </tr>
+    <tr>
+      <td>Portal Ciudadano</td>
+      <td>Consume el informe final publicado en FHIR</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="puntos-de-integración">Puntos de integración</h2>
+
+<p>Esta guía define dos puntos de integración independientes hacia el mismo Bus:</p>
+
+<ol>
+  <li><strong>Punto FHIR directo.</strong> Sistemas que ya generan recursos FHIR nativos entregan directamente <code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code> o <code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal</code> mediante <code class="language-plaintext highlighter-rouge">POST</code> a la API del Bus.</li>
+  <li><strong>Punto HL7 v2 homologado.</strong> Sistemas que solo generan mensajes HL7 v2 (<code class="language-plaintext highlighter-rouge">ORM^O01</code>, <code class="language-plaintext highlighter-rouge">ORU^R01</code>) se conectan a un gateway del Bus que homologa la estructura y los códigos antes de transformar a FHIR. El detalle campo a campo está en <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>.</li>
+</ol>
+
+<p>Ambos puntos convergen en el mismo modelo canónico. Un establecimiento no necesita saber si otro participante se integra por el camino FHIR o por el camino HL7 v2.</p>
+
+<h2 id="alcance-por-fases">Alcance por fases</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fase</th>
+      <th>Contenido</th>
+      <th>Estado en esta guía</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fase 1 (alcance de esta versión)</td>
+      <td>Solicitud de examen (UC1) e informe radiológico con PDF (UC2), ambos en envío transaccional con <code class="language-plaintext highlighter-rouge">Bundle</code></td>
+      <td>En desarrollo, con perfiles y ejemplos publicados</td>
+    </tr>
+    <tr>
+      <td>Fase 2 (a futuro)</td>
+      <td><code class="language-plaintext highlighter-rouge">ImagingStudy</code> con dato DICOM y recuperación de imágenes vía DICOMweb, cuestionario clínico de mamografía, recitación de pacientes y hallazgos estructurados (<code class="language-plaintext highlighter-rouge">Observation</code> con BI-RADS)</td>
+      <td>Descrito de forma conceptual, pendiente de diseño</td>
+    </tr>
+    <tr>
+      <td>Fuera de alcance</td>
+      <td>Sincronización de pacientes (<code class="language-plaintext highlighter-rouge">ADT</code>)</td>
+      <td>Responsabilidad del servicio común de identidad (MPI / NID)</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Punto abierto.</strong> La especificación ORU-Out establece que el RIS enviará <strong>todos</strong> los informes generados, no solo los que correspondan a una orden creada en el HIS. Mientras no se acuerde lo contrario, el Bus debe aceptar informes sin solicitud previa: <code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal.basedOn</code> es opcional. La contrapartida es que un informe sin orden no permite cerrar el ciclo de lista de espera, por lo que se recomienda registrar siempre la solicitud cuando el establecimiento la genere.</p>
+</blockquote>
+
+<h2 id="caso-de-uso-1-solicitud-de-examen-imagenológico">Caso de uso 1: Solicitud de examen imagenológico</h2>
+
+<p>Un establecimiento genera uno o más exámenes imagenológicos para un paciente y los envía al Bus, donde quedan disponibles para el RIS y para consulta posterior.</p>
+
+<p>Recurso focal: <code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code>. Cuando la orden agrupa varios exámenes, se crea un <code class="language-plaintext highlighter-rouge">ServiceRequest</code> por cada uno, compartiendo el mismo <code class="language-plaintext highlighter-rouge">requisition</code>.</p>
+
+<h3 id="uc1-a-establecimiento-con-integración-fhir-nativa">UC1-a: Establecimiento con integración FHIR nativa</h3>
+
+<ol>
+  <li>El establecimiento construye uno o más recursos <code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code>, referenciando al paciente, al profesional solicitante y al servicio ejecutante de imagenología.</li>
+  <li>Incluye en el <code class="language-plaintext highlighter-rouge">Bundle</code> el recurso <code class="language-plaintext highlighter-rouge">Patient</code> completo, conforme al perfil de paciente de NID (decisión D-012).</li>
+  <li>Envía un <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code> con <code class="language-plaintext highlighter-rouge">POST</code> a la raíz del servidor del Bus.</li>
+  <li>El Bus resuelve el paciente contra el MPI, homologa el código del procedimiento con el servicio terminológico, valida los recursos contra los perfiles de esta guía y responde con el estado de cada entrada.</li>
+</ol>
+
+<div class="mermaid">
+sequenceDiagram
+    participant Est as Establecimiento (FHIR)
+    participant Bus as Bus de Interoperabilidad
+    participant MPI as MPI
+    Est-&gt;&gt;Bus: POST Bundle(transaction) [Patient NID + MinsalServiceRequestImagen]
+    Bus-&gt;&gt;MPI: resuelve identidad
+    MPI--&gt;&gt;Bus: identidad confirmada
+    Bus-&gt;&gt;Bus: valida contra perfiles de esta guía
+    Bus--&gt;&gt;Est: 200 OK / OperationOutcome
+</div>
+
+<h3 id="uc1-b-establecimiento-con-integración-hl7-v2">UC1-b: Establecimiento con integración HL7 v2</h3>
+
+<ol>
+  <li>El establecimiento genera un mensaje <code class="language-plaintext highlighter-rouge">ORM^O01</code> por cada examen, indicando en <code class="language-plaintext highlighter-rouge">OBR-4</code> el código del procedimiento y en <code class="language-plaintext highlighter-rouge">ORC-4.1</code> el número de solicitud que los agrupa.</li>
+  <li>El mensaje llega al gateway HL7 v2 del Bus, que valida su estructura.</li>
+  <li>El Bus consulta al servicio terminológico para validar u homologar el código del procedimiento, y consulta al MPI para resolver la identidad del paciente.</li>
+  <li>El Bus transforma el mensaje a <code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code> según las reglas de <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>.</li>
+  <li>El Bus responde con un <code class="language-plaintext highlighter-rouge">ACK</code> HL7 v2.</li>
+</ol>
+
+<div class="mermaid">
+sequenceDiagram
+    participant Est as Establecimiento (v2)
+    participant Bus as Bus de Interoperabilidad
+    participant Term as Servicio Terminológico
+    participant MPI as MPI
+    participant RIS as RIS
+    Est-&gt;&gt;Bus: ORM^O01 (un mensaje por examen)
+    Bus-&gt;&gt;Term: valida código de procedimiento
+    Term--&gt;&gt;Bus: código homologado
+    Bus-&gt;&gt;MPI: resuelve identidad
+    MPI--&gt;&gt;Bus: identidad confirmada
+    Bus-&gt;&gt;Bus: transforma a MinsalServiceRequestImagen
+    Bus-&gt;&gt;RIS: solicitud disponible
+    Bus--&gt;&gt;Est: ACK
+</div>
+
+<h3 id="restricciones-que-debe-verificar-el-bus">Restricciones que debe verificar el Bus</h3>
+
+<p>El Bus verifica las siguientes reglas antes de transformar una solicitud, en ambos canales:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Regla</th>
+      <th>Verificación</th>
+      <th>Si falla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>R1</td>
+      <td>Paciente con RUN válido (formato y dígito verificador) o pasaporte, resuelto en el MPI</td>
+      <td>Rechazo (<code class="language-plaintext highlighter-rouge">NACK</code> / <code class="language-plaintext highlighter-rouge">OperationOutcome</code>)</td>
+    </tr>
+    <tr>
+      <td>R2</td>
+      <td>Profesional solicitante identificado con RUN (<code class="language-plaintext highlighter-rouge">ORC-12</code> o <code class="language-plaintext highlighter-rouge">ServiceRequest.requester</code>), según D-006</td>
+      <td>Rechazo</td>
+    </tr>
+    <tr>
+      <td>R3</td>
+      <td>Establecimiento identificado con código DEIS</td>
+      <td>Rechazo</td>
+    </tr>
+    <tr>
+      <td>R4</td>
+      <td>Código del examen homologable a una prestación del arancel FONASA, verificado con el servicio terminológico (decisión D-014)</td>
+      <td>Rechazo</td>
+    </tr>
+    <tr>
+      <td>R5</td>
+      <td>Código del examen existente en el catálogo del RIS (regla de la interfaz ORM-In: el RIS no puede crear la orden sin él)</td>
+      <td>Rechazo</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Estas reglas se aplican a la <strong>solicitud</strong>. Un <strong>informe</strong> que no cumple una regla no se rechaza, porque el RIS no reintenta y el rechazo equivaldría a perderlo: queda en cuarentena auditada hasta resolverse (ver decisión D-005).</p>
+
+<h3 id="operaciones">Operaciones</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [URL_Base]/ServiceRequest
+</code></pre></div></div>
+
+<p>Para una solicitud con varios exámenes, <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code> con un <code class="language-plaintext highlighter-rouge">ServiceRequest</code> por examen, todos con el mismo <code class="language-plaintext highlighter-rouge">requisition</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [URL_Base]/
+</code></pre></div></div>
+
+<p>Consulta de los exámenes de una solicitud:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [URL_Base]/ServiceRequest?requisition=[valor_requisition]
+</code></pre></div></div>
+
+<h2 id="caso-de-uso-2-informe-radiológico-con-pdf">Caso de uso 2: Informe radiológico con PDF</h2>
+
+<p>El RIS genera el informe del estudio y lo envía al HIS o a su motor de integración. Este caso de uso corresponde al núcleo de la Fase 1.</p>
+
+<p>Recurso focal: <code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal</code>, con el PDF codificado en <code class="language-plaintext highlighter-rouge">presentedForm.data</code>.</p>
+
+<ol>
+  <li>El radiólogo genera el informe en el RIS, que le asigna un estado (<code class="language-plaintext highlighter-rouge">P</code>, <code class="language-plaintext highlighter-rouge">F</code>, <code class="language-plaintext highlighter-rouge">C</code>/<code class="language-plaintext highlighter-rouge">A</code>, <code class="language-plaintext highlighter-rouge">D</code>).</li>
+  <li>El RIS envía <code class="language-plaintext highlighter-rouge">ORU^R01</code> sobre MLLP: un segmento <code class="language-plaintext highlighter-rouge">ORC</code> y <code class="language-plaintext highlighter-rouge">OBR</code> por cada examen del informe, y <strong>un único</strong> segmento <code class="language-plaintext highlighter-rouge">OBX</code> con el PDF en Base64.</li>
+  <li>El Bus valida la estructura, resuelve el paciente, y busca la solicitud original a partir de <code class="language-plaintext highlighter-rouge">ORC-2</code>/<code class="language-plaintext highlighter-rouge">ORC-3</code> u <code class="language-plaintext highlighter-rouge">OBR-2</code>/<code class="language-plaintext highlighter-rouge">OBR-3</code>.</li>
+  <li>El Bus transforma el mensaje a <code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal</code>, enlaza <code class="language-plaintext highlighter-rouge">basedOn</code> cuando encontró la solicitud y <code class="language-plaintext highlighter-rouge">imagingStudy</code> cuando existe el estudio, y persiste el <code class="language-plaintext highlighter-rouge">Bundle</code> en el repositorio FHIR.</li>
+  <li>Una vez persistido el informe, el Bus responde <code class="language-plaintext highlighter-rouge">ACK</code> a nivel de comunicación. El Portal Ciudadano y otros consumidores autorizados consultan el informe en el repositorio FHIR, no en el Bus.</li>
+</ol>
+
+<div class="mermaid">
+sequenceDiagram
+    participant RIS as RIS
+    participant Bus as Bus de Interoperabilidad
+    participant Repo as Repositorio FHIR
+    participant Portal as Portal Ciudadano
+    RIS-&gt;&gt;Bus: ORU^R01 (PDF Base64 en OBX-5)
+    Bus-&gt;&gt;Bus: resuelve paciente y busca ServiceRequest
+    Bus-&gt;&gt;Bus: transforma a InformeRadiologicoMinsal
+    Bus-&gt;&gt;Repo: POST Bundle (transaction)
+    Repo--&gt;&gt;Bus: 200 OK / OperationOutcome
+    Bus--&gt;&gt;RIS: ACK (nivel de comunicación)
+    Portal-&gt;&gt;Repo: GET DiagnosticReport
+    Repo--&gt;&gt;Portal: informe + PDF
+</div>
+
+<h3 id="ciclo-de-vida-del-informe">Ciclo de vida del informe</h3>
+
+<p>Un mismo estudio puede generar varios mensajes <code class="language-plaintext highlighter-rouge">ORU^R01</code> sucesivos: primero preliminar, luego final, y eventualmente una corrección o una eliminación.</p>
+
+<div class="mermaid">
+stateDiagram-v2
+    [*] --&gt; preliminary: ORU con OBX-11 = P
+    preliminary --&gt; final: ORU con OBX-11 = F
+    final --&gt; corrected: ORU con OBX-11 = C
+    final --&gt; amended: ORU con OBX-11 = A
+    final --&gt; entered_in_error: ORU con OBX-11 = D
+    corrected --&gt; entered_in_error: ORU con OBX-11 = D
+</div>
+
+<p>Regla de actualización: el Bus <strong>no crea un recurso nuevo</strong> por cada estado. Localiza el <code class="language-plaintext highlighter-rouge">DiagnosticReport</code> existente por su Accession Number y actualiza <code class="language-plaintext highlighter-rouge">status</code>, <code class="language-plaintext highlighter-rouge">issued</code>, <code class="language-plaintext highlighter-rouge">presentedForm</code> y <code class="language-plaintext highlighter-rouge">resultsInterpreter</code>, conservando el historial de versiones del recurso.</p>
+
+<h3 id="operaciones-1">Operaciones</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [URL_Base]/DiagnosticReport
+</code></pre></div></div>
+
+<p>Consulta del informe por paciente:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [URL_Base]/DiagnosticReport?patient.identifier=[identificador_paciente]&amp;category=RAD
+</code></pre></div></div>
+
+<p>Consulta del informe asociado a una solicitud específica:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [URL_Base]/DiagnosticReport?based-on=[id_ServiceRequest]
+</code></pre></div></div>
+
+<p>Consulta por Accession Number, que es la vía recomendada cuando no hay solicitud previa:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [URL_Base]/DiagnosticReport?identifier=[system]|[accession_number]
+</code></pre></div></div>
+
+<h2 id="fuera-de-alcance-sincronización-de-pacientes-adt">Fuera de alcance: sincronización de pacientes (ADT)</h2>
+
+<p>La sincronización demográfica entre el HIS y el RIS mediante eventos <code class="language-plaintext highlighter-rouge">ADT</code> no es un caso de uso de esta guía. La identidad del paciente la gestiona el servicio común de identidad (MPI / NID), que especifica los eventos <code class="language-plaintext highlighter-rouge">ADT</code>, la fusión de registros (<code class="language-plaintext highlighter-rouge">A40</code>) y el cambio de identificador (<code class="language-plaintext highlighter-rouge">A47</code>). Esta guía solo consume la identidad resuelta: una regla de fusión distinta por dominio clínico produciría tres identidades distintas del mismo paciente.</p>
+
+<h2 id="fase-2-a-futuro">Fase 2 (a futuro)</h2>
+
+<p>Los siguientes flujos no forman parte del alcance de esta versión y se documentan porque condicionan decisiones de perfilamiento:</p>
+
+<ul>
+  <li><strong>Recuperación de imágenes desde el Portal Ciudadano.</strong> Requiere exponer <code class="language-plaintext highlighter-rouge">ImagingStudy.endpoint</code> con un servicio DICOMweb (WADO-RS) y resolver la autorización de acceso a las imágenes, distinta de la del informe.</li>
+  <li><strong>Recitación de pacientes.</strong> La presentación de radiología lo señala como el punto crítico pendiente: poco frecuente en TC y RM, pero muy común en mamografía. Debe modelarse cómo se representa un nuevo examen derivado de un hallazgo previo (<code class="language-plaintext highlighter-rouge">ServiceRequest.basedOn</code> o <code class="language-plaintext highlighter-rouge">reasonReference</code> hacia el informe anterior).</li>
+  <li><strong>Hallazgos estructurados.</strong> Representar la categoría BI-RADS y otros hallazgos como recursos <code class="language-plaintext highlighter-rouge">Observation</code> referenciados desde <code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>, en lugar de dejarlos únicamente dentro del PDF.</li>
+  <li><strong>Integración completa de mamografía con ficha de paciente</strong>, señalada en la presentación como el siguiente paso de la modalidad MG.</li>
+  <li><strong>Cuestionario clínico de mamografía.</strong> Viaja hoy en los segmentos <code class="language-plaintext highlighter-rouge">OBX</code> de la solicitud y se recibe sin rechazar el mensaje, pero no se transforma en recursos del modelo canónico. Vuelve cuando exista una definición del formulario acordada con el programa clínico y no con un RIS.</li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.imagenologia#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 13:58-0300">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

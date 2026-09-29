@@ -1,0 +1,92 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ServiceRequest/SolicitudMamografiaBilateralEjemplo> a fhir:ServiceRequest ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "SolicitudMamografiaBilateralEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalServiceRequestImagen" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalServiceRequestImagen>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio SolicitudMamografiaBilateralEjemplo</b></p><a name=\"SolicitudMamografiaBilateralEjemplo\"> </a><a name=\"hcSolicitudMamografiaBilateralEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestImagen.html\">Solicitud de Examen Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/134-2</p><p><b>requisition</b>: <code>http://example.org/hospital-talca/solicitudes-imagenologia</code>/134</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 363679005}\">Imaging (procedure)</span></p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia MAMOB}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0401010}\">MAMOGRAFIA BILATERAL</span></p><p><b>subject</b>: <a href=\"Patient-PacienteImagenologiaEjemplo.html\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-09-01 09:30:00-0400</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteImagenEjemplo.html\">Practitioner Juan Salinas </a></p><p><b>performer</b>: <a href=\"Organization-ServicioImagenologiaEjemplo.html\">Organization Servicio de Imagenología, Hospital de Talca</a></p><p><b>reasonCode</b>: <span title=\"Codes:\">Tumor palpable</span></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PLAC" ] ;
+         fhir:Coding.display [ fhir:value "Placer Identifier" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "http://example.org/hospital-talca/ordenes-imagenologia" ] ;
+     fhir:Identifier.value [ fhir:value "134-2" ]
+  ] ;
+  fhir:ServiceRequest.requisition [
+     fhir:Identifier.system [ fhir:value "http://example.org/hospital-talca/solicitudes-imagenologia" ] ;
+     fhir:Identifier.value [ fhir:value "134" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:363679005 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "363679005" ] ;
+       fhir:Coding.display [ fhir:value "Imaging (procedure)" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.priority [ fhir:value "routine"] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia" ] ;
+       fhir:Coding.code [ fhir:value "MAMOB" ] ;
+       fhir:Coding.display [ fhir:value "MAMOGRAFIA BILATERAL" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0401010" ] ;
+       fhir:Coding.display [ fhir:value "Mamografía bilateral" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "MAMOGRAFIA BILATERAL" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteImagenologiaEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-09-01T09:30:00-04:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Practitioner/ProfesionalSolicitanteImagenEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteImagenEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Organization/ServicioImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/ServicioImagenologiaEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.reasonCode [
+     fhir:index 0 ;
+     fhir:CodeableConcept.text [ fhir:value "Tumor palpable" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ServiceRequest/SolicitudMamografiaBilateralEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

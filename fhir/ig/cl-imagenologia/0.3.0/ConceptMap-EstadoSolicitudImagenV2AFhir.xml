@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="EstadoSolicitudImagenV2AFhir"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: MapaDeConceptos EstadoSolicitudImagenV2AFhir</b></p><a name="EstadoSolicitudImagenV2AFhir"> </a><a name="hcEstadoSolicitudImagenV2AFhir"> </a><p>Mapping from (not specified) to <a href="http://hl7.org/fhir/R4/valueset-request-status.html">RequestStatus</a></p><br/><p>Mapping from <a href="CodeSystem-EstadoSolicitudImagenHl7v2.html">Estado de la solicitud de imagen en HL7 v2</a> to <a href="http://hl7.org/fhir/R4/codesystem-request-status.html">RequestStatus</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>NW (Solicitado)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>active</td><td/></tr><tr><td>CA (Cancelado)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>revoked</td><td/></tr><tr><td>F (Completado)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent" title="equivalent">is equivalent to</a></td><td>completed</td><td/></tr><tr><td>P (Pagado)</td><td><a href="http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-relatedto" title="relatedto">is related to</a></td><td>active</td><td>El pago es un hito administrativo del flujo de atención y no cambia el estado clínico de la solicitud; se mantiene active.</td></tr></table></div>
+  </text>
+  <url value="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ConceptMap/EstadoSolicitudImagenV2AFhir"/>
+  <version value="0.3.0"/>
+  <name value="EstadoSolicitudImagenV2AFhir"/>
+  <title value="Estado de la solicitud: HL7 v2 a FHIR"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-09-28T13:58:41-03:00"/>
+  <publisher value="Unidad de Interoperabilidad - MINSAL"/>
+  <contact>
+    <name value="Unidad de Interoperabilidad - MINSAL"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://interoperabilidad.minsal.cl"/>
+    </telecom>
+  </contact>
+  <description value="Equivalencias entre el control de la orden enviado en ORC-1 / ORC-25 y los valores de ServiceRequest.status."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CL"/>
+      <display value="Chile"/>
+    </coding>
+  </jurisdiction>
+  <targetCanonical value="http://hl7.org/fhir/ValueSet/request-status"/>
+  <group>
+    <source value="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/EstadoSolicitudImagenHl7v2"/>
+    <target value="http://hl7.org/fhir/request-status"/>
+    <element>
+      <code value="NW"/>
+      <display value="Solicitado"/>
+      <target>
+        <code value="active"/>
+        <display value="Active"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="CA"/>
+      <display value="Cancelado"/>
+      <target>
+        <code value="revoked"/>
+        <display value="Revoked"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="F"/>
+      <display value="Completado"/>
+      <target>
+        <code value="completed"/>
+        <display value="Completed"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="P"/>
+      <display value="Pagado"/>
+      <target>
+        <code value="active"/>
+        <display value="Active"/>
+        <equivalence value="relatedto"/>
+        <comment value="El pago es un hito administrativo del flujo de atención y no cambia el estado clínico de la solicitud; se mantiene active."/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>

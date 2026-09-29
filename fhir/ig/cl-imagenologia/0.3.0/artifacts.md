@@ -1,0 +1,65 @@
+# Artifacts Summary - Guía de Implementación FHIR - Imagenología v0.3.0
+
+* [**Table of Contents**](toc.md)
+* **Artifacts Summary**
+
+## Artifacts Summary
+
+This page provides a list of the FHIR artifacts defined as part of this implementation guide.
+
+### Structures: Resource Profiles 
+
+These define constraints on FHIR resources for systems conforming to this implementation guide.
+
+| | |
+| :--- | :--- |
+| [Bundle de Informe de Imagenología MINSAL](StructureDefinition-MinsalBundleInformeImagenologia.md) | Perfil para el envío transaccional del informe radiológico y, cuando exista dato DICOM, del estudio imagenológico asociado. Exige exactamente una entrada InformeRadiologicoMinsal. Es el artefacto que sostiene la trazabilidad del flujo ORU^R01: identifier conserva el MSH-10 del mensaje de origen, que en esta interfaz es la única red de seguridad, porque el emisor no reintenta. Sigue el modelo de MinsalBundleResultadoLaboratorio. |
+| [Bundle de Solicitud de Imagenología MINSAL](StructureDefinition-MinsalBundleSolicitudImagenologia.md) | Perfil para el envío transaccional de uno o más exámenes imagenológicos que pertenecen a una misma orden. Exige al menos una entrada MinsalServiceRequestImagen y valida que todas las entradas de solicitud comparten el mismo requisition. El paciente es obligatorio y conforme al perfil de NID (decisión D-012): en el canal FHIR directo lo envía el establecimiento, y en el canal HL7 v2 el Bus lo reconstruye desde el MPI (D-001). En ambos casos el Bus lo resuelve contra el MPI antes de publicar. Profesional solicitante y establecimiento se incluyen como entradas opcionales, para quien decida enviarlos en vez de asumir su preexistencia. Sigue el modelo de MinsalBundleSolicitudLaboratorio. |
+| [Estudio Imagenológico MINSAL](StructureDefinition-EstudioImagenologicoMinsal.md) | Perfil para representar el estudio de imagen almacenado en el PACS: transporta el Accession Number, la modalidad DICOM y, cuando existan, el Study Instance UID y el endpoint de recuperación (WADO-RS). No forma parte del conjunto obligatorio de la fase 1: el Bus crea este recurso sólo cuando dispone de dato DICOM real (Study Instance UID o endpoint). Cuando el estudio no se crea, la trazabilidad se sostiene con el Accession Number registrado en InformeRadiologicoMinsal.identifier. |
+| [Informe Radiológico MINSAL](StructureDefinition-InformeRadiologicoMinsal.md) | Perfil para representar el informe radiológico generado por el RIS y recibido mediante HL7 v2 ORU^R01, incluyendo el informe en PDF codificado en Base64. Sigue el modelo de ResultadoDiagnosticoLaboratorio de la Guía de Implementación de Laboratorio Clínico, con dos divergencias documentadas que impone la interfaz ORU-Out v1.3: basedOn y performer son opcionales. |
+| [Organización participante en el flujo de imagenología](StructureDefinition-OrganizacionParticipanteImagenologia.md) | Perfil para representar establecimientos de origen, servicios ejecutantes de imagenología, unidades de radiología y otras organizaciones participantes en el intercambio de solicitudes e informes. Extiende MINSALPrestadorOrganizacional (NID), el núcleo normativo de MINSAL para prestadores institucionales, según la jerarquía normativa nacional (decisión D-016). Sus reglas son idénticas a las de OrganizacionParticipanteLaboratorio. |
+| [Paciente de Imagenología](StructureDefinition-PacienteImagenologia.md) | Perfil de paciente utilizado en las solicitudes de examen imagenológico, los estudios de imagen y los informes radiológicos. Extiende MINSALPaciente (NID, Núcleo de Interoperabilidad de Datos), el núcleo normativo de identidad de MINSAL, según la jerarquía normativa nacional (decisión D-016). El recurso es una proyección del maestro del MPI (D-001): la identidad se resuelve contra el MPI antes de publicarse; ver la página Arquitectura. |
+| [Profesional de Imagenología MINSAL](StructureDefinition-MinsalPractitionerImagenologia.md) | Perfil para representar al profesional solicitante del examen (ORC-12), al médico radiólogo que informa el estudio (OBR-32) y a cualquier otro profesional participante en el flujo imagenológico. Extiende MINSALPrestadorProfesional (NID), el núcleo normativo de MINSAL para prestadores individuales, según la jerarquía normativa nacional (decisión D-016). El RUN, la fecha de nacimiento y el título profesional quedan obligatorios por ese perfil, no por esta guía. |
+| [Solicitud de Examen Imagenológico MINSAL](StructureDefinition-MinsalServiceRequestImagen.md) | Perfil para representar la solicitud de un examen imagenológico (TC, RM, mamografía y otros procedimientos) en el modelo canónico nacional FHIR R4. Corresponde al recurso focal de la solicitud recibida desde el HIS mediante HL7 v2 ORM^O01, o entregada directamente en FHIR. Cuando una orden agrupa varios exámenes se crea un ServiceRequest por examen, todos compartiendo el mismo par system+value en requisition. Sigue el modelo de MinsalServiceRequestLab de la Guía de Implementación de Laboratorio Clínico. |
+
+### Terminology: Code Systems 
+
+These define new code systems used by systems conforming to this implementation guide.
+
+| | |
+| :--- | :--- |
+| [Códigos de procedimientos de imagenología](CodeSystem-CodigoProcedimientoImagenologia.md) | Identificador canónico del catálogo local de procedimientos de imagenología del establecimiento emisor. El contenido es administrado externamente por el servicio terminológico (Ontology Server del Bus de Interoperabilidad), que es también el responsable de su homologación a SNOMED CT, LOINC o al arancel FONASA. Esta guía fija únicamente el URI que identifica el sistema de códigos, siguiendo el mismo patrón que CodigoPrestacionFonasa en la Guía de Implementación de Laboratorio Clínico. |
+| [Estado de la solicitud de imagen en HL7 v2](CodeSystem-EstadoSolicitudImagenHl7v2.md) | Valores de control de la orden que el HIS envía en ORC-1 y describe en ORC-25 del mensaje ORM^O01. |
+| [Estado del informe radiológico en HL7 v2](CodeSystem-EstadoInformeRadiologicoHl7v2.md) | Valores de estado del informe que el RIS envía en OBR-25 y OBX-11 del mensaje ORU^R01. |
+| [Prioridad de la solicitud de imagen en HL7 v2](CodeSystem-PrioridadSolicitudImagenHl7v2.md) | Valores de prioridad que el HIS envía en ORC-7.6 y OBR-27.6 del mensaje ORM^O01. |
+
+### Terminology: Concept Maps 
+
+These define transformations to convert between codes by systems conforming with this implementation guide.
+
+| | |
+| :--- | :--- |
+| [Estado de la solicitud: HL7 v2 a FHIR](ConceptMap-EstadoSolicitudImagenV2AFhir.md) | Equivalencias entre el control de la orden enviado en ORC-1 / ORC-25 y los valores de ServiceRequest.status. |
+| [Estado del informe radiológico: HL7 v2 a FHIR](ConceptMap-EstadoInformeRadiologicoV2AFhir.md) | Equivalencias entre los estados del informe enviados por el RIS en OBR-25 / OBX-11 y los valores de DiagnosticReport.status. |
+| [Prioridad de la solicitud: HL7 v2 a FHIR](ConceptMap-PrioridadSolicitudImagenV2AFhir.md) | Equivalencias entre la prioridad enviada en ORC-7.6 / OBR-27.6 y los valores de ServiceRequest.priority. |
+
+### Example: Example Instances 
+
+These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like.
+
+| | |
+| :--- | :--- |
+| [Bundle de informe radiológico con estudio imagenológico](Bundle-BundleInformeImagenEjemplo.md) | Transacción FHIR que publica el informe radiológico de la TC de cerebro junto con el estudio imagenológico al que corresponde. Incluye el paciente ya resuelto contra el MPI, que el Bus publica con el id del maestro (PUT). Es el resultado de transformar un mensaje ORU^R01: identifier conserva el MSH-10.1 y timestamp el MSH-7.1, que son la cadena de trazabilidad entre el mensaje recibido y los recursos publicados. La invariante informe-estudio-referenciado exige que, si el Bundle trae el estudio, el informe lo referencie. |
+| [Bundle de solicitud con dos exámenes imagenológicos](Bundle-BundleSolicitudImagenEjemplo.md) | Transacción FHIR que crea los dos exámenes de una misma solicitud (número 134): una tomografía computada de cerebro y una mamografía bilateral. Ambos comparten el par system+value de requisition. El paciente viaja como entrada obligatoria (D-012), ya resuelto contra el MPI y publicado con el id del maestro (PUT). El profesional solicitante y el servicio ejecutante se asumen preexistentes en el servidor de destino. identifier conserva el identificador del mensaje HL7 v2 de origen (MSH-10.1). |
+| [Bundle de solicitud enviado directamente en FHIR por un RCE](Bundle-BundleSolicitudImagenFhirDirectoEjemplo.md) | Transacción que un RCE con integración FHIR nativa envía al Bus (Caso de uso 1, UC1-a). Incluye el paciente completo conforme al perfil de NID (decisión D-012) y dos exámenes de la misma solicitud, que comparten el par system+value de requisition. El paciente viaja como recurso nuevo con urn:uuid: el Bus lo resuelve contra el MPI antes de publicar y una búsqueda sin coincidencias no autoriza crearlo (D-001). Los exámenes llevan el código local y la prestación FONASA; si el emisor entrega solo el código local, el Bus agrega FONASA antes de validar (D-014). Los códigos FONASA son ilustrativos y deben confirmarse con el servicio terminológico. |
+| [Establecimiento de origen de ejemplo](Organization-EstablecimientoOrigenImagenEjemplo.md) | Establecimiento que origina la solicitud de examen imagenológico, identificado con un Código de Establecimiento DEIS real y vigente: 116105, Hospital Dr. César Garavagno Burotto (Hospital de Talca), Servicio de Salud del Maule. identifier.system usa http://deis.minsal.cl/establecimientos, el mismo URI adoptado por las guías de Laboratorio Clínico, Tiempos de Espera Quirúrgico y Urgencia. |
+| [Estudio: TC de cerebro](ImagingStudy-EstudioTcCerebroEjemplo.md) | Estudio de imagen realizado en el RIS/PACS. Se crea porque el Bus dispone del Study Instance UID DICOM; sin ese dato el estudio no se crea y la trazabilidad la sostiene el Accession Number del informe. |
+| [Informe radiológico sin solicitud previa](DiagnosticReport-InformeSinSolicitudEjemplo.md) | Informe emitido por el RIS para un estudio que no tiene orden registrada en el Bus. Es el caso que justifica que basedOn sea opcional en esta guía: ORU-Out v1.3 establece que Enterprise Imaging envía todos los informes generados, no sólo los correspondientes a una orden del HIS. El informe se publica igual y el paciente accede a él. |
+| [Informe radiológico: TC de cerebro](DiagnosticReport-InformeTcCerebroEjemplo.md) | Informe radiológico final recibido mediante ORU^R01, con el PDF del informe codificado en Base64 en presentedForm. Referencia la solicitud original y el estudio imagenológico, y declara la fecha de validación (OBR-22) exigida por la invariante informe-final-con-issued. |
+| [Médico radiólogo de ejemplo](Practitioner-MedicoRadiologoEjemplo.md) | Profesional ficticio que informa el estudio imagenológico (OBR-32 del mensaje ORU^R01). Cumple el set de datos obligatorio de MINSALPrestadorProfesional (NID). |
+| [Paciente de ejemplo](Patient-PacienteImagenologiaEjemplo.md) | Ejemplo ficticio de un paciente utilizado para validar el perfil. Cumple el set de datos obligatorio de MINSALPaciente (NID): identificador con el tipo RUN del CodeSystem de NID, nombre, sexo registral, fecha de nacimiento y estado de fallecimiento. No incluye datos demográficos opcionales: el recurso es una proyección del maestro del MPI y el modelo canónico minimiza datos (D-001). |
+| [Profesional solicitante de ejemplo](Practitioner-ProfesionalSolicitanteImagenEjemplo.md) | Profesional ficticio que solicita el examen imagenológico (ORC-12 del mensaje ORM^O01). Cumple el set de datos obligatorio de MINSALPrestadorProfesional (NID): RUN, nombre, fecha de nacimiento y título profesional, con el título tomado del CodeSystem de NID. |
+| [Servicio ejecutante de imagenología de ejemplo](Organization-ServicioImagenologiaEjemplo.md) | Servicio de imagenología interno del mismo establecimiento (116105, Hospital de Talca), que ejecuta el examen e informa el estudio. Corresponde al servicio ejecutante de ORC-2.2 y OBR-4.3. Como unidad interna no tiene código DEIS propio: se identifica en el dominio local del establecimiento y cuelga de él mediante partOf. |
+| [Solicitud: TC de cerebro](ServiceRequest-SolicitudTcCerebroEjemplo.md) | Solicitud de tomografía computada de cerebro generada por el HIS y recibida mediante ORM^O01. El identificador corresponde al examen dentro de la solicitud (ORC-2.1 / OBR-2.1) y requisition al número de solicitud que agrupa los exámenes (ORC-4.1), con el system del establecimiento asignador. |
+| [Solicitud: mamografía bilateral](ServiceRequest-SolicitudMamografiaBilateralEjemplo.md) | Segundo examen de la misma solicitud 134. Comparte con el primero el par system+value de requisition, que es lo que la invariante solicitud-imagen-requisition-compartido verifica en el Bundle. El motivo del estudio llega en OBR-31.2 y se conserva como texto: el catálogo de motivos de mamografía diagnóstica no forma parte de esta versión de la guía. |
+

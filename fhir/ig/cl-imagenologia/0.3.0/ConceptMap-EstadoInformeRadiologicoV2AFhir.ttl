@@ -1,0 +1,110 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ConceptMap/EstadoInformeRadiologicoV2AFhir> a fhir:ConceptMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EstadoInformeRadiologicoV2AFhir"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: MapaDeConceptos EstadoInformeRadiologicoV2AFhir</b></p><a name=\"EstadoInformeRadiologicoV2AFhir\"> </a><a name=\"hcEstadoInformeRadiologicoV2AFhir\"> </a><p>Mapping from (not specified) to <a href=\"http://hl7.org/fhir/R4/valueset-diagnostic-report-status.html\">DiagnosticReportStatus</a></p><br/><p>Mapping from <a href=\"CodeSystem-EstadoInformeRadiologicoHl7v2.html\">Estado del informe radiológico en HL7 v2</a> to <a href=\"http://hl7.org/fhir/R4/codesystem-diagnostic-report-status.html\">DiagnosticReportStatus</a></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>P (Preliminar)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>preliminary</td><td/></tr><tr><td>F (Final)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>final</td><td/></tr><tr><td>C (Corrección)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>corrected</td><td/></tr><tr><td>A (Corrección (Addendum))</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>amended</td><td/></tr><tr><td>D (Eliminado)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-relatedto\" title=\"relatedto\">is related to</a></td><td>entered-in-error</td><td>El RIS elimina el informe; en FHIR el recurso no se borra, se marca como entered-in-error y se conserva para trazabilidad.</td></tr></table></div>"
+  ] ;
+  fhir:ConceptMap.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ConceptMap/EstadoInformeRadiologicoV2AFhir"] ;
+  fhir:ConceptMap.version [ fhir:value "0.3.0"] ;
+  fhir:ConceptMap.name [ fhir:value "EstadoInformeRadiologicoV2AFhir"] ;
+  fhir:ConceptMap.title [ fhir:value "Estado del informe radiológico: HL7 v2 a FHIR"] ;
+  fhir:ConceptMap.status [ fhir:value "draft"] ;
+  fhir:ConceptMap.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:ConceptMap.date [ fhir:value "2026-09-28T13:58:41-03:00"^^xsd:dateTime] ;
+  fhir:ConceptMap.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ConceptMap.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ConceptMap.description [ fhir:value "Equivalencias entre los estados del informe enviados por el RIS en OBR-25 / OBX-11 y los valores de DiagnosticReport.status."] ;
+  fhir:ConceptMap.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ConceptMap.targetCanonical [
+     fhir:value "http://hl7.org/fhir/ValueSet/diagnostic-report-status" ;
+     fhir:link <http://hl7.org/fhir/ValueSet/diagnostic-report-status>
+  ] ;
+  fhir:ConceptMap.group [
+     fhir:index 0 ;
+     fhir:ConceptMap.group.source [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/EstadoInformeRadiologicoHl7v2" ] ;
+     fhir:ConceptMap.group.target [ fhir:value "http://hl7.org/fhir/diagnostic-report-status" ] ;
+     fhir:ConceptMap.group.element [
+       fhir:index 0 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "P" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Preliminar" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "preliminary" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Preliminary" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "F" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Final" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "final" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Final" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 2 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "C" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Corrección" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "corrected" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Corrected" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 3 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "A" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Corrección (Addendum)" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "amended" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Amended" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 4 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "D" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Eliminado" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "entered-in-error" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Entered in Error" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "relatedto" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "El RIS elimina el informe; en FHIR el recurso no se borra, se marca como entered-in-error y se conserva para trazabilidad." ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ConceptMap/EstadoInformeRadiologicoV2AFhir.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

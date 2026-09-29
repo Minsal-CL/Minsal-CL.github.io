@@ -1,0 +1,59 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ImagingStudy/EstudioTcCerebroEjemplo> a fhir:ImagingStudy ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EstudioTcCerebroEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: EstudioImagen  / EstudioImagen EstudioTcCerebroEjemplo</b></p><a name=\"EstudioTcCerebroEjemplo\"> </a><a name=\"hcEstudioTcCerebroEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-EstudioImagenologicoMinsal.html\">Estudio Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Accession ID/20260902000134, <a href=\"http://terminology.hl7.org/7.0.0/NamingSystem-dui.html\" title=\"An OID issued under DICOM OID rules. DICOM OIDs are represented as plain OIDs, with a prefix of &quot;urn:oid:&quot;. See https://www.dicomstandard.org/\">DICOM Unique Id</a>/urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.1 (use: official, )</p><p><b>status</b>: Available</p><p><b>modality</b>: <a href=\"http://hl7.org/fhir/R4/codesystem-dicom-dcim.html#dicom-dcim-CT\">DICOM: CT</a> (Computed Tomography)</p><p><b>subject</b>: <a href=\"Patient-PacienteImagenologiaEjemplo.html\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</a></p><p><b>started</b>: 2026-09-02 11:05:00-0400</p></div>"
+  ] ;
+  fhir:ImagingStudy.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "ACSN" ] ;
+         fhir:Coding.display [ fhir:value "Accession ID" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "http://example.org/hospital-talca/accession-number" ] ;
+     fhir:Identifier.value [ fhir:value "20260902000134" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "urn:dicom:uid" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.1" ]
+  ] ;
+  fhir:ImagingStudy.status [ fhir:value "available"] ;
+  fhir:ImagingStudy.modality [
+     fhir:index 0 ;
+     fhir:Coding.system [ fhir:value "http://dicom.nema.org/resources/ontology/DCM" ] ;
+     fhir:Coding.code [ fhir:value "CT" ] ;
+     fhir:Coding.display [ fhir:value "Computed Tomography" ]
+  ] ;
+  fhir:ImagingStudy.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteImagenologiaEjemplo" ]
+  ] ;
+  fhir:ImagingStudy.started [ fhir:value "2026-09-02T11:05:00-04:00"^^xsd:dateTime] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ImagingStudy/EstudioTcCerebroEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

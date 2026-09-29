@@ -1,0 +1,1316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Mapeo HL7 v2 a FHIR - Guía de Implementación FHIR - Imagenología v0.3.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Imagenología</span>
+            <br/>
+            <span style="display:inline-block;">0.3.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Mapeo HL7 v2 a FHIR</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Imagenología - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Mapeo HL7 v2 a FHIR</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#mapeo-hl7-v2-a-fhir-r4" id="markdown-toc-mapeo-hl7-v2-a-fhir-r4">Mapeo HL7 v2 a FHIR R4</a>    <ul>
+      <li><a href="#alcance" id="markdown-toc-alcance">Alcance</a></li>
+      <li><a href="#mapeo-de-la-solicitud-ormo01" id="markdown-toc-mapeo-de-la-solicitud-ormo01">Mapeo de la solicitud: <code class="language-plaintext highlighter-rouge">ORM^O01</code></a>        <ul>
+          <li><a href="#reglas-de-consistencia-de-la-solicitud" id="markdown-toc-reglas-de-consistencia-de-la-solicitud">Reglas de consistencia de la solicitud</a></li>
+          <li><a href="#segmentos-obx-de-la-solicitud" id="markdown-toc-segmentos-obx-de-la-solicitud">Segmentos <code class="language-plaintext highlighter-rouge">OBX</code> de la solicitud</a></li>
+        </ul>
+      </li>
+      <li><a href="#mapeo-del-informe-orur01" id="markdown-toc-mapeo-del-informe-orur01">Mapeo del informe: <code class="language-plaintext highlighter-rouge">ORU^R01</code></a>        <ul>
+          <li><a href="#las-dos-fechas-del-informe" id="markdown-toc-las-dos-fechas-del-informe">Las dos fechas del informe</a></li>
+          <li><a href="#flujo-de-transformación-del-informe" id="markdown-toc-flujo-de-transformación-del-informe">Flujo de transformación del informe</a></li>
+        </ul>
+      </li>
+      <li><a href="#identificación-del-sistema-terminológico" id="markdown-toc-identificación-del-sistema-terminológico">Identificación del sistema terminológico</a></li>
+      <li><a href="#derivación-de-la-modalidad-dicom" id="markdown-toc-derivación-de-la-modalidad-dicom">Derivación de la modalidad DICOM</a></li>
+      <li><a href="#perfiles-de-emisor-y-versiones-del-estándar" id="markdown-toc-perfiles-de-emisor-y-versiones-del-estándar">Perfiles de emisor y versiones del estándar</a>        <ul>
+          <li><a href="#el-perfil-de-emisor-se-declara-no-se-infiere" id="markdown-toc-el-perfil-de-emisor-se-declara-no-se-infiere">El perfil de emisor se declara, no se infiere</a></li>
+          <li><a href="#mensajes-admitidos" id="markdown-toc-mensajes-admitidos">Mensajes admitidos</a></li>
+          <li><a href="#equivalencia-de-fuentes-por-versión" id="markdown-toc-equivalencia-de-fuentes-por-versión">Equivalencia de fuentes por versión</a></li>
+        </ul>
+      </li>
+      <li><a href="#reglas-de-normalización" id="markdown-toc-reglas-de-normalización">Reglas de normalización</a></li>
+      <li><a href="#requisitos-por-emisor" id="markdown-toc-requisitos-por-emisor">Requisitos por emisor</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="mapeo-hl7-v2-a-fhir-r4">Mapeo HL7 v2 a FHIR R4</h1>
+
+<h2 id="alcance">Alcance</h2>
+
+<p>Esta página define la transformación estructural de los mensajes <code class="language-plaintext highlighter-rouge">ORM^O01</code> (solicitud) y <code class="language-plaintext highlighter-rouge">ORU^R01</code> (informe) a recursos FHIR R4. La transformación de estructura es independiente de la validación o traducción de códigos que realiza el servicio terminológico.</p>
+
+<p>Las tablas siguen las especificaciones funcionales de integración del RIS: <strong>ORM Inbound v2.04</strong> y <strong>ORU Outbound v1.3</strong>. La sincronización demográfica (<code class="language-plaintext highlighter-rouge">ADT</code>) no se especifica aquí: es responsabilidad del servicio común de identidad (MPI / NID), que debe resolverla de la misma forma para todos los dominios clínicos.</p>
+
+<p>La columna <strong>¿Transformado?</strong> indica representación en FHIR, no traducción terminológica.</p>
+
+<h2 id="mapeo-de-la-solicitud-ormo01">Mapeo de la solicitud: <code class="language-plaintext highlighter-rouge">ORM^O01</code></h2>
+
+<p>Una solicitud puede tener varios exámenes, pero <strong>se envía un mensaje HL7 por examen</strong>. Cada mensaje produce un <code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code>; el agrupamiento se conserva en <code class="language-plaintext highlighter-rouge">requisition</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo v2</th>
+      <th>Valor de ejemplo</th>
+      <th>¿Transformado?</th>
+      <th>Elemento FHIR R4</th>
+      <th>Recurso</th>
+      <th>Regla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-3.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RCE</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.source.name</code></td>
+      <td>MessageHeader</td>
+      <td>Aplicación origen; informar también <code class="language-plaintext highlighter-rouge">source.endpoint</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-7.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260901093000</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.timestamp</code></td>
+      <td>Bundle</td>
+      <td>Formato <code class="language-plaintext highlighter-rouge">aaaammddhhmmss</code>; aplicar política horaria si no viene offset</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-9</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORM^O01</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.eventCoding</code></td>
+      <td>MessageHeader</td>
+      <td>Sistema v2-0003, código <code class="language-plaintext highlighter-rouge">O01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MSG000001</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.identifier</code></td>
+      <td>Bundle</td>
+      <td>Identificador único del mensaje; no usar como <code class="language-plaintext highlighter-rouge">MessageHeader.id</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-12.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">2.5</code></td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Versión del estándar; se registra en la auditoría del Bus</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-3.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">12345678-9</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteImagenologia.identifier.value</code></td>
+      <td>PacienteImagenologia</td>
+      <td>RUT del paciente. El Bus valida el dígito verificador: el RIS no lo hace</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-3.4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">HIS</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteImagenologia.identifier.assigner</code> / <code class="language-plaintext highlighter-rouge">system</code></td>
+      <td>PacienteImagenologia</td>
+      <td>Dominio asignador del identificador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-5.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Carmona Pérez</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteImagenologia.name.family</code></td>
+      <td>PacienteImagenologia</td>
+      <td>Apellidos</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-5.2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">María Ester</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteImagenologia.name.given</code></td>
+      <td>PacienteImagenologia</td>
+      <td>Nombres</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-7.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">19820702</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteImagenologia.birthDate</code></td>
+      <td>PacienteImagenologia</td>
+      <td>Convertir de <code class="language-plaintext highlighter-rouge">aaaammddhhmmss</code> a <code class="language-plaintext highlighter-rouge">date</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-2.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">O</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.class</code></td>
+      <td>Encounter</td>
+      <td>Aplicar ConceptMap; habitualmente <code class="language-plaintext highlighter-rouge">O → AMB</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-3.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Maternidad</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.location.location</code></td>
+      <td>Encounter, Location</td>
+      <td>Servicio donde está admitido el paciente; crear o resolver <code class="language-plaintext highlighter-rouge">Location</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-3.2</code> / <code class="language-plaintext highlighter-rouge">PV1-3.3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">12</code> / <code class="language-plaintext highlighter-rouge">A</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Location.partOf</code> (habitación, cama)</td>
+      <td>Location</td>
+      <td>Solo si el acuerdo de integración exige el detalle de cama</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-19</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ADM-0099</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.identifier</code></td>
+      <td>Encounter</td>
+      <td>Número de admisión</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">NW</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.status</code>, <code class="language-plaintext highlighter-rouge">intent</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td><code class="language-plaintext highlighter-rouge">NW → active</code> + <code class="language-plaintext highlighter-rouge">order</code>; <code class="language-plaintext highlighter-rouge">CA → revoked</code>. Ver <a href="ConceptMap-EstadoSolicitudImagenV2AFhir.html">ConceptMap</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">187183</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.identifier</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Identificador del examen dentro de la solicitud; tipo <code class="language-plaintext highlighter-rouge">PLAC</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2.2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">IMG</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.performer</code></td>
+      <td>OrganizacionParticipanteImagenologia</td>
+      <td>Servicio ejecutante</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-4.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">13421</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.requisition</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Número de solicitud que agrupa los exámenes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-4.2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">IMG</code></td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.performer</code></td>
+      <td>OrganizacionParticipanteImagenologia</td>
+      <td>Redundante con <code class="language-plaintext highlighter-rouge">ORC-2.2</code>; validar consistencia</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SC</code></td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Estado SPS del RIS (<code class="language-plaintext highlighter-rouge">Ordered/Scheduled</code>); no tiene equivalente clínico en <code class="language-plaintext highlighter-rouge">ServiceRequest</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7.6</code></td>
+      <td><code class="language-plaintext highlighter-rouge">R</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.priority</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td><code class="language-plaintext highlighter-rouge">S → stat</code>, <code class="language-plaintext highlighter-rouge">A → urgent</code>, <code class="language-plaintext highlighter-rouge">R → routine</code>. Ver <a href="ConceptMap-PrioridadSolicitudImagenV2AFhir.html">ConceptMap</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-9.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260901093000</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.authoredOn</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Fuente autoritativa de la fecha de autoría</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-12.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1736123-K</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner.identifier</code></td>
+      <td>MinsalPractitionerImagenologia</td>
+      <td>RUT del médico solicitante</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-12.2</code> / <code class="language-plaintext highlighter-rouge">ORC-12.3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Salinas Riquelme</code> / <code class="language-plaintext highlighter-rouge">Juan Felipe</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner.name.family</code> / <code class="language-plaintext highlighter-rouge">.given</code></td>
+      <td>MinsalPractitionerImagenologia</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-13.1</code> / <code class="language-plaintext highlighter-rouge">ORC-13.2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">217231</code> / <code class="language-plaintext highlighter-rouge">Maternidad</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Organization.identifier</code> / <code class="language-plaintext highlighter-rouge">.name</code></td>
+      <td>OrganizacionParticipanteImagenologia</td>
+      <td>Servicio solicitante; se referencia desde <code class="language-plaintext highlighter-rouge">ServiceRequest.requester</code> cuando el solicitante es la unidad y no la persona</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-25</code></td>
+      <td><code class="language-plaintext highlighter-rouge">NW^Solicitado</code></td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.status</code> + <code class="language-plaintext highlighter-rouge">note</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Descripción legible del estado. <code class="language-plaintext highlighter-rouge">P^Pagado</code> es un hito administrativo: no cambia el estado clínico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-2.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">187183</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.identifier</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Debe coincidir con <code class="language-plaintext highlighter-rouge">ORC-2.1</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TC01</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.code.coding.code</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Código del procedimiento; conservar el sistema de origen</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4.2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TC CEREBRO</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.code.coding.display</code> y <code class="language-plaintext highlighter-rouge">code.text</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Descripción lógica de la prestación</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4.3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">IMG</code></td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.performer</code></td>
+      <td>OrganizacionParticipanteImagenologia</td>
+      <td>Tercera aparición del servicio ejecutante; validar consistencia</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-13</code></td>
+      <td>texto libre</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.note</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Información clínica de la solicitud</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-18.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902000134</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ImagingStudy.identifier</code> (tipo <code class="language-plaintext highlighter-rouge">ACSN</code>)</td>
+      <td>EstudioImagenologicoMinsal</td>
+      <td><strong>Accession Number</strong>: eje de trazabilidad de todo el flujo</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-19.1</code> / <code class="language-plaintext highlighter-rouge">OBR-20.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902000134</code></td>
+      <td>Parcial</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Repiten el Accession Number; validar que coincidan con <code class="language-plaintext highlighter-rouge">OBR-18.1</code> y no duplicar el identificador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-27.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902110000</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.occurrenceDateTime</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Fecha prevista de realización del examen</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-27.6</code></td>
+      <td><code class="language-plaintext highlighter-rouge">R</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.priority</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Debe coincidir con <code class="language-plaintext highlighter-rouge">ORC-7.6</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-31.2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cefalea persistente</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.reasonCode.text</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Motivo del estudio, opcional en ORM-In. Se conserva como texto: el catálogo de motivos de mamografía diagnóstica quedó fuera de alcance en 0.2.0</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-34.5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Sala TC 1</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.locationCode</code> y <code class="language-plaintext highlighter-rouge">ImagingStudy.modality</code></td>
+      <td>MinsalServiceRequestImagen, EstudioImagenologicoMinsal</td>
+      <td>Sala (modalidad). La modalidad DICOM se deriva de este campo o del código del procedimiento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-36.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902110000</code></td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.occurrenceDateTime</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Fecha y hora del procedimiento; usar <code class="language-plaintext highlighter-rouge">Period</code> si convive con <code class="language-plaintext highlighter-rouge">OBR-27.1</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ED</code> / <code class="language-plaintext highlighter-rouge">RP</code> / <code class="language-plaintext highlighter-rouge">TX</code></td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Ver "Segmentos OBX de la solicitud" más abajo</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-3.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SCANNED_REQUEST</code> / <code class="language-plaintext highlighter-rouge">STDAT5</code></td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Adjuntos fuera del alcance de esta versión</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AGILITY^TEXT^PDF^Base64^DOCUMENTO</code></td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Adjuntos fuera del alcance de esta versión</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="reglas-de-consistencia-de-la-solicitud">Reglas de consistencia de la solicitud</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ORC-2.1</code> y <code class="language-plaintext highlighter-rouge">OBR-2.1</code> deben coincidir; lo mismo <code class="language-plaintext highlighter-rouge">ORC-2.2</code>, <code class="language-plaintext highlighter-rouge">ORC-4.2</code> y <code class="language-plaintext highlighter-rouge">OBR-4.3</code> para el servicio ejecutante.</li>
+  <li><code class="language-plaintext highlighter-rouge">OBR-18.1</code>, <code class="language-plaintext highlighter-rouge">OBR-19.1</code> y <code class="language-plaintext highlighter-rouge">OBR-20.1</code> transportan el mismo Accession Number: se registra <strong>una sola vez</strong> como identificador de tipo <code class="language-plaintext highlighter-rouge">ACSN</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">authoredOn</code> se obtiene de <code class="language-plaintext highlighter-rouge">ORC-9.1</code>, no de <code class="language-plaintext highlighter-rouge">OBR-27.1</code>, que es la fecha prevista de ejecución.</li>
+  <li>El código de <code class="language-plaintext highlighter-rouge">OBR-4.1</code> debe existir en el catálogo del RIS; si no, la solicitud se rechaza y no se transforma.</li>
+  <li>Además, el código debe homologarse a una prestación del arancel FONASA (decisión D-014). Sin homologación, la solicitud se rechaza. Ambas reglas se aplican: la del catálogo del RIS es de la interfaz; la de FONASA, del modelo canónico.</li>
+  <li><code class="language-plaintext highlighter-rouge">ORC-5</code> (<code class="language-plaintext highlighter-rouge">SC</code>) y <code class="language-plaintext highlighter-rouge">ORC-25</code> (<code class="language-plaintext highlighter-rouge">P^Pagado</code>) son estados operativos del RIS y del flujo administrativo: no alteran <code class="language-plaintext highlighter-rouge">ServiceRequest.status</code>.</li>
+</ul>
+
+<h3 id="segmentos-obx-de-la-solicitud">Segmentos <code class="language-plaintext highlighter-rouge">OBX</code> de la solicitud</h3>
+
+<p>El <code class="language-plaintext highlighter-rouge">OBX</code> de <code class="language-plaintext highlighter-rouge">ORM^O01</code> es polimórfico: su destino depende de <code class="language-plaintext highlighter-rouge">OBX-2</code> y <code class="language-plaintext highlighter-rouge">OBX-3.1</code>. <strong>Ninguno de sus contenidos forma parte del modelo canónico de esta versión.</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">OBX-2</code></th>
+      <th><code class="language-plaintext highlighter-rouge">OBX-3.1</code></th>
+      <th>Contenido</th>
+      <th>Tratamiento en esta versión</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ED</code> / <code class="language-plaintext highlighter-rouge">RP</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SCANNED_REQUEST</code></td>
+      <td>Orden médica escaneada en PDF o su ruta en disco</td>
+      <td>Fuera de alcance, sin incorporación prevista: no es un caso habitual del flujo, duplica en imagen la información que la solicitud ya transporta estructurada y agrega un segundo documento Base64. Si un establecimiento la requiere, se evaluará como anexo opcional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TX</code></td>
+      <td><code class="language-plaintext highlighter-rouge">STDAT*</code></td>
+      <td>Respuestas del formulario clínico de mamografía</td>
+      <td>Fuera de alcance. Es el formulario de un proveedor, con identificadores propios de Enterprise Imaging; su modelado corresponde a una definición acordada con el programa clínico, no a esta guía</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TX</code></td>
+      <td>código interno del motivo</td>
+      <td><code class="language-plaintext highlighter-rouge">01: Tumor palpable</code>, …</td>
+      <td>Se conserva como texto en <code class="language-plaintext highlighter-rouge">ServiceRequest.reasonCode.text</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TX</code></td>
+      <td>estado de paciente arribado</td>
+      <td>texto</td>
+      <td>Fuera de alcance</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TX</code></td>
+      <td>información de embarazo</td>
+      <td>texto</td>
+      <td>Fuera de alcance; requiere definición de tratamiento de datos sensibles antes de modelarse</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los segmentos <code class="language-plaintext highlighter-rouge">OBX</code> que el emisor envíe se reciben sin rechazar el mensaje: simplemente no se transforman en recursos del modelo canónico.</p>
+
+<p>Ejemplo HL7 v2:</p>
+
+<pre><code class="language-hl7">MSH|^~\&amp;|RCE|HOSPITAL_001|RIS|IMG|20260901093000||ORM^O01|MSG000001|P|2.5
+PID|1||12345678-9^^^HIS||CARMONA PEREZ^MARIA ESTER||19820702
+PV1|1|O|Maternidad^12^A|||||||||||||||ADM-0099
+ORC|NW|187183^IMG||13421^IMG|SC||^^^^^R|20260901093000|||1736123-K^SALINAS^JUAN|217231^Maternidad||||NW^Solicitado
+OBR|1|187183^IMG||TC01^TC CEREBRO^IMG|||||||||Cefalea persistente|20260902000134|||||20260902110000^^^^^R
+OBX|1|ED|SCANNED_REQUEST||AGILITY^TEXT^PDF^Base64^DOCUMENTO
+</code></pre>
+
+<h2 id="mapeo-del-informe-orur01">Mapeo del informe: <code class="language-plaintext highlighter-rouge">ORU^R01</code></h2>
+
+<p>Cada mensaje <code class="language-plaintext highlighter-rouge">ORU^R01</code> corresponde a <strong>un informe</strong>. Si el informe cubre más de un examen, el mensaje lleva un par <code class="language-plaintext highlighter-rouge">ORC</code>/<code class="language-plaintext highlighter-rouge">OBR</code> por examen y <strong>un único</strong> <code class="language-plaintext highlighter-rouge">OBX</code> con el informe.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo v2</th>
+      <th>Valor de ejemplo</th>
+      <th>¿Transformado?</th>
+      <th>Elemento FHIR R4</th>
+      <th>Recurso</th>
+      <th>Regla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-3.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORU_OUT_EI</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.source.name</code></td>
+      <td>MessageHeader</td>
+      <td>Aplicación origen</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-4.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AGFA</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.sender</code></td>
+      <td>OrganizacionParticipanteImagenologia</td>
+      <td>Organización emisora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-6.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CPV</code></td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.destination.receiver</code></td>
+      <td>OrganizacionParticipanteImagenologia</td>
+      <td>Resolver la organización receptora</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-7.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902154000</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.timestamp</code></td>
+      <td>Bundle</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-9</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORU^R01^ORU_R01</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.eventCoding</code></td>
+      <td>MessageHeader</td>
+      <td>Sistema v2-0003, código <code class="language-plaintext highlighter-rouge">R01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">82771</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.identifier</code></td>
+      <td>Bundle</td>
+      <td>Trazabilidad del intercambio</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-11.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">P</code></td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Ambiente productivo; se registra en la auditoría</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">16151212-K</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">PacienteImagenologia.identifier</code></td>
+      <td>PacienteImagenologia</td>
+      <td>Identificador HIS; el HIS asegura su unicidad</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-5.1</code> / <code class="language-plaintext highlighter-rouge">PID-5.2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Carmona Pérez</code> / <code class="language-plaintext highlighter-rouge">María José</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">name.family</code> / <code class="language-plaintext highlighter-rouge">name.given</code></td>
+      <td>PacienteImagenologia</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-7.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">19820702</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">birthDate</code></td>
+      <td>PacienteImagenologia</td>
+      <td>Formato <code class="language-plaintext highlighter-rouge">yyyymmdd</code> en esta interfaz</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-8</code></td>
+      <td><code class="language-plaintext highlighter-rouge">M</code> / <code class="language-plaintext highlighter-rouge">F</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">gender</code></td>
+      <td>PacienteImagenologia</td>
+      <td><code class="language-plaintext highlighter-rouge">M → male</code>, <code class="language-plaintext highlighter-rouge">F → female</code>. Alinear con la terminología ACE de sexo registral</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PV1-2.1</code>, <code class="language-plaintext highlighter-rouge">PV1-18.1</code>, <code class="language-plaintext highlighter-rouge">PV1-19.1</code>, <code class="language-plaintext highlighter-rouge">PV1-44.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">O</code>, <code class="language-plaintext highlighter-rouge">A1</code>, <code class="language-plaintext highlighter-rouge">ADM-0099</code>, <code class="language-plaintext highlighter-rouge">20260902...</code></td>
+      <td>Parcial</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.class</code>, <code class="language-plaintext highlighter-rouge">.identifier</code>, <code class="language-plaintext highlighter-rouge">.period.start</code></td>
+      <td>Encounter</td>
+      <td>Solo vienen si el paciente tiene admisión en urgencia u hospitalización</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SC</code></td>
+      <td>No</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Control de la orden; en el informe indica actualización de estado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">134-1</code></td>
+      <td>Sí</td>
+      <td>Resolución de <code class="language-plaintext highlighter-rouge">basedOn</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Se busca el <code class="language-plaintext highlighter-rouge">ServiceRequest.identifier</code> correspondiente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-3.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">134</code></td>
+      <td>Sí</td>
+      <td>Resolución de <code class="language-plaintext highlighter-rouge">basedOn</code> por <code class="language-plaintext highlighter-rouge">requisition</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Número de solicitud; en la interfaz documentada corresponde al ID de agenda</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7.4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902110500</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.effectivePeriod.start</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td>Fecha/hora de inicio del examen</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7.5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902112500</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.effectivePeriod.end</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td>Fecha/hora de término del examen</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-12.1</code> … <code class="language-plaintext highlighter-rouge">ORC-12.4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">126151</code>, <code class="language-plaintext highlighter-rouge">Salinas</code>, <code class="language-plaintext highlighter-rouge">Juan Felipe</code>, <code class="language-plaintext highlighter-rouge">1736123-K</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner.identifier</code>, <code class="language-plaintext highlighter-rouge">.name</code></td>
+      <td>MinsalPractitionerImagenologia</td>
+      <td>Médico solicitante; <code class="language-plaintext highlighter-rouge">ORC-12.4</code> trae el RUT</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-2.1</code> / <code class="language-plaintext highlighter-rouge">OBR-3.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">134-1</code> / <code class="language-plaintext highlighter-rouge">134</code></td>
+      <td>Sí</td>
+      <td>Resolución de <code class="language-plaintext highlighter-rouge">basedOn</code></td>
+      <td>MinsalServiceRequestImagen</td>
+      <td>Validar contra <code class="language-plaintext highlighter-rouge">ORC-2</code>/<code class="language-plaintext highlighter-rouge">ORC-3</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TACCERE</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.code.coding.code</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td>Código del examen informado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4.2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TAC de Cerebro</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.code.coding.display</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-18.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902000134</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.identifier</code> (tipo <code class="language-plaintext highlighter-rouge">ACSN</code>) e <code class="language-plaintext highlighter-rouge">imagingStudy</code></td>
+      <td>InformeRadiologicoMinsal, EstudioImagenologicoMinsal</td>
+      <td>Enlaza el informe con el estudio</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-22</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902154000</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.issued</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td><strong>Fecha de validación del informe</strong>. Desde la versión 1.3 de la interfaz viaja aquí, no en <code class="language-plaintext highlighter-rouge">OBR-7.1</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-25</code></td>
+      <td><code class="language-plaintext highlighter-rouge">F</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.status</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td>Ver <a href="ConceptMap-EstadoInformeRadiologicoV2AFhir.html">ConceptMap</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-32.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">81273</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">Practitioner.identifier</code></td>
+      <td>MinsalPractitionerImagenologia</td>
+      <td>Médico informante</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-32.2</code> / <code class="language-plaintext highlighter-rouge">OBR-32.3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Riquelme</code> / <code class="language-plaintext highlighter-rouge">Alejandro Andrés</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">name.family</code> / <code class="language-plaintext highlighter-rouge">name.given</code></td>
+      <td>MinsalPractitionerImagenologia</td>
+      <td>Se referencia desde <code class="language-plaintext highlighter-rouge">DiagnosticReport.resultsInterpreter</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-2.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ED</code></td>
+      <td>Sí</td>
+      <td>Determina el tratamiento de <code class="language-plaintext highlighter-rouge">OBX-5</code></td>
+      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">ED</code> = dato encapsulado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-3.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"CodExamen"&amp;GDT</code></td>
+      <td>Parcial</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identificador de versión del dato adjunto</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-3.4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902000134</code></td>
+      <td>Sí</td>
+      <td>Validación cruzada del Accession Number</td>
+      <td>—</td>
+      <td>Debe coincidir con <code class="language-plaintext highlighter-rouge">OBR-18.1</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-5</code></td>
+      <td>PDF en Base64</td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.presentedForm.data</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td><code class="language-plaintext highlighter-rouge">contentType</code> = <code class="language-plaintext highlighter-rouge">application/pdf</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-11</code></td>
+      <td><code class="language-plaintext highlighter-rouge">F</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.status</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td>Debe ser consistente con <code class="language-plaintext highlighter-rouge">OBR-25</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-14</code></td>
+      <td><code class="language-plaintext highlighter-rouge">20260902141000</code></td>
+      <td>Sí</td>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport.presentedForm.creation</code></td>
+      <td>InformeRadiologicoMinsal</td>
+      <td><strong>Fecha de creación</strong> del informe, distinta de la de validación</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="las-dos-fechas-del-informe">Las dos fechas del informe</h3>
+
+<p>Es el punto donde con más frecuencia se equivoca la implementación, y la propia interfaz lo corrigió dos veces (versiones 1.1 y 1.3):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Campo v2</th>
+      <th>Elemento FHIR</th>
+      <th>Significado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Realización del examen</td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7.4</code> / <code class="language-plaintext highlighter-rouge">ORC-7.5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">effectivePeriod</code></td>
+      <td>Cuándo se hizo el estudio al paciente</td>
+    </tr>
+    <tr>
+      <td>Creación del informe</td>
+      <td><code class="language-plaintext highlighter-rouge">OBX-14</code></td>
+      <td><code class="language-plaintext highlighter-rouge">presentedForm.creation</code></td>
+      <td>Cuándo el radiólogo redactó el informe</td>
+    </tr>
+    <tr>
+      <td>Validación del informe</td>
+      <td><code class="language-plaintext highlighter-rouge">OBR-22</code></td>
+      <td><code class="language-plaintext highlighter-rouge">issued</code></td>
+      <td>Cuándo el informe quedó firmado y disponible</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="flujo-de-transformación-del-informe">Flujo de transformación del informe</h3>
+
+<div class="mermaid">
+flowchart TD
+    MSG["ORU^R01"] --&gt; MSH[MSH] --&gt; BUN["Bundle / MessageHeader"]
+    MSG --&gt; PID[PID] --&gt; PAC["PacienteImagenologia"]
+    MSG --&gt; PV1[PV1] --&gt; ENC[Encounter]
+    MSG --&gt; ORCOBR["ORC / OBR"] --&gt; DR["InformeRadiologicoMinsal"]
+    ORCOBR --&gt; ACSN["OBR-18 Accession"] --&gt; IS["EstudioImagenologicoMinsal"]
+    MSG --&gt; OBX["OBX (ED)"] --&gt; PF["presentedForm: PDF Base64"]
+    IS --&gt; DR
+    PF --&gt; DR
+</div>
+
+<h2 id="identificación-del-sistema-terminológico">Identificación del sistema terminológico</h2>
+
+<p>El emisor debe enviar el código del examen en <code class="language-plaintext highlighter-rouge">OBR-4</code> indicando el sistema en el tercer componente del dato CE/CWE. El tipo se distingue mediante <code class="language-plaintext highlighter-rouge">Coding.system</code>; no debe deducirse por la forma del código ni por su descripción.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Catálogo</th>
+      <th>Identificador en HL7 v2</th>
+      <th><code class="language-plaintext highlighter-rouge">Coding.system</code> FHIR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Catálogo local del RIS</td>
+      <td><code class="language-plaintext highlighter-rouge">IMG</code> o el acordado con el emisor</td>
+      <td><code class="language-plaintext highlighter-rouge">https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia</code></td>
+    </tr>
+    <tr>
+      <td>SNOMED CT</td>
+      <td><code class="language-plaintext highlighter-rouge">SCT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://snomed.info/sct</code></td>
+    </tr>
+    <tr>
+      <td>LOINC</td>
+      <td><code class="language-plaintext highlighter-rouge">LN</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://loinc.org</code></td>
+    </tr>
+    <tr>
+      <td>FONASA</td>
+      <td><code class="language-plaintext highlighter-rouge">FONASA</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa</code> (provisional, compartido con la Guía de Laboratorio Clínico hasta que exista un canónico transversal)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Las reglas son:</p>
+
+<ul>
+  <li>El código recibido se conserva en <code class="language-plaintext highlighter-rouge">Coding.code</code> y su descripción en <code class="language-plaintext highlighter-rouge">Coding.display</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">CodeableConcept.text</code> es solo una descripción legible; no identifica el sistema de códigos.</li>
+  <li>La traducción entre el catálogo local y SNOMED CT, LOINC o FONASA la realiza el servicio terminológico. No se infiere durante el mapeo estructural.</li>
+  <li>Cuando el terminológico entregue una traducción validada, el código original debe conservarse y la codificación traducida se agrega como un segundo <code class="language-plaintext highlighter-rouge">Coding</code>.</li>
+  <li><strong>La prestación FONASA es obligatoria</strong> en la solicitud y en el informe (decisión D-014). La agrega o verifica el Bus en ambos canales, antes de validar contra esta guía: un emisor FHIR puede entregar solo el código local. SNOMED CT y LOINC, cuando existan, se derivan de FONASA y no del catálogo local.</li>
+  <li>Los <code class="language-plaintext highlighter-rouge">Coding</code> se distinguen por <code class="language-plaintext highlighter-rouge">system</code>, no por su posición en el <code class="language-plaintext highlighter-rouge">CodeableConcept</code>.</li>
+  <li>Si el sistema no viene identificado, el mensaje no debe homologarse automáticamente: se rechaza o queda pendiente según la política de integración.</li>
+</ul>
+
+<h2 id="derivación-de-la-modalidad-dicom">Derivación de la modalidad DICOM</h2>
+
+<p><code class="language-plaintext highlighter-rouge">ImagingStudy.modality</code> es obligatorio en el recurso y <strong>no viaja como modalidad en la mensajería HL7 v2</strong>. El orden de precedencia es:</p>
+
+<ol>
+  <li><strong>Del objeto DICOM</strong>, cuando el Bus consulta al PACS. Es la única fuente autoritativa.</li>
+  <li><strong>De <code class="language-plaintext highlighter-rouge">OBR-24</code></strong>, <em>a través de un <code class="language-plaintext highlighter-rouge">ConceptMap</code> explícito de la tabla HL7 v2-0074 a los códigos DICOM</em>. <code class="language-plaintext highlighter-rouge">OBR-24</code> es <em>Diagnostic Service Section ID</em>: que <code class="language-plaintext highlighter-rouge">CT</code> coincida en ambos sistemas es una coincidencia, no una equivalencia — en 0074 la resonancia es <code class="language-plaintext highlighter-rouge">NMR</code> y en DICOM es <code class="language-plaintext highlighter-rouge">MR</code>. Sin ese <code class="language-plaintext highlighter-rouge">ConceptMap</code>, <code class="language-plaintext highlighter-rouge">OBR-24</code> no se usa como modalidad. Es, en cambio, la fuente natural de <code class="language-plaintext highlighter-rouge">DiagnosticReport.category</code>.</li>
+  <li><strong>Del código de procedimiento, a través de un <code class="language-plaintext highlighter-rouge">ConceptMap</code> del catálogo local a DICOM CID 29 (<em>Acquisition Modality</em>)</strong> que mantiene el servicio terminológico. Es la vía preferida cuando el objeto DICOM no está disponible, porque la correspondencia queda publicada y versionada en vez de inferirse durante la transformación.</li>
+  <li><strong>Del prefijo del código de procedimiento</strong> (<code class="language-plaintext highlighter-rouge">TC*</code> → <code class="language-plaintext highlighter-rouge">CT</code>, <code class="language-plaintext highlighter-rouge">RM*</code> → <code class="language-plaintext highlighter-rouge">MR</code>, <code class="language-plaintext highlighter-rouge">MAMO*</code> → <code class="language-plaintext highlighter-rouge">MG</code>) o de la sala de <code class="language-plaintext highlighter-rouge">OBR-34.5</code>, sólo como respaldo y cuando el acuerdo de integración fije por escrito esa correspondencia. Los prefijos deben validarse contra el catálogo real del RIS, que puede incluir otras modalidades (ecografía, radiología convencional, densitometría).</li>
+</ol>
+
+<p>Si ninguna fuente resuelve la modalidad, <strong>el estudio no se crea y el informe se publica igual</strong>: es preferible publicar sólo el informe a publicar un <code class="language-plaintext highlighter-rouge">ImagingStudy</code> con una modalidad inferida. La trazabilidad se sostiene con el Accession Number registrado en <code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal.identifier</code>. Es la decisión D-008 del registro de decisiones de diseño de esta guía.</p>
+
+<h2 id="perfiles-de-emisor-y-versiones-del-estándar">Perfiles de emisor y versiones del estándar</h2>
+
+<p>En producción hay más de un emisor, con tipos de mensaje, versiones del estándar y codificaciones distintas. El modelo canónico es <strong>uno solo</strong>: lo que varía es de dónde se obtiene cada dato.</p>
+
+<h3 id="el-perfil-de-emisor-se-declara-no-se-infiere">El perfil de emisor se declara, no se infiere</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">MSH-12</code> no es un discriminador confiable.</strong> Se ha observado un emisor que declara <code class="language-plaintext highlighter-rouge">MSH-12 = 2.4</code> y puebla <code class="language-plaintext highlighter-rouge">ORC-25</code> y <code class="language-plaintext highlighter-rouge">ORC-30</code>, campos que no existen en la estructura de <code class="language-plaintext highlighter-rouge">ORC</code> de esa versión. Por eso el perfil de emisor —tipo de mensaje, versión, catálogos, charset y campos comprometidos— <strong>se fija en el acuerdo de integración del establecimiento</strong> y se verifica en la certificación, no se deduce del contenido del mensaje.</p>
+
+<h3 id="mensajes-admitidos">Mensajes admitidos</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Proceso</th>
+      <th>Tipos admitidos</th>
+      <th>Recurso focal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solicitud de examen</td>
+      <td><code class="language-plaintext highlighter-rouge">ORM^O01</code> y <strong><code class="language-plaintext highlighter-rouge">OMG^O19</code></strong></td>
+      <td><code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code></td>
+    </tr>
+    <tr>
+      <td>Informe radiológico</td>
+      <td><code class="language-plaintext highlighter-rouge">ORU^R01</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><code class="language-plaintext highlighter-rouge">OMG^O19</code> se declara estructuralmente equivalente a <code class="language-plaintext highlighter-rouge">ORM^O01</code></strong> para todos los efectos de este mapeo: ambos producen <code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code> con las mismas reglas. La versión declarada en <code class="language-plaintext highlighter-rouge">MSH-12</code> no altera el modelo canónico resultante; sólo determina qué campos <strong>pueden</strong> estar presentes.</p>
+
+<h3 id="equivalencia-de-fuentes-por-versión">Equivalencia de fuentes por versión</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dato del núcleo mínimo</th>
+      <th>Fuente observada en v2.4</th>
+      <th>Fuente observada en v2.5</th>
+      <th>Regla de resolución</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identificador del mensaje</td>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10</code></td>
+      <td>Idéntica</td>
+    </tr>
+    <tr>
+      <td>Codificación de caracteres</td>
+      <td>no declarada</td>
+      <td><code class="language-plaintext highlighter-rouge">MSH-18</code></td>
+      <td>Ver <strong>N2</strong></td>
+    </tr>
+    <tr>
+      <td>Identificador del paciente</td>
+      <td><code class="language-plaintext highlighter-rouge">PID-3</code> completo con DV, tipo <code class="language-plaintext highlighter-rouge">PI</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PID-3.1</code> + <code class="language-plaintext highlighter-rouge">PID-3.2</code>, tipo <code class="language-plaintext highlighter-rouge">RUT</code></td>
+      <td>Ver <strong>N1</strong>. Es clave de búsqueda contra el MPI, no un dato del recurso</td>
+    </tr>
+    <tr>
+      <td>Identificador del examen</td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2.1</code> / <code class="language-plaintext highlighter-rouge">OBR-2.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2.1</code> / <code class="language-plaintext highlighter-rouge">OBR-2.1</code></td>
+      <td>Idéntica</td>
+    </tr>
+    <tr>
+      <td>Número de solicitud agrupador</td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-4</code>; si no viene, el folio de <code class="language-plaintext highlighter-rouge">ORC-2.3</code></td>
+      <td>Precedencia <code class="language-plaintext highlighter-rouge">ORC-4</code> → <code class="language-plaintext highlighter-rouge">ORC-2.3</code> → ausente</td>
+    </tr>
+    <tr>
+      <td>Solicitante</td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-12</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-12</code></td>
+      <td><strong>Obligatorio.</strong> <code class="language-plaintext highlighter-rouge">ORC-10</code> es <em>Entered By</em> y <code class="language-plaintext highlighter-rouge">PV1-7</code> es <em>Attending Doctor</em>: ninguno es el solicitante</td>
+    </tr>
+    <tr>
+      <td>Prioridad</td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7.6</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7.6</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ConceptMap</code> de prioridad. Un valor fuera de la tabla HL7 0485 no se mapea hasta que el emisor confirme su significado</td>
+    </tr>
+    <tr>
+      <td>Estado</td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-1</code> y <code class="language-plaintext highlighter-rouge">ORC-5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORC-1</code></td>
+      <td>Ver <strong>N6</strong></td>
+    </tr>
+    <tr>
+      <td>Código del procedimiento</td>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4.1</code></td>
+      <td>El catálogo se identifica en <code class="language-plaintext highlighter-rouge">OBR-4.3</code>. Ver <strong>N4</strong></td>
+    </tr>
+    <tr>
+      <td>Accession Number</td>
+      <td><code class="language-plaintext highlighter-rouge">OBR-18</code> / <code class="language-plaintext highlighter-rouge">OBR-19</code> / <code class="language-plaintext highlighter-rouge">OBR-20</code></td>
+      <td>puede no venir</td>
+      <td>Se registra una sola vez, con tipo <code class="language-plaintext highlighter-rouge">ACSN</code>. Su envío es obligación del acuerdo de integración y se verifica en la certificación (decisión D-007)</td>
+    </tr>
+    <tr>
+      <td>Fecha del procedimiento</td>
+      <td><code class="language-plaintext highlighter-rouge">OBR-27</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OBR-36</code></td>
+      <td>Cualquiera de las dos alimenta <code class="language-plaintext highlighter-rouge">occurrenceDateTime</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Los atributos demográficos del <code class="language-plaintext highlighter-rouge">PID</code> —sexo, estado civil, religión, domicilio, teléfonos, correo— <strong>no se transforman</strong>: el recurso <code class="language-plaintext highlighter-rouge">Patient</code> se reconstruye desde el MPI, que es la fuente autoritativa de identidad: el <code class="language-plaintext highlighter-rouge">PID</code> se usa exclusivamente como clave de resolución (decisión D-001).</p>
+</blockquote>
+
+<h2 id="reglas-de-normalización">Reglas de normalización</h2>
+
+<p>Las aplica el Bus antes de construir los recursos.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Regla</th>
+      <th>Motivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>N1</strong></td>
+      <td><strong>RUT.</strong> Si <code class="language-plaintext highlighter-rouge">PID-3.2</code> contiene un solo carácter alfanumérico y el tipo declarado es de RUN, la clave de búsqueda es <code class="language-plaintext highlighter-rouge">PID-3.1 + "-" + PID-3.2</code>. Si <code class="language-plaintext highlighter-rouge">PID-3.1</code> ya trae guión, se usa tal cual. En ambos casos <strong>se valida el dígito verificador antes de consultar al MPI</strong></td>
+      <td>Los emisores usan convenciones distintas y ninguno valida el DV</td>
+    </tr>
+    <tr>
+      <td><strong>N2</strong></td>
+      <td><strong>Codificación.</strong> Si <code class="language-plaintext highlighter-rouge">MSH-18</code> está vacío, se aplica el charset del acuerdo de integración y se registra advertencia. <strong>No se intenta corrección automática de mojibake</strong> sin acuerdo explícito</td>
+      <td>Un emisor no declara charset y entrega texto corrupto</td>
+    </tr>
+    <tr>
+      <td><strong>N3</strong></td>
+      <td><strong>Autorreferencia.</strong> Si <code class="language-plaintext highlighter-rouge">ORC-10.1</code> u <code class="language-plaintext highlighter-rouge">ORC-11.1</code> coincide con el identificador de <code class="language-plaintext highlighter-rouge">PID-3</code>, ese campo se descarta y no se crea <code class="language-plaintext highlighter-rouge">Practitioner</code></td>
+      <td>Se ha observado al propio paciente en <code class="language-plaintext highlighter-rouge">ORC-11</code></td>
+    </tr>
+    <tr>
+      <td><strong>N4</strong></td>
+      <td><strong>Catálogo del código.</strong> Si <code class="language-plaintext highlighter-rouge">OBR-4.3</code> no identifica un catálogo conocido, se aplica el <code class="language-plaintext highlighter-rouge">system</code> acordado por escrito con el emisor. <strong>Sin acuerdo registrado, el mensaje se rechaza</strong></td>
+      <td>El <code class="language-plaintext highlighter-rouge">system</code> no se infiere de la forma del código</td>
+    </tr>
+    <tr>
+      <td><strong>N5</strong></td>
+      <td><strong>Modalidad.</strong> Precedencia del apartado anterior: objeto DICOM → <code class="language-plaintext highlighter-rouge">OBR-24</code> vía <code class="language-plaintext highlighter-rouge">ConceptMap</code> → código de procedimiento vía <code class="language-plaintext highlighter-rouge">ConceptMap</code> a DICOM CID 29 → prefijo o sala con acuerdo escrito</td>
+      <td><code class="language-plaintext highlighter-rouge">OBR-24</code> no es el campo de modalidad DICOM</td>
+    </tr>
+    <tr>
+      <td><strong>N6</strong></td>
+      <td><strong>Estado.</strong> <code class="language-plaintext highlighter-rouge">ORC-5</code> gobierna sobre <code class="language-plaintext highlighter-rouge">ORC-1</code> cuando ambos están presentes y son contradictorios</td>
+      <td>Se han observado mensajes con <code class="language-plaintext highlighter-rouge">ORC-1 = NW</code> y <code class="language-plaintext highlighter-rouge">ORC-5</code> de orden ya cumplida</td>
+    </tr>
+    <tr>
+      <td><strong>N7</strong></td>
+      <td><strong>Notas.</strong> <code class="language-plaintext highlighter-rouge">OBR-13</code> alimenta <code class="language-plaintext highlighter-rouge">note[0]</code>; los <code class="language-plaintext highlighter-rouge">NTE-3</code> siguen en orden de aparición</td>
+      <td>El segmento <code class="language-plaintext highlighter-rouge">NTE</code> no estaba mapeado</td>
+    </tr>
+    <tr>
+      <td><strong>N8</strong></td>
+      <td><strong>Campos retirados.</strong> <code class="language-plaintext highlighter-rouge">PID-2</code> se ignora en v2.5 y superiores</td>
+      <td>Ambos emisores lo pueblan duplicando <code class="language-plaintext highlighter-rouge">PID-3</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="requisitos-por-emisor">Requisitos por emisor</h2>
+
+<p>Lista de conformidad que acompaña al acuerdo de integración. Se verifica en la certificación del establecimiento, antes de habilitar producción.</p>
+
+<p><strong>Todo emisor</strong></p>
+
+<ul>
+  <li>Poblar <code class="language-plaintext highlighter-rouge">ORC-12</code> con el profesional solicitante. Es <strong>Requerido</strong> en ORM-In v2.04 y es la única fuente de <code class="language-plaintext highlighter-rouge">ServiceRequest.requester</code>, que el modelo canónico exige.</li>
+  <li>Declarar el catálogo del código de examen en <code class="language-plaintext highlighter-rouge">OBR-4.3</code>.</li>
+  <li>Declarar la codificación de caracteres en <code class="language-plaintext highlighter-rouge">MSH-18</code>.</li>
+  <li>Usar valores de la tabla HL7 0485 en <code class="language-plaintext highlighter-rouge">ORC-7.6</code>.</li>
+  <li>Incluir offset horario en los timestamps.</li>
+  <li>Dejar de poblar <code class="language-plaintext highlighter-rouge">PID-2</code> en v2.5 y superiores.</li>
+</ul>
+
+<p><strong>Emisor FHIR nativo</strong></p>
+
+<p>Un establecimiento que entrega la solicitud directamente en FHIR (Caso de uso 1, UC1-a) cumple los mismos requisitos sobre los elementos equivalentes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Requisito HL7 v2</th>
+      <th>Equivalente FHIR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10</code> identificador del mensaje</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.identifier</code>, con el <code class="language-plaintext highlighter-rouge">system</code> del emisor</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-7</code> fecha del evento, con offset horario</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.timestamp</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID</code> del paciente</td>
+      <td>Recurso <code class="language-plaintext highlighter-rouge">Patient</code> completo en <code class="language-plaintext highlighter-rouge">entry[paciente]</code>, conforme al perfil de NID (D-012)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2.1</code> identificador del examen</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.identifier</code>, tipo <code class="language-plaintext highlighter-rouge">PLAC</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-4.1</code> número de solicitud agrupador</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.requisition</code>, con <code class="language-plaintext highlighter-rouge">system</code> y <code class="language-plaintext highlighter-rouge">value</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-9.1</code> fecha de la solicitud</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.authoredOn</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-12</code> profesional solicitante</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.requester</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4</code> con catálogo en <code class="language-plaintext highlighter-rouge">OBR-4.3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.code.coding</code> con <code class="language-plaintext highlighter-rouge">system</code>; la prestación FONASA la agrega o verifica el Bus (D-014)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El ejemplo <a href="Bundle-BundleSolicitudImagenFhirDirectoEjemplo.html">BundleSolicitudImagenFhirDirectoEjemplo</a> muestra un envío completo.</p>
+
+<p><strong>Emisor que hoy no puebla el solicitante</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ORC-12</code> con RUT, dígito verificador y nombre. <code class="language-plaintext highlighter-rouge">ORC-10</code> (<em>Entered By</em>) y <code class="language-plaintext highlighter-rouge">PV1-7</code> (<em>Attending Doctor</em>) no lo sustituyen.</li>
+  <li><code class="language-plaintext highlighter-rouge">ORC-4.1</code> con el número de solicitud agrupador.</li>
+  <li>Acordar con MINSAL el transporte de la encuesta de medio de contraste: <code class="language-plaintext highlighter-rouge">ORC-16</code> no es su lugar, y su contenido es dato de salud.</li>
+</ul>
+
+<p><strong>Emisor que hoy no declara charset</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MSH-18 = UNICODE UTF-8</code>. Corrige el texto corrupto en la glosa del procedimiento.</li>
+  <li>Alinear <code class="language-plaintext highlighter-rouge">ORC-1</code> con <code class="language-plaintext highlighter-rouge">ORC-5</code>, o documentar cuál gobierna.</li>
+  <li>Corregir <code class="language-plaintext highlighter-rouge">ORC-11</code>, que hoy transporta al paciente en lugar de quien verificó la orden.</li>
+  <li>Hora real en <code class="language-plaintext highlighter-rouge">MSH-7</code>, no medianoche exacta.</li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.imagenologia#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 13:58-0300">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

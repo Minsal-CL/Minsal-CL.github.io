@@ -1,0 +1,208 @@
+# Bundle de solicitud con dos exámenes imagenológicos - Guía de Implementación FHIR - Imagenología v0.3.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Bundle de solicitud con dos exámenes imagenológicos**
+
+## Example Bundle: Bundle de solicitud con dos exámenes imagenológicos
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "BundleSolicitudImagenEjemplo",
+  "meta" : {
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalBundleSolicitudImagenologia"]
+  },
+  "identifier" : {
+    "system" : "http://example.org/hospital-talca/mensajes-hl7",
+    "value" : "MSG000001"
+  },
+  "type" : "transaction",
+  "timestamp" : "2026-09-01T09:30:00-04:00",
+  "entry" : [{
+    "fullUrl" : "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ServiceRequest/SolicitudTcCerebroEjemplo",
+    "resource" : {
+      "resourceType" : "ServiceRequest",
+      "id" : "SolicitudTcCerebroEjemplo",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalServiceRequestImagen"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_SolicitudTcCerebroEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio SolicitudTcCerebroEjemplo</b></p><a name=\"SolicitudTcCerebroEjemplo\"> </a><a name=\"hcSolicitudTcCerebroEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestImagen.html\">Solicitud de Examen Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/134-1</p><p><b>requisition</b>: <code>http://example.org/hospital-talca/solicitudes-imagenologia</code>/134</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 363679005}\">Imaging (procedure)</span></p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia TC01}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0403001}\">TC CEREBRO</span></p><p><b>subject</b>: <a href=\"Patient-PacienteImagenologiaEjemplo.html\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</a></p><p><b>occurrence</b>: 2026-09-02 11:00:00-0400</p><p><b>authoredOn</b>: 2026-09-01 09:30:00-0400</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteImagenEjemplo.html\">Practitioner Juan Salinas </a></p><p><b>performer</b>: <a href=\"Organization-ServicioImagenologiaEjemplo.html\">Organization Servicio de Imagenología, Hospital de Talca</a></p><p><b>reasonCode</b>: <span title=\"Codes:\">Cefalea persistente en estudio</span></p><p><b>note</b>: </p><blockquote><div><p>Paciente con cefalea de tres semanas de evolución, sin déficit neurológico.</p>\n</div></blockquote></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PLAC",
+            "display" : "Placer Identifier"
+          }]
+        },
+        "system" : "http://example.org/hospital-talca/ordenes-imagenologia",
+        "value" : "134-1"
+      }],
+      "requisition" : {
+        "system" : "http://example.org/hospital-talca/solicitudes-imagenologia",
+        "value" : "134"
+      },
+      "status" : "active",
+      "intent" : "order",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "363679005",
+          "display" : "Imaging (procedure)"
+        }]
+      }],
+      "priority" : "routine",
+      "code" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia",
+          "code" : "TC01",
+          "display" : "TC CEREBRO"
+        },
+        {
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa",
+          "code" : "0403001",
+          "display" : "Tomografía computarizada de cráneo encefálica"
+        }],
+        "text" : "TC CEREBRO"
+      },
+      "subject" : {
+        "reference" : "Patient/PacienteImagenologiaEjemplo"
+      },
+      "occurrenceDateTime" : "2026-09-02T11:00:00-04:00",
+      "authoredOn" : "2026-09-01T09:30:00-04:00",
+      "requester" : {
+        "reference" : "Practitioner/ProfesionalSolicitanteImagenEjemplo"
+      },
+      "performer" : [{
+        "reference" : "Organization/ServicioImagenologiaEjemplo"
+      }],
+      "reasonCode" : [{
+        "text" : "Cefalea persistente en estudio"
+      }],
+      "note" : [{
+        "text" : "Paciente con cefalea de tres semanas de evolución, sin déficit neurológico."
+      }]
+    },
+    "request" : {
+      "method" : "POST",
+      "url" : "ServiceRequest"
+    }
+  },
+  {
+    "fullUrl" : "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ServiceRequest/SolicitudMamografiaBilateralEjemplo",
+    "resource" : {
+      "resourceType" : "ServiceRequest",
+      "id" : "SolicitudMamografiaBilateralEjemplo",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalServiceRequestImagen"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_SolicitudMamografiaBilateralEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio SolicitudMamografiaBilateralEjemplo</b></p><a name=\"SolicitudMamografiaBilateralEjemplo\"> </a><a name=\"hcSolicitudMamografiaBilateralEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestImagen.html\">Solicitud de Examen Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/134-2</p><p><b>requisition</b>: <code>http://example.org/hospital-talca/solicitudes-imagenologia</code>/134</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 363679005}\">Imaging (procedure)</span></p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia MAMOB}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0401010}\">MAMOGRAFIA BILATERAL</span></p><p><b>subject</b>: <a href=\"Patient-PacienteImagenologiaEjemplo.html\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-09-01 09:30:00-0400</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteImagenEjemplo.html\">Practitioner Juan Salinas </a></p><p><b>performer</b>: <a href=\"Organization-ServicioImagenologiaEjemplo.html\">Organization Servicio de Imagenología, Hospital de Talca</a></p><p><b>reasonCode</b>: <span title=\"Codes:\">Tumor palpable</span></p></div>"
+      },
+      "identifier" : [{
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code" : "PLAC",
+            "display" : "Placer Identifier"
+          }]
+        },
+        "system" : "http://example.org/hospital-talca/ordenes-imagenologia",
+        "value" : "134-2"
+      }],
+      "requisition" : {
+        "system" : "http://example.org/hospital-talca/solicitudes-imagenologia",
+        "value" : "134"
+      },
+      "status" : "active",
+      "intent" : "order",
+      "category" : [{
+        "coding" : [{
+          "system" : "http://snomed.info/sct",
+          "code" : "363679005",
+          "display" : "Imaging (procedure)"
+        }]
+      }],
+      "priority" : "routine",
+      "code" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia",
+          "code" : "MAMOB",
+          "display" : "MAMOGRAFIA BILATERAL"
+        },
+        {
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa",
+          "code" : "0401010",
+          "display" : "Mamografía bilateral"
+        }],
+        "text" : "MAMOGRAFIA BILATERAL"
+      },
+      "subject" : {
+        "reference" : "Patient/PacienteImagenologiaEjemplo"
+      },
+      "authoredOn" : "2026-09-01T09:30:00-04:00",
+      "requester" : {
+        "reference" : "Practitioner/ProfesionalSolicitanteImagenEjemplo"
+      },
+      "performer" : [{
+        "reference" : "Organization/ServicioImagenologiaEjemplo"
+      }],
+      "reasonCode" : [{
+        "text" : "Tumor palpable"
+      }]
+    },
+    "request" : {
+      "method" : "POST",
+      "url" : "ServiceRequest"
+    }
+  },
+  {
+    "fullUrl" : "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "PacienteImagenologiaEjemplo",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/PacienteImagenologia"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_PacienteImagenologiaEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente PacienteImagenologiaEjemplo</b></p><a name=\"PacienteImagenologiaEjemplo\"> </a><a name=\"hcPacienteImagenologiaEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PacienteImagenologia.html\">Paciente de Imagenología</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr></table></div>"
+      },
+      "identifier" : [{
+        "use" : "official",
+        "type" : {
+          "coding" : [{
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador",
+            "code" : "1",
+            "display" : "RUN"
+          }]
+        },
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/paciente/identificador/run",
+        "value" : "12345678-5"
+      }],
+      "name" : [{
+        "use" : "official",
+        "family" : "Carmona",
+        "given" : ["María"]
+      }],
+      "gender" : "female",
+      "birthDate" : "1975-04-12",
+      "deceasedBoolean" : false
+    },
+    "request" : {
+      "method" : "PUT",
+      "url" : "Patient/PacienteImagenologiaEjemplo"
+    }
+  }]
+}
+
+```

@@ -1,0 +1,243 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Bundle/BundleSolicitudImagenFhirDirectoEjemplo> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "BundleSolicitudImagenFhirDirectoEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalBundleSolicitudImagenologia" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalBundleSolicitudImagenologia>
+     ]
+  ] ;
+  fhir:Bundle.identifier [
+     fhir:Identifier.system [ fhir:value "http://example.org/rce-hospital-talca/envios-fhir" ] ;
+     fhir:Identifier.value [ fhir:value "ENV-2026-000123" ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "transaction"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-09-24T10:15:00-03:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:cccccccc-3333-4333-8333-333333333333" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:cccccccc-3333-4333-8333-333333333333> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Patient" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:dddddddd-4444-4444-8444-444444444444" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:dddddddd-4444-4444-8444-444444444444> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ServiceRequest" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:eeeeeeee-5555-4555-8555-555555555555" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:eeeeeeee-5555-4555-8555-555555555555> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ServiceRequest" ]
+     ]
+  ] .
+
+<urn:uuid:cccccccc-3333-4333-8333-333333333333> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "PacienteRceFhirDirectoEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/PacienteImagenologia" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/PacienteImagenologia>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_PacienteRceFhirDirectoEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente PacienteRceFhirDirectoEjemplo</b></p><a name=\"PacienteRceFhirDirectoEjemplo\"> </a><a name=\"hcPacienteRceFhirDirectoEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PacienteImagenologia.html\">Paciente de Imagenología</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr></table></div>"
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/paciente/identificador/run" ] ;
+     fhir:Identifier.value [ fhir:value "12345678-5" ]
+  ] ;
+  fhir:Patient.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [ fhir:value "Carmona" ] ;
+     fhir:HumanName.given [
+       fhir:value "María" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "female"] ;
+  fhir:Patient.birthDate [ fhir:value "1975-04-12"^^xsd:date] ;
+  fhir:Patient.deceasedBoolean [ fhir:value "false"^^xsd:boolean] .
+
+<urn:uuid:dddddddd-4444-4444-8444-444444444444> a fhir:ServiceRequest ;
+  fhir:Resource.id [ fhir:value "SolicitudTcRceFhirDirectoEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalServiceRequestImagen" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalServiceRequestImagen>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_SolicitudTcRceFhirDirectoEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio SolicitudTcRceFhirDirectoEjemplo</b></p><a name=\"SolicitudTcRceFhirDirectoEjemplo\"> </a><a name=\"hcSolicitudTcRceFhirDirectoEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestImagen.html\">Solicitud de Examen Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/RCE-778-1</p><p><b>requisition</b>: <code>http://example.org/rce-hospital-talca/solicitudes-imagenologia</code>/RCE-778</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 363679005}\">Imaging (procedure)</span></p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia TC01}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0403001}\">TC CEREBRO</span></p><p><b>subject</b>: <a href=\"Bundle-BundleSolicitudImagenFhirDirectoEjemplo.html#urn-uuid-cccccccc-3333-4333-8333-333333333333\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-09-24 10:10:00-0300</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteImagenEjemplo.html\">Practitioner Juan Salinas </a></p><p><b>performer</b>: <a href=\"Organization-ServicioImagenologiaEjemplo.html\">Organization Servicio de Imagenología, Hospital de Talca</a></p><p><b>reasonCode</b>: <span title=\"Codes:\">Cefalea persistente</span></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PLAC" ] ;
+         fhir:Coding.display [ fhir:value "Placer Identifier" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "http://example.org/rce-hospital-talca/ordenes-imagenologia" ] ;
+     fhir:Identifier.value [ fhir:value "RCE-778-1" ]
+  ] ;
+  fhir:ServiceRequest.requisition [
+     fhir:Identifier.system [ fhir:value "http://example.org/rce-hospital-talca/solicitudes-imagenologia" ] ;
+     fhir:Identifier.value [ fhir:value "RCE-778" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:363679005 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "363679005" ] ;
+       fhir:Coding.display [ fhir:value "Imaging (procedure)" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.priority [ fhir:value "routine"] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia" ] ;
+       fhir:Coding.code [ fhir:value "TC01" ] ;
+       fhir:Coding.display [ fhir:value "TC CEREBRO" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0403001" ] ;
+       fhir:Coding.display [ fhir:value "Tomografía computarizada de cráneo encefálica" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "TC CEREBRO" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:Reference.reference [ fhir:value "urn:uuid:cccccccc-3333-4333-8333-333333333333" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-09-24T10:10:00-03:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Practitioner/ProfesionalSolicitanteImagenEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteImagenEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Organization/ServicioImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/ServicioImagenologiaEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.reasonCode [
+     fhir:index 0 ;
+     fhir:CodeableConcept.text [ fhir:value "Cefalea persistente" ]
+  ] .
+
+<urn:uuid:eeeeeeee-5555-4555-8555-555555555555> a fhir:ServiceRequest ;
+  fhir:Resource.id [ fhir:value "SolicitudRmRceFhirDirectoEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalServiceRequestImagen" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalServiceRequestImagen>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_SolicitudRmRceFhirDirectoEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio SolicitudRmRceFhirDirectoEjemplo</b></p><a name=\"SolicitudRmRceFhirDirectoEjemplo\"> </a><a name=\"hcSolicitudRmRceFhirDirectoEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestImagen.html\">Solicitud de Examen Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/RCE-778-2</p><p><b>requisition</b>: <code>http://example.org/rce-hospital-talca/solicitudes-imagenologia</code>/RCE-778</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://snomed.info/sct 363679005}\">Imaging (procedure)</span></p><p><b>priority</b>: Routine</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia RM01}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0405001}\">RM CEREBRO</span></p><p><b>subject</b>: <a href=\"Bundle-BundleSolicitudImagenFhirDirectoEjemplo.html#urn-uuid-cccccccc-3333-4333-8333-333333333333\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-09-24 10:10:00-0300</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteImagenEjemplo.html\">Practitioner Juan Salinas </a></p><p><b>performer</b>: <a href=\"Organization-ServicioImagenologiaEjemplo.html\">Organization Servicio de Imagenología, Hospital de Talca</a></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PLAC" ] ;
+         fhir:Coding.display [ fhir:value "Placer Identifier" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "http://example.org/rce-hospital-talca/ordenes-imagenologia" ] ;
+     fhir:Identifier.value [ fhir:value "RCE-778-2" ]
+  ] ;
+  fhir:ServiceRequest.requisition [
+     fhir:Identifier.system [ fhir:value "http://example.org/rce-hospital-talca/solicitudes-imagenologia" ] ;
+     fhir:Identifier.value [ fhir:value "RCE-778" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a sct:363679005 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "363679005" ] ;
+       fhir:Coding.display [ fhir:value "Imaging (procedure)" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.priority [ fhir:value "routine"] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia" ] ;
+       fhir:Coding.code [ fhir:value "RM01" ] ;
+       fhir:Coding.display [ fhir:value "RM CEREBRO" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0405001" ] ;
+       fhir:Coding.display [ fhir:value "Resonancia magnética cráneo encefálica" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "RM CEREBRO" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:Reference.reference [ fhir:value "urn:uuid:cccccccc-3333-4333-8333-333333333333" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-09-24T10:10:00-03:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Practitioner/ProfesionalSolicitanteImagenEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteImagenEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Organization/ServicioImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/ServicioImagenologiaEjemplo" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Bundle/BundleSolicitudImagenFhirDirectoEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

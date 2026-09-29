@@ -1,0 +1,227 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Bundle/BundleInformeImagenEjemplo> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "BundleInformeImagenEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalBundleInformeImagenologia" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalBundleInformeImagenologia>
+     ]
+  ] ;
+  fhir:Bundle.identifier [
+     fhir:Identifier.system [ fhir:value "http://example.org/hospital-talca/mensajes-hl7" ] ;
+     fhir:Identifier.value [ fhir:value "82771" ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "transaction"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-09-02T15:40:00-04:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/DiagnosticReport/InformeTcCerebroEjemplo" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/DiagnosticReport/InformeTcCerebroEjemplo> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "DiagnosticReport" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ImagingStudy/EstudioTcCerebroEjemplo" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ImagingStudy/EstudioTcCerebroEjemplo> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ImagingStudy" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "PUT" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Patient/PacienteImagenologiaEjemplo" ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/DiagnosticReport/InformeTcCerebroEjemplo> a fhir:DiagnosticReport ;
+  fhir:Resource.id [ fhir:value "InformeTcCerebroEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/InformeRadiologicoMinsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/InformeRadiologicoMinsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"DiagnosticReport_InformeTcCerebroEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: InformeDiagnostico InformeTcCerebroEjemplo</b></p><a name=\"InformeTcCerebroEjemplo\"> </a><a name=\"hcInformeTcCerebroEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-InformeRadiologicoMinsal.html\">Informe Radiológico MINSAL</a></p></div><h2><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia TC01}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0403001}\">TC CEREBRO</span> (<span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 RAD}\">Radiology</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td>María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</td></tr><tr><td>Relevant Time</td><td>2026-09-02 11:05:00-0400 --&gt; 2026-09-02 11:25:00-0400</td></tr><tr><td>Reported</td><td>2026-09-02 15:40:00-0400</td></tr><tr><td>Performer</td><td> <a href=\"Organization-ServicioImagenologiaEjemplo.html\">Organization Servicio de Imagenología, Hospital de Talca</a></td></tr><tr><td>Identifier</td><td> Accession ID/20260902000134</td></tr><tr><td>Presented Form</td><td> application/pdf: JVBERi0xLjQKMSAwIG9iajw8L1R5cGUv...</td></tr></table><p><b>Report Details</b></p></div>"
+  ] ;
+  fhir:DiagnosticReport.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "ACSN" ] ;
+         fhir:Coding.display [ fhir:value "Accession ID" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "http://example.org/hospital-talca/accession-number" ] ;
+     fhir:Identifier.value [ fhir:value "20260902000134" ]
+  ] ;
+  fhir:DiagnosticReport.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ServiceRequest/SolicitudTcCerebroEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/SolicitudTcCerebroEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.status [ fhir:value "final"] ;
+  fhir:DiagnosticReport.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "RAD" ] ;
+       fhir:Coding.display [ fhir:value "Radiology" ]
+     ]
+  ] ;
+  fhir:DiagnosticReport.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/CodigoProcedimientoImagenologia" ] ;
+       fhir:Coding.code [ fhir:value "TC01" ] ;
+       fhir:Coding.display [ fhir:value "TC CEREBRO" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0403001" ] ;
+       fhir:Coding.display [ fhir:value "Tomografía computarizada de cráneo encefálica" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "TC CEREBRO" ]
+  ] ;
+  fhir:DiagnosticReport.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteImagenologiaEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.effectivePeriod [
+     fhir:Period.start [ fhir:value "2026-09-02T11:05:00-04:00"^^xsd:dateTime ] ;
+     fhir:Period.end [ fhir:value "2026-09-02T11:25:00-04:00"^^xsd:dateTime ]
+  ] ;
+  fhir:DiagnosticReport.issued [ fhir:value "2026-09-02T15:40:00-04:00"^^xsd:dateTime] ;
+  fhir:DiagnosticReport.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Organization/ServicioImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/ServicioImagenologiaEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.resultsInterpreter [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Practitioner/MedicoRadiologoEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/MedicoRadiologoEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.imagingStudy [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ImagingStudy/EstudioTcCerebroEjemplo> ;
+     fhir:Reference.reference [ fhir:value "ImagingStudy/EstudioTcCerebroEjemplo" ]
+  ] ;
+  fhir:DiagnosticReport.presentedForm [
+     fhir:index 0 ;
+     fhir:Attachment.contentType [ fhir:value "application/pdf" ] ;
+     fhir:Attachment.data [ fhir:value "JVBERi0xLjQKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDE+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9NZWRpYUJveFswIDAgMjAwIDEwMF0vQ29udGVudHMgNCAwIFIvUmVzb3VyY2VzPDwvRm9udDw8L0YxIDUgMCBSPj4+Pj4+ZW5kb2JqCjQgMCBvYmo8PC9MZW5ndGggNjg+PnN0cmVhbQpCVCAvRjEgMTAgVGYgMTAgNTAgVGQgKEluZm9ybWUgcmFkaW9sb2dpY28gZGUgZWplbXBsbykgVGogRVQKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqPDwvVHlwZS9Gb250L1N1YnR5cGUvVHlwZTEvQmFzZUZvbnQvSGVsdmV0aWNhPj5lbmRvYmoKdHJhaWxlcjw8L1Jvb3QgMSAwIFI+PgolJUVPRg=="^^xsd:base64Binary ] ;
+     fhir:Attachment.title [ fhir:value "Informe TC cerebro" ] ;
+     fhir:Attachment.creation [ fhir:value "2026-09-02T14:10:00-04:00"^^xsd:dateTime ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ImagingStudy/EstudioTcCerebroEjemplo> a fhir:ImagingStudy ;
+  fhir:Resource.id [ fhir:value "EstudioTcCerebroEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ImagingStudy_EstudioTcCerebroEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EstudioImagen  / EstudioImagen EstudioTcCerebroEjemplo</b></p><a name=\"EstudioTcCerebroEjemplo\"> </a><a name=\"hcEstudioTcCerebroEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-EstudioImagenologicoMinsal.html\">Estudio Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Accession ID/20260902000134, <a href=\"http://terminology.hl7.org/7.0.0/NamingSystem-dui.html\" title=\"An OID issued under DICOM OID rules. DICOM OIDs are represented as plain OIDs, with a prefix of &quot;urn:oid:&quot;. See https://www.dicomstandard.org/\">DICOM Unique Id</a>/urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.1 (use: official, )</p><p><b>status</b>: Available</p><p><b>modality</b>: <a href=\"http://hl7.org/fhir/R4/codesystem-dicom-dcim.html#dicom-dcim-CT\">DICOM: CT</a> (Computed Tomography)</p><p><b>subject</b>: <a href=\"Patient-PacienteImagenologiaEjemplo.html\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</a></p><p><b>started</b>: 2026-09-02 11:05:00-0400</p></div>"
+  ] ;
+  fhir:ImagingStudy.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "ACSN" ] ;
+         fhir:Coding.display [ fhir:value "Accession ID" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "http://example.org/hospital-talca/accession-number" ] ;
+     fhir:Identifier.value [ fhir:value "20260902000134" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "urn:dicom:uid" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.1" ]
+  ] ;
+  fhir:ImagingStudy.status [ fhir:value "available"] ;
+  fhir:ImagingStudy.modality [
+     fhir:index 0 ;
+     fhir:Coding.system [ fhir:value "http://dicom.nema.org/resources/ontology/DCM" ] ;
+     fhir:Coding.code [ fhir:value "CT" ] ;
+     fhir:Coding.display [ fhir:value "Computed Tomography" ]
+  ] ;
+  fhir:ImagingStudy.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteImagenologiaEjemplo" ]
+  ] ;
+  fhir:ImagingStudy.started [ fhir:value "2026-09-02T11:05:00-04:00"^^xsd:dateTime] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "PacienteImagenologiaEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/PacienteImagenologia" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/PacienteImagenologia>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_PacienteImagenologiaEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente PacienteImagenologiaEjemplo</b></p><a name=\"PacienteImagenologiaEjemplo\"> </a><a name=\"hcPacienteImagenologiaEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-PacienteImagenologia.html\">Paciente de Imagenología</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr></table></div>"
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/paciente/identificador/run" ] ;
+     fhir:Identifier.value [ fhir:value "12345678-5" ]
+  ] ;
+  fhir:Patient.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [ fhir:value "Carmona" ] ;
+     fhir:HumanName.given [
+       fhir:value "María" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "female"] ;
+  fhir:Patient.birthDate [ fhir:value "1975-04-12"^^xsd:date] ;
+  fhir:Patient.deceasedBoolean [ fhir:value "false"^^xsd:boolean] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Bundle/BundleInformeImagenEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

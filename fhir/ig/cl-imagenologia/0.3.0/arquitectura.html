@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Arquitectura - Guía de Implementación FHIR - Imagenología v0.3.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Imagenología</span>
+            <br/>
+            <span style="display:inline-block;">0.3.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Arquitectura</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Imagenología - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Arquitectura</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#arquitectura-de-interoperabilidad" id="markdown-toc-arquitectura-de-interoperabilidad">Arquitectura de interoperabilidad</a>    <ul>
+      <li><a href="#jerarquía-normativa-de-esta-guía" id="markdown-toc-jerarquía-normativa-de-esta-guía">Jerarquía normativa de esta guía</a></li>
+      <li><a href="#sistemas-que-participan" id="markdown-toc-sistemas-que-participan">Sistemas que participan</a></li>
+      <li><a href="#flujo-de-integración-con-el-bus-de-interoperabilidad" id="markdown-toc-flujo-de-integración-con-el-bus-de-interoperabilidad">Flujo de integración con el Bus de Interoperabilidad</a></li>
+      <li><a href="#transporte-y-acuse-de-recibo" id="markdown-toc-transporte-y-acuse-de-recibo">Transporte y acuse de recibo</a></li>
+      <li><a href="#el-accession-number-como-eje-de-trazabilidad" id="markdown-toc-el-accession-number-como-eje-de-trazabilidad">El Accession Number como eje de trazabilidad</a></li>
+      <li><a href="#resolución-de-identidad-mediante-mpi" id="markdown-toc-resolución-de-identidad-mediante-mpi">Resolución de identidad mediante MPI</a>        <ul>
+          <li><a href="#decisiones-según-la-respuesta-del-mpi" id="markdown-toc-decisiones-según-la-respuesta-del-mpi">Decisiones según la respuesta del MPI</a></li>
+          <li><a href="#uso-de-la-identidad-resuelta" id="markdown-toc-uso-de-la-identidad-resuelta">Uso de la identidad resuelta</a></li>
+        </ul>
+      </li>
+      <li><a href="#responsabilidades" id="markdown-toc-responsabilidades">Responsabilidades</a></li>
+      <li><a href="#organizaciones-participantes" id="markdown-toc-organizaciones-participantes">Organizaciones participantes</a></li>
+      <li><a href="#seguridad-y-trazabilidad" id="markdown-toc-seguridad-y-trazabilidad">Seguridad y trazabilidad</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="arquitectura-de-interoperabilidad">Arquitectura de interoperabilidad</h1>
+
+<h2 id="jerarquía-normativa-de-esta-guía">Jerarquía normativa de esta guía</h2>
+
+<p>Las guías de implementación FHIR de Chile siguen una jerarquía de herencia, donde cada nivel restringe o especializa al nivel superior:</p>
+
+<ol>
+  <li><strong>HL7 Internacional</strong>: especificación base FHIR R4.</li>
+  <li><strong>CL-Core</strong> (<code class="language-plaintext highlighter-rouge">hl7.fhir.cl.clcore</code>, mantenida por HL7 Chile): guía transversal para Chile. Es agnóstica de dominio y no es normativa: hereda terminología de la guía ACE del DEIS pero solo la sugiere, sin obligarla.</li>
+  <li><strong>NID</strong> (Núcleo de Interoperabilidad de Datos, mantenido por la Unidad de Interoperabilidad de MINSAL): núcleo normativo de MINSAL. Es más restrictivo que CL-Core, porque obliga elementos que en CL-Core son opcionales (por ejemplo, el identificador del paciente y el uso de la terminología de la ACE para el sexo registral) y define los perfiles transversales de paciente, prestador individual y organización que usan los proyectos MINSAL.</li>
+  <li><strong>Esta guía (Imagenología)</strong>: guía de dominio específico. Declara dependencia formal con NID 0.4.9 y con CL-Core 1.9.4, la versión de la que depende NID. Los perfiles de paciente, prestador y organización de esta guía derivan de los perfiles de NID (<code class="language-plaintext highlighter-rouge">MINSALPaciente</code>, <code class="language-plaintext highlighter-rouge">MINSALPrestadorProfesional</code> y <code class="language-plaintext highlighter-rouge">MINSALPrestadorOrganizacional</code>), según la decisión D-016.</li>
+</ol>
+
+<p>Esta guía es hermana de la <a href="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio">Guía de Implementación FHIR de Laboratorio Clínico</a>: comparte la misma jerarquía normativa, el mismo Bus, el mismo MPI y el mismo servicio terminológico, y se diferencia en el dominio clínico y en los recursos focales.</p>
+
+<h2 id="sistemas-que-participan">Sistemas que participan</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sistema</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>HIS</strong></td>
+      <td>Gestión administrativa y clínica del establecimiento. Genera la orden y mantiene la identidad del paciente.</td>
+    </tr>
+    <tr>
+      <td><strong>RIS</strong></td>
+      <td>Gestión del departamento de imagenología: agenda el estudio, registra su ejecución y produce el informe radiológico.</td>
+    </tr>
+    <tr>
+      <td><strong>PACS</strong></td>
+      <td>Almacenamiento y distribución de las imágenes DICOM.</td>
+    </tr>
+    <tr>
+      <td><strong>Bus de Interoperabilidad MINSAL</strong></td>
+      <td>Valida, homologa, transforma a FHIR y publica el modelo canónico.</td>
+    </tr>
+    <tr>
+      <td><strong>MPI</strong></td>
+      <td>Índice Maestro de Pacientes: resuelve la identidad.</td>
+    </tr>
+    <tr>
+      <td><strong>Servicio terminológico</strong></td>
+      <td>Valida o traduce los códigos de procedimiento.</td>
+    </tr>
+    <tr>
+      <td><strong>Portal Ciudadano</strong></td>
+      <td>Consume el informe publicado en FHIR.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="flujo-de-integración-con-el-bus-de-interoperabilidad">Flujo de integración con el Bus de Interoperabilidad</h2>
+
+<div class="mermaid">
+flowchart LR
+    SOL["Solicitud de Imagenología"] --&gt; RIS["RIS"]
+    RIS --&gt; PDF["Informe PDF"]
+    SOL --&gt; API
+
+    subgraph BUS["BUS"]
+        API["Recepción HL7 v2"] --&gt; TRANS["Transforma"]
+        TRANS --&gt; FHIR["Repositorio FHIR"]
+    end
+
+    PDF --&gt; TRANS
+    TRANS --&gt; CT["Consulta terminológico"]
+    TRANS --&gt; MPI["Consulta MPI"]
+    FHIR --&gt; PORTAL["PORTAL CIUDADANO"]
+</div>
+
+<p>La solicitud (<code class="language-plaintext highlighter-rouge">ORM^O01</code>) y el informe (<code class="language-plaintext highlighter-rouge">ORU^R01</code>) entran por caminos distintos y convergen en la transformación del Bus. El resultado se persiste en el repositorio FHIR, que es la fuente que consulta el Portal Ciudadano.</p>
+
+<p>El flujo cubre dos caminos:</p>
+
+<ol>
+  <li><strong>Solicitud de examen</strong>: el HIS envía <code class="language-plaintext highlighter-rouge">ORM^O01</code>; el Bus homologa el código del procedimiento consultando el servicio terminológico, resuelve la identidad contra el MPI y arma el <code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code>.</li>
+  <li><strong>Informe radiológico</strong>: el RIS envía <code class="language-plaintext highlighter-rouge">ORU^R01</code> con el PDF en Base64; el Bus lo transforma a <code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal</code> y lo enlaza con la solicitud y con el <code class="language-plaintext highlighter-rouge">EstudioImagenologicoMinsal</code> cuando corresponde, y lo persiste en el repositorio FHIR antes de responder.</li>
+</ol>
+
+<p>La sincronización de pacientes (<code class="language-plaintext highlighter-rouge">ADT</code>) está fuera del alcance de esta guía: sus eventos y el tratamiento de la fusión de registros son responsabilidad del servicio común de identidad (MPI / NID) y se especifican allí.</p>
+
+<h2 id="transporte-y-acuse-de-recibo">Transporte y acuse de recibo</h2>
+
+<p>La mensajería HL7 v2 entre HIS y RIS opera sobre <strong>MLLP (socket)</strong> con HL7 v2.5. El modelo de acuse es asimétrico y la guía lo documenta porque condiciona la gestión de errores del Bus:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Interfaz</th>
+      <th>Quién acusa</th>
+      <th>Alcance del acuse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORM-In</code> (HIS → RIS)</td>
+      <td>RIS</td>
+      <td>Recepción de la solicitud.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORU-Out</code> (RIS → HIS)</td>
+      <td>HIS</td>
+      <td>Solo <code class="language-plaintext highlighter-rouge">ACK</code>/<code class="language-plaintext highlighter-rouge">NACK</code> <strong>a nivel de comunicación</strong>. Enterprise Imaging no efectúa gestión de errores: si el receptor detecta un problema, debe enviar <code class="language-plaintext highlighter-rouge">NACK</code> con la descripción, pero el emisor no reintenta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Consecuencia de diseño: el Bus debe <strong>persistir y auditar</strong> todo informe recibido antes de responder, porque el emisor no reenvía. La trazabilidad del mensaje (<code class="language-plaintext highlighter-rouge">MSH-10</code>) debe conservarse en <code class="language-plaintext highlighter-rouge">Bundle.identifier</code>.</p>
+
+<h2 id="el-accession-number-como-eje-de-trazabilidad">El Accession Number como eje de trazabilidad</h2>
+
+<p>La especificación ORU-Out es explícita: <em>"El HIS debe asociar los informes recibidos al accession number enviado por Enterprise Imaging durante todo el flujo de mensajería"</em>. Esta guía eleva esa regla al modelo canónico:</p>
+
+<div class="mermaid">
+flowchart TD
+    ORM["ORM^O01<br />OBR-18 Accession Number"] --&gt; SR["MinsalServiceRequestImagen"]
+    ORM --&gt; IS["EstudioImagenologicoMinsal<br />identifier ACSN"]
+    ORU["ORU^R01<br />OBR-18 Accession Number"] --&gt; DR["InformeRadiologicoMinsal<br />identifier ACSN"]
+    IS --&gt; DR
+    SR --&gt; DR
+</div>
+
+<p>El Accession Number se representa siempre como <code class="language-plaintext highlighter-rouge">Identifier</code> con <code class="language-plaintext highlighter-rouge">type</code> = <code class="language-plaintext highlighter-rouge">ACSN</code> (<code class="language-plaintext highlighter-rouge">http://terminology.hl7.org/CodeSystem/v2-0203</code>) y el <code class="language-plaintext highlighter-rouge">system</code> acordado para el dominio del RIS emisor. Cuando el PACS informe además el <strong>Study Instance UID</strong> DICOM, este se registra como un segundo identificador con <code class="language-plaintext highlighter-rouge">system</code> = <code class="language-plaintext highlighter-rouge">urn:dicom:uid</code>, lo que permite recuperar las imágenes vía DICOMweb desde <code class="language-plaintext highlighter-rouge">ImagingStudy.endpoint</code>.</p>
+
+<h2 id="resolución-de-identidad-mediante-mpi">Resolución de identidad mediante MPI</h2>
+
+<p>El Índice Maestro de Pacientes opera sobre los perfiles de paciente, prestador y organización definidos por NID. La consulta al MPI debe realizarse centralmente desde el Bus de Interoperabilidad; no se exige que cada establecimiento implemente directamente la integración con el MPI.</p>
+
+<p>El establecimiento es responsable de enviar los identificadores y datos demográficos disponibles y confiables: en <code class="language-plaintext highlighter-rouge">PID</code> por el canal HL7 v2, o como recurso <code class="language-plaintext highlighter-rouge">Patient</code> completo conforme al perfil de NID por el canal FHIR directo (decisión D-012). En ambos canales el Bus normaliza estos datos, consulta al MPI y utiliza la identidad resuelta para construir <code class="language-plaintext highlighter-rouge">PacienteImagenologia</code>: el recurso recibido es la entrada a la resolución, no el recurso publicado.</p>
+
+<p>Las especificaciones de integración del RIS imponen dos restricciones que la guía debe absorber:</p>
+
+<ul>
+  <li><em>"Todo el ingreso de pacientes debe contener un RUT"</em>, y si el paciente no tiene RUT se usa el pasaporte como clave primaria.</li>
+  <li><em>"Enterprise Imaging no valida el dígito verificador del RUT"</em>.</li>
+</ul>
+
+<p>Es decir, la validación del identificador <strong>no ocurre en el RIS</strong>. Por lo tanto debe ocurrir en el Bus, antes de consultar el MPI: normalización del formato del RUN, validación del dígito verificador y decisión sobre qué hacer cuando el identificador es un pasaporte.</p>
+
+<h3 id="decisiones-según-la-respuesta-del-mpi">Decisiones según la respuesta del MPI</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resultado</th>
+      <th>Acción del Bus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Coincidencia única</td>
+      <td>Continuar la transformación y utilizar el paciente maestro</td>
+    </tr>
+    <tr>
+      <td>Múltiples coincidencias</td>
+      <td>Detener el procesamiento automático y enviar a conciliación</td>
+    </tr>
+    <tr>
+      <td>Sin coincidencias</td>
+      <td>Aplicar la política de revisión o creación autorizada por el gobierno del MPI</td>
+    </tr>
+    <tr>
+      <td>Identificadores contradictorios</td>
+      <td>Rechazar o dejar pendiente hasta resolver la identidad</td>
+    </tr>
+    <tr>
+      <td>MPI no disponible</td>
+      <td>Reintentar o aplicar una contingencia controlada y auditable</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Una respuesta sin coincidencias no autoriza por sí sola la creación automática de un paciente.</p>
+
+<h3 id="uso-de-la-identidad-resuelta">Uso de la identidad resuelta</h3>
+
+<p>Una vez resuelto el paciente, todos los recursos del flujo deben referenciar la misma identidad:</p>
+
+<div class="mermaid">
+flowchart LR
+    A["MinsalServiceRequestImagen.subject"] --&gt; P["PacienteImagenologia"]
+    B["EstudioImagenologicoMinsal.subject"] --&gt; P
+    C["InformeRadiologicoMinsal.subject"] --&gt; P
+</div>
+
+<p><code class="language-plaintext highlighter-rouge">PacienteImagenologia.identifier</code> puede conservar simultáneamente el identificador maestro, el documento oficial y los identificadores locales, indicando siempre un <code class="language-plaintext highlighter-rouge">system</code> diferente para cada dominio.</p>
+
+<h2 id="responsabilidades">Responsabilidades</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Actor</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HIS / establecimiento</td>
+      <td>Entregar identificadores y datos demográficos confiables; asegurar la unicidad del número de solicitud y del identificador de cada examen dentro de ella</td>
+    </tr>
+    <tr>
+      <td>RIS</td>
+      <td>Asignar y conservar el Accession Number; emitir el informe y sus estados (preliminar, final, corrección, eliminado)</td>
+    </tr>
+    <tr>
+      <td>Bus de Interoperabilidad</td>
+      <td>Normalizar, validar el RUN, consultar el MPI, homologar terminología, transformar, validar contra esta guía y auditar</td>
+    </tr>
+    <tr>
+      <td>MPI</td>
+      <td>Mantener la identidad maestra y las referencias cruzadas entre dominios</td>
+    </tr>
+    <tr>
+      <td>Servicio terminológico</td>
+      <td>Validar o traducir los códigos de procedimiento hacia SNOMED CT, LOINC o FONASA</td>
+    </tr>
+    <tr>
+      <td>PACS</td>
+      <td>Custodiar las imágenes y exponer el endpoint DICOMweb de recuperación</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="organizaciones-participantes">Organizaciones participantes</h2>
+
+<p>Los establecimientos de origen y los servicios ejecutantes de imagenología se representan con el perfil <code class="language-plaintext highlighter-rouge">OrganizacionParticipanteImagenologia</code>. El rol se determina por el lugar donde se referencia:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uso</th>
+      <th>Referencia FHIR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Establecimiento emisor del mensaje</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.sender</code></td>
+    </tr>
+    <tr>
+      <td>Establecimiento receptor</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader.destination.receiver</code></td>
+    </tr>
+    <tr>
+      <td>Organización que solicita directamente</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.requester</code></td>
+    </tr>
+    <tr>
+      <td>Servicio de imagenología que ejecuta el examen</td>
+      <td><code class="language-plaintext highlighter-rouge">ServiceRequest.performer</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Una organización que cumple más de un rol se representa una sola vez y puede ser referenciada desde varios elementos. El identificador debe incluir el <strong>código DEIS</strong> del establecimiento cuando exista, dato que la presentación de radiología identifica como requerido para la procedencia.</p>
+
+<h2 id="seguridad-y-trazabilidad">Seguridad y trazabilidad</h2>
+
+<p>Cada consulta o conciliación debe registrar como mínimo el sistema solicitante, fecha, identificadores utilizados, resultado de la operación y regla aplicada. Los registros de auditoría no deben exponer información clínica o demográfica más allá de lo necesario.</p>
+
+<p>El informe PDF viaja embebido en Base64 dentro del recurso FHIR. El Bus debe validar el Base64 y la firma del archivo antes de publicarlo, y el control de acceso al <code class="language-plaintext highlighter-rouge">DiagnosticReport</code> debe considerar que el <code class="language-plaintext highlighter-rouge">presentedForm</code> contiene el informe clínico completo.</p>
+
+<p>Referencias MINSAL:</p>
+
+<ul>
+  <li><a href="https://interoperabilidad.minsal.cl/docs/componentes-de-la-arquitectura/empi.html">Índice Maestro de Pacientes</a></li>
+  <li><a href="https://interoperabilidad.minsal.cl/fhir/ig/mpi/transacciones.html">Transacciones MPI</a></li>
+  <li><a href="https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.9/CapabilityStatement-MPI.IHE.PIXm.PDQm.Manager.html">CapabilityStatement del administrador MPI</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.imagenologia#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 13:58-0300">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

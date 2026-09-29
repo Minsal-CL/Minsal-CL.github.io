@@ -1,0 +1,82 @@
+# Prioridad de la solicitud: HL7 v2 a FHIR - Guía de Implementación FHIR - Imagenología v0.3.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Prioridad de la solicitud: HL7 v2 a FHIR**
+
+## ConceptMap: Prioridad de la solicitud: HL7 v2 a FHIR (Experimental) 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ConceptMap/PrioridadSolicitudImagenV2AFhir | *Version*:0.3.0 |
+| Draft as of 2026-09-28 | *Computable Name*:PrioridadSolicitudImagenV2AFhir |
+
+ 
+Equivalencias entre la prioridad enviada en ORC-7.6 / OBR-27.6 y los valores de ServiceRequest.priority. 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "ConceptMap",
+  "id" : "PrioridadSolicitudImagenV2AFhir",
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ConceptMap/PrioridadSolicitudImagenV2AFhir",
+  "version" : "0.3.0",
+  "name" : "PrioridadSolicitudImagenV2AFhir",
+  "title" : "Prioridad de la solicitud: HL7 v2 a FHIR",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-09-28T13:58:41-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [{
+    "name" : "Unidad de Interoperabilidad - MINSAL",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://interoperabilidad.minsal.cl"
+    }]
+  }],
+  "description" : "Equivalencias entre la prioridad enviada en ORC-7.6 / OBR-27.6 y los valores de ServiceRequest.priority.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "CL",
+      "display" : "Chile"
+    }]
+  }],
+  "targetCanonical" : "http://hl7.org/fhir/ValueSet/request-priority",
+  "group" : [{
+    "source" : "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/PrioridadSolicitudImagenHl7v2",
+    "target" : "http://hl7.org/fhir/request-priority",
+    "element" : [{
+      "code" : "S",
+      "display" : "STAT - servicio de urgencia",
+      "target" : [{
+        "code" : "stat",
+        "display" : "STAT",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "A",
+      "display" : "Urgente - pacientes hospitalizados",
+      "target" : [{
+        "code" : "urgent",
+        "display" : "Urgent",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "R",
+      "display" : "Rutina - otros pacientes",
+      "target" : [{
+        "code" : "routine",
+        "display" : "Routine",
+        "equivalence" : "equivalent"
+      }]
+    }]
+  }]
+}
+
+```

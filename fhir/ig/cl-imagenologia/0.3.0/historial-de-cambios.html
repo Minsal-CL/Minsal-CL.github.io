@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Historial de cambios - Guía de Implementación FHIR - Imagenología v0.3.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Imagenología</span>
+            <br/>
+            <span style="display:inline-block;">0.3.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li>
+    <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Historial de cambios</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Imagenología - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Historial de cambios</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#historial-de-cambios" id="markdown-toc-historial-de-cambios">Historial de cambios</a>    <ul>
+      <li><a href="#versión-030" id="markdown-toc-versión-030">Versión 0.3.0</a>        <ul>
+          <li><a href="#dependencias" id="markdown-toc-dependencias">Dependencias</a></li>
+          <li><a href="#perfiles-de-identidad" id="markdown-toc-perfiles-de-identidad">Perfiles de identidad</a></li>
+          <li><a href="#solicitud-e-informe" id="markdown-toc-solicitud-e-informe">Solicitud e informe</a></li>
+          <li><a href="#bundles" id="markdown-toc-bundles">Bundles</a></li>
+          <li><a href="#páginas" id="markdown-toc-páginas">Páginas</a></li>
+          <li><a href="#ejemplos" id="markdown-toc-ejemplos">Ejemplos</a></li>
+        </ul>
+      </li>
+      <li><a href="#versión-021" id="markdown-toc-versión-021">Versión 0.2.1</a>        <ul>
+          <li><a href="#mapeo-hl7-v2-a-fhir" id="markdown-toc-mapeo-hl7-v2-a-fhir">Mapeo HL7 v2 a FHIR</a></li>
+          <li><a href="#registro-de-decisiones" id="markdown-toc-registro-de-decisiones">Registro de decisiones</a></li>
+          <li><a href="#gobernanza" id="markdown-toc-gobernanza">Gobernanza</a></li>
+          <li><a href="#correcciones" id="markdown-toc-correcciones">Correcciones</a></li>
+          <li><a href="#arquitectura-y-redacción" id="markdown-toc-arquitectura-y-redacción">Arquitectura y redacción</a></li>
+        </ul>
+      </li>
+      <li><a href="#versión-020" id="markdown-toc-versión-020">Versión 0.2.0</a>        <ul>
+          <li><a href="#perfiles-nuevos" id="markdown-toc-perfiles-nuevos">Perfiles nuevos</a></li>
+          <li><a href="#perfiles-modificados" id="markdown-toc-perfiles-modificados">Perfiles modificados</a></li>
+          <li><a href="#perfiles-retirados" id="markdown-toc-perfiles-retirados">Perfiles retirados</a></li>
+          <li><a href="#terminología" id="markdown-toc-terminología">Terminología</a></li>
+          <li><a href="#páginas-1" id="markdown-toc-páginas-1">Páginas</a></li>
+          <li><a href="#higiene-de-publicación" id="markdown-toc-higiene-de-publicación">Higiene de publicación</a></li>
+        </ul>
+      </li>
+      <li><a href="#versión-010" id="markdown-toc-versión-010">Versión 0.1.0</a>        <ul>
+          <li><a href="#perfiles" id="markdown-toc-perfiles">Perfiles</a></li>
+          <li><a href="#terminología-1" id="markdown-toc-terminología-1">Terminología</a></li>
+          <li><a href="#documentación" id="markdown-toc-documentación">Documentación</a></li>
+          <li><a href="#identificación-de-la-guía" id="markdown-toc-identificación-de-la-guía">Identificación de la guía</a></li>
+          <li><a href="#dependencias-1" id="markdown-toc-dependencias-1">Dependencias</a></li>
+          <li><a href="#fuentes" id="markdown-toc-fuentes">Fuentes</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="historial-de-cambios">Historial de cambios</h1>
+
+<h2 id="versión-030">Versión 0.3.0</h2>
+
+<p>Versión menor: <strong>cambia dependencias, cardinalidades y valores fijos</strong>, así que una instancia conforme a 0.2.1 puede no serlo en 0.3.0. Incorpora las observaciones de revisión de la 0.2.1 que no dependían de decisiones abiertas, y las decisiones D-012, D-014 y D-016.</p>
+
+<h3 id="dependencias">Dependencias</h3>
+
+<ul>
+  <li>Nueva dependencia de <strong>NID 0.4.9</strong> (<code class="language-plaintext highlighter-rouge">hl7.fhir.cl.minsal.nid</code>), según la jerarquía normativa nacional (D-016).</li>
+  <li><strong>CL-Core</strong> sube de 1.8.5 a <strong>1.9.4</strong>, la versión de la que depende NID 0.4.9 según su manifiesto.</li>
+</ul>
+
+<h3 id="perfiles-de-identidad">Perfiles de identidad</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PacienteImagenologia</code> deriva de <code class="language-plaintext highlighter-rouge">MINSALPaciente</code> (NID). Se retira el slice <code class="language-plaintext highlighter-rouge">identifier[RUN]</code>: NID exige el tipo de identificador de su propio <code class="language-plaintext highlighter-rouge">CodeSystem</code> (RUN = <code class="language-plaintext highlighter-rouge">1</code>), no el de CL-Core. Se retira <code class="language-plaintext highlighter-rouge">link</code>, que solo servía a la fusión de registros <code class="language-plaintext highlighter-rouge">ADT</code>, fuera de alcance desde la 0.2.1.</li>
+  <li><code class="language-plaintext highlighter-rouge">MinsalPractitionerImagenologia</code> deriva de <code class="language-plaintext highlighter-rouge">MINSALPrestadorProfesional</code> (NID): RUN, nombre, fecha de nacimiento y título profesional pasan a ser obligatorios por el perfil padre.</li>
+  <li><code class="language-plaintext highlighter-rouge">OrganizacionParticipanteImagenologia</code> deriva de <code class="language-plaintext highlighter-rouge">MINSALPrestadorOrganizacional</code> (NID), con las mismas reglas propias.</li>
+</ul>
+
+<h3 id="solicitud-e-informe">Solicitud e informe</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen.category</code>: de <code class="language-plaintext highlighter-rouge">0..1</code> a <code class="language-plaintext highlighter-rouge">1..*</code>, con slice abierto <code class="language-plaintext highlighter-rouge">sctImaging</code> obligatorio (SNOMED CT <code class="language-plaintext highlighter-rouge">363679005</code>), el mismo patrón de Laboratorio Clínico 0.6.0.</li>
+  <li><code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal.category</code>: slice abierto <code class="language-plaintext highlighter-rouge">radiologia</code> obligatorio (<code class="language-plaintext highlighter-rouge">v2-0074#RAD</code>), que sostiene la consulta <code class="language-plaintext highlighter-rouge">?category=RAD</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">code.coding</code> de la solicitud y del informe se perfila por <code class="language-plaintext highlighter-rouge">system</code> (D-014): <code class="language-plaintext highlighter-rouge">fonasa 1..1</code>, <code class="language-plaintext highlighter-rouge">local 0..1</code>, <code class="language-plaintext highlighter-rouge">snomed 0..*</code> y <code class="language-plaintext highlighter-rouge">loinc 0..*</code>. La prestación FONASA la agrega o verifica el Bus en ambos canales. El <code class="language-plaintext highlighter-rouge">system</code> de FONASA reutiliza, de forma provisional, el <code class="language-plaintext highlighter-rouge">CodigoPrestacionFonasa</code> de Laboratorio Clínico (acción A-05).</li>
+</ul>
+
+<h3 id="bundles">Bundles</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">entry[paciente]</code> pasa de <code class="language-plaintext highlighter-rouge">0..1</code> a <code class="language-plaintext highlighter-rouge">1..1</code> en los Bundles de solicitud e informe (D-012): en el canal FHIR directo lo envía el establecimiento conforme al perfil de NID, y en el canal HL7 v2 lo reconstruye el Bus desde el MPI.</li>
+  <li><code class="language-plaintext highlighter-rouge">entry[profesional]</code> del Bundle de solicitud admite solo <code class="language-plaintext highlighter-rouge">MinsalPractitionerImagenologia</code> y pasa a <code class="language-plaintext highlighter-rouge">0..*</code>; se retira <code class="language-plaintext highlighter-rouge">PractitionerRole</code> de la entrada, porque el slicing discrimina por perfil y <code class="language-plaintext highlighter-rouge">PractitionerRole</code> no tiene perfil propio. Un <code class="language-plaintext highlighter-rouge">PractitionerRole</code> referenciado desde <code class="language-plaintext highlighter-rouge">requester</code> se asume preexistente. <code class="language-plaintext highlighter-rouge">entry[organizacion]</code> pasa a <code class="language-plaintext highlighter-rouge">0..*</code> en ambos Bundles.</li>
+  <li>Las solicitudes del Bundle de ejemplo pasan a URL absolutas, igual que el Bundle del informe, para que las referencias al paciente resuelvan dentro de la transacción.</li>
+  <li>El enlace al <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> del administrador MPI apunta a NID 0.4.9.</li>
+</ul>
+
+<h3 id="páginas">Páginas</h3>
+
+<ul>
+  <li>Casos de uso: reglas R1 a R5 que verifica el Bus en la solicitud; el informe que no cumple una regla va a cuarentena auditada, porque el RIS no reintenta. UC1-a incluye el paciente de NID y la resolución contra el MPI.</li>
+  <li>Mapeo: regla de homologación obligatoria a FONASA, <code class="language-plaintext highlighter-rouge">system</code> de FONASA, derivación de la modalidad vía <code class="language-plaintext highlighter-rouge">ConceptMap</code> a DICOM CID 29 y requisitos del <strong>emisor FHIR nativo</strong>.</li>
+  <li>Arquitectura e Inicio: jerarquía normativa con la dependencia formal de NID.</li>
+</ul>
+
+<h3 id="ejemplos">Ejemplos</h3>
+
+<ul>
+  <li>Paciente y profesionales cumplen el set obligatorio de los perfiles de NID.</li>
+  <li>Los Bundles incluyen el paciente; solicitudes e informes llevan la prestación FONASA. Los códigos FONASA de los ejemplos son ilustrativos.</li>
+  <li>Nuevo <code class="language-plaintext highlighter-rouge">BundleSolicitudImagenFhirDirectoEjemplo</code>: envío de un RCE en FHIR, con el paciente completo de NID.</li>
+</ul>
+
+<p><strong>Estado del build:</strong> <code class="language-plaintext highlighter-rouge">err = 0, warn = 36, info = 46</code>, sin enlaces rotos. Las advertencias se distribuyen en cuatro grupos de 9: <code class="language-plaintext highlighter-rouge">CodeSystem</code> FONASA no disponible para validar (canónico provisional con contenido externo, A-05); catálogo local no disponible para validar (contenido administrado por el servicio terminológico, igual que en 0.2.1); URI de identificadores sin definición resoluble (dominio RUN de NID, RUN de prestadores y código DEIS, heredados de NID y del portafolio); y advertencias de plantilla, OID y <em>binding</em> ya presentes en 0.2.1.</p>
+
+<h2 id="versión-021">Versión 0.2.1</h2>
+
+<p>Versión de parche: <strong>no introduce perfiles nuevos, no modifica cardinalidades y no invalida ninguna instancia conforme a 0.2.0</strong>. Incorpora al mapeo lo aprendido del contraste con mensajería HL7 v2 de producción de dos emisores distintos.</p>
+
+<h3 id="mapeo-hl7-v2-a-fhir">Mapeo HL7 v2 a FHIR</h3>
+
+<ul>
+  <li>Nueva sección <strong>Perfiles de emisor y versiones del estándar</strong>. Declara <code class="language-plaintext highlighter-rouge">OMG^O19</code> estructuralmente equivalente a <code class="language-plaintext highlighter-rouge">ORM^O01</code>, fija que el perfil de emisor se establece en el acuerdo de integración y <strong>no se infiere de <code class="language-plaintext highlighter-rouge">MSH-12</code></strong> —se observó un emisor que declara <code class="language-plaintext highlighter-rouge">2.4</code> y puebla campos que no existen en esa versión—, y agrega la tabla de equivalencia de fuentes por versión.</li>
+  <li>Nueva sección <strong>Reglas de normalización</strong> (N1 a N8): RUT como clave de búsqueda con validación de dígito verificador, codificación de caracteres, autorreferencia del paciente en <code class="language-plaintext highlighter-rouge">ORC-10</code>/<code class="language-plaintext highlighter-rouge">ORC-11</code>, catálogo del código, modalidad, precedencia de <code class="language-plaintext highlighter-rouge">ORC-5</code> sobre <code class="language-plaintext highlighter-rouge">ORC-1</code>, notas de <code class="language-plaintext highlighter-rouge">OBR-13</code> y <code class="language-plaintext highlighter-rouge">NTE</code>, y campos retirados.</li>
+  <li>Nueva sección <strong>Requisitos por emisor</strong>, que acompaña al acuerdo de integración y se verifica en la certificación.</li>
+  <li>Se reordena la <strong>derivación de la modalidad DICOM</strong>: el objeto DICOM tiene precedencia, y <code class="language-plaintext highlighter-rouge">OBR-24</code> sólo alimenta la modalidad a través de un <code class="language-plaintext highlighter-rouge">ConceptMap</code> explícito de la tabla HL7 v2-0074 a DICOM. <code class="language-plaintext highlighter-rouge">OBR-24</code> es <em>Diagnostic Service Section ID</em>: que <code class="language-plaintext highlighter-rouge">CT</code> coincida en ambos sistemas es una coincidencia y no una equivalencia.</li>
+  <li>Se explicita que los atributos demográficos del <code class="language-plaintext highlighter-rouge">PID</code> no se transforman, porque el recurso <code class="language-plaintext highlighter-rouge">Patient</code> se reconstruye desde el MPI.</li>
+</ul>
+
+<h3 id="registro-de-decisiones">Registro de decisiones</h3>
+
+<ul>
+  <li>Se incorpora el <strong>registro de decisiones de diseño</strong> de la guía (<code class="language-plaintext highlighter-rouge">decisiones.md</code> en el repositorio), con la plantilla del Anexo C. D-001 establece que el <code class="language-plaintext highlighter-rouge">Patient</code> es una proyección del maestro del MPI y que el <code class="language-plaintext highlighter-rouge">PID</code> sólo resuelve identidad; D-006 mantiene <code class="language-plaintext highlighter-rouge">requester 1..1</code> y traslada <code class="language-plaintext highlighter-rouge">ORC-12</code> a requisito de conformidad del emisor; D-007 traslada la exigencia del Accession Number a la certificación; D-008 condiciona el <code class="language-plaintext highlighter-rouge">ImagingStudy</code> a dato DICOM.</li>
+</ul>
+
+<h3 id="gobernanza">Gobernanza</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">comparacion-guias-referencia.md</code> cierra la <strong>regla 1</strong>, que esta guía no había cumplido: contraste contra HL7 Europe Imaging Report e IHE RAD Imaging Diagnostic Report.</li>
+  <li><code class="language-plaintext highlighter-rouge">revision-qa-0.2.0.md</code> deja las advertencias del build revisadas una por una, como pide el paso 4 del Anexo D.</li>
+</ul>
+
+<h3 id="correcciones">Correcciones</h3>
+
+<ul>
+  <li>Se elimina el enlace a un <code class="language-plaintext highlighter-rouge">CodeSystem</code> retirado en la fila de <code class="language-plaintext highlighter-rouge">OBR-31.2</code>; se verificaron todos los enlaces internos contra el build.</li>
+  <li>Se retira el parámetro <code class="language-plaintext highlighter-rouge">sct-edition</code>, que el IG Publisher 2.3.4 no reconoce.</li>
+  <li>Las entradas del <code class="language-plaintext highlighter-rouge">Bundle</code> del informe pasan a URL absolutas, para que la referencia al estudio resuelva dentro de la transacción.</li>
+</ul>
+
+<h3 id="arquitectura-y-redacción">Arquitectura y redacción</h3>
+
+<ul>
+  <li>Se simplifica el <strong>diagrama de flujo de integración con el Bus</strong> al patrón de la Guía de Laboratorio Clínico: la solicitud entra por la recepción HL7 v2, el informe PDF llega desde el RIS y ambos convergen en la transformación a FHIR, con consulta al servicio terminológico y al MPI. La sincronización <code class="language-plaintext highlighter-rouge">ADT</code> sale del diagrama, porque la resuelve el servicio común de identidad.</li>
+  <li>Se retiran de la guía las menciones a la institución emisora de las especificaciones funcionales de integración, por tratarse de una referencia interna y no nacional. El valor de ejemplo de <code class="language-plaintext highlighter-rouge">PID-3.4</code> pasa a <code class="language-plaintext highlighter-rouge">HIS</code>.</li>
+  <li>La sincronización de pacientes (<code class="language-plaintext highlighter-rouge">ADT</code>) sale del alcance de la guía: el antiguo Caso de uso 3 pasa a ser una nota de fuera de alcance, y <code class="language-plaintext highlighter-rouge">ADT</code> se retira de la introducción, de los puntos de integración, de la tabla de acuses y de la descripción del paquete. La identidad la gestiona el servicio común (MPI / NID).</li>
+  <li>El Caso de uso 2 incorpora el <strong>repositorio FHIR</strong>: el Bus persiste el <code class="language-plaintext highlighter-rouge">Bundle</code> del informe antes de responder <code class="language-plaintext highlighter-rouge">ACK</code>, y el Portal Ciudadano consulta el repositorio, no el Bus. El diagrama de arquitectura nombra el nodo como "Repositorio FHIR".</li>
+  <li>La orden médica escaneada deja de figurar como flujo de Fase 2: no es un caso habitual y queda sin incorporación prevista, evaluable como anexo opcional si un establecimiento la requiere.</li>
+  <li>Las observaciones de revisión que requieren cambios de perfil, dependencias o decisiones se registran en <code class="language-plaintext highlighter-rouge">pendientes-0.3.0.md</code>.</li>
+</ul>
+
+<p><strong>Estado del build:</strong> <code class="language-plaintext highlighter-rouge">err = 0, warn = 25, info = 40</code>, sin enlaces rotos.</p>
+
+<h2 id="versión-020">Versión 0.2.0</h2>
+
+<p>Alineación con el modelo de la Guía de Implementación de Laboratorio Clínico y reducción al núcleo mínimo de datos. El criterio de la versión es doble: <strong>no se exige en el modelo canónico lo que la interfaz de origen declara opcional</strong>, y <strong>lo que no es una regla nacional no se publica como artefacto nacional</strong>.</p>
+
+<h3 id="perfiles-nuevos">Perfiles nuevos</h3>
+
+<h4 id="minsalbundlesolicitudimagenologia-nuevo">MinsalBundleSolicitudImagenologia (nuevo)</h4>
+
+<ul>
+  <li>Perfil de <code class="language-plaintext highlighter-rouge">Bundle</code> <code class="language-plaintext highlighter-rouge">transaction</code> para el envío de los exámenes de una misma orden, con el mismo patrón de slicing que <code class="language-plaintext highlighter-rouge">MinsalBundleSolicitudLaboratorio</code>.</li>
+  <li>Invariante <code class="language-plaintext highlighter-rouge">solicitud-imagen-requisition-compartido</code>: todas las entradas de solicitud comparten el par <code class="language-plaintext highlighter-rouge">system</code>+<code class="language-plaintext highlighter-rouge">value</code> de <code class="language-plaintext highlighter-rouge">requisition</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">identifier</code> y <code class="language-plaintext highlighter-rouge">timestamp</code> obligatorios: conservan <code class="language-plaintext highlighter-rouge">MSH-10.1</code> y <code class="language-plaintext highlighter-rouge">MSH-7.1</code> del mensaje de origen.</li>
+</ul>
+
+<h4 id="minsalbundleinformeimagenologia-nuevo">MinsalBundleInformeImagenologia (nuevo)</h4>
+
+<ul>
+  <li>Perfil de <code class="language-plaintext highlighter-rouge">Bundle</code> <code class="language-plaintext highlighter-rouge">transaction</code> para el informe radiológico y el estudio asociado, con el patrón de <code class="language-plaintext highlighter-rouge">MinsalBundleResultadoLaboratorio</code>.</li>
+  <li>Invariante <code class="language-plaintext highlighter-rouge">informe-estudio-referenciado</code>: si el Bundle trae el estudio, el informe debe referenciarlo.</li>
+  <li>Resuelve la trazabilidad del mensaje sin necesidad de perfilar <code class="language-plaintext highlighter-rouge">MessageHeader</code>: el Bus no recibe mensajería FHIR, recibe HL7 v2 y escribe una transacción.</li>
+</ul>
+
+<h3 id="perfiles-modificados">Perfiles modificados</h3>
+
+<h4 id="informeradiologicominsal">InformeRadiologicoMinsal</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">performer</code> baja de <code class="language-plaintext highlighter-rouge">1..*</code> a <code class="language-plaintext highlighter-rouge">0..*</code>. En ORU-Out v1.3 el único profesional del mensaje es <code class="language-plaintext highlighter-rouge">OBR-32</code> y está declarado <strong>Opcional</strong>: exigirlo rechazaría informes clínicos válidos que el emisor no reintenta.</li>
+  <li><code class="language-plaintext highlighter-rouge">status</code> declara <code class="language-plaintext highlighter-rouge">OBX-11</code> como fuente única, por ser el campo <strong>Requerido</strong>; <code class="language-plaintext highlighter-rouge">OBR-25</code> es opcional y queda sólo como validación cruzada.</li>
+  <li>Se retiran <code class="language-plaintext highlighter-rouge">result</code> (no existe perfil de <code class="language-plaintext highlighter-rouge">Observation</code> en esta guía) y <code class="language-plaintext highlighter-rouge">conclusion</code> (no viaja en la interfaz: el informe completo está en el PDF).</li>
+  <li>Nueva invariante <code class="language-plaintext highlighter-rouge">informe-final-con-issued</code>: un informe <code class="language-plaintext highlighter-rouge">final</code>, <code class="language-plaintext highlighter-rouge">corrected</code> o <code class="language-plaintext highlighter-rouge">amended</code> debe declarar <code class="language-plaintext highlighter-rouge">issued</code> (<code class="language-plaintext highlighter-rouge">OBR-22</code>, campo Requerido).</li>
+  <li>Se documenta por qué no se fuerza el Accession Number por cardinalidad: <code class="language-plaintext highlighter-rouge">OBR-18.1</code> es <strong>Opcional</strong> en ORU-Out. La exigencia se traslada al acuerdo de integración y a la certificación del establecimiento.</li>
+</ul>
+
+<h4 id="minsalservicerequestimagen">MinsalServiceRequestImagen</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">requisition</code> adopta el tratamiento de <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>: <code class="language-plaintext highlighter-rouge">system</code> y <code class="language-plaintext highlighter-rouge">value</code> marcados <code class="language-plaintext highlighter-rouge">Must Support</code>, con el establecimiento asignador en <code class="language-plaintext highlighter-rouge">system</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">category</code> baja a <code class="language-plaintext highlighter-rouge">0..1</code>: es un valor constante que fija el Bus, no un dato del emisor.</li>
+  <li>Se retiran <code class="language-plaintext highlighter-rouge">bodySite</code> (la lateralidad viaja embebida en el código y el <code class="language-plaintext highlighter-rouge">ConceptMap</code> que la separaría no existe) y <code class="language-plaintext highlighter-rouge">locationCode</code> (<code class="language-plaintext highlighter-rouge">ServiceDeliveryLocationRoleType</code> describe el tipo de lugar, no una sala identificada).</li>
+</ul>
+
+<h4 id="estudioimagenologicominsal">EstudioImagenologicoMinsal</h4>
+
+<ul>
+  <li>Deja de formar parte del conjunto obligatorio: el Bus crea el recurso sólo cuando dispone de dato DICOM real (Study Instance UID o endpoint). Cuando no se crea, la trazabilidad la sostiene el Accession Number del informe y el informe se publica igual.</li>
+  <li>Se retiran <code class="language-plaintext highlighter-rouge">series</code>, <code class="language-plaintext highlighter-rouge">numberOfSeries</code>, <code class="language-plaintext highlighter-rouge">numberOfInstances</code>, <code class="language-plaintext highlighter-rouge">procedureCode</code>, <code class="language-plaintext highlighter-rouge">reasonCode</code>, <code class="language-plaintext highlighter-rouge">description</code>, <code class="language-plaintext highlighter-rouge">location</code>, <code class="language-plaintext highlighter-rouge">referrer</code>, <code class="language-plaintext highlighter-rouge">interpreter</code>, <code class="language-plaintext highlighter-rouge">encounter</code> y <code class="language-plaintext highlighter-rouge">basedOn</code>: ninguno llega por HL7 v2 y todos duplican información de la solicitud o del informe.</li>
+  <li><code class="language-plaintext highlighter-rouge">modality</code> deja de redeclarar el <code class="language-plaintext highlighter-rouge">min = 1</code> que ya trae el recurso base.</li>
+</ul>
+
+<h4 id="pacienteimagenologia-minsalpractitionerimagenologia-y-organizacionparticipanteimagenologia">PacienteImagenologia, MinsalPractitionerImagenologia y OrganizacionParticipanteImagenologia</h4>
+
+<ul>
+  <li>Se alinean regla por regla con <code class="language-plaintext highlighter-rouge">PacienteLaboratorio</code>, <code class="language-plaintext highlighter-rouge">MinsalPractitionerLaboratorio</code> y <code class="language-plaintext highlighter-rouge">OrganizacionParticipanteLaboratorio</code>, para que el portafolio MINSAL tenga una sola definición de facto de paciente, prestador y organización mientras NID no fije la dependencia formal.</li>
+  <li><code class="language-plaintext highlighter-rouge">PacienteImagenologia</code> incorpora la slice <code class="language-plaintext highlighter-rouge">identifier[RUN]</code> con el <code class="language-plaintext highlighter-rouge">system</code> de NID.</li>
+  <li><code class="language-plaintext highlighter-rouge">OrganizacionParticipanteImagenologia</code> adopta <code class="language-plaintext highlighter-rouge">http://deis.minsal.cl/establecimientos</code> como <code class="language-plaintext highlighter-rouge">system</code> del código DEIS, el mismo de Laboratorio Clínico, Tiempos de Espera Quirúrgico y Urgencia.</li>
+</ul>
+
+<h3 id="perfiles-retirados">Perfiles retirados</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">OrdenEscaneadaImagenologia</code> y <code class="language-plaintext highlighter-rouge">RespuestaCuestionarioMamografia</code>, con el <code class="language-plaintext highlighter-rouge">Questionnaire CuestionarioMamografia</code> y su terminología. Ver Casos de uso, Fase 2.</li>
+</ul>
+
+<h3 id="terminología">Terminología</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CodigoProcedimientoImagenologia</code> pasa a <code class="language-plaintext highlighter-rouge">content = #not-present</code>: la guía declara el URI que identifica el catálogo y su contenido lo administra el servicio terminológico, con el mismo patrón que <code class="language-plaintext highlighter-rouge">CodigoPrestacionFonasa</code> en Laboratorio Clínico.</li>
+  <li>Se retiran los <code class="language-plaintext highlighter-rouge">ValueSet</code> por modalidad (<code class="language-plaintext highlighter-rouge">ProcedimientosTomografiaComputada</code>, <code class="language-plaintext highlighter-rouge">ProcedimientosResonanciaMagnetica</code>, <code class="language-plaintext highlighter-rouge">ProcedimientosMamografia</code>) y el <code class="language-plaintext highlighter-rouge">ValueSet</code> del catálogo completo: enumeraban los mismos 110 códigos en dos lugares y su consumidor desaparece.</li>
+  <li>Se conservan los tres <code class="language-plaintext highlighter-rouge">CodeSystem</code> de estados y prioridad y los tres <code class="language-plaintext highlighter-rouge">ConceptMap</code> de <code class="language-plaintext highlighter-rouge">v2</code> a FHIR: son acuerdos cerrados con el RIS y sí constituyen regla nacional.</li>
+</ul>
+
+<h3 id="páginas-1">Páginas</h3>
+
+<ul>
+  <li>La guía queda con las cinco páginas del modelo de Laboratorio Clínico: Inicio, Arquitectura, Casos de uso, Mapeo HL7 v2 a FHIR e Historial de cambios.</li>
+  <li>Se retiran las páginas de Sincronización de pacientes (ADT) —responsabilidad del servicio común de identidad—, Cuestionario de mamografía y Terminología.</li>
+</ul>
+
+<h3 id="higiene-de-publicación">Higiene de publicación</h3>
+
+<ul>
+  <li>Se declara el idioma de la guía (<code class="language-plaintext highlighter-rouge">es-CL</code>) y la edición de SNOMED CT en los parámetros de expansión.</li>
+  <li>Los ejemplos usan identificadores verificables: código DEIS real (116105), <code class="language-plaintext highlighter-rouge">system</code> de RUN de NID y RUN con dígito verificador válido. Los <code class="language-plaintext highlighter-rouge">system</code> de ejemplo usan el dominio reservado <code class="language-plaintext highlighter-rouge">example.org</code>.</li>
+</ul>
+
+<h2 id="versión-010">Versión 0.1.0</h2>
+
+<p>Versión inicial de la Guía de Implementación FHIR de Imagenología.</p>
+
+<h3 id="perfiles">Perfiles</h3>
+
+<h4 id="minsalservicerequestimagen-nuevo">MinsalServiceRequestImagen (nuevo)</h4>
+
+<ul>
+  <li>Perfil de <code class="language-plaintext highlighter-rouge">ServiceRequest</code> para la solicitud de examen imagenológico.</li>
+  <li>Obliga <code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">status</code>, <code class="language-plaintext highlighter-rouge">intent</code>, <code class="language-plaintext highlighter-rouge">category</code>, <code class="language-plaintext highlighter-rouge">code</code>, <code class="language-plaintext highlighter-rouge">subject</code>, <code class="language-plaintext highlighter-rouge">authoredOn</code> y <code class="language-plaintext highlighter-rouge">requester</code>.</li>
+  <li>Incorpora <code class="language-plaintext highlighter-rouge">requisition</code> para agrupar los exámenes de una misma orden, <code class="language-plaintext highlighter-rouge">locationCode</code> para la sala o modalidad informada en <code class="language-plaintext highlighter-rouge">OBR-34.5</code>, y <code class="language-plaintext highlighter-rouge">supportingInfo</code> para la orden escaneada y el cuestionario de mamografía.</li>
+</ul>
+
+<h4 id="informeradiologicominsal-nuevo">InformeRadiologicoMinsal (nuevo)</h4>
+
+<ul>
+  <li>Perfil de <code class="language-plaintext highlighter-rouge">DiagnosticReport</code> para el informe radiológico recibido en <code class="language-plaintext highlighter-rouge">ORU^R01</code>, con el PDF en <code class="language-plaintext highlighter-rouge">presentedForm</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">basedOn</code> es <strong>opcional</strong>, porque el RIS envía todos los informes generados y no solo los que corresponden a una orden creada en el HIS.</li>
+  <li>Distingue las tres fechas del informe: realización (<code class="language-plaintext highlighter-rouge">effective[x]</code>), creación (<code class="language-plaintext highlighter-rouge">presentedForm.creation</code>, desde <code class="language-plaintext highlighter-rouge">OBX-14</code>) y validación (<code class="language-plaintext highlighter-rouge">issued</code>, desde <code class="language-plaintext highlighter-rouge">OBR-22</code>).</li>
+</ul>
+
+<h4 id="estudioimagenologicominsal-nuevo">EstudioImagenologicoMinsal (nuevo)</h4>
+
+<ul>
+  <li>Perfil de <code class="language-plaintext highlighter-rouge">ImagingStudy</code> que transporta el Accession Number (tipo <code class="language-plaintext highlighter-rouge">ACSN</code>), el Study Instance UID DICOM, la modalidad y el endpoint DICOMweb de recuperación.</li>
+  <li>Es el eslabón de trazabilidad entre la solicitud, las imágenes del PACS y el informe.</li>
+</ul>
+
+<h4 id="pacienteimagenologia-minsalpractitionerimagenologia-organizacionparticipanteimagenologia-nuevos">PacienteImagenologia, MinsalPractitionerImagenologia, OrganizacionParticipanteImagenologia (nuevos)</h4>
+
+<ul>
+  <li>Extienden <code class="language-plaintext highlighter-rouge">CorePacienteCl</code>, <code class="language-plaintext highlighter-rouge">CorePrestadorCl</code> y <code class="language-plaintext highlighter-rouge">CoreOrganizacionCl</code> de CL-Core, en lugar de los recursos base de FHIR R4, para alinearse con el portafolio de guías MINSAL.</li>
+</ul>
+
+<h4 id="ordenescaneadaimagenologia-nuevo">OrdenEscaneadaImagenologia (nuevo)</h4>
+
+<ul>
+  <li>Perfil de <code class="language-plaintext highlighter-rouge">DocumentReference</code> para la orden médica escaneada que llega en el <code class="language-plaintext highlighter-rouge">OBX</code> de la solicitud con <code class="language-plaintext highlighter-rouge">OBX-3.1 = SCANNED_REQUEST</code>.</li>
+</ul>
+
+<h4 id="respuestacuestionariomamografia-nuevo">RespuestaCuestionarioMamografia (nuevo)</h4>
+
+<ul>
+  <li>Perfil de <code class="language-plaintext highlighter-rouge">QuestionnaireResponse</code> para el formulario clínico de mamografía que llega en los segmentos <code class="language-plaintext highlighter-rouge">OBX</code> con códigos <code class="language-plaintext highlighter-rouge">STDAT</code>.</li>
+</ul>
+
+<h3 id="terminología-1">Terminología</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CodigoProcedimientoImagenologia</code>: catálogo local del RIS con 110 procedimientos (57 TC, 48 RM, 5 mamografía), con conjuntos de valores por modalidad.</li>
+  <li><code class="language-plaintext highlighter-rouge">PreguntaCuestionarioMamografia</code>, <code class="language-plaintext highlighter-rouge">RespuestaCuestionarioMamografia</code> y <code class="language-plaintext highlighter-rouge">MotivoMamografiaDiagnostica</code>: terminología del formulario de mamografía, con el texto literal exigido por el RIS conservado en <code class="language-plaintext highlighter-rouge">display</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">EstadoInformeRadiologicoHl7v2</code>, <code class="language-plaintext highlighter-rouge">EstadoSolicitudImagenHl7v2</code> y <code class="language-plaintext highlighter-rouge">PrioridadSolicitudImagenHl7v2</code>, con sus <code class="language-plaintext highlighter-rouge">ConceptMap</code> hacia <code class="language-plaintext highlighter-rouge">DiagnosticReport.status</code>, <code class="language-plaintext highlighter-rouge">ServiceRequest.status</code> y <code class="language-plaintext highlighter-rouge">ServiceRequest.priority</code>.</li>
+  <li>Instancia <code class="language-plaintext highlighter-rouge">Questionnaire</code> <code class="language-plaintext highlighter-rouge">CuestionarioMamografia</code>, con las diez preguntas del formulario y sus reglas <code class="language-plaintext highlighter-rouge">enableWhen</code>.</li>
+</ul>
+
+<h3 id="documentación">Documentación</h3>
+
+<ul>
+  <li><strong>Inicio</strong>: alcance, principio de diseño, los tres recursos focales, solicitud con múltiples exámenes y ciclo del informe radiológico.</li>
+  <li><strong>Arquitectura</strong>: jerarquía normativa (HL7 Internacional, CL-Core, NID), sistemas participantes (HIS, RIS, PACS), transporte MLLP y modelo asimétrico de acuse, el Accession Number como eje de trazabilidad, y resolución de identidad mediante MPI.</li>
+  <li><strong>Casos de uso</strong>: actores, dos puntos de integración (FHIR directo y HL7 v2 homologado), cuatro casos de uso con diagramas de secuencia y el ciclo de vida del informe como máquina de estados.</li>
+  <li><strong>Mapeo HL7 v2 a FHIR</strong>: mapeo campo a campo de <code class="language-plaintext highlighter-rouge">ORM^O01</code> y <code class="language-plaintext highlighter-rouge">ORU^R01</code>, tratamiento de los segmentos <code class="language-plaintext highlighter-rouge">OBX</code> polimórficos, identificación del sistema terminológico y derivación de la modalidad DICOM.</li>
+  <li><strong>Sincronización de pacientes (ADT)</strong>: eventos <code class="language-plaintext highlighter-rouge">A04</code>, <code class="language-plaintext highlighter-rouge">A08</code>, <code class="language-plaintext highlighter-rouge">A40</code> y <code class="language-plaintext highlighter-rouge">A47</code>, mapeo campo a campo, y reglas de fusión y de cambio de identificador.</li>
+  <li><strong>Cuestionario de mamografía</strong>: estructura del formulario, reglas de habilitación y la regla del texto literal.</li>
+  <li><strong>Terminología</strong>: catálogo de procedimientos, estados y prioridades, terminología externa y puntos abiertos.</li>
+</ul>
+
+<h3 id="identificación-de-la-guía">Identificación de la guía</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">id</code>: <code class="language-plaintext highlighter-rouge">hl7.fhir.cl.minsal.imagenologia</code>.</li>
+  <li>Canonical: <code class="language-plaintext highlighter-rouge">https://interoperabilidad.minsal.cl/fhir/ig/imagenologia</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">publisher</code>: Unidad de Interoperabilidad - MINSAL.</li>
+  <li><code class="language-plaintext highlighter-rouge">jurisdiction</code>: Chile.</li>
+</ul>
+
+<h3 id="dependencias-1">Dependencias</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">hl7.fhir.cl.clcore</code> 1.8.5.</li>
+</ul>
+
+<h3 id="fuentes">Fuentes</h3>
+
+<p>Esta versión se construyó a partir de las especificaciones funcionales de integración del RIS — <strong>ORM Inbound v2.04</strong> (13-03-2026), <strong>ORU Outbound v1.3</strong> (10-07-2026) y <strong>ADT Inbound v1.0</strong> (15-10-2024) —, del catálogo de códigos de procedimientos y del formulario de mamografía del RIS, y de la presentación <em>Optimización del flujo de información en Imagenología mediante Integración HL7 entre RIS</em> de la Subsecretaría de Redes Asistenciales.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.imagenologia#0.3.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 13:58-0300">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+
