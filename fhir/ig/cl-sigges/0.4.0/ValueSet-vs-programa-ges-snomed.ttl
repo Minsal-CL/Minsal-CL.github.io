@@ -1,0 +1,61 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-programa-ges-snomed> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "vs-programa-ges-snomed"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores vs-programa-ges-snomed</b></p><a name=\"vs-programa-ges-snomed\"> </a><a name=\"hcvs-programa-ges-snomed\"> </a><ul><li>Include codes from<a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> versión Not Stated (use latest from terminology server)</span> where concept  descends from 1741000325106</li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-programa-ges-snomed"] ;
+  fhir:ValueSet.version [ fhir:value "0.4.0"] ;
+  fhir:ValueSet.name [ fhir:value "VSProgramaGESSnomed"] ;
+  fhir:ValueSet.title [ fhir:value "Programas GES (SNOMED CT, extensión chilena)"] ;
+  fhir:ValueSet.status [ fhir:value "draft"] ;
+  fhir:ValueSet.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-10-08T15:37:06-03:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Conceptos de programa GES de la extensión chilena de SNOMED CT: descendientes de 1741000325106 (programa de Garantías Explícitas en Salud). Es el mismo criterio de vs-problema-ges-tei de la guía TEI 0.2.3. Clasifican el caso (EpisodeOfCare.type), no el diagnóstico: son conceptos de programa, no hallazgos clínicos."] ;
+  fhir:ValueSet.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:ValueSet.compose.include.filter [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.filter.property [ fhir:value "concept" ] ;
+         fhir:ValueSet.compose.include.filter.op [ fhir:value "descendent-of" ] ;
+         fhir:ValueSet.compose.include.filter.value [ fhir:value "1741000325106" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-programa-ges-snomed.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

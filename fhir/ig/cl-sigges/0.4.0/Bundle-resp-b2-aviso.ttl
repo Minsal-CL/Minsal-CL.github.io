@@ -1,0 +1,152 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-b2-aviso> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "resp-b2-aviso"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges>
+     ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "message"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-05-06T15:01:14-03:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/MessageHeader/resp-b2-aviso-mh" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/MessageHeader/resp-b2-aviso-mh>
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/EpisodeOfCare/8812399" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/EpisodeOfCare/8812399>
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/OperationOutcome/oo-b2-aviso" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/OperationOutcome/oo-b2-aviso>
+  ] .
+
+<http://example.org/sigges/fhir/MessageHeader/resp-b2-aviso-mh> a fhir:MessageHeader ;
+  fhir:Resource.id [ fhir:value "resp-b2-aviso-mh"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_resp-b2-aviso-mh\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CabeceraMensaje resp-b2-aviso-mh</b></p><a name=\"resp-b2-aviso-mh\"> </a><a name=\"hcresp-b2-aviso-mh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-mh-respuesta-ges.html\">MessageHeader — Respuesta SIGGES</a></p></div><p><b>event</b>: <a href=\"CodeSystem-tipo-documento-sigges.html#tipo-documento-sigges-OA\">Tipos de documento SIGGES: OA</a> (Orden de atención)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"http://example.org/his/fhir/\">http://example.org/his/fhir/</a></td></tr></table><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>SIGGES 2.0</td><td><a href=\"http://example.org/sigges/fhir/\">http://example.org/sigges/fhir/</a></td></tr></table><h3>Responses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td><td><b>Details</b></td></tr><tr><td style=\"display: none\">*</td><td>msg-b2-oa-mh</td><td>OK</td><td><a href=\"Bundle-resp-b2-aviso.html#OperationOutcome_oo-b2-aviso\">OperationOutcome</a></td></tr></table><p><b>focus</b>: <a href=\"Bundle-resp-b2-aviso.html#EpisodeOfCare_8812399\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812399,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#SR-2026-004410; status = active; type = Enfermedad renal crónica etapa 4 y 5,Enfermedad renal crónica etapa 4 y 5 (decreto nº 228); period = 2026-05-04 --&gt; (ongoing)</a></p></div>"
+  ] ;
+  fhir:MessageHeader.eventCoding [
+     fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges" ] ;
+     fhir:Coding.code [ fhir:value "OA" ]
+  ] ;
+  fhir:MessageHeader.destination [
+     fhir:index 0 ;
+     fhir:MessageHeader.destination.endpoint [ fhir:value "http://example.org/his/fhir/" ]
+  ] ;
+  fhir:MessageHeader.source [
+     fhir:MessageHeader.source.name [ fhir:value "SIGGES 2.0" ] ;
+     fhir:MessageHeader.source.endpoint [ fhir:value "http://example.org/sigges/fhir/" ]
+  ] ;
+  fhir:MessageHeader.response [
+     fhir:MessageHeader.response.identifier [ fhir:value "msg-b2-oa-mh" ] ;
+     fhir:MessageHeader.response.code [ fhir:value "ok" ] ;
+     fhir:MessageHeader.response.details [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/OperationOutcome/oo-b2-aviso> ;
+       fhir:Reference.reference [ fhir:value "OperationOutcome/oo-b2-aviso" ]
+     ]
+  ] ;
+  fhir:MessageHeader.focus [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/8812399> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/8812399" ]
+  ] .
+
+<http://example.org/sigges/fhir/EpisodeOfCare/8812399> a fhir:EpisodeOfCare ;
+  fhir:Resource.id [ fhir:value "8812399"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_8812399\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado 8812399</b></p><a name=\"8812399\"> </a><a name=\"hc8812399\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812399, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/SR-2026-004410</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 1}\">Enfermedad renal crónica etapa 4 y 5</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 125}\">Enfermedad renal crónica etapa 4 y 5 (decreto nº 228)</span></p><p><b>patient</b>: <a href=\"Patient-pac-b.html\">María Isabel González (official) Female, DoB: 1958-07-02 ( RUN: 7654321-6 (use: official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-sotero-del-rio.html\">Complejo Hospitalario Dr. Sótero del Río (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-101)</a></p><p><b>period</b>: 2026-05-04 --&gt; (ongoing)</p></div>"
+  ] ;
+  fhir:EpisodeOfCare.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges" ] ;
+     fhir:Identifier.value [ fhir:value "8812399" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local" ] ;
+     fhir:Identifier.value [ fhir:value "SR-2026-004410" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/sotero-del-rio> ;
+       fhir:Reference.reference [ fhir:value "Organization/sotero-del-rio" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.status [ fhir:value "active"] ;
+  fhir:EpisodeOfCare.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "Enfermedad renal crónica etapa 4 y 5" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "125" ] ;
+       fhir:Coding.display [ fhir:value "Enfermedad renal crónica etapa 4 y 5 (decreto nº 228)" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.patient [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-b> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-b" ]
+  ] ;
+  fhir:EpisodeOfCare.managingOrganization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/sotero-del-rio> ;
+     fhir:Reference.reference [ fhir:value "Organization/sotero-del-rio" ]
+  ] ;
+  fhir:EpisodeOfCare.period [
+     fhir:Period.start [ fhir:value "2026-05-04"^^xsd:date ]
+  ] .
+
+<http://example.org/sigges/fhir/OperationOutcome/oo-b2-aviso> a fhir:OperationOutcome ;
+  fhir:Resource.id [ fhir:value "oo-b2-aviso"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"OperationOutcome_oo-b2-aviso\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ResultadoOperación oo-b2-aviso</b></p><a name=\"oo-b2-aviso\"> </a><a name=\"hcoo-b2-aviso\"> </a><h3>Issues</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Severity</b></td><td><b>Code</b></td><td><b>Diagnostics</b></td><td><b>Expression</b></td></tr><tr><td style=\"display: none\">*</td><td>Information</td><td>Informational Note</td><td>deisServicioSaludOtorga = 14 derivado del catálogo de establecimientos (14-101).</td><td>Bundle.entry[0].resource.sender</td></tr></table></div>"
+  ] ;
+  fhir:OperationOutcome.issue [
+     fhir:index 0 ;
+     fhir:OperationOutcome.issue.severity [ fhir:value "information" ] ;
+     fhir:OperationOutcome.issue.code [ fhir:value "informational" ] ;
+     fhir:OperationOutcome.issue.diagnostics [ fhir:value "deisServicioSaludOtorga = 14 derivado del catálogo de establecimientos (14-101)." ] ;
+     fhir:OperationOutcome.issue.expression [
+       fhir:value "Bundle.entry[0].resource.sender" ;
+       fhir:index 0
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-b2-aviso.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

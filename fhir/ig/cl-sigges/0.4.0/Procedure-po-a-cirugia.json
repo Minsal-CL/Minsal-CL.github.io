@@ -1,0 +1,58 @@
+{
+  "resourceType" : "Procedure",
+  "id" : "po-a-cirugia",
+  "meta" : {
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Procedimiento po-a-cirugia</b></p><a name=\"po-a-cirugia\"> </a><a name=\"hcpo-a-cirugia\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-po-ges.html\">PO — Prestación otorgada</a></p></div><p><b>Caso GES</b>: <a href=\"EpisodeOfCare-caso-a.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 702}\">Intervención Quirúrgica</span></p><p><b>identifier</b>: <a href=\"NamingSystem-NSFolioDocumento.html\" title=\"Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.\">NSFolioDocumento</a>/PO-HLF-2026-021904</p><p><b>basedOn</b>: <a href=\"ServiceRequest-oa-a-cirugia.html\">ServiceRequest GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR</a></p><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa 1802017}\">GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR</span></p><p><b>subject</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3\u00a0(use:\u00a0official))</a></p><p><b>performed</b>: 2026-04-20 08:30:00-0300 --&gt; 2026-04-20 12:10:00-0300</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-rol-paredes-hlf.html\">Ignacio Paredes (official) (RUN: 12661903-0\u00a0(use:\u00a0official)) at Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges",
+    "valueReference" : {
+      "reference" : "EpisodeOfCare/caso-a"
+    }
+  },
+  {
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges",
+        "code" : "702",
+        "display" : "Intervención Quirúrgica"
+      }]
+    }
+  }],
+  "identifier" : [{
+    "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento",
+    "value" : "PO-HLF-2026-021904",
+    "assigner" : {
+      "reference" : "Organization/hosp-la-florida"
+    }
+  }],
+  "basedOn" : [{
+    "reference" : "ServiceRequest/oa-a-cirugia"
+  }],
+  "status" : "completed",
+  "code" : {
+    "coding" : [{
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa",
+      "code" : "1802017",
+      "display" : "GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR"
+    }],
+    "text" : "GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR"
+  },
+  "subject" : {
+    "reference" : "Patient/pac-a"
+  },
+  "performedPeriod" : {
+    "start" : "2026-04-20T08:30:00-03:00",
+    "end" : "2026-04-20T12:10:00-03:00"
+  },
+  "performer" : [{
+    "actor" : {
+      "reference" : "PractitionerRole/rol-paredes-hlf"
+    }
+  }]
+}

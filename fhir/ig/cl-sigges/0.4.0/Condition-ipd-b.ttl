@@ -1,0 +1,116 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/ipd-b> a fhir:Condition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ipd-b"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Condición ipd-b</b></p><a name=\"ipd-b\"> </a><a name=\"hcipd-b\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-ipd-ges.html\">IPD — Informe de proceso diagnóstico</a></p></div><p><b>Caso GES</b>: <a href=\"EpisodeOfCare-caso-b.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812399,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#SR-2026-004410; status = active; type = Enfermedad renal crónica etapa 4 y 5,Enfermedad renal crónica etapa 4 y 5 (decreto nº 228); period = 2026-05-04 --&gt; (ongoing)</a></p><p><b>Establecimiento de destino</b>: <a href=\"Organization-sotero-del-rio.html\">Complejo Hospitalario Dr. Sótero del Río (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-101)</a></p><p><b>Tratamiento e indicaciones</b>: Ingreso a programa de hemodiálisis; confección de acceso vascular.</p><p><b>identifier</b>: <a href=\"NamingSystem-NSFolioDocumento.html\" title=\"Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.\">NSFolioDocumento</a>/IPD-SR-2026-000932</p><p><b>clinicalStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}\">Active</span></p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status confirmed}\">Confirmed</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-category encounter-diagnosis}\">Encounter Diagnosis</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 1}\">Enfermedad renal crónica etapa 5 secundaria a nefropatía diabética</span></p><p><b>subject</b>: <a href=\"Patient-pac-b.html\">María Isabel González (official) Female, DoB: 1958-07-02 ( RUN: 7654321-6 (use: official))</a></p><p><b>recordedDate</b>: 2026-05-04 09:30:00-0300</p><p><b>recorder</b>: <a href=\"PractitionerRole-rol-soto-sotero.html\">Valentina Soto (official) (RUN: 14209771-0 (use: official)) at Complejo Hospitalario Dr. Sótero del Río (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-101)</a></p><blockquote><p><b>evidence</b></p><p><b>detail</b>: <a href=\"Observation-obs-b-vfg.html\">Observation Velocidad de filtración glomerular estimada</a></p></blockquote><blockquote><p><b>evidence</b></p><p><b>detail</b>: <a href=\"Observation-obs-b-etapa.html\">Observation Etapa de enfermedad renal crónica</a></p></blockquote><p><b>note</b>: </p><blockquote><div><p>VFG 12 mL/min/1,73 m2 (CKD-EPI) el 28/04; hiperkalemia recurrente.</p>\n</div></blockquote></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-b> ;
+       fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-b" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-establecimiento-destino" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/sotero-del-rio> ;
+       fhir:Reference.reference [ fhir:value "Organization/sotero-del-rio" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-indicaciones-clinicas" ] ;
+     fhir:Extension.valueString [ fhir:value "Ingreso a programa de hemodiálisis; confección de acceso vascular." ]
+  ] ;
+  fhir:Condition.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento" ] ;
+     fhir:Identifier.value [ fhir:value "IPD-SR-2026-000932" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/sotero-del-rio> ;
+       fhir:Reference.reference [ fhir:value "Organization/sotero-del-rio" ]
+     ]
+  ] ;
+  fhir:Condition.clinicalStatus [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/condition-clinical" ] ;
+       fhir:Coding.code [ fhir:value "active" ]
+     ]
+  ] ;
+  fhir:Condition.verificationStatus [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+       fhir:Coding.code [ fhir:value "confirmed" ]
+     ]
+  ] ;
+  fhir:Condition.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/condition-category" ] ;
+       fhir:Coding.code [ fhir:value "encounter-diagnosis" ]
+     ]
+  ] ;
+  fhir:Condition.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "Enfermedad renal crónica etapa 4 y 5" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Enfermedad renal crónica etapa 5 secundaria a nefropatía diabética" ]
+  ] ;
+  fhir:Condition.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-b> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-b" ]
+  ] ;
+  fhir:Condition.recordedDate [ fhir:value "2026-05-04T09:30:00-03:00"^^xsd:dateTime] ;
+  fhir:Condition.recorder [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-soto-sotero> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/rol-soto-sotero" ]
+  ] ;
+  fhir:Condition.evidence [
+     fhir:index 0 ;
+     fhir:Condition.evidence.detail [
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Observation/obs-b-vfg> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-b-vfg" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Condition.evidence.detail [
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Observation/obs-b-etapa> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-b-etapa" ]
+     ]
+  ] ;
+  fhir:Condition.note [
+     fhir:index 0 ;
+     fhir:Annotation.text [ fhir:value "VFG 12 mL/min/1,73 m2 (CKD-EPI) el 28/04; hiperkalemia recurrente." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/ipd-b.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

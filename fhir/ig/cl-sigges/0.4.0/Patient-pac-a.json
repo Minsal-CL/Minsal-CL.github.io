@@ -1,0 +1,83 @@
+{
+  "resourceType" : "Patient",
+  "id" : "pac-a",
+  "meta" : {
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Paciente pac-a</b></p><a name=\"pac-a\"> </a><a name=\"hcpac-a\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-paciente-ges.html\">Paciente GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3\u00a0(use:\u00a0official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\"><ul><li><a href=\"tel:+56981234567\">+56 9 8123 4567</a></li><li>Av. Vicuña Mackenna 7110, depto 402 La Florida Metropolitana de Santiago (home)</li></ul></td></tr></table></div>"
+  },
+  "identifier" : [{
+    "use" : "official",
+    "type" : {
+      "extension" : [{
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "urn:iso:std:iso:3166",
+            "code" : "152",
+            "display" : "Chile"
+          }]
+        }
+      }],
+      "coding" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador",
+        "code" : "1",
+        "display" : "RUN"
+      }]
+    },
+    "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/run",
+    "value" : "9876543-3"
+  }],
+  "name" : [{
+    "use" : "official",
+    "family" : "Pérez",
+    "_family" : {
+      "extension" : [{
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido",
+        "valueString" : "Soto"
+      }]
+    },
+    "given" : ["Juan",
+    "Carlos"]
+  }],
+  "telecom" : [{
+    "system" : "phone",
+    "value" : "+56 9 8123 4567",
+    "use" : "mobile"
+  }],
+  "gender" : "male",
+  "birthDate" : "1961-03-14",
+  "deceasedBoolean" : false,
+  "address" : [{
+    "use" : "home",
+    "line" : ["Av. Vicuña Mackenna 7110, depto 402"],
+    "city" : "La Florida",
+    "_city" : {
+      "extension" : [{
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL",
+            "code" : "13110",
+            "display" : "La Florida"
+          }]
+        }
+      }]
+    },
+    "state" : "Metropolitana de Santiago",
+    "_state" : {
+      "extension" : [{
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL",
+            "code" : "13",
+            "display" : "Metropolitana de Santiago"
+          }]
+        }
+      }]
+    }
+  }]
+}

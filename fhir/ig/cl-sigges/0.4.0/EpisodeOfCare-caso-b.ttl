@@ -1,0 +1,78 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-b> a fhir:EpisodeOfCare ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "caso-b"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado caso-b</b></p><a name=\"caso-b\"> </a><a name=\"hccaso-b\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812399, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/SR-2026-004410</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 1}\">Enfermedad renal crónica etapa 4 y 5</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 125}\">Enfermedad renal crónica etapa 4 y 5 (decreto nº 228)</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Condition-ipd-b.html\">Condition Enfermedad renal crónica etapa 5 secundaria a nefropatía diabética</a></td></tr></table><p><b>patient</b>: <a href=\"Patient-pac-b.html\">María Isabel González (official) Female, DoB: 1958-07-02 ( RUN: 7654321-6 (use: official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-sotero-del-rio.html\">Complejo Hospitalario Dr. Sótero del Río (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-101)</a></p><p><b>period</b>: 2026-05-04 --&gt; (ongoing)</p></div>"
+  ] ;
+  fhir:EpisodeOfCare.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges" ] ;
+     fhir:Identifier.value [ fhir:value "8812399" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local" ] ;
+     fhir:Identifier.value [ fhir:value "SR-2026-004410" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/sotero-del-rio> ;
+       fhir:Reference.reference [ fhir:value "Organization/sotero-del-rio" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.status [ fhir:value "active"] ;
+  fhir:EpisodeOfCare.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "Enfermedad renal crónica etapa 4 y 5" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "125" ] ;
+       fhir:Coding.display [ fhir:value "Enfermedad renal crónica etapa 4 y 5 (decreto nº 228)" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.diagnosis [
+     fhir:index 0 ;
+     fhir:EpisodeOfCare.diagnosis.condition [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/ipd-b> ;
+       fhir:Reference.reference [ fhir:value "Condition/ipd-b" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.patient [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-b> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-b" ]
+  ] ;
+  fhir:EpisodeOfCare.managingOrganization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/sotero-del-rio> ;
+     fhir:Reference.reference [ fhir:value "Organization/sotero-del-rio" ]
+  ] ;
+  fhir:EpisodeOfCare.period [
+     fhir:Period.start [ fhir:value "2026-05-04"^^xsd:date ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-b.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

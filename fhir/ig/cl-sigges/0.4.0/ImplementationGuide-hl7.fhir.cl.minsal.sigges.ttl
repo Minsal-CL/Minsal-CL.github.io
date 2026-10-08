@@ -1,0 +1,2690 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges> a fhir:ImplementationGuide ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "hl7.fhir.cl.minsal.sigges"] ;
+  fhir:Resource.language [ fhir:value "es-CL"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xml:lang=\"es-CL\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"es-CL\"><p class=\"res-header-id\"><b>Generated Narrative: GuiaDeImplementacion hl7.fhir.cl.minsal.sigges</b></p><a name=\"hl7.fhir.cl.minsal.sigges\"> </a><a name=\"hchl7.fhir.cl.minsal.sigges\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es-CL</p></div><h2>NotificacionGESSIGGES</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges</pre><div><p>Guía FHIR R4 para notificar los documentos del ciclo de un caso GES (SIC, IPD, OA, PO, CC, EXGO, HD APS) desde los establecimientos hacia SIGGES 2.0 de FONASA, usando mensajería FHIR con un núcleo común de recursos y un recurso foco por documento.</p>\n</div></div>"
+  ] ;
+  fhir:ImplementationGuide.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges"] ;
+  fhir:ImplementationGuide.version [ fhir:value "0.4.0"] ;
+  fhir:ImplementationGuide.name [ fhir:value "NotificacionGESSIGGES"] ;
+  fhir:ImplementationGuide.title [ fhir:value "Notificación de Casos GES a SIGGES 2.0"] ;
+  fhir:ImplementationGuide.status [ fhir:value "draft"] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-10-08T15:37:06-03:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ImplementationGuide.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ImplementationGuide.description [ fhir:value "Guía FHIR R4 para notificar los documentos del ciclo de un caso GES (SIC, IPD, OA, PO, CC, EXGO, HD APS) desde los establecimientos hacia SIGGES 2.0 de FONASA, usando mensajería FHIR con un núcleo común de recursos y un recurso foco por documento."] ;
+  fhir:ImplementationGuide.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ImplementationGuide.packageId [ fhir:value "hl7.fhir.cl.minsal.sigges"] ;
+  fhir:ImplementationGuide.license [ fhir:value "CC0-1.0"] ;
+  fhir:ImplementationGuide.fhirVersion [
+     fhir:value "4.0.1" ;
+     fhir:index 0
+  ] ;
+  fhir:ImplementationGuide.dependsOn [
+     fhir:index 0 ;
+     fhir:Element.id [ fhir:value "hl7tx" ] ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment" ] ;
+       fhir:Extension.valueMarkdown [ fhir:value "Automatically added as a dependency - all IGs depend on HL7 Terminology" ]
+     ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "http://terminology.hl7.org/ImplementationGuide/hl7.terminology" ;
+       fhir:link <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.terminology.r4" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "7.4.0" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Element.id [ fhir:value "hl7ext" ] ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment" ] ;
+       fhir:Extension.valueMarkdown [ fhir:value "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack" ]
+     ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions" ;
+       fhir:link <http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.fhir.uv.extensions.r4" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "5.3.0" ]
+  ], [
+     fhir:index 2 ;
+     fhir:Element.id [ fhir:value "hl7_fhir_cl_clcore" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore" ;
+       fhir:link <https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.fhir.cl.clcore" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "1.9.4" ]
+  ], [
+     fhir:index 3 ;
+     fhir:Element.id [ fhir:value "hl7_fhir_cl_minsal_nid" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid" ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.fhir.cl.minsal.nid" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "0.4.9" ]
+  ] ;
+  fhir:ImplementationGuide.definition [
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency" ] ;
+       fhir:Extension.valueCode [ fhir:value "hl7.fhir.uv.tools.r4#1.3.0" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "copyrightyear" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "2026+" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "releaselabel" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "ci-build" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "autoload-resources" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template/liquid" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 5 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "input/liquid" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 6 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-qa" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "temp/qa" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 7 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-temp" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "temp/pages" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-output" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "output" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 9 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-suppressed-warnings" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "input/ignoreWarnings.txt" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 10 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-history" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "template-html" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template-page.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "template-md" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template-page-md.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-contact" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-context" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-copyright" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-jurisdiction" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-license" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-publisher" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 19 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-version" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 20 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-wg" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 21 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "active-tables" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 22 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "fmm-definition" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "http://hl7.org/fhir/versions.html#maturity" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 23 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "propagate-status" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 24 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "excludelogbinaryformat" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 25 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "tabbed-snapshots" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ] ;
+     fhir:ImplementationGuide.definition.resource [
+       fhir:index 0 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/bundle-notificacion-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle — Notificación GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sobre de un documento SIGGES: MessageHeader + núcleo común (Patient, PractitionerRole, Practitioner, Organization, EpisodeOfCare) + recurso foco + Observation opcionales. Se envía a $process-message." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/bundle-respuesta-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle — Respuesta SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Respuesta a una notificación." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "EpisodeOfCare" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/8812345> ;
+         fhir:Reference.reference [ fhir:value "EpisodeOfCare/8812345" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso 8812345 en SIGGES (vista del receptor)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El caso A tal como lo devuelve SIGGES en la consulta; las garantías gar-a-701 a 703 lo referencian (SG-01)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+       ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ServiceRequest" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/sic-a> ;
+         fhir:Reference.reference [ fhir:value "ServiceRequest/sic-a" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso A · 1 — SIC con sospecha de cáncer gástrico" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "CESFAM La Florida deriva a Gastroenterología del Hospital La Florida para confirmación diagnóstica." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/sic-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/sic-ges>
+       ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ServiceRequest" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/oa-a-endoscopia> ;
+         fhir:Reference.reference [ fhir:value "ServiceRequest/oa-a-endoscopia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso A · 2 — OA de endoscopía digestiva alta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Gastroenterología ordena gastroduodenoscopía con biopsia para confirmar." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges>
+       ]
+     ], [
+       fhir:index 5 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Procedure" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Procedure/po-a-endoscopia> ;
+         fhir:Reference.reference [ fhir:value "Procedure/po-a-endoscopia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso A · 3 — PO endoscopía realizada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "La unidad de endoscopía registra la prestación. PO no exige profesional: el rol no trae practitioner." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges>
+       ]
+     ], [
+       fhir:index 6 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Condition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/ipd-a> ;
+         fhir:Reference.reference [ fhir:value "Condition/ipd-a" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso A · 4 — IPD confirma cáncer gástrico" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "verificationStatus = confirmed. Incluye además un coding CIE-10 (crecimiento sin cambiar el perfil)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges>
+       ]
+     ], [
+       fhir:index 7 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ServiceRequest" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/oa-a-cirugia> ;
+         fhir:Reference.reference [ fhir:value "ServiceRequest/oa-a-cirugia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso A · 5 — OA de gastrectomía" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Cirugía digestiva ordena gastrectomía subtotal con disección ganglionar." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges>
+       ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Procedure" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Procedure/po-a-cirugia> ;
+         fhir:Reference.reference [ fhir:value "Procedure/po-a-cirugia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso A · 6 — PO gastrectomía realizada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Cumple la garantía de intervención quirúrgica." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges>
+       ]
+     ], [
+       fhir:index 9 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "EpisodeOfCare" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-a> ;
+         fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-a" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso A — cáncer gástrico (estado tras la PO de cirugía)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Caso GES del paciente A publicado como ejemplo independiente, para que los ejemplos sueltos que lo referencian resuelvan (SG-01)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+       ]
+     ], [
+       fhir:index 10 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Condition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/cond-a-sospecha> ;
+         fhir:Reference.reference [ fhir:value "Condition/cond-a-sospecha" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso A — Diagnóstico de sospecha (motivo de la SIC)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Condition en estado provisional = sospecha GES." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/diagnostico-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/diagnostico-ges>
+       ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Condition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/ipd-b> ;
+         fhir:Reference.reference [ fhir:value "Condition/ipd-b" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso B · 1 — IPD confirma ERC etapa 5" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "La VFG y la etapa viajan como DatoEspecialGES en evidence.detail (reemplazan enfermedadRenalVfg1..3)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges>
+       ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ServiceRequest" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/oa-b-hemodialisis> ;
+         fhir:Reference.reference [ fhir:value "ServiceRequest/oa-b-hemodialisis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso B · 2 — OA de hemodiálisis" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Orden de hemodiálisis con cuarto turno. Comuna, fono y email del beneficiario salen del Patient (no son campos especiales)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges>
+       ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Procedure" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Procedure/po-b-hemodialisis> ;
+         fhir:Reference.reference [ fhir:value "Procedure/po-b-hemodialisis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso B · 3 — PO hemodiálisis mensual" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación con período: fechaRealizacion = start, fechaFin = end." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges>
+       ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "EpisodeOfCare" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-b> ;
+         fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-b" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso B — ERC (estado tras la PO de hemodiálisis)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Caso GES del paciente B publicado como ejemplo independiente (SG-01)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+       ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Condition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/hd-c-sospecha> ;
+         fhir:Reference.reference [ fhir:value "Condition/hd-c-sospecha" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso C · 1 — HD sospecha DM2" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estado HD 1191 + verificationStatus provisional." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/hoja-diaria-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/hoja-diaria-ges>
+       ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Condition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/hd-c-confirmado> ;
+         fhir:Reference.reference [ fhir:value "Condition/hd-c-confirmado" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso C · 2 — HD confirma DM2" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estado HD 1192 + verificationStatus confirmed." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/hoja-diaria-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/hoja-diaria-ges>
+       ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Task/exgo-c> ;
+         fhir:Reference.reference [ fhir:value "Task/exgo-c" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso C · 3 — EXGO por inasistencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Excepción de la garantía de atención por especialista (endocrinología) por inasistencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/excepcion-garantia-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/excepcion-garantia-ges>
+       ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "EpisodeOfCare" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-c> ;
+         fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-c" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso C — hoja diaria APS (estado tras la EXGO)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Caso GES del paciente C publicado como ejemplo independiente (SG-01)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+       ]
+     ], [
+       fhir:index 19 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ServiceRequest" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/sic-d> ;
+         fhir:Reference.reference [ fhir:value "ServiceRequest/sic-d" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso D · 1 — SIC sospecha cáncer gástrico" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Segunda paciente con el mismo flujo de entrada que el caso A." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/sic-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/sic-ges>
+       ]
+     ], [
+       fhir:index 20 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Condition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/ipd-d> ;
+         fhir:Reference.reference [ fhir:value "Condition/ipd-d" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso D · 2 — IPD descarta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "verificationStatus = refuted (descarta). Destino: retorno a APS." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges>
+       ]
+     ], [
+       fhir:index 21 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Task/cc-d> ;
+         fhir:Reference.reference [ fhir:value "Task/cc-d" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso D · 3 — CC por descarte" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Cierre de caso con causal 8 (Descarte)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/cierre-caso-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/cierre-caso-ges>
+       ]
+     ], [
+       fhir:index 22 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "EpisodeOfCare" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-d> ;
+         fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-d" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso D — descartado y cerrado (estado tras el CC)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Caso GES del paciente D publicado como ejemplo independiente (SG-01)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+       ]
+     ], [
+       fhir:index 23 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Condition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/cond-d-sospecha> ;
+         fhir:Reference.reference [ fhir:value "Condition/cond-d-sospecha" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso D — Diagnóstico de sospecha" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Motivo de la SIC del caso D." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/diagnostico-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/diagnostico-ges>
+       ]
+     ], [
+       fhir:index 24 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/caso-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El caso GES: paciente + problema de salud + rama. Es el hilo que une todos los documentos. Lo abre la primera notificación (SIC, IPD o HD) y lo cierra un CC." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 25 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ext-caso-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Caso GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Referencia al caso GES (EpisodeOfCare) al que pertenece el documento. En R4 ServiceRequest, Procedure y Condition no tienen un elemento para el episodio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 26 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-causal-cierre-caso> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-causal-cierre-caso" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Causales de cierre de caso" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Causales de tipo cierre-caso." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 27 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-causal-excepcion-garantia> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-causal-excepcion-garantia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Causales de excepción de garantía" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Causales de tipo excepcion-garantia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 28 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/causal-sigges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Causales SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Causales de cierre de caso, excepción de garantía y cierre de garantía de oportunidad (hoja CAUSALES)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 29 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/cierre-caso-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/cierre-caso-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "CC — Cierre de caso" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Cierre del caso GES con su causal. focus apunta al caso." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 30 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/consulta-casos-pac-a> ;
+         fhir:Reference.reference [ fhir:value "Bundle/consulta-casos-pac-a" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Consulta de casos por RUN — paciente A" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Respuesta a GET EpisodeOfCare?patient.identifier=…|9876543-3&_revinclude=Task:focus. Reemplaza /consultar-sigges." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 31 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "NamingSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/NamingSystem/NSDeis> ;
+         fhir:Reference.reference [ fhir:value "NamingSystem/NSDeis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Código DEIS de establecimiento" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Identificador DEIS de establecimiento en formato NN-NNN (DEIS2 del catálogo UNIDADES)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 32 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Observation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Observation/obs-b-etapa> ;
+         fhir:Reference.reference [ fhir:value "Observation/obs-b-etapa" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Dato especial — Etapa de enfermedad renal crónica" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Dato específico del problema de salud, enviado como Observation." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges>
+       ]
+     ], [
+       fhir:index 33 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Observation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Observation/obs-b-cuarto-turno> ;
+         fhir:Reference.reference [ fhir:value "Observation/obs-b-cuarto-turno" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Dato especial — Requiere cuarto turno de diálisis" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Dato específico del problema de salud, enviado como Observation." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges>
+       ]
+     ], [
+       fhir:index 34 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Observation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Observation/obs-b-vfg> ;
+         fhir:Reference.reference [ fhir:value "Observation/obs-b-vfg" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Dato especial — Velocidad de filtración glomerular estimada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Dato específico del problema de salud, enviado como Observation." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges>
+       ]
+     ], [
+       fhir:index 35 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/dato-especial-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Dato específico por problema de salud" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Mecanismo de crecimiento: los datos que sólo aplican a un problema de salud (VFG, cuarto turno, etapa…) se envían como Observation con un código de CSDatoEspecialGES, en vez de agregar campos nuevos a la API." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 36 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/dato-especial-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/dato-especial-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Datos específicos por problema de salud" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Códigos para Observation que reemplazan los campos ad hoc de la API v1.5 (enfermedadRenalVfg1..3, cuartoTurnoEspecial, parametroEspecial). Agregar un dato nuevo = agregar un código aquí; la API y los perfiles no cambian." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 37 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-dato-especial-ges> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-dato-especial-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Datos específicos por PS" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Códigos de Observation para datos específicos por problema de salud." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 38 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/derivada-para-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/derivada-para-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Derivada para (SIGGES)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Motivo de la derivación en SIC y OA (hoja DERIVAPARA)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 39 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-derivada-para-oa> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-derivada-para-oa" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Derivada para — OA" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Motivos de derivación válidos en una OA." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 40 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-derivada-para-sic> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-derivada-para-sic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Derivada para — SIC" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Motivos de derivación válidos en una SIC." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 41 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ConceptMap" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/tei-a-sigges-derivado-para> ;
+         fhir:Reference.reference [ fhir:value "ConceptMap/tei-a-sigges-derivado-para" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Derivado para: TEI → SIGGES (SIC)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "CSDerivadoParaCodigo de TEI a CSDerivadaParaGES de SIGGES en contexto SIC. Los códigos 2, 3 y 4 significan cosas distintas en cada sistema. SIGGES 11 (Rehabilitación) no tiene origen en TEI 0.2.3." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 42 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/diagnostico-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/diagnostico-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Diagnóstico GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Afirmación diagnóstica sobre el problema de salud GES. verificationStatus reemplaza confirmaSospechaDescarta (provisional = sospecha, confirmed = confirma, refuted = descarta). Es el motivo de la SIC y la base de IPD y HD." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 43 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CapabilityStatement/CSEmisorEstablecimiento> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/CSEmisorEstablecimiento" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Emisor — sistema del establecimiento" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Lo que debe hacer el sistema clínico que notifica: invocar $process-message con un BundleNotificacionGES válido, conservar el número de caso SIGGES y consultar casos." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 44 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ConceptMap" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/tei-a-sigges-especialidad> ;
+         fhir:Reference.reference [ fhir:value "ConceptMap/tei-a-sigges-especialidad" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidad: TEI → SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "CSEspecialidadMed de TEI (códigos numéricos) a CSEspecialidadSIGGES (formato NN-NNN-N). Sólo se mapean coincidencias exactas de nombre; el resto queda pendiente de homologación." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 45 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-especialidad-sigges> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-especialidad-sigges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todas las especialidades del catálogo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 46 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/especialidad-sigges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades según catálogo SIGGES 2.0 (formato DEIS NN-NNN-N)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 47 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Organization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/sotero-del-rio> ;
+         fhir:Reference.reference [ fhir:value "Organization/sotero-del-rio" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimiento 14-101 — Complejo Hospitalario Dr. Sótero del Río" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento de la red pública, Servicio de Salud Metropolitano Sur Oriente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges>
+       ]
+     ], [
+       fhir:index 48 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Organization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+         fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimiento 14-105 — Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento de la red pública, Servicio de Salud Metropolitano Sur Oriente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges>
+       ]
+     ], [
+       fhir:index 49 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Organization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-santo-tomas> ;
+         fhir:Reference.reference [ fhir:value "Organization/cesfam-santo-tomas" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimiento 14-317 — Centro de Salud Familiar Santo Tomás" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento de la red pública, Servicio de Salud Metropolitano Sur Oriente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges>
+       ]
+     ], [
+       fhir:index 50 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Organization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-la-florida> ;
+         fhir:Reference.reference [ fhir:value "Organization/cesfam-la-florida" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimiento 14-331 — Centro de Salud Familiar La Florida" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento de la red pública, Servicio de Salud Metropolitano Sur Oriente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges>
+       ]
+     ], [
+       fhir:index 51 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-establecimiento-destino> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ext-establecimiento-destino" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimiento de destino" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento donde continúa la atención tras el IPD (deisEstablecimientoDestino)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 52 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/establecimiento-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimiento GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento identificado por código DEIS. El Servicio de Salud se deriva del catálogo (CSEstablecimientoDEIS.servicioSalud) o se informa en partOf como referencia lógica." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 53 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/establecimiento-deis> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/establecimiento-deis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimientos (DEIS)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimientos de salud según catálogo UNIDADES de SIGGES 2.0. Código = DEIS formato NN-NNN." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 54 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-establecimiento-deis> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-establecimiento-deis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimientos DEIS" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todos los establecimientos del catálogo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 55 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-estado-garantia-ges> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-estado-garantia-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado de garantía" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estados de negocio de una garantía." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 56 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-estado-hoja-diaria> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ext-estado-hoja-diaria" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado de hoja diaria APS" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estado del caso en la hoja diaria APS, específico por rama (campo estado de la API v1.5)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 57 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/estado-garantia-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado de negocio de la garantía" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estado de negocio (Task.businessStatus) de una garantía de oportunidad." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 58 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-estado-hoja-diaria-ges> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-estado-hoja-diaria-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estados de hoja diaria" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todos los estados de hoja diaria APS." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 59 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-hoja-diaria-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/estado-hoja-diaria-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estados de Hoja Diaria APS" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estados de la Hoja Diaria APS por rama (hoja ESTADOS HD - RAMAS)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 60 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/excepcion-garantia-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/excepcion-garantia-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "EXGO — Excepción de garantía de oportunidad" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Exceptúa una garantía del caso con su causal y justificación." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 61 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "NamingSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/NamingSystem/NSFolioDocumento> ;
+         fhir:Reference.reference [ fhir:value "NamingSystem/NSFolioDocumento" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Folio de documento del establecimiento" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 62 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Organization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/fonasa> ;
+         fhir:Reference.reference [ fhir:value "Organization/fonasa" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "FONASA" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Fondo Nacional de Salud, receptor de las notificaciones SIGGES." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 63 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Task/gar-a-701> ;
+         fhir:Reference.reference [ fhir:value "Task/gar-a-701" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Garantía 701 — Confirmación Diagnóstica (cumplida)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Garantía del caso A publicada por SIGGES." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges>
+       ]
+     ], [
+       fhir:index 64 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Task/gar-a-702> ;
+         fhir:Reference.reference [ fhir:value "Task/gar-a-702" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Garantía 702 — Intervención Quirúrgica (cumplida)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Garantía del caso A publicada por SIGGES." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges>
+       ]
+     ], [
+       fhir:index 65 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Task" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Task/gar-a-703> ;
+         fhir:Reference.reference [ fhir:value "Task/gar-a-703" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Garantía 703 — Seguimiento (vigente)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Garantía del caso A publicada por SIGGES." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges>
+       ]
+     ], [
+       fhir:index 66 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/garantia-oportunidad-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Garantía de oportunidad" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Garantía activa de un caso con su plazo. La publica SIGGES (no la envía el establecimiento) y se obtiene en la consulta de casos." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 67 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ext-garantia-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Garantía GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Garantía GES a la que se imputa el documento (campo garantia de la API v1.5)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 68 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-garantia-ges> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-garantia-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Garantías GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todas las garantías." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 69 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/garantia-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Garantías GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Garantías GES por rama de problema de salud (hoja GARANTIAS)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 70 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/hoja-diaria-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/hoja-diaria-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "HD — Hoja diaria APS" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Registro APS del estado del caso por rama. El estado específico (catálogo ESTADOS HD) va en extensión; verificationStatus lleva la semántica genérica." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 71 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "NamingSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/NamingSystem/NSCasoSIGGES> ;
+         fhir:Reference.reference [ fhir:value "NamingSystem/NSCasoSIGGES" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Identificador de caso SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 72 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ipd-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "IPD — Informe de proceso diagnóstico" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Confirma, mantiene en sospecha o descarta el problema de salud. Los datos propios de un PS (p.ej. VFG en ERC) van en evidence.detail como DatoEspecialGES." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 73 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-a1-sic> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-a1-sic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje A1 — SIC (abre el caso)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Primer mensaje del caso: aún no existe número SIGGES, el caso viaja con identificador local." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 74 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-a2-oa> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-a2-oa" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje A2 — OA endoscopía" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El caso ya tiene número SIGGES (8812345), devuelto en la respuesta al mensaje A1." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 75 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-a3-po> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-a3-po" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje A3 — PO endoscopía" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación otorgada vinculada a la OA por basedOn." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 76 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-a4-ipd> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-a4-ipd" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje A4 — IPD confirma" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Confirmación diagnóstica: inicia la garantía de tratamiento quirúrgico." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 77 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-a5-oa> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-a5-oa" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje A5 — OA cirugía" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Orden de tratamiento imputada a la garantía 702." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 78 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-a6-po> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-a6-po" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje A6 — PO cirugía" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación que cumple la garantía 702." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 79 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-b1-ipd> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-b1-ipd" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje B1 — IPD ERC con VFG" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El caso se abre directamente con un IPD (sin SIC previa)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 80 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-b2-oa> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-b2-oa" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje B2 — OA hemodiálisis" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Datos especiales renales como Observation en supportingInfo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 81 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-b3-po> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-b3-po" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje B3 — PO hemodiálisis" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tratamiento mensual con fecha de fin." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 82 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-c1-hd> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-c1-hd" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje C1 — HD sospecha" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Hoja diaria APS que abre el caso." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 83 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-c2-hd> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-c2-hd" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje C2 — HD confirma" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Misma estructura que C1: sólo cambian estado y verificationStatus." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 84 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-c3-exgo> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-c3-exgo" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje C3 — EXGO" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Excepción con causal (statusReason) y justificación (statusReason.text)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 85 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-d1-sic> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-d1-sic" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje D1 — SIC" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Abre el caso D." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 86 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-d2-ipd> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-d2-ipd" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje D2 — IPD descarta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Descarte del problema de salud." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 87 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-d3-cc> ;
+         fhir:Reference.reference [ fhir:value "Bundle/msg-d3-cc" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mensaje D3 — CC" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Cierre del caso: EpisodeOfCare.status = finished." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+       ]
+     ], [
+       fhir:index 88 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-notificacion-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/mh-notificacion-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MessageHeader — Notificación GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Cabecera del mensaje. eventCoding indica qué documento se notifica; sender es el establecimiento (deisOrigen) y source el sistema (nombreSistemaOrigen)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 89 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/mh-respuesta-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MessageHeader — Respuesta SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Respuesta de SIGGES. response.code indica el resultado; focus devuelve el caso con su número SIGGES; details apunta a un OperationOutcome con advertencias o errores." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 90 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ConceptMap" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/tei-a-sigges-motivo-cierre> ;
+         fhir:Reference.reference [ fhir:value "ConceptMap/tei-a-sigges-motivo-cierre" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Motivo de cierre de interconsulta TEI → causal SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "CSMotivoCierreInterconsulta de TEI a CSCausalSIGGES. Cerrar una interconsulta no es cerrar el caso GES: sólo los motivos que también cierran el caso tienen equivalente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 91 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "NamingSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/NamingSystem/NSCasoLocal> ;
+         fhir:Reference.reference [ fhir:value "NamingSystem/NSCasoLocal" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "NSCasoLocal" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 92 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/oa-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "OA — Orden de atención" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Orden de una prestación garantizada. La prestación va en code, la garantía en extensión y los datos especiales (p.ej. cuarto turno) en supportingInfo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 93 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/paciente-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Beneficiario del caso GES. Se identifica por RUN; los datos demográficos viajan una sola vez aquí y no se repiten en cada documento." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 94 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+         fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente Juan Carlos Pérez Soto" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Beneficiario ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges>
+       ]
+     ], [
+       fhir:index 95 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-c> ;
+         fhir:Reference.reference [ fhir:value "Patient/pac-c" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente Luis Alberto Muñoz Díaz" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Beneficiario ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges>
+       ]
+     ], [
+       fhir:index 96 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-b> ;
+         fhir:Reference.reference [ fhir:value "Patient/pac-b" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente María Isabel González Rojas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Beneficiario ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges>
+       ]
+     ], [
+       fhir:index 97 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-d> ;
+         fhir:Reference.reference [ fhir:value "Patient/pac-d" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente Rosa Elena Tapia Vidal" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Beneficiario ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges>
+       ]
+     ], [
+       fhir:index 98 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/po-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "PO — Prestación otorgada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestación efectivamente realizada. basedOn apunta a la OA o SIC que la originó." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 99 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/prestacion-fonasa" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestaciones (arancel Fonasa)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestaciones según catálogo SIGGES 2.0 (hoja PRESTACIONES)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 100 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-prestacion-fonasa> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-prestacion-fonasa" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestaciones Fonasa" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todas las prestaciones del catálogo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 101 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ConceptMap" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/tei-a-sigges-problema-salud> ;
+         fhir:Reference.reference [ fhir:value "ConceptMap/tei-a-sigges-problema-salud" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Problema de salud: TEI → SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Códigos 1–90 de cs-problema-ges-tei a CSProblemaSaludGES. Son el mismo listado del catálogo FONASA." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 102 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-problema-salud-ges> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-problema-salud-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Problemas de salud GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todos los problemas de salud GES del catálogo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 103 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/problema-salud-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Problemas de salud GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Problemas de salud GES según catálogo SIGGES 2.0 (hoja PROBLEMAS DE SALUD)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 104 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Practitioner/pr-fuentes> ;
+         fhir:Reference.reference [ fhir:value "Practitioner/pr-fuentes" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional Andrés Fuentes Soto" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges>
+       ]
+     ], [
+       fhir:index 105 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Practitioner/pr-rojas> ;
+         fhir:Reference.reference [ fhir:value "Practitioner/pr-rojas" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional Camila Andrea Rojas Muñoz" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges>
+       ]
+     ], [
+       fhir:index 106 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/prestador-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional que firma el documento (runProfesional + dvProfesional)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 107 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Practitioner/pr-paredes> ;
+         fhir:Reference.reference [ fhir:value "Practitioner/pr-paredes" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional Ignacio Paredes Lagos" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges>
+       ]
+     ], [
+       fhir:index 108 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Practitioner/pr-vergara> ;
+         fhir:Reference.reference [ fhir:value "Practitioner/pr-vergara" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional Tomás Vergara Pino" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges>
+       ]
+     ], [
+       fhir:index 109 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Practitioner/pr-soto> ;
+         fhir:Reference.reference [ fhir:value "Practitioner/pr-soto" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional Valentina Soto Araya" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional ficticio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges>
+       ]
+     ], [
+       fhir:index 110 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-programa-ges-snomed> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-programa-ges-snomed" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Programas GES (SNOMED CT, extensión chilena)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Conceptos de programa GES de la extensión chilena de SNOMED CT: descendientes de 1741000325106 (programa de Garantías Explícitas en Salud). Es el mismo criterio de vs-problema-ges-tei de la guía TEI 0.2.3. Clasifican el caso (EpisodeOfCare.type), no el diagnóstico: son conceptos de programa, no hallazgos clínicos." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 111 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-rama-problema-salud-ges> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-rama-problema-salud-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ramas de problema de salud GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todas las ramas." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 112 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/rama-problema-salud-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ramas de problema de salud GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ramas (subdivisiones por decreto) de cada problema de salud GES. Derivado de la hoja GARANTIAS." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 113 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CapabilityStatement/CSReceptorSIGGES> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/CSReceptorSIGGES" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Lo que debe exponer quien recibe las notificaciones GES: la operación $process-message para los 7 documentos y la búsqueda de casos con sus garantías." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 114 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-a1-ok> ;
+         fhir:Reference.reference [ fhir:value "Bundle/resp-a1-ok" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Respuesta A1 — OK con número de caso" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "SIGGES acepta la SIC y devuelve el caso con identifier[casoSIGGES] = 8812345. El HIS debe guardarlo y enviarlo en los siguientes mensajes." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges>
+       ]
+     ], [
+       fhir:index 115 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-b2-aviso> ;
+         fhir:Reference.reference [ fhir:value "Bundle/resp-b2-aviso" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Respuesta B2 — OK con información" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Aceptado; el OperationOutcome informa un dato que SIGGES derivó del catálogo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges>
+       ]
+     ], [
+       fhir:index 116 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-error> ;
+         fhir:Reference.reference [ fhir:value "Bundle/resp-error" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Respuesta — Error de validación" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Rechazo con fatal-error. No se crea nada en SIGGES; el HIS corrige y reenvía con un NUEVO Bundle.identifier y el MISMO folio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges>
+       ]
+     ], [
+       fhir:index 117 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-duplicado> ;
+         fhir:Reference.reference [ fhir:value "Bundle/resp-duplicado" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Respuesta — Reenvío idempotente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Reintento del mensaje A3: SIGGES reconoce el folio y responde ok con advertencia duplicate (idempotencia)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges>
+       ]
+     ], [
+       fhir:index 118 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/rol-clinico-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Rol clínico GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Quién, dónde y en qué especialidad se emite el documento: profesional + establecimiento que otorga + especialidad de origen. Un solo recurso resuelve runProfesional, deisEstablecimientoOtorga y especialidadOrigen." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 119 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "PractitionerRole" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-paredes-hlf> ;
+         fhir:Reference.reference [ fhir:value "PractitionerRole/rol-paredes-hlf" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Rol — Cirugía Abdominal Adulto en 14-105" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional + establecimiento + especialidad." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges>
+       ]
+     ], [
+       fhir:index 120 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "PractitionerRole" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-fuentes-hlf> ;
+         fhir:Reference.reference [ fhir:value "PractitionerRole/rol-fuentes-hlf" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Rol — Gastroenterología Adulto en 14-105" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional + establecimiento + especialidad." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges>
+       ]
+     ], [
+       fhir:index 121 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "PractitionerRole" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-vergara-cesfam-st> ;
+         fhir:Reference.reference [ fhir:value "PractitionerRole/rol-vergara-cesfam-st" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Rol — Medicina Familiar en 14-317" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional + establecimiento + especialidad." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges>
+       ]
+     ], [
+       fhir:index 122 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "PractitionerRole" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-rojas-cesfam-lf> ;
+         fhir:Reference.reference [ fhir:value "PractitionerRole/rol-rojas-cesfam-lf" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Rol — Medicina Familiar en 14-331" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional + establecimiento + especialidad." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges>
+       ]
+     ], [
+       fhir:index 123 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "PractitionerRole" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-soto-sotero> ;
+         fhir:Reference.reference [ fhir:value "PractitionerRole/rol-soto-sotero" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Rol — Nefrología Adulto en 14-101" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Profesional + establecimiento + especialidad." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges>
+       ]
+     ], [
+       fhir:index 124 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "PractitionerRole" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-endoscopia-hlf> ;
+         fhir:Reference.reference [ fhir:value "PractitionerRole/rol-endoscopia-hlf" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Rol — Procedimientos Gastroenterológicos en 14-105" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Unidad (sin profesional) + establecimiento + especialidad." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges>
+       ]
+     ], [
+       fhir:index 125 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/servicio-salud-deis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Servicios de Salud (DEIS)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Servicios de Salud según catálogo UNIDADES de SIGGES 2.0." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 126 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/sexo-sigges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/sexo-sigges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Sexo (SIGGES)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Codificación de sexo usada por SIGGES 2.0 (hoja SEXO)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 127 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ConceptMap" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/sexo-fhir-a-sigges> ;
+         fhir:Reference.reference [ fhir:value "ConceptMap/sexo-fhir-a-sigges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Sexo FHIR → SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Traducción de Patient.gender (administrative-gender) al código SIGGES del campo sexoPaciente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 128 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/sic-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/sic-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "SIC — Solicitud de interconsulta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Derivación con sospecha GES. El diagnóstico, su fundamento y la marca confirma/sospecha/descarta viajan en el DiagnosticoGES referenciado en reasonReference." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 129 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/tipo-origen-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de establecimiento de origen" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Dependencia del establecimiento que notifica (tipoDeisOrigen en API v1.5)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 130 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-tipo-documento-sigges> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-tipo-documento-sigges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipos de documento SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Eventos de mensaje admitidos." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 131 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/tipo-documento-sigges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipos de documento SIGGES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Documentos del ciclo de un caso GES. Se usan como evento del MessageHeader. La propiedad codigoSIGGES es el identificador numérico interno de SIGGES 2.0." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 132 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/tipo-tarea-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipos de tarea GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clasifica las tareas (Task) de gestión de garantías y del caso." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 133 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-indicaciones-clinicas> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ext-indicaciones-clinicas" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tratamiento e indicaciones" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Texto libre de tratamiento e indicaciones (indicacionExamen en la API v1.5)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 134 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ConceptMap" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/verificacion-a-csd> ;
+         fhir:Reference.reference [ fhir:value "ConceptMap/verificacion-a-csd" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "verificationStatus → confirmaSospechaDescarta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Traducción de Condition.verificationStatus al campo confirmaSospechaDescarta de SIC/IPD en la API v1.5 (valores a confirmar con FONASA)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ] ;
+     fhir:ImplementationGuide.definition.page [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+         fhir:Extension.valueUrl [ fhir:value "toc.html" ]
+       ] ;
+       fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "toc.html" ] ;
+       fhir:ImplementationGuide.definition.page.title [ fhir:value "Table of Contents" ] ;
+       fhir:ImplementationGuide.definition.page.generation [ fhir:value "html" ] ;
+       fhir:ImplementationGuide.definition.page.page [
+         fhir:index 0 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "index.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "index.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Inicio" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "flujos.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "flujos.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Flujos del caso GES" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 2 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "modelo.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "modelo.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Modelo de datos" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 3 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "mensajeria.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "mensajeria.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Mensajería y respuesta" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 4 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "documentos.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "documentos.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Documento por documento" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 5 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "consulta.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "consulta.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Consulta de casos" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 6 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "terminologia.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "terminologia.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Terminología" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 7 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "ejemplos.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "ejemplos.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Ejemplos" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 8 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "traduccion.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "traduccion.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Transición y traducción a API v1.5" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 9 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "hallazgos.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "hallazgos.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Observaciones a API v1.5 y catálogo" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 10 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "relacion-tei.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "relacion-tei.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Relación con TEI" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 11 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "historial-de-cambios.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "historial-de-cambios.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Historial de cambios" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ]
+     ] ;
+     fhir:ImplementationGuide.definition.parameter [
+       fhir:index 0 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/capabilities" ]
+     ], [
+       fhir:index 1 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/examples" ]
+     ], [
+       fhir:index 2 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/extensions" ]
+     ], [
+       fhir:index 3 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/models" ]
+     ], [
+       fhir:index 4 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/operations" ]
+     ], [
+       fhir:index 5 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/profiles" ]
+     ], [
+       fhir:index 6 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/resources" ]
+     ], [
+       fhir:index 7 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/vocabulary" ]
+     ], [
+       fhir:index 8 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/maps" ]
+     ], [
+       fhir:index 9 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/testing" ]
+     ], [
+       fhir:index 10 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/history" ]
+     ], [
+       fhir:index 11 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "fsh-generated/resources" ]
+     ], [
+       fhir:index 12 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-pages" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "template/config" ]
+     ], [
+       fhir:index 13 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-pages" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/images" ]
+     ], [
+       fhir:index 14 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-tx-cache" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input-cache/txcache" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

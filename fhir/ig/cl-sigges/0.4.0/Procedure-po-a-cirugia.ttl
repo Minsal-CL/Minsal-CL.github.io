@@ -1,0 +1,87 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Procedure/po-a-cirugia> a fhir:Procedure ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "po-a-cirugia"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Procedimiento po-a-cirugia</b></p><a name=\"po-a-cirugia\"> </a><a name=\"hcpo-a-cirugia\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-po-ges.html\">PO — Prestación otorgada</a></p></div><p><b>Caso GES</b>: <a href=\"EpisodeOfCare-caso-a.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 702}\">Intervención Quirúrgica</span></p><p><b>identifier</b>: <a href=\"NamingSystem-NSFolioDocumento.html\" title=\"Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.\">NSFolioDocumento</a>/PO-HLF-2026-021904</p><p><b>basedOn</b>: <a href=\"ServiceRequest-oa-a-cirugia.html\">ServiceRequest GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR</a></p><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa 1802017}\">GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR</span></p><p><b>subject</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>performed</b>: 2026-04-20 08:30:00-0300 --&gt; 2026-04-20 12:10:00-0300</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-rol-paredes-hlf.html\">Ignacio Paredes (official) (RUN: 12661903-0 (use: official)) at Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-a> ;
+       fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-a" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges" ] ;
+         fhir:Coding.code [ fhir:value "702" ] ;
+         fhir:Coding.display [ fhir:value "Intervención Quirúrgica" ]
+       ]
+     ]
+  ] ;
+  fhir:Procedure.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento" ] ;
+     fhir:Identifier.value [ fhir:value "PO-HLF-2026-021904" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+       fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+     ]
+  ] ;
+  fhir:Procedure.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/oa-a-cirugia> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/oa-a-cirugia" ]
+  ] ;
+  fhir:Procedure.status [ fhir:value "completed"] ;
+  fhir:Procedure.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa" ] ;
+       fhir:Coding.code [ fhir:value "1802017" ] ;
+       fhir:Coding.display [ fhir:value "GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR" ]
+  ] ;
+  fhir:Procedure.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:Procedure.performedPeriod [
+     fhir:Period.start [ fhir:value "2026-04-20T08:30:00-03:00"^^xsd:dateTime ] ;
+     fhir:Period.end [ fhir:value "2026-04-20T12:10:00-03:00"^^xsd:dateTime ]
+  ] ;
+  fhir:Procedure.performer [
+     fhir:index 0 ;
+     fhir:Procedure.performer.actor [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-paredes-hlf> ;
+       fhir:Reference.reference [ fhir:value "PractitionerRole/rol-paredes-hlf" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Procedure/po-a-cirugia.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

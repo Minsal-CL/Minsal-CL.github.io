@@ -1,0 +1,278 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/consulta-casos-pac-a> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "consulta-casos-pac-a"] ;
+  fhir:Bundle.type [ fhir:value "searchset"] ;
+  fhir:Bundle.total [ fhir:value "1"^^xsd:nonNegativeInteger] ;
+  fhir:Bundle.link [
+     fhir:index 0 ;
+     fhir:Bundle.link.relation [ fhir:value "self" ] ;
+     fhir:Bundle.link.url [ fhir:value "http://example.org/sigges/fhir/EpisodeOfCare/_search" ]
+  ] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/EpisodeOfCare/8812345" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/EpisodeOfCare/8812345> ;
+     fhir:Bundle.entry.search [
+       fhir:Bundle.entry.search.mode [ fhir:value "match" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/Task/gar-a-701" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/Task/gar-a-701> ;
+     fhir:Bundle.entry.search [
+       fhir:Bundle.entry.search.mode [ fhir:value "include" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/Task/gar-a-702" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/Task/gar-a-702> ;
+     fhir:Bundle.entry.search [
+       fhir:Bundle.entry.search.mode [ fhir:value "include" ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/Task/gar-a-703" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/Task/gar-a-703> ;
+     fhir:Bundle.entry.search [
+       fhir:Bundle.entry.search.mode [ fhir:value "include" ]
+     ]
+  ] .
+
+<http://example.org/sigges/fhir/EpisodeOfCare/8812345> a fhir:EpisodeOfCare ;
+  fhir:Resource.id [ fhir:value "8812345"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_8812345\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado 8812345</b></p><a name=\"8812345\"> </a><a name=\"hc8812345\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812345, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/CLF-2026-000871</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 27}\">Cáncer gástrico</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 108}\">Cáncer gástrico (decreto nº 228)</span></p><p><b>patient</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-hosp-la-florida.html\">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><p><b>period</b>: 2026-03-02 --&gt; (ongoing)</p></div>"
+  ] ;
+  fhir:EpisodeOfCare.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges" ] ;
+     fhir:Identifier.value [ fhir:value "8812345" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local" ] ;
+     fhir:Identifier.value [ fhir:value "CLF-2026-000871" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-la-florida> ;
+       fhir:Reference.reference [ fhir:value "Organization/cesfam-la-florida" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.status [ fhir:value "active"] ;
+  fhir:EpisodeOfCare.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "27" ] ;
+       fhir:Coding.display [ fhir:value "Cáncer gástrico" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "108" ] ;
+       fhir:Coding.display [ fhir:value "Cáncer gástrico (decreto nº 228)" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.patient [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:EpisodeOfCare.managingOrganization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+     fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+  ] ;
+  fhir:EpisodeOfCare.period [
+     fhir:Period.start [ fhir:value "2026-03-02"^^xsd:date ]
+  ] .
+
+<http://example.org/sigges/fhir/Task/gar-a-701> a fhir:Task ;
+  fhir:Resource.id [ fhir:value "gar-a-701"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_gar-a-701\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Tarea gar-a-701</b></p><a name=\"gar-a-701\"> </a><a name=\"hcgar-a-701\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-garantia-oportunidad-ges.html\">Garantía de oportunidad</a></p></div><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 701}\">Confirmación Diagnóstica</span></p><p><b>status</b>: Completed</p><p><b>businessStatus</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges cumplida}\">Cumplida</span></p><p><b>intent</b>: plan</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges garantia}\">Garantía de oportunidad</span></p><p><b>focus</b>: <a href=\"EpisodeOfCare-8812345.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>for</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><h3>Restrictions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-03-02 --&gt; 2026-04-01</td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges" ] ;
+         fhir:Coding.code [ fhir:value "701" ] ;
+         fhir:Coding.display [ fhir:value "Confirmación Diagnóstica" ]
+       ]
+     ]
+  ] ;
+  fhir:Task.status [ fhir:value "completed"] ;
+  fhir:Task.businessStatus [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges" ] ;
+       fhir:Coding.code [ fhir:value "cumplida" ]
+     ]
+  ] ;
+  fhir:Task.intent [ fhir:value "plan"] ;
+  fhir:Task.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges" ] ;
+       fhir:Coding.code [ fhir:value "garantia" ]
+     ]
+  ] ;
+  fhir:Task.focus [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/8812345> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/8812345" ]
+  ] ;
+  fhir:Task.for [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:Task.restriction [
+     fhir:Task.restriction.period [
+       fhir:Period.start [ fhir:value "2026-03-02"^^xsd:date ] ;
+       fhir:Period.end [ fhir:value "2026-04-01"^^xsd:date ]
+     ]
+  ] .
+
+<http://example.org/sigges/fhir/Task/gar-a-702> a fhir:Task ;
+  fhir:Resource.id [ fhir:value "gar-a-702"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_gar-a-702\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Tarea gar-a-702</b></p><a name=\"gar-a-702\"> </a><a name=\"hcgar-a-702\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-garantia-oportunidad-ges.html\">Garantía de oportunidad</a></p></div><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 702}\">Intervención Quirúrgica</span></p><p><b>status</b>: Completed</p><p><b>businessStatus</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges cumplida}\">Cumplida</span></p><p><b>intent</b>: plan</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges garantia}\">Garantía de oportunidad</span></p><p><b>focus</b>: <a href=\"EpisodeOfCare-8812345.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>for</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><h3>Restrictions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-03-27 --&gt; 2026-04-26</td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges" ] ;
+         fhir:Coding.code [ fhir:value "702" ] ;
+         fhir:Coding.display [ fhir:value "Intervención Quirúrgica" ]
+       ]
+     ]
+  ] ;
+  fhir:Task.status [ fhir:value "completed"] ;
+  fhir:Task.businessStatus [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges" ] ;
+       fhir:Coding.code [ fhir:value "cumplida" ]
+     ]
+  ] ;
+  fhir:Task.intent [ fhir:value "plan"] ;
+  fhir:Task.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges" ] ;
+       fhir:Coding.code [ fhir:value "garantia" ]
+     ]
+  ] ;
+  fhir:Task.focus [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/8812345> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/8812345" ]
+  ] ;
+  fhir:Task.for [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:Task.restriction [
+     fhir:Task.restriction.period [
+       fhir:Period.start [ fhir:value "2026-03-27"^^xsd:date ] ;
+       fhir:Period.end [ fhir:value "2026-04-26"^^xsd:date ]
+     ]
+  ] .
+
+<http://example.org/sigges/fhir/Task/gar-a-703> a fhir:Task ;
+  fhir:Resource.id [ fhir:value "gar-a-703"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_gar-a-703\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Tarea gar-a-703</b></p><a name=\"gar-a-703\"> </a><a name=\"hcgar-a-703\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-garantia-oportunidad-ges.html\">Garantía de oportunidad</a></p></div><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 703}\">Seguimiento</span></p><p><b>status</b>: In Progress</p><p><b>businessStatus</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges vigente}\">Vigente</span></p><p><b>intent</b>: plan</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges garantia}\">Garantía de oportunidad</span></p><p><b>focus</b>: <a href=\"EpisodeOfCare-8812345.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>for</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><h3>Restrictions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-04-20 --&gt; 2026-07-19</td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges" ] ;
+         fhir:Coding.code [ fhir:value "703" ] ;
+         fhir:Coding.display [ fhir:value "Seguimiento" ]
+       ]
+     ]
+  ] ;
+  fhir:Task.status [ fhir:value "in-progress"] ;
+  fhir:Task.businessStatus [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges" ] ;
+       fhir:Coding.code [ fhir:value "vigente" ]
+     ]
+  ] ;
+  fhir:Task.intent [ fhir:value "plan"] ;
+  fhir:Task.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges" ] ;
+       fhir:Coding.code [ fhir:value "garantia" ]
+     ]
+  ] ;
+  fhir:Task.focus [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/8812345> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/8812345" ]
+  ] ;
+  fhir:Task.for [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:Task.restriction [
+     fhir:Task.restriction.period [
+       fhir:Period.start [ fhir:value "2026-04-20"^^xsd:date ] ;
+       fhir:Period.end [ fhir:value "2026-07-19"^^xsd:date ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/consulta-casos-pac-a.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

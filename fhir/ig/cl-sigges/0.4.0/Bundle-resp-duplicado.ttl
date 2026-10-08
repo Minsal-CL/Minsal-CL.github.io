@@ -1,0 +1,152 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-duplicado> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "resp-duplicado"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges>
+     ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "message"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-03-16T10:15:00-03:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/MessageHeader/resp-duplicado-mh" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/MessageHeader/resp-duplicado-mh>
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/EpisodeOfCare/8812345" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/EpisodeOfCare/8812345>
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/OperationOutcome/oo-duplicado" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/OperationOutcome/oo-duplicado>
+  ] .
+
+<http://example.org/sigges/fhir/MessageHeader/resp-duplicado-mh> a fhir:MessageHeader ;
+  fhir:Resource.id [ fhir:value "resp-duplicado-mh"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_resp-duplicado-mh\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CabeceraMensaje resp-duplicado-mh</b></p><a name=\"resp-duplicado-mh\"> </a><a name=\"hcresp-duplicado-mh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-mh-respuesta-ges.html\">MessageHeader — Respuesta SIGGES</a></p></div><p><b>event</b>: <a href=\"CodeSystem-tipo-documento-sigges.html#tipo-documento-sigges-PO\">Tipos de documento SIGGES: PO</a> (Prestación otorgada)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"http://example.org/his/fhir/\">http://example.org/his/fhir/</a></td></tr></table><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>SIGGES 2.0</td><td><a href=\"http://example.org/sigges/fhir/\">http://example.org/sigges/fhir/</a></td></tr></table><h3>Responses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td><td><b>Details</b></td></tr><tr><td style=\"display: none\">*</td><td>msg-a3-po-mh</td><td>OK</td><td><a href=\"Bundle-resp-duplicado.html#OperationOutcome_oo-duplicado\">OperationOutcome</a></td></tr></table><p><b>focus</b>: <a href=\"EpisodeOfCare-8812345.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p></div>"
+  ] ;
+  fhir:MessageHeader.eventCoding [
+     fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges" ] ;
+     fhir:Coding.code [ fhir:value "PO" ]
+  ] ;
+  fhir:MessageHeader.destination [
+     fhir:index 0 ;
+     fhir:MessageHeader.destination.endpoint [ fhir:value "http://example.org/his/fhir/" ]
+  ] ;
+  fhir:MessageHeader.source [
+     fhir:MessageHeader.source.name [ fhir:value "SIGGES 2.0" ] ;
+     fhir:MessageHeader.source.endpoint [ fhir:value "http://example.org/sigges/fhir/" ]
+  ] ;
+  fhir:MessageHeader.response [
+     fhir:MessageHeader.response.identifier [ fhir:value "msg-a3-po-mh" ] ;
+     fhir:MessageHeader.response.code [ fhir:value "ok" ] ;
+     fhir:MessageHeader.response.details [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/OperationOutcome/oo-duplicado> ;
+       fhir:Reference.reference [ fhir:value "OperationOutcome/oo-duplicado" ]
+     ]
+  ] ;
+  fhir:MessageHeader.focus [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/8812345> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/8812345" ]
+  ] .
+
+<http://example.org/sigges/fhir/EpisodeOfCare/8812345> a fhir:EpisodeOfCare ;
+  fhir:Resource.id [ fhir:value "8812345"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_8812345\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado 8812345</b></p><a name=\"8812345\"> </a><a name=\"hc8812345\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812345, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/CLF-2026-000871</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 27}\">Cáncer gástrico</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 108}\">Cáncer gástrico (decreto nº 228)</span></p><p><b>patient</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-cesfam-la-florida.html\">Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</a></p><p><b>period</b>: 2026-03-02 --&gt; (ongoing)</p></div>"
+  ] ;
+  fhir:EpisodeOfCare.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges" ] ;
+     fhir:Identifier.value [ fhir:value "8812345" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local" ] ;
+     fhir:Identifier.value [ fhir:value "CLF-2026-000871" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-la-florida> ;
+       fhir:Reference.reference [ fhir:value "Organization/cesfam-la-florida" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.status [ fhir:value "active"] ;
+  fhir:EpisodeOfCare.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "27" ] ;
+       fhir:Coding.display [ fhir:value "Cáncer gástrico" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "108" ] ;
+       fhir:Coding.display [ fhir:value "Cáncer gástrico (decreto nº 228)" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.patient [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:EpisodeOfCare.managingOrganization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-la-florida> ;
+     fhir:Reference.reference [ fhir:value "Organization/cesfam-la-florida" ]
+  ] ;
+  fhir:EpisodeOfCare.period [
+     fhir:Period.start [ fhir:value "2026-03-02"^^xsd:date ]
+  ] .
+
+<http://example.org/sigges/fhir/OperationOutcome/oo-duplicado> a fhir:OperationOutcome ;
+  fhir:Resource.id [ fhir:value "oo-duplicado"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"OperationOutcome_oo-duplicado\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ResultadoOperación oo-duplicado</b></p><a name=\"oo-duplicado\"> </a><a name=\"hcoo-duplicado\"> </a><h3>Issues</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Severity</b></td><td><b>Code</b></td><td><b>Diagnostics</b></td><td><b>Expression</b></td></tr><tr><td style=\"display: none\">*</td><td>Warning</td><td>Duplicate</td><td>El documento con folio PO-HLF-2026-018877 ya fue registrado el 2026-03-16T10:02:46-03:00. No se crea un nuevo registro.</td><td>Bundle.entry[1].resource.identifier[0]</td></tr></table></div>"
+  ] ;
+  fhir:OperationOutcome.issue [
+     fhir:index 0 ;
+     fhir:OperationOutcome.issue.severity [ fhir:value "warning" ] ;
+     fhir:OperationOutcome.issue.code [ fhir:value "duplicate" ] ;
+     fhir:OperationOutcome.issue.diagnostics [ fhir:value "El documento con folio PO-HLF-2026-018877 ya fue registrado el 2026-03-16T10:02:46-03:00. No se crea un nuevo registro." ] ;
+     fhir:OperationOutcome.issue.expression [
+       fhir:value "Bundle.entry[1].resource.identifier[0]" ;
+       fhir:index 0
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-duplicado.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

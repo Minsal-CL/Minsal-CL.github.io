@@ -1,0 +1,96 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-error> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "resp-error"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges>
+     ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "message"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-03-30T16:21:07-03:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/MessageHeader/resp-error-mh" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/MessageHeader/resp-error-mh>
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/sigges/fhir/OperationOutcome/oo-error-rama" ] ;
+     fhir:Bundle.entry.resource <http://example.org/sigges/fhir/OperationOutcome/oo-error-rama>
+  ] .
+
+<http://example.org/sigges/fhir/MessageHeader/resp-error-mh> a fhir:MessageHeader ;
+  fhir:Resource.id [ fhir:value "resp-error-mh"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_resp-error-mh\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CabeceraMensaje resp-error-mh</b></p><a name=\"resp-error-mh\"> </a><a name=\"hcresp-error-mh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-mh-respuesta-ges.html\">MessageHeader — Respuesta SIGGES</a></p></div><p><b>event</b>: <a href=\"CodeSystem-tipo-documento-sigges.html#tipo-documento-sigges-OA\">Tipos de documento SIGGES: OA</a> (Orden de atención)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"http://example.org/his/fhir/\">http://example.org/his/fhir/</a></td></tr></table><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>SIGGES 2.0</td><td><a href=\"http://example.org/sigges/fhir/\">http://example.org/sigges/fhir/</a></td></tr></table><h3>Responses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td><td><b>Details</b></td></tr><tr><td style=\"display: none\">*</td><td>msg-x-oa-mh</td><td>Fatal Error</td><td><a href=\"Bundle-resp-error.html#OperationOutcome_oo-error-rama\">OperationOutcome</a></td></tr></table></div>"
+  ] ;
+  fhir:MessageHeader.eventCoding [
+     fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges" ] ;
+     fhir:Coding.code [ fhir:value "OA" ]
+  ] ;
+  fhir:MessageHeader.destination [
+     fhir:index 0 ;
+     fhir:MessageHeader.destination.endpoint [ fhir:value "http://example.org/his/fhir/" ]
+  ] ;
+  fhir:MessageHeader.source [
+     fhir:MessageHeader.source.name [ fhir:value "SIGGES 2.0" ] ;
+     fhir:MessageHeader.source.endpoint [ fhir:value "http://example.org/sigges/fhir/" ]
+  ] ;
+  fhir:MessageHeader.response [
+     fhir:MessageHeader.response.identifier [ fhir:value "msg-x-oa-mh" ] ;
+     fhir:MessageHeader.response.code [ fhir:value "fatal-error" ] ;
+     fhir:MessageHeader.response.details [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/OperationOutcome/oo-error-rama> ;
+       fhir:Reference.reference [ fhir:value "OperationOutcome/oo-error-rama" ]
+     ]
+  ] .
+
+<http://example.org/sigges/fhir/OperationOutcome/oo-error-rama> a fhir:OperationOutcome ;
+  fhir:Resource.id [ fhir:value "oo-error-rama"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"OperationOutcome_oo-error-rama\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ResultadoOperación oo-error-rama</b></p><a name=\"oo-error-rama\"> </a><a name=\"hcoo-error-rama\"> </a><blockquote><p><b>issue</b></p><p><b>severity</b>: Error</p><p><b>code</b>: Invalid Code</p><p><b>diagnostics</b>: La rama 125 no pertenece al problema de salud 27 (Cáncer gástrico).</p><p><b>expression</b>: Bundle.entry[3].resource.type[1]</p></blockquote><blockquote><p><b>issue</b></p><p><b>severity</b>: Error</p><p><b>code</b>: Required element missing</p><p><b>diagnostics</b>: OrdenAtencionGES requiere extension[garantia].</p><p><b>expression</b>: Bundle.entry[1].resource</p></blockquote></div>"
+  ] ;
+  fhir:OperationOutcome.issue [
+     fhir:index 0 ;
+     fhir:OperationOutcome.issue.severity [ fhir:value "error" ] ;
+     fhir:OperationOutcome.issue.code [ fhir:value "code-invalid" ] ;
+     fhir:OperationOutcome.issue.diagnostics [ fhir:value "La rama 125 no pertenece al problema de salud 27 (Cáncer gástrico)." ] ;
+     fhir:OperationOutcome.issue.expression [
+       fhir:value "Bundle.entry[3].resource.type[1]" ;
+       fhir:index 0
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:OperationOutcome.issue.severity [ fhir:value "error" ] ;
+     fhir:OperationOutcome.issue.code [ fhir:value "required" ] ;
+     fhir:OperationOutcome.issue.diagnostics [ fhir:value "OrdenAtencionGES requiere extension[garantia]." ] ;
+     fhir:OperationOutcome.issue.expression [
+       fhir:value "Bundle.entry[1].resource" ;
+       fhir:index 0
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/resp-error.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

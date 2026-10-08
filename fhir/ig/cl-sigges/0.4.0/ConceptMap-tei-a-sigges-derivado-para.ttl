@@ -1,0 +1,108 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/tei-a-sigges-derivado-para> a fhir:ConceptMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "tei-a-sigges-derivado-para"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: MapaDeConceptos tei-a-sigges-derivado-para</b></p><a name=\"tei-a-sigges-derivado-para\"> </a><a name=\"hctei-a-sigges-derivado-para\"> </a><p>This mapping does not specify any particular context of use.</p><br/><p>Mapping from <code>https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDerivadoParaCodigo</code> to <a href=\"CodeSystem-derivada-para-ges.html\">Derivada para (SIGGES)</a></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>1 (Confirmación)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>1 (Confirmación Diagnóstica)</td><td/></tr><tr><td>2 (Control Especialista)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>4 (Control de Especialidad)</td><td>En TEI 2 = Control Especialista; en SIGGES 2 = Realizar Tratamiento. El mapeo directo código a código es un error silencioso.</td></tr><tr><td>3 (Realiza Tratamiento)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>2 (Realizar Tratamiento)</td><td>En TEI 3 = Realiza Tratamiento; en SIGGES 3 = A Seguimiento.</td></tr><tr><td>4 (Seguimiento)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>3 (A Seguimiento)</td><td>En TEI 4 = Seguimiento; en SIGGES 4 = Control de Especialidad.</td></tr><tr><td>5 (Otro)</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>5 (Otro)</td><td/></tr></table></div>"
+  ] ;
+  fhir:ConceptMap.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/tei-a-sigges-derivado-para"] ;
+  fhir:ConceptMap.version [ fhir:value "0.4.0"] ;
+  fhir:ConceptMap.name [ fhir:value "TEIASIGGESDerivadoPara"] ;
+  fhir:ConceptMap.title [ fhir:value "Derivado para: TEI → SIGGES (SIC)"] ;
+  fhir:ConceptMap.status [ fhir:value "draft"] ;
+  fhir:ConceptMap.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:ConceptMap.date [ fhir:value "2026-10-08T15:37:06-03:00"^^xsd:dateTime] ;
+  fhir:ConceptMap.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ConceptMap.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ConceptMap.description [ fhir:value "CSDerivadoParaCodigo de TEI a CSDerivadaParaGES de SIGGES en contexto SIC. Los códigos 2, 3 y 4 significan cosas distintas en cada sistema. SIGGES 11 (Rehabilitación) no tiene origen en TEI 0.2.3."] ;
+  fhir:ConceptMap.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ConceptMap.group [
+     fhir:index 0 ;
+     fhir:ConceptMap.group.source [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSDerivadoParaCodigo" ] ;
+     fhir:ConceptMap.group.target [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/derivada-para-ges" ] ;
+     fhir:ConceptMap.group.element [
+       fhir:index 0 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "1" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Confirmación" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "1" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Confirmación Diagnóstica" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "2" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Control Especialista" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "4" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Control de Especialidad" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "En TEI 2 = Control Especialista; en SIGGES 2 = Realizar Tratamiento. El mapeo directo código a código es un error silencioso." ]
+       ]
+     ], [
+       fhir:index 2 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "3" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Realiza Tratamiento" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "2" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Realizar Tratamiento" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "En TEI 3 = Realiza Tratamiento; en SIGGES 3 = A Seguimiento." ]
+       ]
+     ], [
+       fhir:index 3 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "4" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Seguimiento" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "3" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "A Seguimiento" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "En TEI 4 = Seguimiento; en SIGGES 4 = Control de Especialidad." ]
+       ]
+     ], [
+       fhir:index 4 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "5" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "Otro" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "5" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Otro" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/tei-a-sigges-derivado-para.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

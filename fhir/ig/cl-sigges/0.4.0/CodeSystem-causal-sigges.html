@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Causales SIGGES - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"13.42"}
+    h3,h4,h5,h6{--heading-prefix:"13.42"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>Causales SIGGES</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+    <a href="#">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="CodeSystem-causal-sigges.xml.html">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CodeSystem-causal-sigges.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CodeSystem-causal-sigges.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+  <a name="root"> </a>
+  <h2 id="root">CodeSystem: Causales SIGGES
+
+  </h2>
+
+  <table class="colsd">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges<button title="Click to copy URL" class="btn-copy" data-clipboard-text="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges"/></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">0.4.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges|0.4.0"/></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="4">
+        
+          Draft
+          
+            as of 2026-10-08
+          
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span style="font-family: monospace;">CSCausalSIGGES</span></td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Catálogo SIGGES 2.0 — FONASA. Generado con tools/catalogo2fsh.py.</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+<p>Causales de cierre de caso, excepción de garantía y cierre de garantía de oportunidad (hoja CAUSALES).</p>
+
+</p>
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <p>
+  This Code system is referenced in the content logical definition of the following value sets:
+  </p>
+
+  
+<ul>
+ <li><a href="ValueSet-vs-causal-cierre-caso.html">Causales de cierre de caso</a></li>
+ <li><a href="ValueSet-vs-causal-excepcion-garantia.html">Causales de excepción de garantía</a></li>
+</ul>
+
+
+  <div xmlns="http://www.w3.org/1999/xhtml" data-fhir="generated"><p class="res-header-id"></p><a name="causal-sigges"> </a><a name="hccausal-sigges"> </a><p><b>Propiedades</b></p><p><b>This code system defines the following properties for its concepts</b></p>
+<table class="grid" data-fhir="generated"><tr><td><b>Nombre</b></td><td><b>Code</b></td><td><b>URI</b></td><td><b>Type</b></td><td><b>Description</b></td></tr>
+<tr><td>tipo</td>
+<td>tipo</td>
+<td></td>
+<td>string</td>
+<td>cierre-caso | excepcion-garantia | cierre-go</td></tr>
+<tr><td>status</td>
+<td>status</td>
+<td>http://hl7.org/fhir/concept-properties#status</td>
+<td>code</td>
+<td>Estado del concepto</td></tr>
+<tr><td>effectiveDate</td>
+<td>effectiveDate</td>
+<td>http://hl7.org/fhir/concept-properties#effectiveDate</td>
+<td>dateTime</td>
+<td>Inicio de vigencia</td></tr>
+<tr><td>retirementDate</td>
+<td>retirementDate</td>
+<td>http://hl7.org/fhir/concept-properties#retirementDate</td>
+<td>dateTime</td>
+<td>Fin de vigencia</td></tr></table><p><b>Concepts</b></p><p>This case-sensitive code system <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges</code> defines the following codes:</p>
+<table class="codes" data-fhir="generated"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>tipo</b></td><td><b>status</b></td><td><b>effectiveDate</b></td><td><b>retirementDate</b></td></tr>
+<tr><td style="white-space:nowrap">21<a name="causal-sigges-21"> </a></td>
+<td>Alta Médica</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">16<a name="causal-sigges-16"> </a></td>
+<td>Alta (Preventiva, Educativa, Integral)</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">22<a name="causal-sigges-22"> </a></td>
+<td>Cierre Automático de Casos</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">12<a name="causal-sigges-12"> </a></td>
+<td>Criterios de Inclusión</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">11<a name="causal-sigges-11"> </a></td>
+<td>Derivación</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">8<a name="causal-sigges-8"> </a></td>
+<td>Descarte</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">27<a name="causal-sigges-27"> </a></td>
+<td>Indicación Médica</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">18<a name="causal-sigges-18"> </a></td>
+<td>Nueva Descompensación</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">17<a name="causal-sigges-17"> </a></td>
+<td>Nuevo Infarto</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">19<a name="causal-sigges-19"> </a></td>
+<td>Paciente No asiste y No es ubicable</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">9<a name="causal-sigges-9"> </a></td>
+<td>Parto</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">25<a name="causal-sigges-25"> </a></td>
+<td>Por Otra Causa</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">13<a name="causal-sigges-13"> </a></td>
+<td>Rechazo al Tratamiento - Prestación</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">15<a name="causal-sigges-15"> </a></td>
+<td>Rechazo de la Prestación</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">20<a name="causal-sigges-20"> </a></td>
+<td>Término de Tratamiento</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">108<a name="causal-sigges-108"> </a></td>
+<td>Decisión del Profesional Tratante - Indicación Médica</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4<a name="causal-sigges-4"> </a></td>
+<td>Cambio de Previsión</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">107<a name="causal-sigges-107"> </a></td>
+<td>Causa Expresada por el Paciente</td>
+<td>cierre-caso</td>
+<td>retired</td>
+<td></td>
+<td>2017-10-11T17:40:10-03:00</td></tr>
+<tr><td style="white-space:nowrap">316<a name="causal-sigges-316"> </a></td>
+<td>Cerrada por Cierre Automático de Caso</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td>2015-01-01T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">26<a name="causal-sigges-26"> </a></td>
+<td>Cierre de Caso por Otra Causa</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">323<a name="causal-sigges-323"> </a></td>
+<td>Contacto No Corresponde</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td>2017-09-08T00:00:00-03:00</td>
+<td></td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">102<a name="causal-sigges-102"> </a></td>
+<td>Criterios de Inclusión/Exclusión (según protocolos)</td>
+<td>cierre-caso</td>
+<td>retired</td>
+<td></td>
+<td>2017-10-11T17:40:10-03:00</td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">7<a name="causal-sigges-7"> </a></td>
+<td>Criterios de Inclusión/Exclusión (según protocolos)</td>
+<td>cierre-caso</td>
+<td>retired</td>
+<td></td>
+<td>2017-10-11T17:40:10-03:00</td></tr>
+<tr><td style="white-space:nowrap">322<a name="causal-sigges-322"> </a></td>
+<td>Cumple con Criterios de Exclusión</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td>2017-09-08T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">317<a name="causal-sigges-317"> </a></td>
+<td>EVENTOS AISLADOS</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td>2015-01-01T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">109<a name="causal-sigges-109"> </a></td>
+<td>Excepción de Garantía por Otra Causa</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1<a name="causal-sigges-1"> </a></td>
+<td>Fallecimiento</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">24<a name="causal-sigges-24"> </a></td>
+<td>Inasistencia</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2<a name="causal-sigges-2"> </a></td>
+<td>Inasistencia</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">328<a name="causal-sigges-328"> </a></td>
+<td>Indicación Médica Definitiva</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td>2018-05-11T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">326<a name="causal-sigges-326"> </a></td>
+<td>No Cumple Criterios de Inclusión</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td>2017-09-08T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">35<a name="causal-sigges-35"> </a></td>
+<td>Por no pertinencia de la especialidad</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">34<a name="causal-sigges-34"> </a></td>
+<td>Por no pertinencia del establecimiento de salud</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">329<a name="causal-sigges-329"> </a></td>
+<td>Rechazo al Prestador Asignado</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td>2018-05-11T00:00:00-03:00</td>
+<td></td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">3<a name="causal-sigges-3"> </a></td>
+<td>Rechazo del Prestador Designado o Rechazo del Tratamiento</td>
+<td>cierre-caso</td>
+<td>retired</td>
+<td></td>
+<td>2017-10-11T17:40:10-03:00</td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">14<a name="causal-sigges-14"> </a></td>
+<td>Rechazo del Prestador Designado o Rechazo del Tratamiento</td>
+<td>cierre-caso</td>
+<td>retired</td>
+<td></td>
+<td>2017-10-11T17:40:10-03:00</td></tr>
+<tr><td style="white-space:nowrap">330<a name="causal-sigges-330"> </a></td>
+<td>Rechazo del tratamiento</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td>2018-05-11T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">6<a name="causal-sigges-6"> </a></td>
+<td>Término de Garantía</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">101<a name="causal-sigges-101"> </a></td>
+<td>Término del Tratamiento Garantizado</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">5<a name="causal-sigges-5"> </a></td>
+<td>Término del Tratamiento Garantizado</td>
+<td>cierre-caso</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">206<a name="causal-sigges-206"> </a></td>
+<td>Excepción de Garantía por Otra Causa</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">207<a name="causal-sigges-207"> </a></td>
+<td>No cumple Criterios de Inclusión</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">314<a name="causal-sigges-314"> </a></td>
+<td>Bono GES</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">205<a name="causal-sigges-205"> </a></td>
+<td>Causa Expresada por el Paciente</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">321<a name="causal-sigges-321"> </a></td>
+<td>Contacto No Corresponde</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td>2016-01-01T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">208<a name="causal-sigges-208"> </a></td>
+<td>Evento de Excepción Criterio de Excepción por Indicación</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">318<a name="causal-sigges-318"> </a></td>
+<td>Exclusión de la Prestación</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td>2015-01-01T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">202<a name="causal-sigges-202"> </a></td>
+<td>Inasistencia</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">313<a name="causal-sigges-313"> </a></td>
+<td>No gestionable por SS</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">315<a name="causal-sigges-315"> </a></td>
+<td>Por Cierre de Caso</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">201<a name="causal-sigges-201"> </a></td>
+<td>Postergación de la Prestación</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">209<a name="causal-sigges-209"> </a></td>
+<td>Postergación de la Prestación</td>
+<td>excepcion-garantia</td>
+<td>retired</td>
+<td></td>
+<td>2020-04-23T18:28:16-03:00</td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">200<a name="causal-sigges-200"> </a></td>
+<td>Postergación de la Prestación</td>
+<td>excepcion-garantia</td>
+<td>retired</td>
+<td></td>
+<td>2020-04-23T18:28:16-03:00</td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">203<a name="causal-sigges-203"> </a></td>
+<td>Rechazo del Prestador Designado o Rechazo del Tratamiento</td>
+<td>excepcion-garantia</td>
+<td>retired</td>
+<td></td>
+<td>2020-04-23T18:28:16-03:00</td></tr>
+<tr><td style="white-space:nowrap">204<a name="causal-sigges-204"> </a></td>
+<td>Rechazo del Prestador Designado o Rechazo del Tratamiento</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">99<a name="causal-sigges-99"> </a></td>
+<td>Término de Vigencia del Decreto nº 170</td>
+<td>excepcion-garantia</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">327<a name="causal-sigges-327"> </a></td>
+<td>Contacto No Corresponde</td>
+<td>cierre-go</td>
+<td>active</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">337<a name="causal-sigges-337"> </a></td>
+<td>Contacto no Corresponde</td>
+<td>cierre-go</td>
+<td>active</td>
+<td>2019-11-05T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">335<a name="causal-sigges-335"> </a></td>
+<td>Cumple con criterios de exclusión</td>
+<td>cierre-go</td>
+<td>active</td>
+<td>2019-11-05T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">336<a name="causal-sigges-336"> </a></td>
+<td>Inasistencia</td>
+<td>cierre-go</td>
+<td>active</td>
+<td>2019-11-05T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">319<a name="causal-sigges-319"> </a></td>
+<td>Indicación Médica Definitiva</td>
+<td>cierre-go</td>
+<td>active</td>
+<td>2015-12-01T00:00:00-03:00</td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">324<a name="causal-sigges-324"> </a></td>
+<td>Rechazo del Prestador Designado</td>
+<td>cierre-go</td>
+<td>active</td>
+<td>2017-09-08T00:00:00-03:00</td>
+<td></td></tr>
+<tr style="background-color: #ffeeee"><td style="white-space:nowrap">320<a name="causal-sigges-320"> </a></td>
+<td>Rechazo del Prestador Designado o Rechazo del Tratamiento</td>
+<td>cierre-go</td>
+<td>retired</td>
+<td>2015-12-01T00:00:00-03:00</td>
+<td>2017-10-11T17:40:10-03:00</td></tr>
+<tr><td style="white-space:nowrap">325<a name="causal-sigges-325"> </a></td>
+<td>Rechazo del Tratamiento</td>
+<td>cierre-go</td>
+<td>active</td>
+<td>2017-09-08T00:00:00-03:00</td>
+<td></td></tr></table></div>
+
+  
+
+  <!-- insert notes if present -->
+  
+
+
+
+  
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,514 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-a6-po> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "msg-a6-po"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+     ]
+  ] ;
+  fhir:Bundle.identifier [
+     fhir:Identifier.system [ fhir:value "http://example.org/his/sid/mensaje" ] ;
+     fhir:Identifier.value [ fhir:value "msg-a6-po" ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "message"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-04-20T13:05:51-03:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/MessageHeader/msg-a6-po-mh" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/MessageHeader/msg-a6-po-mh>
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Procedure/po-a-cirugia" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Procedure/po-a-cirugia>
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/EpisodeOfCare/caso-a" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/EpisodeOfCare/caso-a>
+  ], [
+     fhir:index 3 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Patient/pac-a" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Patient/pac-a>
+  ], [
+     fhir:index 4 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/PractitionerRole/rol-paredes-hlf" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/PractitionerRole/rol-paredes-hlf>
+  ], [
+     fhir:index 5 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Practitioner/pr-paredes" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Practitioner/pr-paredes>
+  ], [
+     fhir:index 6 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Organization/hosp-la-florida" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Organization/hosp-la-florida>
+  ], [
+     fhir:index 7 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Organization/cesfam-la-florida" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Organization/cesfam-la-florida>
+  ] .
+
+<http://example.org/his/fhir/MessageHeader/msg-a6-po-mh> a fhir:MessageHeader ;
+  fhir:Resource.id [ fhir:value "msg-a6-po-mh"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-notificacion-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-notificacion-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_msg-a6-po-mh\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CabeceraMensaje msg-a6-po-mh</b></p><a name=\"msg-a6-po-mh\"> </a><a name=\"hcmsg-a6-po-mh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-mh-notificacion-ges.html\">MessageHeader — Notificación GES</a></p></div><p><b>event</b>: <a href=\"CodeSystem-tipo-documento-sigges.html#tipo-documento-sigges-PO\">Tipos de documento SIGGES: PO</a> (Prestación otorgada)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Endpoint</b></td><td><b>Receiver</b></td></tr><tr><td style=\"display: none\">*</td><td>SIGGES 2.0</td><td><a href=\"http://example.org/sigges/fhir/$process-message\">http://example.org/sigges/fhir/$process-message</a></td><td>FONASA</td></tr></table><p><b>sender</b>: <a href=\"Organization-hosp-la-florida.html\">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><p><b>author</b>: <a href=\"PractitionerRole-rol-paredes-hlf.html\">Ignacio Paredes (official) (RUN: 12661903-0 (use: official)) at Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Software</b></td><td><b>Version</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>SISTEMA_HOSPITAL</td><td>HIS Ejemplo</td><td>5.2.1</td><td><a href=\"http://example.org/his/fhir/\">http://example.org/his/fhir/</a></td></tr></table><p><b>focus</b>: </p><ul><li><a href=\"Procedure-po-a-cirugia.html\">Procedure GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR</a></li><li><a href=\"EpisodeOfCare-caso-a.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></li></ul></div>"
+  ] ;
+  fhir:MessageHeader.eventCoding [
+     fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges" ] ;
+     fhir:Coding.code [ fhir:value "PO" ] ;
+     fhir:Coding.display [ fhir:value "Prestación otorgada" ]
+  ] ;
+  fhir:MessageHeader.destination [
+     fhir:index 0 ;
+     fhir:MessageHeader.destination.name [ fhir:value "SIGGES 2.0" ] ;
+     fhir:MessageHeader.destination.endpoint [ fhir:value "http://example.org/sigges/fhir/$process-message" ] ;
+     fhir:MessageHeader.destination.receiver [
+       fhir:Reference.display [ fhir:value "FONASA" ]
+     ]
+  ] ;
+  fhir:MessageHeader.sender [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+     fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+  ] ;
+  fhir:MessageHeader.author [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-paredes-hlf> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/rol-paredes-hlf" ]
+  ] ;
+  fhir:MessageHeader.source [
+     fhir:MessageHeader.source.name [ fhir:value "SISTEMA_HOSPITAL" ] ;
+     fhir:MessageHeader.source.software [ fhir:value "HIS Ejemplo" ] ;
+     fhir:MessageHeader.source.version [ fhir:value "5.2.1" ] ;
+     fhir:MessageHeader.source.endpoint [ fhir:value "http://example.org/his/fhir/" ]
+  ] ;
+  fhir:MessageHeader.focus [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Procedure/po-a-cirugia> ;
+     fhir:Reference.reference [ fhir:value "Procedure/po-a-cirugia" ]
+  ], [
+     fhir:index 1 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-a> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-a" ]
+  ] .
+
+<http://example.org/his/fhir/Procedure/po-a-cirugia> a fhir:Procedure ;
+  fhir:Resource.id [ fhir:value "po-a-cirugia"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Procedure_po-a-cirugia\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Procedimiento po-a-cirugia</b></p><a name=\"po-a-cirugia\"> </a><a name=\"hcpo-a-cirugia\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-po-ges.html\">PO — Prestación otorgada</a></p></div><p><b>Caso GES</b>: <a href=\"EpisodeOfCare-caso-a.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 702}\">Intervención Quirúrgica</span></p><p><b>identifier</b>: <a href=\"NamingSystem-NSFolioDocumento.html\" title=\"Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.\">NSFolioDocumento</a>/PO-HLF-2026-021904</p><p><b>basedOn</b>: <a href=\"ServiceRequest-oa-a-cirugia.html\">ServiceRequest GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR</a></p><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa 1802017}\">GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR</span></p><p><b>subject</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>performed</b>: 2026-04-20 08:30:00-0300 --&gt; 2026-04-20 12:10:00-0300</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-rol-paredes-hlf.html\">Ignacio Paredes (official) (RUN: 12661903-0 (use: official)) at Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-a> ;
+       fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-a" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges" ] ;
+         fhir:Coding.code [ fhir:value "702" ] ;
+         fhir:Coding.display [ fhir:value "Intervención Quirúrgica" ]
+       ]
+     ]
+  ] ;
+  fhir:Procedure.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento" ] ;
+     fhir:Identifier.value [ fhir:value "PO-HLF-2026-021904" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+       fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+     ]
+  ] ;
+  fhir:Procedure.basedOn [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/oa-a-cirugia> ;
+     fhir:Reference.reference [ fhir:value "ServiceRequest/oa-a-cirugia" ]
+  ] ;
+  fhir:Procedure.status [ fhir:value "completed"] ;
+  fhir:Procedure.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa" ] ;
+       fhir:Coding.code [ fhir:value "1802017" ] ;
+       fhir:Coding.display [ fhir:value "GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR" ]
+  ] ;
+  fhir:Procedure.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:Procedure.performedPeriod [
+     fhir:Period.start [ fhir:value "2026-04-20T08:30:00-03:00"^^xsd:dateTime ] ;
+     fhir:Period.end [ fhir:value "2026-04-20T12:10:00-03:00"^^xsd:dateTime ]
+  ] ;
+  fhir:Procedure.performer [
+     fhir:index 0 ;
+     fhir:Procedure.performer.actor [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-paredes-hlf> ;
+       fhir:Reference.reference [ fhir:value "PractitionerRole/rol-paredes-hlf" ]
+     ]
+  ] .
+
+<http://example.org/his/fhir/EpisodeOfCare/caso-a> a fhir:EpisodeOfCare ;
+  fhir:Resource.id [ fhir:value "caso-a"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_caso-a\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado caso-a</b></p><a name=\"caso-a\"> </a><a name=\"hccaso-a\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812345, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/CLF-2026-000871</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 27}\">Cáncer gástrico</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 108}\">Cáncer gástrico (decreto nº 228)</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Condition-ipd-a.html\">Condition Adenocarcinoma gástrico tubular moderadamente diferenciado, antro</a></td></tr></table><p><b>patient</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-hosp-la-florida.html\">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><p><b>period</b>: 2026-03-02 --&gt; (ongoing)</p></div>"
+  ] ;
+  fhir:EpisodeOfCare.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges" ] ;
+     fhir:Identifier.value [ fhir:value "8812345" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local" ] ;
+     fhir:Identifier.value [ fhir:value "CLF-2026-000871" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-la-florida> ;
+       fhir:Reference.reference [ fhir:value "Organization/cesfam-la-florida" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.status [ fhir:value "active"] ;
+  fhir:EpisodeOfCare.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "27" ] ;
+       fhir:Coding.display [ fhir:value "Cáncer gástrico" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "108" ] ;
+       fhir:Coding.display [ fhir:value "Cáncer gástrico (decreto nº 228)" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.diagnosis [
+     fhir:index 0 ;
+     fhir:EpisodeOfCare.diagnosis.condition [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/ipd-a> ;
+       fhir:Reference.reference [ fhir:value "Condition/ipd-a" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.patient [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:EpisodeOfCare.managingOrganization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+     fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+  ] ;
+  fhir:EpisodeOfCare.period [
+     fhir:Period.start [ fhir:value "2026-03-02"^^xsd:date ]
+  ] .
+
+<http://example.org/his/fhir/Patient/pac-a> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "pac-a"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_pac-a\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente pac-a</b></p><a name=\"pac-a\"> </a><a name=\"hcpac-a\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-paciente-ges.html\">Paciente GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\"><ul><li><a href=\"tel:+56981234567\">+56 9 8123 4567</a></li><li>Av. Vicuña Mackenna 7110, depto 402 La Florida Metropolitana de Santiago (home)</li></ul></td></tr></table></div>"
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ] ;
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/run" ] ;
+     fhir:Identifier.value [ fhir:value "9876543-3" ]
+  ] ;
+  fhir:Patient.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [
+       fhir:value "Pérez" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "Soto" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "Juan" ;
+       fhir:index 0
+     ], [
+       fhir:value "Carlos" ;
+       fhir:index 1
+     ]
+  ] ;
+  fhir:Patient.telecom [
+     fhir:index 0 ;
+     fhir:ContactPoint.system [ fhir:value "phone" ] ;
+     fhir:ContactPoint.value [ fhir:value "+56 9 8123 4567" ] ;
+     fhir:ContactPoint.use [ fhir:value "mobile" ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "male"] ;
+  fhir:Patient.birthDate [ fhir:value "1961-03-14"^^xsd:date] ;
+  fhir:Patient.deceasedBoolean [ fhir:value "false"^^xsd:boolean] ;
+  fhir:Patient.address [
+     fhir:index 0 ;
+     fhir:Address.use [ fhir:value "home" ] ;
+     fhir:Address.line [
+       fhir:value "Av. Vicuña Mackenna 7110, depto 402" ;
+       fhir:index 0
+     ] ;
+     fhir:Address.city [
+       fhir:value "La Florida" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL" ] ;
+             fhir:Coding.code [ fhir:value "13110" ] ;
+             fhir:Coding.display [ fhir:value "La Florida" ]
+           ]
+         ]
+       ]
+     ] ;
+     fhir:Address.state [
+       fhir:value "Metropolitana de Santiago" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL" ] ;
+             fhir:Coding.code [ fhir:value "13" ] ;
+             fhir:Coding.display [ fhir:value "Metropolitana de Santiago" ]
+           ]
+         ]
+       ]
+     ]
+  ] .
+
+<http://example.org/his/fhir/PractitionerRole/rol-paredes-hlf> a fhir:PractitionerRole ;
+  fhir:Resource.id [ fhir:value "rol-paredes-hlf"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_rol-paredes-hlf\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RolProfesional rol-paredes-hlf</b></p><a name=\"rol-paredes-hlf\"> </a><a name=\"hcrol-paredes-hlf\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-rol-clinico-ges.html\">Rol clínico GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Ignacio Paredes (official) (RUN: 12661903-0 (use: official)) at Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The practitioner who is able to provide the services in this role\">Practitioner:</td><td colspan=\"3\"><a href=\"Practitioner-pr-paredes.html\">Ignacio Paredes (official) (RUN: 12661903-0 (use: official))</a></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The organization where the practitioner performs the roles\">Organization:</td><td colspan=\"3\"><a href=\"Organization-hosp-la-florida.html\">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The specialties of the practitioner in this role\">Specialty:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges 07-201-2}\">Cirugía Abdominal Adulto</span></td></tr></table></div>"
+  ] ;
+  fhir:PractitionerRole.active [ fhir:value "true"^^xsd:boolean] ;
+  fhir:PractitionerRole.practitioner [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Practitioner/pr-paredes> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/pr-paredes" ]
+  ] ;
+  fhir:PractitionerRole.organization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+     fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+  ] ;
+  fhir:PractitionerRole.specialty [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges" ] ;
+       fhir:Coding.code [ fhir:value "07-201-2" ] ;
+       fhir:Coding.display [ fhir:value "Cirugía Abdominal Adulto" ]
+     ]
+  ] .
+
+<http://example.org/his/fhir/Practitioner/pr-paredes> a fhir:Practitioner ;
+  fhir:Resource.id [ fhir:value "pr-paredes"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_pr-paredes\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practicante / Profesional pr-paredes</b></p><a name=\"pr-paredes\"> </a><a name=\"hcpr-paredes\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-prestador-ges.html\">Profesional GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Ignacio Paredes (official) (RUN: 12661903-0 (use: official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Administrative gender\">Gender:</td><td colspan=\"3\">Male</td></tr></table></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "01" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/run" ] ;
+     fhir:Identifier.value [ fhir:value "12661903-0" ]
+  ] ;
+  fhir:Practitioner.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [
+       fhir:value "Paredes" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "Lagos" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "Ignacio" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Practitioner.gender [ fhir:value "male"] .
+
+<http://example.org/his/fhir/Organization/hosp-la-florida> a fhir:Organization ;
+  fhir:Resource.id [ fhir:value "hosp-la-florida"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_hosp-la-florida\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organización hosp-la-florida</b></p><a name=\"hosp-la-florida\"> </a><a name=\"hchosp-la-florida\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-establecimiento-ges.html\">Establecimiento GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"The kind(s) of organization that this is\">Type:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges publico}\">Público</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The organization of which this organization forms a part\">Part Of:</td><td colspan=\"3\">Servicio de Salud Metropolitano Sur Oriente (Identifier: <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis</code>/14)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\"><code>http://deis.minsal.cl/establecimientos</code>/114105 (use: official)</td></tr></table></div>"
+  ] ;
+  fhir:Organization.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "http://deis.minsal.cl/establecimientos" ] ;
+     fhir:Identifier.value [ fhir:value "114105" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis" ] ;
+     fhir:Identifier.value [ fhir:value "14-105" ]
+  ] ;
+  fhir:Organization.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges" ] ;
+       fhir:Coding.code [ fhir:value "publico" ] ;
+       fhir:Coding.display [ fhir:value "Público" ]
+     ]
+  ] ;
+  fhir:Organization.name [ fhir:value "Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza"] ;
+  fhir:Organization.partOf [
+     fhir:Reference.identifier [
+       fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis" ] ;
+       fhir:Identifier.value [ fhir:value "14" ]
+     ] ;
+     fhir:Reference.display [ fhir:value "Servicio de Salud Metropolitano Sur Oriente" ]
+  ] .
+
+<http://example.org/his/fhir/Organization/cesfam-la-florida> a fhir:Organization ;
+  fhir:Resource.id [ fhir:value "cesfam-la-florida"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_cesfam-la-florida\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organización cesfam-la-florida</b></p><a name=\"cesfam-la-florida\"> </a><a name=\"hccesfam-la-florida\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-establecimiento-ges.html\">Establecimiento GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"The kind(s) of organization that this is\">Type:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges publico}\">Público</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The organization of which this organization forms a part\">Part Of:</td><td colspan=\"3\">Servicio de Salud Metropolitano Sur Oriente (Identifier: <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis</code>/14)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\"><code>http://deis.minsal.cl/establecimientos</code>/114331 (use: official)</td></tr></table></div>"
+  ] ;
+  fhir:Organization.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "http://deis.minsal.cl/establecimientos" ] ;
+     fhir:Identifier.value [ fhir:value "114331" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis" ] ;
+     fhir:Identifier.value [ fhir:value "14-331" ]
+  ] ;
+  fhir:Organization.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges" ] ;
+       fhir:Coding.code [ fhir:value "publico" ] ;
+       fhir:Coding.display [ fhir:value "Público" ]
+     ]
+  ] ;
+  fhir:Organization.name [ fhir:value "Centro de Salud Familiar La Florida"] ;
+  fhir:Organization.partOf [
+     fhir:Reference.identifier [
+       fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis" ] ;
+       fhir:Identifier.value [ fhir:value "14" ]
+     ] ;
+     fhir:Reference.display [ fhir:value "Servicio de Salud Metropolitano Sur Oriente" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-a6-po.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

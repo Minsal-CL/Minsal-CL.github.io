@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Flujos del caso GES - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Flujos del caso GES</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Flujos del caso GES</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#1-ciclo-de-vida-del-caso-1-ciclo-de-vida-del-caso" id="markdown-toc-1-ciclo-de-vida-del-caso-1-ciclo-de-vida-del-caso">1. Ciclo de vida del caso {#1-ciclo-de-vida-del-caso}</a></li>
+  <li><a href="#2-documentos-y-recurso-fhir-2-documentos-y-recurso-fhir" id="markdown-toc-2-documentos-y-recurso-fhir-2-documentos-y-recurso-fhir">2. Documentos y recurso FHIR {#2-documentos-y-recurso-fhir}</a></li>
+  <li><a href="#3-secuencia-de-un-intercambio-3-secuencia-de-un-intercambio" id="markdown-toc-3-secuencia-de-un-intercambio-3-secuencia-de-un-intercambio">3. Secuencia de un intercambio {#3-secuencia-de-un-intercambio}</a></li>
+  <li><a href="#4-garantías-de-oportunidad-4-garantías-de-oportunidad" id="markdown-toc-4-garantías-de-oportunidad-4-garantías-de-oportunidad">4. Garantías de oportunidad {#4-garantías-de-oportunidad}</a></li>
+</ul>
+
+</div>
+<p>Esta página describe el proceso: qué documentos existen, en qué orden ocurren y cómo se intercambia cada uno. El detalle de cada recurso está en <a href="documentos.html">Documento por documento</a>.</p>
+
+<h3 id="1-ciclo-de-vida-del-caso-1-ciclo-de-vida-del-caso">1. Ciclo de vida del caso {#1-ciclo-de-vida-del-caso}</h3>
+
+<p>Un caso GES es un <strong>paciente + un problema de salud + una rama</strong>. En FHIR es un <a href="StructureDefinition-caso-ges.html"><code class="language-plaintext highlighter-rouge">EpisodeOfCare</code> (CasoGES)</a>. Su estado clínico lo determina el <code class="language-plaintext highlighter-rouge">verificationStatus</code> del último diagnóstico, y su estado administrativo lo determina <code class="language-plaintext highlighter-rouge">EpisodeOfCare.status</code>.</p>
+
+<p><img src="ciclo-caso.svg" alt="Ciclo de vida del caso" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th><code class="language-plaintext highlighter-rouge">EpisodeOfCare.status</code></th>
+      <th><code class="language-plaintext highlighter-rouge">Condition.verificationStatus</code></th>
+      <th>Documento que lo produce</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sospecha</td>
+      <td><code class="language-plaintext highlighter-rouge">active</code></td>
+      <td><code class="language-plaintext highlighter-rouge">provisional</code></td>
+      <td>SIC, HD (estado sospecha)</td>
+    </tr>
+    <tr>
+      <td>Confirmado</td>
+      <td><code class="language-plaintext highlighter-rouge">active</code></td>
+      <td><code class="language-plaintext highlighter-rouge">confirmed</code></td>
+      <td>IPD, HD (estado confirmado)</td>
+    </tr>
+    <tr>
+      <td>En tratamiento</td>
+      <td><code class="language-plaintext highlighter-rouge">active</code></td>
+      <td><code class="language-plaintext highlighter-rouge">confirmed</code></td>
+      <td>OA / PO de tratamiento</td>
+    </tr>
+    <tr>
+      <td>Descartado</td>
+      <td><code class="language-plaintext highlighter-rouge">active</code> hasta el CC</td>
+      <td><code class="language-plaintext highlighter-rouge">refuted</code></td>
+      <td>IPD, HD (estado descartado)</td>
+    </tr>
+    <tr>
+      <td>Cerrado</td>
+      <td><code class="language-plaintext highlighter-rouge">finished</code></td>
+      <td>(sin cambio)</td>
+      <td>CC</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="2-documentos-y-recurso-fhir-2-documentos-y-recurso-fhir">2. Documentos y recurso FHIR {#2-documentos-y-recurso-fhir}</h3>
+
+<p><img src="flujo-documentos.svg" alt="Flujo de documentos" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Documento</th>
+      <th>Código SIGGES</th>
+      <th>Evento</th>
+      <th>Recurso foco</th>
+      <th>Perfil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solicitud de interconsulta</td>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">SIC</code></td>
+      <td>ServiceRequest (+ Condition de sospecha)</td>
+      <td><a href="StructureDefinition-sic-ges.html">SolicitudInterconsultaGES</a></td>
+    </tr>
+    <tr>
+      <td>Informe de proceso diagnóstico</td>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">IPD</code></td>
+      <td>Condition</td>
+      <td><a href="StructureDefinition-ipd-ges.html">InformeProcesoDiagnosticoGES</a></td>
+    </tr>
+    <tr>
+      <td>Orden de atención</td>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">OA</code></td>
+      <td>ServiceRequest</td>
+      <td><a href="StructureDefinition-oa-ges.html">OrdenAtencionGES</a></td>
+    </tr>
+    <tr>
+      <td>Prestación otorgada</td>
+      <td>10</td>
+      <td><code class="language-plaintext highlighter-rouge">PO</code></td>
+      <td>Procedure</td>
+      <td><a href="StructureDefinition-po-ges.html">PrestacionOtorgadaGES</a></td>
+    </tr>
+    <tr>
+      <td>Cierre de caso</td>
+      <td>30</td>
+      <td><code class="language-plaintext highlighter-rouge">CC</code></td>
+      <td>Task</td>
+      <td><a href="StructureDefinition-cierre-caso-ges.html">CierreCasoGES</a></td>
+    </tr>
+    <tr>
+      <td>Hoja diaria APS</td>
+      <td>32</td>
+      <td><code class="language-plaintext highlighter-rouge">HD</code></td>
+      <td>Condition</td>
+      <td><a href="StructureDefinition-hoja-diaria-ges.html">HojaDiariaGES</a></td>
+    </tr>
+    <tr>
+      <td>Excepción de garantía de oportunidad</td>
+      <td>34</td>
+      <td><code class="language-plaintext highlighter-rouge">EXGO</code></td>
+      <td>Task</td>
+      <td><a href="StructureDefinition-excepcion-garantia-ges.html">ExcepcionGarantiaGES</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="3-secuencia-de-un-intercambio-3-secuencia-de-un-intercambio">3. Secuencia de un intercambio {#3-secuencia-de-un-intercambio}</h3>
+
+<p>El mismo patrón sirve para los 7 documentos.</p>
+
+<p><img src="secuencia-mensaje.svg" alt="Secuencia" /></p>
+
+<p><strong>Reglas del flujo</strong></p>
+
+<ol>
+  <li><strong>El primer mensaje abre el caso.</strong> Puede ser una SIC, un IPD o una HD. El <code class="language-plaintext highlighter-rouge">EpisodeOfCare</code> viaja solo con <code class="language-plaintext highlighter-rouge">identifier[casoLocal]</code>.</li>
+  <li><strong>La respuesta devuelve el número SIGGES.</strong> Viene en <code class="language-plaintext highlighter-rouge">MessageHeader.focus</code> → <code class="language-plaintext highlighter-rouge">EpisodeOfCare.identifier[casoSIGGES]</code>. El sistema de origen <strong>debe guardarlo</strong> y enviarlo en todos los mensajes siguientes del caso.</li>
+  <li><strong>Cada documento tiene un folio.</strong> El <code class="language-plaintext highlighter-rouge">identifier[folio]</code> del recurso foco (<code class="language-plaintext highlighter-rouge">folioDocumentoHospital</code>) es único por establecimiento y actúa como <strong>clave de idempotencia</strong>: si se reenvía el mismo folio, no se duplica el registro.</li>
+  <li><strong>Las prestaciones se encadenan.</strong> Una PO referencia la OA que la originó (<code class="language-plaintext highlighter-rouge">Procedure.basedOn</code>), y una OA puede imputarse a una garantía (<code class="language-plaintext highlighter-rouge">extension[garantia]</code>).</li>
+  <li><strong>El orden importa, pero se tolera el desorden.</strong> Si llega una PO antes que su OA, SIGGES puede aceptarla con advertencia. La trazabilidad se reconstruye por <code class="language-plaintext highlighter-rouge">basedOn</code> y por el caso.</li>
+</ol>
+
+<h3 id="4-garantías-de-oportunidad-4-garantías-de-oportunidad">4. Garantías de oportunidad {#4-garantías-de-oportunidad}</h3>
+
+<p>Las garantías <strong>no las envía el establecimiento</strong>. SIGGES las calcula y las publica como <a href="StructureDefinition-garantia-oportunidad-ges.html"><code class="language-plaintext highlighter-rouge">Task</code> (GarantiaOportunidadGES)</a>, con su plazo en <code class="language-plaintext highlighter-rouge">restriction.period</code>. El establecimiento las lee en la <a href="consulta.html">consulta de casos</a> y actúa sobre ellas con OA, PO o EXGO.</p>
+
+<p><img src="garantia.svg" alt="Estados de garantía" /></p>
+
+<blockquote>
+  <p><strong>Pendiente con FONASA.</strong> El catálogo actual no informa el plazo en días ni, en general, qué documento inicia y cuál cumple cada garantía. Solo 6 de 707 garantías lo indican, y lo hacen dentro del texto. Ver <a href="hallazgos.html">Observaciones</a>.</p>
+</blockquote>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,110 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "resp-b2-aviso",
+  "meta" : {
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges"]
+  },
+  "type" : "message",
+  "timestamp" : "2026-05-06T15:01:14-03:00",
+  "entry" : [{
+    "fullUrl" : "http://example.org/sigges/fhir/MessageHeader/resp-b2-aviso-mh",
+    "resource" : {
+      "resourceType" : "MessageHeader",
+      "id" : "resp-b2-aviso-mh",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_resp-b2-aviso-mh\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CabeceraMensaje resp-b2-aviso-mh</b></p><a name=\"resp-b2-aviso-mh\"> </a><a name=\"hcresp-b2-aviso-mh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-mh-respuesta-ges.html\">MessageHeader — Respuesta SIGGES</a></p></div><p><b>event</b>: <a href=\"CodeSystem-tipo-documento-sigges.html#tipo-documento-sigges-OA\">Tipos de documento SIGGES: OA</a> (Orden de atención)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"http://example.org/his/fhir/\">http://example.org/his/fhir/</a></td></tr></table><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>SIGGES 2.0</td><td><a href=\"http://example.org/sigges/fhir/\">http://example.org/sigges/fhir/</a></td></tr></table><h3>Responses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td><td><b>Details</b></td></tr><tr><td style=\"display: none\">*</td><td>msg-b2-oa-mh</td><td>OK</td><td><a href=\"Bundle-resp-b2-aviso.html#OperationOutcome_oo-b2-aviso\">OperationOutcome</a></td></tr></table><p><b>focus</b>: <a href=\"Bundle-resp-b2-aviso.html#EpisodeOfCare_8812399\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812399,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#SR-2026-004410; status = active; type = Enfermedad renal crónica etapa 4 y 5,Enfermedad renal crónica etapa 4 y 5 (decreto nº 228); period = 2026-05-04 --&gt; (ongoing)</a></p></div>"
+      },
+      "eventCoding" : {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges",
+        "code" : "OA"
+      },
+      "destination" : [{
+        "endpoint" : "http://example.org/his/fhir/"
+      }],
+      "source" : {
+        "name" : "SIGGES 2.0",
+        "endpoint" : "http://example.org/sigges/fhir/"
+      },
+      "response" : {
+        "identifier" : "msg-b2-oa-mh",
+        "code" : "ok",
+        "details" : {
+          "reference" : "OperationOutcome/oo-b2-aviso"
+        }
+      },
+      "focus" : [{
+        "reference" : "EpisodeOfCare/8812399"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://example.org/sigges/fhir/EpisodeOfCare/8812399",
+    "resource" : {
+      "resourceType" : "EpisodeOfCare",
+      "id" : "8812399",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_8812399\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado 8812399</b></p><a name=\"8812399\"> </a><a name=\"hc8812399\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812399, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/SR-2026-004410</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 1}\">Enfermedad renal crónica etapa 4 y 5</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 125}\">Enfermedad renal crónica etapa 4 y 5 (decreto nº 228)</span></p><p><b>patient</b>: <a href=\"Patient-pac-b.html\">María Isabel González (official) Female, DoB: 1958-07-02 ( RUN: 7654321-6\u00a0(use:\u00a0official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-sotero-del-rio.html\">Complejo Hospitalario Dr. Sótero del Río (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-101)</a></p><p><b>period</b>: 2026-05-04 --&gt; (ongoing)</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges",
+        "value" : "8812399"
+      },
+      {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local",
+        "value" : "SR-2026-004410",
+        "assigner" : {
+          "reference" : "Organization/sotero-del-rio"
+        }
+      }],
+      "status" : "active",
+      "type" : [{
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges",
+          "code" : "1",
+          "display" : "Enfermedad renal crónica etapa 4 y 5"
+        }]
+      },
+      {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges",
+          "code" : "125",
+          "display" : "Enfermedad renal crónica etapa 4 y 5 (decreto nº 228)"
+        }]
+      }],
+      "patient" : {
+        "reference" : "Patient/pac-b"
+      },
+      "managingOrganization" : {
+        "reference" : "Organization/sotero-del-rio"
+      },
+      "period" : {
+        "start" : "2026-05-04"
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://example.org/sigges/fhir/OperationOutcome/oo-b2-aviso",
+    "resource" : {
+      "resourceType" : "OperationOutcome",
+      "id" : "oo-b2-aviso",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"OperationOutcome_oo-b2-aviso\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ResultadoOperación oo-b2-aviso</b></p><a name=\"oo-b2-aviso\"> </a><a name=\"hcoo-b2-aviso\"> </a><h3>Issues</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Severity</b></td><td><b>Code</b></td><td><b>Diagnostics</b></td><td><b>Expression</b></td></tr><tr><td style=\"display: none\">*</td><td>Information</td><td>Informational Note</td><td>deisServicioSaludOtorga = 14 derivado del catálogo de establecimientos (14-101).</td><td>Bundle.entry[0].resource.sender</td></tr></table></div>"
+      },
+      "issue" : [{
+        "severity" : "information",
+        "code" : "informational",
+        "diagnostics" : "deisServicioSaludOtorga = 14 derivado del catálogo de establecimientos (14-101).",
+        "expression" : ["Bundle.entry[0].resource.sender"]
+      }]
+    }
+  }]
+}

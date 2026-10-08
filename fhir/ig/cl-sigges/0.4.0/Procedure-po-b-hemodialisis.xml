@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <id value="po-b-hemodialisis"/>
+  <meta>
+    <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Procedimiento po-b-hemodialisis</b></p><a name="po-b-hemodialisis"> </a><a name="hcpo-b-hemodialisis"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-po-ges.html">PO — Prestación otorgada</a></p></div><p><b>Caso GES</b>: <a href="EpisodeOfCare-caso-b.html">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812399,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#SR-2026-004410; status = active; type = Enfermedad renal crónica etapa 4 y 5,Enfermedad renal crónica etapa 4 y 5 (decreto nº 228); period = 2026-05-04 --&gt; (ongoing)</a></p><p><b>Garantía GES</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 4037}">Tratamiento Hemodiálisis</span></p><p><b>identifier</b>: <a href="NamingSystem-NSFolioDocumento.html" title="Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.">NSFolioDocumento</a>/PO-SR-2026-040551</p><p><b>basedOn</b>: <a href="ServiceRequest-oa-b-hemodialisis.html">ServiceRequest HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)</a></p><p><b>status</b>: Completed</p><p><b>code</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa 1901029}">HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)</span></p><p><b>subject</b>: <a href="Patient-pac-b.html">María Isabel González (official) Female, DoB: 1958-07-02 ( RUN: 7654321-6 (use: official))</a></p><p><b>performed</b>: 2026-05-12 --&gt; 2026-06-11</p><h3>Performers</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Actor</b></td></tr><tr><td style="display: none">*</td><td><a href="PractitionerRole-rol-soto-sotero.html">Valentina Soto (official) (RUN: 14209771-0 (use: official)) at Complejo Hospitalario Dr. Sótero del Río (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-101)</a></td></tr></table></div>
+  </text>
+  <extension url="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges">
+    <valueReference>
+      <reference value="EpisodeOfCare/caso-b"/>
+    </valueReference>
+  </extension>
+  <extension url="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges">
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges"/>
+        <code value="4037"/>
+        <display value="Tratamiento Hemodiálisis"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <identifier>
+    <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento"/>
+    <value value="PO-SR-2026-040551"/>
+    <assigner>
+      <reference value="Organization/sotero-del-rio"/>
+    </assigner>
+  </identifier>
+  <basedOn>
+    <reference value="ServiceRequest/oa-b-hemodialisis"/>
+  </basedOn>
+  <status value="completed"/>
+  <code>
+    <coding>
+      <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa"/>
+      <code value="1901029"/>
+      <display value="HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)"/>
+    </coding>
+    <text value="HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)"/>
+  </code>
+  <subject>
+    <reference value="Patient/pac-b"/>
+  </subject>
+  <performedPeriod>
+    <start value="2026-05-12"/>
+    <end value="2026-06-11"/>
+  </performedPeriod>
+  <performer>
+    <actor>
+      <reference value="PractitionerRole/rol-soto-sotero"/>
+    </actor>
+  </performer>
+</Procedure>

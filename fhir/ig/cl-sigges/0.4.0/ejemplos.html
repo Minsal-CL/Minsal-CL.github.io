@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Ejemplos - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Ejemplos</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Ejemplos</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#caso-a--cáncer-gástrico-ciclo-completo" id="markdown-toc-caso-a--cáncer-gástrico-ciclo-completo">Caso A — Cáncer gástrico: ciclo completo</a></li>
+  <li><a href="#caso-b--erc-etapa-5-datos-especiales" id="markdown-toc-caso-b--erc-etapa-5-datos-especiales">Caso B — ERC etapa 5: datos especiales</a></li>
+  <li><a href="#caso-c--diabetes-tipo-2-en-aps" id="markdown-toc-caso-c--diabetes-tipo-2-en-aps">Caso C — Diabetes tipo 2 en APS</a></li>
+  <li><a href="#caso-d--sospecha-descartada" id="markdown-toc-caso-d--sospecha-descartada">Caso D — Sospecha descartada</a></li>
+  <li><a href="#los-casos-como-ejemplos-independientes" id="markdown-toc-los-casos-como-ejemplos-independientes">Los casos como ejemplos independientes</a></li>
+  <li><a href="#respuestas-y-consulta" id="markdown-toc-respuestas-y-consulta">Respuestas y consulta</a></li>
+  <li><a href="#el-mismo-mensaje-en-la-api-v15" id="markdown-toc-el-mismo-mensaje-en-la-api-v15">El mismo mensaje en la API v1.5</a></li>
+</ul>
+
+</div>
+<p>Los ejemplos cubren <strong>4 pacientes ficticios</strong>, los <strong>7 tipos de documento</strong> y las situaciones típicas: apertura por SIC, IPD o HD, confirmación, descarte, tratamiento, excepción, cierre, respuestas y consulta. Todos pasan la validación contra los perfiles y generan un JSON v1.5 con <strong>todos</strong> los campos obligatorios de la API (verificado en la 0.4.0 con <code class="language-plaintext highlighter-rouge">tools/fhir2sigges.py</code>).</p>
+
+<h3 id="caso-a--cáncer-gástrico-ciclo-completo">Caso A — Cáncer gástrico: ciclo completo</h3>
+
+<p>Juan Carlos Pérez Soto · PS 27, rama 108 · CESFAM La Florida → Hospital La Florida.</p>
+
+<p><img src="caso-a.svg" alt="Caso A" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Mensaje</th>
+      <th>Foco</th>
+      <th>Qué muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A1</td>
+      <td><a href="Bundle-msg-a1-sic.html">SIC</a></td>
+      <td><a href="ServiceRequest-sic-a.html">ServiceRequest</a> + <a href="Condition-cond-a-sospecha.html">Condition sospecha</a></td>
+      <td>Apertura con caso local; respuesta <a href="Bundle-resp-a1-ok.html">OK con N° SIGGES</a></td>
+    </tr>
+    <tr>
+      <td>A2</td>
+      <td><a href="Bundle-msg-a2-oa.html">OA</a></td>
+      <td><a href="ServiceRequest-oa-a-endoscopia.html">Endoscopía</a></td>
+      <td>Garantía 701, especialidad de destino de apoyo diagnóstico</td>
+    </tr>
+    <tr>
+      <td>A3</td>
+      <td><a href="Bundle-msg-a3-po.html">PO</a></td>
+      <td><a href="Procedure-po-a-endoscopia.html">Procedure</a></td>
+      <td><code class="language-plaintext highlighter-rouge">basedOn</code> → OA; rol sin profesional; <a href="Bundle-resp-duplicado.html">reenvío idempotente</a></td>
+    </tr>
+    <tr>
+      <td>A4</td>
+      <td><a href="Bundle-msg-a4-ipd.html">IPD</a></td>
+      <td><a href="Condition-ipd-a.html">Condition confirmed</a></td>
+      <td>Coding CIE-10 adicional (crecimiento)</td>
+    </tr>
+    <tr>
+      <td>A5</td>
+      <td><a href="Bundle-msg-a5-oa.html">OA</a></td>
+      <td><a href="ServiceRequest-oa-a-cirugia.html">Gastrectomía</a></td>
+      <td>Garantía 702</td>
+    </tr>
+    <tr>
+      <td>A6</td>
+      <td><a href="Bundle-msg-a6-po.html">PO</a></td>
+      <td><a href="Procedure-po-a-cirugia.html">Procedure</a></td>
+      <td>Cumple la garantía 702</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="caso-b--erc-etapa-5-datos-especiales">Caso B — ERC etapa 5: datos especiales</h3>
+
+<p>María Isabel González Rojas · PS 1, rama 125 · Hospital Sótero del Río.</p>
+
+<p><img src="caso-b.svg" alt="Caso B" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Mensaje</th>
+      <th>Qué muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>B1</td>
+      <td><a href="Bundle-msg-b1-ipd.html">IPD</a></td>
+      <td>Caso abierto directamente por IPD; <a href="Observation-obs-b-vfg.html">VFG</a> y <a href="Observation-obs-b-etapa.html">etapa</a> como Observation</td>
+    </tr>
+    <tr>
+      <td>B2</td>
+      <td><a href="Bundle-msg-b2-oa.html">OA</a></td>
+      <td><a href="Observation-obs-b-cuarto-turno.html">Cuarto turno</a> en <code class="language-plaintext highlighter-rouge">supportingInfo</code>; comuna, fono y email del Patient; <a href="Bundle-resp-b2-aviso.html">respuesta con información</a></td>
+    </tr>
+    <tr>
+      <td>B3</td>
+      <td><a href="Bundle-msg-b3-po.html">PO</a></td>
+      <td>Tratamiento mensual con <code class="language-plaintext highlighter-rouge">performedPeriod.end</code> = fechaFin</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="caso-c--diabetes-tipo-2-en-aps">Caso C — Diabetes tipo 2 en APS</h3>
+
+<p>Luis Alberto Muñoz Díaz · PS 7, rama 129 · CESFAM Santo Tomás.</p>
+
+<p><img src="caso-c.svg" alt="Caso C" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Mensaje</th>
+      <th>Qué muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>C1</td>
+      <td><a href="Bundle-msg-c1-hd.html">HD</a></td>
+      <td>Estado 1191 (sospecha) = <code class="language-plaintext highlighter-rouge">provisional</code></td>
+    </tr>
+    <tr>
+      <td>C2</td>
+      <td><a href="Bundle-msg-c2-hd.html">HD</a></td>
+      <td>Estado 1192 (confirmado) = <code class="language-plaintext highlighter-rouge">confirmed</code></td>
+    </tr>
+    <tr>
+      <td>C3</td>
+      <td><a href="Bundle-msg-c3-exgo.html">EXGO</a></td>
+      <td>Garantía 4646, causal 202 Inasistencia, con justificación</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="caso-d--sospecha-descartada">Caso D — Sospecha descartada</h3>
+
+<p>Rosa Elena Tapia Vidal · PS 27 · CESFAM La Florida → Hospital La Florida.</p>
+
+<p><img src="caso-d.svg" alt="Caso D" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Mensaje</th>
+      <th>Qué muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td><a href="Bundle-msg-d1-sic.html">SIC</a></td>
+      <td>Mismo flujo de entrada que el caso A</td>
+    </tr>
+    <tr>
+      <td>D2</td>
+      <td><a href="Bundle-msg-d2-ipd.html">IPD</a></td>
+      <td><code class="language-plaintext highlighter-rouge">refuted</code> (descarta), destino de vuelta a APS</td>
+    </tr>
+    <tr>
+      <td>D3</td>
+      <td><a href="Bundle-msg-d3-cc.html">CC</a></td>
+      <td>Causal 8 Descarte; EpisodeOfCare <code class="language-plaintext highlighter-rouge">finished</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="los-casos-como-ejemplos-independientes">Los casos como ejemplos independientes</h3>
+
+<p>Cada caso GES se publica también por sí mismo, para que los diagnósticos, órdenes, prestaciones y tareas sueltos lo puedan referenciar: <a href="EpisodeOfCare-caso-a.html">caso A</a>, <a href="EpisodeOfCare-caso-b.html">caso B</a>, <a href="EpisodeOfCare-caso-c.html">caso C</a>, <a href="EpisodeOfCare-caso-d.html">caso D</a> y el <a href="EpisodeOfCare-8812345.html">caso 8812345</a>, que es el caso A tal como lo devuelve SIGGES en la consulta. Cada uno muestra el último estado del caso en su secuencia de mensajes.</p>
+
+<h3 id="respuestas-y-consulta">Respuestas y consulta</h3>
+
+<ul>
+  <li><a href="Bundle-resp-a1-ok.html">OK con número de caso</a></li>
+  <li><a href="Bundle-resp-b2-aviso.html">OK con información</a></li>
+  <li><a href="Bundle-resp-error.html">Error de validación</a>: rama que no pertenece al PS y garantía faltante.</li>
+  <li><a href="Bundle-resp-duplicado.html">Reenvío idempotente</a></li>
+  <li><a href="Bundle-consulta-casos-pac-a.html">Consulta de casos por RUN</a>, con garantías y plazos.</li>
+</ul>
+
+<h3 id="el-mismo-mensaje-en-la-api-v15">El mismo mensaje en la API v1.5</h3>
+
+<p>Cada Bundle tiene su equivalente JSON v1.5, generado por el <a href="traduccion.html">traductor de referencia</a>. Dos ejemplos:</p>
+
+<p><strong>A1 · SIC</strong> → <code class="language-plaintext highlighter-rouge">POST /interoperabilidad/sigges/documentos/sic/registrar</code></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"comunaDirPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13110"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmaSospechaDescarta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisEstablecimientoDestino"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14-105"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisEstablecimientoOtorga"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14-331"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14-331"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisServicioSaludDestino"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisServicioSaludOtorga"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"derivadaPara"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"diagnostico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sospecha de cáncer gástrico"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"direccionPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. Vicuña Mackenna 7110, depto 402"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dvPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dvProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"especialidadDestino"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07-105-2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"especialidadOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07-900-1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fechaInicioDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02/03/2026"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fechaNacimientoPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14/03/1961"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"folioDocumentoHospital"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SIC-CLF-2026-000871"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fonoPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+56 9 8123 4567"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fundamentoDiag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Epigastralgia persistente de 4 meses, baja de peso de 8 kg, anemia ferropénica (Hb 10,1 g/dL)."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"horaInicioDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:15"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"indicacionExamen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Omeprazol 20 mg cada 12 h. Control en APS con resultado de endoscopía."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nombrePaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan Carlos"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nombreSistemaOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RAYEN_APS"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nombresProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Camila Andrea"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"primerApellidoPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pérez"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"primerApellidoProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rojas"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"problemaSalud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ramaProblemaSalud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"108"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"regionDirPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"runPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9876543"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"runProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15934286"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"segundoApellidoPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soto"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"segundoApellidoProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Muñoz"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sexoPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tipoDeisOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUBLICO"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>B2 · OA con datos especiales</strong> → <code class="language-plaintext highlighter-rouge">POST /interoperabilidad/sigges/documentos/ordenatencion/registrar</code></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"codigoPrestacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1901029"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"comunaEspecial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13201"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cuartoTurnoEspecial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisEstablecimientoDestino"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14-101"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisEstablecimientoOtorga"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14-101"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14-101"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisServicioSaludDestino"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deisServicioSaludOtorga"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"derivadaPara"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"diagnostico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERC etapa 5"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dvPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dvProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"emailBeneficiarioEspecial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maria.gonzalez@correo.cl"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"especialidadDestino"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07-108-2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"especialidadOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07-108-2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fechaInicioDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06/05/2026"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"folioDocumentoHospital"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OA-SR-2026-002218"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fonoBeneficiarioEspecial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+56 9 7788 1122"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"garantia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4037"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"horaInicioDocumento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nombrePrestacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nombreSistemaOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SISTEMA_HOSPITAL"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nombresPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"María Isabel"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nombresProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valentina"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"primerApellidoPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"González"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"primerApellidoProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soto"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"problemaSalud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ramaProblemaSalud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"125"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"regionEspecial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"runPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7654321"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"runProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14209771"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"segundoApellidoPaciente"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rojas"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"segundoApellidoProfesional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Araya"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tipoDeisOrigen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUBLICO"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Los 15 JSON se generan con <code class="language-plaintext highlighter-rouge">tools/fhir2sigges.py --ejemplos</code> y quedan en <code class="language-plaintext highlighter-rouge">input/includes/api-v15/</code>; las dos muestras de arriba se incluyen desde ahí, así que no se desalinean del traductor.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

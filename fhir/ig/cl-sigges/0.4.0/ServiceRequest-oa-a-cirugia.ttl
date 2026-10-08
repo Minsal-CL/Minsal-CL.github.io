@@ -1,0 +1,109 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/oa-a-cirugia> a fhir:ServiceRequest ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "oa-a-cirugia"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio oa-a-cirugia</b></p><a name=\"oa-a-cirugia\"> </a><a name=\"hcoa-a-cirugia\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-oa-ges.html\">OA — Orden de atención</a></p></div><p><b>Caso GES</b>: <a href=\"EpisodeOfCare-caso-a.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 702}\">Intervención Quirúrgica</span></p><p><b>identifier</b>: <a href=\"NamingSystem-NSFolioDocumento.html\" title=\"Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.\">NSFolioDocumento</a>/OA-HLF-2026-003577</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/derivada-para-ges 7}\">Tratamiento</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa 1802017}\">GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR</span></p><p><b>subject</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>authoredOn</b>: 2026-03-30 16:20:00-0300</p><p><b>requester</b>: <a href=\"PractitionerRole-rol-paredes-hlf.html\">Ignacio Paredes (official) (RUN: 12661903-0 (use: official)) at Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><p><b>performerType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges 07-201-2}\">Cirugía Abdominal Adulto</span></p><p><b>performer</b>: <a href=\"Organization-hosp-la-florida.html\">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><p><b>reasonCode</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 27}\">Adenocarcinoma gástrico de antro, etapa clínica cT2N0M0</span></p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-a> ;
+       fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-a" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges" ] ;
+         fhir:Coding.code [ fhir:value "702" ] ;
+         fhir:Coding.display [ fhir:value "Intervención Quirúrgica" ]
+       ]
+     ]
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento" ] ;
+     fhir:Identifier.value [ fhir:value "OA-HLF-2026-003577" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+       fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/derivada-para-ges" ] ;
+       fhir:Coding.code [ fhir:value "7" ] ;
+       fhir:Coding.display [ fhir:value "Tratamiento" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa" ] ;
+       fhir:Coding.code [ fhir:value "1802017" ] ;
+       fhir:Coding.display [ fhir:value "GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "GASTRECTOMIA SUBTOTAL CON DISECCION GANGLIONAR" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-a> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-a" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-03-30T16:20:00-03:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-paredes-hlf> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/rol-paredes-hlf" ]
+  ] ;
+  fhir:ServiceRequest.performerType [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges" ] ;
+       fhir:Coding.code [ fhir:value "07-201-2" ] ;
+       fhir:Coding.display [ fhir:value "Cirugía Abdominal Adulto" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+     fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+  ] ;
+  fhir:ServiceRequest.reasonCode [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "27" ] ;
+       fhir:Coding.display [ fhir:value "Cáncer gástrico" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Adenocarcinoma gástrico de antro, etapa clínica cT2N0M0" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ServiceRequest/oa-a-cirugia.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

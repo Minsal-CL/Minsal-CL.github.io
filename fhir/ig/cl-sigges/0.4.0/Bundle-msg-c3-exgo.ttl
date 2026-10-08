@@ -1,0 +1,463 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-c3-exgo> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "msg-c3-exgo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges>
+     ]
+  ] ;
+  fhir:Bundle.identifier [
+     fhir:Identifier.system [ fhir:value "http://example.org/his/sid/mensaje" ] ;
+     fhir:Identifier.value [ fhir:value "msg-c3-exgo" ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "message"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-06-25T11:01:15-03:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/MessageHeader/msg-c3-exgo-mh" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/MessageHeader/msg-c3-exgo-mh>
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Task/exgo-c" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Task/exgo-c>
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/EpisodeOfCare/caso-c" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/EpisodeOfCare/caso-c>
+  ], [
+     fhir:index 3 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Patient/pac-c" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Patient/pac-c>
+  ], [
+     fhir:index 4 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/PractitionerRole/rol-vergara-cesfam-st" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/PractitionerRole/rol-vergara-cesfam-st>
+  ], [
+     fhir:index 5 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Practitioner/pr-vergara" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Practitioner/pr-vergara>
+  ], [
+     fhir:index 6 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://example.org/his/fhir/Organization/cesfam-santo-tomas" ] ;
+     fhir:Bundle.entry.resource <http://example.org/his/fhir/Organization/cesfam-santo-tomas>
+  ] .
+
+<http://example.org/his/fhir/MessageHeader/msg-c3-exgo-mh> a fhir:MessageHeader ;
+  fhir:Resource.id [ fhir:value "msg-c3-exgo-mh"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-notificacion-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-notificacion-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_msg-c3-exgo-mh\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CabeceraMensaje msg-c3-exgo-mh</b></p><a name=\"msg-c3-exgo-mh\"> </a><a name=\"hcmsg-c3-exgo-mh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-mh-notificacion-ges.html\">MessageHeader — Notificación GES</a></p></div><p><b>event</b>: <a href=\"CodeSystem-tipo-documento-sigges.html#tipo-documento-sigges-EXGO\">Tipos de documento SIGGES: EXGO</a> (Excepción de garantía de oportunidad)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Endpoint</b></td><td><b>Receiver</b></td></tr><tr><td style=\"display: none\">*</td><td>SIGGES 2.0</td><td><a href=\"http://example.org/sigges/fhir/$process-message\">http://example.org/sigges/fhir/$process-message</a></td><td>FONASA</td></tr></table><p><b>sender</b>: <a href=\"Organization-cesfam-santo-tomas.html\">Centro de Salud Familiar Santo Tomás (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-317)</a></p><p><b>author</b>: <a href=\"PractitionerRole-rol-vergara-cesfam-st.html\">Tomás Vergara (official) (RUN: 16587320-3 (use: official)) at Centro de Salud Familiar Santo Tomás (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-317)</a></p><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Software</b></td><td><b>Version</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>RAYEN_APS</td><td>HIS Ejemplo</td><td>5.2.1</td><td><a href=\"http://example.org/his/fhir/\">http://example.org/his/fhir/</a></td></tr></table><p><b>focus</b>: </p><ul><li><a href=\"Task-exgo-c.html\">Task Excepción de garantía de oportunidad</a></li><li><a href=\"EpisodeOfCare-caso-c.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812501,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CST-2026-001207; status = active; type = Diabetes mellitus tipo 2,Diabetes mellitus tipo 2 (decreto nº 228); period = 2026-06-01 --&gt; (ongoing)</a></li></ul></div>"
+  ] ;
+  fhir:MessageHeader.eventCoding [
+     fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges" ] ;
+     fhir:Coding.code [ fhir:value "EXGO" ] ;
+     fhir:Coding.display [ fhir:value "Excepción de garantía de oportunidad" ]
+  ] ;
+  fhir:MessageHeader.destination [
+     fhir:index 0 ;
+     fhir:MessageHeader.destination.name [ fhir:value "SIGGES 2.0" ] ;
+     fhir:MessageHeader.destination.endpoint [ fhir:value "http://example.org/sigges/fhir/$process-message" ] ;
+     fhir:MessageHeader.destination.receiver [
+       fhir:Reference.display [ fhir:value "FONASA" ]
+     ]
+  ] ;
+  fhir:MessageHeader.sender [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-santo-tomas> ;
+     fhir:Reference.reference [ fhir:value "Organization/cesfam-santo-tomas" ]
+  ] ;
+  fhir:MessageHeader.author [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-vergara-cesfam-st> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/rol-vergara-cesfam-st" ]
+  ] ;
+  fhir:MessageHeader.source [
+     fhir:MessageHeader.source.name [ fhir:value "RAYEN_APS" ] ;
+     fhir:MessageHeader.source.software [ fhir:value "HIS Ejemplo" ] ;
+     fhir:MessageHeader.source.version [ fhir:value "5.2.1" ] ;
+     fhir:MessageHeader.source.endpoint [ fhir:value "http://example.org/his/fhir/" ]
+  ] ;
+  fhir:MessageHeader.focus [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Task/exgo-c> ;
+     fhir:Reference.reference [ fhir:value "Task/exgo-c" ]
+  ], [
+     fhir:index 1 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-c> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-c" ]
+  ] .
+
+<http://example.org/his/fhir/Task/exgo-c> a fhir:Task ;
+  fhir:Resource.id [ fhir:value "exgo-c"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/excepcion-garantia-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/excepcion-garantia-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_exgo-c\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Tarea exgo-c</b></p><a name=\"exgo-c\"> </a><a name=\"hcexgo-c\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-excepcion-garantia-ges.html\">EXGO — Excepción de garantía de oportunidad</a></p></div><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 4646}\">Atención por Especialista Endocrinología</span></p><p><b>identifier</b>: <a href=\"NamingSystem-NSFolioDocumento.html\" title=\"Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.\">NSFolioDocumento</a>/EXGO-CST-2026-000044</p><p><b>status</b>: Completed</p><p><b>statusReason</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges 202}\">Paciente no asiste a 2 citaciones (12/06 y 19/06); contactado telefónicamente sin respuesta.</span></p><p><b>intent</b>: order</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges excepcion-garantia}\">Excepción de garantía de oportunidad</span></p><p><b>focus</b>: <a href=\"EpisodeOfCare-caso-c.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812501,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CST-2026-001207; status = active; type = Diabetes mellitus tipo 2,Diabetes mellitus tipo 2 (decreto nº 228); period = 2026-06-01 --&gt; (ongoing)</a></p><p><b>for</b>: <a href=\"Patient-pac-c.html\">Luis Alberto Muñoz (official) Male, DoB: 1975-11-20 ( RUN: 12345670-K (use: official))</a></p><p><b>authoredOn</b>: 2026-06-25 11:00:00-0300</p><p><b>requester</b>: <a href=\"PractitionerRole-rol-vergara-cesfam-st.html\">Tomás Vergara (official) (RUN: 16587320-3 (use: official)) at Centro de Salud Familiar Santo Tomás (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-317)</a></p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges" ] ;
+         fhir:Coding.code [ fhir:value "4646" ] ;
+         fhir:Coding.display [ fhir:value "Atención por Especialista Endocrinología" ]
+       ]
+     ]
+  ] ;
+  fhir:Task.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento" ] ;
+     fhir:Identifier.value [ fhir:value "EXGO-CST-2026-000044" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-santo-tomas> ;
+       fhir:Reference.reference [ fhir:value "Organization/cesfam-santo-tomas" ]
+     ]
+  ] ;
+  fhir:Task.status [ fhir:value "completed"] ;
+  fhir:Task.statusReason [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges" ] ;
+       fhir:Coding.code [ fhir:value "202" ] ;
+       fhir:Coding.display [ fhir:value "Inasistencia" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Paciente no asiste a 2 citaciones (12/06 y 19/06); contactado telefónicamente sin respuesta." ]
+  ] ;
+  fhir:Task.intent [ fhir:value "order"] ;
+  fhir:Task.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges" ] ;
+       fhir:Coding.code [ fhir:value "excepcion-garantia" ]
+     ]
+  ] ;
+  fhir:Task.focus [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-c> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-c" ]
+  ] ;
+  fhir:Task.for [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-c> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-c" ]
+  ] ;
+  fhir:Task.authoredOn [ fhir:value "2026-06-25T11:00:00-03:00"^^xsd:dateTime] ;
+  fhir:Task.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-vergara-cesfam-st> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/rol-vergara-cesfam-st" ]
+  ] .
+
+<http://example.org/his/fhir/EpisodeOfCare/caso-c> a fhir:EpisodeOfCare ;
+  fhir:Resource.id [ fhir:value "caso-c"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_caso-c\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado caso-c</b></p><a name=\"caso-c\"> </a><a name=\"hccaso-c\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812501, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/CST-2026-001207</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 7}\">Diabetes mellitus tipo 2</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 129}\">Diabetes mellitus tipo 2 (decreto nº 228)</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Condition-hd-c-confirmado.html\">Condition Diabetes mellitus tipo 2</a></td></tr></table><p><b>patient</b>: <a href=\"Patient-pac-c.html\">Luis Alberto Muñoz (official) Male, DoB: 1975-11-20 ( RUN: 12345670-K (use: official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-cesfam-santo-tomas.html\">Centro de Salud Familiar Santo Tomás (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-317)</a></p><p><b>period</b>: 2026-06-01 --&gt; (ongoing)</p></div>"
+  ] ;
+  fhir:EpisodeOfCare.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges" ] ;
+     fhir:Identifier.value [ fhir:value "8812501" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local" ] ;
+     fhir:Identifier.value [ fhir:value "CST-2026-001207" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-santo-tomas> ;
+       fhir:Reference.reference [ fhir:value "Organization/cesfam-santo-tomas" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.status [ fhir:value "active"] ;
+  fhir:EpisodeOfCare.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "7" ] ;
+       fhir:Coding.display [ fhir:value "Diabetes mellitus tipo 2" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges" ] ;
+       fhir:Coding.code [ fhir:value "129" ] ;
+       fhir:Coding.display [ fhir:value "Diabetes mellitus tipo 2 (decreto nº 228)" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.diagnosis [
+     fhir:index 0 ;
+     fhir:EpisodeOfCare.diagnosis.condition [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Condition/hd-c-confirmado> ;
+       fhir:Reference.reference [ fhir:value "Condition/hd-c-confirmado" ]
+     ]
+  ] ;
+  fhir:EpisodeOfCare.patient [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-c> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-c" ]
+  ] ;
+  fhir:EpisodeOfCare.managingOrganization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-santo-tomas> ;
+     fhir:Reference.reference [ fhir:value "Organization/cesfam-santo-tomas" ]
+  ] ;
+  fhir:EpisodeOfCare.period [
+     fhir:Period.start [ fhir:value "2026-06-01"^^xsd:date ]
+  ] .
+
+<http://example.org/his/fhir/Patient/pac-c> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "pac-c"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_pac-c\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente pac-c</b></p><a name=\"pac-c\"> </a><a name=\"hcpac-c\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-paciente-ges.html\">Paciente GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Luis Alberto Muñoz (official) Male, DoB: 1975-11-20 ( RUN: 12345670-K (use: official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\"><ul><li><a href=\"tel:+56966554433\">+56 9 6655 4433</a></li><li>Calle El Roble 455 La Pintana Metropolitana de Santiago (home)</li></ul></td></tr></table></div>"
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ] ;
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/run" ] ;
+     fhir:Identifier.value [ fhir:value "12345670-K" ]
+  ] ;
+  fhir:Patient.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [
+       fhir:value "Muñoz" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "Díaz" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "Luis" ;
+       fhir:index 0
+     ], [
+       fhir:value "Alberto" ;
+       fhir:index 1
+     ]
+  ] ;
+  fhir:Patient.telecom [
+     fhir:index 0 ;
+     fhir:ContactPoint.system [ fhir:value "phone" ] ;
+     fhir:ContactPoint.value [ fhir:value "+56 9 6655 4433" ] ;
+     fhir:ContactPoint.use [ fhir:value "mobile" ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "male"] ;
+  fhir:Patient.birthDate [ fhir:value "1975-11-20"^^xsd:date] ;
+  fhir:Patient.deceasedBoolean [ fhir:value "false"^^xsd:boolean] ;
+  fhir:Patient.address [
+     fhir:index 0 ;
+     fhir:Address.use [ fhir:value "home" ] ;
+     fhir:Address.line [
+       fhir:value "Calle El Roble 455" ;
+       fhir:index 0
+     ] ;
+     fhir:Address.city [
+       fhir:value "La Pintana" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL" ] ;
+             fhir:Coding.code [ fhir:value "13112" ] ;
+             fhir:Coding.display [ fhir:value "La Pintana" ]
+           ]
+         ]
+       ]
+     ] ;
+     fhir:Address.state [
+       fhir:value "Metropolitana de Santiago" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL" ] ;
+             fhir:Coding.code [ fhir:value "13" ] ;
+             fhir:Coding.display [ fhir:value "Metropolitana de Santiago" ]
+           ]
+         ]
+       ]
+     ]
+  ] .
+
+<http://example.org/his/fhir/PractitionerRole/rol-vergara-cesfam-st> a fhir:PractitionerRole ;
+  fhir:Resource.id [ fhir:value "rol-vergara-cesfam-st"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_rol-vergara-cesfam-st\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RolProfesional rol-vergara-cesfam-st</b></p><a name=\"rol-vergara-cesfam-st\"> </a><a name=\"hcrol-vergara-cesfam-st\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-rol-clinico-ges.html\">Rol clínico GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Tomás Vergara (official) (RUN: 16587320-3 (use: official)) at Centro de Salud Familiar Santo Tomás (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-317)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The practitioner who is able to provide the services in this role\">Practitioner:</td><td colspan=\"3\"><a href=\"Practitioner-pr-vergara.html\">Tomás Vergara (official) (RUN: 16587320-3 (use: official))</a></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The organization where the practitioner performs the roles\">Organization:</td><td colspan=\"3\"><a href=\"Organization-cesfam-santo-tomas.html\">Centro de Salud Familiar Santo Tomás (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-317)</a></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The specialties of the practitioner in this role\">Specialty:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges 07-900-1}\">Medicina Familiar</span></td></tr></table></div>"
+  ] ;
+  fhir:PractitionerRole.active [ fhir:value "true"^^xsd:boolean] ;
+  fhir:PractitionerRole.practitioner [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Practitioner/pr-vergara> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/pr-vergara" ]
+  ] ;
+  fhir:PractitionerRole.organization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/cesfam-santo-tomas> ;
+     fhir:Reference.reference [ fhir:value "Organization/cesfam-santo-tomas" ]
+  ] ;
+  fhir:PractitionerRole.specialty [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges" ] ;
+       fhir:Coding.code [ fhir:value "07-900-1" ] ;
+       fhir:Coding.display [ fhir:value "Medicina Familiar" ]
+     ]
+  ] .
+
+<http://example.org/his/fhir/Practitioner/pr-vergara> a fhir:Practitioner ;
+  fhir:Resource.id [ fhir:value "pr-vergara"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_pr-vergara\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practicante / Profesional pr-vergara</b></p><a name=\"pr-vergara\"> </a><a name=\"hcpr-vergara\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-prestador-ges.html\">Profesional GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Tomás Vergara (official) (RUN: 16587320-3 (use: official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Administrative gender\">Gender:</td><td colspan=\"3\">Male</td></tr></table></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "01" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/run" ] ;
+     fhir:Identifier.value [ fhir:value "16587320-3" ]
+  ] ;
+  fhir:Practitioner.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [
+       fhir:value "Vergara" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "Pino" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "Tomás" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Practitioner.gender [ fhir:value "male"] .
+
+<http://example.org/his/fhir/Organization/cesfam-santo-tomas> a fhir:Organization ;
+  fhir:Resource.id [ fhir:value "cesfam-santo-tomas"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_cesfam-santo-tomas\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organización cesfam-santo-tomas</b></p><a name=\"cesfam-santo-tomas\"> </a><a name=\"hccesfam-santo-tomas\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-establecimiento-ges.html\">Establecimiento GES</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Centro de Salud Familiar Santo Tomás (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-317)</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"The kind(s) of organization that this is\">Type:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges publico}\">Público</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The organization of which this organization forms a part\">Part Of:</td><td colspan=\"3\">Servicio de Salud Metropolitano Sur Oriente (Identifier: <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis</code>/14)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\"><code>http://deis.minsal.cl/establecimientos</code>/114317 (use: official)</td></tr></table></div>"
+  ] ;
+  fhir:Organization.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "http://deis.minsal.cl/establecimientos" ] ;
+     fhir:Identifier.value [ fhir:value "114317" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis" ] ;
+     fhir:Identifier.value [ fhir:value "14-317" ]
+  ] ;
+  fhir:Organization.type [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges" ] ;
+       fhir:Coding.code [ fhir:value "publico" ] ;
+       fhir:Coding.display [ fhir:value "Público" ]
+     ]
+  ] ;
+  fhir:Organization.name [ fhir:value "Centro de Salud Familiar Santo Tomás"] ;
+  fhir:Organization.partOf [
+     fhir:Reference.identifier [
+       fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis" ] ;
+       fhir:Identifier.value [ fhir:value "14" ]
+     ] ;
+     fhir:Reference.display [ fhir:value "Servicio de Salud Metropolitano Sur Oriente" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Bundle/msg-c3-exgo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

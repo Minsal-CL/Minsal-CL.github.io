@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="msg-a1-sic"/>
+  <meta>
+    <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+  </meta>
+  <identifier>
+    <system value="http://example.org/his/sid/mensaje"/>
+    <value value="msg-a1-sic"/>
+  </identifier>
+  <type value="message"/>
+  <timestamp value="2026-03-02T10:16:03-03:00"/>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/MessageHeader/msg-a1-sic-mh"/>
+    <resource>
+      <MessageHeader>
+        <id value="msg-a1-sic-mh"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-notificacion-ges"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="MessageHeader_msg-a1-sic-mh"> </a><p class="res-header-id"><b>Generated Narrative: CabeceraMensaje msg-a1-sic-mh</b></p><a name="msg-a1-sic-mh"> </a><a name="hcmsg-a1-sic-mh"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-mh-notificacion-ges.html">MessageHeader — Notificación GES</a></p></div><p><b>event</b>: <a href="CodeSystem-tipo-documento-sigges.html#tipo-documento-sigges-SIC">Tipos de documento SIGGES: SIC</a> (Solicitud de interconsulta)</p><h3>Destinations</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Name</b></td><td><b>Endpoint</b></td><td><b>Receiver</b></td></tr><tr><td style="display: none">*</td><td>SIGGES 2.0</td><td><a href="http://example.org/sigges/fhir/$process-message">http://example.org/sigges/fhir/$process-message</a></td><td>FONASA</td></tr></table><p><b>sender</b>: <a href="Organization-cesfam-la-florida.html">Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</a></p><p><b>author</b>: <a href="PractitionerRole-rol-rojas-cesfam-lf.html">Camila Andrea Rojas (official) (RUN: 15934286-7 (use: official)) at Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</a></p><h3>Sources</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Name</b></td><td><b>Software</b></td><td><b>Version</b></td><td><b>Endpoint</b></td></tr><tr><td style="display: none">*</td><td>RAYEN_APS</td><td>HIS Ejemplo</td><td>5.2.1</td><td><a href="http://example.org/his/fhir/">http://example.org/his/fhir/</a></td></tr></table><p><b>focus</b>: </p><ul><li><a href="ServiceRequest-sic-a.html">ServiceRequest: extension = -&gt;EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing); identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento#NSFolioDocumento#SIC-CLF-2026-000871; status = active; intent = order; category = Confirmación Diagnóstica; authoredOn = 2026-03-02 10:15:00-0300; performerType = Gastroenterología Adulto</a></li><li><a href="EpisodeOfCare-caso-a.html">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></li></ul></div>
+        </text>
+        <eventCoding>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges"/>
+          <code value="SIC"/>
+          <display value="Solicitud de interconsulta"/>
+        </eventCoding>
+        <destination>
+          <name value="SIGGES 2.0"/>
+          <endpoint value="http://example.org/sigges/fhir/$process-message"/>
+          <receiver>
+            <display value="FONASA"/>
+          </receiver>
+        </destination>
+        <sender>
+          <reference value="Organization/cesfam-la-florida"/>
+        </sender>
+        <author>
+          <reference value="PractitionerRole/rol-rojas-cesfam-lf"/>
+        </author>
+        <source>
+          <name value="RAYEN_APS"/>
+          <software value="HIS Ejemplo"/>
+          <version value="5.2.1"/>
+          <endpoint value="http://example.org/his/fhir/"/>
+        </source>
+        <focus>
+          <reference value="ServiceRequest/sic-a"/>
+        </focus>
+        <focus>
+          <reference value="EpisodeOfCare/caso-a"/>
+        </focus>
+      </MessageHeader>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/ServiceRequest/sic-a"/>
+    <resource>
+      <ServiceRequest>
+        <id value="sic-a"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/sic-ges"/>
+        </meta>
+        <text>
+          <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="ServiceRequest_sic-a"> </a><p class="res-header-id"><b>Generated Narrative: PeticiónServicio sic-a</b></p><a name="sic-a"> </a><a name="hcsic-a"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-sic-ges.html">SIC — Solicitud de interconsulta</a></p></div><p><b>Caso GES</b>: <a href="EpisodeOfCare-caso-a.html">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>identifier</b>: <a href="NamingSystem-NSFolioDocumento.html" title="Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.">NSFolioDocumento</a>/SIC-CLF-2026-000871</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/derivada-para-ges 1}">Confirmación Diagnóstica</span></p><p><b>subject</b>: <a href="Patient-pac-a.html">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>authoredOn</b>: 2026-03-02 10:15:00-0300</p><p><b>requester</b>: <a href="PractitionerRole-rol-rojas-cesfam-lf.html">Camila Andrea Rojas (official) (RUN: 15934286-7 (use: official)) at Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</a></p><p><b>performerType</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges 07-105-2}">Gastroenterología Adulto</span></p><p><b>performer</b>: <a href="Organization-hosp-la-florida.html">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><p><b>reasonReference</b>: <a href="Condition-cond-a-sospecha.html">Condition Sospecha de cáncer gástrico</a></p></div>
+        </text>
+        <extension url="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges">
+          <valueReference>
+            <reference value="EpisodeOfCare/caso-a"/>
+          </valueReference>
+        </extension>
+        <identifier>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento"/>
+          <value value="SIC-CLF-2026-000871"/>
+          <assigner>
+            <reference value="Organization/cesfam-la-florida"/>
+          </assigner>
+        </identifier>
+        <status value="active"/>
+        <intent value="order"/>
+        <category>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/derivada-para-ges"/>
+            <code value="1"/>
+            <display value="Confirmación Diagnóstica"/>
+          </coding>
+        </category>
+        <subject>
+          <reference value="Patient/pac-a"/>
+        </subject>
+        <authoredOn value="2026-03-02T10:15:00-03:00"/>
+        <requester>
+          <reference value="PractitionerRole/rol-rojas-cesfam-lf"/>
+        </requester>
+        <performerType>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges"/>
+            <code value="07-105-2"/>
+            <display value="Gastroenterología Adulto"/>
+          </coding>
+        </performerType>
+        <performer>
+          <reference value="Organization/hosp-la-florida"/>
+        </performer>
+        <reasonReference>
+          <reference value="Condition/cond-a-sospecha"/>
+        </reasonReference>
+      </ServiceRequest>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/Condition/cond-a-sospecha"/>
+    <resource>
+      <Condition>
+        <id value="cond-a-sospecha"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/diagnostico-ges"/>
+        </meta>
+        <text>
+          <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Condition_cond-a-sospecha"> </a><p class="res-header-id"><b>Generated Narrative: Condición cond-a-sospecha</b></p><a name="cond-a-sospecha"> </a><a name="hccond-a-sospecha"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-diagnostico-ges.html">Diagnóstico GES</a></p></div><p><b>Caso GES</b>: <a href="EpisodeOfCare-caso-a.html">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>Tratamiento e indicaciones</b>: Omeprazol 20 mg cada 12 h. Control en APS con resultado de endoscopía.</p><p><b>clinicalStatus</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/condition-clinical active}">Active</span></p><p><b>verificationStatus</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status provisional}">Provisional</span></p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/condition-category encounter-diagnosis}">Encounter Diagnosis</span></p><p><b>code</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 27}">Sospecha de cáncer gástrico</span></p><p><b>subject</b>: <a href="Patient-pac-a.html">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>recordedDate</b>: 2026-03-02 10:15:00-0300</p><p><b>recorder</b>: <a href="PractitionerRole-rol-rojas-cesfam-lf.html">Camila Andrea Rojas (official) (RUN: 15934286-7 (use: official)) at Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</a></p><p><b>note</b>: </p><blockquote><div><p>Epigastralgia persistente de 4 meses, baja de peso de 8 kg, anemia ferropénica (Hb 10,1 g/dL).</p>
+</div></blockquote></div>
+        </text>
+        <extension url="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges">
+          <valueReference>
+            <reference value="EpisodeOfCare/caso-a"/>
+          </valueReference>
+        </extension>
+        <extension url="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-indicaciones-clinicas">
+          <valueString value="Omeprazol 20 mg cada 12 h. Control en APS con resultado de endoscopía."/>
+        </extension>
+        <clinicalStatus>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+            <code value="active"/>
+          </coding>
+        </clinicalStatus>
+        <verificationStatus>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
+            <code value="provisional"/>
+          </coding>
+        </verificationStatus>
+        <category>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
+            <code value="encounter-diagnosis"/>
+          </coding>
+        </category>
+        <code>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges"/>
+            <code value="27"/>
+            <display value="Cáncer gástrico"/>
+          </coding>
+          <text value="Sospecha de cáncer gástrico"/>
+        </code>
+        <subject>
+          <reference value="Patient/pac-a"/>
+        </subject>
+        <recordedDate value="2026-03-02T10:15:00-03:00"/>
+        <recorder>
+          <reference value="PractitionerRole/rol-rojas-cesfam-lf"/>
+        </recorder>
+        <note>
+          <text value="Epigastralgia persistente de 4 meses, baja de peso de 8 kg, anemia ferropénica (Hb 10,1 g/dL)."/>
+        </note>
+      </Condition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/EpisodeOfCare/caso-a"/>
+    <resource>
+      <EpisodeOfCare>
+        <id value="caso-a"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="EpisodeOfCare_caso-a"> </a><p class="res-header-id"><b>Generated Narrative: EpisodioDeCuidado caso-a</b></p><a name="caso-a"> </a><a name="hccaso-a"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-caso-ges.html">Caso GES</a></p></div><p><b>identifier</b>: <a href="NamingSystem-NSCasoLocal.html" title="Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.">NSCasoLocal</a>/CLF-2026-000871</p><p><b>status</b>: Active</p><p><b>type</b>: <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 27}">Cáncer gástrico</span>, <span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 108}">Cáncer gástrico (decreto nº 228)</span></p><h3>Diagnoses</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Condition</b></td></tr><tr><td style="display: none">*</td><td><a href="Condition-cond-a-sospecha.html">Condition Sospecha de cáncer gástrico</a></td></tr></table><p><b>patient</b>: <a href="Patient-pac-a.html">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>managingOrganization</b>: <a href="Organization-cesfam-la-florida.html">Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</a></p><p><b>period</b>: 2026-03-02 --&gt; (ongoing)</p></div>
+        </text>
+        <identifier>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local"/>
+          <value value="CLF-2026-000871"/>
+          <assigner>
+            <reference value="Organization/cesfam-la-florida"/>
+          </assigner>
+        </identifier>
+        <status value="active"/>
+        <type>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges"/>
+            <code value="27"/>
+            <display value="Cáncer gástrico"/>
+          </coding>
+        </type>
+        <type>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges"/>
+            <code value="108"/>
+            <display value="Cáncer gástrico (decreto nº 228)"/>
+          </coding>
+        </type>
+        <diagnosis>
+          <condition>
+            <reference value="Condition/cond-a-sospecha"/>
+          </condition>
+        </diagnosis>
+        <patient>
+          <reference value="Patient/pac-a"/>
+        </patient>
+        <managingOrganization>
+          <reference value="Organization/cesfam-la-florida"/>
+        </managingOrganization>
+        <period>
+          <start value="2026-03-02"/>
+        </period>
+      </EpisodeOfCare>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/Patient/pac-a"/>
+    <resource>
+      <Patient>
+        <id value="pac-a"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Patient_pac-a"> </a><p class="res-header-id"><b>Generated Narrative: Paciente pac-a</b></p><a name="pac-a"> </a><a name="hcpac-a"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-paciente-ges.html">Paciente GES</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="Known status of Patient">Deceased:</td><td colspan="3">false</td></tr><tr><td style="background-color: #f3f5da" title="Ways to contact the Patient">Contact Detail</td><td colspan="3"><ul><li><a href="tel:+56981234567">+56 9 8123 4567</a></li><li>Av. Vicuña Mackenna 7110, depto 402 La Florida Metropolitana de Santiago (home)</li></ul></td></tr></table></div>
+        </text>
+        <identifier>
+          <use value="official"/>
+          <type>
+            <extension url="https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="urn:iso:std:iso:3166"/>
+                  <code value="152"/>
+                  <display value="Chile"/>
+                </coding>
+              </valueCodeableConcept>
+            </extension>
+            <coding>
+              <system value="https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador"/>
+              <code value="1"/>
+              <display value="RUN"/>
+            </coding>
+          </type>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/run"/>
+          <value value="9876543-3"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Pérez">
+            <extension url="https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido">
+              <valueString value="Soto"/>
+            </extension>
+          </family>
+          <given value="Juan"/>
+          <given value="Carlos"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="+56 9 8123 4567"/>
+          <use value="mobile"/>
+        </telecom>
+        <gender value="male"/>
+        <birthDate value="1961-03-14"/>
+        <deceasedBoolean value="false"/>
+        <address>
+          <use value="home"/>
+          <line value="Av. Vicuña Mackenna 7110, depto 402"/>
+          <city value="La Florida">
+            <extension url="https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL"/>
+                  <code value="13110"/>
+                  <display value="La Florida"/>
+                </coding>
+              </valueCodeableConcept>
+            </extension>
+          </city>
+          <state value="Metropolitana de Santiago">
+            <extension url="https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL"/>
+                  <code value="13"/>
+                  <display value="Metropolitana de Santiago"/>
+                </coding>
+              </valueCodeableConcept>
+            </extension>
+          </state>
+        </address>
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/PractitionerRole/rol-rojas-cesfam-lf"/>
+    <resource>
+      <PractitionerRole>
+        <id value="rol-rojas-cesfam-lf"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="PractitionerRole_rol-rojas-cesfam-lf"> </a><p class="res-header-id"><b>Generated Narrative: RolProfesional rol-rojas-cesfam-lf</b></p><a name="rol-rojas-cesfam-lf"> </a><a name="hcrol-rojas-cesfam-lf"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-rol-clinico-ges.html">Rol clínico GES</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Camila Andrea Rojas (official) (RUN: 15934286-7 (use: official)) at Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="Record is active">Active:</td><td colspan="3">true</td></tr><tr><td style="background-color: #f3f5da" title="The practitioner who is able to provide the services in this role">Practitioner:</td><td colspan="3"><a href="Practitioner-pr-rojas.html">Camila Andrea Rojas (official) (RUN: 15934286-7 (use: official))</a></td></tr><tr><td style="background-color: #f3f5da" title="The organization where the practitioner performs the roles">Organization:</td><td colspan="3"><a href="Organization-cesfam-la-florida.html">Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</a></td></tr><tr><td style="background-color: #f3f5da" title="The specialties of the practitioner in this role">Specialty:</td><td colspan="3"><span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges 07-900-1}">Medicina Familiar</span></td></tr></table></div>
+        </text>
+        <active value="true"/>
+        <practitioner>
+          <reference value="Practitioner/pr-rojas"/>
+        </practitioner>
+        <organization>
+          <reference value="Organization/cesfam-la-florida"/>
+        </organization>
+        <specialty>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/especialidad-sigges"/>
+            <code value="07-900-1"/>
+            <display value="Medicina Familiar"/>
+          </coding>
+        </specialty>
+      </PractitionerRole>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/Practitioner/pr-rojas"/>
+    <resource>
+      <Practitioner>
+        <id value="pr-rojas"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Practitioner_pr-rojas"> </a><p class="res-header-id"><b>Generated Narrative: Practicante / Profesional pr-rojas</b></p><a name="pr-rojas"> </a><a name="hcpr-rojas"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-prestador-ges.html">Profesional GES</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Camila Andrea Rojas (official) (RUN: 15934286-7 (use: official))</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="Administrative gender">Gender:</td><td colspan="3">Female</td></tr></table></div>
+        </text>
+        <identifier>
+          <use value="official"/>
+          <type>
+            <coding>
+              <system value="https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador"/>
+              <code value="01"/>
+              <display value="RUN"/>
+            </coding>
+          </type>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/run"/>
+          <value value="15934286-7"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Rojas">
+            <extension url="https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido">
+              <valueString value="Muñoz"/>
+            </extension>
+          </family>
+          <given value="Camila"/>
+          <given value="Andrea"/>
+        </name>
+        <gender value="female"/>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/Organization/cesfam-la-florida"/>
+    <resource>
+      <Organization>
+        <id value="cesfam-la-florida"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Organization_cesfam-la-florida"> </a><p class="res-header-id"><b>Generated Narrative: Organización cesfam-la-florida</b></p><a name="cesfam-la-florida"> </a><a name="hccesfam-la-florida"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-establecimiento-ges.html">Establecimiento GES</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="The kind(s) of organization that this is">Type:</td><td colspan="3"><span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges publico}">Público</span></td></tr><tr><td style="background-color: #f3f5da" title="The organization of which this organization forms a part">Part Of:</td><td colspan="3">Servicio de Salud Metropolitano Sur Oriente (Identifier: <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis</code>/14)</td></tr><tr><td style="background-color: #f3f5da" title="Other Id (see the one above)">Other Id:</td><td colspan="3"><code>http://deis.minsal.cl/establecimientos</code>/114331 (use: official)</td></tr></table></div>
+        </text>
+        <identifier>
+          <use value="official"/>
+          <system value="http://deis.minsal.cl/establecimientos"/>
+          <value value="114331"/>
+        </identifier>
+        <identifier>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis"/>
+          <value value="14-331"/>
+        </identifier>
+        <type>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges"/>
+            <code value="publico"/>
+            <display value="Público"/>
+          </coding>
+        </type>
+        <name value="Centro de Salud Familiar La Florida"/>
+        <partOf>
+          <identifier>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis"/>
+            <value value="14"/>
+          </identifier>
+          <display value="Servicio de Salud Metropolitano Sur Oriente"/>
+        </partOf>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/his/fhir/Organization/hosp-la-florida"/>
+    <resource>
+      <Organization>
+        <id value="hosp-la-florida"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Organization_hosp-la-florida"> </a><p class="res-header-id"><b>Generated Narrative: Organización hosp-la-florida</b></p><a name="hosp-la-florida"> </a><a name="hchosp-la-florida"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-establecimiento-ges.html">Establecimiento GES</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="The kind(s) of organization that this is">Type:</td><td colspan="3"><span title="Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges publico}">Público</span></td></tr><tr><td style="background-color: #f3f5da" title="The organization of which this organization forms a part">Part Of:</td><td colspan="3">Servicio de Salud Metropolitano Sur Oriente (Identifier: <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis</code>/14)</td></tr><tr><td style="background-color: #f3f5da" title="Other Id (see the one above)">Other Id:</td><td colspan="3"><code>http://deis.minsal.cl/establecimientos</code>/114105 (use: official)</td></tr></table></div>
+        </text>
+        <identifier>
+          <use value="official"/>
+          <system value="http://deis.minsal.cl/establecimientos"/>
+          <value value="114105"/>
+        </identifier>
+        <identifier>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis"/>
+          <value value="14-105"/>
+        </identifier>
+        <type>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-origen-ges"/>
+            <code value="publico"/>
+            <display value="Público"/>
+          </coding>
+        </type>
+        <name value="Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza"/>
+        <partOf>
+          <identifier>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/servicio-salud-deis"/>
+            <value value="14"/>
+          </identifier>
+          <display value="Servicio de Salud Metropolitano Sur Oriente"/>
+        </partOf>
+      </Organization>
+    </resource>
+  </entry>
+</Bundle>

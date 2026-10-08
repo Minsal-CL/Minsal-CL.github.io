@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <id value="CSReceptorSIGGES"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: DeclaracionDeCapacidad CSReceptorSIGGES</b></p><a name="CSReceptorSIGGES"> </a><a name="hcCSReceptorSIGGES"> </a><h2 id="title">Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2)</h2><ul><li>Implementation Guide Version: 0.4.0 </li><li>FHIR Version: 4.0.1 </li><li>Supported Formats: <code>json</code></li><li>Published on: 2026-09-30 </li><li>Published by: Unidad de Interoperabilidad - MINSAL </li></ul><blockquote class="impl-note"><p><strong>Note to Implementers: FHIR Capabilities</strong></p><p>Any FHIR capability may be 'allowed' by the system unless explicitly marked as 'SHALL NOT'. A few items are marked as MAY in the Implementation Guide to highlight their potential relevance to the use case.</p></blockquote><h3 id="shallIGs">SHALL Support the Following Implementation Guides</h3><ul><li><a href="index.html">https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges</a></li></ul><h2 id="rest">FHIR RESTful Capabilities</h2><div class="panel panel-default"><div class="panel-heading"><h3 id="mode1" class="panel-title">Mode: <code>server</code></h3></div><div class="panel-body"><div><p>Toda interacción usa TLS 1.2 o superior. Los datos personales nunca viajan en la URL: la consulta por RUN se hace con POST [base]/EpisodeOfCare/_search.</p>
+</div><div class="lead"><em>Security</em></div><div class="row"><div class="col-lg-6">Enable CORS: no</div><div class="col-lg-6">Security services supported: <code>OAuth</code></div></div><blockquote><div><p>OAuth 2.0 con grant_type=client_credentials. Cada client_id se asocia a uno o más códigos DEIS; el receptor rechaza un MessageHeader.sender que no corresponda al cliente autenticado.</p>
+</div></blockquote><div class="row"><div class="col-12"><span class="lead">Summary of System-wide Operations</span><table class="table table-condensed table-hover"><thead><tr><th>Conformance</th><th>Operation</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td>$process-message</td><td><div><p>Recibe un BundleNotificacionGES y responde, de forma síncrona, un BundleRespuestaGES (ok, transient-error o fatal-error). Idempotencia por identifier[folio] del recurso foco; reintento de transporte con el mismo Bundle.identifier.</p>
+</div></td></tr></tbody></table></div></div></div></div><h3 id="resourcesCap1">Capabilities by Resource/Profile</h3><h4 id="resourcesSummary1">Summary</h4><p>The summary table lists the resources that are part of this configuration, and for each resource it lists:</p><ul><li>The relevant profiles (if any)</li><li>The interactions supported by each resource (<b><span class="bg-info">R</span></b>ead, <b><span class="bg-info">S</span></b>earch, <b><span class="bg-info">U</span></b>pdate, and <b><span class="bg-info">C</span></b>reate, are always shown, while <b><span class="bg-info">VR</span></b>ead, <b><span class="bg-info">P</span></b>atch, <b><span class="bg-info">D</span></b>elete, <b><span class="bg-info">H</span></b>istory on <b><span class="bg-info">I</span></b>nstance, or <b><span class="bg-info">H</span></b>istory on <b><span class="bg-info">T</span></b>ype are only present if at least one of the resources has support for them.</li><li><span>The required, recommended, and some optional search parameters (if any). </span></li><li>The linked resources enabled for <code>_include</code></li><li>The other resources enabled for <code>_revinclude</code></li><li>The operations on the resource (if any)</li></ul><div class="table-responsive"><table class="table table-condensed table-hover"><thead><tr><th><b>Resource Type</b></th><th><b>Perfil</b></th><th class="text-center"><b title="GET a resource (read interaction)">R</b></th><th class="text-center"><b title="GET all set of resources of the type (search interaction)">S</b></th><th class="text-center"><b title="PUT a new resource version (update interaction)">U</b></th><th class="text-center"><b title="POST a new resource (create interaction)">C</b></th><th><b title="Required and recommended search parameters">Searches</b></th><th><code><b>_include</b></code></th><th><code><b>_revinclude</b></code></th><th><b>Operations</b></th></tr></thead><tbody><tr><td><a href="#EpisodeOfCare1-1">EpisodeOfCare</a></td><td>Supported Profiles<br/>  <a href="StructureDefinition-caso-ges.html">Caso GES</a></td><td class="text-center"/><td class="text-center">y</td><td class="text-center"/><td class="text-center"/><td>patient, status, type</td><td><code>EpisodeOfCare:condition</code></td><td><code>Task:focus</code></td><td/></tr><tr><td><a href="#Task1-2">Task</a></td><td>Supported Profiles<br/>  <a href="StructureDefinition-garantia-oportunidad-ges.html">Garantía de oportunidad</a><br/>  <a href="StructureDefinition-cierre-caso-ges.html">CC — Cierre de caso</a><br/>  <a href="StructureDefinition-excepcion-garantia-ges.html">EXGO — Excepción de garantía de oportunidad</a></td><td class="text-center">y</td><td class="text-center"/><td class="text-center"/><td class="text-center"/><td/><td/><td/><td/></tr></tbody></table></div><hr/><div class="panel panel-default"><div class="panel-heading"><h4 id="EpisodeOfCare1-1" class="panel-title"><span style="float: right;">Resource Conformance: unspecified </span>EpisodeOfCare</h4></div><div class="panel-body"><div class="container"><div class="row"><div class="col-lg-4"><span class="lead">Core FHIR Resource</span><br/><a href="http://hl7.org/fhir/R4/episodeofcare.html">EpisodeOfCare</a></div><div class="col-lg-4"><span class="lead">Reference Policy</span><br/></div><div class="col-lg-4"><span class="lead">Interaction summary</span><br/><ul><li>Supports <br/><code>search-type</code><div><p>Por POST [base]/EpisodeOfCare/_search. patient.identifier (encadenado) con system|valor del RUN.</p>
+</div></li></ul></div></div><p/><div class="row"><div class="col-6"><span class="lead">Supported Profiles</span><p><a href="StructureDefinition-caso-ges.html">Caso GES</a></p></div></div><p/><div class="row"><div class="col-lg-7"><span class="lead">Search Parameters</span><table class="table table-condensed table-hover"><thead><tr><th>Conformance</th><th>Parameter</th><th>Type</th><th>Documentation</th></tr></thead><tbody><tr><td><b>SHALL</b></td><td><a href="http://hl7.org/fhir/R4/episodeofcare.html#search">patient</a></td><td><code>reference</code></td><td><div><p>Se usa encadenado: patient.identifier={system del RUN}|{RUN}. Obligatorio.</p>
+</div></td></tr><tr><td><b>SHALL</b></td><td><a href="http://hl7.org/fhir/R4/episodeofcare.html#search">status</a></td><td><code>token</code></td><td><div/></td></tr><tr><td><b>SHALL</b></td><td><a href="http://hl7.org/fhir/R4/episodeofcare.html#search">type</a></td><td><code>token</code></td><td><div><p>Problema de salud GES (CSProblemaSaludGES).</p>
+</div></td></tr></tbody></table></div><div class="col-lg-5"> </div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h4 id="Task1-2" class="panel-title"><span style="float: right;">Resource Conformance: unspecified </span>Task</h4></div><div class="panel-body"><div class="container"><div class="row"><div class="col-lg-4"><span class="lead">Core FHIR Resource</span><br/><a href="http://hl7.org/fhir/R4/task.html">Task</a></div><div class="col-lg-4"><span class="lead">Reference Policy</span><br/></div><div class="col-lg-4"><span class="lead">Interaction summary</span><br/><ul><li>Supports <code>read</code>.</li></ul></div></div><p/><div class="row"><div class="col-6"><span class="lead">Supported Profiles</span><p><a href="StructureDefinition-garantia-oportunidad-ges.html">Garantía de oportunidad</a><br/><a href="StructureDefinition-cierre-caso-ges.html">CC — Cierre de caso</a><br/><a href="StructureDefinition-excepcion-garantia-ges.html">EXGO — Excepción de garantía de oportunidad</a></p></div></div><p/><div class="row"><div class="col-12"><span class="lead">Documentation</span><blockquote><div><p>Las garantías las publica SIGGES; el establecimiento las obtiene con _revinclude=Task:focus en la búsqueda de casos.</p>
+</div></blockquote></div></div></div></div></div><h2 id="messaging">FHIR Messaging Capabilities</h2><div class="panel panel-default"><div class="panel-heading"><h3 id="messaging_1" class="panel-title">Messaging Capability</h3></div><div class="panel-body"/></div></div>
+  </text>
+  <url value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CapabilityStatement/CSReceptorSIGGES"/>
+  <version value="0.4.0"/>
+  <name value="CSReceptorSIGGES"/>
+  <title value="Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2)"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2026-09-30"/>
+  <publisher value="Unidad de Interoperabilidad - MINSAL"/>
+  <contact>
+    <name value="Unidad de Interoperabilidad - MINSAL"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://interoperabilidad.minsal.cl"/>
+    </telecom>
+  </contact>
+  <description value="Lo que debe exponer quien recibe las notificaciones GES: la operación $process-message para los 7 documentos y la búsqueda de casos con sus garantías."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CL"/>
+      <display value="Chile"/>
+    </coding>
+  </jurisdiction>
+  <kind value="requirements"/>
+  <fhirVersion value="4.0.1"/>
+  <format value="json"/>
+  <implementationGuide value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges"/>
+  <rest>
+    <mode value="server"/>
+    <documentation value="Toda interacción usa TLS 1.2 o superior. Los datos personales nunca viajan en la URL: la consulta por RUN se hace con POST [base]/EpisodeOfCare/_search."/>
+    <security>
+      <service>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
+          <code value="OAuth"/>
+          <display value="OAuth"/>
+        </coding>
+      </service>
+      <description value="OAuth 2.0 con grant_type=client_credentials. Cada client_id se asocia a uno o más códigos DEIS; el receptor rechaza un MessageHeader.sender que no corresponda al cliente autenticado."/>
+    </security>
+    <resource>
+      <type value="EpisodeOfCare"/>
+      <supportedProfile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"/>
+      <interaction>
+        <code value="search-type"/>
+        <documentation value="Por POST [base]/EpisodeOfCare/_search. patient.identifier (encadenado) con system|valor del RUN."/>
+      </interaction>
+      <searchInclude value="EpisodeOfCare:condition"/>
+      <searchRevInclude value="Task:focus"/>
+      <searchParam>
+        <name value="patient"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/clinical-patient"/>
+        <type value="reference"/>
+        <documentation value="Se usa encadenado: patient.identifier={system del RUN}|{RUN}. Obligatorio."/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/EpisodeOfCare-status"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <name value="type"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/clinical-type"/>
+        <type value="token"/>
+        <documentation value="Problema de salud GES (CSProblemaSaludGES)."/>
+      </searchParam>
+    </resource>
+    <resource>
+      <type value="Task"/>
+      <supportedProfile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges"/>
+      <supportedProfile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/cierre-caso-ges"/>
+      <supportedProfile value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/excepcion-garantia-ges"/>
+      <documentation value="Las garantías las publica SIGGES; el establecimiento las obtiene con _revinclude=Task:focus en la búsqueda de casos."/>
+      <interaction>
+        <code value="read"/>
+      </interaction>
+    </resource>
+    <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHALL"/>
+      </extension>
+      <name value="process-message"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/MessageHeader-process-message"/>
+      <documentation value="Recibe un BundleNotificacionGES y responde, de forma síncrona, un BundleRespuestaGES (ok, transient-error o fatal-error). Idempotencia por identifier[folio] del recurso foco; reintento de transporte con el mismo Bundle.identifier."/>
+    </operation>
+  </rest>
+  <messaging>
+    <documentation value="Mensajería FHIR síncrona sobre REST ($process-message). Un documento SIGGES por mensaje; MessageHeader.focus[0] = documento y focus[1] = caso."/>
+  </messaging>
+</CapabilityStatement>

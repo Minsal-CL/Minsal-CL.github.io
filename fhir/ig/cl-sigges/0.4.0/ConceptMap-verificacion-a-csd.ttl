@@ -1,0 +1,82 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/verificacion-a-csd> a fhir:ConceptMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "verificacion-a-csd"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: MapaDeConceptos verificacion-a-csd</b></p><a name=\"verificacion-a-csd\"> </a><a name=\"hcverificacion-a-csd\"> </a><p>This mapping does not specify any particular context of use.</p><br/><p>Mapping from <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-condition-ver-status.html\">ConditionVerificationStatus</a> to <code>urn:sigges:api-v15:confirmaSospechaDescarta</code></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td></tr><tr><td>confirmed</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>C (Confirma)</td></tr><tr><td>provisional</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>S (Sospecha)</td></tr><tr><td>refuted</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>D (Descarta)</td></tr></table></div>"
+  ] ;
+  fhir:ConceptMap.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/verificacion-a-csd"] ;
+  fhir:ConceptMap.version [ fhir:value "0.4.0"] ;
+  fhir:ConceptMap.name [ fhir:value "CMVerificacionAConfirmaSospechaDescarta"] ;
+  fhir:ConceptMap.title [ fhir:value "verificationStatus → confirmaSospechaDescarta"] ;
+  fhir:ConceptMap.status [ fhir:value "draft"] ;
+  fhir:ConceptMap.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:ConceptMap.date [ fhir:value "2026-09-25T16:17:15-03:00"^^xsd:dateTime] ;
+  fhir:ConceptMap.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ConceptMap.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ConceptMap.description [ fhir:value "Traducción de Condition.verificationStatus al campo confirmaSospechaDescarta de SIC/IPD en la API v1.5 (valores a confirmar con FONASA). Valores destino C/S/D pendientes de confirmación por FONASA (hallazgos #14): no usar como mapeo normativo."] ;
+  fhir:ConceptMap.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ConceptMap.group [
+     fhir:index 0 ;
+     fhir:ConceptMap.group.source [ fhir:value "http://terminology.hl7.org/CodeSystem/condition-ver-status" ] ;
+     fhir:ConceptMap.group.target [ fhir:value "urn:sigges:api-v15:confirmaSospechaDescarta" ] ;
+     fhir:ConceptMap.group.element [
+       fhir:index 0 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "confirmed" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "C" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Confirma" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "provisional" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "S" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Sospecha" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 2 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "refuted" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "D" ] ;
+         fhir:ConceptMap.group.element.target.display [ fhir:value "Descarta" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/verificacion-a-csd.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

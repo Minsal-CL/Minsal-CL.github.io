@@ -1,0 +1,162 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "tipo-documento-sigges"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: SistemaDeCodigos tipo-documento-sigges</b></p><a name=\"tipo-documento-sigges\"> </a><a name=\"hctipo-documento-sigges\"> </a><p><b>Propiedades</b></p><p><b>This code system defines the following properties for its concepts</b></p><table class=\"grid\"><tr><td><b>Nombre</b></td><td><b>Code</b></td><td><b>Type</b></td><td><b>Description</b></td></tr><tr><td>codigoSIGGES</td><td>codigoSIGGES</td><td>integer</td><td>Código numérico del documento en SIGGES 2.0</td></tr><tr><td>endpointV15</td><td>endpointV15</td><td>string</td><td>Endpoint equivalente en la API de interoperabilidad v1.5</td></tr></table><p><b>Concepts</b></p><p>This case-sensitive code system <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td><td><b>codigoSIGGES</b></td><td><b>endpointV15</b></td></tr><tr><td style=\"white-space:nowrap\">SIC<a name=\"tipo-documento-sigges-SIC\"> </a></td><td>Solicitud de interconsulta</td><td>Solicitud de interconsulta con sospecha GES.</td><td>1</td><td>/interoperabilidad/sigges/documentos/sic/registrar</td></tr><tr><td style=\"white-space:nowrap\">IPD<a name=\"tipo-documento-sigges-IPD\"> </a></td><td>Informe de proceso diagnóstico</td><td>Confirma o descarta el problema de salud GES.</td><td>2</td><td>/interoperabilidad/sigges/documentos/ipd/registrar</td></tr><tr><td style=\"white-space:nowrap\">OA<a name=\"tipo-documento-sigges-OA\"> </a></td><td>Orden de atención</td><td>Orden para una prestación garantizada (examen, procedimiento, tratamiento).</td><td>3</td><td>/interoperabilidad/sigges/documentos/ordenatencion/registrar</td></tr><tr><td style=\"white-space:nowrap\">PO<a name=\"tipo-documento-sigges-PO\"> </a></td><td>Prestación otorgada</td><td>Registro de una prestación efectivamente realizada.</td><td>10</td><td>/interoperabilidad/sigges/documentos/po</td></tr><tr><td style=\"white-space:nowrap\">CC<a name=\"tipo-documento-sigges-CC\"> </a></td><td>Cierre de caso</td><td>Cierre administrativo del caso GES.</td><td>30</td><td>/interoperabilidad/sigges/documentos/cierrecaso/registrar</td></tr><tr><td style=\"white-space:nowrap\">HD<a name=\"tipo-documento-sigges-HD\"> </a></td><td>Hoja diaria APS</td><td>Registro en atención primaria del estado de un caso por rama.</td><td>32</td><td>/interoperabilidad/sigges/documentos/hd/registrar</td></tr><tr><td style=\"white-space:nowrap\">EXGO<a name=\"tipo-documento-sigges-EXGO\"> </a></td><td>Excepción de garantía de oportunidad</td><td>Exceptúa una garantía de oportunidad por una causal.</td><td>34</td><td>/interoperabilidad/sigges/documentos/excepciongo/registrar</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges"] ;
+  fhir:CodeSystem.version [ fhir:value "0.4.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CSTipoDocumentoSIGGES"] ;
+  fhir:CodeSystem.title [ fhir:value "Tipos de documento SIGGES"] ;
+  fhir:CodeSystem.status [ fhir:value "draft"] ;
+  fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-10-08T15:37:06-03:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Documentos del ciclo de un caso GES. Se usan como evento del MessageHeader. La propiedad codigoSIGGES es el identificador numérico interno de SIGGES 2.0."] ;
+  fhir:CodeSystem.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "7"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.property [
+     fhir:index 0 ;
+     fhir:CodeSystem.property.code [ fhir:value "codigoSIGGES" ] ;
+     fhir:CodeSystem.property.description [ fhir:value "Código numérico del documento en SIGGES 2.0" ] ;
+     fhir:CodeSystem.property.type [ fhir:value "integer" ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.property.code [ fhir:value "endpointV15" ] ;
+     fhir:CodeSystem.property.description [ fhir:value "Endpoint equivalente en la API de interoperabilidad v1.5" ] ;
+     fhir:CodeSystem.property.type [ fhir:value "string" ]
+  ] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "SIC" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Solicitud de interconsulta" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Solicitud de interconsulta con sospecha GES." ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "codigoSIGGES" ] ;
+       fhir:CodeSystem.concept.property.valueInteger [ fhir:value "1"^^xsd:integer ]
+     ], [
+       fhir:index 1 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "endpointV15" ] ;
+       fhir:CodeSystem.concept.property.valueString [ fhir:value "/interoperabilidad/sigges/documentos/sic/registrar" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "IPD" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Informe de proceso diagnóstico" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Confirma o descarta el problema de salud GES." ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "codigoSIGGES" ] ;
+       fhir:CodeSystem.concept.property.valueInteger [ fhir:value "2"^^xsd:integer ]
+     ], [
+       fhir:index 1 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "endpointV15" ] ;
+       fhir:CodeSystem.concept.property.valueString [ fhir:value "/interoperabilidad/sigges/documentos/ipd/registrar" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "OA" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Orden de atención" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Orden para una prestación garantizada (examen, procedimiento, tratamiento)." ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "codigoSIGGES" ] ;
+       fhir:CodeSystem.concept.property.valueInteger [ fhir:value "3"^^xsd:integer ]
+     ], [
+       fhir:index 1 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "endpointV15" ] ;
+       fhir:CodeSystem.concept.property.valueString [ fhir:value "/interoperabilidad/sigges/documentos/ordenatencion/registrar" ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "PO" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Prestación otorgada" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Registro de una prestación efectivamente realizada." ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "codigoSIGGES" ] ;
+       fhir:CodeSystem.concept.property.valueInteger [ fhir:value "10"^^xsd:integer ]
+     ], [
+       fhir:index 1 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "endpointV15" ] ;
+       fhir:CodeSystem.concept.property.valueString [ fhir:value "/interoperabilidad/sigges/documentos/po" ]
+     ]
+  ], [
+     fhir:index 4 ;
+     fhir:CodeSystem.concept.code [ fhir:value "CC" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Cierre de caso" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Cierre administrativo del caso GES." ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "codigoSIGGES" ] ;
+       fhir:CodeSystem.concept.property.valueInteger [ fhir:value "30"^^xsd:integer ]
+     ], [
+       fhir:index 1 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "endpointV15" ] ;
+       fhir:CodeSystem.concept.property.valueString [ fhir:value "/interoperabilidad/sigges/documentos/cierrecaso/registrar" ]
+     ]
+  ], [
+     fhir:index 5 ;
+     fhir:CodeSystem.concept.code [ fhir:value "HD" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Hoja diaria APS" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Registro en atención primaria del estado de un caso por rama." ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "codigoSIGGES" ] ;
+       fhir:CodeSystem.concept.property.valueInteger [ fhir:value "32"^^xsd:integer ]
+     ], [
+       fhir:index 1 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "endpointV15" ] ;
+       fhir:CodeSystem.concept.property.valueString [ fhir:value "/interoperabilidad/sigges/documentos/hd/registrar" ]
+     ]
+  ], [
+     fhir:index 6 ;
+     fhir:CodeSystem.concept.code [ fhir:value "EXGO" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Excepción de garantía de oportunidad" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Exceptúa una garantía de oportunidad por una causal." ] ;
+     fhir:CodeSystem.concept.property [
+       fhir:index 0 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "codigoSIGGES" ] ;
+       fhir:CodeSystem.concept.property.valueInteger [ fhir:value "34"^^xsd:integer ]
+     ], [
+       fhir:index 1 ;
+       fhir:CodeSystem.concept.property.code [ fhir:value "endpointV15" ] ;
+       fhir:CodeSystem.concept.property.valueString [ fhir:value "/interoperabilidad/sigges/documentos/excepciongo/registrar" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

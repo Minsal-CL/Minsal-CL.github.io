@@ -1,0 +1,433 @@
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2) - XML Representation - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"13.2"}
+    h3,h4,h5,h6{--heading-prefix:"13.2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2)</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div style="counter-reset: section 7" class="col-12">
+<!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li>
+    <a href="CapabilityStatement-CSReceptorSIGGES.html">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li class="active">
+      <a href="#">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CapabilityStatement-CSReceptorSIGGES.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CapabilityStatement-CSReceptorSIGGES.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+
+<a name="root"> </a>
+
+
+<h2 id="root">: Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2) - XML Representation</h2>
+
+  <table class="colsd">
+    <tr>
+
+      <td colspan="2">
+        
+          Draft
+          
+            as of 2026-09-30
+          
+        
+      </td>
+
+    </tr>
+  </table>
+
+
+<p><a href="CapabilityStatement-CSReceptorSIGGES.xml" no-download="true">Raw xml</a> | <a href="CapabilityStatement-CSReceptorSIGGES.xml" download>Download</a></p>
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <pre class="xml" data-fhir="generated" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-xml" style="white-space: pre; text-wrap: nowrap;">
+&lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement">CapabilityStatement</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/resource.html#CapabilityStatement.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;CSReceptorSIGGES&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#CapabilityStatement.text">text</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;extensions&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: DeclaracionDeCapacidad CSReceptorSIGGES&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;CSReceptorSIGGES&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcCSReceptorSIGGES&quot;&gt; &lt;/a&gt;&lt;h2 id=&quot;title&quot;&gt;Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2)&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Implementation Guide Version: 0.4.0 &lt;/li&gt;&lt;li&gt;FHIR Version: 4.0.1 &lt;/li&gt;&lt;li&gt;Supported Formats: &lt;code&gt;json&lt;/code&gt;&lt;/li&gt;&lt;li&gt;Published on: 2026-09-30 &lt;/li&gt;&lt;li&gt;Published by: Unidad de Interoperabilidad - MINSAL &lt;/li&gt;&lt;/ul&gt;&lt;blockquote class=&quot;impl-note&quot;&gt;&lt;p&gt;&lt;strong&gt;Note to Implementers: FHIR Capabilities&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Any FHIR capability may be 'allowed' by the system unless explicitly marked as 'SHALL NOT'. A few items are marked as MAY in the Implementation Guide to highlight their potential relevance to the use case.&lt;/p&gt;&lt;/blockquote&gt;&lt;h3 id=&quot;shallIGs&quot;&gt;SHALL Support the Following Implementation Guides&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;index.html&quot;&gt;https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h2 id=&quot;rest&quot;&gt;FHIR RESTful Capabilities&lt;/h2&gt;&lt;div class=&quot;panel panel-default&quot;&gt;&lt;div class=&quot;panel-heading&quot;&gt;&lt;h3 id=&quot;mode1&quot; class=&quot;panel-title&quot;&gt;Mode: &lt;code&gt;server&lt;/code&gt;&lt;/h3&gt;&lt;/div&gt;&lt;div class=&quot;panel-body&quot;&gt;&lt;div&gt;&lt;p&gt;Toda interacción usa TLS 1.2 o superior. Los datos personales nunca viajan en la URL: la consulta por RUN se hace con POST [base]/EpisodeOfCare/_search.&lt;/p&gt;
+&lt;/div&gt;&lt;div class=&quot;lead&quot;&gt;&lt;em&gt;Security&lt;/em&gt;&lt;/div&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-lg-6&quot;&gt;Enable CORS: no&lt;/div&gt;&lt;div class=&quot;col-lg-6&quot;&gt;Security services supported: &lt;code&gt;OAuth&lt;/code&gt;&lt;/div&gt;&lt;/div&gt;&lt;blockquote&gt;&lt;div&gt;&lt;p&gt;OAuth 2.0 con grant_type=client_credentials. Cada client_id se asocia a uno o más códigos DEIS; el receptor rechaza un MessageHeader.sender que no corresponda al cliente autenticado.&lt;/p&gt;
+&lt;/div&gt;&lt;/blockquote&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-12&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Summary of System-wide Operations&lt;/span&gt;&lt;table class=&quot;table table-condensed table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Conformance&lt;/th&gt;&lt;th&gt;Operation&lt;/th&gt;&lt;th&gt;Documentation&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;$process-message&lt;/td&gt;&lt;td&gt;&lt;div&gt;&lt;p&gt;Recibe un BundleNotificacionGES y responde, de forma síncrona, un BundleRespuestaGES (ok, transient-error o fatal-error). Idempotencia por identifier[folio] del recurso foco; reintento de transporte con el mismo Bundle.identifier.&lt;/p&gt;
+&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;h3 id=&quot;resourcesCap1&quot;&gt;Capabilities by Resource/Profile&lt;/h3&gt;&lt;h4 id=&quot;resourcesSummary1&quot;&gt;Summary&lt;/h4&gt;&lt;p&gt;The summary table lists the resources that are part of this configuration, and for each resource it lists:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;The relevant profiles (if any)&lt;/li&gt;&lt;li&gt;The interactions supported by each resource (&lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;R&lt;/span&gt;&lt;/b&gt;ead, &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;S&lt;/span&gt;&lt;/b&gt;earch, &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;U&lt;/span&gt;&lt;/b&gt;pdate, and &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;C&lt;/span&gt;&lt;/b&gt;reate, are always shown, while &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;VR&lt;/span&gt;&lt;/b&gt;ead, &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;P&lt;/span&gt;&lt;/b&gt;atch, &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;D&lt;/span&gt;&lt;/b&gt;elete, &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;H&lt;/span&gt;&lt;/b&gt;istory on &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;I&lt;/span&gt;&lt;/b&gt;nstance, or &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;H&lt;/span&gt;&lt;/b&gt;istory on &lt;b&gt;&lt;span class=&quot;bg-info&quot;&gt;T&lt;/span&gt;&lt;/b&gt;ype are only present if at least one of the resources has support for them.&lt;/li&gt;&lt;li&gt;&lt;span&gt;The required, recommended, and some optional search parameters (if any). &lt;/span&gt;&lt;/li&gt;&lt;li&gt;The linked resources enabled for &lt;code&gt;_include&lt;/code&gt;&lt;/li&gt;&lt;li&gt;The other resources enabled for &lt;code&gt;_revinclude&lt;/code&gt;&lt;/li&gt;&lt;li&gt;The operations on the resource (if any)&lt;/li&gt;&lt;/ul&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-condensed table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;b&gt;Resource Type&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Perfil&lt;/b&gt;&lt;/th&gt;&lt;th class=&quot;text-center&quot;&gt;&lt;b title=&quot;GET a resource (read interaction)&quot;&gt;R&lt;/b&gt;&lt;/th&gt;&lt;th class=&quot;text-center&quot;&gt;&lt;b title=&quot;GET all set of resources of the type (search interaction)&quot;&gt;S&lt;/b&gt;&lt;/th&gt;&lt;th class=&quot;text-center&quot;&gt;&lt;b title=&quot;PUT a new resource version (update interaction)&quot;&gt;U&lt;/b&gt;&lt;/th&gt;&lt;th class=&quot;text-center&quot;&gt;&lt;b title=&quot;POST a new resource (create interaction)&quot;&gt;C&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b title=&quot;Required and recommended search parameters&quot;&gt;Searches&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;code&gt;&lt;b&gt;_include&lt;/b&gt;&lt;/code&gt;&lt;/th&gt;&lt;th&gt;&lt;code&gt;&lt;b&gt;_revinclude&lt;/b&gt;&lt;/code&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Operations&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;#EpisodeOfCare1-1&quot;&gt;EpisodeOfCare&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Supported Profiles&lt;br/&gt;  &lt;a href=&quot;StructureDefinition-caso-ges.html&quot;&gt;Caso GES&lt;/a&gt;&lt;/td&gt;&lt;td class=&quot;text-center&quot;/&gt;&lt;td class=&quot;text-center&quot;&gt;y&lt;/td&gt;&lt;td class=&quot;text-center&quot;/&gt;&lt;td class=&quot;text-center&quot;/&gt;&lt;td&gt;patient, status, type&lt;/td&gt;&lt;td&gt;&lt;code&gt;EpisodeOfCare:condition&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;Task:focus&lt;/code&gt;&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;#Task1-2&quot;&gt;Task&lt;/a&gt;&lt;/td&gt;&lt;td&gt;Supported Profiles&lt;br/&gt;  &lt;a href=&quot;StructureDefinition-garantia-oportunidad-ges.html&quot;&gt;Garantía de oportunidad&lt;/a&gt;&lt;br/&gt;  &lt;a href=&quot;StructureDefinition-cierre-caso-ges.html&quot;&gt;CC — Cierre de caso&lt;/a&gt;&lt;br/&gt;  &lt;a href=&quot;StructureDefinition-excepcion-garantia-ges.html&quot;&gt;EXGO — Excepción de garantía de oportunidad&lt;/a&gt;&lt;/td&gt;&lt;td class=&quot;text-center&quot;&gt;y&lt;/td&gt;&lt;td class=&quot;text-center&quot;/&gt;&lt;td class=&quot;text-center&quot;/&gt;&lt;td class=&quot;text-center&quot;/&gt;&lt;td/&gt;&lt;td/&gt;&lt;td/&gt;&lt;td/&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;hr/&gt;&lt;div class=&quot;panel panel-default&quot;&gt;&lt;div class=&quot;panel-heading&quot;&gt;&lt;h4 id=&quot;EpisodeOfCare1-1&quot; class=&quot;panel-title&quot;&gt;&lt;span style=&quot;float: right;&quot;&gt;Resource Conformance: unspecified &lt;/span&gt;EpisodeOfCare&lt;/h4&gt;&lt;/div&gt;&lt;div class=&quot;panel-body&quot;&gt;&lt;div class=&quot;container&quot;&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-lg-4&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Core FHIR Resource&lt;/span&gt;&lt;br/&gt;&lt;a href=&quot;http://hl7.org/fhir/R4/episodeofcare.html&quot;&gt;EpisodeOfCare&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;col-lg-4&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Reference Policy&lt;/span&gt;&lt;br/&gt;&lt;/div&gt;&lt;div class=&quot;col-lg-4&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Interaction summary&lt;/span&gt;&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Supports &lt;br/&gt;&lt;code&gt;search-type&lt;/code&gt;&lt;div&gt;&lt;p&gt;Por POST [base]/EpisodeOfCare/_search. patient.identifier (encadenado) con system|valor del RUN.&lt;/p&gt;
+&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;p/&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-6&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Supported Profiles&lt;/span&gt;&lt;p&gt;&lt;a href=&quot;StructureDefinition-caso-ges.html&quot;&gt;Caso GES&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;p/&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-lg-7&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Search Parameters&lt;/span&gt;&lt;table class=&quot;table table-condensed table-hover&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Conformance&lt;/th&gt;&lt;th&gt;Parameter&lt;/th&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Documentation&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://hl7.org/fhir/R4/episodeofcare.html#search&quot;&gt;patient&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;reference&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;div&gt;&lt;p&gt;Se usa encadenado: patient.identifier={system del RUN}|{RUN}. Obligatorio.&lt;/p&gt;
+&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://hl7.org/fhir/R4/episodeofcare.html#search&quot;&gt;status&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;token&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;div/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;http://hl7.org/fhir/R4/episodeofcare.html#search&quot;&gt;type&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;token&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;div&gt;&lt;p&gt;Problema de salud GES (CSProblemaSaludGES).&lt;/p&gt;
+&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;div class=&quot;col-lg-5&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;panel panel-default&quot;&gt;&lt;div class=&quot;panel-heading&quot;&gt;&lt;h4 id=&quot;Task1-2&quot; class=&quot;panel-title&quot;&gt;&lt;span style=&quot;float: right;&quot;&gt;Resource Conformance: unspecified &lt;/span&gt;Task&lt;/h4&gt;&lt;/div&gt;&lt;div class=&quot;panel-body&quot;&gt;&lt;div class=&quot;container&quot;&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-lg-4&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Core FHIR Resource&lt;/span&gt;&lt;br/&gt;&lt;a href=&quot;http://hl7.org/fhir/R4/task.html&quot;&gt;Task&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;col-lg-4&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Reference Policy&lt;/span&gt;&lt;br/&gt;&lt;/div&gt;&lt;div class=&quot;col-lg-4&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Interaction summary&lt;/span&gt;&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Supports &lt;code&gt;read&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;p/&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-6&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Supported Profiles&lt;/span&gt;&lt;p&gt;&lt;a href=&quot;StructureDefinition-garantia-oportunidad-ges.html&quot;&gt;Garantía de oportunidad&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;StructureDefinition-cierre-caso-ges.html&quot;&gt;CC — Cierre de caso&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;StructureDefinition-excepcion-garantia-ges.html&quot;&gt;EXGO — Excepción de garantía de oportunidad&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;p/&gt;&lt;div class=&quot;row&quot;&gt;&lt;div class=&quot;col-12&quot;&gt;&lt;span class=&quot;lead&quot;&gt;Documentation&lt;/span&gt;&lt;blockquote&gt;&lt;div&gt;&lt;p&gt;Las garantías las publica SIGGES; el establecimiento las obtiene con _revinclude=Task:focus en la búsqueda de casos.&lt;/p&gt;
+&lt;/div&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;h2 id=&quot;messaging&quot;&gt;FHIR Messaging Capabilities&lt;/h2&gt;&lt;div class=&quot;panel panel-default&quot;&gt;&lt;div class=&quot;panel-heading&quot;&gt;&lt;h3 id=&quot;messaging_1&quot; class=&quot;panel-title&quot;&gt;Messaging Capability&lt;/h3&gt;&lt;/div&gt;&lt;div class=&quot;panel-body&quot;/&gt;&lt;/div&gt;&lt;/div&gt;<a name="end-xhtml"></a>
+  &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#CapabilityStatement.text">text</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.url">url</a>
+       <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/sigges/CapabilityStatement/CSReceptorSIGGES&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.version">version</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;0.4.0&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;CSReceptorSIGGES&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.title">title</a>
+         <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2)&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;draft&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.experimental">experimental</a> <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.date">date</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>=&quot;2026-09-30&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.publisher">publisher</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Unidad de Interoperabilidad - MINSAL&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.contact">contact</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Unidad de Interoperabilidad - MINSAL&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;url&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#ContactPoint#ContactPoint.value">value</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;https://interoperabilidad.minsal.cl&quot;/&gt;
+    &lt;/<a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.contact">contact</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.description">description</a>
+               <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Lo que debe exponer quien recibe las notificaciones GES: la operación $process-message para los 7 documentos y la búsqueda de casos con sus garantías.&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.jurisdiction">jurisdiction</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;urn:iso:std:iso:3166&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;CL&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Chile&quot;/&gt;
+    &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.jurisdiction">jurisdiction</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.kind">kind</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;requirements&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.fhirVersion">fhirVersion</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;4.0.1&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.format">format</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;json&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.implementationGuide">implementationGuide</a>
+                       <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest">rest</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.mode">mode</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;server&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.documentation">documentation</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Toda interacción usa TLS 1.2 o superior. Los datos personales nunca viajan en la URL: la consulta por RUN se hace con POST [base]/EpisodeOfCare/_search.&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.security">security</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.security.service">service</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>
+                  <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://terminology.hl7.org/CodeSystem/restful-security-service&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;OAuth&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;OAuth&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.security.service">service</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.security.description">description</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;OAuth 2.0 con grant_type=client_credentials. Cada client_id se asocia a uno o más códigos DEIS; el receptor rechaza un MessageHeader.sender que no corresponda al cliente autenticado.&quot;/&gt;
+    &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.security">security</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;EpisodeOfCare&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.supportedProfile">supportedProfile</a>
+                        <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.interaction">interaction</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;search-type&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>
+                       <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Por POST [base]/EpisodeOfCare/_search. patient.identifier (encadenado) con system|valor del RUN.&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.interaction">interaction</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchInclude">searchInclude</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;EpisodeOfCare:condition&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchRevInclude">searchRevInclude</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Task:focus&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;patient&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>
+                    <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;http://hl7.org/fhir/SearchParameter/clinical-patient&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.documentation">documentation</a>
+                       <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Se usa encadenado: patient.identifier={system del RUN}|{RUN}. Obligatorio.&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;status&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>
+                    <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;http://hl7.org/fhir/SearchParameter/EpisodeOfCare-status&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;token&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;type&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>
+                    <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;http://hl7.org/fhir/SearchParameter/clinical-type&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;token&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.documentation">documentation</a> <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Problema de salud GES (CSProblemaSaludGES).&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>&gt;
+    &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource">resource</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;Task&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.supportedProfile">supportedProfile</a>
+                        <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.supportedProfile">supportedProfile</a>
+                        <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/cierre-caso-ges&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.supportedProfile">supportedProfile</a>
+                        <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/excepcion-garantia-ges&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.documentation">documentation</a>
+                     <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Las garantías las publica SIGGES; el establecimiento las obtiene con _revinclude=Task:focus en la búsqueda de casos.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.interaction">interaction</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;read&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.interaction">interaction</a>&gt;
+    &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource">resource</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.operation">operation</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Element#CapabilityStatement.rest.resource.operation.extension">extension</a>
+                 <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation&quot;&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value_x_">valueCode</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;SHALL&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#Element#CapabilityStatement.rest.resource.operation.extension">extension</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.operation.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;process-message&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.operation.definition">definition</a>
+                  <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;http://hl7.org/fhir/OperationDefinition/MessageHeader-process-message&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.resource.operation.documentation">documentation</a>
+                     <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Recibe un BundleNotificacionGES y responde, de forma síncrona, un BundleRespuestaGES (ok, transient-error o fatal-error). Idempotencia por identifier[folio] del recurso foco; reintento de transporte con el mismo Bundle.identifier.&quot;/&gt;
+    &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest.operation">operation</a>&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.rest">rest</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.messaging">messaging</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.messaging.documentation">documentation</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#markdown">value</a>=&quot;Mensajería FHIR síncrona sobre REST ($process-message). Un documento SIGGES por mensaje; MessageHeader.focus[0] = documento y focus[1] = caso.&quot;/&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement.messaging">messaging</a>&gt;
+&lt;/<a href="http://hl7.org/fhir/R4/capabilitystatement.html#CapabilityStatement">CapabilityStatement</a>&gt;</code></pre>
+
+
+  <!-- insert notes if present -->
+  
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

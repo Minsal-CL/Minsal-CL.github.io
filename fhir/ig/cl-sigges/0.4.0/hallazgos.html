@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Observaciones a API v1.5 y catálogo - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"10"}
+    h3,h4,h5,h6{--heading-prefix:"10"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Observaciones a API v1.5 y catálogo</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Observaciones a API v1.5 y catálogo</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#api-v15" id="markdown-toc-api-v15">API v1.5</a></li>
+  <li><a href="#catalogo" id="markdown-toc-catalogo">Catálogo</a></li>
+</ul>
+
+</div>
+<p>Observaciones detectadas al contrastar el <em>Documento de Interoperabilidad SIGGES 2.0 v1.5</em>, el <em>Conjunto mínimo de datos</em> y el <code class="language-plaintext highlighter-rouge">Catalogo.xls</code>. Se entregan como insumo para la mesa técnica con FONASA. Todas tienen solución en esta guía o en el traductor, pero conviene corregirlas en su origen.</p>
+
+<h3 id="api-v15">API v1.5</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Observación</th>
+      <th>Impacto</th>
+      <th>Propuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Formato de fecha: la especificación dice <code class="language-plaintext highlighter-rouge">DD/MM/AAAA</code>, pero el ejemplo de CC usa <code class="language-plaintext highlighter-rouge">2026-06-25</code></td>
+      <td>Rechazos ambiguos</td>
+      <td>ISO 8601 en todos los campos</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>DEIS en tres formatos en los ejemplos: <code class="language-plaintext highlighter-rouge">01-304</code>, <code class="language-plaintext highlighter-rouge">111100</code> y <code class="language-plaintext highlighter-rouge">1</code></td>
+      <td>No se sabe cuál validar</td>
+      <td>Un formato único (<code class="language-plaintext highlighter-rouge">NN-NNN</code> propuesto)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">tipoDeisOrigen</code> aparece como <code class="language-plaintext highlighter-rouge">PUBLICO</code> y como <code class="language-plaintext highlighter-rouge">1</code></td>
+      <td>Ídem</td>
+      <td>Catálogo explícito (<a href="CodeSystem-tipo-origen-ges.html">CSTipoOrigenGES</a>)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Especialidad aparece como <code class="language-plaintext highlighter-rouge">07-301-04</code>, <code class="language-plaintext highlighter-rouge">07-301-4</code> y <code class="language-plaintext highlighter-rouge">301</code></td>
+      <td>Ídem</td>
+      <td>Validar contra el catálogo ESPECIALIDADES</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="language-plaintext highlighter-rouge">nombrePaciente</code> (SIC) vs <code class="language-plaintext highlighter-rouge">nombresPaciente</code> (resto); <code class="language-plaintext highlighter-rouge">pscCasoPaci</code> (EXGO) vs <code class="language-plaintext highlighter-rouge">problemaSalud</code></td>
+      <td>Mapeos especiales por endpoint</td>
+      <td>Nombres uniformes</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>La descripción de <code class="language-plaintext highlighter-rouge">garantia</code> en OA y EXGO está rota ("Si Exceptúa (34) o Cierra Garantía (34)")</td>
+      <td>Semántica incierta</td>
+      <td>Definir: garantía GES del catálogo GARANTIAS</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Campos ad hoc por PS: <code class="language-plaintext highlighter-rouge">enfermedadRenalVfg1..3</code>, <code class="language-plaintext highlighter-rouge">parametroEspecial</code>, <code class="language-plaintext highlighter-rouge">cuartoTurnoEspecial</code></td>
+      <td>Cada PS nuevo cambia la API</td>
+      <td>Lista clave-valor codificada (en FHIR, Observation)</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><code class="language-plaintext highlighter-rouge">comunaEspecial</code>, <code class="language-plaintext highlighter-rouge">regionEspecial</code>, <code class="language-plaintext highlighter-rouge">fono/emailBeneficiarioEspecial</code> en OA</td>
+      <td>Duplican datos del paciente</td>
+      <td>Tomarlos del paciente</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><code class="language-plaintext highlighter-rouge">estado</code> de HD documentado como "se almacena en VC_PARAMETROESPECIAL"</td>
+      <td>Se filtra un detalle interno</td>
+      <td>Documentar solo el contrato</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Ningún documento lleva el número de caso ni referencia al documento previo</td>
+      <td>Casos concurrentes o reabiertos son ambiguos</td>
+      <td>Número de caso en la respuesta y en los mensajes siguientes</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>No se documenta la respuesta: N° de caso, códigos de error, idempotencia por folio, anulación o corrección</td>
+      <td>Integraciones frágiles</td>
+      <td>Contrato de respuesta (<a href="mensajeria.html">Mensajería</a>)</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>OAuth <code class="language-plaintext highlighter-rouge">grant_type=password</code> con client_id/secret</td>
+      <td>Flujo inadecuado para sistema a sistema</td>
+      <td><code class="language-plaintext highlighter-rouge">client_credentials</code></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><code class="language-plaintext highlighter-rouge">ramaProblemaSalud</code> obligatoria en SIC, IPD y HD, pero ausente en OA, PO y CC</td>
+      <td>La rama se infiere</td>
+      <td>Rama siempre presente (en FHIR viaja en el caso)</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><code class="language-plaintext highlighter-rouge">confirmaSospechaDescarta</code> descrito como "checkbox", sin valores</td>
+      <td>Valores desconocidos</td>
+      <td>Publicar dominio (propuesto: C/S/D)</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>La consulta SIGGES no documenta su respuesta</td>
+      <td>No se pueden gestionar plazos</td>
+      <td>Casos + garantías con plazo (<a href="consulta.html">Consulta</a>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="catalogo">Catálogo</h3>
+
+<p>Informe generado automáticamente por <code class="language-plaintext highlighter-rouge">tools/catalogo2fsh.py</code>:</p>
+
+<ul>
+  <li><strong>Ramas</strong>: la rama <code class="language-plaintext highlighter-rouge">11300</code> aparece en ESTADOS HD pero no en GARANTIAS (no se puede asociar a un problema de salud).</li>
+  <li><strong>Ramas</strong>: 98 de 174 ramas tienen descripción vacía (". {decreto…}"); el display se compone con el nombre del PS + decreto.</li>
+  <li><strong>Garantías</strong>: sólo 6 de 707 garantías informan el par documento inicio–término, y lo hacen dentro del texto (p.ej. "(SIC-PO)"). No hay plazo en días. Se propone agregar columnas <code class="language-plaintext highlighter-rouge">docInicio</code>, <code class="language-plaintext highlighter-rouge">docTermino</code>, <code class="language-plaintext highlighter-rouge">plazoDias</code>.</li>
+  <li><strong>Servicios de salud</strong>: códigos con más de un nombre: <code class="language-plaintext highlighter-rouge">5</code> → Coquimbo, O'Higgins</li>
+  <li><strong>Establecimientos</strong>: 86 establecimientos tienen DEIS de 6 dígitos = <code class="language-plaintext highlighter-rouge">0</code> (sólo tienen formato <code class="language-plaintext highlighter-rouge">NN-NNN</code>). La API mezcla ambos formatos en sus ejemplos.</li>
+  <li><strong>UNIDADES</strong>: 4 códigos con espacios al inicio/final en <code class="language-plaintext highlighter-rouge">DEIS2</code> (generan duplicados aparentes).</li>
+  <li><strong>Establecimientos (DEIS2)</strong>: 19 códigos duplicados en <code class="language-plaintext highlighter-rouge">DEIS2</code> (01-901, 05-455, 06-409, 13-911, 15-320, 15-460, 15-462, 15-464, 16-709, 16-829…). Se conserva la primera fila.</li>
+  <li><strong>Causales</strong>: descripciones repetidas con códigos distintos: "Criterios de Inclusión/Exclusión (según protocolos)" (Cierre de Caso) → 102, 7; "Inasistencia" (Cierre de Caso) → 24, 2; "Rechazo del Prestador Designado o Rechazo del Tratamiento" (Cierre de Caso) → 3, 14; "Término del Tratamiento Garantizado" (Cierre de Caso) → 101, 5; "Postergación de la Prestación" (Excepción de Garantías) → 201, 209, 200; "Rechazo del Prestador Designado o Rechazo del Tratamiento" (Excepción de Garantías) → 203, 204.</li>
+  <li><strong>Estados Hoja Diaria</strong>: 1 códigos duplicados en <code class="language-plaintext highlighter-rouge">NODOHD_COD_NODOHD</code> (6012). Se conserva la primera fila.</li>
+  <li><strong>PRESTACIONES</strong>: 1 códigos con espacios al inicio/final en <code class="language-plaintext highlighter-rouge">c</code> (generan duplicados aparentes).</li>
+  <li><strong>Prestaciones</strong>: 1 códigos duplicados en <code class="language-plaintext highlighter-rouge">c</code> (2508132). Se conserva la primera fila.</li>
+  <li><strong>Prestaciones</strong>: largos de código heterogéneos {7: 4772, 9: 149, 6: 57, 8: 8, 13: 1, 11: 1}. Los de 6 dígitos probablemente perdieron el cero inicial al pasar por Excel.</li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

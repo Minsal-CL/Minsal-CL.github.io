@@ -1,0 +1,41 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "vs-programa-ges-snomed",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores vs-programa-ges-snomed</b></p><a name=\"vs-programa-ges-snomed\"> </a><a name=\"hcvs-programa-ges-snomed\"> </a><ul><li>Include codes from<a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> versión Not Stated (use latest from terminology server)</span> where concept  descends from 1741000325106</li></ul></div>"
+  },
+  "url" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/ValueSet/vs-programa-ges-snomed",
+  "version" : "0.4.0",
+  "name" : "VSProgramaGESSnomed",
+  "title" : "Programas GES (SNOMED CT, extensión chilena)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-10-08T15:37:06-03:00",
+  "publisher" : "Unidad de Interoperabilidad - MINSAL",
+  "contact" : [{
+    "name" : "Unidad de Interoperabilidad - MINSAL",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://interoperabilidad.minsal.cl"
+    }]
+  }],
+  "description" : "Conceptos de programa GES de la extensión chilena de SNOMED CT: descendientes de 1741000325106 (programa de Garantías Explícitas en Salud). Es el mismo criterio de vs-problema-ges-tei de la guía TEI 0.2.3. Clasifican el caso (EpisodeOfCare.type), no el diagnóstico: son conceptos de programa, no hallazgos clínicos.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "CL",
+      "display" : "Chile"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "descendent-of",
+        "value" : "1741000325106"
+      }]
+    }]
+  }
+}

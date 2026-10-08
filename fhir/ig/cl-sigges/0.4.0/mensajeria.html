@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Mensajería y respuesta - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Mensajería y respuesta</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Mensajería y respuesta</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#el-sobre" id="markdown-toc-el-sobre">El sobre</a></li>
+  <li><a href="#tres-identificadores-distintos" id="markdown-toc-tres-identificadores-distintos">Tres identificadores distintos</a></li>
+  <li><a href="#respuesta" id="markdown-toc-respuesta">Respuesta</a></li>
+  <li><a href="#validaciones-de-negocio-que-corresponden-a-sigges" id="markdown-toc-validaciones-de-negocio-que-corresponden-a-sigges">Validaciones de negocio que corresponden a SIGGES</a></li>
+  <li><a href="#contrato-de-interfaz" id="markdown-toc-contrato-de-interfaz">Contrato de interfaz</a></li>
+  <li><a href="#seguridad" id="markdown-toc-seguridad">Seguridad</a></li>
+</ul>
+
+</div>
+<h3 id="el-sobre">El sobre</h3>
+
+<p>Cada documento se envía como un <a href="StructureDefinition-bundle-notificacion-ges.html">BundleNotificacionGES</a> (<code class="language-plaintext highlighter-rouge">type = message</code>) a la operación estándar <strong><code class="language-plaintext highlighter-rouge">POST [base]/$process-message</code></strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Orden</th>
+      <th>Entrada</th>
+      <th>Obligatoria</th>
+      <th>Comentario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">MessageHeader</code> (<a href="StructureDefinition-mh-notificacion-ges.html">MensajeNotificacionGES</a>)</td>
+      <td>Sí</td>
+      <td>Siempre primero (invariante <code class="language-plaintext highlighter-rouge">ges-msg-1</code>)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recurso foco</td>
+      <td>Sí</td>
+      <td>ServiceRequest, Condition, Procedure o Task, según el evento (<code class="language-plaintext highlighter-rouge">ges-msg-4</code>)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Recursos de apoyo del foco</td>
+      <td>Según el documento</td>
+      <td>Condition de sospecha (SIC), Observation (datos especiales)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">EpisodeOfCare</code> (caso)</td>
+      <td>Sí, exactamente uno</td>
+      <td><code class="language-plaintext highlighter-rouge">ges-msg-2</code></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="language-plaintext highlighter-rouge">Patient</code></td>
+      <td>Sí, exactamente uno</td>
+      <td><code class="language-plaintext highlighter-rouge">ges-msg-2</code></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="language-plaintext highlighter-rouge">PractitionerRole</code>, <code class="language-plaintext highlighter-rouge">Practitioner</code></td>
+      <td>Sí (Practitioner opcional en PO)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><code class="language-plaintext highlighter-rouge">Organization</code></td>
+      <td>Sí</td>
+      <td>Todos los establecimientos referenciados</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Todas las entradas llevan <code class="language-plaintext highlighter-rouge">fullUrl</code> (<code class="language-plaintext highlighter-rouge">ges-msg-3</code>). Las referencias internas son relativas (<code class="language-plaintext highlighter-rouge">Patient/pac-a</code>) y se resuelven dentro del Bundle.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">MessageHeader.focus</code></strong> lleva dos referencias:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">focus[0]</code>: el documento que se notifica.</li>
+  <li><code class="language-plaintext highlighter-rouge">focus[1]</code>: el caso.</li>
+</ul>
+
+<p>Así, quien procesa el mensaje sabe de inmediato qué hacer y con qué caso.</p>
+
+<h3 id="tres-identificadores-distintos">Tres identificadores distintos</h3>
+
+<p>Hoy la API v1.5 los mezcla o no los tiene. En esta guía cada uno cumple una función:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identificador</th>
+      <th>Dónde</th>
+      <th>Quién lo asigna</th>
+      <th>Para qué</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Id del mensaje</td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle.identifier</code></td>
+      <td>Sistema de origen</td>
+      <td>Trazabilidad del transporte. Un reintento del <strong>mismo</strong> envío usa el mismo id</td>
+    </tr>
+    <tr>
+      <td>Folio del documento</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier[folio]</code> del foco + <code class="language-plaintext highlighter-rouge">assigner</code></td>
+      <td>Establecimiento</td>
+      <td><strong>Idempotencia de negocio.</strong> Mismo folio = mismo documento, aunque el mensaje sea nuevo</td>
+    </tr>
+    <tr>
+      <td>Número de caso</td>
+      <td><code class="language-plaintext highlighter-rouge">EpisodeOfCare.identifier[casoSIGGES]</code></td>
+      <td>SIGGES</td>
+      <td>Une todos los documentos del caso. Mientras no exista, se usa <code class="language-plaintext highlighter-rouge">identifier[casoLocal]</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="respuesta">Respuesta</h3>
+
+<p>SIGGES (o la capa de interoperabilidad, en la etapa 1) responde con un <a href="StructureDefinition-bundle-respuesta-ges.html">BundleRespuestaGES</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">response.code</code></th>
+      <th>Significado</th>
+      <th>Qué debe hacer el emisor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ok</code></td>
+      <td>Aceptado. <code class="language-plaintext highlighter-rouge">focus</code> devuelve el caso con su número SIGGES</td>
+      <td>Guardar el número SIGGES</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ok</code> + OperationOutcome <code class="language-plaintext highlighter-rouge">warning</code>/<code class="language-plaintext highlighter-rouge">information</code></td>
+      <td>Aceptado con observaciones (p.ej. dato derivado del catálogo, <a href="Bundle-resp-duplicado.html">folio duplicado</a>)</td>
+      <td>Revisar y no reenviar</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">transient-error</code></td>
+      <td>Falla temporal (SIGGES no disponible, timeout)</td>
+      <td>Reintentar con el <strong>mismo</strong> <code class="language-plaintext highlighter-rouge">Bundle.identifier</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">fatal-error</code> + OperationOutcome <code class="language-plaintext highlighter-rouge">error</code></td>
+      <td>Rechazado por validación o por regla de negocio</td>
+      <td>Corregir y reenviar con <strong>nuevo</strong> <code class="language-plaintext highlighter-rouge">Bundle.identifier</code> y el <strong>mismo</strong> folio</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ejemplos:</p>
+
+<ul>
+  <li><a href="Bundle-resp-a1-ok.html">Respuesta OK con número de caso</a></li>
+  <li><a href="Bundle-resp-b2-aviso.html">OK con información</a></li>
+  <li><a href="Bundle-resp-error.html">Error de validación</a></li>
+  <li><a href="Bundle-resp-duplicado.html">Reenvío idempotente</a></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">OperationOutcome.issue.expression</code> apunta a la ruta FHIRPath exacta del problema, por ejemplo <code class="language-plaintext highlighter-rouge">Bundle.entry[3].resource.type[1]</code>. Esto evita los mensajes de error genéricos.</p>
+
+<h3 id="validaciones-de-negocio-que-corresponden-a-sigges">Validaciones de negocio que corresponden a SIGGES</h3>
+
+<p>Las reglas que requieren estado o catálogo no se pueden expresar en el perfil. Las aplica el receptor:</p>
+
+<ul>
+  <li>La rama pertenece al problema de salud (propiedad <code class="language-plaintext highlighter-rouge">problemaSalud</code> de <a href="CodeSystem-rama-problema-salud-ges.html">CSRamaProblemaSaludGES</a>).</li>
+  <li>La garantía pertenece a la rama del caso (propiedad <code class="language-plaintext highlighter-rouge">rama</code> de <a href="CodeSystem-garantia-ges.html">CSGarantiaGES</a>).</li>
+  <li><code class="language-plaintext highlighter-rouge">derivadaPara</code> corresponde al documento (SIC u OA), lo que ya está resuelto con ValueSets separados.</li>
+  <li>El estado de HD corresponde a la rama (propiedad <code class="language-plaintext highlighter-rouge">rama</code> de <a href="CodeSystem-estado-hoja-diaria-ges.html">CSEstadoHojaDiariaGES</a>).</li>
+  <li>La causal está vigente a la fecha del documento (propiedades <code class="language-plaintext highlighter-rouge">status</code>, <code class="language-plaintext highlighter-rouge">effectiveDate</code> y <code class="language-plaintext highlighter-rouge">retirementDate</code> de <a href="CodeSystem-causal-sigges.html">CSCausalSIGGES</a>).</li>
+  <li>El estado de una HD es coherente con su <code class="language-plaintext highlighter-rouge">verificationStatus</code> (propiedad <code class="language-plaintext highlighter-rouge">verificacion</code> de <a href="CodeSystem-estado-hoja-diaria-ges.html">CSEstadoHojaDiariaGES</a>). Hasta la 0.2.0 lo intentaba una invariante que leía el texto del estado; se retiró porque un texto no es una regla estable.</li>
+  <li>El dígito verificador del RUN es correcto (módulo 11). El perfil valida solo el formato (<code class="language-plaintext highlighter-rouge">ges-run</code>).</li>
+</ul>
+
+<h3 id="contrato-de-interfaz">Contrato de interfaz</h3>
+
+<p>Lo que esta página describe está declarado en dos <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>:</p>
+
+<ul>
+  <li><a href="CapabilityStatement-CSReceptorSIGGES.html">CSReceptorSIGGES</a>: lo que expone el receptor (la capa de interoperabilidad en la etapa 1, SIGGES en la etapa 2).</li>
+  <li><a href="CapabilityStatement-CSEmisorEstablecimiento.html">CSEmisorEstablecimiento</a>: lo que hace el sistema del establecimiento.</li>
+</ul>
+
+<h3 id="seguridad">Seguridad</h3>
+
+<ul>
+  <li><strong>OAuth 2.0 <code class="language-plaintext highlighter-rouge">client_credentials</code></strong> para comunicación entre sistemas. La API v1.5 usa hoy <code class="language-plaintext highlighter-rouge">grant_type=password</code>, que no corresponde para este caso: ver <a href="hallazgos.html">Observaciones</a>.</li>
+  <li><strong>TLS 1.2 o superior.</strong> El <code class="language-plaintext highlighter-rouge">client_id</code> se asocia a uno o más códigos DEIS: SIGGES debe rechazar un <code class="language-plaintext highlighter-rouge">MessageHeader.sender</code> que no corresponda al cliente autenticado.</li>
+  <li><strong>Sin datos personales en URLs.</strong> La consulta por RUN usa <code class="language-plaintext highlighter-rouge">POST [base]/EpisodeOfCare/_search</code>.</li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

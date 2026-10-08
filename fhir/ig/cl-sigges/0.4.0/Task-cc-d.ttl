@@ -1,0 +1,72 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Task/cc-d> a fhir:Task ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "cc-d"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/cierre-caso-ges" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/cierre-caso-ges>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Tarea cc-d</b></p><a name=\"cc-d\"> </a><a name=\"hccc-d\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-cierre-caso-ges.html\">CC — Cierre de caso</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSFolioDocumento.html\" title=\"Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.\">NSFolioDocumento</a>/CC-HLF-2026-000517</p><p><b>status</b>: Completed</p><p><b>statusReason</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges 8}\">Descarte</span></p><p><b>intent</b>: order</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges cierre-caso}\">Cierre de caso</span></p><p><b>focus</b>: <a href=\"EpisodeOfCare-caso-d.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812410,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-001044; status = finished; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-04-02 --&gt; 2026-04-24</a></p><p><b>for</b>: <a href=\"Patient-pac-d.html\">Rosa Elena Tapia (official) Female, DoB: 1970-01-30 ( RUN: 10987654-2 (use: official))</a></p><p><b>authoredOn</b>: 2026-04-24 10:05:00-0300</p><p><b>requester</b>: <a href=\"PractitionerRole-rol-fuentes-hlf.html\">Andrés Fuentes (official) (RUN: 13478215-3 (use: official)) at Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><p><b>note</b>: </p><blockquote><div><p>Biopsia negativa para neoplasia. Contrarreferencia a APS.</p>\n</div></blockquote></div>"
+  ] ;
+  fhir:Task.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento" ] ;
+     fhir:Identifier.value [ fhir:value "CC-HLF-2026-000517" ] ;
+     fhir:Identifier.assigner [
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Organization/hosp-la-florida> ;
+       fhir:Reference.reference [ fhir:value "Organization/hosp-la-florida" ]
+     ]
+  ] ;
+  fhir:Task.status [ fhir:value "completed"] ;
+  fhir:Task.statusReason [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/causal-sigges" ] ;
+       fhir:Coding.code [ fhir:value "8" ] ;
+       fhir:Coding.display [ fhir:value "Descarte" ]
+     ]
+  ] ;
+  fhir:Task.intent [ fhir:value "order"] ;
+  fhir:Task.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges" ] ;
+       fhir:Coding.code [ fhir:value "cierre-caso" ]
+     ]
+  ] ;
+  fhir:Task.focus [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/EpisodeOfCare/caso-d> ;
+     fhir:Reference.reference [ fhir:value "EpisodeOfCare/caso-d" ]
+  ] ;
+  fhir:Task.for [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/Patient/pac-d> ;
+     fhir:Reference.reference [ fhir:value "Patient/pac-d" ]
+  ] ;
+  fhir:Task.authoredOn [ fhir:value "2026-04-24T10:05:00-03:00"^^xsd:dateTime] ;
+  fhir:Task.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/sigges/PractitionerRole/rol-fuentes-hlf> ;
+     fhir:Reference.reference [ fhir:value "PractitionerRole/rol-fuentes-hlf" ]
+  ] ;
+  fhir:Task.note [
+     fhir:index 0 ;
+     fhir:Annotation.text [ fhir:value "Biopsia negativa para neoplasia. Contrarreferencia a APS." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/Task/cc-d.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,58 @@
+{
+  "resourceType" : "Procedure",
+  "id" : "po-b-hemodialisis",
+  "meta" : {
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Procedimiento po-b-hemodialisis</b></p><a name=\"po-b-hemodialisis\"> </a><a name=\"hcpo-b-hemodialisis\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-po-ges.html\">PO — Prestación otorgada</a></p></div><p><b>Caso GES</b>: <a href=\"EpisodeOfCare-caso-b.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812399,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#SR-2026-004410; status = active; type = Enfermedad renal crónica etapa 4 y 5,Enfermedad renal crónica etapa 4 y 5 (decreto nº 228); period = 2026-05-04 --&gt; (ongoing)</a></p><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 4037}\">Tratamiento Hemodiálisis</span></p><p><b>identifier</b>: <a href=\"NamingSystem-NSFolioDocumento.html\" title=\"Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia.\">NSFolioDocumento</a>/PO-SR-2026-040551</p><p><b>basedOn</b>: <a href=\"ServiceRequest-oa-b-hemodialisis.html\">ServiceRequest HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)</a></p><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa 1901029}\">HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)</span></p><p><b>subject</b>: <a href=\"Patient-pac-b.html\">María Isabel González (official) Female, DoB: 1958-07-02 ( RUN: 7654321-6\u00a0(use:\u00a0official))</a></p><p><b>performed</b>: 2026-05-12 --&gt; 2026-06-11</p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"PractitionerRole-rol-soto-sotero.html\">Valentina Soto (official) (RUN: 14209771-0\u00a0(use:\u00a0official)) at Complejo Hospitalario Dr. Sótero del Río (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-101)</a></td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-caso-ges",
+    "valueReference" : {
+      "reference" : "EpisodeOfCare/caso-b"
+    }
+  },
+  {
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges",
+        "code" : "4037",
+        "display" : "Tratamiento Hemodiálisis"
+      }]
+    }
+  }],
+  "identifier" : [{
+    "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/folio-documento",
+    "value" : "PO-SR-2026-040551",
+    "assigner" : {
+      "reference" : "Organization/sotero-del-rio"
+    }
+  }],
+  "basedOn" : [{
+    "reference" : "ServiceRequest/oa-b-hemodialisis"
+  }],
+  "status" : "completed",
+  "code" : {
+    "coding" : [{
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/prestacion-fonasa",
+      "code" : "1901029",
+      "display" : "HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)"
+    }],
+    "text" : "HEMODIALISIS CON BICARBONATO CON INSUMOS(TRATAMIENTO MENSUAL)"
+  },
+  "subject" : {
+    "reference" : "Patient/pac-b"
+  },
+  "performedPeriod" : {
+    "start" : "2026-05-12",
+    "end" : "2026-06-11"
+  },
+  "performer" : [{
+    "actor" : {
+      "reference" : "PractitionerRole/rol-soto-sotero"
+    }
+  }]
+}

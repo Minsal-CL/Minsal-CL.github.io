@@ -1,0 +1,4608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Garantías GES - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"13.49"}
+    h3,h4,h5,h6{--heading-prefix:"13.49"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>Garantías GES</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+    <a href="#">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="CodeSystem-garantia-ges.xml.html">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CodeSystem-garantia-ges.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CodeSystem-garantia-ges.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+  <a name="root"> </a>
+  <h2 id="root">CodeSystem: Garantías GES
+
+  </h2>
+
+  <table class="colsd">
+
+    <tr>
+      <td colspan="4"><i>Official URL</i>: <span class="copy-text">https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges<button title="Click to copy URL" class="btn-copy" data-clipboard-text="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges"/></span>
+      </td>
+      <td><i>Version</i>:
+      <span class="copy-text">0.4.0<button title="Click to copy versioned URL" class="btn-copy" data-clipboard-text="https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges|0.4.0"/></span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="4">
+        
+          Draft
+          
+            as of 2026-10-08
+          
+        
+      </td>
+
+
+
+      <td><i>Computable Name</i>: <span style="font-family: monospace;">CSGarantiaGES</span></td>
+    </tr>
+
+
+
+
+    <tr>
+      <td colspan="5"><p><em>Copyright/Legal</em>: Catálogo SIGGES 2.0 — FONASA. Generado con tools/catalogo2fsh.py.</p>
+</td>
+    </tr>
+
+  </table>
+
+<p>
+<p>Garantías GES por rama de problema de salud (hoja GARANTIAS).</p>
+
+</p>
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <p>
+  This Code system is referenced in the content logical definition of the following value sets:
+  </p>
+
+  
+<ul>
+ <li><a href="ValueSet-vs-garantia-ges.html">Garantías GES</a></li>
+</ul>
+
+
+  <div xmlns="http://www.w3.org/1999/xhtml" data-fhir="generated"><p class="res-header-id"></p><a name="garantia-ges"> </a><a name="hcgarantia-ges"> </a><p><b>Propiedades</b></p><p><b>This code system defines the following properties for its concepts</b></p>
+<table class="grid" data-fhir="generated"><tr><td><b>Nombre</b></td><td><b>Code</b></td><td><b>Type</b></td><td><b>Description</b></td></tr>
+<tr><td>rama</td>
+<td>rama</td>
+<td>string</td>
+<td>Rama (CSRamaProblemaSaludGES)</td></tr>
+<tr><td>problemaSalud</td>
+<td>problemaSalud</td>
+<td>string</td>
+<td>Problema de salud (CSProblemaSaludGES)</td></tr>
+<tr><td>documentoInicio</td>
+<td>documentoInicio</td>
+<td>string</td>
+<td>Documento SIGGES que inicia el plazo (cuando el catálogo lo informa)</td></tr>
+<tr><td>documentoTermino</td>
+<td>documentoTermino</td>
+<td>string</td>
+<td>Documento SIGGES que cumple la garantía (cuando el catálogo lo informa)</td></tr></table><p><b>Concepts</b></p><p>This case-sensitive code system <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges</code> defines the following codes:</p>
+<table class="codes" data-fhir="generated"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>rama</b></td><td><b>problemaSalud</b></td><td><b>documentoInicio</b></td><td><b>documentoTermino</b></td></tr>
+<tr><td style="white-space:nowrap">33<a name="garantia-ges-33"> </a></td>
+<td>Garantía Diagnóstico con Glicemia (SIC-PO)</td>
+<td>50</td>
+<td>6</td>
+<td>SIC</td>
+<td>PO</td></tr>
+<tr><td style="white-space:nowrap">34<a name="garantia-ges-34"> </a></td>
+<td>Garantía Tratamiento Medidas Específicas Inmediatas (IPD-PO)</td>
+<td>50</td>
+<td>6</td>
+<td>IPD</td>
+<td>PO</td></tr>
+<tr><td style="white-space:nowrap">35<a name="garantia-ges-35"> </a></td>
+<td>Garantía Tratamiento Hospitalizado (OA-PO)</td>
+<td>50</td>
+<td>6</td>
+<td>OA</td>
+<td>PO</td></tr>
+<tr><td style="white-space:nowrap">36<a name="garantia-ges-36"> </a></td>
+<td>Garantía Atención por Especialista x Sospecha (SIC-PO)</td>
+<td>51</td>
+<td>6</td>
+<td>SIC</td>
+<td>PO</td></tr>
+<tr><td style="white-space:nowrap">37<a name="garantia-ges-37"> </a></td>
+<td>Garantía Tratamiento en 24 horas (IPD-PO)</td>
+<td>51</td>
+<td>6</td>
+<td>IPD</td>
+<td>PO</td></tr>
+<tr><td style="white-space:nowrap">39<a name="garantia-ges-39"> </a></td>
+<td>Diagnóstico - Electrocardiograma</td>
+<td>16</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">40<a name="garantia-ges-40"> </a></td>
+<td>Tratamiento - Medidas Generales Inmediatas</td>
+<td>16</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">41<a name="garantia-ges-41"> </a></td>
+<td>Tratamiento - Trombolisis</td>
+<td>16</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">42<a name="garantia-ges-42"> </a></td>
+<td>Tratamiento - Hospitalización</td>
+<td>16</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">43<a name="garantia-ges-43"> </a></td>
+<td>Seguimiento</td>
+<td>16</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">44<a name="garantia-ges-44"> </a></td>
+<td>Garantía Prevención Secundaria IAM (IPD-PO)</td>
+<td>52</td>
+<td>5</td>
+<td>IPD</td>
+<td>PO</td></tr>
+<tr><td style="white-space:nowrap">162<a name="garantia-ges-162"> </a></td>
+<td>Diagnóstico - Especialista</td>
+<td>61</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">163<a name="garantia-ges-163"> </a></td>
+<td>Diagnóstico - Confirmación</td>
+<td>61</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">164<a name="garantia-ges-164"> </a></td>
+<td>Tratamiento</td>
+<td>61</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">165<a name="garantia-ges-165"> </a></td>
+<td>Seguimiento</td>
+<td>61</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">166<a name="garantia-ges-166"> </a></td>
+<td>Tratamiento</td>
+<td>62</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">170<a name="garantia-ges-170"> </a></td>
+<td>Terapia Reperfusión Coronaria Farmacológica Vía Periférica</td>
+<td>64</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">171<a name="garantia-ges-171"> </a></td>
+<td>Consulta Integral de Especialidades</td>
+<td>65</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">173<a name="garantia-ges-173"> </a></td>
+<td>Tratamiento - Radioterapia</td>
+<td>67</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">174<a name="garantia-ges-174"> </a></td>
+<td>Tratamiento - Quimioterapia</td>
+<td>67</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">175<a name="garantia-ges-175"> </a></td>
+<td>Seguimiento</td>
+<td>67</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">176<a name="garantia-ges-176"> </a></td>
+<td>Tratamiento - Quimioterapia Post-Quirúrgica</td>
+<td>67</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">177<a name="garantia-ges-177"> </a></td>
+<td>Atención Especialista</td>
+<td>68</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">178<a name="garantia-ges-178"> </a></td>
+<td>Cirugía</td>
+<td>68</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">180<a name="garantia-ges-180"> </a></td>
+<td>Atención Especialista</td>
+<td>70</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">200<a name="garantia-ges-200"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>105</td>
+<td>26</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">201<a name="garantia-ges-201"> </a></td>
+<td>Intervención Quirúrgica</td>
+<td>105</td>
+<td>26</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">700<a name="garantia-ges-700"> </a></td>
+<td>Consulta Especialista</td>
+<td>108</td>
+<td>27</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">701<a name="garantia-ges-701"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>108</td>
+<td>27</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">702<a name="garantia-ges-702"> </a></td>
+<td>Intervención Quirúrgica</td>
+<td>108</td>
+<td>27</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">703<a name="garantia-ges-703"> </a></td>
+<td>Seguimiento</td>
+<td>108</td>
+<td>27</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">704<a name="garantia-ges-704"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>107</td>
+<td>30</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">705<a name="garantia-ges-705"> </a></td>
+<td>Tratamiento Médico</td>
+<td>107</td>
+<td>30</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">706<a name="garantia-ges-706"> </a></td>
+<td>Tratamiento Quirúrgico</td>
+<td>107</td>
+<td>30</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">707<a name="garantia-ges-707"> </a></td>
+<td>Control Médico desde el alta médica</td>
+<td>107</td>
+<td>30</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">708<a name="garantia-ges-708"> </a></td>
+<td>Tratamiento Primario</td>
+<td>106</td>
+<td>28</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">709<a name="garantia-ges-709"> </a></td>
+<td>Seguimiento</td>
+<td>106</td>
+<td>28</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">710<a name="garantia-ges-710"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>109</td>
+<td>32</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">711<a name="garantia-ges-711"> </a></td>
+<td>Tratamiento</td>
+<td>109</td>
+<td>32</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">712<a name="garantia-ges-712"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>110</td>
+<td>33</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">713<a name="garantia-ges-713"> </a></td>
+<td>Tratamiento</td>
+<td>110</td>
+<td>33</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">714<a name="garantia-ges-714"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>116</td>
+<td>39</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">715<a name="garantia-ges-715"> </a></td>
+<td>Tratamiento</td>
+<td>116</td>
+<td>39</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">716<a name="garantia-ges-716"> </a></td>
+<td>Atención Especialista</td>
+<td>116</td>
+<td>39</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">717<a name="garantia-ges-717"> </a></td>
+<td>Entrega de Bastón, Colchón Antiescaras, Cojín Antiescaras</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">718<a name="garantia-ges-718"> </a></td>
+<td>Entrega de Silla de Ruedas, Andador, Andador de Paseo</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">719<a name="garantia-ges-719"> </a></td>
+<td>Tratamiento Farmacológico</td>
+<td>122</td>
+<td>19</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">720<a name="garantia-ges-720"> </a></td>
+<td>Tratamiento - Quirúrgico</td>
+<td>124</td>
+<td>10</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">721<a name="garantia-ges-721"> </a></td>
+<td>Tratamiento - Primer Control</td>
+<td>124</td>
+<td>10</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">722<a name="garantia-ges-722"> </a></td>
+<td>Tratamiento</td>
+<td>127</td>
+<td>22</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">900<a name="garantia-ges-900"> </a></td>
+<td>Tratamiento</td>
+<td>111</td>
+<td>35</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">901<a name="garantia-ges-901"> </a></td>
+<td>Tratamiento Depresión</td>
+<td>112</td>
+<td>34</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">902<a name="garantia-ges-902"> </a></td>
+<td>Consulta con Especialista</td>
+<td>112</td>
+<td>34</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">903<a name="garantia-ges-903"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">904<a name="garantia-ges-904"> </a></td>
+<td>Hospitalización</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">905<a name="garantia-ges-905"> </a></td>
+<td>Seguimiento Atención Especialista Post Alta</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">906<a name="garantia-ges-906"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>114</td>
+<td>38</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">907<a name="garantia-ges-907"> </a></td>
+<td>Tratamiento</td>
+<td>114</td>
+<td>38</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">908<a name="garantia-ges-908"> </a></td>
+<td>Atención Especialista</td>
+<td>114</td>
+<td>38</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">909<a name="garantia-ges-909"> </a></td>
+<td>Inicio de Tratamiento</td>
+<td>115</td>
+<td>40</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">910<a name="garantia-ges-910"> </a></td>
+<td>Ingreso a Prestador con Capacidad de Resolución Integral</td>
+<td>115</td>
+<td>40</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">911<a name="garantia-ges-911"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>117</td>
+<td>29</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">912<a name="garantia-ges-912"> </a></td>
+<td>Entrega de Lentes Presbicia</td>
+<td>118</td>
+<td>29</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">913<a name="garantia-ges-913"> </a></td>
+<td>Entrega de Lentes Miopía, Astigmatismo o Hipermetropía</td>
+<td>119</td>
+<td>29</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">914<a name="garantia-ges-914"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>120</td>
+<td>31</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">915<a name="garantia-ges-915"> </a></td>
+<td>Tratamiento</td>
+<td>120</td>
+<td>31</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">916<a name="garantia-ges-916"> </a></td>
+<td>Diagnóstico en 48 Horas</td>
+<td>123</td>
+<td>20</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">917<a name="garantia-ges-917"> </a></td>
+<td>Tratamiento Farmacológico</td>
+<td>123</td>
+<td>20</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">918<a name="garantia-ges-918"> </a></td>
+<td>Tratamiento - Peritoneodiálisis Menores de 15 años</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">919<a name="garantia-ges-919"> </a></td>
+<td>Tratamiento - Hemodiálisis en Menores de 15 años</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">920<a name="garantia-ges-920"> </a></td>
+<td>Tratamiento - Hemodiálisis en Personas de 15 años y más</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">921<a name="garantia-ges-921"> </a></td>
+<td>Estudio Pre-Transplante</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">922<a name="garantia-ges-922"> </a></td>
+<td>Tratamiento Inmunosupresor</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">923<a name="garantia-ges-923"> </a></td>
+<td>Tratamiento Paliativo</td>
+<td>126</td>
+<td>4</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">924<a name="garantia-ges-924"> </a></td>
+<td>Diagnóstico APS</td>
+<td>128</td>
+<td>21</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">925<a name="garantia-ges-925"> </a></td>
+<td>Tratamiento en 24 Horas</td>
+<td>128</td>
+<td>21</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">926<a name="garantia-ges-926"> </a></td>
+<td>Atención Especialista</td>
+<td>128</td>
+<td>21</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">927<a name="garantia-ges-927"> </a></td>
+<td>Diagnóstico APS</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">928<a name="garantia-ges-928"> </a></td>
+<td>Tratamiento en 24 Horas</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">929<a name="garantia-ges-929"> </a></td>
+<td>Atención por Especialista</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">931<a name="garantia-ges-931"> </a></td>
+<td>Tratamiento Quirúrgico Endoprótesis Derecha</td>
+<td>130</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">932<a name="garantia-ges-932"> </a></td>
+<td>Control Seguimiento Traumatólogo Derecha</td>
+<td>130</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">933<a name="garantia-ges-933"> </a></td>
+<td>Tratamiento Kinesiólogo Derecha</td>
+<td>130</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">934<a name="garantia-ges-934"> </a></td>
+<td>Tratamiento Quirúrgico Endoprótesis Izquierda</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">935<a name="garantia-ges-935"> </a></td>
+<td>Control Seguimiento Traumatólogo Izquierda</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">936<a name="garantia-ges-936"> </a></td>
+<td>Tratamiento Kinesiólogo Izquierda</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1200<a name="garantia-ges-1200"> </a></td>
+<td>Diagnóstico - Atención con Especialista</td>
+<td>133</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1201<a name="garantia-ges-1201"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>133</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1202<a name="garantia-ges-1202"> </a></td>
+<td>Tratamiento Cáncer Pre-Invasor</td>
+<td>135</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1203<a name="garantia-ges-1203"> </a></td>
+<td>Seguimiento Pre-Invasor</td>
+<td>135</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1204<a name="garantia-ges-1204"> </a></td>
+<td>Tratamiento Cáncer Invasor</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1205<a name="garantia-ges-1205"> </a></td>
+<td>Seguimiento Invasor</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1206<a name="garantia-ges-1206"> </a></td>
+<td>Atención Especialista Mama Derecha</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1207<a name="garantia-ges-1207"> </a></td>
+<td>Confirmación Mama Derecha</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1208<a name="garantia-ges-1208"> </a></td>
+<td>Tratamiento Primario Mama Derecha</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1209<a name="garantia-ges-1209"> </a></td>
+<td>Control Seguimiento Mama Derecha</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1210<a name="garantia-ges-1210"> </a></td>
+<td>Atención Especialista Mama Izquierda</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1211<a name="garantia-ges-1211"> </a></td>
+<td>Confirmación Mama Izquierda</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1212<a name="garantia-ges-1212"> </a></td>
+<td>Tratamiento Primario Mama Izquierda</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1213<a name="garantia-ges-1213"> </a></td>
+<td>Control Seguimiento Mama Izquierda</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1214<a name="garantia-ges-1214"> </a></td>
+<td>Diagnóstico</td>
+<td>147</td>
+<td>25</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1215<a name="garantia-ges-1215"> </a></td>
+<td>Tratamiento</td>
+<td>147</td>
+<td>25</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1216<a name="garantia-ges-1216"> </a></td>
+<td>Seguimiento</td>
+<td>147</td>
+<td>25</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1217<a name="garantia-ges-1217"> </a></td>
+<td>Diagnóstico - Electrocardiograma</td>
+<td>149</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1218<a name="garantia-ges-1218"> </a></td>
+<td>Tratamiento - Trombolisis</td>
+<td>149</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1219<a name="garantia-ges-1219"> </a></td>
+<td>Prevención Secundaria IAM</td>
+<td>149</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1220<a name="garantia-ges-1220"> </a></td>
+<td>Prevención Secundaria Bypass</td>
+<td>150</td>
+<td>5</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1221<a name="garantia-ges-1221"> </a></td>
+<td>Confirmación-Diagnóstica</td>
+<td>139</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1222<a name="garantia-ges-1222"> </a></td>
+<td>Tratamiento Quirúrgico Bilateral - 1er Ojo</td>
+<td>142</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1223<a name="garantia-ges-1223"> </a></td>
+<td>Tratamiento Quirúrgico Bilateral - 2do Ojo</td>
+<td>142</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1224<a name="garantia-ges-1224"> </a></td>
+<td>Tratamiento Quirúrgico Unilateral Derecha</td>
+<td>140</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1225<a name="garantia-ges-1225"> </a></td>
+<td>Tratamiento Quirúrgico Unilateral Izquierda</td>
+<td>141</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1230<a name="garantia-ges-1230"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>143</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1231<a name="garantia-ges-1231"> </a></td>
+<td>Tratamiento Quirurgico Bilateral</td>
+<td>146</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1232<a name="garantia-ges-1232"> </a></td>
+<td>Seguimiento Bilateral Control Especialista</td>
+<td>146</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1233<a name="garantia-ges-1233"> </a></td>
+<td>Tratamiento Quirúrgico Unilateral Derecha</td>
+<td>144</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1234<a name="garantia-ges-1234"> </a></td>
+<td>Seguimiento Unilateral Derecha - Control Especialista</td>
+<td>144</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1235<a name="garantia-ges-1235"> </a></td>
+<td>Tratamiento Quirúrgico Unilateral Izquierda</td>
+<td>145</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1236<a name="garantia-ges-1236"> </a></td>
+<td>Seguimiento Unilateral Izquierda - Control Especialista</td>
+<td>145</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1237<a name="garantia-ges-1237"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>151</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1238<a name="garantia-ges-1238"> </a></td>
+<td>Tratamiento - Quimioterapia</td>
+<td>151</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1239<a name="garantia-ges-1239"> </a></td>
+<td>Tratamiento - Radioterapia</td>
+<td>151</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1240<a name="garantia-ges-1240"> </a></td>
+<td>Control Especialista Seguimiento</td>
+<td>151</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1241<a name="garantia-ges-1241"> </a></td>
+<td>Confirmación Prenatal Cardiopatía Congénita</td>
+<td>152</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1242<a name="garantia-ges-1242"> </a></td>
+<td>Confirmación Diagnóstico Post-Natal entre 0 y 7 días</td>
+<td>152</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1243<a name="garantia-ges-1243"> </a></td>
+<td>Confirmación Diagnóstico Post-Natal entre 8 días y 15 años</td>
+<td>152</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1245<a name="garantia-ges-1245"> </a></td>
+<td>CCO Otras. Tratamiento Quirúrgico tiempo Variable</td>
+<td>154</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1246<a name="garantia-ges-1246"> </a></td>
+<td>CCO Otras. Control desde alta por Cirugía</td>
+<td>154</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1247<a name="garantia-ges-1247"> </a></td>
+<td>CCO Grave. Hospitalización</td>
+<td>153</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1248<a name="garantia-ges-1248"> </a></td>
+<td>CCO Grave. Tratamiento Quirúrgico Cardiopatía Grave</td>
+<td>153</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1249<a name="garantia-ges-1249"> </a></td>
+<td>CCO Grave. Control desde el alta por Cirugía</td>
+<td>153</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1250<a name="garantia-ges-1250"> </a></td>
+<td>Diagnóstico con Glicemia</td>
+<td>155</td>
+<td>6</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1251<a name="garantia-ges-1251"> </a></td>
+<td>Consulta con Médico Especialista</td>
+<td>156</td>
+<td>6</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1252<a name="garantia-ges-1252"> </a></td>
+<td>Consulta con Médico Especialista</td>
+<td>155</td>
+<td>6</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1253<a name="garantia-ges-1253"> </a></td>
+<td>Tratamiento en 24 horas</td>
+<td>156</td>
+<td>6</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1254<a name="garantia-ges-1254"> </a></td>
+<td>Diagnóstico Disrafia Abierta</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1255<a name="garantia-ges-1255"> </a></td>
+<td>Cirugía Disrafia Abierta</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1256<a name="garantia-ges-1256"> </a></td>
+<td>Válvula Derivativa Disrafia Abierta</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1257<a name="garantia-ges-1257"> </a></td>
+<td>Control con Neurocirujano Disrafia Abierta</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1258<a name="garantia-ges-1258"> </a></td>
+<td>Consulta con Neurocirujano Disrafia Cerrada</td>
+<td>158</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1259<a name="garantia-ges-1259"> </a></td>
+<td>Cirugía Disrafia Cerrada</td>
+<td>158</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1260<a name="garantia-ges-1260"> </a></td>
+<td>Control con Neurocirujano Disrafia Cerrada</td>
+<td>158</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1261<a name="garantia-ges-1261"> </a></td>
+<td>Atención Especialista</td>
+<td>165</td>
+<td>15</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1262<a name="garantia-ges-1262"> </a></td>
+<td>Tratamiento</td>
+<td>165</td>
+<td>15</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1263<a name="garantia-ges-1263"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>165</td>
+<td>15</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1264<a name="garantia-ges-1264"> </a></td>
+<td>Tratamiento</td>
+<td>166</td>
+<td>23</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1270<a name="garantia-ges-1270"> </a></td>
+<td>Diagnóstico</td>
+<td>159</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1271<a name="garantia-ges-1271"> </a></td>
+<td>Tratamiento - Ortopedia Prequirúrgica</td>
+<td>159</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1272<a name="garantia-ges-1272"> </a></td>
+<td>Cirugía Primaria-Primera Intervención</td>
+<td>159</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1273<a name="garantia-ges-1273"> </a></td>
+<td>Cirugía Primaria-Segunda Intervención</td>
+<td>159</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1274<a name="garantia-ges-1274"> </a></td>
+<td>Diagnóstico con Etapificación Leucemia</td>
+<td>161</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1275<a name="garantia-ges-1275"> </a></td>
+<td>Tratamiento Quimioterapia Leucemia</td>
+<td>161</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1276<a name="garantia-ges-1276"> </a></td>
+<td>Tratamiento de Transplante Médula Ósea Leucemia</td>
+<td>161</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1277<a name="garantia-ges-1277"> </a></td>
+<td>Control Especialista Seguimiento Leucemia</td>
+<td>161</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1278<a name="garantia-ges-1278"> </a></td>
+<td>Tratamiento - Quimioterapia Linfoma</td>
+<td>163</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1279<a name="garantia-ges-1279"> </a></td>
+<td>Tratamiento - Radioterapia Linfoma</td>
+<td>163</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1280<a name="garantia-ges-1280"> </a></td>
+<td>Tratamiento de Transplante Médula Ósea Linfoma</td>
+<td>163</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1281<a name="garantia-ges-1281"> </a></td>
+<td>Control Especialista Seguimiento Linfoma</td>
+<td>163</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1282<a name="garantia-ges-1282"> </a></td>
+<td>Tratamiento - Quimioterapia Tumor Sólido</td>
+<td>164</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1283<a name="garantia-ges-1283"> </a></td>
+<td>Tratamiento - Radioterapia Tumor Sólido</td>
+<td>164</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1284<a name="garantia-ges-1284"> </a></td>
+<td>Control Especialista Seguimiento Tumor Sólido</td>
+<td>164</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1285<a name="garantia-ges-1285"> </a></td>
+<td>Diagnóstico Linfoma y Tumores Sólidos</td>
+<td>162</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1290<a name="garantia-ges-1290"> </a></td>
+<td>Factores de Riesgo</td>
+<td>167</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1291<a name="garantia-ges-1291"> </a></td>
+<td>Diagnóstico Signos y Síntomas</td>
+<td>167</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1292<a name="garantia-ges-1292"> </a></td>
+<td>Tratamiento Prevención Parto Prematuro</td>
+<td>167</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1293<a name="garantia-ges-1293"> </a></td>
+<td>Diagnóstico Retinopatía del Prematuro</td>
+<td>168</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1294<a name="garantia-ges-1294"> </a></td>
+<td>Tratamiento Retinopatía del Prematuro</td>
+<td>168</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1295<a name="garantia-ges-1295"> </a></td>
+<td>Seguimiento con Cirugía o Láser</td>
+<td>168</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1296<a name="garantia-ges-1296"> </a></td>
+<td>Seguimiento Sin Cirugía o Láser</td>
+<td>168</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1297<a name="garantia-ges-1297"> </a></td>
+<td>Tratamiento Displasia Broncopulmonar</td>
+<td>169</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1298<a name="garantia-ges-1298"> </a></td>
+<td>Seguimiento Displasia Broncopulmonar</td>
+<td>169</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1299<a name="garantia-ges-1299"> </a></td>
+<td>Diagnóstico Hipoacusia</td>
+<td>170</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1300<a name="garantia-ges-1300"> </a></td>
+<td>Tratamiento - Audífonos</td>
+<td>170</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1301<a name="garantia-ges-1301"> </a></td>
+<td>Implante Coclear</td>
+<td>170</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1302<a name="garantia-ges-1302"> </a></td>
+<td>Seguimiento - Hipoacusia</td>
+<td>170</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1305<a name="garantia-ges-1305"> </a></td>
+<td>Tratamiento Paliativo</td>
+<td>4</td>
+<td>4</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1306<a name="garantia-ges-1306"> </a></td>
+<td>Tratamiento.</td>
+<td>42</td>
+<td>22</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1307<a name="garantia-ges-1307"> </a></td>
+<td>Diagnóstico APS.</td>
+<td>41</td>
+<td>21</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1308<a name="garantia-ges-1308"> </a></td>
+<td>Atención Especialista.</td>
+<td>41</td>
+<td>21</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1309<a name="garantia-ges-1309"> </a></td>
+<td>Tratamiento en 24 Horas.</td>
+<td>41</td>
+<td>21</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1310<a name="garantia-ges-1310"> </a></td>
+<td>Diagnóstico APS.</td>
+<td>25</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1311<a name="garantia-ges-1311"> </a></td>
+<td>Atención por Especialista</td>
+<td>25</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1312<a name="garantia-ges-1312"> </a></td>
+<td>Tratamiento en 24 Horas.</td>
+<td>25</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1313<a name="garantia-ges-1313"> </a></td>
+<td>Diagnóstico.</td>
+<td>49</td>
+<td>25</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1314<a name="garantia-ges-1314"> </a></td>
+<td>Tratamiento.</td>
+<td>49</td>
+<td>25</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1315<a name="garantia-ges-1315"> </a></td>
+<td>Seguimiento.</td>
+<td>49</td>
+<td>25</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1316<a name="garantia-ges-1316"> </a></td>
+<td>Tratamiento - Quirúrgico</td>
+<td>13</td>
+<td>10</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1317<a name="garantia-ges-1317"> </a></td>
+<td>Tratamiento - Primer Control</td>
+<td>13</td>
+<td>10</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1318<a name="garantia-ges-1318"> </a></td>
+<td>Atención Especialista</td>
+<td>14</td>
+<td>15</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1319<a name="garantia-ges-1319"> </a></td>
+<td>Tratamiento</td>
+<td>14</td>
+<td>15</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1320<a name="garantia-ges-1320"> </a></td>
+<td>Confirmación Diagnóstica.</td>
+<td>14</td>
+<td>15</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1321<a name="garantia-ges-1321"> </a></td>
+<td>Diagnóstico en 48 horas.</td>
+<td>40</td>
+<td>20</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1322<a name="garantia-ges-1322"> </a></td>
+<td>Tratamiento.</td>
+<td>40</td>
+<td>20</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1323<a name="garantia-ges-1323"> </a></td>
+<td>Tratamiento</td>
+<td>39</td>
+<td>19</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1324<a name="garantia-ges-1324"> </a></td>
+<td>Seguimiento.</td>
+<td>39</td>
+<td>19</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1325<a name="garantia-ges-1325"> </a></td>
+<td>Tratamiento - Peritoneodiálisis Menores de 15 años</td>
+<td>17</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1326<a name="garantia-ges-1326"> </a></td>
+<td>Tratamiento - Hemodiálisis en Mayores de 15 años</td>
+<td>17</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1327<a name="garantia-ges-1327"> </a></td>
+<td>Tratamiento - Hemodiálisis en Menores 15 años</td>
+<td>17</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1328<a name="garantia-ges-1328"> </a></td>
+<td>Estudio Pre-Transplante</td>
+<td>17</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1329<a name="garantia-ges-1329"> </a></td>
+<td>Tratamiento Inmunosupresor</td>
+<td>17</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1330<a name="garantia-ges-1330"> </a></td>
+<td>Diagnóstico Consulta Especialista</td>
+<td>18</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1331<a name="garantia-ges-1331"> </a></td>
+<td>Tratamiento - Quimioterapia</td>
+<td>18</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1332<a name="garantia-ges-1332"> </a></td>
+<td>Tratamiento - Radioterapia</td>
+<td>18</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1333<a name="garantia-ges-1333"> </a></td>
+<td>Control Especialista Seguimiento</td>
+<td>18</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1335<a name="garantia-ges-1335"> </a></td>
+<td>Tratamiento.</td>
+<td>43</td>
+<td>23</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1336<a name="garantia-ges-1336"> </a></td>
+<td>Diagnóstico Disrafia Abierta</td>
+<td>26</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1337<a name="garantia-ges-1337"> </a></td>
+<td>Cirugía Disrafia Abierta</td>
+<td>26</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1338<a name="garantia-ges-1338"> </a></td>
+<td>Válvula Derivativa Disrafia Abierta</td>
+<td>26</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1339<a name="garantia-ges-1339"> </a></td>
+<td>Control con Neurocirujano Disrafia Abierta</td>
+<td>26</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1340<a name="garantia-ges-1340"> </a></td>
+<td>Seguimiento Control Otros Especialistas Disrafia Abierta</td>
+<td>26</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1341<a name="garantia-ges-1341"> </a></td>
+<td>Consulta con Neurocirujano Disrafia Cerrada</td>
+<td>27</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1342<a name="garantia-ges-1342"> </a></td>
+<td>Exámen RMN y Rx Columna</td>
+<td>27</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1343<a name="garantia-ges-1343"> </a></td>
+<td>Cirugía Disrafia Cerrada</td>
+<td>27</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1344<a name="garantia-ges-1344"> </a></td>
+<td>Control con Neurocirujano Disrafia Cerrada</td>
+<td>27</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1345<a name="garantia-ges-1345"> </a></td>
+<td>Seguimiento Control Otros Especialistas Disrafia Cerrada</td>
+<td>27</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1346<a name="garantia-ges-1346"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>28</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1347<a name="garantia-ges-1347"> </a></td>
+<td>Tratamiento Quirúrgico Bilateral - 1er Ojo</td>
+<td>3</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1348<a name="garantia-ges-1348"> </a></td>
+<td>Tratamiento Quirúrgico Bilateral - 2do Ojo</td>
+<td>3</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1349<a name="garantia-ges-1349"> </a></td>
+<td>Tratamiento Quirúrgico Unilateral Derecha</td>
+<td>2</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1350<a name="garantia-ges-1350"> </a></td>
+<td>Tratamiento Quirúrgico Unilateral Izquierda</td>
+<td>29</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1351<a name="garantia-ges-1351"> </a></td>
+<td>Atención Especialista Mama Derecha</td>
+<td>54</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1352<a name="garantia-ges-1352"> </a></td>
+<td>Confirmación con Etapificación Mama Derecha</td>
+<td>54</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1353<a name="garantia-ges-1353"> </a></td>
+<td>Tratamiento Mama Derecha</td>
+<td>54</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1354<a name="garantia-ges-1354"> </a></td>
+<td>Control Seguimiento Mama Derecha</td>
+<td>54</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1355<a name="garantia-ges-1355"> </a></td>
+<td>Atención Especialista Mama Izquierda</td>
+<td>55</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1356<a name="garantia-ges-1356"> </a></td>
+<td>Confirmación con Etapificación Mama Izquierda</td>
+<td>55</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1357<a name="garantia-ges-1357"> </a></td>
+<td>Tratamiento Mama Izquierda</td>
+<td>55</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1358<a name="garantia-ges-1358"> </a></td>
+<td>Control Seguimiento Rama Izquierda</td>
+<td>55</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1359<a name="garantia-ges-1359"> </a></td>
+<td>Atención Especialista Sospecha Cáncer PreInvasor</td>
+<td>23</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1360<a name="garantia-ges-1360"> </a></td>
+<td>Confirmación Diagnóstico Cáncer PreInvasor</td>
+<td>23</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1361<a name="garantia-ges-1361"> </a></td>
+<td>Tratamiento Cáncer Pre-Invasor</td>
+<td>23</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1362<a name="garantia-ges-1362"> </a></td>
+<td>Seguimiento Pre-Invasor</td>
+<td>23</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1363<a name="garantia-ges-1363"> </a></td>
+<td>Atención Especialista Sospecha Cáncer invasor</td>
+<td>24</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1364<a name="garantia-ges-1364"> </a></td>
+<td>Confirmación Diagnóstico Cáncer invasor</td>
+<td>24</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1365<a name="garantia-ges-1365"> </a></td>
+<td>Etapificación Cáncer Invasor</td>
+<td>24</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1366<a name="garantia-ges-1366"> </a></td>
+<td>Tratamiento Cáncer Invasor</td>
+<td>24</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1367<a name="garantia-ges-1367"> </a></td>
+<td>Seguimiento Invasor</td>
+<td>24</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1374<a name="garantia-ges-1374"> </a></td>
+<td>Tratamiento Quirúrgico Endoprótesis Derecha</td>
+<td>30</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1375<a name="garantia-ges-1375"> </a></td>
+<td>Control Seguimiento Traumatólogo Derecha</td>
+<td>30</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1376<a name="garantia-ges-1376"> </a></td>
+<td>Tratamiento Kinesiólogo Derecha</td>
+<td>30</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1377<a name="garantia-ges-1377"> </a></td>
+<td>Tratamiento Quirúrgico Endoprótesis Izquierda</td>
+<td>31</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1378<a name="garantia-ges-1378"> </a></td>
+<td>Control Seguimiento Traumatólogo Izquierda</td>
+<td>31</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1379<a name="garantia-ges-1379"> </a></td>
+<td>Tratamiento Kinesiólogo Izquierda</td>
+<td>31</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1380<a name="garantia-ges-1380"> </a></td>
+<td>Diagnóstico</td>
+<td>15</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1381<a name="garantia-ges-1381"> </a></td>
+<td>Tratamiento - Ortopedia Prequirúrgica Fisura Labial</td>
+<td>32</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1382<a name="garantia-ges-1382"> </a></td>
+<td>Tratamiento Cierre Labial - Fisura Labial</td>
+<td>32</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1383<a name="garantia-ges-1383"> </a></td>
+<td>Control Especialista Post-Cirugía Fisura Labial</td>
+<td>32</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1384<a name="garantia-ges-1384"> </a></td>
+<td>Tratamiento Quirúrgico Fisura Labial con Malformación Craneofacial</td>
+<td>32</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1385<a name="garantia-ges-1385"> </a></td>
+<td>Ortopedia Pre-Quirúrgica Fisura Palatina</td>
+<td>33</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1386<a name="garantia-ges-1386"> </a></td>
+<td>Tratamiento Quirúrgico Cierre Paladar Blando Fisura Palatina</td>
+<td>33</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1387<a name="garantia-ges-1387"> </a></td>
+<td>Tratamiento Quirúrgico Cierre Paladar Duro Fisura Palatina</td>
+<td>33</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1388<a name="garantia-ges-1388"> </a></td>
+<td>Control Especialista Post-Cirugía Fisura Palatina</td>
+<td>33</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1389<a name="garantia-ges-1389"> </a></td>
+<td>Tratamiento Quirurgico Fisura Palatina con Malformación Craneofacial</td>
+<td>33</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1390<a name="garantia-ges-1390"> </a></td>
+<td>Ortopedia Pre-Quirúrgica Fisura LabioPalatina</td>
+<td>34</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1391<a name="garantia-ges-1391"> </a></td>
+<td>Tratamiento Quirúrgico Cierre Labial y Paladar Blando Fisura LabioPalatina</td>
+<td>34</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1392<a name="garantia-ges-1392"> </a></td>
+<td>Tratamiento Quirúrgico Cierre Paladar Duro Fisura LabioPalatina</td>
+<td>34</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1393<a name="garantia-ges-1393"> </a></td>
+<td>Control Especialistas Post-Cirugía Fisura LabioPalatina</td>
+<td>34</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1394<a name="garantia-ges-1394"> </a></td>
+<td>Tratamiento Quirúrgico Fisura LabioPalatina con Malformación Craneofacial</td>
+<td>34</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1395<a name="garantia-ges-1395"> </a></td>
+<td>Diagnóstico con Etapificación Leucemia</td>
+<td>1</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1396<a name="garantia-ges-1396"> </a></td>
+<td>Tratamiento Quimioterapia Leucemia</td>
+<td>1</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1397<a name="garantia-ges-1397"> </a></td>
+<td>Tratamiento de Transplante Médula Osea Leucemia</td>
+<td>1</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1398<a name="garantia-ges-1398"> </a></td>
+<td>Control Especialista Seguimiento Leucemia</td>
+<td>1</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1399<a name="garantia-ges-1399"> </a></td>
+<td>Diagnóstico Linfoma y Tumores Sólido</td>
+<td>37</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1400<a name="garantia-ges-1400"> </a></td>
+<td>Tratamiento - Quimioterapia Linfoma</td>
+<td>59</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1401<a name="garantia-ges-1401"> </a></td>
+<td>Tratamiento - Radioterapia Linfoma</td>
+<td>59</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1402<a name="garantia-ges-1402"> </a></td>
+<td>Tratamiento Radioterapia Problema Cicatrización Linfoma</td>
+<td>59</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1403<a name="garantia-ges-1403"> </a></td>
+<td>Tratamiento de Transplante Médula Osea Linfoma</td>
+<td>59</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1404<a name="garantia-ges-1404"> </a></td>
+<td>Control Especialista Seguimiento Linfoma</td>
+<td>59</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1405<a name="garantia-ges-1405"> </a></td>
+<td>Tratamiento - Quimioterapia Tumor Solido</td>
+<td>60</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1406<a name="garantia-ges-1406"> </a></td>
+<td>Tratamiento - Radioterapia Tumor Sólido</td>
+<td>60</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1407<a name="garantia-ges-1407"> </a></td>
+<td>Tratamiento Radioterapia Problema Cicatrización Tumor Sólido</td>
+<td>60</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1408<a name="garantia-ges-1408"> </a></td>
+<td>Tratamiento de Transplante Médula Osea Tumor Sólido</td>
+<td>60</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1409<a name="garantia-ges-1409"> </a></td>
+<td>Control Especialista Seguimiento Tumor Sólido</td>
+<td>60</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1410<a name="garantia-ges-1410"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>8</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1411<a name="garantia-ges-1411"> </a></td>
+<td>Tratamiento Bilateral - Radioterapia</td>
+<td>58</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1412<a name="garantia-ges-1412"> </a></td>
+<td>Tratamiento Bilateral - Quimioterapia</td>
+<td>58</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1413<a name="garantia-ges-1413"> </a></td>
+<td>Tratamiento Bilateral - Quimioterapia Problema de Cicatrización</td>
+<td>58</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1414<a name="garantia-ges-1414"> </a></td>
+<td>Tratamiento Bilateral - Hormonoterapia</td>
+<td>58</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1415<a name="garantia-ges-1415"> </a></td>
+<td>Seguimiento Bilateral - Control Especialista</td>
+<td>58</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1416<a name="garantia-ges-1416"> </a></td>
+<td>Tratamiento Unilateral Derecha - Radioterapia</td>
+<td>56</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1417<a name="garantia-ges-1417"> </a></td>
+<td>Tratamiento Unilateral Derecha - Quimioterapia</td>
+<td>56</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1418<a name="garantia-ges-1418"> </a></td>
+<td>Tratamiento Unilateral Derecha - Quimioterapia Problema por Cicatrización</td>
+<td>56</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1419<a name="garantia-ges-1419"> </a></td>
+<td>Seguimiento Unilateral Derecha - Control Especialista</td>
+<td>56</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1420<a name="garantia-ges-1420"> </a></td>
+<td>Tratamiento Unilateral Izquierda - Radioterapia</td>
+<td>57</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1421<a name="garantia-ges-1421"> </a></td>
+<td>Tratamiento Unilateral IZquierda - Quimioterapia</td>
+<td>57</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1422<a name="garantia-ges-1422"> </a></td>
+<td>Tratamiento Unilateral Izquierda - Quimioterapia Problema por Cicatrización</td>
+<td>57</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1423<a name="garantia-ges-1423"> </a></td>
+<td>Seguimiento Unilateral Izquierda - Control Especialista</td>
+<td>57</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1424<a name="garantia-ges-1424"> </a></td>
+<td>Confirmación Prenatal Cardiopatía Congénita</td>
+<td>9</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1425<a name="garantia-ges-1425"> </a></td>
+<td>Confirmación Diagnóstico Post-Natal entre 0 y 7 días</td>
+<td>9</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1426<a name="garantia-ges-1426"> </a></td>
+<td>Confirmación Diagnóstico 8 a 28 días</td>
+<td>9</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1427<a name="garantia-ges-1427"> </a></td>
+<td>Confirmación Diagnóstico Recién Nacido 28 días a 2 años</td>
+<td>9</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1428<a name="garantia-ges-1428"> </a></td>
+<td>Confirmación Diagnóstico 2 años a 15 años</td>
+<td>9</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1429<a name="garantia-ges-1429"> </a></td>
+<td>CCO Otras. Tratamiento Quirúrgico tiempo Variable</td>
+<td>21</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1430<a name="garantia-ges-1430"> </a></td>
+<td>CCO Otras. Control desde alta por Cirugía</td>
+<td>21</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1431<a name="garantia-ges-1431"> </a></td>
+<td>CCO Grave. hospitalización</td>
+<td>22</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1432<a name="garantia-ges-1432"> </a></td>
+<td>CCO Grave. Tratamiento Quirúrgico Cardiopatía Grave</td>
+<td>22</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1433<a name="garantia-ges-1433"> </a></td>
+<td>CCO Grave. Control desde el alta por cirugía</td>
+<td>22</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1434<a name="garantia-ges-1434"> </a></td>
+<td>Diagnóstico - Factores de Riesgo.</td>
+<td>45</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1435<a name="garantia-ges-1435"> </a></td>
+<td>Evaluación por Profesional</td>
+<td>45</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1436<a name="garantia-ges-1436"> </a></td>
+<td>Tratamiento Prevención Parto Prematuro</td>
+<td>45</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1437<a name="garantia-ges-1437"> </a></td>
+<td>Diagnóstico Retinopatía del Prematuro</td>
+<td>46</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1438<a name="garantia-ges-1438"> </a></td>
+<td>Tratamiento Retinopatía del Prematuro</td>
+<td>46</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1439<a name="garantia-ges-1439"> </a></td>
+<td>Tratamiento - Lentes.</td>
+<td>46</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1440<a name="garantia-ges-1440"> </a></td>
+<td>Seguimiento con Cirugía o Láser</td>
+<td>46</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1441<a name="garantia-ges-1441"> </a></td>
+<td>Seguimiento Sin Cirugía o Láser</td>
+<td>46</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1442<a name="garantia-ges-1442"> </a></td>
+<td>Tratamiento Displasia Broncopulmonar</td>
+<td>47</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1443<a name="garantia-ges-1443"> </a></td>
+<td>Seguimiento Displasia Broncopulmonar</td>
+<td>47</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1444<a name="garantia-ges-1444"> </a></td>
+<td>Diagnóstico Hipoacusia</td>
+<td>48</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1445<a name="garantia-ges-1445"> </a></td>
+<td>Tratamiento - Audífonos.</td>
+<td>48</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1446<a name="garantia-ges-1446"> </a></td>
+<td>Implante Coclear</td>
+<td>48</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1447<a name="garantia-ges-1447"> </a></td>
+<td>Seguimiento - Hipoacusia</td>
+<td>48</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1500<a name="garantia-ges-1500"> </a></td>
+<td>Tratamiento Artrosis de Cadera Leve o Moderada</td>
+<td>200</td>
+<td>41</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1501<a name="garantia-ges-1501"> </a></td>
+<td>Atención por Especialista Artrosis de Cadera Leve o Moderada</td>
+<td>200</td>
+<td>41</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1502<a name="garantia-ges-1502"> </a></td>
+<td>Tratamiento Artrosis de Rodilla Leve o Moderada</td>
+<td>201</td>
+<td>41</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1503<a name="garantia-ges-1503"> </a></td>
+<td>Atención por Especialista Artrosis de Rodilla Leve o Moderada</td>
+<td>201</td>
+<td>41</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1510<a name="garantia-ges-1510"> </a></td>
+<td>Confirmación Diagnóstica de Hemorragia Subaracnoidea Aneurisma Roto</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1511<a name="garantia-ges-1511"> </a></td>
+<td>Tratamiento</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1512<a name="garantia-ges-1512"> </a></td>
+<td>Seguimiento Primer Control</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1520<a name="garantia-ges-1520"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>203</td>
+<td>43</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1521<a name="garantia-ges-1521"> </a></td>
+<td>Tratamiento Primario</td>
+<td>203</td>
+<td>43</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1522<a name="garantia-ges-1522"> </a></td>
+<td>Control con Especialista</td>
+<td>203</td>
+<td>43</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1530<a name="garantia-ges-1530"> </a></td>
+<td>Tratamiento</td>
+<td>204</td>
+<td>44</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1531<a name="garantia-ges-1531"> </a></td>
+<td>Seguimiento - Control con Especialista</td>
+<td>204</td>
+<td>44</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1540<a name="garantia-ges-1540"> </a></td>
+<td>Confirmación Diagnóstica Leucemia Aguda</td>
+<td>205</td>
+<td>45</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1541<a name="garantia-ges-1541"> </a></td>
+<td>Tratamiento de Soporte Leucemia Aguda</td>
+<td>205</td>
+<td>45</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1542<a name="garantia-ges-1542"> </a></td>
+<td>Quimioterapia Leucemia Aguda</td>
+<td>205</td>
+<td>45</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1543<a name="garantia-ges-1543"> </a></td>
+<td>Seguimiento - Primer Control - Leucemia Aguda</td>
+<td>205</td>
+<td>45</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1544<a name="garantia-ges-1544"> </a></td>
+<td>Confirmación Diagnóstica Leucemia Crónica</td>
+<td>206</td>
+<td>45</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1545<a name="garantia-ges-1545"> </a></td>
+<td>Tratamiento de Soporte Leucemia Crónica</td>
+<td>206</td>
+<td>45</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1546<a name="garantia-ges-1546"> </a></td>
+<td>Quimioterapia Leucemia Crónica</td>
+<td>206</td>
+<td>45</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1547<a name="garantia-ges-1547"> </a></td>
+<td>Seguimiento - Primer Control - Leucemia Crónica</td>
+<td>206</td>
+<td>45</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1550<a name="garantia-ges-1550"> </a></td>
+<td>Tratamiento</td>
+<td>207</td>
+<td>47</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1560<a name="garantia-ges-1560"> </a></td>
+<td>Tratamiento Politraumatismo Sin Lesión Medular</td>
+<td>208</td>
+<td>48</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1561<a name="garantia-ges-1561"> </a></td>
+<td>Tratamiento Politraumatismo Con Lesión Medular</td>
+<td>209</td>
+<td>48</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1570<a name="garantia-ges-1570"> </a></td>
+<td>Diagnóstico</td>
+<td>210</td>
+<td>49</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1571<a name="garantia-ges-1571"> </a></td>
+<td>Tratamiento</td>
+<td>210</td>
+<td>49</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1580<a name="garantia-ges-1580"> </a></td>
+<td>Diagnóstico</td>
+<td>211</td>
+<td>50</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1581<a name="garantia-ges-1581"> </a></td>
+<td>Tratamiento</td>
+<td>211</td>
+<td>50</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1590<a name="garantia-ges-1590"> </a></td>
+<td>Tratamiento</td>
+<td>212</td>
+<td>51</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1600<a name="garantia-ges-1600"> </a></td>
+<td>Tratamiento</td>
+<td>213</td>
+<td>52</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1610<a name="garantia-ges-1610"> </a></td>
+<td>Tratamiento</td>
+<td>214</td>
+<td>53</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1620<a name="garantia-ges-1620"> </a></td>
+<td>Tratamiento</td>
+<td>215</td>
+<td>54</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1630<a name="garantia-ges-1630"> </a></td>
+<td>Tratamiento</td>
+<td>216</td>
+<td>55</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1631<a name="garantia-ges-1631"> </a></td>
+<td>Seguimiento - Primer Control</td>
+<td>216</td>
+<td>55</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1640<a name="garantia-ges-1640"> </a></td>
+<td>Tratamiento</td>
+<td>217</td>
+<td>56</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1730<a name="garantia-ges-1730"> </a></td>
+<td>Tratamiento</td>
+<td>343</td>
+<td>60</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1740<a name="garantia-ges-1740"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>344</td>
+<td>61</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1750<a name="garantia-ges-1750"> </a></td>
+<td>Tratamiento</td>
+<td>344</td>
+<td>61</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1760<a name="garantia-ges-1760"> </a></td>
+<td>Atención con Especialista</td>
+<td>344</td>
+<td>61</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1770<a name="garantia-ges-1770"> </a></td>
+<td>Tratamiento</td>
+<td>345</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1780<a name="garantia-ges-1780"> </a></td>
+<td>Tratamiento</td>
+<td>346</td>
+<td>63</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1790<a name="garantia-ges-1790"> </a></td>
+<td>Tratamiento</td>
+<td>347</td>
+<td>64</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1795<a name="garantia-ges-1795"> </a></td>
+<td>Tratamiento - Peritoneodiálisis de 15 años y más</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1830<a name="garantia-ges-1830"> </a></td>
+<td>Tratamiento</td>
+<td>11100</td>
+<td>60</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1840<a name="garantia-ges-1840"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>11101</td>
+<td>61</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1850<a name="garantia-ges-1850"> </a></td>
+<td>Tratamiento</td>
+<td>11101</td>
+<td>61</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1860<a name="garantia-ges-1860"> </a></td>
+<td>Atención con Especialista</td>
+<td>11101</td>
+<td>61</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1870<a name="garantia-ges-1870"> </a></td>
+<td>Tratamiento</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1880<a name="garantia-ges-1880"> </a></td>
+<td>Tratamiento</td>
+<td>11103</td>
+<td>63</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1890<a name="garantia-ges-1890"> </a></td>
+<td>Tratamiento</td>
+<td>11104</td>
+<td>64</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1895<a name="garantia-ges-1895"> </a></td>
+<td>Atención Especialista</td>
+<td>11104</td>
+<td>64</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1900<a name="garantia-ges-1900"> </a></td>
+<td>Screning de Radiografía de Caderas</td>
+<td>11105</td>
+<td>65</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1910<a name="garantia-ges-1910"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>11105</td>
+<td>65</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1920<a name="garantia-ges-1920"> </a></td>
+<td>Tratamiento</td>
+<td>11105</td>
+<td>65</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1930<a name="garantia-ges-1930"> </a></td>
+<td>Tratamiento</td>
+<td>11106</td>
+<td>66</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1940<a name="garantia-ges-1940"> </a></td>
+<td>Alta integral</td>
+<td>11106</td>
+<td>66</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1950<a name="garantia-ges-1950"> </a></td>
+<td>Diagnóstico</td>
+<td>11107</td>
+<td>67</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1960<a name="garantia-ges-1960"> </a></td>
+<td>Tratamiento</td>
+<td>11107</td>
+<td>67</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1970<a name="garantia-ges-1970"> </a></td>
+<td>Diagnóstico</td>
+<td>11108</td>
+<td>68</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1980<a name="garantia-ges-1980"> </a></td>
+<td>Evaluación Pre-Tratamiento</td>
+<td>11108</td>
+<td>68</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">1990<a name="garantia-ges-1990"> </a></td>
+<td>Tratamiento</td>
+<td>11108</td>
+<td>68</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2000<a name="garantia-ges-2000"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>11109</td>
+<td>69</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2010<a name="garantia-ges-2010"> </a></td>
+<td>Evaluación Pre-Tratamiento</td>
+<td>11109</td>
+<td>69</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2020<a name="garantia-ges-2020"> </a></td>
+<td>Tratamiento farmacológico</td>
+<td>11109</td>
+<td>69</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2030<a name="garantia-ges-2030"> </a></td>
+<td>Sospecha Primer Screening</td>
+<td>11110</td>
+<td>57</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2040<a name="garantia-ges-2040"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>11110</td>
+<td>57</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2050<a name="garantia-ges-2050"> </a></td>
+<td>Tratamiento</td>
+<td>11110</td>
+<td>57</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2060<a name="garantia-ges-2060"> </a></td>
+<td>Seguimiento</td>
+<td>11110</td>
+<td>57</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2070<a name="garantia-ges-2070"> </a></td>
+<td>Tratamiento</td>
+<td>11111</td>
+<td>58</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2080<a name="garantia-ges-2080"> </a></td>
+<td>Seguimiento</td>
+<td>11111</td>
+<td>58</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2090<a name="garantia-ges-2090"> </a></td>
+<td>Diagnóstico</td>
+<td>11112</td>
+<td>59</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2100<a name="garantia-ges-2100"> </a></td>
+<td>Tratamiento Audífonos</td>
+<td>11112</td>
+<td>59</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2110<a name="garantia-ges-2110"> </a></td>
+<td>Tratamiento Implante Coclear</td>
+<td>11112</td>
+<td>59</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2120<a name="garantia-ges-2120"> </a></td>
+<td>Seguimiento</td>
+<td>11112</td>
+<td>59</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2130<a name="garantia-ges-2130"> </a></td>
+<td>Tratamiento AV Igual o Inferior a 0,1 Bilateral.</td>
+<td>142</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2131<a name="garantia-ges-2131"> </a></td>
+<td>Tratamiento AV Igual o Inferior a 0,3 Bilateral.</td>
+<td>142</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2132<a name="garantia-ges-2132"> </a></td>
+<td>Tratamiento AV Igual o Inferior a 0,1 Unilateral Derecha.</td>
+<td>140</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2133<a name="garantia-ges-2133"> </a></td>
+<td>Tratamiento AV Igual o Inferior a 0,1 Unilateral Izquierda.</td>
+<td>141</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2134<a name="garantia-ges-2134"> </a></td>
+<td>Tratamiento AV Igual o Inferior a 0,3 Unilateral Derecha.</td>
+<td>140</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2135<a name="garantia-ges-2135"> </a></td>
+<td>Tratamiento AV Igual o Inferior a 0,3 Unilateral Izquierda.</td>
+<td>141</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2200<a name="garantia-ges-2200"> </a></td>
+<td>Acceso Vascular para Hemodiálisis en Personas de 15 años y más</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2201<a name="garantia-ges-2201"> </a></td>
+<td>Cirugía Secundaria</td>
+<td>159</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">2202<a name="garantia-ges-2202"> </a></td>
+<td>Acceso Vascular para Hemodiálisis en Menores de 15 años</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3200<a name="garantia-ges-3200"> </a></td>
+<td>Etapificación</td>
+<td>106</td>
+<td>28</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3201<a name="garantia-ges-3201"> </a></td>
+<td>Etapificación</td>
+<td>151</td>
+<td>17</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3202<a name="garantia-ges-3202"> </a></td>
+<td>Tamizaje</td>
+<td>133</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3203<a name="garantia-ges-3203"> </a></td>
+<td>Etapificación</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3204<a name="garantia-ges-3204"> </a></td>
+<td>Tratamientos Adyuvantes</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3205<a name="garantia-ges-3205"> </a></td>
+<td>Etapificación Bilateral</td>
+<td>146</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3206<a name="garantia-ges-3206"> </a></td>
+<td>Tratamientos Adyuvantes Bilateral</td>
+<td>146</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3207<a name="garantia-ges-3207"> </a></td>
+<td>Etapificación Unilateral Derecha</td>
+<td>144</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3208<a name="garantia-ges-3208"> </a></td>
+<td>Tratamientos Adyuvantes Unilateral Derecha</td>
+<td>144</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3209<a name="garantia-ges-3209"> </a></td>
+<td>Etapificación Unilateral Izquierda.</td>
+<td>145</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3210<a name="garantia-ges-3210"> </a></td>
+<td>Tratamientos Adyuvantes Unilateral Izquierda.</td>
+<td>145</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3211<a name="garantia-ges-3211"> </a></td>
+<td>Diagnóstico-Etapificación Mama Derecha.</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3212<a name="garantia-ges-3212"> </a></td>
+<td>Tratamientos Adyuvantes Mama Derecha.</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3213<a name="garantia-ges-3213"> </a></td>
+<td>Diagnóstico-Etapificación Mama Izquierda.</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3214<a name="garantia-ges-3214"> </a></td>
+<td>Tratamientos Adyuvantes Mama Izquierda.</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3215<a name="garantia-ges-3215"> </a></td>
+<td>Recambio de Prótesis de Cadera Derecha.</td>
+<td>130</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3216<a name="garantia-ges-3216"> </a></td>
+<td>Recambio de Prótesis de Cadera Izquierda.</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3217<a name="garantia-ges-3217"> </a></td>
+<td>Tratamiento Retención Urinaria Aguda Repetida.</td>
+<td>111</td>
+<td>35</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">3218<a name="garantia-ges-3218"> </a></td>
+<td>Tratamiento Retención Urinaria Crónica.</td>
+<td>111</td>
+<td>35</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4001<a name="garantia-ges-4001"> </a></td>
+<td>Tratamiento Inicio o Cambio PRECOZ</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4002<a name="garantia-ges-4002"> </a></td>
+<td>Tratamiento Inicio o Cambio No PRECOZ</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4003<a name="garantia-ges-4003"> </a></td>
+<td>Tratamiento en Embarazadas VIH</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4004<a name="garantia-ges-4004"> </a></td>
+<td>Tratamiento Parto</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4005<a name="garantia-ges-4005"> </a></td>
+<td>Tratamiento en Recién Nacido</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4006<a name="garantia-ges-4006"> </a></td>
+<td>Cambio de esquema en embarazada</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4007<a name="garantia-ges-4007"> </a></td>
+<td>Tratamiento Lupus</td>
+<td>11255</td>
+<td>78</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4008<a name="garantia-ges-4008"> </a></td>
+<td>Tratamiento</td>
+<td>11253</td>
+<td>76</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4009<a name="garantia-ges-4009"> </a></td>
+<td>Tratamiento</td>
+<td>11257</td>
+<td>80</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4010<a name="garantia-ges-4010"> </a></td>
+<td>Atención con Especialista</td>
+<td>11257</td>
+<td>80</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4011<a name="garantia-ges-4011"> </a></td>
+<td>Tratamiento Quirúrgico</td>
+<td>11251</td>
+<td>74</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4012<a name="garantia-ges-4012"> </a></td>
+<td>Seguimiento</td>
+<td>11251</td>
+<td>74</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4013<a name="garantia-ges-4013"> </a></td>
+<td>Tratamiento Quirúrgico</td>
+<td>11256</td>
+<td>79</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4014<a name="garantia-ges-4014"> </a></td>
+<td>Seguimiento</td>
+<td>11256</td>
+<td>79</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4015<a name="garantia-ges-4015"> </a></td>
+<td>Tratamiento Inicio</td>
+<td>11252</td>
+<td>75</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4016<a name="garantia-ges-4016"> </a></td>
+<td>Hospitalización</td>
+<td>11252</td>
+<td>75</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4017<a name="garantia-ges-4017"> </a></td>
+<td>Tratamiento Primario</td>
+<td>11249</td>
+<td>72</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4018<a name="garantia-ges-4018"> </a></td>
+<td>Tratamiento Adyuvante</td>
+<td>11249</td>
+<td>72</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4019<a name="garantia-ges-4019"> </a></td>
+<td>Seguimiento Primer Control</td>
+<td>11249</td>
+<td>72</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4020<a name="garantia-ges-4020"> </a></td>
+<td>Etapificación</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4021<a name="garantia-ges-4021"> </a></td>
+<td>Tratamiento Primario Quirúrgico</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4022<a name="garantia-ges-4022"> </a></td>
+<td>Tratamiento Adyuvante</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4023<a name="garantia-ges-4023"> </a></td>
+<td>Seguimiento Primer Control</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4024<a name="garantia-ges-4024"> </a></td>
+<td>Confirmación Diagnóstica y Etapificación</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4025<a name="garantia-ges-4025"> </a></td>
+<td>Tratamiento Quirúrgico</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4026<a name="garantia-ges-4026"> </a></td>
+<td>Tratamiento Adyuvante</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4027<a name="garantia-ges-4027"> </a></td>
+<td>Seguimiento Primer Control</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4028<a name="garantia-ges-4028"> </a></td>
+<td>Cirugía Diagnóstica</td>
+<td>11248</td>
+<td>71</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4029<a name="garantia-ges-4029"> </a></td>
+<td>Confirmación Diagnóstica y Etapificación</td>
+<td>11248</td>
+<td>71</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4030<a name="garantia-ges-4030"> </a></td>
+<td>Tratamiento Adyuvante</td>
+<td>11248</td>
+<td>71</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4031<a name="garantia-ges-4031"> </a></td>
+<td>Seguimiento Primer Control</td>
+<td>11248</td>
+<td>71</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4032<a name="garantia-ges-4032"> </a></td>
+<td>Tratamiento Audífonos</td>
+<td>11254</td>
+<td>77</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4033<a name="garantia-ges-4033"> </a></td>
+<td>Implante Coclear</td>
+<td>11254</td>
+<td>77</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4034<a name="garantia-ges-4034"> </a></td>
+<td>Seguimiento Primer Control Audífono/Implante Coclear</td>
+<td>11254</td>
+<td>77</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4035<a name="garantia-ges-4035"> </a></td>
+<td>Acceso Vascular para Hemodiálisis</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4036<a name="garantia-ges-4036"> </a></td>
+<td>Tratamiento Peritoneodiálisis</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4037<a name="garantia-ges-4037"> </a></td>
+<td>Tratamiento Hemodiálisis</td>
+<td>125</td>
+<td>1</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4038<a name="garantia-ges-4038"> </a></td>
+<td>Diagnóstico</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4039<a name="garantia-ges-4039"> </a></td>
+<td>Tratamiento Kinesiológico</td>
+<td>122</td>
+<td>19</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4040<a name="garantia-ges-4040"> </a></td>
+<td>Tratamiento Kinesiológico</td>
+<td>123</td>
+<td>20</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4041<a name="garantia-ges-4041"> </a></td>
+<td>Cirugía Primaria</td>
+<td>159</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4042<a name="garantia-ges-4042"> </a></td>
+<td>Evaluación por Especialista</td>
+<td>127</td>
+<td>22</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4043<a name="garantia-ges-4043"> </a></td>
+<td>Tratamiento</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4044<a name="garantia-ges-4044"> </a></td>
+<td>Rehabilitación</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4091<a name="garantia-ges-4091"> </a></td>
+<td>Confirmación Diagnóstica Post-Natal entre 8 días y menor a 2 años</td>
+<td>152</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4092<a name="garantia-ges-4092"> </a></td>
+<td>Confirmación Diagnóstica Post-Natal entre mayor o igual a 2 años y menor a 15 años</td>
+<td>152</td>
+<td>2</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4093<a name="garantia-ges-4093"> </a></td>
+<td>Tamizaje Retinopatía Diabética</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4094<a name="garantia-ges-4094"> </a></td>
+<td>Primer Tamizaje</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4242<a name="garantia-ges-4242"> </a></td>
+<td>Tratamiento Médico</td>
+<td>111</td>
+<td>35</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4244<a name="garantia-ges-4244"> </a></td>
+<td>Tratamiento Politraumatismo Con/Sin Lesión Medular</td>
+<td>209</td>
+<td>48</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4245<a name="garantia-ges-4245"> </a></td>
+<td>Atención con Especialista</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4246<a name="garantia-ges-4246"> </a></td>
+<td>Evaluación por Especialista</td>
+<td>11100</td>
+<td>60</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4247<a name="garantia-ges-4247"> </a></td>
+<td>Rehabilitación Disrafia Abierta</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4248<a name="garantia-ges-4248"> </a></td>
+<td>Tratamiento Primario o Adyuvante</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4249<a name="garantia-ges-4249"> </a></td>
+<td>Tratamiento-Cambio Procesador</td>
+<td>11112</td>
+<td>59</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4250<a name="garantia-ges-4250"> </a></td>
+<td>Cambio de Procesador en Implante Coclear</td>
+<td>11254</td>
+<td>77</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4251<a name="garantia-ges-4251"> </a></td>
+<td>Tratamiento Adyuvante</td>
+<td>106</td>
+<td>28</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4252<a name="garantia-ges-4252"> </a></td>
+<td>Confirmación</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4253<a name="garantia-ges-4253"> </a></td>
+<td>Tratamiento Adyuvante</td>
+<td>108</td>
+<td>27</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4254<a name="garantia-ges-4254"> </a></td>
+<td>Cambio Accesorios del Procesador Coclear</td>
+<td>11254</td>
+<td>77</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4255<a name="garantia-ges-4255"> </a></td>
+<td>Seguimiento Disrafia Espinal Abierta</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4256<a name="garantia-ges-4256"> </a></td>
+<td>Entrega de Bastones, Cojines y Colchón</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4257<a name="garantia-ges-4257"> </a></td>
+<td>Entrega de Andadores y Sillas de Ruedas</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4258<a name="garantia-ges-4258"> </a></td>
+<td>Entrega de Bastones, Cojines y Colchón</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4259<a name="garantia-ges-4259"> </a></td>
+<td>Entrega Silla de Ruedas</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4260<a name="garantia-ges-4260"> </a></td>
+<td>Entrega de Bastones, Cojines y Colchón</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4261<a name="garantia-ges-4261"> </a></td>
+<td>Entrega Silla de Ruedas</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4262<a name="garantia-ges-4262"> </a></td>
+<td>Entrega de Bastones, Cojines y Colchón</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4263<a name="garantia-ges-4263"> </a></td>
+<td>Entrega de Andador y Silla de Ruedas</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4264<a name="garantia-ges-4264"> </a></td>
+<td>Cambio Accesorios del Procesador Coclear</td>
+<td>11112</td>
+<td>59</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4271<a name="garantia-ges-4271"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4272<a name="garantia-ges-4272"> </a></td>
+<td>Etapificación</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4273<a name="garantia-ges-4273"> </a></td>
+<td>Tratamiento Primario</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4274<a name="garantia-ges-4274"> </a></td>
+<td>Tratamientos Adyuvantes</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4275<a name="garantia-ges-4275"> </a></td>
+<td>Seguimiento</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4281<a name="garantia-ges-4281"> </a></td>
+<td>Etapificación</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4282<a name="garantia-ges-4282"> </a></td>
+<td>Tratamiento Primario</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4283<a name="garantia-ges-4283"> </a></td>
+<td>Tratamientos Adyuvantes</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4300<a name="garantia-ges-4300"> </a></td>
+<td>Confirmación-Diagnóstica</td>
+<td>11550</td>
+<td>85</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4301<a name="garantia-ges-4301"> </a></td>
+<td>Confirmación-Diagnóstica Diferenciada</td>
+<td>11550</td>
+<td>85</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4302<a name="garantia-ges-4302"> </a></td>
+<td>Tratamiento</td>
+<td>11550</td>
+<td>85</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4303<a name="garantia-ges-4303"> </a></td>
+<td>Etapificación</td>
+<td>11551</td>
+<td>84</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4304<a name="garantia-ges-4304"> </a></td>
+<td>Tratamiento Primario</td>
+<td>11551</td>
+<td>84</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4305<a name="garantia-ges-4305"> </a></td>
+<td>Tratamiento Adyuvante</td>
+<td>11551</td>
+<td>84</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4306<a name="garantia-ges-4306"> </a></td>
+<td>Seguimiento</td>
+<td>11551</td>
+<td>84</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4401<a name="garantia-ges-4401"> </a></td>
+<td>Etapificación</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4402<a name="garantia-ges-4402"> </a></td>
+<td>Tratamiento Quirúrgico Alto Riesgo</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4403<a name="garantia-ges-4403"> </a></td>
+<td>Tratamiento Quirúrgico Riesgo Intermedio</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4404<a name="garantia-ges-4404"> </a></td>
+<td>Tratamiento Quirúrgico Bajo Riesgo</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4405<a name="garantia-ges-4405"> </a></td>
+<td>Tratamiento Adyuvante</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4406<a name="garantia-ges-4406"> </a></td>
+<td>Seguimiento</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4420<a name="garantia-ges-4420"> </a></td>
+<td>Consulta Médica</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4421<a name="garantia-ges-4421"> </a></td>
+<td>Tratamiento</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4425<a name="garantia-ges-4425"> </a></td>
+<td>Terapia para prevención vertical puerperio</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4430<a name="garantia-ges-4430"> </a></td>
+<td>Rehabilitación - Bastón de apoyo o de mano</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4431<a name="garantia-ges-4431"> </a></td>
+<td>Rehabilitación - Bastón codera móvil</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4432<a name="garantia-ges-4432"> </a></td>
+<td>Rehabilitación - Colchón anti-escaras celdas de aire</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4433<a name="garantia-ges-4433"> </a></td>
+<td>Rehabilitación - Colchón anti-escaras visco-elástico</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4434<a name="garantia-ges-4434"> </a></td>
+<td>Rehabilitación - Cojín anti-escaras visco-elástico</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4435<a name="garantia-ges-4435"> </a></td>
+<td>Rehabilitación - Cojín anti-escaras celdas de aire</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4436<a name="garantia-ges-4436"> </a></td>
+<td>Rehabilitación - Silla de ruedas estándar</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4437<a name="garantia-ges-4437"> </a></td>
+<td>Rehabilitación - Silla de ruedas neurológica</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4438<a name="garantia-ges-4438"> </a></td>
+<td>Rehabilitación - Andador sin ruedas</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4439<a name="garantia-ges-4439"> </a></td>
+<td>Rehabilitación - Andador con dos ruedas</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4440<a name="garantia-ges-4440"> </a></td>
+<td>Rehabilitación - Andador con cuatro ruedas y canasta</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4450<a name="garantia-ges-4450"> </a></td>
+<td>Rehabilitación - Bastón de Apoyo o de Mano</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4451<a name="garantia-ges-4451"> </a></td>
+<td>Rehabilitación - Cojín Anti escaras Celdas de Aire</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4452<a name="garantia-ges-4452"> </a></td>
+<td>Rehabilitación - Cojín Anti escaras Viscoelástico</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4453<a name="garantia-ges-4453"> </a></td>
+<td>Rehabilitación - Colchón Anti escaras Celdas de Aire</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4454<a name="garantia-ges-4454"> </a></td>
+<td>Rehabilitación - Órtesis Antiequino</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4455<a name="garantia-ges-4455"> </a></td>
+<td>Rehabilitación - Silla de Rueda Estándar</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4456<a name="garantia-ges-4456"> </a></td>
+<td>Rehabilitación - Andador con dos Ruedas y Asiento</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4457<a name="garantia-ges-4457"> </a></td>
+<td>Rehabilitación - Andador con cuatro Ruedas y Canasta</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4458<a name="garantia-ges-4458"> </a></td>
+<td>Rehabilitación - Andador Sin Ruedas</td>
+<td>11102</td>
+<td>62</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4460<a name="garantia-ges-4460"> </a></td>
+<td>Rehabilitación - Bastón Codera Móvil</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4461<a name="garantia-ges-4461"> </a></td>
+<td>Rehabilitación - Cojín anti-escara visco elástico</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4462<a name="garantia-ges-4462"> </a></td>
+<td>Rehabilitación - Colchón Anti-escaras Celdas de Aire</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4463<a name="garantia-ges-4463"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Estándar</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4464<a name="garantia-ges-4464"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4471<a name="garantia-ges-4471"> </a></td>
+<td>Atención con Kinesiólogo</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4472<a name="garantia-ges-4472"> </a></td>
+<td>Atención con Fonoaudiólogo</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4473<a name="garantia-ges-4473"> </a></td>
+<td>Atención con Terapeuta Ocupacional</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4481<a name="garantia-ges-4481"> </a></td>
+<td>Rehabilitación - Bastones Codera Móvil</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4482<a name="garantia-ges-4482"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Estándar</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4483<a name="garantia-ges-4483"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4484<a name="garantia-ges-4484"> </a></td>
+<td>Rehabilitación - Cojín Antiescaras viscoelástico</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4485<a name="garantia-ges-4485"> </a></td>
+<td>Rehabilitación - Colchón Antiescaras Celdas de aire</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4491<a name="garantia-ges-4491"> </a></td>
+<td>Rehabilitación - Bastones Codera Fija</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4492<a name="garantia-ges-4492"> </a></td>
+<td>Rehabilitación - Bastones Codera Móvil</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4493<a name="garantia-ges-4493"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Estándar</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4494<a name="garantia-ges-4494"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4495<a name="garantia-ges-4495"> </a></td>
+<td>Rehabilitación - Andador con Apoyo Antebraquial</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4496<a name="garantia-ges-4496"> </a></td>
+<td>Rehabilitación - Andador con dos ruedas</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4497<a name="garantia-ges-4497"> </a></td>
+<td>Rehabilitación - Cojín Antiescaras viscoelástico</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4498<a name="garantia-ges-4498"> </a></td>
+<td>Rehabilitación - Cojín Antiescaras celdas de aire</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4499<a name="garantia-ges-4499"> </a></td>
+<td>Rehabilitación - Colchón Antiescaras Celdas de aire</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4500<a name="garantia-ges-4500"> </a></td>
+<td>Seguimiento Disrafia Espinal Abierta</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4501<a name="garantia-ges-4501"> </a></td>
+<td>Tratamiento Quirúrgico con AV &lt;= 0,1</td>
+<td>140</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4502<a name="garantia-ges-4502"> </a></td>
+<td>Tratamiento Quirúrgico con AV &lt;= 0,1</td>
+<td>141</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4503<a name="garantia-ges-4503"> </a></td>
+<td>Tratamiento Quirúrgico con AV &lt;= 0,1</td>
+<td>142</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4504<a name="garantia-ges-4504"> </a></td>
+<td>Tratamiento Quirúrgico con AV &lt;= 0,3</td>
+<td>140</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4505<a name="garantia-ges-4505"> </a></td>
+<td>Tratamiento Quirúrgico con AV &lt;= 0,3</td>
+<td>141</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4506<a name="garantia-ges-4506"> </a></td>
+<td>Tratamiento Quirúrgico con AV &lt;= 0,3</td>
+<td>142</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4507<a name="garantia-ges-4507"> </a></td>
+<td>Tratamiento Quirúrgico en 2° Ojo</td>
+<td>142</td>
+<td>11</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4509<a name="garantia-ges-4509"> </a></td>
+<td>Primera Respuesta</td>
+<td>11702</td>
+<td>86</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4510<a name="garantia-ges-4510"> </a></td>
+<td>Seguimiento</td>
+<td>11702</td>
+<td>86</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4511<a name="garantia-ges-4511"> </a></td>
+<td>Rehabilitación COVID 19</td>
+<td>12040</td>
+<td>87</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4512<a name="garantia-ges-4512"> </a></td>
+<td>Tratamiento Pre-Invasor Bajo Grado</td>
+<td>135</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4513<a name="garantia-ges-4513"> </a></td>
+<td>Tratamiento Pre-Invasor Alto Grado</td>
+<td>135</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4514<a name="garantia-ges-4514"> </a></td>
+<td>Seguimiento Pre-Invasor Bajo Grado</td>
+<td>135</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4515<a name="garantia-ges-4515"> </a></td>
+<td>Seguimiento Pre-Invasor Alto Grado</td>
+<td>135</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4516<a name="garantia-ges-4516"> </a></td>
+<td>Tratamiento Invasor</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4517<a name="garantia-ges-4517"> </a></td>
+<td>Tratamiento Adyuvante Quimioterapia</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4518<a name="garantia-ges-4518"> </a></td>
+<td>Tratamiento Adyuvante Radioterapia y Braquiterapia</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4521<a name="garantia-ges-4521"> </a></td>
+<td>Tratamiento Primario-Cirugía</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4522<a name="garantia-ges-4522"> </a></td>
+<td>Tratamiento Primario-Quimioterapia</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4523<a name="garantia-ges-4523"> </a></td>
+<td>Tratamiento Primario-Radioterapia</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4524<a name="garantia-ges-4524"> </a></td>
+<td>Tratamiento Adyuvante-Cirugía</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4525<a name="garantia-ges-4525"> </a></td>
+<td>Tratamiento Adyuvante-Quimioterapia</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4526<a name="garantia-ges-4526"> </a></td>
+<td>Tratamiento Adyuvante-Radioterapia</td>
+<td>11500</td>
+<td>81</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4528<a name="garantia-ges-4528"> </a></td>
+<td>Orquiectomía</td>
+<td>143</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4529<a name="garantia-ges-4529"> </a></td>
+<td>Tratamiento Radioterapia Bilateral</td>
+<td>146</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4530<a name="garantia-ges-4530"> </a></td>
+<td>Tratamiento Quimioterapia Bilateral</td>
+<td>146</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4531<a name="garantia-ges-4531"> </a></td>
+<td>Tratamiento Hormonoterapia Bilateral</td>
+<td>146</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4532<a name="garantia-ges-4532"> </a></td>
+<td>Tratamiento Radioterapia Unilateral Derecha</td>
+<td>144</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4533<a name="garantia-ges-4533"> </a></td>
+<td>Tratamiento Quimioterapia Unilateral Derecha</td>
+<td>144</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4534<a name="garantia-ges-4534"> </a></td>
+<td>Tratamiento Hormonoterapia Unilateral Derecha</td>
+<td>144</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4535<a name="garantia-ges-4535"> </a></td>
+<td>Tratamiento Radioterapia Unilateral Izquierda</td>
+<td>145</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4536<a name="garantia-ges-4536"> </a></td>
+<td>Tratamiento Quimioterapia Unilateral Izquierda</td>
+<td>145</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4537<a name="garantia-ges-4537"> </a></td>
+<td>Tratamiento Hormonoterapia Unilateral Izquierda</td>
+<td>145</td>
+<td>16</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4541<a name="garantia-ges-4541"> </a></td>
+<td>Tratamiento Adyuvante-Cirugía</td>
+<td>106</td>
+<td>28</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4542<a name="garantia-ges-4542"> </a></td>
+<td>Tratamiento Adyuvante-Quimioterapia</td>
+<td>106</td>
+<td>28</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4543<a name="garantia-ges-4543"> </a></td>
+<td>Tratamiento Adyuvante-Radioterapia y Braquiterapia</td>
+<td>106</td>
+<td>28</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4544<a name="garantia-ges-4544"> </a></td>
+<td>Tratamiento Adyuvante-Hormonoterapia</td>
+<td>106</td>
+<td>28</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4551<a name="garantia-ges-4551"> </a></td>
+<td>Tratamiento Neoadyuvante Quimioterapia</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4552<a name="garantia-ges-4552"> </a></td>
+<td>Tratamiento Neoadyuvante Radioterapia</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4553<a name="garantia-ges-4553"> </a></td>
+<td>Tratamiento Adyuvante Quimioterapia</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4554<a name="garantia-ges-4554"> </a></td>
+<td>Tratamiento Adyuvante Radioterapia</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4555<a name="garantia-ges-4555"> </a></td>
+<td>Reconstitución de Tránsito</td>
+<td>11247</td>
+<td>70</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4561<a name="garantia-ges-4561"> </a></td>
+<td>Tratamiento Primario-Cirugía</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4562<a name="garantia-ges-4562"> </a></td>
+<td>Tratamiento Primario-Radioterapia</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4563<a name="garantia-ges-4563"> </a></td>
+<td>Tratamiento Primario-Sistémico</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4564<a name="garantia-ges-4564"> </a></td>
+<td>Tratamiento Adyuvante-Cirugía</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4565<a name="garantia-ges-4565"> </a></td>
+<td>Tratamiento Adyuvante-Radioterapia</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4566<a name="garantia-ges-4566"> </a></td>
+<td>Tratamiento Adyuvante-Sistémico</td>
+<td>11600</td>
+<td>83</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4571<a name="garantia-ges-4571"> </a></td>
+<td>Tratamiento Primario-Quimioterapia</td>
+<td>11551</td>
+<td>84</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4572<a name="garantia-ges-4572"> </a></td>
+<td>Tratamiento Primario-Radioterapia</td>
+<td>11551</td>
+<td>84</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4573<a name="garantia-ges-4573"> </a></td>
+<td>Tratamiento Adyuvante-Quimioterapia</td>
+<td>11551</td>
+<td>84</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4574<a name="garantia-ges-4574"> </a></td>
+<td>Tratamiento Adyuvante-Radioterapia</td>
+<td>11551</td>
+<td>84</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4581<a name="garantia-ges-4581"> </a></td>
+<td>Etapificación</td>
+<td>11249</td>
+<td>72</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4582<a name="garantia-ges-4582"> </a></td>
+<td>Tratamiento Adyuvante Quimioterapia</td>
+<td>11249</td>
+<td>72</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4583<a name="garantia-ges-4583"> </a></td>
+<td>Tratamiento Adyuvante Radioterapia</td>
+<td>11249</td>
+<td>72</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4584<a name="garantia-ges-4584"> </a></td>
+<td>Tratamiento Adyuvante Prevención de Recurrencia</td>
+<td>11249</td>
+<td>72</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4585<a name="garantia-ges-4585"> </a></td>
+<td>Tratamiento Concomitante</td>
+<td>11249</td>
+<td>72</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4591<a name="garantia-ges-4591"> </a></td>
+<td>Tratamiento Quirúrgico Tumor Sólido</td>
+<td>164</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4592<a name="garantia-ges-4592"> </a></td>
+<td>Catéter Venoso Leucemia</td>
+<td>161</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4593<a name="garantia-ges-4593"> </a></td>
+<td>Catéter Venoso Linfoma</td>
+<td>163</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4594<a name="garantia-ges-4594"> </a></td>
+<td>Catéter Venoso Tumor Sólido</td>
+<td>164</td>
+<td>14</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4601<a name="garantia-ges-4601"> </a></td>
+<td>Cambio de generador y/o electrodo</td>
+<td>147</td>
+<td>25</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4602<a name="garantia-ges-4602"> </a></td>
+<td>Recambio Marcapaso</td>
+<td>147</td>
+<td>25</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4603<a name="garantia-ges-4603"> </a></td>
+<td>Tratamiento Adyuvante Quimioterapia</td>
+<td>108</td>
+<td>27</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4604<a name="garantia-ges-4604"> </a></td>
+<td>Tratamiento Adyuvante Radioterapia</td>
+<td>108</td>
+<td>27</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4611<a name="garantia-ges-4611"> </a></td>
+<td>Rehabilitación</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4612<a name="garantia-ges-4612"> </a></td>
+<td>Rehabilitación - Silla de Rueda Estándar</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4613<a name="garantia-ges-4613"> </a></td>
+<td>Rehabilitación - Bastón Canadiense Codera móvil</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4614<a name="garantia-ges-4614"> </a></td>
+<td>Rehabilitación - Andador sin Ruedas Articulado</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4615<a name="garantia-ges-4615"> </a></td>
+<td>Rehabilitación - Andador con dos Ruedas y Asiento</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4616<a name="garantia-ges-4616"> </a></td>
+<td>Entrega de Vendaje</td>
+<td>11250</td>
+<td>73</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4617<a name="garantia-ges-4617"> </a></td>
+<td>Etapificación de Cáncer de Tiroides</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4618<a name="garantia-ges-4618"> </a></td>
+<td>Etapificación Cáncer Anaplásico</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4619<a name="garantia-ges-4619"> </a></td>
+<td>Tratamiento Quirúrgico Anaplásico</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4620<a name="garantia-ges-4620"> </a></td>
+<td>Tratamiento Sistémico</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4621<a name="garantia-ges-4621"> </a></td>
+<td>Re-estadificación de Riesgo</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4622<a name="garantia-ges-4622"> </a></td>
+<td>Rehabilitación</td>
+<td>11700</td>
+<td>82</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4631<a name="garantia-ges-4631"> </a></td>
+<td>Tratamiento Secundario</td>
+<td>203</td>
+<td>43</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4632<a name="garantia-ges-4632"> </a></td>
+<td>Tratamientos Adyuvantes Mama Derecha Quimioterapia</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4633<a name="garantia-ges-4633"> </a></td>
+<td>Tratamientos Adyuvantes Mama Derecha Radioterapia</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4634<a name="garantia-ges-4634"> </a></td>
+<td>Tratamientos Adyuvantes Mama Derecha Cirugía</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4635<a name="garantia-ges-4635"> </a></td>
+<td>Tratamientos Adyuvantes Mama Derecha Hormonoterapia</td>
+<td>137</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4636<a name="garantia-ges-4636"> </a></td>
+<td>Tratamientos Adyuvantes Mama Izquierda Quimioterapia</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4637<a name="garantia-ges-4637"> </a></td>
+<td>Tratamientos Adyuvantes Mama Izquierda Radioterapia</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4638<a name="garantia-ges-4638"> </a></td>
+<td>Tratamientos Adyuvantes Mama Izquierda Cirugía</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4639<a name="garantia-ges-4639"> </a></td>
+<td>Tratamientos Adyuvantes Mama Izquierda Hormonoterapia</td>
+<td>138</td>
+<td>8</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4641<a name="garantia-ges-4641"> </a></td>
+<td>Tratamiento inicial mayores a 15 años</td>
+<td>216</td>
+<td>55</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4642<a name="garantia-ges-4642"> </a></td>
+<td>Rehabilitación Hospitalizado</td>
+<td>216</td>
+<td>55</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4643<a name="garantia-ges-4643"> </a></td>
+<td>Rehabilitación Ambulatorio</td>
+<td>216</td>
+<td>55</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4644<a name="garantia-ges-4644"> </a></td>
+<td>Entrega de Ayudas Técnicas</td>
+<td>216</td>
+<td>55</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4645<a name="garantia-ges-4645"> </a></td>
+<td>Atención por Especialista Oftalmología</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4646<a name="garantia-ges-4646"> </a></td>
+<td>Atención por Especialista Endocrinología</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4647<a name="garantia-ges-4647"> </a></td>
+<td>Atención por Especialista Diabetes</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4648<a name="garantia-ges-4648"> </a></td>
+<td>Fondo de Ojo</td>
+<td>129</td>
+<td>7</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4651<a name="garantia-ges-4651"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica Inclina</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4652<a name="garantia-ges-4652"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica Basculantes</td>
+<td>121</td>
+<td>36</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4653<a name="garantia-ges-4653"> </a></td>
+<td>Tratamiento de Rescate</td>
+<td>11109</td>
+<td>69</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4654<a name="garantia-ges-4654"> </a></td>
+<td>Rehabilitación - Hospitalizado</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4655<a name="garantia-ges-4655"> </a></td>
+<td>Rehabilitación - Ambulatorio</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4656<a name="garantia-ges-4656"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica Inclina</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4661<a name="garantia-ges-4661"> </a></td>
+<td>Tratamiento Fotocoagulación - no proliferativa</td>
+<td>120</td>
+<td>31</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4662<a name="garantia-ges-4662"> </a></td>
+<td>Tratamiento Fotocoagulación - proliferativa</td>
+<td>120</td>
+<td>31</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4663<a name="garantia-ges-4663"> </a></td>
+<td>Tratamiento Vitrectomía - no proliferativa</td>
+<td>120</td>
+<td>31</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4664<a name="garantia-ges-4664"> </a></td>
+<td>Tratamiento Vitrectomía - proliferativa</td>
+<td>120</td>
+<td>31</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4667<a name="garantia-ges-4667"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica Basculantes</td>
+<td>113</td>
+<td>37</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4671<a name="garantia-ges-4671"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>213</td>
+<td>52</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4672<a name="garantia-ges-4672"> </a></td>
+<td>Rehabilitación</td>
+<td>213</td>
+<td>52</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4673<a name="garantia-ges-4673"> </a></td>
+<td>Recambio de Audífono</td>
+<td>217</td>
+<td>56</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4674<a name="garantia-ges-4674"> </a></td>
+<td>Audiometría</td>
+<td>217</td>
+<td>56</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4675<a name="garantia-ges-4675"> </a></td>
+<td>Atención por Especialista</td>
+<td>217</td>
+<td>56</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4676<a name="garantia-ges-4676"> </a></td>
+<td>Rehabilitación</td>
+<td>217</td>
+<td>56</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4681<a name="garantia-ges-4681"> </a></td>
+<td>Confirmación Diagnóstica</td>
+<td>11254</td>
+<td>77</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4682<a name="garantia-ges-4682"> </a></td>
+<td>Rehabilitación</td>
+<td>11254</td>
+<td>77</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4691<a name="garantia-ges-4691"> </a></td>
+<td>Rehabilitación Politraumatizado Grave Con Lesión Medular</td>
+<td>209</td>
+<td>48</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4701<a name="garantia-ges-4701"> </a></td>
+<td>Rehabilitación EMRR</td>
+<td>11107</td>
+<td>67</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4702<a name="garantia-ges-4702"> </a></td>
+<td>Rehabilitación Integral en Brote EMRR</td>
+<td>11107</td>
+<td>67</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4703<a name="garantia-ges-4703"> </a></td>
+<td>Rehabilitación Bastón Codera Móvil</td>
+<td>11107</td>
+<td>67</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4704<a name="garantia-ges-4704"> </a></td>
+<td>Rehabilitación Silla de Ruedas Estándar</td>
+<td>11107</td>
+<td>67</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4705<a name="garantia-ges-4705"> </a></td>
+<td>Rehabilitación Andador con Cuatro Ruedas y Canasto</td>
+<td>11107</td>
+<td>67</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4706<a name="garantia-ges-4706"> </a></td>
+<td>Rehabilitación Ortesis Tobillo-Pie</td>
+<td>11107</td>
+<td>67</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4721<a name="garantia-ges-4721"> </a></td>
+<td>Rehabilitación</td>
+<td>11103</td>
+<td>63</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4722<a name="garantia-ges-4722"> </a></td>
+<td>Rehabilitación Férula Cock-up</td>
+<td>11103</td>
+<td>63</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4723<a name="garantia-ges-4723"> </a></td>
+<td>Rehabilitación Palmeta Reposo</td>
+<td>11103</td>
+<td>63</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4724<a name="garantia-ges-4724"> </a></td>
+<td>Rehabilitación Órtesis Tobillo-Pie</td>
+<td>11103</td>
+<td>63</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4731<a name="garantia-ges-4731"> </a></td>
+<td>Rehabilitación - Ortesis Pelvipedio</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4732<a name="garantia-ges-4732"> </a></td>
+<td>Rehabilitación - Corset</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4733<a name="garantia-ges-4733"> </a></td>
+<td>Rehabilitación - Ortesis Tobillo</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4734<a name="garantia-ges-4734"> </a></td>
+<td>Rehabilitación - Sitting</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4735<a name="garantia-ges-4735"> </a></td>
+<td>Rehabilitación - Canaletas</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4741<a name="garantia-ges-4741"> </a></td>
+<td>Rehabilitación - Disrafia Abierta de 0 a &lt;19 meses</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4742<a name="garantia-ges-4742"> </a></td>
+<td>Rehabilitación - Disrafia Abierta de &gt;=19 a &lt;3 años</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4743<a name="garantia-ges-4743"> </a></td>
+<td>Rehabilitación - Disrafia Abierta de &gt;=3 años a &lt;5 años</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4744<a name="garantia-ges-4744"> </a></td>
+<td>Rehabilitación - Disrafia Abierta de &gt;=5 a &lt;16 años</td>
+<td>157</td>
+<td>9</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4751<a name="garantia-ges-4751"> </a></td>
+<td>Rehabilitación - Tratamiento Hospitalizado</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4752<a name="garantia-ges-4752"> </a></td>
+<td>Rehabilitación - Ambulatorio</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4753<a name="garantia-ges-4753"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica Inclina</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4754<a name="garantia-ges-4754"> </a></td>
+<td>Rehabilitación - Silla de Ruedas Neurológica Basculantes</td>
+<td>202</td>
+<td>42</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4755<a name="garantia-ges-4755"> </a></td>
+<td>Tratamiento Quirúrgico</td>
+<td>111</td>
+<td>35</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4761<a name="garantia-ges-4761"> </a></td>
+<td>Cirugía Ortognática</td>
+<td>159</td>
+<td>13</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4762<a name="garantia-ges-4762"> </a></td>
+<td>Tratamiento Quirúrgico Endoprótesis</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4763<a name="garantia-ges-4763"> </a></td>
+<td>Primer Control Seguimiento Traumatólogo</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4764<a name="garantia-ges-4764"> </a></td>
+<td>Recambio de Prótesis de Cadera</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4765<a name="garantia-ges-4765"> </a></td>
+<td>Rehabilitación Precoz Hospitalaria</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4766<a name="garantia-ges-4766"> </a></td>
+<td>Rehabilitación Ambulatoria</td>
+<td>131</td>
+<td>12</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4771<a name="garantia-ges-4771"> </a></td>
+<td>Confirmación Diagnóstica de Nefropatía Lúpica</td>
+<td>11255</td>
+<td>78</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4781<a name="garantia-ges-4781"> </a></td>
+<td>Rehabilitación</td>
+<td>11112</td>
+<td>59</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4791<a name="garantia-ges-4791"> </a></td>
+<td>Tratamiento Adyuvante Cirugía</td>
+<td>134</td>
+<td>3</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4801<a name="garantia-ges-4801"> </a></td>
+<td>Tratamiento Secundario Quirúrgico</td>
+<td>203</td>
+<td>43</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4802<a name="garantia-ges-4802"> </a></td>
+<td>Tratamiento Secundario Radioterapia</td>
+<td>203</td>
+<td>43</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4803<a name="garantia-ges-4803"> </a></td>
+<td>Tratamiento Secundario Medicamentoso</td>
+<td>203</td>
+<td>43</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4900<a name="garantia-ges-4900"> </a></td>
+<td>Tratamiento</td>
+<td>13100</td>
+<td>88</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4901<a name="garantia-ges-4901"> </a></td>
+<td>Diagnóstico Factores de Riesgo</td>
+<td>167</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">4902<a name="garantia-ges-4902"> </a></td>
+<td>Diagnóstico Síntomas de Parto Prematuro</td>
+<td>167</td>
+<td>24</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">5000<a name="garantia-ges-5000"> </a></td>
+<td>Tratamiento Farmacológico</td>
+<td>13102</td>
+<td>90</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">5001<a name="garantia-ges-5001"> </a></td>
+<td>Tratamiento Inmediato</td>
+<td>13101</td>
+<td>89</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">5002<a name="garantia-ges-5002"> </a></td>
+<td>Consulta con Especialista</td>
+<td>13101</td>
+<td>89</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">5003<a name="garantia-ges-5003"> </a></td>
+<td>Tratamiento persona Gestante VIH (+)</td>
+<td>19</td>
+<td>18</td>
+<td></td>
+<td></td></tr>
+<tr><td style="white-space:nowrap">5004<a name="garantia-ges-5004"> </a></td>
+<td>Tamizaje PAP</td>
+<td>133</td>
+<td>3</td>
+<td></td>
+<td></td></tr></table></div>
+
+  
+
+  <!-- insert notes if present -->
+  
+
+
+
+  
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

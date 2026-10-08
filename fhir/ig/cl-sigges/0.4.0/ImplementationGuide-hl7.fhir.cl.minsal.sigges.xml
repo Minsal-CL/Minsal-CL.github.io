@@ -1,0 +1,1915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hl7.fhir.cl.minsal.sigges"/>
+  <language value="es-CL"/>
+  <text>
+    <status value="generated"/><div xml:lang="es-CL" xmlns="http://www.w3.org/1999/xhtml" lang="es-CL"><p class="res-header-id"><b>Generated Narrative: GuiaDeImplementacion hl7.fhir.cl.minsal.sigges</b></p><a name="hl7.fhir.cl.minsal.sigges"> </a><a name="hchl7.fhir.cl.minsal.sigges"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: es-CL</p></div><h2>NotificacionGESSIGGES</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges</pre><div><p>Guía FHIR R4 para notificar los documentos del ciclo de un caso GES (SIC, IPD, OA, PO, CC, EXGO, HD APS) desde los establecimientos hacia SIGGES 2.0 de FONASA, usando mensajería FHIR con un núcleo común de recursos y un recurso foco por documento.</p>
+</div></div>
+  </text>
+  <url value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/ImplementationGuide/hl7.fhir.cl.minsal.sigges"/>
+  <version value="0.4.0"/>
+  <name value="NotificacionGESSIGGES"/>
+  <title value="Notificación de Casos GES a SIGGES 2.0"/>
+  <status value="draft"/>
+  <date value="2026-10-08T15:37:06-03:00"/>
+  <publisher value="Unidad de Interoperabilidad - MINSAL"/>
+  <contact>
+    <name value="Unidad de Interoperabilidad - MINSAL"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://interoperabilidad.minsal.cl"/>
+    </telecom>
+  </contact>
+  <description value="Guía FHIR R4 para notificar los documentos del ciclo de un caso GES (SIC, IPD, OA, PO, CC, EXGO, HD APS) desde los establecimientos hacia SIGGES 2.0 de FONASA, usando mensajería FHIR con un núcleo común de recursos y un recurso foco por documento."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CL"/>
+      <display value="Chile"/>
+    </coding>
+  </jurisdiction>
+  <packageId value="hl7.fhir.cl.minsal.sigges"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn id="hl7tx">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on HL7 Terminology"/>
+    </extension>
+    <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
+    <packageId value="hl7.terminology.r4"/>
+    <version value="7.4.0"/>
+  </dependsOn>
+  <dependsOn id="hl7ext">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"/>
+    </extension>
+    <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
+    <packageId value="hl7.fhir.uv.extensions.r4"/>
+    <version value="5.3.0"/>
+  </dependsOn>
+  <dependsOn id="hl7_fhir_cl_clcore">
+    <uri value="https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore"/>
+    <packageId value="hl7.fhir.cl.clcore"/>
+    <version value="1.9.4"/>
+  </dependsOn>
+  <dependsOn id="hl7_fhir_cl_minsal_nid">
+    <uri value="https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid"/>
+    <packageId value="hl7.fhir.cl.minsal.nid"/>
+    <version value="0.4.9"/>
+  </dependsOn>
+  <definition>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
+      <valueCode value="hl7.fhir.uv.tools.r4#1.3.0"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2026+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="ci-build"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/bundle-notificacion-ges"/>
+      </reference>
+      <name value="Bundle — Notificación GES"/>
+      <description value="Sobre de un documento SIGGES: MessageHeader + núcleo común (Patient, PractitionerRole, Practitioner, Organization, EpisodeOfCare) + recurso foco + Observation opcionales. Se envía a $process-message."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/bundle-respuesta-ges"/>
+      </reference>
+      <name value="Bundle — Respuesta SIGGES"/>
+      <description value="Respuesta a una notificación."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="EpisodeOfCare"/>
+      </extension>
+      <reference>
+        <reference value="EpisodeOfCare/8812345"/>
+      </reference>
+      <name value="Caso 8812345 en SIGGES (vista del receptor)"/>
+      <description value="El caso A tal como lo devuelve SIGGES en la consulta; las garantías gar-a-701 a 703 lo referencian (SG-01)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/sic-a"/>
+      </reference>
+      <name value="Caso A · 1 — SIC con sospecha de cáncer gástrico"/>
+      <description value="CESFAM La Florida deriva a Gastroenterología del Hospital La Florida para confirmación diagnóstica."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/sic-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/oa-a-endoscopia"/>
+      </reference>
+      <name value="Caso A · 2 — OA de endoscopía digestiva alta"/>
+      <description value="Gastroenterología ordena gastroduodenoscopía con biopsia para confirmar."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Procedure"/>
+      </extension>
+      <reference>
+        <reference value="Procedure/po-a-endoscopia"/>
+      </reference>
+      <name value="Caso A · 3 — PO endoscopía realizada"/>
+      <description value="La unidad de endoscopía registra la prestación. PO no exige profesional: el rol no trae practitioner."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Condition"/>
+      </extension>
+      <reference>
+        <reference value="Condition/ipd-a"/>
+      </reference>
+      <name value="Caso A · 4 — IPD confirma cáncer gástrico"/>
+      <description value="verificationStatus = confirmed. Incluye además un coding CIE-10 (crecimiento sin cambiar el perfil)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/oa-a-cirugia"/>
+      </reference>
+      <name value="Caso A · 5 — OA de gastrectomía"/>
+      <description value="Cirugía digestiva ordena gastrectomía subtotal con disección ganglionar."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Procedure"/>
+      </extension>
+      <reference>
+        <reference value="Procedure/po-a-cirugia"/>
+      </reference>
+      <name value="Caso A · 6 — PO gastrectomía realizada"/>
+      <description value="Cumple la garantía de intervención quirúrgica."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="EpisodeOfCare"/>
+      </extension>
+      <reference>
+        <reference value="EpisodeOfCare/caso-a"/>
+      </reference>
+      <name value="Caso A — cáncer gástrico (estado tras la PO de cirugía)"/>
+      <description value="Caso GES del paciente A publicado como ejemplo independiente, para que los ejemplos sueltos que lo referencian resuelvan (SG-01)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Condition"/>
+      </extension>
+      <reference>
+        <reference value="Condition/cond-a-sospecha"/>
+      </reference>
+      <name value="Caso A — Diagnóstico de sospecha (motivo de la SIC)"/>
+      <description value="Condition en estado provisional = sospecha GES."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/diagnostico-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Condition"/>
+      </extension>
+      <reference>
+        <reference value="Condition/ipd-b"/>
+      </reference>
+      <name value="Caso B · 1 — IPD confirma ERC etapa 5"/>
+      <description value="La VFG y la etapa viajan como DatoEspecialGES en evidence.detail (reemplazan enfermedadRenalVfg1..3)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/oa-b-hemodialisis"/>
+      </reference>
+      <name value="Caso B · 2 — OA de hemodiálisis"/>
+      <description value="Orden de hemodiálisis con cuarto turno. Comuna, fono y email del beneficiario salen del Patient (no son campos especiales)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/oa-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Procedure"/>
+      </extension>
+      <reference>
+        <reference value="Procedure/po-b-hemodialisis"/>
+      </reference>
+      <name value="Caso B · 3 — PO hemodiálisis mensual"/>
+      <description value="Prestación con período: fechaRealizacion = start, fechaFin = end."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/po-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="EpisodeOfCare"/>
+      </extension>
+      <reference>
+        <reference value="EpisodeOfCare/caso-b"/>
+      </reference>
+      <name value="Caso B — ERC (estado tras la PO de hemodiálisis)"/>
+      <description value="Caso GES del paciente B publicado como ejemplo independiente (SG-01)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Condition"/>
+      </extension>
+      <reference>
+        <reference value="Condition/hd-c-sospecha"/>
+      </reference>
+      <name value="Caso C · 1 — HD sospecha DM2"/>
+      <description value="Estado HD 1191 + verificationStatus provisional."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/hoja-diaria-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Condition"/>
+      </extension>
+      <reference>
+        <reference value="Condition/hd-c-confirmado"/>
+      </reference>
+      <name value="Caso C · 2 — HD confirma DM2"/>
+      <description value="Estado HD 1192 + verificationStatus confirmed."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/hoja-diaria-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Task"/>
+      </extension>
+      <reference>
+        <reference value="Task/exgo-c"/>
+      </reference>
+      <name value="Caso C · 3 — EXGO por inasistencia"/>
+      <description value="Excepción de la garantía de atención por especialista (endocrinología) por inasistencia."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/excepcion-garantia-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="EpisodeOfCare"/>
+      </extension>
+      <reference>
+        <reference value="EpisodeOfCare/caso-c"/>
+      </reference>
+      <name value="Caso C — hoja diaria APS (estado tras la EXGO)"/>
+      <description value="Caso GES del paciente C publicado como ejemplo independiente (SG-01)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ServiceRequest"/>
+      </extension>
+      <reference>
+        <reference value="ServiceRequest/sic-d"/>
+      </reference>
+      <name value="Caso D · 1 — SIC sospecha cáncer gástrico"/>
+      <description value="Segunda paciente con el mismo flujo de entrada que el caso A."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/sic-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Condition"/>
+      </extension>
+      <reference>
+        <reference value="Condition/ipd-d"/>
+      </reference>
+      <name value="Caso D · 2 — IPD descarta"/>
+      <description value="verificationStatus = refuted (descarta). Destino: retorno a APS."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ipd-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Task"/>
+      </extension>
+      <reference>
+        <reference value="Task/cc-d"/>
+      </reference>
+      <name value="Caso D · 3 — CC por descarte"/>
+      <description value="Cierre de caso con causal 8 (Descarte)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/cierre-caso-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="EpisodeOfCare"/>
+      </extension>
+      <reference>
+        <reference value="EpisodeOfCare/caso-d"/>
+      </reference>
+      <name value="Caso D — descartado y cerrado (estado tras el CC)"/>
+      <description value="Caso GES del paciente D publicado como ejemplo independiente (SG-01)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Condition"/>
+      </extension>
+      <reference>
+        <reference value="Condition/cond-d-sospecha"/>
+      </reference>
+      <name value="Caso D — Diagnóstico de sospecha"/>
+      <description value="Motivo de la SIC del caso D."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/diagnostico-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/caso-ges"/>
+      </reference>
+      <name value="Caso GES"/>
+      <description value="El caso GES: paciente + problema de salud + rama. Es el hilo que une todos los documentos. Lo abre la primera notificación (SIC, IPD o HD) y lo cierra un CC."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ext-caso-ges"/>
+      </reference>
+      <name value="Caso GES"/>
+      <description value="Referencia al caso GES (EpisodeOfCare) al que pertenece el documento. En R4 ServiceRequest, Procedure y Condition no tienen un elemento para el episodio."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-causal-cierre-caso"/>
+      </reference>
+      <name value="Causales de cierre de caso"/>
+      <description value="Causales de tipo cierre-caso."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-causal-excepcion-garantia"/>
+      </reference>
+      <name value="Causales de excepción de garantía"/>
+      <description value="Causales de tipo excepcion-garantia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/causal-sigges"/>
+      </reference>
+      <name value="Causales SIGGES"/>
+      <description value="Causales de cierre de caso, excepción de garantía y cierre de garantía de oportunidad (hoja CAUSALES)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/cierre-caso-ges"/>
+      </reference>
+      <name value="CC — Cierre de caso"/>
+      <description value="Cierre del caso GES con su causal. focus apunta al caso."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/consulta-casos-pac-a"/>
+      </reference>
+      <name value="Consulta de casos por RUN — paciente A"/>
+      <description value="Respuesta a GET EpisodeOfCare?patient.identifier=…|9876543-3&amp;_revinclude=Task:focus. Reemplaza /consultar-sigges."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="NamingSystem"/>
+      </extension>
+      <reference>
+        <reference value="NamingSystem/NSDeis"/>
+      </reference>
+      <name value="Código DEIS de establecimiento"/>
+      <description value="Identificador DEIS de establecimiento en formato NN-NNN (DEIS2 del catálogo UNIDADES)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/obs-b-etapa"/>
+      </reference>
+      <name value="Dato especial — Etapa de enfermedad renal crónica"/>
+      <description value="Dato específico del problema de salud, enviado como Observation."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/obs-b-cuarto-turno"/>
+      </reference>
+      <name value="Dato especial — Requiere cuarto turno de diálisis"/>
+      <description value="Dato específico del problema de salud, enviado como Observation."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Observation"/>
+      </extension>
+      <reference>
+        <reference value="Observation/obs-b-vfg"/>
+      </reference>
+      <name value="Dato especial — Velocidad de filtración glomerular estimada"/>
+      <description value="Dato específico del problema de salud, enviado como Observation."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/dato-especial-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/dato-especial-ges"/>
+      </reference>
+      <name value="Dato específico por problema de salud"/>
+      <description value="Mecanismo de crecimiento: los datos que sólo aplican a un problema de salud (VFG, cuarto turno, etapa…) se envían como Observation con un código de CSDatoEspecialGES, en vez de agregar campos nuevos a la API."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/dato-especial-ges"/>
+      </reference>
+      <name value="Datos específicos por problema de salud"/>
+      <description value="Códigos para Observation que reemplazan los campos ad hoc de la API v1.5 (enfermedadRenalVfg1..3, cuartoTurnoEspecial, parametroEspecial). Agregar un dato nuevo = agregar un código aquí; la API y los perfiles no cambian."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-dato-especial-ges"/>
+      </reference>
+      <name value="Datos específicos por PS"/>
+      <description value="Códigos de Observation para datos específicos por problema de salud."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/derivada-para-ges"/>
+      </reference>
+      <name value="Derivada para (SIGGES)"/>
+      <description value="Motivo de la derivación en SIC y OA (hoja DERIVAPARA)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-derivada-para-oa"/>
+      </reference>
+      <name value="Derivada para — OA"/>
+      <description value="Motivos de derivación válidos en una OA."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-derivada-para-sic"/>
+      </reference>
+      <name value="Derivada para — SIC"/>
+      <description value="Motivos de derivación válidos en una SIC."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ConceptMap"/>
+      </extension>
+      <reference>
+        <reference value="ConceptMap/tei-a-sigges-derivado-para"/>
+      </reference>
+      <name value="Derivado para: TEI → SIGGES (SIC)"/>
+      <description value="CSDerivadoParaCodigo de TEI a CSDerivadaParaGES de SIGGES en contexto SIC. Los códigos 2, 3 y 4 significan cosas distintas en cada sistema. SIGGES 11 (Rehabilitación) no tiene origen en TEI 0.2.3."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/diagnostico-ges"/>
+      </reference>
+      <name value="Diagnóstico GES"/>
+      <description value="Afirmación diagnóstica sobre el problema de salud GES. verificationStatus reemplaza confirmaSospechaDescarta (provisional = sospecha, confirmed = confirma, refuted = descarta). Es el motivo de la SIC y la base de IPD y HD."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CapabilityStatement"/>
+      </extension>
+      <reference>
+        <reference value="CapabilityStatement/CSEmisorEstablecimiento"/>
+      </reference>
+      <name value="Emisor — sistema del establecimiento"/>
+      <description value="Lo que debe hacer el sistema clínico que notifica: invocar $process-message con un BundleNotificacionGES válido, conservar el número de caso SIGGES y consultar casos."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ConceptMap"/>
+      </extension>
+      <reference>
+        <reference value="ConceptMap/tei-a-sigges-especialidad"/>
+      </reference>
+      <name value="Especialidad: TEI → SIGGES"/>
+      <description value="CSEspecialidadMed de TEI (códigos numéricos) a CSEspecialidadSIGGES (formato NN-NNN-N). Sólo se mapean coincidencias exactas de nombre; el resto queda pendiente de homologación."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-especialidad-sigges"/>
+      </reference>
+      <name value="Especialidades SIGGES"/>
+      <description value="Todas las especialidades del catálogo."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/especialidad-sigges"/>
+      </reference>
+      <name value="Especialidades SIGGES"/>
+      <description value="Especialidades según catálogo SIGGES 2.0 (formato DEIS NN-NNN-N)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/sotero-del-rio"/>
+      </reference>
+      <name value="Establecimiento 14-101 — Complejo Hospitalario Dr. Sótero del Río"/>
+      <description value="Establecimiento de la red pública, Servicio de Salud Metropolitano Sur Oriente."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/hosp-la-florida"/>
+      </reference>
+      <name value="Establecimiento 14-105 — Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza"/>
+      <description value="Establecimiento de la red pública, Servicio de Salud Metropolitano Sur Oriente."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/cesfam-santo-tomas"/>
+      </reference>
+      <name value="Establecimiento 14-317 — Centro de Salud Familiar Santo Tomás"/>
+      <description value="Establecimiento de la red pública, Servicio de Salud Metropolitano Sur Oriente."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/cesfam-la-florida"/>
+      </reference>
+      <name value="Establecimiento 14-331 — Centro de Salud Familiar La Florida"/>
+      <description value="Establecimiento de la red pública, Servicio de Salud Metropolitano Sur Oriente."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/establecimiento-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ext-establecimiento-destino"/>
+      </reference>
+      <name value="Establecimiento de destino"/>
+      <description value="Establecimiento donde continúa la atención tras el IPD (deisEstablecimientoDestino)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/establecimiento-ges"/>
+      </reference>
+      <name value="Establecimiento GES"/>
+      <description value="Establecimiento identificado por código DEIS. El Servicio de Salud se deriva del catálogo (CSEstablecimientoDEIS.servicioSalud) o se informa en partOf como referencia lógica."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/establecimiento-deis"/>
+      </reference>
+      <name value="Establecimientos (DEIS)"/>
+      <description value="Establecimientos de salud según catálogo UNIDADES de SIGGES 2.0. Código = DEIS formato NN-NNN."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-establecimiento-deis"/>
+      </reference>
+      <name value="Establecimientos DEIS"/>
+      <description value="Todos los establecimientos del catálogo."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-estado-garantia-ges"/>
+      </reference>
+      <name value="Estado de garantía"/>
+      <description value="Estados de negocio de una garantía."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ext-estado-hoja-diaria"/>
+      </reference>
+      <name value="Estado de hoja diaria APS"/>
+      <description value="Estado del caso en la hoja diaria APS, específico por rama (campo estado de la API v1.5)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/estado-garantia-ges"/>
+      </reference>
+      <name value="Estado de negocio de la garantía"/>
+      <description value="Estado de negocio (Task.businessStatus) de una garantía de oportunidad."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-estado-hoja-diaria-ges"/>
+      </reference>
+      <name value="Estados de hoja diaria"/>
+      <description value="Todos los estados de hoja diaria APS."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/estado-hoja-diaria-ges"/>
+      </reference>
+      <name value="Estados de Hoja Diaria APS"/>
+      <description value="Estados de la Hoja Diaria APS por rama (hoja ESTADOS HD - RAMAS)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/excepcion-garantia-ges"/>
+      </reference>
+      <name value="EXGO — Excepción de garantía de oportunidad"/>
+      <description value="Exceptúa una garantía del caso con su causal y justificación."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="NamingSystem"/>
+      </extension>
+      <reference>
+        <reference value="NamingSystem/NSFolioDocumento"/>
+      </reference>
+      <name value="Folio de documento del establecimiento"/>
+      <description value="Folio del documento en el sistema de origen (folioDocumentoHospital). Único por establecimiento (identifier.assigner) y clave de idempotencia."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Organization"/>
+      </extension>
+      <reference>
+        <reference value="Organization/fonasa"/>
+      </reference>
+      <name value="FONASA"/>
+      <description value="Fondo Nacional de Salud, receptor de las notificaciones SIGGES."/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Task"/>
+      </extension>
+      <reference>
+        <reference value="Task/gar-a-701"/>
+      </reference>
+      <name value="Garantía 701 — Confirmación Diagnóstica (cumplida)"/>
+      <description value="Garantía del caso A publicada por SIGGES."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Task"/>
+      </extension>
+      <reference>
+        <reference value="Task/gar-a-702"/>
+      </reference>
+      <name value="Garantía 702 — Intervención Quirúrgica (cumplida)"/>
+      <description value="Garantía del caso A publicada por SIGGES."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Task"/>
+      </extension>
+      <reference>
+        <reference value="Task/gar-a-703"/>
+      </reference>
+      <name value="Garantía 703 — Seguimiento (vigente)"/>
+      <description value="Garantía del caso A publicada por SIGGES."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/garantia-oportunidad-ges"/>
+      </reference>
+      <name value="Garantía de oportunidad"/>
+      <description value="Garantía activa de un caso con su plazo. La publica SIGGES (no la envía el establecimiento) y se obtiene en la consulta de casos."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ext-garantia-ges"/>
+      </reference>
+      <name value="Garantía GES"/>
+      <description value="Garantía GES a la que se imputa el documento (campo garantia de la API v1.5)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-garantia-ges"/>
+      </reference>
+      <name value="Garantías GES"/>
+      <description value="Todas las garantías."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/garantia-ges"/>
+      </reference>
+      <name value="Garantías GES"/>
+      <description value="Garantías GES por rama de problema de salud (hoja GARANTIAS)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/hoja-diaria-ges"/>
+      </reference>
+      <name value="HD — Hoja diaria APS"/>
+      <description value="Registro APS del estado del caso por rama. El estado específico (catálogo ESTADOS HD) va en extensión; verificationStatus lleva la semántica genérica."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="NamingSystem"/>
+      </extension>
+      <reference>
+        <reference value="NamingSystem/NSCasoSIGGES"/>
+      </reference>
+      <name value="Identificador de caso SIGGES"/>
+      <description value="Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ipd-ges"/>
+      </reference>
+      <name value="IPD — Informe de proceso diagnóstico"/>
+      <description value="Confirma, mantiene en sospecha o descarta el problema de salud. Los datos propios de un PS (p.ej. VFG en ERC) van en evidence.detail como DatoEspecialGES."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-a1-sic"/>
+      </reference>
+      <name value="Mensaje A1 — SIC (abre el caso)"/>
+      <description value="Primer mensaje del caso: aún no existe número SIGGES, el caso viaja con identificador local."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-a2-oa"/>
+      </reference>
+      <name value="Mensaje A2 — OA endoscopía"/>
+      <description value="El caso ya tiene número SIGGES (8812345), devuelto en la respuesta al mensaje A1."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-a3-po"/>
+      </reference>
+      <name value="Mensaje A3 — PO endoscopía"/>
+      <description value="Prestación otorgada vinculada a la OA por basedOn."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-a4-ipd"/>
+      </reference>
+      <name value="Mensaje A4 — IPD confirma"/>
+      <description value="Confirmación diagnóstica: inicia la garantía de tratamiento quirúrgico."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-a5-oa"/>
+      </reference>
+      <name value="Mensaje A5 — OA cirugía"/>
+      <description value="Orden de tratamiento imputada a la garantía 702."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-a6-po"/>
+      </reference>
+      <name value="Mensaje A6 — PO cirugía"/>
+      <description value="Prestación que cumple la garantía 702."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-b1-ipd"/>
+      </reference>
+      <name value="Mensaje B1 — IPD ERC con VFG"/>
+      <description value="El caso se abre directamente con un IPD (sin SIC previa)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-b2-oa"/>
+      </reference>
+      <name value="Mensaje B2 — OA hemodiálisis"/>
+      <description value="Datos especiales renales como Observation en supportingInfo."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-b3-po"/>
+      </reference>
+      <name value="Mensaje B3 — PO hemodiálisis"/>
+      <description value="Tratamiento mensual con fecha de fin."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-c1-hd"/>
+      </reference>
+      <name value="Mensaje C1 — HD sospecha"/>
+      <description value="Hoja diaria APS que abre el caso."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-c2-hd"/>
+      </reference>
+      <name value="Mensaje C2 — HD confirma"/>
+      <description value="Misma estructura que C1: sólo cambian estado y verificationStatus."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-c3-exgo"/>
+      </reference>
+      <name value="Mensaje C3 — EXGO"/>
+      <description value="Excepción con causal (statusReason) y justificación (statusReason.text)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-d1-sic"/>
+      </reference>
+      <name value="Mensaje D1 — SIC"/>
+      <description value="Abre el caso D."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-d2-ipd"/>
+      </reference>
+      <name value="Mensaje D2 — IPD descarta"/>
+      <description value="Descarte del problema de salud."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/msg-d3-cc"/>
+      </reference>
+      <name value="Mensaje D3 — CC"/>
+      <description value="Cierre del caso: EpisodeOfCare.status = finished."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-notificacion-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/mh-notificacion-ges"/>
+      </reference>
+      <name value="MessageHeader — Notificación GES"/>
+      <description value="Cabecera del mensaje. eventCoding indica qué documento se notifica; sender es el establecimiento (deisOrigen) y source el sistema (nombreSistemaOrigen)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/mh-respuesta-ges"/>
+      </reference>
+      <name value="MessageHeader — Respuesta SIGGES"/>
+      <description value="Respuesta de SIGGES. response.code indica el resultado; focus devuelve el caso con su número SIGGES; details apunta a un OperationOutcome con advertencias o errores."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ConceptMap"/>
+      </extension>
+      <reference>
+        <reference value="ConceptMap/tei-a-sigges-motivo-cierre"/>
+      </reference>
+      <name value="Motivo de cierre de interconsulta TEI → causal SIGGES"/>
+      <description value="CSMotivoCierreInterconsulta de TEI a CSCausalSIGGES. Cerrar una interconsulta no es cerrar el caso GES: sólo los motivos que también cierran el caso tienen equivalente."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="NamingSystem"/>
+      </extension>
+      <reference>
+        <reference value="NamingSystem/NSCasoLocal"/>
+      </reference>
+      <name value="NSCasoLocal"/>
+      <description value="Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/oa-ges"/>
+      </reference>
+      <name value="OA — Orden de atención"/>
+      <description value="Orden de una prestación garantizada. La prestación va en code, la garantía en extensión y los datos especiales (p.ej. cuarto turno) en supportingInfo."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/paciente-ges"/>
+      </reference>
+      <name value="Paciente GES"/>
+      <description value="Beneficiario del caso GES. Se identifica por RUN; los datos demográficos viajan una sola vez aquí y no se repiten en cada documento."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Patient"/>
+      </extension>
+      <reference>
+        <reference value="Patient/pac-a"/>
+      </reference>
+      <name value="Paciente Juan Carlos Pérez Soto"/>
+      <description value="Beneficiario ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Patient"/>
+      </extension>
+      <reference>
+        <reference value="Patient/pac-c"/>
+      </reference>
+      <name value="Paciente Luis Alberto Muñoz Díaz"/>
+      <description value="Beneficiario ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Patient"/>
+      </extension>
+      <reference>
+        <reference value="Patient/pac-b"/>
+      </reference>
+      <name value="Paciente María Isabel González Rojas"/>
+      <description value="Beneficiario ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Patient"/>
+      </extension>
+      <reference>
+        <reference value="Patient/pac-d"/>
+      </reference>
+      <name value="Paciente Rosa Elena Tapia Vidal"/>
+      <description value="Beneficiario ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/paciente-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/po-ges"/>
+      </reference>
+      <name value="PO — Prestación otorgada"/>
+      <description value="Prestación efectivamente realizada. basedOn apunta a la OA o SIC que la originó."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/prestacion-fonasa"/>
+      </reference>
+      <name value="Prestaciones (arancel Fonasa)"/>
+      <description value="Prestaciones según catálogo SIGGES 2.0 (hoja PRESTACIONES)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-prestacion-fonasa"/>
+      </reference>
+      <name value="Prestaciones Fonasa"/>
+      <description value="Todas las prestaciones del catálogo."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ConceptMap"/>
+      </extension>
+      <reference>
+        <reference value="ConceptMap/tei-a-sigges-problema-salud"/>
+      </reference>
+      <name value="Problema de salud: TEI → SIGGES"/>
+      <description value="Códigos 1–90 de cs-problema-ges-tei a CSProblemaSaludGES. Son el mismo listado del catálogo FONASA."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-problema-salud-ges"/>
+      </reference>
+      <name value="Problemas de salud GES"/>
+      <description value="Todos los problemas de salud GES del catálogo."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/problema-salud-ges"/>
+      </reference>
+      <name value="Problemas de salud GES"/>
+      <description value="Problemas de salud GES según catálogo SIGGES 2.0 (hoja PROBLEMAS DE SALUD)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/pr-fuentes"/>
+      </reference>
+      <name value="Profesional Andrés Fuentes Soto"/>
+      <description value="Profesional ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/pr-rojas"/>
+      </reference>
+      <name value="Profesional Camila Andrea Rojas Muñoz"/>
+      <description value="Profesional ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/prestador-ges"/>
+      </reference>
+      <name value="Profesional GES"/>
+      <description value="Profesional que firma el documento (runProfesional + dvProfesional)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/pr-paredes"/>
+      </reference>
+      <name value="Profesional Ignacio Paredes Lagos"/>
+      <description value="Profesional ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/pr-vergara"/>
+      </reference>
+      <name value="Profesional Tomás Vergara Pino"/>
+      <description value="Profesional ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Practitioner"/>
+      </extension>
+      <reference>
+        <reference value="Practitioner/pr-soto"/>
+      </reference>
+      <name value="Profesional Valentina Soto Araya"/>
+      <description value="Profesional ficticio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/prestador-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-programa-ges-snomed"/>
+      </reference>
+      <name value="Programas GES (SNOMED CT, extensión chilena)"/>
+      <description value="Conceptos de programa GES de la extensión chilena de SNOMED CT: descendientes de 1741000325106 (programa de Garantías Explícitas en Salud). Es el mismo criterio de vs-problema-ges-tei de la guía TEI 0.2.3. Clasifican el caso (EpisodeOfCare.type), no el diagnóstico: son conceptos de programa, no hallazgos clínicos."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-rama-problema-salud-ges"/>
+      </reference>
+      <name value="Ramas de problema de salud GES"/>
+      <description value="Todas las ramas."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/rama-problema-salud-ges"/>
+      </reference>
+      <name value="Ramas de problema de salud GES"/>
+      <description value="Ramas (subdivisiones por decreto) de cada problema de salud GES. Derivado de la hoja GARANTIAS."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CapabilityStatement"/>
+      </extension>
+      <reference>
+        <reference value="CapabilityStatement/CSReceptorSIGGES"/>
+      </reference>
+      <name value="Receptor SIGGES (capa de interoperabilidad en etapa 1, SIGGES en etapa 2)"/>
+      <description value="Lo que debe exponer quien recibe las notificaciones GES: la operación $process-message para los 7 documentos y la búsqueda de casos con sus garantías."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/resp-a1-ok"/>
+      </reference>
+      <name value="Respuesta A1 — OK con número de caso"/>
+      <description value="SIGGES acepta la SIC y devuelve el caso con identifier[casoSIGGES] = 8812345. El HIS debe guardarlo y enviarlo en los siguientes mensajes."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/resp-b2-aviso"/>
+      </reference>
+      <name value="Respuesta B2 — OK con información"/>
+      <description value="Aceptado; el OperationOutcome informa un dato que SIGGES derivó del catálogo."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/resp-error"/>
+      </reference>
+      <name value="Respuesta — Error de validación"/>
+      <description value="Rechazo con fatal-error. No se crea nada en SIGGES; el HIS corrige y reenvía con un NUEVO Bundle.identifier y el MISMO folio."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Bundle"/>
+      </extension>
+      <reference>
+        <reference value="Bundle/resp-duplicado"/>
+      </reference>
+      <name value="Respuesta — Reenvío idempotente"/>
+      <description value="Reintento del mensaje A3: SIGGES reconoce el folio y responde ok con advertencia duplicate (idempotencia)."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/rol-clinico-ges"/>
+      </reference>
+      <name value="Rol clínico GES"/>
+      <description value="Quién, dónde y en qué especialidad se emite el documento: profesional + establecimiento que otorga + especialidad de origen. Un solo recurso resuelve runProfesional, deisEstablecimientoOtorga y especialidadOrigen."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/rol-paredes-hlf"/>
+      </reference>
+      <name value="Rol — Cirugía Abdominal Adulto en 14-105"/>
+      <description value="Profesional + establecimiento + especialidad."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/rol-fuentes-hlf"/>
+      </reference>
+      <name value="Rol — Gastroenterología Adulto en 14-105"/>
+      <description value="Profesional + establecimiento + especialidad."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/rol-vergara-cesfam-st"/>
+      </reference>
+      <name value="Rol — Medicina Familiar en 14-317"/>
+      <description value="Profesional + establecimiento + especialidad."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/rol-rojas-cesfam-lf"/>
+      </reference>
+      <name value="Rol — Medicina Familiar en 14-331"/>
+      <description value="Profesional + establecimiento + especialidad."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/rol-soto-sotero"/>
+      </reference>
+      <name value="Rol — Nefrología Adulto en 14-101"/>
+      <description value="Profesional + establecimiento + especialidad."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="PractitionerRole"/>
+      </extension>
+      <reference>
+        <reference value="PractitionerRole/rol-endoscopia-hlf"/>
+      </reference>
+      <name value="Rol — Procedimientos Gastroenterológicos en 14-105"/>
+      <description value="Unidad (sin profesional) + establecimiento + especialidad."/>
+      <exampleCanonical value="https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/rol-clinico-ges"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/servicio-salud-deis"/>
+      </reference>
+      <name value="Servicios de Salud (DEIS)"/>
+      <description value="Servicios de Salud según catálogo UNIDADES de SIGGES 2.0."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/sexo-sigges"/>
+      </reference>
+      <name value="Sexo (SIGGES)"/>
+      <description value="Codificación de sexo usada por SIGGES 2.0 (hoja SEXO)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ConceptMap"/>
+      </extension>
+      <reference>
+        <reference value="ConceptMap/sexo-fhir-a-sigges"/>
+      </reference>
+      <name value="Sexo FHIR → SIGGES"/>
+      <description value="Traducción de Patient.gender (administrative-gender) al código SIGGES del campo sexoPaciente."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/sic-ges"/>
+      </reference>
+      <name value="SIC — Solicitud de interconsulta"/>
+      <description value="Derivación con sospecha GES. El diagnóstico, su fundamento y la marca confirma/sospecha/descarta viajan en el DiagnosticoGES referenciado en reasonReference."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/tipo-origen-ges"/>
+      </reference>
+      <name value="Tipo de establecimiento de origen"/>
+      <description value="Dependencia del establecimiento que notifica (tipoDeisOrigen en API v1.5)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/vs-tipo-documento-sigges"/>
+      </reference>
+      <name value="Tipos de documento SIGGES"/>
+      <description value="Eventos de mensaje admitidos."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/tipo-documento-sigges"/>
+      </reference>
+      <name value="Tipos de documento SIGGES"/>
+      <description value="Documentos del ciclo de un caso GES. Se usan como evento del MessageHeader. La propiedad codigoSIGGES es el identificador numérico interno de SIGGES 2.0."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/tipo-tarea-ges"/>
+      </reference>
+      <name value="Tipos de tarea GES"/>
+      <description value="Clasifica las tareas (Task) de gestión de garantías y del caso."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ext-indicaciones-clinicas"/>
+      </reference>
+      <name value="Tratamiento e indicaciones"/>
+      <description value="Texto libre de tratamiento e indicaciones (indicacionExamen en la API v1.5)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ConceptMap"/>
+      </extension>
+      <reference>
+        <reference value="ConceptMap/verificacion-a-csd"/>
+      </reference>
+      <name value="verificationStatus → confirmaSospechaDescarta"/>
+      <description value="Traducción de Condition.verificationStatus al campo confirmaSospechaDescarta de SIC/IPD en la API v1.5 (valores a confirmar con FONASA)."/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <page>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+        <valueUrl value="toc.html"/>
+      </extension>
+      <nameUrl value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="index.html"/>
+        </extension>
+        <nameUrl value="index.html"/>
+        <title value="Inicio"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="flujos.html"/>
+        </extension>
+        <nameUrl value="flujos.html"/>
+        <title value="Flujos del caso GES"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="modelo.html"/>
+        </extension>
+        <nameUrl value="modelo.html"/>
+        <title value="Modelo de datos"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="mensajeria.html"/>
+        </extension>
+        <nameUrl value="mensajeria.html"/>
+        <title value="Mensajería y respuesta"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="documentos.html"/>
+        </extension>
+        <nameUrl value="documentos.html"/>
+        <title value="Documento por documento"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="consulta.html"/>
+        </extension>
+        <nameUrl value="consulta.html"/>
+        <title value="Consulta de casos"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="terminologia.html"/>
+        </extension>
+        <nameUrl value="terminologia.html"/>
+        <title value="Terminología"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="ejemplos.html"/>
+        </extension>
+        <nameUrl value="ejemplos.html"/>
+        <title value="Ejemplos"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="traduccion.html"/>
+        </extension>
+        <nameUrl value="traduccion.html"/>
+        <title value="Transición y traducción a API v1.5"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="hallazgos.html"/>
+        </extension>
+        <nameUrl value="hallazgos.html"/>
+        <title value="Observaciones a API v1.5 y catálogo"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="relacion-tei.html"/>
+        </extension>
+        <nameUrl value="relacion-tei.html"/>
+        <title value="Relación con TEI"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="historial-de-cambios.html"/>
+        </extension>
+        <nameUrl value="historial-de-cambios.html"/>
+        <title value="Historial de cambios"/>
+        <generation value="markdown"/>
+      </page>
+    </page>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/capabilities"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/examples"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/extensions"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/models"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/operations"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/profiles"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/vocabulary"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/maps"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/testing"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/history"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="fsh-generated/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="template/config"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="input/images"/>
+    </parameter>
+    <parameter>
+      <code value="path-tx-cache"/>
+      <value value="input-cache/txcache"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

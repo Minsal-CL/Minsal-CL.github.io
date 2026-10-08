@@ -1,0 +1,78 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "estado-garantia-ges"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: SistemaDeCodigos estado-garantia-ges</b></p><a name=\"estado-garantia-ges\"> </a><a name=\"hcestado-garantia-ges\"> </a><p>This case-sensitive code system <code>https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">vigente<a name=\"estado-garantia-ges-vigente\"> </a></td><td>Vigente</td><td>Garantía abierta y dentro de plazo.</td></tr><tr><td style=\"white-space:nowrap\">cumplida<a name=\"estado-garantia-ges-cumplida\"> </a></td><td>Cumplida</td><td>Garantía cumplida con la prestación otorgada.</td></tr><tr><td style=\"white-space:nowrap\">exceptuada<a name=\"estado-garantia-ges-exceptuada\"> </a></td><td>Exceptuada</td><td>Garantía exceptuada por causal.</td></tr><tr><td style=\"white-space:nowrap\">vencida<a name=\"estado-garantia-ges-vencida\"> </a></td><td>Vencida</td><td>Garantía no cumplida dentro de plazo.</td></tr><tr><td style=\"white-space:nowrap\">cerrada<a name=\"estado-garantia-ges-cerrada\"> </a></td><td>Cerrada</td><td>Garantía cerrada por cierre de caso.</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges"] ;
+  fhir:CodeSystem.version [ fhir:value "0.4.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CSEstadoGarantiaGES"] ;
+  fhir:CodeSystem.title [ fhir:value "Estado de negocio de la garantía"] ;
+  fhir:CodeSystem.status [ fhir:value "draft"] ;
+  fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-10-08T15:37:06-03:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Estado de negocio (Task.businessStatus) de una garantía de oportunidad."] ;
+  fhir:CodeSystem.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "5"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "vigente" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Vigente" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Garantía abierta y dentro de plazo." ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "cumplida" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Cumplida" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Garantía cumplida con la prestación otorgada." ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "exceptuada" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Exceptuada" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Garantía exceptuada por causal." ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "vencida" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Vencida" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Garantía no cumplida dentro de plazo." ]
+  ], [
+     fhir:index 4 ;
+     fhir:CodeSystem.concept.code [ fhir:value "cerrada" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Cerrada" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Garantía cerrada por cierre de caso." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

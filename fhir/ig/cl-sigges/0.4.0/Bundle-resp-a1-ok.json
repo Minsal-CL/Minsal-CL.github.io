@@ -1,0 +1,90 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "resp-a1-ok",
+  "meta" : {
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/bundle-respuesta-ges"]
+  },
+  "type" : "message",
+  "timestamp" : "2026-03-02T10:16:05-03:00",
+  "entry" : [{
+    "fullUrl" : "http://example.org/sigges/fhir/MessageHeader/resp-a1-ok-mh",
+    "resource" : {
+      "resourceType" : "MessageHeader",
+      "id" : "resp-a1-ok-mh",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/mh-respuesta-ges"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MessageHeader_resp-a1-ok-mh\"> </a><p class=\"res-header-id\"><b>Generated Narrative: CabeceraMensaje resp-a1-ok-mh</b></p><a name=\"resp-a1-ok-mh\"> </a><a name=\"hcresp-a1-ok-mh\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-mh-respuesta-ges.html\">MessageHeader — Respuesta SIGGES</a></p></div><p><b>event</b>: <a href=\"CodeSystem-tipo-documento-sigges.html#tipo-documento-sigges-SIC\">Tipos de documento SIGGES: SIC</a> (Solicitud de interconsulta)</p><h3>Destinations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"http://example.org/his/fhir/\">http://example.org/his/fhir/</a></td></tr></table><h3>Sources</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Name</b></td><td><b>Endpoint</b></td></tr><tr><td style=\"display: none\">*</td><td>SIGGES 2.0</td><td><a href=\"http://example.org/sigges/fhir/\">http://example.org/sigges/fhir/</a></td></tr></table><h3>Responses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td><td><b>Code</b></td></tr><tr><td style=\"display: none\">*</td><td>msg-a1-sic-mh</td><td>OK</td></tr></table><p><b>focus</b>: <a href=\"EpisodeOfCare-8812345.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p></div>"
+      },
+      "eventCoding" : {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-documento-sigges",
+        "code" : "SIC"
+      },
+      "destination" : [{
+        "endpoint" : "http://example.org/his/fhir/"
+      }],
+      "source" : {
+        "name" : "SIGGES 2.0",
+        "endpoint" : "http://example.org/sigges/fhir/"
+      },
+      "response" : {
+        "identifier" : "msg-a1-sic-mh",
+        "code" : "ok"
+      },
+      "focus" : [{
+        "reference" : "EpisodeOfCare/8812345"
+      }]
+    }
+  },
+  {
+    "fullUrl" : "http://example.org/sigges/fhir/EpisodeOfCare/8812345",
+    "resource" : {
+      "resourceType" : "EpisodeOfCare",
+      "id" : "8812345",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_8812345\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado 8812345</b></p><a name=\"8812345\"> </a><a name=\"hc8812345\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812345, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/CLF-2026-000871</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 27}\">Cáncer gástrico</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 108}\">Cáncer gástrico (decreto nº 228)</span></p><p><b>patient</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3\u00a0(use:\u00a0official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-cesfam-la-florida.html\">Centro de Salud Familiar La Florida (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-331)</a></p><p><b>period</b>: 2026-03-02 --&gt; (ongoing)</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges",
+        "value" : "8812345"
+      },
+      {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local",
+        "value" : "CLF-2026-000871",
+        "assigner" : {
+          "reference" : "Organization/cesfam-la-florida"
+        }
+      }],
+      "status" : "active",
+      "type" : [{
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges",
+          "code" : "27",
+          "display" : "Cáncer gástrico"
+        }]
+      },
+      {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges",
+          "code" : "108",
+          "display" : "Cáncer gástrico (decreto nº 228)"
+        }]
+      }],
+      "patient" : {
+        "reference" : "Patient/pac-a"
+      },
+      "managingOrganization" : {
+        "reference" : "Organization/cesfam-la-florida"
+      },
+      "period" : {
+        "start" : "2026-03-02"
+      }
+    }
+  }]
+}

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Modelo de datos - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Modelo de datos</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Modelo de datos</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#vista-general" id="markdown-toc-vista-general">Vista general</a></li>
+  <li><a href="#núcleo-común" id="markdown-toc-núcleo-común">Núcleo común</a></li>
+  <li><a href="#foco-por-documento" id="markdown-toc-foco-por-documento">Foco por documento</a></li>
+  <li><a href="#extensiones-solo-5" id="markdown-toc-extensiones-solo-5">Extensiones (solo 5)</a></li>
+  <li><a href="#crecimiento" id="markdown-toc-crecimiento">Cómo crece el modelo</a></li>
+</ul>
+
+</div>
+<h3 id="vista-general">Vista general</h3>
+
+<p><img src="modelo-recursos.svg" alt="Modelo de recursos" /></p>
+
+<h3 id="núcleo-común">Núcleo común</h3>
+
+<p>Estos recursos viajan en <strong>todos</strong> los mensajes. Resuelven de una sola vez los campos que la API v1.5 repite en cada documento.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Perfil</th>
+      <th>Base</th>
+      <th>Resuelve (API v1.5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="StructureDefinition-paciente-ges.html">PacienteGES</a></td>
+      <td>NID <code class="language-plaintext highlighter-rouge">MINSALPaciente</code></td>
+      <td>runPaciente, dvPaciente, nombres, apellidos, sexo, fecha de nacimiento, dirección, comuna, región, fono, email</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-prestador-ges.html">PrestadorGES</a></td>
+      <td>CL Core <code class="language-plaintext highlighter-rouge">CorePrestadorCl</code>, con la regla de identificador de NID (D-003)</td>
+      <td>runProfesional, dvProfesional, nombres y apellidos del profesional</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-establecimiento-ges.html">EstablecimientoGES</a></td>
+      <td>NID <code class="language-plaintext highlighter-rouge">MINSALPrestadorOrganizacional</code></td>
+      <td>deisOrigen, deisEstablecimientoOtorga/Destino, tipoDeisOrigen. El Servicio de Salud <strong>se deriva del catálogo</strong></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-rol-clinico-ges.html">RolClinicoGES</a></td>
+      <td>CL Core <code class="language-plaintext highlighter-rouge">CoreRolClinicoCl</code></td>
+      <td>Quién (profesional), dónde (establecimiento que otorga) y en qué especialidad (especialidadOrigen)</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-caso-ges.html">CasoGES</a></td>
+      <td>EpisodeOfCare</td>
+      <td>problemaSalud, ramaProblemaSalud (obligatoria, D-020), número de caso SIGGES o local, estado del caso; programa GES en SNOMED CT opcional</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>La identidad sigue la jerarquía del portafolio: FHIR R4 → CL Core → <strong>NID</strong> → esta guía. El paciente y el establecimiento derivan de los perfiles de NID, igual que en las guías de Laboratorio e Imagenología. El profesional queda en CL Core porque el perfil de NID es el del registro de prestadores y exige datos que la API v1.5 no trae (fecha de nacimiento, título); de NID se adopta la forma de identificarlo: RUN oficial, con su tipo y su sistema.</p>
+
+<h3 id="foco-por-documento">Foco por documento</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Perfil</th>
+      <th>Base</th>
+      <th>Notas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="StructureDefinition-diagnostico-ges.html">DiagnosticoGES</a></td>
+      <td>CL Core <code class="language-plaintext highlighter-rouge">CoreDiagnosticoCl</code></td>
+      <td>Base de SIC (motivo), IPD y HD. <code class="language-plaintext highlighter-rouge">verificationStatus</code> = confirma / sospecha / descarta</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-ipd-ges.html">InformeProcesoDiagnosticoGES</a></td>
+      <td>DiagnosticoGES</td>
+      <td>+ establecimiento de destino; datos por PS en <code class="language-plaintext highlighter-rouge">evidence.detail</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-hoja-diaria-ges.html">HojaDiariaGES</a></td>
+      <td>DiagnosticoGES</td>
+      <td>+ estado de hoja diaria (específico por rama)</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-sic-ges.html">SolicitudInterconsultaGES</a></td>
+      <td>ServiceRequest</td>
+      <td>derivadaPara en <code class="language-plaintext highlighter-rouge">category</code>; destino en <code class="language-plaintext highlighter-rouge">performer</code> y <code class="language-plaintext highlighter-rouge">performerType</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-oa-ges.html">OrdenAtencionGES</a></td>
+      <td>ServiceRequest</td>
+      <td>prestación en <code class="language-plaintext highlighter-rouge">code</code>; garantía en extensión; datos especiales en <code class="language-plaintext highlighter-rouge">supportingInfo</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-po-ges.html">PrestacionOtorgadaGES</a></td>
+      <td>Procedure</td>
+      <td><code class="language-plaintext highlighter-rouge">performedPeriod</code> = fechaRealizacion / fechaFin; <code class="language-plaintext highlighter-rouge">basedOn</code> → OA</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-cierre-caso-ges.html">CierreCasoGES</a></td>
+      <td>Task</td>
+      <td>causal en <code class="language-plaintext highlighter-rouge">statusReason</code>; <code class="language-plaintext highlighter-rouge">focus</code> → caso</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-excepcion-garantia-ges.html">ExcepcionGarantiaGES</a></td>
+      <td>Task</td>
+      <td>garantía en extensión; causal y justificación en <code class="language-plaintext highlighter-rouge">statusReason</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-garantia-oportunidad-ges.html">GarantiaOportunidadGES</a></td>
+      <td>Task</td>
+      <td>La publica SIGGES; plazo en <code class="language-plaintext highlighter-rouge">restriction.period</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-dato-especial-ges.html">DatoEspecialGES</a></td>
+      <td>Observation</td>
+      <td>Mecanismo de crecimiento por problema de salud</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="extensiones-solo-5">Extensiones (solo 5)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Extensión</th>
+      <th>Dónde</th>
+      <th>Por qué no hay un elemento estándar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="StructureDefinition-ext-caso-ges.html">ExtCasoGES</a></td>
+      <td>ServiceRequest, Procedure, Condition</td>
+      <td>En R4 estos recursos no tienen referencia al episodio</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-ext-garantia-ges.html">ExtGarantiaGES</a></td>
+      <td>ServiceRequest, Procedure, Task</td>
+      <td>Concepto propio del GES</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-ext-indicaciones-clinicas.html">ExtIndicacionesClinicas</a></td>
+      <td>Condition</td>
+      <td>Texto libre de tratamiento e indicaciones (indicacionExamen)</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-ext-establecimiento-destino.html">ExtEstablecimientoDestino</a></td>
+      <td>Condition</td>
+      <td>Destino de la atención tras el IPD</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-ext-estado-hoja-diaria.html">ExtEstadoHojaDiaria</a></td>
+      <td>Condition</td>
+      <td>Estado HD específico por rama (catálogo ESTADOS HD)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="crecimiento">Cómo crece el modelo</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Necesidad futura</th>
+      <th>Qué se hace</th>
+      <th>Qué <strong>no</strong> cambia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nuevo dato para un problema de salud (p.ej. estadio TNM, HbA1c, peso)</td>
+      <td>Se agrega un código a <a href="CodeSystem-dato-especial-ges.html">CSDatoEspecialGES</a> y se envía como Observation</td>
+      <td>Perfiles, API y demás documentos</td>
+    </tr>
+    <tr>
+      <td>Nuevo documento SIGGES</td>
+      <td>Se agrega un código a <a href="CodeSystem-tipo-documento-sigges.html">CSTipoDocumentoSIGGES</a> y un perfil de foco delgado</td>
+      <td>Núcleo común, sobre y respuesta</td>
+    </tr>
+    <tr>
+      <td>Nuevo decreto GES (ramas, garantías)</td>
+      <td>Se regeneran los CodeSystems desde el catálogo (<code class="language-plaintext highlighter-rouge">tools/catalogo2fsh.py</code>), con vigencia por concepto</td>
+      <td>Instancias ya emitidas</td>
+    </tr>
+    <tr>
+      <td>Codificación clínica (CIE-10, SNOMED CT)</td>
+      <td>Se agrega un <code class="language-plaintext highlighter-rouge">coding</code> adicional en <code class="language-plaintext highlighter-rouge">Condition.code</code> (slice <code class="language-plaintext highlighter-rouge">cie10</code> ya disponible)</td>
+      <td>El problema de salud GES sigue obligatorio</td>
+    </tr>
+    <tr>
+      <td>FONASA expone un endpoint FHIR</td>
+      <td>Los establecimientos siguen enviando <strong>el mismo Bundle</strong> y se retira el traductor</td>
+      <td>Todo lo que emite el establecimiento</td>
+    </tr>
+    <tr>
+      <td>Reportes y analítica</td>
+      <td>Los recursos son clínicos estándar: se pueden reutilizar en la Historia Clínica Compartida o en un repositorio</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Regla de oro.</strong> Si un requerimiento nuevo lleva a agregar un campo a un perfil existente, antes hay que preguntarse si es un <strong>dato clínico</strong> (Observation), un <strong>código</strong> (CodeSystem) o un <strong>documento</strong> (evento nuevo).</p>
+</blockquote>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

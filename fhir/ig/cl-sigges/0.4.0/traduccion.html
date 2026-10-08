@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Transición y traducción a API v1.5 - Notificación de Casos GES a SIGGES 2.0 v0.4.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"9"}
+    h3,h4,h5,h6{--heading-prefix:"9"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Notificación de Casos GES a SIGGES 2.0</span>
+            <br/>
+            <span style="display:inline-block;">0.4.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="flujos.html">Flujos</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Modelo
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="modelo.html">Modelo de datos</a>
+      </li>
+      <li>
+        <a href="mensajeria.html">Mensajería</a>
+      </li>
+      <li>
+        <a href="documentos.html">Documento por documento</a>
+      </li>
+      <li>
+        <a href="consulta.html">Consulta de casos</a>
+      </li>
+      <li>
+        <a href="terminologia.html">Terminología</a>
+      </li>
+      <li>
+        <a href="ejemplos.html">Ejemplos</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementación
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="traduccion.html">Transición y traducción</a>
+      </li>
+      <li>
+        <a href="hallazgos.html">Observaciones API y catálogo</a>
+      </li>
+      <li>
+        <a href="relacion-tei.html">Relación con TEI</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Artefactos</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Transición y traducción a API v1.5</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Notificación de Casos GES a SIGGES 2.0 - Local Development build (v0.4.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Transición y traducción a API v1.5</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#dos-etapas" id="markdown-toc-dos-etapas">Dos etapas</a></li>
+  <li><a href="#traductor-de-referencia" id="markdown-toc-traductor-de-referencia">Traductor de referencia</a></li>
+  <li><a href="#respuesta" id="markdown-toc-respuesta">Respuesta</a></li>
+  <li><a href="#recomendaciones-de-implementación" id="markdown-toc-recomendaciones-de-implementación">Recomendaciones de implementación</a></li>
+</ul>
+
+</div>
+<h3 id="dos-etapas">Dos etapas</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Etapa 1 — Ahora</th>
+      <th>Etapa 2 — Objetivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>El establecimiento envía</td>
+      <td>Bundle FHIR de esta guía</td>
+      <td><strong>El mismo</strong> Bundle FHIR</td>
+    </tr>
+    <tr>
+      <td>Quién valida</td>
+      <td>Capa de interoperabilidad (nodo / nivel central)</td>
+      <td>SIGGES</td>
+    </tr>
+    <tr>
+      <td>Quién traduce</td>
+      <td>Canal en la capa de interoperabilidad (FHIR → JSON v1.5)</td>
+      <td>Nadie</td>
+    </tr>
+    <tr>
+      <td>Cambios en SIGGES</td>
+      <td>Ninguno</td>
+      <td>Endpoint <code class="language-plaintext highlighter-rouge">$process-message</code> y búsqueda de EpisodeOfCare</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Lo importante es que <strong>el establecimiento integra una sola vez</strong>. Cuando FONASA pase a FHIR nativo, se retira el traductor y ningún sistema de origen se entera.</p>
+
+<p><img src="traduccion.svg" alt="Traducción" /></p>
+
+<h3 id="traductor-de-referencia">Traductor de referencia</h3>
+
+<p><code class="language-plaintext highlighter-rouge">tools/fhir2sigges.py</code> es una <strong>especificación ejecutable</strong> del mapeo. Sirve como base para el canal de integración (Mirth, Camel u otro) y como caso de prueba.</p>
+
+<pre><code class="language-highlight"># un mensaje
+python3 tools/fhir2sigges.py fsh-generated/resources/Bundle-msg-a4-ipd.json
+
+# todos los ejemplos → input/includes/api-v15/*.json
+python3 tools/fhir2sigges.py --ejemplos
+</code></pre>
+
+<p>Qué resuelve:</p>
+
+<ul>
+  <li><strong>Fechas</strong> ISO 8601 → <code class="language-plaintext highlighter-rouge">DD/MM/AAAA</code> y <code class="language-plaintext highlighter-rouge">HH:MM</code>.</li>
+  <li><strong>RUN</strong> <code class="language-plaintext highlighter-rouge">12345678-5</code> → <code class="language-plaintext highlighter-rouge">runPaciente</code> + <code class="language-plaintext highlighter-rouge">dvPaciente</code>.</li>
+  <li><strong>Servicio de Salud</strong> derivado del DEIS con el catálogo.</li>
+  <li><strong>Sexo</strong> y <strong>confirmaSospechaDescarta</strong> por ConceptMap.</li>
+  <li><strong>Datos especiales</strong>: Observation <code class="language-plaintext highlighter-rouge">vfg</code> → <code class="language-plaintext highlighter-rouge">enfermedadRenalVfg1</code>; <code class="language-plaintext highlighter-rouge">cuarto-turno</code> → <code class="language-plaintext highlighter-rouge">cuartoTurnoEspecial</code>.</li>
+  <li><strong>Datos del beneficiario ERC</strong>: Patient → <code class="language-plaintext highlighter-rouge">comunaEspecial</code>, <code class="language-plaintext highlighter-rouge">regionEspecial</code>, <code class="language-plaintext highlighter-rouge">fonoBeneficiarioEspecial</code> y <code class="language-plaintext highlighter-rouge">emailBeneficiarioEspecial</code>.</li>
+  <li><strong>Diferencias de nombres de la API</strong>: <code class="language-plaintext highlighter-rouge">nombrePaciente</code> (SIC), <code class="language-plaintext highlighter-rouge">pscCasoPaci</code> (EXGO).</li>
+</ul>
+
+<p><strong>Resultado sobre los 15 mensajes de ejemplo: 0 campos obligatorios faltantes en los 7 endpoints.</strong></p>
+
+<h3 id="respuesta">Respuesta</h3>
+
+<p>El canal convierte la respuesta HTTP de SIGGES en un <a href="StructureDefinition-bundle-respuesta-ges.html">BundleRespuestaGES</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Respuesta API v1.5</th>
+      <th>MessageHeader.response.code</th>
+      <th>OperationOutcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2xx con N° de caso</td>
+      <td><code class="language-plaintext highlighter-rouge">ok</code></td>
+      <td>— (o <code class="language-plaintext highlighter-rouge">information</code>)</td>
+    </tr>
+    <tr>
+      <td>2xx "ya registrado"</td>
+      <td><code class="language-plaintext highlighter-rouge">ok</code></td>
+      <td><code class="language-plaintext highlighter-rouge">warning</code> / <code class="language-plaintext highlighter-rouge">duplicate</code></td>
+    </tr>
+    <tr>
+      <td>4xx validación</td>
+      <td><code class="language-plaintext highlighter-rouge">fatal-error</code></td>
+      <td><code class="language-plaintext highlighter-rouge">error</code> con <code class="language-plaintext highlighter-rouge">expression</code></td>
+    </tr>
+    <tr>
+      <td>5xx / timeout</td>
+      <td><code class="language-plaintext highlighter-rouge">transient-error</code></td>
+      <td><code class="language-plaintext highlighter-rouge">error</code> / <code class="language-plaintext highlighter-rouge">timeout</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="recomendaciones-de-implementación">Recomendaciones de implementación</h3>
+
+<ol>
+  <li><strong>Validar antes de traducir.</strong> Un Bundle que no cumple los perfiles nunca debe llegar a SIGGES.</li>
+  <li><strong>Registrar el par (Bundle.identifier, folio) → respuesta</strong>, para reintentos y auditoría.</li>
+  <li><strong>Cachear el token OAuth</strong> hasta su expiración; no pedir uno por mensaje.</li>
+  <li><strong>Cola con reintentos</strong> exponenciales solo para <code class="language-plaintext highlighter-rouge">transient-error</code>.</li>
+  <li><strong>Tablero de rechazos por establecimiento y regla</strong>, para retroalimentar a los equipos locales.</li>
+</ol>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.sigges#0.4.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 15:37-0300">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/sigges/history.html">Historial de versiones</a></a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

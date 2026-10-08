@@ -1,0 +1,87 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/sexo-fhir-a-sigges> a fhir:ConceptMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "sexo-fhir-a-sigges"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: MapaDeConceptos sexo-fhir-a-sigges</b></p><a name=\"sexo-fhir-a-sigges\"> </a><a name=\"hcsexo-fhir-a-sigges\"> </a><p>This mapping does not specify any particular context of use.</p><br/><p>Mapping from <a href=\"http://hl7.org/fhir/R4/codesystem-administrative-gender.html\">AdministrativeGender</a> to <a href=\"CodeSystem-sexo-sigges.html\">Sexo (SIGGES)</a></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td></tr><tr><td>female</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>1 (Femenino)</td></tr><tr><td>male</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-equivalent\" title=\"equivalent\">is equivalent to</a></td><td>2 (Masculino)</td></tr><tr><td>other</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-wider\" title=\"wider\">maps to wider concept</a></td><td>3 (No definido)</td></tr><tr><td>unknown</td><td><a href=\"http://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html#concept-map-equivalence-wider\" title=\"wider\">maps to wider concept</a></td><td>3 (No definido)</td></tr></table></div>"
+  ] ;
+  fhir:ConceptMap.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/sexo-fhir-a-sigges"] ;
+  fhir:ConceptMap.version [ fhir:value "0.4.0"] ;
+  fhir:ConceptMap.name [ fhir:value "CMSexoAdministrativoASIGGES"] ;
+  fhir:ConceptMap.title [ fhir:value "Sexo FHIR → SIGGES"] ;
+  fhir:ConceptMap.status [ fhir:value "draft"] ;
+  fhir:ConceptMap.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ConceptMap.date [ fhir:value "2026-09-25T16:17:15-03:00"^^xsd:dateTime] ;
+  fhir:ConceptMap.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ConceptMap.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ConceptMap.description [ fhir:value "Traducción de Patient.gender (administrative-gender) al código SIGGES del campo sexoPaciente."] ;
+  fhir:ConceptMap.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ConceptMap.group [
+     fhir:index 0 ;
+     fhir:ConceptMap.group.source [ fhir:value "http://hl7.org/fhir/administrative-gender" ] ;
+     fhir:ConceptMap.group.target [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/sexo-sigges" ] ;
+     fhir:ConceptMap.group.element [
+       fhir:index 0 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "female" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "1" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "male" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "2" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "equivalent" ]
+       ]
+     ], [
+       fhir:index 2 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "other" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "3" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "wider" ]
+       ]
+     ], [
+       fhir:index 3 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "unknown" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "3" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "wider" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/sigges/ConceptMap/sexo-fhir-a-sigges.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

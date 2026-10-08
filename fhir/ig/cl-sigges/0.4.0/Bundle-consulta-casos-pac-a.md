@@ -1,0 +1,236 @@
+# Consulta de casos por RUN — paciente A - Notificación de Casos GES a SIGGES 2.0 v0.4.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Consulta de casos por RUN — paciente A**
+
+## Example Bundle: Consulta de casos por RUN — paciente A
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "consulta-casos-pac-a",
+  "type" : "searchset",
+  "total" : 1,
+  "link" : [{
+    "relation" : "self",
+    "url" : "http://example.org/sigges/fhir/EpisodeOfCare/_search"
+  }],
+  "entry" : [{
+    "fullUrl" : "http://example.org/sigges/fhir/EpisodeOfCare/8812345",
+    "resource" : {
+      "resourceType" : "EpisodeOfCare",
+      "id" : "8812345",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/caso-ges"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"EpisodeOfCare_8812345\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EpisodioDeCuidado 8812345</b></p><a name=\"8812345\"> </a><a name=\"hc8812345\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-caso-ges.html\">Caso GES</a></p></div><p><b>identifier</b>: <a href=\"NamingSystem-NSCasoSIGGES.html\" title=\"Número de caso GES asignado por SIGGES 2.0 y devuelto en la respuesta a la primera notificación.\">NSCasoSIGGES</a>/8812345, <a href=\"NamingSystem-NSCasoLocal.html\" title=\"Identificador del caso GES en el establecimiento, usado mientras SIGGES no asigna su número. Es único solo junto con su assigner (el establecimiento): EpisodeOfCare.identifier[casoLocal].assigner es obligatorio.\">NSCasoLocal</a>/CLF-2026-000871</p><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges 27}\">Cáncer gástrico</span>, <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges 108}\">Cáncer gástrico (decreto nº 228)</span></p><p><b>patient</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><p><b>managingOrganization</b>: <a href=\"Organization-hosp-la-florida.html\">Hospital Clínico Metropolitano La Florida Dra. Eloísa Díaz Insunza (Público) (https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/deis#NSDeis#14-105)</a></p><p><b>period</b>: 2026-03-02 --&gt; (ongoing)</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges",
+        "value" : "8812345"
+      },
+      {
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local",
+        "value" : "CLF-2026-000871",
+        "assigner" : {
+          "reference" : "Organization/cesfam-la-florida"
+        }
+      }],
+      "status" : "active",
+      "type" : [{
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/problema-salud-ges",
+          "code" : "27",
+          "display" : "Cáncer gástrico"
+        }]
+      },
+      {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/rama-problema-salud-ges",
+          "code" : "108",
+          "display" : "Cáncer gástrico (decreto nº 228)"
+        }]
+      }],
+      "patient" : {
+        "reference" : "Patient/pac-a"
+      },
+      "managingOrganization" : {
+        "reference" : "Organization/hosp-la-florida"
+      },
+      "period" : {
+        "start" : "2026-03-02"
+      }
+    },
+    "search" : {
+      "mode" : "match"
+    }
+  },
+  {
+    "fullUrl" : "http://example.org/sigges/fhir/Task/gar-a-701",
+    "resource" : {
+      "resourceType" : "Task",
+      "id" : "gar-a-701",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges"]
+      },
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_gar-a-701\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Tarea gar-a-701</b></p><a name=\"gar-a-701\"> </a><a name=\"hcgar-a-701\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-garantia-oportunidad-ges.html\">Garantía de oportunidad</a></p></div><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 701}\">Confirmación Diagnóstica</span></p><p><b>status</b>: Completed</p><p><b>businessStatus</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges cumplida}\">Cumplida</span></p><p><b>intent</b>: plan</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges garantia}\">Garantía de oportunidad</span></p><p><b>focus</b>: <a href=\"EpisodeOfCare-8812345.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>for</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><h3>Restrictions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-03-02 --&gt; 2026-04-01</td></tr></table></div>"
+      },
+      "extension" : [{
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges",
+            "code" : "701",
+            "display" : "Confirmación Diagnóstica"
+          }]
+        }
+      }],
+      "status" : "completed",
+      "businessStatus" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges",
+          "code" : "cumplida"
+        }]
+      },
+      "intent" : "plan",
+      "code" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges",
+          "code" : "garantia"
+        }]
+      },
+      "focus" : {
+        "reference" : "EpisodeOfCare/8812345"
+      },
+      "for" : {
+        "reference" : "Patient/pac-a"
+      },
+      "restriction" : {
+        "period" : {
+          "start" : "2026-03-02",
+          "end" : "2026-04-01"
+        }
+      }
+    },
+    "search" : {
+      "mode" : "include"
+    }
+  },
+  {
+    "fullUrl" : "http://example.org/sigges/fhir/Task/gar-a-702",
+    "resource" : {
+      "resourceType" : "Task",
+      "id" : "gar-a-702",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges"]
+      },
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_gar-a-702\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Tarea gar-a-702</b></p><a name=\"gar-a-702\"> </a><a name=\"hcgar-a-702\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-garantia-oportunidad-ges.html\">Garantía de oportunidad</a></p></div><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 702}\">Intervención Quirúrgica</span></p><p><b>status</b>: Completed</p><p><b>businessStatus</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges cumplida}\">Cumplida</span></p><p><b>intent</b>: plan</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges garantia}\">Garantía de oportunidad</span></p><p><b>focus</b>: <a href=\"EpisodeOfCare-8812345.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>for</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><h3>Restrictions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-03-27 --&gt; 2026-04-26</td></tr></table></div>"
+      },
+      "extension" : [{
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges",
+            "code" : "702",
+            "display" : "Intervención Quirúrgica"
+          }]
+        }
+      }],
+      "status" : "completed",
+      "businessStatus" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges",
+          "code" : "cumplida"
+        }]
+      },
+      "intent" : "plan",
+      "code" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges",
+          "code" : "garantia"
+        }]
+      },
+      "focus" : {
+        "reference" : "EpisodeOfCare/8812345"
+      },
+      "for" : {
+        "reference" : "Patient/pac-a"
+      },
+      "restriction" : {
+        "period" : {
+          "start" : "2026-03-27",
+          "end" : "2026-04-26"
+        }
+      }
+    },
+    "search" : {
+      "mode" : "include"
+    }
+  },
+  {
+    "fullUrl" : "http://example.org/sigges/fhir/Task/gar-a-703",
+    "resource" : {
+      "resourceType" : "Task",
+      "id" : "gar-a-703",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/garantia-oportunidad-ges"]
+      },
+      "text" : {
+        "status" : "extensions",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_gar-a-703\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Tarea gar-a-703</b></p><a name=\"gar-a-703\"> </a><a name=\"hcgar-a-703\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-garantia-oportunidad-ges.html\">Garantía de oportunidad</a></p></div><p><b>Garantía GES</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges 703}\">Seguimiento</span></p><p><b>status</b>: In Progress</p><p><b>businessStatus</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges vigente}\">Vigente</span></p><p><b>intent</b>: plan</p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges garantia}\">Garantía de oportunidad</span></p><p><b>focus</b>: <a href=\"EpisodeOfCare-8812345.html\">EpisodeOfCare: identifier = https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-sigges#NSCasoSIGGES#8812345,https://interoperabilidad.minsal.cl/fhir/ig/sigges/sid/caso-local#NSCasoLocal#CLF-2026-000871; status = active; type = Cáncer gástrico,Cáncer gástrico (decreto nº 228); period = 2026-03-02 --&gt; (ongoing)</a></p><p><b>for</b>: <a href=\"Patient-pac-a.html\">Juan Carlos Pérez (official) Male, DoB: 1961-03-14 ( RUN: 9876543-3 (use: official))</a></p><h3>Restrictions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-04-20 --&gt; 2026-07-19</td></tr></table></div>"
+      },
+      "extension" : [{
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/StructureDefinition/ext-garantia-ges",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/garantia-ges",
+            "code" : "703",
+            "display" : "Seguimiento"
+          }]
+        }
+      }],
+      "status" : "in-progress",
+      "businessStatus" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/estado-garantia-ges",
+          "code" : "vigente"
+        }]
+      },
+      "intent" : "plan",
+      "code" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/sigges/CodeSystem/tipo-tarea-ges",
+          "code" : "garantia"
+        }]
+      },
+      "focus" : {
+        "reference" : "EpisodeOfCare/8812345"
+      },
+      "for" : {
+        "reference" : "Patient/pac-a"
+      },
+      "restriction" : {
+        "period" : {
+          "start" : "2026-04-20",
+          "end" : "2026-07-19"
+        }
+      }
+    },
+    "search" : {
+      "mode" : "include"
+    }
+  }]
+}
+
+```
