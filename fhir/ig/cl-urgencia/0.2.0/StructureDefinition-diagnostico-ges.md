@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-ges | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:DiagnosticoGES |
+| Draft as of 2026-10-08 | *Computable Name*:DiagnosticoGES |
 
 Indica si el diagnóstico corresponde a un problema de salud con Garantías Explícitas en Salud (GES).
 
@@ -48,7 +48,7 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-ges.csv)
   "title" : "Diagnóstico GES",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

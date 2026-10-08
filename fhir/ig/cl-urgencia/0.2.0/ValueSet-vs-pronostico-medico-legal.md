@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-pronostico-medico-legal | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:VSPronosticoMedicoLegal |
+| Draft as of 2026-10-08 | *Computable Name*:VSPronosticoMedicoLegal |
 
  
 Pronóstico médico-legal registrado al cierre de la atención. 
@@ -45,13 +45,14 @@ Pronóstico médico-legal registrado al cierre de la atención.
 {
   "resourceType" : "ValueSet",
   "id" : "vs-pronostico-medico-legal",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-pronostico-medico-legal",
   "version" : "0.2.0",
   "name" : "VSPronosticoMedicoLegal",
   "title" : "Pronóstico médico-legal",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

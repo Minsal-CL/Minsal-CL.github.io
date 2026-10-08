@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-diagnostico-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:VSDiagnosticoUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:VSDiagnosticoUrgencia |
 
  
 Diagnósticos codificados en CIE-10 (preferente) o SNOMED CT. Se acepta texto libre cuando el diagnóstico no está codificado. 
@@ -45,13 +45,14 @@ Diagnósticos codificados en CIE-10 (preferente) o SNOMED CT. Se acepta texto li
 {
   "resourceType" : "ValueSet",
   "id" : "vs-diagnostico-urgencia",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-diagnostico-urgencia",
   "version" : "0.2.0",
   "name" : "VSDiagnosticoUrgencia",
   "title" : "Diagnósticos de urgencia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

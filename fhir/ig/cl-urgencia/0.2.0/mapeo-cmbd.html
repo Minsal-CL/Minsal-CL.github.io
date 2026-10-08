@@ -221,7 +221,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td>ID DAU</td>
-      <td><code class="language-plaintext highlighter-rouge">Encounter.identifier.value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.identifier.value</code>, con <code class="language-plaintext highlighter-rouge">system = https://interoperabilidad.minsal.cl/fhir/sid/dau/[COD ESTAB]</code></td>
       <td>Admisión</td>
     </tr>
     <tr>
@@ -304,7 +304,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">03</code> RUN Madre</td>
     </tr>
     <tr>
-      <td>4 Sin RUN</td>
+      <td>4 Sin RUN (incluye NN)</td>
       <td><code class="language-plaintext highlighter-rouge">12</code> Número de ficha clínica sistema local</td>
     </tr>
     <tr>
@@ -380,7 +380,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td>CLASIFICACIÓN DE LA CONSULTA</td>
-      <td><code class="language-plaintext highlighter-rouge">Encounter.extension[clasificacionConsulta]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.extension[clasificacionConsulta]</code>. Con 01, 02 o 03 el episodio se marca como restringido (<code class="language-plaintext highlighter-rouge">meta.security = R</code>)</td>
       <td>Admisión</td>
     </tr>
     <tr>
@@ -404,18 +404,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td>FECHA_ATENCION + HORA_ATENCION</td>
-      <td><code class="language-plaintext highlighter-rouge">Condition.recordedDate</code> de la hipótesis diagnóstica</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.participant</code> con <code class="language-plaintext highlighter-rouge">type = ATND</code> (médico tratante), <code class="language-plaintext highlighter-rouge">period.start</code></td>
       <td>Alta / Abandono</td>
     </tr>
     <tr>
       <td>HIPOTESIS_DIAG</td>
-      <td><code class="language-plaintext highlighter-rouge">Condition.code.text</code> con <code class="language-plaintext highlighter-rouge">verificationStatus = provisional</code>, referenciada en <code class="language-plaintext highlighter-rouge">Encounter.diagnosis</code> con <code class="language-plaintext highlighter-rouge">use = AD</code></td>
-      <td>Alta / Abandono</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition</code> con <code class="language-plaintext highlighter-rouge">verificationStatus = provisional</code>, referenciada en <code class="language-plaintext highlighter-rouge">Encounter.diagnosis</code> <strong>sin</strong> <code class="language-plaintext highlighter-rouge">use</code>. Solo en el abandono; en el alta se informa el diagnóstico de egreso</td>
+      <td>Abandono</td>
     </tr>
     <tr>
       <td>COD_DIAG + TIPO_COD_DIAG</td>
-      <td><code class="language-plaintext highlighter-rouge">Condition.code.coding</code> (el <code class="language-plaintext highlighter-rouge">system</code> indica el tipo de codificación)</td>
-      <td>Alta / Abandono</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.code.coding</code> (el <code class="language-plaintext highlighter-rouge">system</code> indica el tipo de codificación). Opcional en la hipótesis</td>
+      <td>Abandono</td>
     </tr>
     <tr>
       <td>INDICACIÓN DE FÁRMACOS</td>
@@ -451,7 +451,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td>02 TAPSA</td>
-      <td>Pendiente de definir por el DEIS</td>
+      <td>No se acepta mientras el DEIS no publique su sistema de códigos</td>
     </tr>
     <tr>
       <td>03 SNOMED</td>
@@ -459,7 +459,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td>04 Otros</td>
-      <td>Solo <code class="language-plaintext highlighter-rouge">Condition.code.text</code></td>
+      <td>Solo <code class="language-plaintext highlighter-rouge">Condition.code.text</code> (no válido en el alta)</td>
     </tr>
   </tbody>
 </table>
@@ -477,7 +477,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td>FECHA_ALTA + HORA_ALTA</td>
-      <td><code class="language-plaintext highlighter-rouge">Encounter.period.end</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.period.end</code>: salida física de urgencia (si se hospitaliza, cuando deja urgencia hacia la cama)</td>
       <td>Alta</td>
     </tr>
     <tr>
@@ -487,12 +487,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td>TIPO_DIAG</td>
-      <td><code class="language-plaintext highlighter-rouge">Condition.verificationStatus</code>: <code class="language-plaintext highlighter-rouge">01 → provisional</code>, <code class="language-plaintext highlighter-rouge">02 → confirmed</code>, <code class="language-plaintext highlighter-rouge">03 → refuted</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.verificationStatus</code>: <code class="language-plaintext highlighter-rouge">01 → provisional</code>, <code class="language-plaintext highlighter-rouge">02 → confirmed</code>. <code class="language-plaintext highlighter-rouge">03</code> (descartado) no se informa</td>
       <td>Alta</td>
     </tr>
     <tr>
       <td>COD_DIAG + TIPO_COD_DIAG</td>
-      <td><code class="language-plaintext highlighter-rouge">Condition.code.coding</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.code.coding</code> con <strong>CIE-10 obligatorio</strong> (<code class="language-plaintext highlighter-rouge">http://hl7.org/fhir/sid/icd-10</code>)</td>
       <td>Alta</td>
     </tr>
     <tr>
@@ -599,7 +599,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 24, 2026 11:47-0300">2026-09-24</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 00:02-0300">2026-10-08</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

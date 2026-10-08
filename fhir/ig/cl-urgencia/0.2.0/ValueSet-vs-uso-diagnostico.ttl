@@ -8,9 +8,10 @@
 <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico> a fhir:ValueSet ;
   fhir:nodeRole fhir:treeRoot ;
   fhir:Resource.id [ fhir:value "vs-uso-diagnostico"] ;
+  fhir:Resource.language [ fhir:value "es"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "extensions" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores vs-uso-diagnostico</b></p><a name=\"vs-uso-diagnostico\"> </a><a name=\"hcvs-uso-diagnostico\"> </a><ul><li>Include these codes as defined in <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-diagnosis-role.html\"><code>http://terminology.hl7.org/CodeSystem/diagnosis-role</code></a><span title=\"Version is explicitly stated to be 1.1.1\"> version ?1.1.1</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-diagnosis-role.html#diagnosis-role-AD\">AD</a></td><td>Admission diagnosis</td><td>The diagnoses documented for administrative purposes as the basis for a hospital or other institutional admission</td></tr><tr><td><a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-diagnosis-role.html#diagnosis-role-DD\">DD</a></td><td>Discharge diagnosis</td><td>The diagnoses documented for administrative purposes at the time of hospital or other institutional discharge</td></tr></table></li></ul></div>"
+     fhir:Narrative.div "<div xml:lang=\"es\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"es\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores vs-uso-diagnostico</b></p><a name=\"vs-uso-diagnostico\"> </a><a name=\"hcvs-uso-diagnostico\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es</p></div><ul><li>Include these codes as defined in <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-diagnosis-role.html\"><code>http://terminology.hl7.org/CodeSystem/diagnosis-role</code></a><span title=\"Version is explicitly stated to be 1.1.1\"> version ?1.1.1</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-diagnosis-role.html#diagnosis-role-DD\">DD</a></td><td>Discharge diagnosis</td><td>The diagnoses documented for administrative purposes at the time of hospital or other institutional discharge</td></tr></table></li></ul></div>"
   ] ;
   fhir:ValueSet.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico"] ;
   fhir:ValueSet.version [ fhir:value "0.2.0"] ;
@@ -18,7 +19,7 @@
   fhir:ValueSet.title [ fhir:value "Uso del diagnóstico en el episodio"] ;
   fhir:ValueSet.status [ fhir:value "draft"] ;
   fhir:ValueSet.experimental [ fhir:value "true"^^xsd:boolean] ;
-  fhir:ValueSet.date [ fhir:value "2026-09-24T11:47:41-03:00"^^xsd:dateTime] ;
+  fhir:ValueSet.date [ fhir:value "2026-10-08T00:02:21-03:00"^^xsd:dateTime] ;
   fhir:ValueSet.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
   fhir:ValueSet.contact [
      fhir:index 0 ;
@@ -29,7 +30,7 @@
        fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
      ]
   ] ;
-  fhir:ValueSet.description [ fhir:value "Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso."] ;
+  fhir:ValueSet.description [ fhir:value "Uso del diagnóstico en el episodio de urgencia. Solo se informa el diagnóstico de egreso (DD); la hipótesis diagnóstica se expresa con Condition.verificationStatus = provisional, no con un uso."] ;
   fhir:ValueSet.jurisdiction [
      fhir:index 0 ;
      fhir:CodeableConcept.coding [
@@ -46,10 +47,6 @@
        fhir:ValueSet.compose.include.version [ fhir:value "1.1.1" ] ;
        fhir:ValueSet.compose.include.concept [
          fhir:index 0 ;
-         fhir:ValueSet.compose.include.concept.code [ fhir:value "AD" ] ;
-         fhir:ValueSet.compose.include.concept.display [ fhir:value "Admission diagnosis" ]
-       ], [
-         fhir:index 1 ;
          fhir:ValueSet.compose.include.concept.code [ fhir:value "DD" ] ;
          fhir:ValueSet.compose.include.concept.display [ fhir:value "Discharge diagnosis" ]
        ]

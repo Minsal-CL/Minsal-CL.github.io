@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/ley-previsional | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:LeyPrevisional |
+| Draft as of 2026-10-08 | *Computable Name*:LeyPrevisional |
 
 Ley social o programa que cubre la atención de urgencia. Usa la terminología del NID; el binding es extensible porque el NID aún no incluye PRAIS (código 05 del CMBD).
 
@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-ley-previsional.csv)
   "title" : "Ley previsional o programa",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

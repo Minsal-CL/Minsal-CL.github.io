@@ -27,7 +27,7 @@ Convenciones de formato:
 
 | | | |
 | :--- | :--- | :--- |
-| ID DAU | `Encounter.identifier.value` | Admisión |
+| ID DAU | `Encounter.identifier.value`, con`system = https://interoperabilidad.minsal.cl/fhir/sid/dau/[COD ESTAB]` | Admisión |
 | ID ATENCION | `Encounter.identifier`(segundo identificador, si difiere del ID DAU) | Admisión |
 
 ## Datos del paciente
@@ -49,7 +49,7 @@ Equivalencia TIPO_IDENTIFICACION → CL-Core `CSTipoIdentificador`:
 | 1 RUN | `01`RUN |
 | 2 Pasaporte | `05`PPN |
 | 3 RUN materno | `03`RUN Madre |
-| 4 Sin RUN | `12`Número de ficha clínica sistema local |
+| 4 Sin RUN (incluye NN) | `12`Número de ficha clínica sistema local |
 | 9 Otro | `14`Otro |
 
 Equivalencia SEXO → `Patient.gender`: `01 → male`, `02 → female`, `03 → other`, `99 → unknown`.
@@ -72,16 +72,16 @@ Datos que exige `MINSALPaciente` aunque el CMBD no los incluye: identidad de gé
 | PROCEDENCIA DEL PACIENTE | `Encounter.hospitalization.admitSource`([CSProcedencia](CodeSystem-procedencia.md)) | Admisión |
 | UNIDAD DE ATENCIÓN | `Encounter.serviceType`([CSUnidadAtencion](CodeSystem-unidad-atencion.md)) | Admisión |
 | MOT_CONSULTA | `Encounter.reasonCode.text` | Admisión |
-| CLASIFICACIÓN DE LA CONSULTA | `Encounter.extension[clasificacionConsulta]` | Admisión |
+| CLASIFICACIÓN DE LA CONSULTA | `Encounter.extension[clasificacionConsulta]`. Con 01, 02 o 03 el episodio se marca como restringido (`meta.security = R`) | Admisión |
 | LLEGADA | `Encounter.hospitalization.extension[medioLlegada]`([CSMedioLlegada](CodeSystem-medio-llegada.md)) | Admisión |
 
 ## Atención clínica
 
 | | | |
 | :--- | :--- | :--- |
-| FECHA_ATENCION + HORA_ATENCION | `Condition.recordedDate`de la hipótesis diagnóstica | Alta / Abandono |
-| HIPOTESIS_DIAG | `Condition.code.text`con`verificationStatus = provisional`, referenciada en`Encounter.diagnosis`con`use = AD` | Alta / Abandono |
-| COD_DIAG + TIPO_COD_DIAG | `Condition.code.coding`(el`system`indica el tipo de codificación) | Alta / Abandono |
+| FECHA_ATENCION + HORA_ATENCION | `Encounter.participant`con`type = ATND`(médico tratante),`period.start` | Alta / Abandono |
+| HIPOTESIS_DIAG | `Condition`con`verificationStatus = provisional`, referenciada en`Encounter.diagnosis`**sin**`use`. Solo en el abandono; en el alta se informa el diagnóstico de egreso | Abandono |
+| COD_DIAG + TIPO_COD_DIAG | `Condition.code.coding`(el`system`indica el tipo de codificación). Opcional en la hipótesis | Abandono |
 | INDICACIÓN DE FÁRMACOS | Un`MedicationRequest`por fármaco:`medicationCodeableConcept.text`+`dosageInstruction.text` | Alta |
 | ID RECETA | `MedicationRequest.groupIdentifier` | Alta |
 | SOLIC_MEDIOS_DIAG / DESCRIP_MEDIOS_DIAG | No se envía estructurado; queda en el PDF | — |
@@ -91,18 +91,18 @@ Equivalencia TIPO_COD_DIAG → `Condition.code.coding.system`:
 | | |
 | :--- | :--- |
 | 01 CIE-10 | `http://hl7.org/fhir/sid/icd-10` |
-| 02 TAPSA | Pendiente de definir por el DEIS |
+| 02 TAPSA | No se acepta mientras el DEIS no publique su sistema de códigos |
 | 03 SNOMED | `http://snomed.info/sct` |
-| 04 Otros | Solo`Condition.code.text` |
+| 04 Otros | Solo`Condition.code.text`(no válido en el alta) |
 
 ## Alta médica
 
 | | | |
 | :--- | :--- | :--- |
-| FECHA_ALTA + HORA_ALTA | `Encounter.period.end` | Alta |
+| FECHA_ALTA + HORA_ALTA | `Encounter.period.end`: salida física de urgencia (si se hospitaliza, cuando deja urgencia hacia la cama) | Alta |
 | DIAG_FINAL | `Condition.code.text`, referenciada en`Encounter.diagnosis`con`use = DD` | Alta |
-| TIPO_DIAG | `Condition.verificationStatus`:`01 → provisional`,`02 → confirmed`,`03 → refuted` | Alta |
-| COD_DIAG + TIPO_COD_DIAG | `Condition.code.coding` | Alta |
+| TIPO_DIAG | `Condition.verificationStatus`:`01 → provisional`,`02 → confirmed`.`03`(descartado) no se informa | Alta |
+| COD_DIAG + TIPO_COD_DIAG | `Condition.code.coding`con**CIE-10 obligatorio**(`http://hl7.org/fhir/sid/icd-10`) | Alta |
 | CONDICIÓN AL CIERRE | Se deduce del destino:`03 Fallecido`→ fallecido; otro → vivo | Alta |
 | PRONÓSTICO MÉDICO LEGAL | `Encounter.extension[pronosticoMedicoLegal]` | Alta |
 | DESTINO_ALTA | `Encounter.hospitalization.dischargeDisposition`([CSDestinoAlta](CodeSystem-destino-alta.md)) | Alta |

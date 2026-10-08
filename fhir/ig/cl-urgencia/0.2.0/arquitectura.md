@@ -50,6 +50,11 @@ Content-Type: application/fhir+json
       "resource": { "resourceType": "Encounter", ... },
       "request": { "method": "PUT", "url": "Encounter?identifier=[sistema DAU]|[ID DAU]" }
     },
+    {
+      "fullUrl": "urn:uuid:...",
+      "resource": { "resourceType": "Patient", ... },
+      "request": { "method": "POST", "url": "Patient", "ifNoneExist": "identifier=[sistema]|[RUN]" }
+    },
     ...
   ]
 }
@@ -67,14 +72,14 @@ El envío debe ocurrir **en el momento del evento** (tiempo real o casi real), n
 | Identificador condicional ambiguo (más de un recurso coincide) | `412` | `OperationOutcome` |
 | Identidad no resuelta en MPI | `422` | `OperationOutcome`; el HIS/RCE corrige y reenvía |
 
-Si el HIS/RCE no recibe respuesta, puede **reenviar la misma transacción**: el `PUT` condicional evita duplicados.
+Si el HIS/RCE no recibe respuesta, puede **reenviar la misma transacción**: las operaciones condicionales evitan duplicados.
 
 ## Procesamiento en el Bus
 
 1. Validar el`Bundle`contra el perfil del evento ([admisión](StructureDefinition-bundle-admision-urgencia.md),[alta](StructureDefinition-bundle-alta-urgencia.md)o[abandono](StructureDefinition-bundle-abandono-urgencia.md)).
 1. Validar los códigos contra el Servidor Terminológico.
 1. Resolver el`Patient`contra MPI y agregar el identificador MPI.
-1. Aplicar la transacción en el repositorio. Cada`PUT`condicional crea o actualiza el recurso según su identificador.
+1. Aplicar la transacción en el repositorio. Paciente, establecimiento y profesional se crean solo si no existen (`POST`+`ifNoneExist`), nunca se modifican. Encuentro, diagnóstico, indicación y documento se crean o actualizan con`PUT`condicional.
 1. Registrar la trazabilidad: emisor, fecha de recepción, resultado de validación y respuesta.
 
 ## Identidad del paciente
@@ -87,7 +92,7 @@ Si el HIS/RCE no recibe respuesta, puede **reenviar la misma transacción**: el 
 | RUN con dígito verificador inválido | Rechazar la transacción. |
 | MPI no disponible | Responder error transitorio; el HIS/RCE reintenta. |
 
-Los pacientes sin RUN (extranjeros, recién nacidos, NN) se envían con el identificador disponible: pasaporte, RUN de la madre o identificador local del establecimiento.
+Los pacientes sin RUN se envían con el identificador disponible: pasaporte (extranjeros) o RUN de la madre (recién nacidos). Los pacientes **NN** se identifican con el número de ficha clínica local (ver [Pacientes NN](modelo.md#pacientes-nn)).
 
 ## Consulta desde la red y HCC
 
@@ -98,7 +103,7 @@ La red asistencial y HCC (Portal Ciudadano) consultan el repositorio con búsque
 GET [base]/Encounter?patient.identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1&class=EMER
 
 # Pacientes actualmente en urgencia en un establecimiento
-GET [base]/Encounter?service-provider.identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100&class=EMER&status=in-progress
+GET [base]/Encounter?service-provider.identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100&class=EMER&status=arrived
 
 # Diagnósticos de egreso y documento de una atención
 GET [base]/Condition?encounter=Encounter/[id]
@@ -115,6 +120,7 @@ El PDF se descarga desde `DocumentReference.content.attachment.url`, publicado p
 * Transporte cifrado (TLS 1.2 o superior).
 * Autenticación del sistema emisor ante el Bus (mecanismo definido por MINSAL).
 * La URL del PDF debe exigir autenticación; no debe ser pública.
-* HCC muestra al paciente solo sus propias atenciones.
+* HCC muestra al paciente solo sus propias atenciones, y **no muestra los episodios marcados como restringidos** (`meta.security = R`: consultas por abuso sexual, violencia o constatación de lesiones).
+* El repositorio entrega los recursos restringidos solo a los equipos autorizados.
 * El acceso de la red se rige por las políticas de acceso y el consentimiento del paciente cuando corresponda.
 

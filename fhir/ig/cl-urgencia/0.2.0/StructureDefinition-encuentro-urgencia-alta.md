@@ -9,10 +9,10 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-alta | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:EncuentroUrgenciaAlta |
+| Draft as of 2026-10-08 | *Computable Name*:EncuentroUrgenciaAlta |
 
  
-Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. 
+Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. Debe enviarse completo, repitiendo todos los datos de la admisión. 
 
 **Usages:**
 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
   "name" : "EncuentroUrgenciaAlta",
   "title" : "Encuentro de urgencia - estado en el alta",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado.",
+  "description" : "Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. Debe enviarse completo, repitiendo todos los datos de la admisión.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -86,6 +86,17 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
   "derivation" : "constraint",
   "differential" : {
     "element" : [{
+      "id" : "Encounter",
+      "path" : "Encounter",
+      "constraint" : [{
+        "key" : "urg-enc-8",
+        "severity" : "error",
+        "human" : "Si el destino es hospitalización (01), traslado (02) o derivación (04), se debe informar el establecimiento de destino (hospitalization.destination).",
+        "expression" : "hospitalization.dischargeDisposition.coding.where(system = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/destino-alta' and (code = '01' or code = '02' or code = '04')).exists() implies hospitalization.destination.exists()",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-alta"
+      }]
+    },
+    {
       "id" : "Encounter.status",
       "path" : "Encounter.status",
       "patternCode" : "finished"
@@ -93,11 +104,18 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
     {
       "id" : "Encounter.period.end",
       "path" : "Encounter.period.end",
+      "short" : "Fecha y hora en que el paciente sale físicamente de urgencia",
+      "definition" : "Fecha y hora en que el paciente deja la unidad de urgencia. Si se hospitaliza, es la hora en que sale de urgencia hacia la cama, no la hora en que se indicó la hospitalización: mientras espera cama sigue ocupando un box de urgencia.",
       "min" : 1
     },
     {
       "id" : "Encounter.diagnosis",
       "path" : "Encounter.diagnosis",
+      "min" : 1
+    },
+    {
+      "id" : "Encounter.diagnosis.use",
+      "path" : "Encounter.diagnosis.use",
       "min" : 1
     },
     {

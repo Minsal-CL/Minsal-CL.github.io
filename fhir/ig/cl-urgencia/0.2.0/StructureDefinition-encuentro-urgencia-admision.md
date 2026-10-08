@@ -9,10 +9,10 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-admision | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:EncuentroUrgenciaAdmision |
+| Draft as of 2026-10-08 | *Computable Name*:EncuentroUrgenciaAdmision |
 
  
-Reglas del episodio de urgencia al momento de la admisión: abierto (in-progress), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono. 
+Reglas del episodio de urgencia al momento de la admisión: abierto (arrived: el paciente llegó a la unidad), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono. 
 
 **Usages:**
 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
   "name" : "EncuentroUrgenciaAdmision",
   "title" : "Encuentro de urgencia - estado en la admisión",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Reglas del episodio de urgencia al momento de la admisión: abierto (in-progress), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono.",
+  "description" : "Reglas del episodio de urgencia al momento de la admisión: abierto (arrived: el paciente llegó a la unidad), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -88,11 +88,16 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
     "element" : [{
       "id" : "Encounter.status",
       "path" : "Encounter.status",
-      "patternCode" : "in-progress"
+      "patternCode" : "arrived"
     },
     {
       "id" : "Encounter.period.end",
       "path" : "Encounter.period.end",
+      "max" : "0"
+    },
+    {
+      "id" : "Encounter.diagnosis",
+      "path" : "Encounter.diagnosis",
       "max" : "0"
     },
     {

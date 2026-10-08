@@ -26,4 +26,12 @@
       <sch:assert test="count(f:request) &gt;= 1">request: minimum cardinality of 'request' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
+  <sch:pattern>
+    <sch:title>f:Bundle/f:entry/f:request</sch:title>
+    <sch:rule context="f:Bundle/f:entry/f:request">
+      <sch:assert test="count(f:ifNoneExist) &gt;= 1">ifNoneExist: minimum cardinality of 'ifNoneExist' is 1</sch:assert>
+      <sch:assert test="count(f:ifNoneExist) &gt;= 1">ifNoneExist: minimum cardinality of 'ifNoneExist' is 1</sch:assert>
+      <sch:assert test="count(f:ifNoneExist) &gt;= 1">ifNoneExist: minimum cardinality of 'ifNoneExist' is 1</sch:assert>
+    </sch:rule>
+  </sch:pattern>
 </sch:schema>

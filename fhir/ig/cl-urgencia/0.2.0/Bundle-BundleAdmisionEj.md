@@ -108,8 +108,9 @@
       "deceasedBoolean" : false
     },
     "request" : {
-      "method" : "PUT",
-      "url" : "Patient?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1"
+      "method" : "POST",
+      "url" : "Patient",
+      "ifNoneExist" : "identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1"
     }
   },
   {
@@ -135,21 +136,21 @@
       }
     },
     "request" : {
-      "method" : "PUT",
-      "url" : "Organization?identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100"
+      "method" : "POST",
+      "url" : "Organization",
+      "ifNoneExist" : "identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100"
     }
   },
   {
     "fullUrl" : "urn:uuid:6f1c2a10-0010-4000-8000-000000000010",
     "resource" : {
       "resourceType" : "Encounter",
-      "id" : "EpisodioDAU123EstadoAdmision",
       "meta" : {
         "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-admision"]
       },
       "text" : {
         "status" : "extensions",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_EpisodioDAU123EstadoAdmision\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro EpisodioDAU123EstadoAdmision</b></p><a name=\"EpisodioDAU123EstadoAdmision\"> </a><a name=\"hcEpisodioDAU123EstadoAdmision\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-admision.html\">Encuentro de urgencia - estado en la admisión</a></p></div><blockquote><p><b>Previsión de salud</b></p><ul><li>prevision: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSPrevision 1}\">FONASA</span></li><li>tramoFonasa: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTramosFONASA B}\">FONASA B</span></li></ul></blockquote><p><b>Ley previsional o programa</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSLeyPrevisionales 96}\">Ninguna</span></p><p><b>Clasificación de la consulta</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta 09}\">Otros</span></p><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/dau</code>/DAU-2026-000123</p><p><b>status</b>: In Progress</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>period</b>: 2026-09-09 10:00:00-0300 --&gt; (ongoing)</p><p><b>reasonCode</b>: <span title=\"Codes:\">Dolor abdominal de 12 horas de evolución</span></p><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Extension</b></td><td><b>AdmitSource</b></td></tr><tr><td style=\"display: none\">*</td><td/><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia 6}\">Espontáneo</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro </b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-admision.html\">Encuentro de urgencia - estado en la admisión</a></p></div><blockquote><p><b>Previsión de salud</b></p><ul><li>prevision: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSPrevision 1}\">FONASA</span></li><li>tramoFonasa: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTramosFONASA B}\">FONASA B</span></li></ul></blockquote><p><b>Ley previsional o programa</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSLeyPrevisionales 96}\">Ninguna</span></p><p><b>Clasificación de la consulta</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta 09}\">Otros</span></p><p><b>identifier</b>: <code>https://interoperabilidad.minsal.cl/fhir/sid/dau/112100</code>/DAU-2026-000123</p><p><b>status</b>: Arrived</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>period</b>: 2026-09-09 10:00:00-0300 --&gt; (ongoing)</p><p><b>reasonCode</b>: <span title=\"Codes:\">Dolor abdominal de 12 horas de evolución</span></p><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Extension</b></td><td><b>AdmitSource</b></td></tr><tr><td style=\"display: none\">*</td><td/><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia 6}\">Espontáneo</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
       },
       "extension" : [{
         "extension" : [{
@@ -195,10 +196,10 @@
         }
       }],
       "identifier" : [{
-        "system" : "https://hospital-ejemplo.cl/fhir/sid/dau",
+        "system" : "https://interoperabilidad.minsal.cl/fhir/sid/dau/112100",
         "value" : "DAU-2026-000123"
       }],
-      "status" : "in-progress",
+      "status" : "arrived",
       "class" : {
         "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
         "code" : "EMER"
@@ -244,7 +245,7 @@
     },
     "request" : {
       "method" : "PUT",
-      "url" : "Encounter?identifier=https://hospital-ejemplo.cl/fhir/sid/dau|DAU-2026-000123"
+      "url" : "Encounter?identifier=https://interoperabilidad.minsal.cl/fhir/sid/dau/112100|DAU-2026-000123"
     }
   }]
 }

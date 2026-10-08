@@ -108,8 +108,9 @@
       "deceasedBoolean" : false
     },
     "request" : {
-      "method" : "PUT",
-      "url" : "Patient?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1"
+      "method" : "POST",
+      "url" : "Patient",
+      "ifNoneExist" : "identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1"
     }
   },
   {
@@ -135,24 +136,24 @@
       }
     },
     "request" : {
-      "method" : "PUT",
-      "url" : "Organization?identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100"
+      "method" : "POST",
+      "url" : "Organization",
+      "ifNoneExist" : "identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100"
     }
   },
   {
     "fullUrl" : "urn:uuid:6f1c2a10-0012-4000-8000-000000000012",
     "resource" : {
       "resourceType" : "Encounter",
-      "id" : "EpisodioDAU456EstadoAbandono",
       "meta" : {
         "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-abandono"]
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_EpisodioDAU456EstadoAbandono\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro EpisodioDAU456EstadoAbandono</b></p><a name=\"EpisodioDAU456EstadoAbandono\"> </a><a name=\"hcEpisodioDAU456EstadoAbandono\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-abandono.html\">Encuentro de urgencia - estado en el abandono</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/dau</code>/DAU-2026-000456</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>period</b>: 2026-09-20 21:10:00-0300 --&gt; 2026-09-20 23:05:00-0300</p><p><b>reasonCode</b>: <span title=\"Codes:\">Cefalea intensa</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td><td><b>Use</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0021-4000-8000-000000000021\">Condition Headache</a></td><td><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/diagnosis-role AD}\">Admission diagnosis</span></td></tr></table><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>AdmitSource</b></td><td><b>DischargeDisposition</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia 6}\">Espontáneo</span></td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono 2}\">Abandono durante la atención médica (fuga)</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro </b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-abandono.html\">Encuentro de urgencia - estado en el abandono</a></p></div><p><b>identifier</b>: <code>https://interoperabilidad.minsal.cl/fhir/sid/dau/112100</code>/DAU-2026-000456</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>period</b>: 2026-09-20 21:10:00-0300 --&gt; 2026-09-20 23:05:00-0300</p><p><b>reasonCode</b>: <span title=\"Codes:\">Cefalea intensa</span></p><h3>Diagnoses</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Condition</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0021-4000-8000-000000000021\">Condition Headache</a></td></tr></table><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>AdmitSource</b></td><td><b>DischargeDisposition</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia 6}\">Espontáneo</span></td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono 2}\">Abandono durante la atención médica (fuga)</span></td></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
       },
       "identifier" : [{
-        "system" : "https://hospital-ejemplo.cl/fhir/sid/dau",
+        "system" : "https://interoperabilidad.minsal.cl/fhir/sid/dau/112100",
         "value" : "DAU-2026-000456"
       }],
       "status" : "finished",
@@ -180,13 +181,6 @@
       "diagnosis" : [{
         "condition" : {
           "reference" : "urn:uuid:6f1c2a10-0021-4000-8000-000000000021"
-        },
-        "use" : {
-          "coding" : [{
-            "system" : "http://terminology.hl7.org/CodeSystem/diagnosis-role",
-            "code" : "AD",
-            "display" : "Admission diagnosis"
-          }]
         }
       }],
       "hospitalization" : {
@@ -211,20 +205,19 @@
     },
     "request" : {
       "method" : "PUT",
-      "url" : "Encounter?identifier=https://hospital-ejemplo.cl/fhir/sid/dau|DAU-2026-000456"
+      "url" : "Encounter?identifier=https://interoperabilidad.minsal.cl/fhir/sid/dau/112100|DAU-2026-000456"
     }
   },
   {
     "fullUrl" : "urn:uuid:6f1c2a10-0021-4000-8000-000000000021",
     "resource" : {
       "resourceType" : "Condition",
-      "id" : "HipotesisAbandonoEj",
       "meta" : {
         "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia"]
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_HipotesisAbandonoEj\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condición HipotesisAbandonoEj</b></p><a name=\"HipotesisAbandonoEj\"> </a><a name=\"hcHipotesisAbandonoEj\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-diagnostico-urgencia.html\">Diagnóstico de urgencia</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/diagnosticos</code>/DG-2026-90112</p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status provisional}\">Provisional</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 R51}\">Cefalea en estudio</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>encounter</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0012-4000-8000-000000000012\">Encounter: identifier = https://hospital-ejemplo.cl/fhir/sid/dau#DAU-2026-000456; status = finished; class = emergency (ActCode#EMER); serviceType = Atención de adulto; period = 2026-09-20 21:10:00-0300 --&gt; 2026-09-20 23:05:00-0300; reasonCode = </a></p><p><b>recordedDate</b>: 2026-09-20 22:00:00-0300</p></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Condition_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Condición </b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-diagnostico-urgencia.html\">Diagnóstico de urgencia</a></p></div><p><b>identifier</b>: <code>https://hospital-ejemplo.cl/fhir/sid/diagnosticos</code>/DG-2026-90112</p><p><b>verificationStatus</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/condition-ver-status provisional}\">Provisional</span></p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/sid/icd-10 R51}\">Cefalea en estudio</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0001-4000-8000-000000000001\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 11111111-1 (use: official, ))</a></p><p><b>encounter</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0012-4000-8000-000000000012\">Encounter: identifier = https://interoperabilidad.minsal.cl/fhir/sid/dau/112100#DAU-2026-000456; status = finished; class = emergency (ActCode#EMER); serviceType = Atención de adulto; period = 2026-09-20 21:10:00-0300 --&gt; 2026-09-20 23:05:00-0300; reasonCode = </a></p><p><b>recordedDate</b>: 2026-09-20 22:00:00-0300</p></div>"
       },
       "identifier" : [{
         "system" : "https://hospital-ejemplo.cl/fhir/sid/diagnosticos",

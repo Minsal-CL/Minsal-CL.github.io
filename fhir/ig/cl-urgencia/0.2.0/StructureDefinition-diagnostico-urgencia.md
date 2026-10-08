@@ -9,14 +9,15 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:DiagnosticoUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:DiagnosticoUrgencia |
 
  
-Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD (hipótesis, confirmado, descartado) se expresa con `verificationStatus`. 
+Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD se expresa solo con `verificationStatus`: hipótesis = provisional, confirmado = confirmed. Los diagnósticos descartados no se informan. En el alta el diagnóstico debe venir codificado en CIE-10. 
 
 **Usages:**
 
 * Use this Profile: [Bundle de abandono de urgencia](StructureDefinition-bundle-abandono-urgencia.md) and [Bundle de alta de urgencia](StructureDefinition-bundle-alta-urgencia.md)
+* Refer to this Profile: [Encuentro de urgencia](StructureDefinition-encuentro-urgencia.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-diagnostico-urgencia.json)
 
@@ -41,7 +42,7 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
   "name" : "DiagnosticoUrgencia",
   "title" : "Diagnóstico de urgencia",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -50,7 +51,7 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD (hipótesis, confirmado, descartado) se expresa con `verificationStatus`.",
+  "description" : "Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD se expresa solo con `verificationStatus`: hipótesis = provisional, confirmado = confirmed. Los diagnósticos descartados no se informan. En el alta el diagnóstico debe venir codificado en CIE-10.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -101,6 +102,12 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
       "short" : "Hipótesis o diagnóstico de egreso de urgencia"
     },
     {
+      "id" : "Condition.meta.security",
+      "path" : "Condition.meta.security",
+      "short" : "R (restringido) si el episodio está restringido",
+      "mustSupport" : true
+    },
+    {
       "id" : "Condition.extension",
       "path" : "Condition.extension",
       "slicing" : {
@@ -149,13 +156,17 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
     {
       "id" : "Condition.verificationStatus",
       "path" : "Condition.verificationStatus",
-      "short" : "provisional (hipótesis) | confirmed (confirmado) | refuted (descartado)",
-      "min" : 1
+      "short" : "provisional (hipótesis) | confirmed (confirmado)",
+      "min" : 1,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-verificacion-diagnostico"
+      }
     },
     {
       "id" : "Condition.code",
       "path" : "Condition.code",
-      "short" : "Diagnóstico: CIE-10 preferente; texto libre si no está codificado",
+      "short" : "Diagnóstico: CIE-10 obligatorio en el alta; la hipótesis del abandono puede ir solo en texto",
       "min" : 1,
       "binding" : {
         "strength" : "preferred",
@@ -187,12 +198,8 @@ Other representations of profile: [CSV](StructureDefinition-diagnostico-urgencia
     {
       "id" : "Condition.encounter",
       "path" : "Condition.encounter",
-      "short" : "Episodio de urgencia",
+      "short" : "Episodio de urgencia (Encuentro de urgencia del mismo Bundle)",
       "min" : 1,
-      "type" : [{
-        "code" : "Reference",
-        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"]
-      }],
       "mustSupport" : true
     },
     {

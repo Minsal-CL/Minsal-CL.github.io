@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:CSClasificacionConsulta |
+| Draft as of 2026-10-08 | *Computable Name*:CSClasificacionConsulta |
 
  
 Clasificación médico-legal de la consulta (CMBD Urgencia: CLASIFICACIÓN DE LA CONSULTA). 
@@ -26,13 +26,14 @@ Clasificación médico-legal de la consulta (CMBD Urgencia: CLASIFICACIÓN DE LA
 {
   "resourceType" : "CodeSystem",
   "id" : "clasificacion-consulta",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta",
   "version" : "0.2.0",
   "name" : "CSClasificacionConsulta",
   "title" : "Clasificación de la consulta",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

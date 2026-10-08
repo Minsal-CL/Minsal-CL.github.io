@@ -145,6 +145,18 @@
     "StructureDefinition-encuentro-urgencia-abandono.html" : "Encuentro de urgencia - estado en el abandono"
   },
   {
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-documento-urgencia",
+    "version" : "0.2.0",
+    "status" : "draft",
+    "name" : "VSTipoDocumentoUrgencia",
+    "title" : "Tipo de documento de urgencia",
+    "description" : "Tipo del documento clínico de la atención: resumen de alta de urgencia (alta) o nota de urgencia (abandono, en que no hay alta).",
+    "systems" : ["http://loinc.org"],
+    "uses" : {
+    },
+    "StructureDefinition-documento-urgencia.html" : "Documento de la atención de urgencia"
+  },
+  {
     "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-unidad-atencion",
     "version" : "0.2.0",
     "status" : "draft",
@@ -162,10 +174,22 @@
     "status" : "draft",
     "name" : "VSUsoDiagnostico",
     "title" : "Uso del diagnóstico en el episodio",
-    "description" : "Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso.",
+    "description" : "Uso del diagnóstico en el episodio de urgencia. Solo se informa el diagnóstico de egreso (DD); la hipótesis diagnóstica se expresa con Condition.verificationStatus = provisional, no con un uso.",
     "systems" : ["http://terminology.hl7.org/CodeSystem/diagnosis-role"],
     "uses" : {
     },
     "StructureDefinition-encuentro-urgencia.html" : "Encuentro de urgencia"
+  },
+  {
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-verificacion-diagnostico",
+    "version" : "0.2.0",
+    "status" : "draft",
+    "name" : "VSVerificacionDiagnostico",
+    "title" : "Verificación del diagnóstico de urgencia",
+    "description" : "Hipótesis (provisional) o diagnóstico confirmado (confirmed). Los diagnósticos descartados no se informan a la red.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/condition-ver-status"],
+    "uses" : {
+    },
+    "StructureDefinition-diagnostico-urgencia.html" : "Diagnóstico de urgencia"
   }]
 }

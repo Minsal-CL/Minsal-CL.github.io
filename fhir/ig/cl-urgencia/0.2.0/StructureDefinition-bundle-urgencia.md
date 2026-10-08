@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:BundleUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:BundleUrgencia |
 
  
 Estructura común de los tres Bundle de urgencia. No se usa directamente: se usa el perfil del evento correspondiente. 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-urgencia.csv)
   "name" : "BundleUrgencia",
   "title" : "Bundle de urgencia (base)",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -90,10 +90,45 @@ Other representations of profile: [CSV](StructureDefinition-bundle-urgencia.csv)
       "path" : "Bundle",
       "short" : "Bundle transaction de un evento de urgencia",
       "constraint" : [{
+        "key" : "urg-tx-maestros",
+        "severity" : "error",
+        "human" : "Patient, Organization y Practitioner se envían solo con creación condicional: request.method = POST, request.url = [Tipo] y request.ifNoneExist = identifier=[system]|[value]. Nunca se actualizan.",
+        "expression" : "entry.where(resource is Patient or resource is Organization or resource is Practitioner).all(request.method = 'POST' and request.ifNoneExist.startsWith('identifier=') and request.ifNoneExist.contains('|'))",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia"
+      },
+      {
         "key" : "urg-tx-put-condicional",
         "severity" : "error",
-        "human" : "Todas las entradas deben usar PUT condicional por identificador: request.method = PUT y request.url = [Tipo]?identifier=[system]|[value].",
-        "expression" : "entry.all(request.method = 'PUT' and request.url.contains('?identifier=') and request.url.contains('|'))",
+        "human" : "Los recursos del episodio (Encounter, Condition, MedicationRequest, DocumentReference) se envían con PUT condicional: request.method = PUT y request.url = [Tipo]?identifier=[system]|[value].",
+        "expression" : "entry.where((resource is Patient or resource is Organization or resource is Practitioner).not()).all(request.method = 'PUT' and request.url.contains('?identifier=') and request.url.contains('|'))",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia"
+      },
+      {
+        "key" : "urg-tx-sin-id",
+        "severity" : "error",
+        "human" : "Los recursos enviados con PUT condicional no llevan Resource.id: el id lo determina el servidor al encontrar (o crear) el recurso por su identificador.",
+        "expression" : "entry.where(request.method = 'PUT').all(resource.id.empty())",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia"
+      },
+      {
+        "key" : "urg-tx-identificador",
+        "severity" : "error",
+        "human" : "El identificador de la operación condicional (request.url o request.ifNoneExist) debe ser el mismo que trae el recurso (identifier o masterIdentifier).",
+        "expression" : "entry.where(request.method = 'PUT').select(request.url.substring(request.url.indexOf('|') + 1) in (resource.identifier.value | resource.masterIdentifier.value)).allTrue() and entry.where(request.method = 'POST').select(request.ifNoneExist.substring(request.ifNoneExist.indexOf('|') + 1) in resource.identifier.value).allTrue()",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia"
+      },
+      {
+        "key" : "urg-tx-mismo-paciente",
+        "severity" : "error",
+        "human" : "Todos los recursos del Bundle se refieren al mismo paciente: su subject apunta a la entrada del paciente.",
+        "expression" : "(entry.resource.ofType(Encounter) | entry.resource.ofType(Condition) | entry.resource.ofType(MedicationRequest) | entry.resource.ofType(DocumentReference)).all(subject.reference = %resource.entry.where(resource is Patient).fullUrl.first())",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia"
+      },
+      {
+        "key" : "urg-tx-restringido",
+        "severity" : "error",
+        "human" : "Si el episodio está marcado como restringido (meta.security = R), también deben estarlo sus diagnósticos, indicaciones y documento.",
+        "expression" : "entry.resource.ofType(Encounter).meta.security.where(code = 'R').exists() implies (entry.resource.ofType(Condition) | entry.resource.ofType(MedicationRequest) | entry.resource.ofType(DocumentReference)).all(meta.security.where(system = 'http://terminology.hl7.org/CodeSystem/v3-Confidentiality' and code = 'R').exists())",
         "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia"
       }]
     },
@@ -114,7 +149,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-urgencia.csv)
         "ordered" : false,
         "rules" : "open"
       },
-      "short" : "Entrada: recurso más su PUT condicional",
+      "short" : "Entrada: recurso más su operación condicional",
       "min" : 3,
       "mustSupport" : true
     },
@@ -135,20 +170,24 @@ Other representations of profile: [CSV](StructureDefinition-bundle-urgencia.csv)
     {
       "id" : "Bundle.entry.request",
       "path" : "Bundle.entry.request",
-      "short" : "Operación: PUT condicional por identificador",
+      "short" : "POST con ifNoneExist (maestros) o PUT condicional (episodio)",
       "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "Bundle.entry.request.method",
       "path" : "Bundle.entry.request.method",
-      "short" : "PUT",
-      "patternCode" : "PUT"
+      "short" : "POST (maestros) | PUT (episodio)"
     },
     {
       "id" : "Bundle.entry.request.url",
       "path" : "Bundle.entry.request.url",
-      "short" : "[Tipo]?identifier=[system]|[value]"
+      "short" : "[Tipo] (maestros) o [Tipo]?identifier=[sistema]|[valor] (episodio)"
+    },
+    {
+      "id" : "Bundle.entry.request.ifNoneExist",
+      "path" : "Bundle.entry.request.ifNoneExist",
+      "short" : "identifier=[sistema]|[valor] (solo maestros)"
     },
     {
       "id" : "Bundle.entry:paciente",
@@ -171,7 +210,17 @@ Other representations of profile: [CSV](StructureDefinition-bundle-urgencia.csv)
     {
       "id" : "Bundle.entry:paciente.request",
       "path" : "Bundle.entry.request",
-      "short" : "PUT Patient?identifier=[sistema]|[valor]"
+      "short" : "POST Patient, ifNoneExist identifier=[sistema]|[valor]"
+    },
+    {
+      "id" : "Bundle.entry:paciente.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "POST"
+    },
+    {
+      "id" : "Bundle.entry:paciente.request.ifNoneExist",
+      "path" : "Bundle.entry.request.ifNoneExist",
+      "min" : 1
     },
     {
       "id" : "Bundle.entry:establecimiento",
@@ -194,7 +243,17 @@ Other representations of profile: [CSV](StructureDefinition-bundle-urgencia.csv)
     {
       "id" : "Bundle.entry:establecimiento.request",
       "path" : "Bundle.entry.request",
-      "short" : "PUT Organization?identifier=[sistema DEIS]|[código]"
+      "short" : "POST Organization, ifNoneExist identifier=[sistema DEIS]|[código]"
+    },
+    {
+      "id" : "Bundle.entry:establecimiento.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "POST"
+    },
+    {
+      "id" : "Bundle.entry:establecimiento.request.ifNoneExist",
+      "path" : "Bundle.entry.request.ifNoneExist",
+      "min" : 1
     },
     {
       "id" : "Bundle.entry:profesional",
@@ -217,7 +276,17 @@ Other representations of profile: [CSV](StructureDefinition-bundle-urgencia.csv)
     {
       "id" : "Bundle.entry:profesional.request",
       "path" : "Bundle.entry.request",
-      "short" : "PUT Practitioner?identifier=[sistema]|[RUN]"
+      "short" : "POST Practitioner, ifNoneExist identifier=[sistema]|[RUN]"
+    },
+    {
+      "id" : "Bundle.entry:profesional.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "POST"
+    },
+    {
+      "id" : "Bundle.entry:profesional.request.ifNoneExist",
+      "path" : "Bundle.entry.request.ifNoneExist",
+      "min" : 1
     }]
   }
 }

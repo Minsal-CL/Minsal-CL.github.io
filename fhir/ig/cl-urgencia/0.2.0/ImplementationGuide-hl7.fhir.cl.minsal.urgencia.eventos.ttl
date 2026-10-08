@@ -17,7 +17,7 @@
   fhir:ImplementationGuide.name [ fhir:value "UrgenciaAdmisionAlta"] ;
   fhir:ImplementationGuide.title [ fhir:value "Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono)"] ;
   fhir:ImplementationGuide.status [ fhir:value "draft"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-09-24T11:47:41-03:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-10-08T00:02:21-03:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;
@@ -738,33 +738,21 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/bundle-admision-urgencia" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Bundle/BundleAbandonoEj> ;
+         fhir:Reference.reference [ fhir:value "Bundle/BundleAbandonoEj" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de admisión de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en in-progress) y avisa a la red que el paciente se encuentra en atención." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "bundles" ]
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de abandono (fuga)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Cierre del episodio DAU-2026-000456 porque la paciente se retiró sin alta médica." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-abandono-urgencia" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-abandono-urgencia>
+       ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
      ], [
        fhir:index 1 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-alta-urgencia> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/bundle-alta-urgencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de alta de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso, destino, medicamentos indicados y el documento clínico en PDF." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "bundles" ]
-     ], [
-       fhir:index 2 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -779,502 +767,7 @@
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
        fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "bundles" ]
      ], [
-       fhir:index 3 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource:abstract" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/bundle-urgencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de urgencia (base)" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estructura común de los tres Bundle de urgencia. No se usa directamente: se usa el perfil del evento correspondiente." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "bundles" ]
-     ], [
-       fhir:index 4 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/encuentro-urgencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encuentro de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Episodio de atención en una unidad de urgencia, desde la admisión hasta el alta o el abandono. Basado en EncounterCL de CL-Core. Es el recurso que la red usa para saber que el paciente estuvo en urgencia, cuándo y cómo terminó." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "encuentro" ]
-     ], [
-       fhir:index 5 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-admision> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/encuentro-urgencia-admision" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encuentro de urgencia - estado en la admisión" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Reglas del episodio de urgencia al momento de la admisión: abierto (in-progress), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "encuentro" ]
-     ], [
-       fhir:index 6 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-alta> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/encuentro-urgencia-alta" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encuentro de urgencia - estado en el alta" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "encuentro" ]
-     ], [
-       fhir:index 7 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-abandono> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/encuentro-urgencia-abandono" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encuentro de urgencia - estado en el abandono" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "encuentro" ]
-     ], [
-       fhir:index 8 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/diagnostico-urgencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Diagnóstico de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD (hipótesis, confirmado, descartado) se expresa con `verificationStatus`." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "clinicos" ]
-     ], [
-       fhir:index 9 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/indicacion-medicamento-urgencia> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/indicacion-medicamento-urgencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Indicación de medicamento al alta" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Medicamento indicado al alta de urgencia para que el paciente continúe su tratamiento. Acepta nombre genérico y posología en texto libre (CMBD: INDICACIÓN DE FÁRMACOS e ID RECETA)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "clinicos" ]
-     ], [
-       fhir:index 10 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/documento-urgencia> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/documento-urgencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Documento de la atención de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Referencia al documento clínico de la atención (DAU o epicrisis de urgencia) en PDF. Permite a cualquier establecimiento de la red descubrir y descargar el detalle clínico completo." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "clinicos" ]
-     ], [
-       fhir:index 11 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/medio-llegada> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/medio-llegada" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medio de llegada" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Medio de transporte con que el paciente llega a la unidad de urgencia." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
-     ], [
-       fhir:index 12 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/prevision> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/prevision" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Previsión de salud" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Previsión de salud del paciente al momento de la atención y, si es FONASA, su tramo." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
-     ], [
-       fhir:index 13 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/ley-previsional> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/ley-previsional" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ley previsional o programa" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ley social o programa que cubre la atención de urgencia. Usa la terminología del NID; el binding es extensible porque el NID aún no incluye PRAIS (código 05 del CMBD)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
-     ], [
-       fhir:index 14 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/clasificacion-consulta> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/clasificacion-consulta" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clasificación de la consulta" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clasificación médico-legal de la consulta registrada en la admisión." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
-     ], [
-       fhir:index 15 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pronostico-medico-legal> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/pronostico-medico-legal" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pronóstico médico-legal" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pronóstico médico-legal registrado al cierre de la atención." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
-     ], [
-       fhir:index 16 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pertinencia> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/pertinencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pertinencia de la atención" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indica si la consulta fue pertinente para una unidad de urgencia." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
-     ], [
-       fhir:index 17 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-ges> ;
-         fhir:Reference.reference [ fhir:value "StructureDefinition/diagnostico-ges" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Diagnóstico GES" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indica si el diagnóstico corresponde a un problema de salud con Garantías Explícitas en Salud (GES)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
-     ], [
-       fhir:index 18 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-estado-encuentro-urgencia> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-estado-encuentro-urgencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado del encuentro de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Subconjunto de estados de Encounter usados en urgencia." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 19 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-procedencia> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-procedencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Procedencia del paciente" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Procedencia del paciente al consultar en urgencia." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 20 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-medio-llegada> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-medio-llegada" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medio de llegada" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Medio de llegada del paciente a urgencia." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 21 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-unidad-atencion> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-unidad-atencion" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Unidad de atención de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipo de atención de urgencia asignada en la admisión." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 22 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-clasificacion-consulta> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-clasificacion-consulta" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clasificación de la consulta" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clasificación médico-legal de la consulta de urgencia." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 23 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-destino-egreso> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-destino-egreso" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Destino de egreso de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de alta y tipos de abandono." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 24 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-destino-alta> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-destino-alta" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Destino al alta de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Destinos válidos para el evento de alta." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 25 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-abandono> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-tipo-abandono" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de abandono de la atención" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipos de abandono válidos para el evento de abandono." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 26 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-pronostico-medico-legal> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-pronostico-medico-legal" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pronóstico médico-legal" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pronóstico médico-legal registrado al cierre de la atención." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 27 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-diagnostico-urgencia> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-diagnostico-urgencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Diagnósticos de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Diagnósticos codificados en CIE-10 (preferente) o SNOMED CT. Se acepta texto libre cuando el diagnóstico no está codificado." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 28 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/vs-uso-diagnostico" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Uso del diagnóstico en el episodio" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
-     ], [
-       fhir:index 29 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/procedencia" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Procedencia del paciente" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PACIENTE)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
-     ], [
-       fhir:index 30 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/medio-llegada> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/medio-llegada" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medio de llegada" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Medio de transporte con que el paciente llega a urgencia (CMBD Urgencia: LLEGADA)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
-     ], [
-       fhir:index 31 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/unidad-atencion" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Unidad de atención de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipo de atención asignada en la admisión (CMBD Urgencia: UNIDAD DE ATENCIÓN)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
-     ], [
-       fhir:index 32 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/clasificacion-consulta" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clasificación de la consulta" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clasificación médico-legal de la consulta (CMBD Urgencia: CLASIFICACIÓN DE LA CONSULTA)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
-     ], [
-       fhir:index 33 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/destino-alta> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/destino-alta" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Destino al alta de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Destino indicado por el profesional al dar el alta de urgencia (CMBD Urgencia: DESTINO_ALTA; NT 149 con ajustes DGTIC)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
-     ], [
-       fhir:index 34 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/tipo-abandono" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de abandono de la atención" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Momento en que el paciente abandona voluntariamente la atención de urgencia. Códigos alineados con CodeSystem abandono de la guía de Urgencia publicada (hl7.fhir.cl.minsal.urgencia 0.1.2-ballot)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
-     ], [
-       fhir:index 35 ;
-       fhir:Element.extension [
-         fhir:index 0 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/pronostico-medico-legal> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/pronostico-medico-legal" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pronóstico médico-legal" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pronóstico médico-legal registrado al cierre (CMBD Urgencia: PRONÓSTICO MÉDICO LEGAL)." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
-     ], [
-       fhir:index 36 ;
+       fhir:index 2 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -1292,7 +785,40 @@
        ] ;
        fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
      ], [
-       fhir:index 37 ;
+       fhir:index 3 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Bundle/BundleAdmisionNNEj> ;
+         fhir:Reference.reference [ fhir:value "Bundle/BundleAdmisionNNEj" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de admisión de un paciente NN" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Admisión de un paciente sin identificar, identificado por su número de ficha clínica local (tipo 12)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia>
+       ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/bundle-admision-urgencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de admisión de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en arrived) y avisa a la red que el paciente está en la unidad de urgencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "bundles" ]
+     ], [
+       fhir:index 5 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -1310,55 +836,277 @@
        ] ;
        fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
      ], [
-       fhir:index 38 ;
+       fhir:index 6 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "Bundle" ]
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Bundle/BundleAbandonoEj> ;
-         fhir:Reference.reference [ fhir:value "Bundle/BundleAbandonoEj" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-alta-urgencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/bundle-alta-urgencia" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de abandono (fuga)" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Cierre del episodio DAU-2026-000456 porque la paciente se retiró sin alta médica." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleCanonical [
-         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-abandono-urgencia" ;
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-abandono-urgencia>
-       ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de alta de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso codificado en CIE-10, destino, medicamentos indicados y el documento clínico en PDF. Si el PDF aún no está disponible, el Bundle de alta se envía sin él y se reenvía completo cuando el PDF exista (el PUT condicional no duplica nada)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "bundles" ]
      ], [
-       fhir:index 39 ;
+       fhir:index 7 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "Patient" ]
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource:abstract" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Patient/PacienteUrgenciaEj> ;
-         fhir:Reference.reference [ fhir:value "Patient/PacienteUrgenciaEj" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-urgencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/bundle-urgencia" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Paciente chilena identificada por RUN, conforme a MINSALPaciente del NID." ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Bundle de urgencia (base)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estructura común de los tres Bundle de urgencia. No se usa directamente: se usa el perfil del evento correspondiente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "bundles" ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Organization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Organization/EstablecimientoDestinoEj> ;
+         fhir:Reference.reference [ fhir:value "Organization/EstablecimientoDestinoEj" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "CESFAM de ejemplo" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento de atención primaria al que se deriva a la paciente para control." ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
        fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
      ], [
-       fhir:index 40 ;
+       fhir:index 9 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Practitioner/ProfesionalUrgenciaEj> ;
-         fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalUrgenciaEj" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/clasificacion-consulta> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/clasificacion-consulta" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Médica de urgencia" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Médica cirujana que da el alta, conforme a MINSALPrestadorProfesional del NID." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clasificación de la consulta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clasificación médico-legal de la consulta registrada en la admisión." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
      ], [
-       fhir:index 41 ;
+       fhir:index 10 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-clasificacion-consulta> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-clasificacion-consulta" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clasificación de la consulta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clasificación médico-legal de la consulta de urgencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/clasificacion-consulta> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/clasificacion-consulta" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clasificación de la consulta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clasificación médico-legal de la consulta (CMBD Urgencia: CLASIFICACIÓN DE LA CONSULTA)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-destino-alta> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-destino-alta" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Destino al alta de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Destinos válidos para el evento de alta." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/destino-alta> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/destino-alta" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Destino al alta de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Destino indicado por el profesional al dar el alta de urgencia (CMBD Urgencia: DESTINO_ALTA; NT 149 con ajustes DGTIC)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-destino-egreso> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-destino-egreso" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Destino de egreso de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de alta y tipos de abandono." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/diagnostico-urgencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Diagnóstico de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD se expresa solo con `verificationStatus`: hipótesis = provisional, confirmado = confirmed. Los diagnósticos descartados no se informan. En el alta el diagnóstico debe venir codificado en CIE-10." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "clinicos" ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-ges> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/diagnostico-ges" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Diagnóstico GES" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indica si el diagnóstico corresponde a un problema de salud con Garantías Explícitas en Salud (GES)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-diagnostico-urgencia> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-diagnostico-urgencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Diagnósticos de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Diagnósticos codificados en CIE-10 (preferente) o SNOMED CT. Se acepta texto libre cuando el diagnóstico no está codificado." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/documento-urgencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/documento-urgencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Documento de la atención de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Referencia al documento clínico de la atención (DAU o epicrisis de urgencia) en PDF. Permite a cualquier establecimiento de la red descubrir y descargar el detalle clínico completo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "clinicos" ]
+     ], [
+       fhir:index 19 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/encuentro-urgencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encuentro de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Episodio de atención en una unidad de urgencia, desde la admisión hasta el alta o el abandono. Basado en EncounterCL de CL-Core. Es el recurso que la red usa para saber que el paciente estuvo en urgencia, cuándo y cómo terminó." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "encuentro" ]
+     ], [
+       fhir:index 20 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-abandono> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/encuentro-urgencia-abandono" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encuentro de urgencia - estado en el abandono" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. Debe enviarse completo, repitiendo todos los datos de la admisión." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "encuentro" ]
+     ], [
+       fhir:index 21 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-alta> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/encuentro-urgencia-alta" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encuentro de urgencia - estado en el alta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. Debe enviarse completo, repitiendo todos los datos de la admisión." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "encuentro" ]
+     ], [
+       fhir:index 22 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-admision> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/encuentro-urgencia-admision" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Encuentro de urgencia - estado en la admisión" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Reglas del episodio de urgencia al momento de la admisión: abierto (arrived: el paciente llegó a la unidad), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "encuentro" ]
+     ], [
+       fhir:index 23 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-estado-encuentro-urgencia> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-estado-encuentro-urgencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado del encuentro de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Subconjunto de estados de Encounter usados en urgencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 24 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -1373,20 +1121,333 @@
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
        fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
      ], [
+       fhir:index 25 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/indicacion-medicamento-urgencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/indicacion-medicamento-urgencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Indicación de medicamento al alta" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Medicamento indicado al alta de urgencia para que el paciente continúe su tratamiento. Acepta nombre genérico y posología en texto libre (CMBD: INDICACIÓN DE FÁRMACOS e ID RECETA)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "clinicos" ]
+     ], [
+       fhir:index 26 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/ley-previsional> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ley-previsional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ley previsional o programa" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ley social o programa que cubre la atención de urgencia. Usa la terminología del NID; el binding es extensible porque el NID aún no incluye PRAIS (código 05 del CMBD)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
+     ], [
+       fhir:index 27 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/medio-llegada> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/medio-llegada" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medio de llegada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Medio de transporte con que el paciente llega a la unidad de urgencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
+     ], [
+       fhir:index 28 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-medio-llegada> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-medio-llegada" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medio de llegada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Medio de llegada del paciente a urgencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 29 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/medio-llegada> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/medio-llegada" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medio de llegada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Medio de transporte con que el paciente llega a urgencia (CMBD Urgencia: LLEGADA)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
+     ], [
+       fhir:index 30 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Practitioner/ProfesionalUrgenciaEj> ;
+         fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalUrgenciaEj" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Médica de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Médica cirujana que da el alta, conforme a MINSALPrestadorProfesional del NID." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
+     ], [
+       fhir:index 31 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Patient/PacienteUrgenciaEj> ;
+         fhir:Reference.reference [ fhir:value "Patient/PacienteUrgenciaEj" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Paciente chilena identificada por RUN, conforme a MINSALPaciente del NID." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
+     ], [
+       fhir:index 32 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Patient/PacienteNNEj> ;
+         fhir:Reference.reference [ fhir:value "Patient/PacienteNNEj" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente NN" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Paciente sin identificar, identificado por su número de ficha clínica local (CL-Core CSTipoIdentificador 12). Los datos desconocidos se informan con data-absent-reason; nacionalidad y país de origen usan 152 Chile como valor provisorio." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
+     ], [
+       fhir:index 33 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pertinencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/pertinencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pertinencia de la atención" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Indica si la consulta fue pertinente para una unidad de urgencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
+     ], [
+       fhir:index 34 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/prevision> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/prevision" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Previsión de salud" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Previsión de salud del paciente al momento de la atención y, si es FONASA, su tramo." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
+     ], [
+       fhir:index 35 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-procedencia> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-procedencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Procedencia del paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Procedencia del paciente al consultar en urgencia." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 36 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/procedencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Procedencia del paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PACIENTE)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
+     ], [
+       fhir:index 37 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pronostico-medico-legal> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/pronostico-medico-legal" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pronóstico médico-legal" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pronóstico médico-legal registrado al cierre de la atención." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "extensiones" ]
+     ], [
+       fhir:index 38 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-pronostico-medico-legal> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-pronostico-medico-legal" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pronóstico médico-legal" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pronóstico médico-legal registrado al cierre de la atención." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 39 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/pronostico-medico-legal> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/pronostico-medico-legal" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pronóstico médico-legal" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pronóstico médico-legal registrado al cierre (CMBD Urgencia: PRONÓSTICO MÉDICO LEGAL)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
+     ], [
+       fhir:index 40 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-abandono> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-tipo-abandono" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de abandono de la atención" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipos de abandono válidos para el evento de abandono." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 41 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/tipo-abandono" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de abandono de la atención" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Momento en que el paciente abandona voluntariamente la atención de urgencia. Códigos alineados con CodeSystem abandono de la guía de Urgencia publicada (hl7.fhir.cl.minsal.urgencia 0.1.2-ballot)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
+     ], [
        fhir:index 42 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "Organization" ]
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/Organization/EstablecimientoDestinoEj> ;
-         fhir:Reference.reference [ fhir:value "Organization/EstablecimientoDestinoEj" ]
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-documento-urgencia> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-tipo-documento-urgencia" ]
        ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "CESFAM de ejemplo" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento de atención primaria al que se deriva a la paciente para control." ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ] ;
-       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "ejemplos" ]
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de documento de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipo del documento clínico de la atención: resumen de alta de urgencia (alta) o nota de urgencia (abandono, en que no hay alta)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 43 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-unidad-atencion> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-unidad-atencion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Unidad de atención de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipo de atención de urgencia asignada en la admisión." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 44 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/unidad-atencion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Unidad de atención de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipo de atención asignada en la admisión (CMBD Urgencia: UNIDAD DE ATENCIÓN)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "sistemas-codigos" ]
+     ], [
+       fhir:index 45 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-uso-diagnostico" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Uso del diagnóstico en el episodio" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Uso del diagnóstico en el episodio de urgencia. Solo se informa el diagnóstico de egreso (DD); la hipótesis diagnóstica se expresa con Condition.verificationStatus = provisional, no con un uso." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ] ;
+       fhir:ImplementationGuide.definition.resource.groupingId [ fhir:value "conjuntos-valores" ]
+     ], [
+       fhir:index 46 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-verificacion-diagnostico> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-verificacion-diagnostico" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Verificación del diagnóstico de urgencia" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Hipótesis (provisional) o diagnóstico confirmado (confirmed). Los diagnósticos descartados no se informan a la red." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ] ;
      fhir:ImplementationGuide.definition.page [
        fhir:Element.extension [

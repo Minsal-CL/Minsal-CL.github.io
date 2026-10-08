@@ -19,7 +19,7 @@
 Una paciente llega por sus propios medios a urgencia del Hospital de Ejemplo con dolor abdominal.
 
 1. El administrativo registra la admisión en el HIS/RCE, que asigna el ID DAU`DAU-2026-000123`.
-1. El HIS/RCE envía la[Bundle de admisión](Bundle-BundleAdmisionEj.md):`PUT Encounter?identifier=...|DAU-2026-000123`con el episodio en`in-progress`.
+1. El HIS/RCE envía el[Bundle de admisión](Bundle-BundleAdmisionEj.md):`PUT Encounter?identifier=...|DAU-2026-000123`con el episodio en`arrived`. La paciente y el establecimiento van con`POST`+`ifNoneExist`: se crean si no existen y no se modifican si ya existen.
 1. El Bus valida, resuelve la identidad en MPI y crea el episodio.
 
 **Valor para la red:** el CESFAM de la paciente puede ver que está siendo atendida en urgencia.
@@ -28,12 +28,12 @@ Una paciente llega por sus propios medios a urgencia del Hospital de Ejemplo con
 
 Tras la evaluación, la médica diagnostica gastritis aguda, indica omeprazol y da el alta a domicilio con control en su CESFAM.
 
-1. La médica registra el alta en el HIS/RCE, que genera el PDF del DAU.
-1. El HIS/RCE envía la[Bundle de alta](Bundle-BundleAltaEj.md)con:
-* el mismo `Encounter` (mismo ID DAU) en `finished`, con `period.end` y destino `05 Domicilio`;
-* el diagnóstico de egreso en CIE-10;
+1. La médica, que inició la atención a las 10:40, registra el alta en el HIS/RCE, que genera el PDF del DAU.
+1. El HIS/RCE envía el[Bundle de alta](Bundle-BundleAltaEj.md)con:
+* el mismo `Encounter` (mismo ID DAU), **completo** (repite los datos de la admisión), en `finished`, con `period.end`, destino `05 Domicilio` y la médica como tratante (`ATND`, inicio 10:40) y quien da el alta (`DIS`);
+* el diagnóstico de egreso codificado en CIE-10 (`use = DD`);
 * la indicación de omeprazol;
-* el documento DAU con la URL del PDF.
+* el documento DAU con la URL del PDF (si el PDF aún no estuviera listo, el HIS reenvía este mismo Bundle completo cuando exista).
 
 1. El`PUT`condicional actualiza el episodio creado en la admisión y lo cierra.
 
@@ -44,7 +44,7 @@ Tras la evaluación, la médica diagnostica gastritis aguda, indica omeprazol y 
 Días después, la paciente consulta por cefalea. Es evaluada, se registra una hipótesis diagnóstica y, mientras espera exámenes, se retira sin avisar.
 
 1. El equipo constata la ausencia y lo registra en el HIS/RCE.
-1. El HIS/RCE envía la[Bundle de abandono](Bundle-BundleAbandonoEj.md)con el`Encounter`en`finished`,`period.end`= hora en que se constató el abandono y tipo`2 Abandono durante la atención médica (fuga)`, junto con la hipótesis diagnóstica.
+1. El HIS/RCE envía el[Bundle de abandono](Bundle-BundleAbandonoEj.md)con el`Encounter`en`finished`,`period.end`= hora en que se constató el abandono y tipo`2 Abandono durante la atención médica (fuga)`, junto con la hipótesis diagnóstica (`verificationStatus = provisional`, sin`use`).
 1. El Bus cierra el episodio.
 
 Si la paciente se hubiese retirado **antes** de ser evaluada, el tipo de abandono sería `1 NEA` y la transacción normalmente no incluiría diagnóstico.
@@ -61,5 +61,5 @@ La paciente acude a su control en el CESFAM.
 
 La paciente, por su parte, revisa en HCC (Portal Ciudadano) sus atenciones de urgencia y descarga el DAU.
 
-sequenceDiagram participant HIS as HIS/RCE Hospital participant BUS as Bus MINSAL participant APS as RCE CESFAM participant HCC as HCC (Portal Ciudadano) HIS->>BUS: Bundle admisión (PUT Encounter in-progress) BUS-->>HIS: transaction-response HIS->>BUS: Bundle alta (PUT Encounter finished, Condition, MedicationRequest, DocumentReference) BUS-->>HIS: transaction-response APS->>BUS: GET Encounter?patient.identifier=RUN BUS-->>APS: Episodios de urgencia APS->>BUS: GET DocumentReference?encounter=... BUS-->>APS: URL del PDF APS->>HIS: Descarga PDF (autenticado) HCC->>BUS: GET Encounter / DocumentReference del paciente BUS-->>HCC: Atenciones y documento HCC->>HIS: Descarga PDF para el paciente
+sequenceDiagram participant HIS as HIS/RCE Hospital participant BUS as Bus MINSAL participant APS as RCE CESFAM participant HCC as HCC (Portal Ciudadano) HIS->>BUS: Bundle admisión (PUT Encounter arrived) BUS-->>HIS: transaction-response HIS->>BUS: Bundle alta (PUT Encounter finished, Condition, MedicationRequest, DocumentReference) BUS-->>HIS: transaction-response APS->>BUS: GET Encounter?patient.identifier=RUN BUS-->>APS: Episodios de urgencia APS->>BUS: GET DocumentReference?encounter=... BUS-->>APS: URL del PDF APS->>HIS: Descarga PDF (autenticado) HCC->>BUS: GET Encounter / DocumentReference del paciente BUS-->>HCC: Atenciones y documento HCC->>HIS: Descarga PDF para el paciente
 

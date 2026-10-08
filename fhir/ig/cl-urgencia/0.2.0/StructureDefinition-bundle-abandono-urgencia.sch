@@ -9,4 +9,12 @@
     you may need to use this schematron fragment to build a, 
     single schematron that validates contained resources (if you have any) 
   -->
+  <sch:pattern>
+    <sch:title>f:Bundle/f:entry/f:request</sch:title>
+    <sch:rule context="f:Bundle/f:entry/f:request">
+      <sch:assert test="count(f:ifNoneExist) &gt;= 1">ifNoneExist: minimum cardinality of 'ifNoneExist' is 1</sch:assert>
+      <sch:assert test="count(f:ifNoneExist) &gt;= 1">ifNoneExist: minimum cardinality of 'ifNoneExist' is 1</sch:assert>
+      <sch:assert test="count(f:ifNoneExist) &gt;= 1">ifNoneExist: minimum cardinality of 'ifNoneExist' is 1</sch:assert>
+    </sch:rule>
+  </sch:pattern>
 </sch:schema>

@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/prevision | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:Prevision |
+| Draft as of 2026-10-08 | *Computable Name*:Prevision |
 
 Previsión de salud del paciente al momento de la atención y, si es FONASA, su tramo.
 
@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-prevision.csv), [Exc
   "title" : "Previsión de salud",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

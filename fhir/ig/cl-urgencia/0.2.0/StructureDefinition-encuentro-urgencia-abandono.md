@@ -9,10 +9,10 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-abandono | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:EncuentroUrgenciaAbandono |
+| Draft as of 2026-10-08 | *Computable Name*:EncuentroUrgenciaAbandono |
 
  
-Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. 
+Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. Debe enviarse completo, repitiendo todos los datos de la admisión. 
 
 **Usages:**
 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
   "name" : "EncuentroUrgenciaAbandono",
   "title" : "Encuentro de urgencia - estado en el abandono",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado.",
+  "description" : "Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. Debe enviarse completo, repitiendo todos los datos de la admisión.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -95,6 +95,11 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia-a
       "path" : "Encounter.period.end",
       "short" : "Fecha y hora en que se constata el abandono",
       "min" : 1
+    },
+    {
+      "id" : "Encounter.diagnosis.use",
+      "path" : "Encounter.diagnosis.use",
+      "max" : "0"
     },
     {
       "id" : "Encounter.hospitalization",

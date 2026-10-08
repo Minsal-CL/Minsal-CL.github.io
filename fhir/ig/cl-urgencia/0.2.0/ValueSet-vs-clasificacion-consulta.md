@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-clasificacion-consulta | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:VSClasificacionConsulta |
+| Draft as of 2026-10-08 | *Computable Name*:VSClasificacionConsulta |
 
  
 Clasificación médico-legal de la consulta de urgencia. 
@@ -45,13 +45,14 @@ Clasificación médico-legal de la consulta de urgencia.
 {
   "resourceType" : "ValueSet",
   "id" : "vs-clasificacion-consulta",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-clasificacion-consulta",
   "version" : "0.2.0",
   "name" : "VSClasificacionConsulta",
   "title" : "Clasificación de la consulta",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

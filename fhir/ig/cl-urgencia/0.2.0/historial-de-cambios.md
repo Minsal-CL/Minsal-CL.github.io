@@ -16,7 +16,7 @@ Rediseño de la guía hacia un **modelo de eventos mínimo** orientado a la cont
 ### Alcance funcional
 
 * **Tres eventos:** la atención se informa mediante tres transacciones: **admisión**, **alta** y **abandono** (fuga o NEA). Reemplaza el envío único de un documento al cierre.
-* **Encounter como recurso central:** un único episodio que se abre en la admisión (`in-progress`) y se cierra con el alta o el abandono (`finished`). Los eventos se correlacionan por el ID DAU (`Encounter.identifier`).
+* **Encounter como recurso central:** un único episodio que se abre en la admisión (`arrived`) y se cierra con el alta o el abandono (`finished`). Los eventos se correlacionan por el ID DAU (`Encounter.identifier`).
 * **Contenido clínico mínimo:** diagnóstico de egreso, medicamentos indicados al alta y referencia al PDF del DAU. El detalle clínico queda en el PDF.
 * **Abandono:** fuga y NEA se unifican en el evento `abandono` y se distinguen por el tipo de abandono (códigos alineados con la guía de Urgencia publicada (`hl7.fhir.cl.minsal.urgencia` 0.1.2-ballot)).
 * **CMBD de Urgencia:** se incorpora el mapeo campo a campo del CMBD (DEIS) a FHIR, con sus dominios como CodeSystems locales.
@@ -24,7 +24,20 @@ Rediseño de la guía hacia un **modelo de eventos mínimo** orientado a la cont
 ### Estructura
 
 * **`Bundle.type = transaction`** en lugar de `Bundle.type = document` con `Composition`, igual que la guía de Urgencia publicada (`hl7.fhir.cl.minsal.urgencia` 0.1.2-ballot).
-* **`PUT` condicional por identificador** en todas las entradas: el ID DAU correlaciona los eventos y un reenvío no duplica recursos. Diagnóstico, indicación de medicamento y documento exigen identificador.
+* **Operaciones condicionales:** paciente, establecimiento y profesional, que son recursos maestros compartidos, se envían con `POST` + `ifNoneExist` (se crean si no existen, nunca se sobrescriben). Encuentro, diagnóstico, indicación y documento se envían con `PUT` condicional: el ID DAU correlaciona los eventos y un reenvío no duplica recursos. Diagnóstico, indicación de medicamento y documento exigen identificador.
+* **Estados y tiempos:** la admisión usa `arrived` (el paciente llegó; `in-progress` en FHIR R4 indica que ya está con el profesional) y el cierre `finished`. `period.end` no puede ser anterior a `period.start`.
+* **Diagnósticos sin doble codificación:** hipótesis o confirmado solo en `verificationStatus` (`provisional`/`confirmed`, sin descartados); egreso solo en `Encounter.diagnosis.use = DD` y solo en el alta. Se elimina `AD`. `Encounter.diagnosis.condition` referencia el perfil `DiagnosticoUrgencia`.
+* **CIE-10 obligatorio al alta.** TAPSA no se acepta mientras el DEIS no publique su sistema de códigos.
+* **Encounter siempre completo:** el alta y el abandono repiten todos los datos de la admisión, porque el `PUT` reemplaza el recurso entero.
+* **Sin `Resource.id` en recursos con `PUT`:** el id lo determina el servidor; los ejemplos ya no lo incluyen.
+* **Coherencia del Bundle:** el identificador de cada operación condicional debe coincidir con el del recurso, y todos los recursos deben referirse al mismo paciente.
+* **ID DAU con sistema nacional:** `https://interoperabilidad.minsal.cl/fhir/sid/dau/[código DEIS]`, exactamente uno por episodio.
+* **Fechas con hora:** admisión, alta y abandono deben incluir hora y zona horaria.
+* **Información sensible:** las consultas por abuso sexual, violencia o constatación de lesiones marcan el episodio y sus recursos como restringidos (`meta.security = R`); HCC no los muestra.
+* **Documento por evento:** resumen de alta (LOINC 59258-4) en el alta y nota de urgencia (LOINC 34111-5) en el abandono. El PDF pasa a ser opcional en el alta: si no está listo, el Bundle se reenvía completo cuando exista.
+* **Inicio de la atención médica:** se informa como `Encounter.participant` con `type = ATND` y `period.start` (CMBD: FECHA_ATENCION y HORA_ATENCION).
+* **Pacientes NN:** se identifican con el número de ficha clínica local (CL-Core `CSTipoIdentificador` 12); los datos desconocidos van con `data-absent-reason`, salvo nacionalidad y país de origen, que usan 152 Chile como valor provisorio porque el NID no admite "desconocido". Nuevo ejemplo de admisión de un NN.
+* **De urgencia a hospitalización:** con destino hospitalización (01), traslado (02) o derivación (04) el establecimiento de destino es obligatorio. El término del episodio (`period.end`) es la salida física de urgencia, no la indicación de hospitalización. Se documenta el enlace recomendado con el `Encounter` de hospitalización (`encounter-associatedEncounter`).
 * **HCC (Portal Ciudadano)** se incorpora como consumidor en los diagramas de arquitectura y casos de uso.
 * **Índice de artefactos en español:** grupos propios (Bundles por evento, Encuentro de urgencia, Contenido clínico, Extensiones, Conjuntos de valores, Sistemas de códigos, Ejemplos) en lugar de los grupos automáticos en inglés de la plantilla.
 * **Descripciones de elementos en español:** todos los elementos que la guía restringe o marca como obligatorios de soportar tienen su texto corto (`short`) en español.

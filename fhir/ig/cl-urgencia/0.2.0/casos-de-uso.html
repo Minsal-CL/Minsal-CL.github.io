@@ -206,7 +206,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <ol>
   <li>El administrativo registra la admisión en el HIS/RCE, que asigna el ID DAU <code class="language-plaintext highlighter-rouge">DAU-2026-000123</code>.</li>
-  <li>El HIS/RCE envía la <a href="Bundle-BundleAdmisionEj.html">Bundle de admisión</a>: <code class="language-plaintext highlighter-rouge">PUT Encounter?identifier=...|DAU-2026-000123</code> con el episodio en <code class="language-plaintext highlighter-rouge">in-progress</code>.</li>
+  <li>El HIS/RCE envía el <a href="Bundle-BundleAdmisionEj.html">Bundle de admisión</a>: <code class="language-plaintext highlighter-rouge">PUT Encounter?identifier=...|DAU-2026-000123</code> con el episodio en <code class="language-plaintext highlighter-rouge">arrived</code>. La paciente y el establecimiento van con <code class="language-plaintext highlighter-rouge">POST</code> + <code class="language-plaintext highlighter-rouge">ifNoneExist</code>: se crean si no existen y no se modifican si ya existen.</li>
   <li>El Bus valida, resuelve la identidad en MPI y crea el episodio.</li>
 </ol>
 
@@ -217,13 +217,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>Tras la evaluación, la médica diagnostica gastritis aguda, indica omeprazol y da el alta a domicilio con control en su CESFAM.</p>
 
 <ol>
-  <li>La médica registra el alta en el HIS/RCE, que genera el PDF del DAU.</li>
-  <li>El HIS/RCE envía la <a href="Bundle-BundleAltaEj.html">Bundle de alta</a> con:
+  <li>La médica, que inició la atención a las 10:40, registra el alta en el HIS/RCE, que genera el PDF del DAU.</li>
+  <li>El HIS/RCE envía el <a href="Bundle-BundleAltaEj.html">Bundle de alta</a> con:
     <ul>
-      <li>el mismo <code class="language-plaintext highlighter-rouge">Encounter</code> (mismo ID DAU) en <code class="language-plaintext highlighter-rouge">finished</code>, con <code class="language-plaintext highlighter-rouge">period.end</code> y destino <code class="language-plaintext highlighter-rouge">05 Domicilio</code>;</li>
-      <li>el diagnóstico de egreso en CIE-10;</li>
+      <li>el mismo <code class="language-plaintext highlighter-rouge">Encounter</code> (mismo ID DAU), <strong>completo</strong> (repite los datos de la admisión), en <code class="language-plaintext highlighter-rouge">finished</code>, con <code class="language-plaintext highlighter-rouge">period.end</code>, destino <code class="language-plaintext highlighter-rouge">05 Domicilio</code> y la médica como tratante (<code class="language-plaintext highlighter-rouge">ATND</code>, inicio 10:40) y quien da el alta (<code class="language-plaintext highlighter-rouge">DIS</code>);</li>
+      <li>el diagnóstico de egreso codificado en CIE-10 (<code class="language-plaintext highlighter-rouge">use = DD</code>);</li>
       <li>la indicación de omeprazol;</li>
-      <li>el documento DAU con la URL del PDF.</li>
+      <li>el documento DAU con la URL del PDF (si el PDF aún no estuviera listo, el HIS reenvía este mismo Bundle completo cuando exista).</li>
     </ul>
   </li>
   <li>El <code class="language-plaintext highlighter-rouge">PUT</code> condicional actualiza el episodio creado en la admisión y lo cierra.</li>
@@ -237,7 +237,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <ol>
   <li>El equipo constata la ausencia y lo registra en el HIS/RCE.</li>
-  <li>El HIS/RCE envía la <a href="Bundle-BundleAbandonoEj.html">Bundle de abandono</a> con el <code class="language-plaintext highlighter-rouge">Encounter</code> en <code class="language-plaintext highlighter-rouge">finished</code>, <code class="language-plaintext highlighter-rouge">period.end</code> = hora en que se constató el abandono y tipo <code class="language-plaintext highlighter-rouge">2 Abandono durante la atención médica (fuga)</code>, junto con la hipótesis diagnóstica.</li>
+  <li>El HIS/RCE envía el <a href="Bundle-BundleAbandonoEj.html">Bundle de abandono</a> con el <code class="language-plaintext highlighter-rouge">Encounter</code> en <code class="language-plaintext highlighter-rouge">finished</code>, <code class="language-plaintext highlighter-rouge">period.end</code> = hora en que se constató el abandono y tipo <code class="language-plaintext highlighter-rouge">2 Abandono durante la atención médica (fuga)</code>, junto con la hipótesis diagnóstica (<code class="language-plaintext highlighter-rouge">verificationStatus = provisional</code>, sin <code class="language-plaintext highlighter-rouge">use</code>).</li>
   <li>El Bus cierra el episodio.</li>
 </ol>
 
@@ -264,7 +264,7 @@ sequenceDiagram
     participant APS as RCE CESFAM
     participant HCC as HCC (Portal Ciudadano)
 
-    HIS-&gt;&gt;BUS: Bundle admisión (PUT Encounter in-progress)
+    HIS-&gt;&gt;BUS: Bundle admisión (PUT Encounter arrived)
     BUS--&gt;&gt;HIS: transaction-response
     HIS-&gt;&gt;BUS: Bundle alta (PUT Encounter finished, Condition, MedicationRequest, DocumentReference)
     BUS--&gt;&gt;HIS: transaction-response
@@ -316,7 +316,7 @@ sequenceDiagram
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 24, 2026 11:47-0300">2026-09-24</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 00:02-0300">2026-10-08</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

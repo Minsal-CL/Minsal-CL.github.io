@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-abandono-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:BundleAbandonoUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:BundleAbandonoUrgencia |
 
  
 Evento abandono: el paciente se retira voluntariamente sin alta médica (fuga o NEA). Cierra el episodio (Encounter en finished). Si alcanzó a ser evaluado, puede incluir la hipótesis diagnóstica y el documento clínico. 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-abandono-urge
   "name" : "BundleAbandonoUrgencia",
   "title" : "Bundle de abandono de urgencia",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -87,7 +87,14 @@ Other representations of profile: [CSV](StructureDefinition-bundle-abandono-urge
   "differential" : {
     "element" : [{
       "id" : "Bundle",
-      "path" : "Bundle"
+      "path" : "Bundle",
+      "constraint" : [{
+        "key" : "urg-abandono-documento",
+        "severity" : "error",
+        "human" : "En el abandono no hay alta: el documento es una nota de urgencia (LOINC 34111-5).",
+        "expression" : "entry.resource.ofType(DocumentReference).all(type.coding.where(system = 'http://loinc.org' and code = '34111-5').exists())",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-abandono-urgencia"
+      }]
     },
     {
       "id" : "Bundle.entry:encuentro",
@@ -113,6 +120,11 @@ Other representations of profile: [CSV](StructureDefinition-bundle-abandono-urge
       "short" : "PUT Encounter?identifier=[sistema DAU]|[ID DAU]"
     },
     {
+      "id" : "Bundle.entry:encuentro.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "PUT"
+    },
+    {
       "id" : "Bundle.entry:diagnostico",
       "path" : "Bundle.entry",
       "sliceName" : "diagnostico",
@@ -136,6 +148,11 @@ Other representations of profile: [CSV](StructureDefinition-bundle-abandono-urge
       "short" : "PUT Condition?identifier=[sistema]|[valor]"
     },
     {
+      "id" : "Bundle.entry:diagnostico.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "PUT"
+    },
+    {
       "id" : "Bundle.entry:documento",
       "path" : "Bundle.entry",
       "sliceName" : "documento",
@@ -157,6 +174,11 @@ Other representations of profile: [CSV](StructureDefinition-bundle-abandono-urge
       "id" : "Bundle.entry:documento.request",
       "path" : "Bundle.entry.request",
       "short" : "PUT DocumentReference?identifier=[sistema]|[valor]"
+    },
+    {
+      "id" : "Bundle.entry:documento.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "PUT"
     }]
   }
 }

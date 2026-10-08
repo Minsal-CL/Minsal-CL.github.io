@@ -9,10 +9,10 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-alta-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:BundleAltaUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:BundleAltaUrgencia |
 
  
-Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso, destino, medicamentos indicados y el documento clínico en PDF. 
+Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso codificado en CIE-10, destino, medicamentos indicados y el documento clínico en PDF. Si el PDF aún no está disponible, el Bundle de alta se envía sin él y se reenvía completo cuando el PDF exista (el PUT condicional no duplica nada). 
 
 **Usages:**
 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-alta-urgencia
   "name" : "BundleAltaUrgencia",
   "title" : "Bundle de alta de urgencia",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-alta-urgencia
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso, destino, medicamentos indicados y el documento clínico en PDF.",
+  "description" : "Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso codificado en CIE-10, destino, medicamentos indicados y el documento clínico en PDF. Si el PDF aún no está disponible, el Bundle de alta se envía sin él y se reenvía completo cuando el PDF exista (el PUT condicional no duplica nada).",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -87,12 +87,26 @@ Other representations of profile: [CSV](StructureDefinition-bundle-alta-urgencia
   "differential" : {
     "element" : [{
       "id" : "Bundle",
-      "path" : "Bundle"
+      "path" : "Bundle",
+      "constraint" : [{
+        "key" : "urg-alta-cie10",
+        "severity" : "error",
+        "human" : "En el alta, todo diagnóstico debe venir codificado en CIE-10.",
+        "expression" : "entry.resource.ofType(Condition).all(code.coding.where(system = 'http://hl7.org/fhir/sid/icd-10').exists())",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-alta-urgencia"
+      },
+      {
+        "key" : "urg-alta-documento",
+        "severity" : "error",
+        "human" : "En el alta, el documento es un resumen de alta de urgencia (LOINC 59258-4).",
+        "expression" : "entry.resource.ofType(DocumentReference).all(type.coding.where(system = 'http://loinc.org' and code = '59258-4').exists())",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-alta-urgencia"
+      }]
     },
     {
       "id" : "Bundle.entry",
       "path" : "Bundle.entry",
-      "min" : 5
+      "min" : 4
     },
     {
       "id" : "Bundle.entry:encuentro",
@@ -118,6 +132,11 @@ Other representations of profile: [CSV](StructureDefinition-bundle-alta-urgencia
       "short" : "PUT Encounter?identifier=[sistema DAU]|[ID DAU]"
     },
     {
+      "id" : "Bundle.entry:encuentro.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "PUT"
+    },
+    {
       "id" : "Bundle.entry:diagnostico",
       "path" : "Bundle.entry",
       "sliceName" : "diagnostico",
@@ -139,6 +158,11 @@ Other representations of profile: [CSV](StructureDefinition-bundle-alta-urgencia
       "id" : "Bundle.entry:diagnostico.request",
       "path" : "Bundle.entry.request",
       "short" : "PUT Condition?identifier=[sistema]|[valor]"
+    },
+    {
+      "id" : "Bundle.entry:diagnostico.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "PUT"
     },
     {
       "id" : "Bundle.entry:medicamento",
@@ -164,11 +188,16 @@ Other representations of profile: [CSV](StructureDefinition-bundle-alta-urgencia
       "short" : "PUT MedicationRequest?identifier=[sistema]|[valor]"
     },
     {
+      "id" : "Bundle.entry:medicamento.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "PUT"
+    },
+    {
       "id" : "Bundle.entry:documento",
       "path" : "Bundle.entry",
       "sliceName" : "documento",
       "short" : "Documento clínico (PDF)",
-      "min" : 1,
+      "min" : 0,
       "max" : "1",
       "mustSupport" : true
     },
@@ -185,6 +214,11 @@ Other representations of profile: [CSV](StructureDefinition-bundle-alta-urgencia
       "id" : "Bundle.entry:documento.request",
       "path" : "Bundle.entry.request",
       "short" : "PUT DocumentReference?identifier=[sistema]|[valor]"
+    },
+    {
+      "id" : "Bundle.entry:documento.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "PUT"
     }]
   }
 }

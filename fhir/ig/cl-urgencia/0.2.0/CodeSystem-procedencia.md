@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:CSProcedencia |
+| Draft as of 2026-10-08 | *Computable Name*:CSProcedencia |
 
  
 Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PACIENTE). 
@@ -26,13 +26,14 @@ Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PAC
 {
   "resourceType" : "CodeSystem",
   "id" : "procedencia",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/procedencia",
   "version" : "0.2.0",
   "name" : "CSProcedencia",
   "title" : "Procedencia del paciente",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

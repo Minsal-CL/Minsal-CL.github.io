@@ -9,10 +9,10 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:VSUsoDiagnostico |
+| Draft as of 2026-10-08 | *Computable Name*:VSUsoDiagnostico |
 
  
-Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso. 
+Uso del diagnóstico en el episodio de urgencia. Solo se informa el diagnóstico de egreso (DD); la hipótesis diagnóstica se expresa con Condition.verificationStatus = provisional, no con un uso. 
 
  **References** 
 
@@ -45,13 +45,14 @@ Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico 
 {
   "resourceType" : "ValueSet",
   "id" : "vs-uso-diagnostico",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-uso-diagnostico",
   "version" : "0.2.0",
   "name" : "VSUsoDiagnostico",
   "title" : "Uso del diagnóstico en el episodio",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -60,7 +61,7 @@ Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico 
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso.",
+  "description" : "Uso del diagnóstico en el episodio de urgencia. Solo se informa el diagnóstico de egreso (DD); la hipótesis diagnóstica se expresa con Condition.verificationStatus = provisional, no con un uso.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -73,10 +74,6 @@ Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico 
       "system" : "http://terminology.hl7.org/CodeSystem/diagnosis-role",
       "version" : "1.1.1",
       "concept" : [{
-        "code" : "AD",
-        "display" : "Admission diagnosis"
-      },
-      {
         "code" : "DD",
         "display" : "Discharge diagnosis"
       }]

@@ -177,7 +177,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10:00  Bundle de admisión
        PUT Encounter?identifier=[sistema DAU]|DAU-2026-000123
-       No existe → el servidor lo CREA ......... Encounter/abc  v1  status = in-progress
+       No existe → el servidor lo CREA ......... Encounter/abc  v1  status = arrived
 
 12:30  Bundle de alta
        PUT Encounter?identifier=[sistema DAU]|DAU-2026-000123
@@ -191,7 +191,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 sequenceDiagram
     participant HIS as HIS/RCE
     participant REP as Repositorio FHIR
-    HIS-&gt;&gt;REP: Admisión: PUT Encounter?identifier=…|DAU-2026-000123 (in-progress)
+    HIS-&gt;&gt;REP: Admisión: PUT Encounter?identifier=…|DAU-2026-000123 (arrived)
     REP--&gt;&gt;HIS: 201 Created → Encounter/abc v1
     HIS-&gt;&gt;REP: Alta: PUT Encounter?identifier=…|DAU-2026-000123 (finished)
     REP--&gt;&gt;HIS: 200 OK → Encounter/abc v2
@@ -206,28 +206,42 @@ sequenceDiagram
 
 <h2 id="estructura-de-una-transacción">Estructura de una transacción</h2>
 
-<p>Los tres eventos usan la misma estructura: un <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code> en que <strong>cada entrada es un <code class="language-plaintext highlighter-rouge">PUT</code> condicional por identificador</strong>.</p>
+<p>Los tres eventos usan la misma estructura: un <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">transaction</code> con <strong>dos formas de envío</strong> según el tipo de recurso.</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bundle (type = transaction)
-├── Encounter ......... PUT Encounter?identifier=[sistema DAU]|[ID DAU]
-├── Patient ........... PUT Patient?identifier=[sistema]|[RUN u otro]
-├── Organization ...... PUT Organization?identifier=[sistema DEIS]|[código]   (emisor y destino)
-├── Practitioner ...... PUT Practitioner?identifier=[sistema]|[RUN]            (opcional)
-└── ... recursos del evento, también con PUT condicional:
-    ├── Condition ............ PUT Condition?identifier=...
-    ├── MedicationRequest .... PUT MedicationRequest?identifier=...
-    └── DocumentReference .... PUT DocumentReference?identifier=...
+│
+├── Recursos maestros compartidos: SOLO CREAR (POST + ifNoneExist)
+│   ├── Patient ........... POST Patient       ifNoneExist: identifier=[sistema]|[RUN u otro]
+│   ├── Organization ...... POST Organization  ifNoneExist: identifier=[sistema DEIS]|[código]
+│   └── Practitioner ...... POST Practitioner  ifNoneExist: identifier=[sistema]|[RUN]   (opcional)
+│
+└── Recursos del episodio: CREAR O ACTUALIZAR (PUT condicional)
+    ├── Encounter ......... PUT Encounter?identifier=[sistema DAU]|[ID DAU]
+    ├── Condition ......... PUT Condition?identifier=...
+    ├── MedicationRequest . PUT MedicationRequest?identifier=...
+    └── DocumentReference . PUT DocumentReference?identifier=...
 </code></pre></div></div>
 
-<p>El <code class="language-plaintext highlighter-rouge">PUT</code> condicional <strong>crea</strong> el recurso si no existe y lo <strong>actualiza</strong> si ya existe. De ahí salen tres propiedades del modelo:</p>
+<p><strong>Recursos maestros (paciente, establecimiento, profesional): solo crear.</strong> Son compartidos por toda la red y su fuente de verdad es nacional (MPI, registros DEIS y de prestadores). Con <code class="language-plaintext highlighter-rouge">POST</code> + <code class="language-plaintext highlighter-rouge">ifNoneExist</code> el servidor los crea si no existen y, si ya existen, usa el existente <strong>sin modificarlo</strong>. Así ningún establecimiento sobrescribe los datos que envió otro ni los del MPI.</p>
+
+<p><strong>Recursos del episodio: crear o actualizar.</strong> Pertenecen al establecimiento que atiende. El <code class="language-plaintext highlighter-rouge">PUT</code> condicional los crea si no existen y los actualiza si ya existen:</p>
 
 <ul>
   <li><strong>Correlación sin lógica adicional:</strong> la admisión crea el <code class="language-plaintext highlighter-rouge">Encounter</code>; el alta o el abandono actualizan ese mismo <code class="language-plaintext highlighter-rouge">Encounter</code>, porque comparten el ID DAU (ver <a href="#un-episodio-un-encounter">Un episodio, un Encounter</a>).</li>
-  <li><strong>Reenvío seguro:</strong> si el HIS/RCE reintenta una transacción, no se duplican pacientes, episodios ni diagnósticos.</li>
+  <li><strong>Reenvío seguro:</strong> si el HIS/RCE reintenta una transacción, no se duplican episodios, diagnósticos ni documentos.</li>
   <li><strong>Transacción autocontenida:</strong> trae siempre paciente, establecimiento y encuentro. Un alta sin admisión previa crea el episodio igual.</li>
 </ul>
 
 <p>Dentro de la transacción los recursos se referencian entre sí por su <code class="language-plaintext highlighter-rouge">fullUrl</code> (<code class="language-plaintext highlighter-rouge">urn:uuid:...</code>). El servidor reemplaza esas referencias por los ids reales al procesarla.</p>
+
+<p>Reglas de construcción del Bundle:</p>
+
+<ul>
+  <li><strong>El <code class="language-plaintext highlighter-rouge">Encounter</code> se envía siempre completo.</strong> El <code class="language-plaintext highlighter-rouge">PUT</code> reemplaza el recurso entero: el alta y el abandono deben repetir todos los datos informados en la admisión (previsión, procedencia, medio de llegada, motivo de consulta, etc.). Un dato omitido se borra del repositorio.</li>
+  <li><strong>Sin <code class="language-plaintext highlighter-rouge">Resource.id</code> en los recursos con <code class="language-plaintext highlighter-rouge">PUT</code>.</strong> El id lo determina el servidor al encontrar o crear el recurso por su identificador. Un id en el cuerpo que no coincida con el recurso existente hace fallar la operación.</li>
+  <li><strong>El identificador de la operación es el del recurso.</strong> El <code class="language-plaintext highlighter-rouge">system|value</code> de <code class="language-plaintext highlighter-rouge">request.url</code> (o de <code class="language-plaintext highlighter-rouge">ifNoneExist</code>) debe ser el mismo que trae el recurso.</li>
+  <li><strong>Un solo paciente por Bundle.</strong> El <code class="language-plaintext highlighter-rouge">subject</code> de encuentro, diagnósticos, indicaciones y documento apunta a la entrada del paciente.</li>
+</ul>
 
 <div class="diagrama-urgencia">
 flowchart LR
@@ -257,7 +271,7 @@ flowchart LR
     <tr>
       <td>Admisión</td>
       <td><a href="StructureDefinition-bundle-admision-urgencia.html">Bundle de admisión</a></td>
-      <td><code class="language-plaintext highlighter-rouge">in-progress</code></td>
+      <td><code class="language-plaintext highlighter-rouge">arrived</code></td>
       <td>No se envía</td>
     </tr>
     <tr>
@@ -277,7 +291,114 @@ flowchart LR
 
 <p>Quien necesite reaccionar a un evento (por ejemplo, avisar al CESFAM de un alta o de una fuga) lo hace suscribiéndose a los cambios de <code class="language-plaintext highlighter-rouge">Encounter</code> en el repositorio.</p>
 
-<h2 id="contenido-por-evento">Contenido por evento</h2>
+<h2 id="estados-y-tiempos">Estados y tiempos</h2>
+
+<p>Esta versión informa <strong>dos momentos</strong> del episodio: la admisión y el cierre (alta o abandono). Los estados intermedios del flujo de urgencia (categorizado, en atención médica) no se informan.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Momento</th>
+      <th><code class="language-plaintext highlighter-rouge">Encounter.status</code></th>
+      <th>Significado (FHIR R4)</th>
+      <th>Tiempo que se informa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Admisión</td>
+      <td><code class="language-plaintext highlighter-rouge">arrived</code></td>
+      <td>El paciente llegó y está en la unidad de urgencia</td>
+      <td><code class="language-plaintext highlighter-rouge">period.start</code> = fecha y hora de admisión</td>
+    </tr>
+    <tr>
+      <td>Alta</td>
+      <td><code class="language-plaintext highlighter-rouge">finished</code></td>
+      <td>El episodio terminó con alta médica</td>
+      <td><code class="language-plaintext highlighter-rouge">period.end</code> = fecha y hora en que el paciente <strong>sale físicamente</strong> de urgencia</td>
+    </tr>
+    <tr>
+      <td>Abandono</td>
+      <td><code class="language-plaintext highlighter-rouge">finished</code></td>
+      <td>El episodio terminó porque el paciente se retiró sin alta</td>
+      <td><code class="language-plaintext highlighter-rouge">period.end</code> = fecha y hora en que se <strong>constata</strong> el abandono</td>
+    </tr>
+    <tr>
+      <td>Corrección</td>
+      <td><code class="language-plaintext highlighter-rouge">entered-in-error</code></td>
+      <td>El episodio se envió por error</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Se usa <code class="language-plaintext highlighter-rouge">arrived</code> y no <code class="language-plaintext highlighter-rouge">in-progress</code> en la admisión porque, en FHIR R4, <code class="language-plaintext highlighter-rouge">in-progress</code> indica que el paciente ya se encuentra con el profesional, y al admitirlo eso todavía no ocurre.</p>
+
+<p>Otros tiempos de la guía:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dato</th>
+      <th>Elemento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Inicio de la atención médica</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.participant</code> con <code class="language-plaintext highlighter-rouge">type = ATND</code>, <code class="language-plaintext highlighter-rouge">period.start</code></td>
+    </tr>
+    <tr>
+      <td>Registro del diagnóstico</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.recordedDate</code></td>
+    </tr>
+    <tr>
+      <td>Indicación del medicamento</td>
+      <td><code class="language-plaintext highlighter-rouge">MedicationRequest.authoredOn</code></td>
+    </tr>
+    <tr>
+      <td>Emisión del documento DAU</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.date</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Todas las fechas del episodio van en ISO 8601 <strong>con hora y zona horaria</strong> (por ejemplo, <code class="language-plaintext highlighter-rouge">2026-09-09T10:00:00-03:00</code>); una fecha sin hora se rechaza (invariante <code class="language-plaintext highlighter-rouge">urg-enc-5</code>). <code class="language-plaintext highlighter-rouge">period.end</code> no puede ser anterior a <code class="language-plaintext highlighter-rouge">period.start</code> (invariante <code class="language-plaintext highlighter-rouge">urg-enc-3</code>).</p>
+
+<h2 id="diagnósticos">Diagnósticos</h2>
+
+<p>Cada concepto se expresa <strong>en un solo lugar</strong>, para que no haya combinaciones contradictorias:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pregunta</th>
+      <th>Dónde se responde</th>
+      <th>Valores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>¿Es una hipótesis o un diagnóstico confirmado?</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition.verificationStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">provisional</code> (hipótesis) o <code class="language-plaintext highlighter-rouge">confirmed</code> (confirmado)</td>
+    </tr>
+    <tr>
+      <td>¿Es el diagnóstico de egreso?</td>
+      <td><code class="language-plaintext highlighter-rouge">Encounter.diagnosis.use</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DD</code> (diagnóstico de egreso). Solo en el alta</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>Alta:</strong> al menos un diagnóstico, referenciado en <code class="language-plaintext highlighter-rouge">Encounter.diagnosis</code> con <code class="language-plaintext highlighter-rouge">use = DD</code> y <strong>codificado en CIE-10</strong> (invariante <code class="language-plaintext highlighter-rouge">urg-alta-cie10</code>). Puede ser <code class="language-plaintext highlighter-rouge">confirmed</code> o <code class="language-plaintext highlighter-rouge">provisional</code> (el profesional egresa con una hipótesis).</li>
+  <li><strong>Abandono:</strong> la hipótesis diagnóstica, si alcanzó a registrarse, va con <code class="language-plaintext highlighter-rouge">verificationStatus = provisional</code> y <strong>sin</strong> <code class="language-plaintext highlighter-rouge">use</code>. Puede ir solo en texto si no fue codificada.</li>
+  <li><strong>Diagnósticos descartados:</strong> no se informan. Un diagnóstico descartado no aporta a la continuidad de la atención.</li>
+  <li><strong>TAPSA:</strong> no se acepta mientras el DEIS no publique su sistema de códigos.
+    <h2 id="contenido-por-evento">Contenido por evento</h2>
+  </li>
+</ul>
 
 <p><strong>Obligatorio</strong> = la transacción se rechaza si falta. <strong>Si existe</strong> = se envía cuando el HIS/RCE tiene el dato.</p>
 
@@ -305,7 +426,7 @@ flowchart LR
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Encounter.status</code></td>
-      <td><code class="language-plaintext highlighter-rouge">in-progress</code></td>
+      <td><code class="language-plaintext highlighter-rouge">arrived</code></td>
       <td><code class="language-plaintext highlighter-rouge">finished</code></td>
       <td><code class="language-plaintext highlighter-rouge">finished</code></td>
     </tr>
@@ -342,14 +463,14 @@ flowchart LR
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Encounter.hospitalization.destination</code></td>
       <td>—</td>
-      <td>Si hay traslado o derivación</td>
+      <td>Obligatorio con destino hospitalización (01), traslado (02) o derivación (04)</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Condition</code> (diagnóstico)</td>
       <td>—</td>
-      <td>Obligatorio, al menos uno (<code class="language-plaintext highlighter-rouge">DD</code>)</td>
-      <td>Si existe (hipótesis <code class="language-plaintext highlighter-rouge">AD</code>)</td>
+      <td>Obligatorio, al menos uno (<code class="language-plaintext highlighter-rouge">DD</code>, CIE-10)</td>
+      <td>Si existe (hipótesis, <code class="language-plaintext highlighter-rouge">provisional</code>)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MedicationRequest</code></td>
@@ -360,70 +481,70 @@ flowchart LR
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentReference</code> (PDF)</td>
       <td>—</td>
-      <td>Obligatorio</td>
-      <td>Si existe</td>
+      <td>Si existe (resumen de alta, LOINC 59258-4). Si el PDF aún no está listo, se reenvía el Bundle de alta completo cuando exista</td>
+      <td>Si existe (nota de urgencia, LOINC 34111-5)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Practitioner</code></td>
       <td>Si existe</td>
-      <td>Si existe (quien da el alta)</td>
-      <td>Si existe</td>
+      <td>Si existe: médico tratante (<code class="language-plaintext highlighter-rouge">ATND</code>) y quien da el alta (<code class="language-plaintext highlighter-rouge">DIS</code>)</td>
+      <td>Si existe (<code class="language-plaintext highlighter-rouge">ATND</code> si alcanzó a ser atendido)</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="identificadores">Identificadores</h2>
 
-<p>Cada recurso de la transacción debe traer un identificador estable, que es la llave del <code class="language-plaintext highlighter-rouge">PUT</code> condicional:</p>
+<p>Cada recurso de la transacción debe traer un identificador estable, que es la llave de la operación condicional:</p>
 
 <table>
   <thead>
     <tr>
       <th>Recurso</th>
       <th>Identificador</th>
-      <th>Ejemplo de <code class="language-plaintext highlighter-rouge">request.url</code></th>
+      <th>Operación</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Encounter</code></td>
-      <td>ID DAU del establecimiento</td>
-      <td><code class="language-plaintext highlighter-rouge">Encounter?identifier=https://hospital.cl/sid/dau\|DAU-2026-000123</code></td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Patient</code></td>
       <td>RUN (o pasaporte, RUN madre, identificador local)</td>
-      <td><code class="language-plaintext highlighter-rouge">Patient?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300\|11111111-1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">POST Patient</code> con <code class="language-plaintext highlighter-rouge">ifNoneExist: identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300\|11111111-1</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Organization</code></td>
       <td>Código DEIS</td>
-      <td><code class="language-plaintext highlighter-rouge">Organization?identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino\|112100</code></td>
+      <td><code class="language-plaintext highlighter-rouge">POST Organization</code> con <code class="language-plaintext highlighter-rouge">ifNoneExist: identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino\|112100</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Practitioner</code></td>
       <td>RUN</td>
-      <td><code class="language-plaintext highlighter-rouge">Practitioner?identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300\|22222222-2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">POST Practitioner</code> con <code class="language-plaintext highlighter-rouge">ifNoneExist: identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300\|22222222-2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Encounter</code></td>
+      <td>ID DAU, con sistema <code class="language-plaintext highlighter-rouge">https://interoperabilidad.minsal.cl/fhir/sid/dau/[código DEIS]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PUT Encounter?identifier=https://interoperabilidad.minsal.cl/fhir/sid/dau/112100\|DAU-2026-000123</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Condition</code></td>
       <td>Id del diagnóstico en el HIS/RCE</td>
-      <td><code class="language-plaintext highlighter-rouge">Condition?identifier=https://hospital.cl/sid/diagnosticos\|DG-88001</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PUT Condition?identifier=https://hospital.cl/sid/diagnosticos\|DG-88001</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MedicationRequest</code></td>
       <td>Id de la indicación en el HIS/RCE</td>
-      <td><code class="language-plaintext highlighter-rouge">MedicationRequest?identifier=https://hospital.cl/sid/indicaciones\|IND-5501-1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PUT MedicationRequest?identifier=https://hospital.cl/sid/indicaciones\|IND-5501-1</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DocumentReference</code></td>
       <td><code class="language-plaintext highlighter-rouge">masterIdentifier</code> del documento</td>
-      <td><code class="language-plaintext highlighter-rouge">DocumentReference?identifier=https://hospital.cl/sid/documentos\|DOC-000123</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PUT DocumentReference?identifier=https://hospital.cl/sid/documentos\|DOC-000123</code></td>
     </tr>
   </tbody>
 </table>
 
-<p>El ID DAU debe ser <strong>único</strong> en el establecimiento, <strong>no reutilizarse</strong> nunca y ser <strong>el mismo</strong> en las tres transacciones del episodio. El <code class="language-plaintext highlighter-rouge">system</code> identifica al establecimiento, por lo que el par <code class="language-plaintext highlighter-rouge">system|value</code> es único a nivel nacional.</p>
+<p>El ID DAU debe ser <strong>único</strong> en el establecimiento, <strong>no reutilizarse</strong> nunca y ser <strong>el mismo</strong> en las tres transacciones del episodio. Su <code class="language-plaintext highlighter-rouge">system</code> sigue el patrón <code class="language-plaintext highlighter-rouge">https://interoperabilidad.minsal.cl/fhir/sid/dau/[código DEIS del establecimiento]</code>, de modo que el par <code class="language-plaintext highlighter-rouge">system|value</code> es único a nivel nacional. Cada episodio tiene exactamente un ID DAU (invariante <code class="language-plaintext highlighter-rouge">urg-enc-6</code>).</p>
 
 <h2 id="reglas-de-negocio">Reglas de negocio</h2>
 
@@ -436,7 +557,11 @@ flowchart LR
   </thead>
   <tbody>
     <tr>
-      <td>Todas las entradas usan <code class="language-plaintext highlighter-rouge">PUT</code> condicional por identificador.</td>
+      <td>Paciente, establecimiento y profesional se envían solo con creación condicional (<code class="language-plaintext highlighter-rouge">POST</code> + <code class="language-plaintext highlighter-rouge">ifNoneExist</code>).</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-tx-maestros</code></td>
+    </tr>
+    <tr>
+      <td>Encuentro, diagnóstico, indicación y documento se envían con <code class="language-plaintext highlighter-rouge">PUT</code> condicional por identificador.</td>
       <td>Invariante <code class="language-plaintext highlighter-rouge">urg-tx-put-condicional</code></td>
     </tr>
     <tr>
@@ -446,6 +571,54 @@ flowchart LR
     <tr>
       <td>Un episodio <code class="language-plaintext highlighter-rouge">finished</code> debe tener destino o tipo de abandono.</td>
       <td>Invariante <code class="language-plaintext highlighter-rouge">urg-enc-2</code></td>
+    </tr>
+    <tr>
+      <td>Con destino hospitalización, traslado o derivación se informa el establecimiento de destino.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-enc-8</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">period.end</code> no puede ser anterior a <code class="language-plaintext highlighter-rouge">period.start</code>.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-enc-3</code></td>
+    </tr>
+    <tr>
+      <td>Las fechas del episodio incluyen hora y zona horaria.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-enc-5</code></td>
+    </tr>
+    <tr>
+      <td>Exactamente un ID DAU con el sistema nacional.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-enc-6</code></td>
+    </tr>
+    <tr>
+      <td>Consultas por abuso sexual, violencia o constatación de lesiones se marcan como restringidas.</td>
+      <td>Invariantes <code class="language-plaintext highlighter-rouge">urg-enc-7</code> y <code class="language-plaintext highlighter-rouge">urg-tx-restringido</code></td>
+    </tr>
+    <tr>
+      <td>Los recursos con <code class="language-plaintext highlighter-rouge">PUT</code> no llevan <code class="language-plaintext highlighter-rouge">Resource.id</code>.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-tx-sin-id</code></td>
+    </tr>
+    <tr>
+      <td>El identificador de la operación coincide con el del recurso.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-tx-identificador</code></td>
+    </tr>
+    <tr>
+      <td>Todo el Bundle se refiere al mismo paciente.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-tx-mismo-paciente</code></td>
+    </tr>
+    <tr>
+      <td>El documento es resumen de alta (59258-4) en el alta y nota de urgencia (34111-5) en el abandono.</td>
+      <td>Invariantes <code class="language-plaintext highlighter-rouge">urg-alta-documento</code> y <code class="language-plaintext highlighter-rouge">urg-abandono-documento</code></td>
+    </tr>
+    <tr>
+      <td>Solo se informa <code class="language-plaintext highlighter-rouge">Encounter.diagnosis.use = DD</code>, y solo en el alta.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-enc-4</code> y perfiles del encuentro</td>
+    </tr>
+    <tr>
+      <td>En el alta todo diagnóstico viene codificado en CIE-10.</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">urg-alta-cie10</code></td>
+    </tr>
+    <tr>
+      <td>Los diagnósticos son <code class="language-plaintext highlighter-rouge">provisional</code> o <code class="language-plaintext highlighter-rouge">confirmed</code>; los descartados no se informan.</td>
+      <td>Perfil <code class="language-plaintext highlighter-rouge">DiagnosticoUrgencia</code></td>
     </tr>
     <tr>
       <td>El alta usa solo destinos de alta; el abandono usa solo tipos de abandono.</td>
@@ -466,9 +639,95 @@ flowchart LR
   </tbody>
 </table>
 
+<h2 id="de-urgencia-a-hospitalización">De urgencia a hospitalización</h2>
+
+<p>Si el paciente queda hospitalizado, son <strong>dos atenciones distintas</strong>, cada una con su propio <code class="language-plaintext highlighter-rouge">Encounter</code>. El de urgencia no se reabre ni se extiende.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Encounter URGENCIA (esta guía)                  Encounter HOSPITALIZACIÓN (otra guía)
+  class = EMER, ID DAU                             class = IMP, ID propio
+  status = finished                 ◄──────────    extension encounter-associatedEncounter
+  dischargeDisposition = 01 Hospitalización            → urgencia, por ID DAU (Reference.identifier)
+  destination → establecimiento donde se hospitaliza
+  period.end = salida física de urgencia           period.start = ingreso a la cama
+  diagnosis DD = diagnóstico de egreso de urgencia
+</code></pre></div></div>
+
+<ol>
+  <li><strong>La urgencia se cierra con el Bundle de alta</strong>, destino <code class="language-plaintext highlighter-rouge">01 Hospitalización</code>. Si el paciente se hospitaliza en el mismo establecimiento, <code class="language-plaintext highlighter-rouge">hospitalization.destination</code> es ese mismo establecimiento (invariante <code class="language-plaintext highlighter-rouge">urg-enc-8</code>).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">period.end</code> es la salida física de urgencia</strong>, no la indicación de hospitalización. Mientras espera cama, el paciente sigue ocupando un box de urgencia; esa espera queda medida entre el inicio de la atención médica y <code class="language-plaintext highlighter-rouge">period.end</code>.</li>
+  <li><strong>El diagnóstico de egreso de urgencia</strong> puede ser <code class="language-plaintext highlighter-rouge">provisional</code>: es la hipótesis con que ingresa a hospitalización.</li>
+  <li><strong>La hospitalización es otro <code class="language-plaintext highlighter-rouge">Encounter</code></strong>, definido por la guía que corresponda. Se recomienda que se enlace a la urgencia con la extensión estándar de FHIR R4 <a href="http://hl7.org/fhir/R4/extension-encounter-associatedencounter.html"><code class="language-plaintext highlighter-rouge">encounter-associatedEncounter</code></a>, apuntando al episodio de urgencia por su ID DAU. Así no se modifica el <code class="language-plaintext highlighter-rouge">Encounter</code> de urgencia ya cerrado.</li>
+</ol>
+
+<p>Lo mismo aplica a traslado (<code class="language-plaintext highlighter-rouge">02</code>) y derivación (<code class="language-plaintext highlighter-rouge">04</code>): el destino es obligatorio y la atención en el establecimiento de destino es un <code class="language-plaintext highlighter-rouge">Encounter</code> propio.</p>
+
+<h2 id="pacientes-nn">Pacientes NN</h2>
+
+<p>Un paciente que llega sin identificación (inconsciente, sin documentos) se envía con el <strong>número de ficha clínica local</strong> que le asigna el establecimiento:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Elemento</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier.type</code></td>
+      <td>CL-Core <code class="language-plaintext highlighter-rouge">CSTipoIdentificador</code> <strong><code class="language-plaintext highlighter-rouge">12</code></strong> (Número de Ficha Clínica Sistema Local)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier.system</code></td>
+      <td>Sistema de fichas clínicas del establecimiento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier.value</code></td>
+      <td>Número de ficha asignado al NN</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">identifier.use</code></td>
+      <td><code class="language-plaintext highlighter-rouge">temp</code> (identificador temporal hasta conocer la identidad)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gender</code></td>
+      <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
+    </tr>
+    <tr>
+      <td>Identidad de género</td>
+      <td><code class="language-plaintext highlighter-rouge">7</code> No revelado</td>
+    </tr>
+    <tr>
+      <td>Fecha de nacimiento, teléfono</td>
+      <td>Ausentes, con la extensión <code class="language-plaintext highlighter-rouge">data-absent-reason</code> = <code class="language-plaintext highlighter-rouge">unknown</code></td>
+    </tr>
+    <tr>
+      <td>Nacionalidad, país de origen</td>
+      <td><strong>Valor provisorio</strong> <code class="language-plaintext highlighter-rouge">152</code> Chile, con <code class="language-plaintext highlighter-rouge">text</code> = "Valor provisorio NN: nacionalidad desconocida" (ver nota)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">deceased[x]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Nota sobre nacionalidad y país de origen:</strong> <code class="language-plaintext highlighter-rouge">MINSALPaciente</code> exige un código de la lista de países <code class="language-plaintext highlighter-rouge">CodPais</code> y esa lista no tiene "desconocido", por lo que no se pueden informar como ausentes. Mientras el NID lo resuelve se usa <code class="language-plaintext highlighter-rouge">152</code> Chile como valor provisorio, identificable por el <code class="language-plaintext highlighter-rouge">text</code>. <strong>Los receptores no deben interpretar ese valor como nacionalidad real</strong> en pacientes con identificador tipo <code class="language-plaintext highlighter-rouge">12</code> y <code class="language-plaintext highlighter-rouge">use = temp</code>.</p>
+
+<p>Ver el ejemplo <a href="Bundle-BundleAdmisionNNEj.html">Bundle de admisión de un paciente NN</a>. Cuando se conoce la identidad, la vinculación con el MPI queda pendiente de definir con el NID.</p>
+
+<h2 id="información-sensible">Información sensible</h2>
+
+<p>Si la consulta se clasifica como <strong>abuso sexual (01)</strong>, <strong>maltrato o violencia de género (02)</strong> o <strong>constatación de lesiones (03)</strong>, el episodio y todos sus recursos (diagnósticos, indicaciones y documento) se marcan como restringidos:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>meta.security = http://terminology.hl7.org/CodeSystem/v3-Confidentiality#R
+</code></pre></div></div>
+
+<p>El repositorio entrega los recursos restringidos solo a los equipos autorizados, y <strong>HCC (Portal Ciudadano) no los muestra</strong>: en casos de violencia, el agresor podría tener acceso a la cuenta del paciente.</p>
+
 <h2 id="fuga-y-nea">Fuga y NEA</h2>
 
-<p>Ambos son <strong>abandono voluntario</strong> y se informan con la Bundle de abandono. Se distinguen por el <a href="CodeSystem-tipo-abandono.html">tipo de abandono</a>:</p>
+<p>Ambos son <strong>abandono voluntario</strong> y se informan con el Bundle de abandono. Se distinguen por el <a href="CodeSystem-tipo-abandono.html">tipo de abandono</a>:</p>
 
 <table>
   <thead>
@@ -499,7 +758,8 @@ flowchart LR
 <p>Para mantener el modelo mínimo, los siguientes datos <strong>no</strong> se envían como recursos estructurados. Siguen disponibles en el PDF:</p>
 
 <ul>
-  <li>Categorización (ESI u otra).</li>
+  <li>Categorización de triage (C1 a C5) y su hora. Se evaluará para una versión posterior.</li>
+  <li>Estados intermedios del episodio (categorizado, en atención médica) y sus tiempos.</li>
   <li>Signos vitales, anamnesis, examen físico y evolución.</li>
   <li>Solicitudes y resultados de exámenes (tienen sus propias guías de laboratorio e imagenología).</li>
   <li>Procedimientos y medicamentos administrados durante la atención.</li>
@@ -545,7 +805,7 @@ flowchart LR
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 24, 2026 11:47-0300">2026-09-24</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 00:02-0300">2026-10-08</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

@@ -82,6 +82,15 @@
     "systems" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/tipo-abandono"]
   },
   {
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-documento-urgencia",
+    "version" : "0.2.0",
+    "status" : "draft",
+    "name" : "VSTipoDocumentoUrgencia",
+    "title" : "Tipo de documento de urgencia",
+    "description" : "Tipo del documento clínico de la atención: resumen de alta de urgencia (alta) o nota de urgencia (abandono, en que no hay alta).",
+    "systems" : ["http://loinc.org"]
+  },
+  {
     "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-unidad-atencion",
     "version" : "0.2.0",
     "status" : "draft",
@@ -96,7 +105,16 @@
     "status" : "draft",
     "name" : "VSUsoDiagnostico",
     "title" : "Uso del diagnóstico en el episodio",
-    "description" : "Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso.",
+    "description" : "Uso del diagnóstico en el episodio de urgencia. Solo se informa el diagnóstico de egreso (DD); la hipótesis diagnóstica se expresa con Condition.verificationStatus = provisional, no con un uso.",
     "systems" : ["http://terminology.hl7.org/CodeSystem/diagnosis-role"]
+  },
+  {
+    "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-verificacion-diagnostico",
+    "version" : "0.2.0",
+    "status" : "draft",
+    "name" : "VSVerificacionDiagnostico",
+    "title" : "Verificación del diagnóstico de urgencia",
+    "description" : "Hipótesis (provisional) o diagnóstico confirmado (confirmed). Los diagnósticos descartados no se informan a la red.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/condition-ver-status"]
   }]
 }

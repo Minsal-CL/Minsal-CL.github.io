@@ -243,6 +243,11 @@ Content-Type: application/fhir+json
       "resource": { "resourceType": "Encounter", ... },
       "request": { "method": "PUT", "url": "Encounter?identifier=[sistema DAU]|[ID DAU]" }
     },
+    {
+      "fullUrl": "urn:uuid:...",
+      "resource": { "resourceType": "Patient", ... },
+      "request": { "method": "POST", "url": "Patient", "ifNoneExist": "identifier=[sistema]|[RUN]" }
+    },
     ...
   ]
 }
@@ -284,7 +289,7 @@ Content-Type: application/fhir+json
   </tbody>
 </table>
 
-<p>Si el HIS/RCE no recibe respuesta, puede <strong>reenviar la misma transacción</strong>: el <code class="language-plaintext highlighter-rouge">PUT</code> condicional evita duplicados.</p>
+<p>Si el HIS/RCE no recibe respuesta, puede <strong>reenviar la misma transacción</strong>: las operaciones condicionales evitan duplicados.</p>
 
 <h2 id="procesamiento-en-el-bus">Procesamiento en el Bus</h2>
 
@@ -292,7 +297,7 @@ Content-Type: application/fhir+json
   <li>Validar el <code class="language-plaintext highlighter-rouge">Bundle</code> contra el perfil del evento (<a href="StructureDefinition-bundle-admision-urgencia.html">admisión</a>, <a href="StructureDefinition-bundle-alta-urgencia.html">alta</a> o <a href="StructureDefinition-bundle-abandono-urgencia.html">abandono</a>).</li>
   <li>Validar los códigos contra el Servidor Terminológico.</li>
   <li>Resolver el <code class="language-plaintext highlighter-rouge">Patient</code> contra MPI y agregar el identificador MPI.</li>
-  <li>Aplicar la transacción en el repositorio. Cada <code class="language-plaintext highlighter-rouge">PUT</code> condicional crea o actualiza el recurso según su identificador.</li>
+  <li>Aplicar la transacción en el repositorio. Paciente, establecimiento y profesional se crean solo si no existen (<code class="language-plaintext highlighter-rouge">POST</code> + <code class="language-plaintext highlighter-rouge">ifNoneExist</code>), nunca se modifican. Encuentro, diagnóstico, indicación y documento se crean o actualizan con <code class="language-plaintext highlighter-rouge">PUT</code> condicional.</li>
   <li>Registrar la trazabilidad: emisor, fecha de recepción, resultado de validación y respuesta.</li>
 </ol>
 
@@ -329,7 +334,7 @@ Content-Type: application/fhir+json
   </tbody>
 </table>
 
-<p>Los pacientes sin RUN (extranjeros, recién nacidos, NN) se envían con el identificador disponible: pasaporte, RUN de la madre o identificador local del establecimiento.</p>
+<p>Los pacientes sin RUN se envían con el identificador disponible: pasaporte (extranjeros) o RUN de la madre (recién nacidos). Los pacientes <strong>NN</strong> se identifican con el número de ficha clínica local (ver <a href="modelo.html#pacientes-nn">Pacientes NN</a>).</p>
 
 <h2 id="consulta-desde-la-red-y-hcc">Consulta desde la red y HCC</h2>
 
@@ -339,7 +344,7 @@ Content-Type: application/fhir+json
 GET [base]/Encounter?patient.identifier=urn:oid:2.16.840.1.113883.2.22.1.152.787300|11111111-1&amp;class=EMER
 
 # Pacientes actualmente en urgencia en un establecimiento
-GET [base]/Encounter?service-provider.identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100&amp;class=EMER&amp;status=in-progress
+GET [base]/Encounter?service-provider.identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100&amp;class=EMER&amp;status=arrived
 
 # Diagnósticos de egreso y documento de una atención
 GET [base]/Condition?encounter=Encounter/[id]
@@ -356,7 +361,8 @@ GET [base]/DocumentReference?encounter=Encounter/[id]
   <li>Transporte cifrado (TLS 1.2 o superior).</li>
   <li>Autenticación del sistema emisor ante el Bus (mecanismo definido por MINSAL).</li>
   <li>La URL del PDF debe exigir autenticación; no debe ser pública.</li>
-  <li>HCC muestra al paciente solo sus propias atenciones.</li>
+  <li>HCC muestra al paciente solo sus propias atenciones, y <strong>no muestra los episodios marcados como restringidos</strong> (<code class="language-plaintext highlighter-rouge">meta.security = R</code>: consultas por abuso sexual, violencia o constatación de lesiones).</li>
+  <li>El repositorio entrega los recursos restringidos solo a los equipos autorizados.</li>
   <li>El acceso de la red se rige por las políticas de acceso y el consentimiento del paciente cuando corresponda.</li>
 </ul>
 
@@ -398,7 +404,7 @@ GET [base]/DocumentReference?encounter=Encounter/[id]
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 24, 2026 11:47-0300">2026-09-24</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 00:02-0300">2026-10-08</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

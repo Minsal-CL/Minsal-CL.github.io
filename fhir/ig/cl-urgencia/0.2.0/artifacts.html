@@ -198,6 +198,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li>
          <a href="#7">Ejemplos</a>
       </li>
+      <li>
+         <a href="#8">Terminology: Value Sets</a>
+      </li>
    </ul>
 </div>
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://hl7.org/fhir" xmlns:html="http://www.w3.org/1999/xhtml">
@@ -210,10 +213,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
+               <a href="StructureDefinition-bundle-abandono-urgencia.html" title="StructureDefinition/bundle-abandono-urgencia">Bundle de abandono de urgencia</a>
+            </td>
+            <td>
+<p>Evento abandono: el paciente se retira voluntariamente sin alta médica (fuga o NEA). Cierra el episodio (Encounter en finished). Si alcanzó a ser evaluado, puede incluir la hipótesis diagnóstica y el documento clínico.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="StructureDefinition-bundle-admision-urgencia.html" title="StructureDefinition/bundle-admision-urgencia">Bundle de admisión de urgencia</a>
             </td>
             <td>
-<p>Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en in-progress) y avisa a la red que el paciente se encuentra en atención.</p>
+<p>Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en arrived) y avisa a la red que el paciente está en la unidad de urgencia.</p>
 </td>
          </tr>
          <tr>
@@ -221,15 +232,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                <a href="StructureDefinition-bundle-alta-urgencia.html" title="StructureDefinition/bundle-alta-urgencia">Bundle de alta de urgencia</a>
             </td>
             <td>
-<p>Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso, destino, medicamentos indicados y el documento clínico en PDF.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-bundle-abandono-urgencia.html" title="StructureDefinition/bundle-abandono-urgencia">Bundle de abandono de urgencia</a>
-            </td>
-            <td>
-<p>Evento abandono: el paciente se retira voluntariamente sin alta médica (fuga o NEA). Cierra el episodio (Encounter en finished). Si alcanzó a ser evaluado, puede incluir la hipótesis diagnóstica y el documento clínico.</p>
+<p>Evento alta: el profesional da el alta de urgencia. Cierra el episodio (Encounter en finished) e informa diagnóstico de egreso codificado en CIE-10, destino, medicamentos indicados y el documento clínico en PDF. Si el PDF aún no está disponible, el Bundle de alta se envía sin él y se reenvía completo cuando el PDF exista (el PUT condicional no duplica nada).</p>
 </td>
          </tr>
          <tr>
@@ -258,10 +261,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-encuentro-urgencia-admision.html" title="StructureDefinition/encuentro-urgencia-admision">Encuentro de urgencia - estado en la admisión</a>
+               <a href="StructureDefinition-encuentro-urgencia-abandono.html" title="StructureDefinition/encuentro-urgencia-abandono">Encuentro de urgencia - estado en el abandono</a>
             </td>
             <td>
-<p>Reglas del episodio de urgencia al momento de la admisión: abierto (in-progress), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono.</p>
+<p>Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. Debe enviarse completo, repitiendo todos los datos de la admisión.</p>
 </td>
          </tr>
          <tr>
@@ -269,15 +272,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                <a href="StructureDefinition-encuentro-urgencia-alta.html" title="StructureDefinition/encuentro-urgencia-alta">Encuentro de urgencia - estado en el alta</a>
             </td>
             <td>
-<p>Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado.</p>
+<p>Reglas del episodio de urgencia al momento del alta: cerrado (finished), con fecha de alta, destino y diagnóstico de egreso. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado. Debe enviarse completo, repitiendo todos los datos de la admisión.</p>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-encuentro-urgencia-abandono.html" title="StructureDefinition/encuentro-urgencia-abandono">Encuentro de urgencia - estado en el abandono</a>
+               <a href="StructureDefinition-encuentro-urgencia-admision.html" title="StructureDefinition/encuentro-urgencia-admision">Encuentro de urgencia - estado en la admisión</a>
             </td>
             <td>
-<p>Reglas del episodio de urgencia cuando el paciente se retira voluntariamente sin alta médica (fuga o NEA): cerrado (finished), con la fecha y hora en que se constató el abandono y el tipo de abandono. No es un recurso distinto: es el mismo Encounter creado en la admisión (mismo ID DAU), actualizado.</p>
+<p>Reglas del episodio de urgencia al momento de la admisión: abierto (arrived: el paciente llegó a la unidad), sin fecha de término ni destino. No es un recurso distinto: es el mismo Encounter que después se actualiza con el alta o el abandono.</p>
 </td>
          </tr>
       </tbody>
@@ -293,15 +296,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                <a href="StructureDefinition-diagnostico-urgencia.html" title="StructureDefinition/diagnostico-urgencia">Diagnóstico de urgencia</a>
             </td>
             <td>
-<p>Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD (hipótesis, confirmado, descartado) se expresa con <code class="language-plaintext highlighter-rouge">verificationStatus</code>.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-indicacion-medicamento-urgencia.html" title="StructureDefinition/indicacion-medicamento-urgencia">Indicación de medicamento al alta</a>
-            </td>
-            <td>
-<p>Medicamento indicado al alta de urgencia para que el paciente continúe su tratamiento. Acepta nombre genérico y posología en texto libre (CMBD: INDICACIÓN DE FÁRMACOS e ID RECETA).</p>
+<p>Hipótesis o diagnóstico de egreso de la atención de urgencia. Basado en CoreDiagnosticoCl de CL-Core. El tipo de diagnóstico del CMBD se expresa solo con <code class="language-plaintext highlighter-rouge">verificationStatus</code>: hipótesis = provisional, confirmado = confirmed. Los diagnósticos descartados no se informan. En el alta el diagnóstico debe venir codificado en CIE-10.</p>
 </td>
          </tr>
          <tr>
@@ -310,6 +305,14 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>Referencia al documento clínico de la atención (DAU o epicrisis de urgencia) en PDF. Permite a cualquier establecimiento de la red descubrir y descargar el detalle clínico completo.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-indicacion-medicamento-urgencia.html" title="StructureDefinition/indicacion-medicamento-urgencia">Indicación de medicamento al alta</a>
+            </td>
+            <td>
+<p>Medicamento indicado al alta de urgencia para que el paciente continúe su tratamiento. Acepta nombre genérico y posología en texto libre (CMBD: INDICACIÓN DE FÁRMACOS e ID RECETA).</p>
 </td>
          </tr>
       </tbody>
@@ -322,18 +325,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-medio-llegada.html" title="StructureDefinition/medio-llegada">Medio de llegada</a>
+               <a href="StructureDefinition-clasificacion-consulta.html" title="StructureDefinition/clasificacion-consulta">Clasificación de la consulta</a>
             </td>
             <td>
-<p>Medio de transporte con que el paciente llega a la unidad de urgencia.</p>
+<p>Clasificación médico-legal de la consulta registrada en la admisión.</p>
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-prevision.html" title="StructureDefinition/prevision">Previsión de salud</a>
+               <a href="StructureDefinition-diagnostico-ges.html" title="StructureDefinition/diagnostico-ges">Diagnóstico GES</a>
             </td>
             <td>
-<p>Previsión de salud del paciente al momento de la atención y, si es FONASA, su tramo.</p>
+<p>Indica si el diagnóstico corresponde a un problema de salud con Garantías Explícitas en Salud (GES).</p>
 </td>
          </tr>
          <tr>
@@ -346,18 +349,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-clasificacion-consulta.html" title="StructureDefinition/clasificacion-consulta">Clasificación de la consulta</a>
+               <a href="StructureDefinition-medio-llegada.html" title="StructureDefinition/medio-llegada">Medio de llegada</a>
             </td>
             <td>
-<p>Clasificación médico-legal de la consulta registrada en la admisión.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-pronostico-medico-legal.html" title="StructureDefinition/pronostico-medico-legal">Pronóstico médico-legal</a>
-            </td>
-            <td>
-<p>Pronóstico médico-legal registrado al cierre de la atención.</p>
+<p>Medio de transporte con que el paciente llega a la unidad de urgencia.</p>
 </td>
          </tr>
          <tr>
@@ -370,10 +365,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-diagnostico-ges.html" title="StructureDefinition/diagnostico-ges">Diagnóstico GES</a>
+               <a href="StructureDefinition-prevision.html" title="StructureDefinition/prevision">Previsión de salud</a>
             </td>
             <td>
-<p>Indica si el diagnóstico corresponde a un problema de salud con Garantías Explícitas en Salud (GES).</p>
+<p>Previsión de salud del paciente al momento de la atención y, si es FONASA, su tramo.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-pronostico-medico-legal.html" title="StructureDefinition/pronostico-medico-legal">Pronóstico médico-legal</a>
+            </td>
+            <td>
+<p>Pronóstico médico-legal registrado al cierre de la atención.</p>
 </td>
          </tr>
       </tbody>
@@ -386,50 +389,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="ValueSet-vs-estado-encuentro-urgencia.html" title="ValueSet/vs-estado-encuentro-urgencia">Estado del encuentro de urgencia</a>
-            </td>
-            <td>
-<p>Subconjunto de estados de Encounter usados en urgencia.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="ValueSet-vs-procedencia.html" title="ValueSet/vs-procedencia">Procedencia del paciente</a>
-            </td>
-            <td>
-<p>Procedencia del paciente al consultar en urgencia.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="ValueSet-vs-medio-llegada.html" title="ValueSet/vs-medio-llegada">Medio de llegada</a>
-            </td>
-            <td>
-<p>Medio de llegada del paciente a urgencia.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="ValueSet-vs-unidad-atencion.html" title="ValueSet/vs-unidad-atencion">Unidad de atención de urgencia</a>
-            </td>
-            <td>
-<p>Tipo de atención de urgencia asignada en la admisión.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
                <a href="ValueSet-vs-clasificacion-consulta.html" title="ValueSet/vs-clasificacion-consulta">Clasificación de la consulta</a>
             </td>
             <td>
 <p>Clasificación médico-legal de la consulta de urgencia.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="ValueSet-vs-destino-egreso.html" title="ValueSet/vs-destino-egreso">Destino de egreso de urgencia</a>
-            </td>
-            <td>
-<p>Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de alta y tipos de abandono.</p>
 </td>
          </tr>
          <tr>
@@ -442,18 +405,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="ValueSet-vs-tipo-abandono.html" title="ValueSet/vs-tipo-abandono">Tipo de abandono de la atención</a>
+               <a href="ValueSet-vs-destino-egreso.html" title="ValueSet/vs-destino-egreso">Destino de egreso de urgencia</a>
             </td>
             <td>
-<p>Tipos de abandono válidos para el evento de abandono.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="ValueSet-vs-pronostico-medico-legal.html" title="ValueSet/vs-pronostico-medico-legal">Pronóstico médico-legal</a>
-            </td>
-            <td>
-<p>Pronóstico médico-legal registrado al cierre de la atención.</p>
+<p>Todos los desenlaces con que puede cerrarse un episodio de urgencia: destinos de alta y tipos de abandono.</p>
 </td>
          </tr>
          <tr>
@@ -466,10 +421,58 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="ValueSet-vs-estado-encuentro-urgencia.html" title="ValueSet/vs-estado-encuentro-urgencia">Estado del encuentro de urgencia</a>
+            </td>
+            <td>
+<p>Subconjunto de estados de Encounter usados en urgencia.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-vs-medio-llegada.html" title="ValueSet/vs-medio-llegada">Medio de llegada</a>
+            </td>
+            <td>
+<p>Medio de llegada del paciente a urgencia.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-vs-procedencia.html" title="ValueSet/vs-procedencia">Procedencia del paciente</a>
+            </td>
+            <td>
+<p>Procedencia del paciente al consultar en urgencia.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-vs-pronostico-medico-legal.html" title="ValueSet/vs-pronostico-medico-legal">Pronóstico médico-legal</a>
+            </td>
+            <td>
+<p>Pronóstico médico-legal registrado al cierre de la atención.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-vs-tipo-abandono.html" title="ValueSet/vs-tipo-abandono">Tipo de abandono de la atención</a>
+            </td>
+            <td>
+<p>Tipos de abandono válidos para el evento de abandono.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-vs-unidad-atencion.html" title="ValueSet/vs-unidad-atencion">Unidad de atención de urgencia</a>
+            </td>
+            <td>
+<p>Tipo de atención de urgencia asignada en la admisión.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="ValueSet-vs-uso-diagnostico.html" title="ValueSet/vs-uso-diagnostico">Uso del diagnóstico en el episodio</a>
             </td>
             <td>
-<p>Indica si el diagnóstico corresponde a la hipótesis inicial o al diagnóstico de egreso.</p>
+<p>Uso del diagnóstico en el episodio de urgencia. Solo se informa el diagnóstico de egreso (DD); la hipótesis diagnóstica se expresa con Condition.verificationStatus = provisional, no con un uso.</p>
 </td>
          </tr>
       </tbody>
@@ -480,30 +483,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <table class="grid">
       <col style="width:20%" />
       <tbody>
-         <tr>
-            <td style="column-width:30%">
-               <a href="CodeSystem-procedencia.html" title="CodeSystem/procedencia">Procedencia del paciente</a>
-            </td>
-            <td>
-<p>Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PACIENTE).</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="CodeSystem-medio-llegada.html" title="CodeSystem/medio-llegada">Medio de llegada</a>
-            </td>
-            <td>
-<p>Medio de transporte con que el paciente llega a urgencia (CMBD Urgencia: LLEGADA).</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="CodeSystem-unidad-atencion.html" title="CodeSystem/unidad-atencion">Unidad de atención de urgencia</a>
-            </td>
-            <td>
-<p>Tipo de atención asignada en la admisión (CMBD Urgencia: UNIDAD DE ATENCIÓN).</p>
-</td>
-         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="CodeSystem-clasificacion-consulta.html" title="CodeSystem/clasificacion-consulta">Clasificación de la consulta</a>
@@ -522,10 +501,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="CodeSystem-tipo-abandono.html" title="CodeSystem/tipo-abandono">Tipo de abandono de la atención</a>
+               <a href="CodeSystem-medio-llegada.html" title="CodeSystem/medio-llegada">Medio de llegada</a>
             </td>
             <td>
-<p>Momento en que el paciente abandona voluntariamente la atención de urgencia. Códigos alineados con CodeSystem abandono de la guía de Urgencia publicada (hl7.fhir.cl.minsal.urgencia 0.1.2-ballot).</p>
+<p>Medio de transporte con que el paciente llega a urgencia (CMBD Urgencia: LLEGADA).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-procedencia.html" title="CodeSystem/procedencia">Procedencia del paciente</a>
+            </td>
+            <td>
+<p>Origen del paciente al consultar en urgencia (CMBD Urgencia: PROCEDENCIA DEL PACIENTE).</p>
 </td>
          </tr>
          <tr>
@@ -534,6 +521,22 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>Pronóstico médico-legal registrado al cierre (CMBD Urgencia: PRONÓSTICO MÉDICO LEGAL).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-tipo-abandono.html" title="CodeSystem/tipo-abandono">Tipo de abandono de la atención</a>
+            </td>
+            <td>
+<p>Momento en que el paciente abandona voluntariamente la atención de urgencia. Códigos alineados con CodeSystem abandono de la guía de Urgencia publicada (hl7.fhir.cl.minsal.urgencia 0.1.2-ballot).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-unidad-atencion.html" title="CodeSystem/unidad-atencion">Unidad de atención de urgencia</a>
+            </td>
+            <td>
+<p>Tipo de atención asignada en la admisión (CMBD Urgencia: UNIDAD DE ATENCIÓN).</p>
 </td>
          </tr>
       </tbody>
@@ -546,10 +549,26 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
+               <a href="Bundle-BundleAbandonoEj.html" title="Bundle/BundleAbandonoEj">Bundle de abandono (fuga)</a>
+            </td>
+            <td>
+<p>Cierre del episodio DAU-2026-000456 porque la paciente se retiró sin alta médica.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="Bundle-BundleAdmisionEj.html" title="Bundle/BundleAdmisionEj">Bundle de admisión</a>
             </td>
             <td>
 <p>Admisión de la paciente a urgencia: abre el episodio DAU-2026-000123.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Bundle-BundleAdmisionNNEj.html" title="Bundle/BundleAdmisionNNEj">Bundle de admisión de un paciente NN</a>
+            </td>
+            <td>
+<p>Admisión de un paciente sin identificar, identificado por su número de ficha clínica local (tipo 12).</p>
 </td>
          </tr>
          <tr>
@@ -562,26 +581,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="Bundle-BundleAbandonoEj.html" title="Bundle/BundleAbandonoEj">Bundle de abandono (fuga)</a>
+               <a href="Organization-EstablecimientoDestinoEj.html" title="Organization/EstablecimientoDestinoEj">CESFAM de ejemplo</a>
             </td>
             <td>
-<p>Cierre del episodio DAU-2026-000456 porque la paciente se retiró sin alta médica.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="Patient-PacienteUrgenciaEj.html" title="Patient/PacienteUrgenciaEj">Paciente de urgencia</a>
-            </td>
-            <td>
-<p>Paciente chilena identificada por RUN, conforme a MINSALPaciente del NID.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="Practitioner-ProfesionalUrgenciaEj.html" title="Practitioner/ProfesionalUrgenciaEj">Médica de urgencia</a>
-            </td>
-            <td>
-<p>Médica cirujana que da el alta, conforme a MINSALPrestadorProfesional del NID.</p>
+<p>Establecimiento de atención primaria al que se deriva a la paciente para control.</p>
 </td>
          </tr>
          <tr>
@@ -594,10 +597,50 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="Organization-EstablecimientoDestinoEj.html" title="Organization/EstablecimientoDestinoEj">CESFAM de ejemplo</a>
+               <a href="Practitioner-ProfesionalUrgenciaEj.html" title="Practitioner/ProfesionalUrgenciaEj">Médica de urgencia</a>
             </td>
             <td>
-<p>Establecimiento de atención primaria al que se deriva a la paciente para control.</p>
+<p>Médica cirujana que da el alta, conforme a MINSALPrestadorProfesional del NID.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Patient-PacienteUrgenciaEj.html" title="Patient/PacienteUrgenciaEj">Paciente de urgencia</a>
+            </td>
+            <td>
+<p>Paciente chilena identificada por RUN, conforme a MINSALPaciente del NID.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Patient-PacienteNNEj.html" title="Patient/PacienteNNEj">Paciente NN</a>
+            </td>
+            <td>
+<p>Paciente sin identificar, identificado por su número de ficha clínica local (CL-Core CSTipoIdentificador 12). Los datos desconocidos se informan con data-absent-reason; nacionalidad y país de origen usan 152 Chile como valor provisorio.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="8"> </a>
+   <h3>Terminology: Value Sets </h3>
+    <p>These define sets of codes used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%" />
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-vs-tipo-documento-urgencia.html" title="ValueSet/vs-tipo-documento-urgencia">Tipo de documento de urgencia</a>
+            </td>
+            <td>
+<p>Tipo del documento clínico de la atención: resumen de alta de urgencia (alta) o nota de urgencia (abandono, en que no hay alta).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-vs-verificacion-diagnostico.html" title="ValueSet/vs-verificacion-diagnostico">Verificación del diagnóstico de urgencia</a>
+            </td>
+            <td>
+<p>Hipótesis (provisional) o diagnóstico confirmado (confirmed). Los diagnósticos descartados no se informan a la red.</p>
 </td>
          </tr>
       </tbody>
@@ -623,7 +666,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 24, 2026 11:47-0300">2026-09-24</span>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.urgencia.eventos#0.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 00:02-0300">2026-10-08</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
              Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |

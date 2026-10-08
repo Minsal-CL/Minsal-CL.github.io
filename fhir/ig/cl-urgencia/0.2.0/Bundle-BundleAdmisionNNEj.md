@@ -1,0 +1,199 @@
+# Bundle de admisión de un paciente NN - Guía de Implementación FHIR - Urgencia (Admisión, Alta y Abandono) v0.2.0
+
+* [**Table of Contents**](toc.md)
+* [**Artefactos**](artifacts.md)
+* **Bundle de admisión de un paciente NN**
+
+## Example Bundle: Bundle de admisión de un paciente NN
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "Bundle",
+  "id" : "BundleAdmisionNNEj",
+  "meta" : {
+    "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia"]
+  },
+  "type" : "transaction",
+  "entry" : [{
+    "fullUrl" : "urn:uuid:6f1c2a10-0005-4000-8000-000000000005",
+    "resource" : {
+      "resourceType" : "Patient",
+      "id" : "PacienteNNEj",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_PacienteNNEj\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente PacienteNNEj</b></p><a name=\"PacienteNNEj\"> </a><a name=\"hcPacienteNNEj\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-MINSALPaciente.html\">MINSAL Paciente</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Anonymous Patient Unknown, DoB:  ( Número de Ficha Clínica Sistema Local: NN-2026-0042 (use: temp, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td>true</td><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\">ph: -unknown-</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"País de origen del paciente\"><a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-PaisOrigenMPI.html\">País de origen del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais 152}\">Valor provisorio NN: nacionalidad desconocida</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Esta extensión incluye códigos de países\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.2/StructureDefinition-CodigoPaises.html\">Código de Países</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais 152}\">Valor provisorio NN: nacionalidad desconocida</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Identidad De Género\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.2/StructureDefinition-IdentidadDeGenero.html\">Identidad De Género</a></td><td colspan=\"3\"><span title=\"Codes:{https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero 7}\">No Revelado</span></td></tr></table></div>"
+      },
+      "extension" : [{
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/IdentidadDeGenero",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSIdentidaddeGenero",
+            "code" : "7",
+            "display" : "No Revelado"
+          }]
+        }
+      },
+      {
+        "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais",
+            "code" : "152",
+            "display" : "Chile"
+          }],
+          "text" : "Valor provisorio NN: nacionalidad desconocida"
+        }
+      },
+      {
+        "url" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PaisOrigenMPI",
+        "valueCodeableConcept" : {
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais",
+            "code" : "152",
+            "display" : "Chile"
+          }],
+          "text" : "Valor provisorio NN: nacionalidad desconocida"
+        }
+      }],
+      "identifier" : [{
+        "use" : "temp",
+        "type" : {
+          "extension" : [{
+            "url" : "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises",
+            "valueCodeableConcept" : {
+              "coding" : [{
+                "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais",
+                "code" : "152",
+                "display" : "Chile"
+              }]
+            }
+          }],
+          "coding" : [{
+            "system" : "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador",
+            "code" : "12",
+            "display" : "Número de Ficha Clínica Sistema Local"
+          }]
+        },
+        "system" : "https://hospital-ejemplo.cl/fhir/sid/fichas",
+        "value" : "NN-2026-0042"
+      }],
+      "active" : true,
+      "telecom" : [{
+        "system" : "phone",
+        "_value" : {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+            "valueCode" : "unknown"
+          }]
+        }
+      }],
+      "gender" : "unknown",
+      "_birthDate" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+          "valueCode" : "unknown"
+        }]
+      },
+      "deceasedBoolean" : false
+    },
+    "request" : {
+      "method" : "POST",
+      "url" : "Patient",
+      "ifNoneExist" : "identifier=https://hospital-ejemplo.cl/fhir/sid/fichas|NN-2026-0042"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:6f1c2a10-0002-4000-8000-000000000002",
+    "resource" : {
+      "resourceType" : "Organization",
+      "id" : "EstablecimientoUrgenciaEj",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorOrganizacional"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_EstablecimientoUrgenciaEj\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organización EstablecimientoUrgenciaEj</b></p><a name=\"EstablecimientoUrgenciaEj\"> </a><a name=\"hcEstablecimientoUrgenciaEj\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://interoperabilidad.minsal.cl/fhir/ig/nid/0.4.6/StructureDefinition-MINSALPrestadorOrganizacional.html\">Prestador Institucional</a></p></div><p><b>identifier</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino</code>/112100</p><p><b>active</b>: true</p><p><b>name</b>: Hospital de Ejemplo</p><p><b>partOf</b>: Servicio de Salud Metropolitano Sur Oriente</p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino",
+        "value" : "112100"
+      }],
+      "active" : true,
+      "name" : "Hospital de Ejemplo",
+      "partOf" : {
+        "display" : "Servicio de Salud Metropolitano Sur Oriente"
+      }
+    },
+    "request" : {
+      "method" : "POST",
+      "url" : "Organization",
+      "ifNoneExist" : "identifier=https://interoperabilidad.minsal.cl/fhir/ig/tei/CodeSystem/CSEstablecimientoDestino|112100"
+    }
+  },
+  {
+    "fullUrl" : "urn:uuid:6f1c2a10-0013-4000-8000-000000000013",
+    "resource" : {
+      "resourceType" : "Encounter",
+      "meta" : {
+        "profile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia-admision"]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_null\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encuentro </b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-encuentro-urgencia-admision.html\">Encuentro de urgencia - estado en la admisión</a></p></div><p><b>identifier</b>: <code>https://interoperabilidad.minsal.cl/fhir/sid/dau/112100</code>/DAU-2026-000789</p><p><b>status</b>: Arrived</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.4.0/CodeSystem-v3-ActCode.html#v3-ActCode-EMER\">ActCode: EMER</a> (emergency)</p><p><b>serviceType</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion 02}\">Atención de adulto</span></p><p><b>subject</b>: <a href=\"Bundle-BundleAdmisionNNEj.html#urn-uuid-6f1c2a10-0005-4000-8000-000000000005\">Anonymous Patient Unknown, DoB:  ( Número de Ficha Clínica Sistema Local: NN-2026-0042 (use: temp, ))</a></p><p><b>period</b>: 2026-09-22 03:15:00-0300 --&gt; (ongoing)</p><p><b>reasonCode</b>: <span title=\"Codes:\">Encontrado inconsciente en la vía pública</span></p><h3>Hospitalizations</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Extension</b></td></tr><tr><td style=\"display: none\">*</td><td/></tr></table><p><b>serviceProvider</b>: <a href=\"Bundle-BundleAbandonoEj.html#urn-uuid-6f1c2a10-0002-4000-8000-000000000002\">Organization Hospital de Ejemplo</a></p></div>"
+      },
+      "identifier" : [{
+        "system" : "https://interoperabilidad.minsal.cl/fhir/sid/dau/112100",
+        "value" : "DAU-2026-000789"
+      }],
+      "status" : "arrived",
+      "class" : {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code" : "EMER"
+      },
+      "serviceType" : {
+        "coding" : [{
+          "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/unidad-atencion",
+          "code" : "02",
+          "display" : "Atención de adulto"
+        }]
+      },
+      "subject" : {
+        "reference" : "urn:uuid:6f1c2a10-0005-4000-8000-000000000005"
+      },
+      "period" : {
+        "start" : "2026-09-22T03:15:00-03:00"
+      },
+      "reasonCode" : [{
+        "text" : "Encontrado inconsciente en la vía pública"
+      }],
+      "hospitalization" : {
+        "extension" : [{
+          "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/medio-llegada",
+          "valueCodeableConcept" : {
+            "coding" : [{
+              "system" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/CodeSystem/medio-llegada",
+              "code" : "3",
+              "display" : "SAMU medicalizada"
+            }]
+          }
+        }]
+      },
+      "serviceProvider" : {
+        "reference" : "urn:uuid:6f1c2a10-0002-4000-8000-000000000002"
+      }
+    },
+    "request" : {
+      "method" : "PUT",
+      "url" : "Encounter?identifier=https://interoperabilidad.minsal.cl/fhir/sid/dau/112100|DAU-2026-000789"
+    }
+  }]
+}
+
+```

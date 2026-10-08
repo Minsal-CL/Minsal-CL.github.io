@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-estado-encuentro-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:VSEstadoEncuentroUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:VSEstadoEncuentroUrgencia |
 
  
 Subconjunto de estados de Encounter usados en urgencia. 
@@ -45,13 +45,14 @@ Subconjunto de estados de Encounter usados en urgencia.
 {
   "resourceType" : "ValueSet",
   "id" : "vs-estado-encuentro-urgencia",
+  "language" : "es",
   "url" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-estado-encuentro-urgencia",
   "version" : "0.2.0",
   "name" : "VSEstadoEncuentroUrgencia",
   "title" : "Estado del encuentro de urgencia",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -72,7 +73,7 @@ Subconjunto de estados de Encounter usados en urgencia.
     "include" : [{
       "system" : "http://hl7.org/fhir/encounter-status",
       "concept" : [{
-        "code" : "in-progress"
+        "code" : "arrived"
       },
       {
         "code" : "finished"

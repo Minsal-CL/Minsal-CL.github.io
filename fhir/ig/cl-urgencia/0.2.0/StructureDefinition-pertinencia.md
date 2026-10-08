@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/pertinencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:Pertinencia |
+| Draft as of 2026-10-08 | *Computable Name*:Pertinencia |
 
 Indica si la consulta fue pertinente para una unidad de urgencia.
 
@@ -48,7 +48,7 @@ Other representations of profile: [CSV](StructureDefinition-pertinencia.csv), [E
   "title" : "Pertinencia de la atención",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",

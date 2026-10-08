@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/documento-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:DocumentoUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:DocumentoUrgencia |
 
  
 Referencia al documento clínico de la atención (DAU o epicrisis de urgencia) en PDF. Permite a cualquier establecimiento de la red descubrir y descargar el detalle clínico completo. 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
   "name" : "DocumentoUrgencia",
   "title" : "Documento de la atención de urgencia",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -106,6 +106,12 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
       "short" : "Referencia al documento clínico de urgencia (PDF)"
     },
     {
+      "id" : "DocumentReference.meta.security",
+      "path" : "DocumentReference.meta.security",
+      "short" : "R (restringido) si el episodio está restringido",
+      "mustSupport" : true
+    },
+    {
       "id" : "DocumentReference.masterIdentifier",
       "path" : "DocumentReference.masterIdentifier",
       "short" : "Identificador único del documento (llave del PUT condicional)",
@@ -136,15 +142,13 @@ Other representations of profile: [CSV](StructureDefinition-documento-urgencia.c
     {
       "id" : "DocumentReference.type",
       "path" : "DocumentReference.type",
-      "short" : "Tipo de documento: LOINC 59258-4 (resumen de alta de urgencia)",
+      "short" : "LOINC 59258-4 (resumen de alta de urgencia) en el alta | 34111-5 (nota de urgencia) en el abandono",
       "min" : 1,
-      "patternCodeableConcept" : {
-        "coding" : [{
-          "system" : "http://loinc.org",
-          "code" : "59258-4"
-        }]
-      },
-      "mustSupport" : true
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-tipo-documento-urgencia"
+      }
     },
     {
       "id" : "DocumentReference.subject",

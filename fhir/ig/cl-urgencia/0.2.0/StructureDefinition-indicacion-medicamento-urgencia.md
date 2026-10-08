@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/indicacion-medicamento-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:IndicacionMedicamentoUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:IndicacionMedicamentoUrgencia |
 
  
 Medicamento indicado al alta de urgencia para que el paciente continúe su tratamiento. Acepta nombre genérico y posología en texto libre (CMBD: INDICACIÓN DE FÁRMACOS e ID RECETA). 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-indicacion-medicamen
   "name" : "IndicacionMedicamentoUrgencia",
   "title" : "Indicación de medicamento al alta",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -94,6 +94,12 @@ Other representations of profile: [CSV](StructureDefinition-indicacion-medicamen
       "id" : "MedicationRequest",
       "path" : "MedicationRequest",
       "short" : "Medicamento indicado al alta de urgencia"
+    },
+    {
+      "id" : "MedicationRequest.meta.security",
+      "path" : "MedicationRequest.meta.security",
+      "short" : "R (restringido) si el episodio está restringido",
+      "mustSupport" : true
     },
     {
       "id" : "MedicationRequest.identifier",

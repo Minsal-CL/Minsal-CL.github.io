@@ -9,14 +9,14 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/bundle-admision-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:BundleAdmisionUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:BundleAdmisionUrgencia |
 
  
-Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en in-progress) y avisa a la red que el paciente se encuentra en atención. 
+Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en arrived) y avisa a la red que el paciente está en la unidad de urgencia. 
 
 **Usages:**
 
-* Examples for this Profile: [Bundle/BundleAdmisionEj](Bundle-BundleAdmisionEj.md)
+* Examples for this Profile: [Bundle/BundleAdmisionEj](Bundle-BundleAdmisionEj.md) and [Bundle/BundleAdmisionNNEj](Bundle-BundleAdmisionNNEj.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-bundle-admision-urgencia.json)
 
@@ -41,7 +41,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-admision-urge
   "name" : "BundleAdmisionUrgencia",
   "title" : "Bundle de admisión de urgencia",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -50,7 +50,7 @@ Other representations of profile: [CSV](StructureDefinition-bundle-admision-urge
       "value" : "https://interoperabilidad.minsal.cl"
     }]
   }],
-  "description" : "Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en in-progress) y avisa a la red que el paciente se encuentra en atención.",
+  "description" : "Evento admisión: el paciente es admitido en urgencia. Abre el episodio (Encounter en arrived) y avisa a la red que el paciente está en la unidad de urgencia.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -111,6 +111,11 @@ Other representations of profile: [CSV](StructureDefinition-bundle-admision-urge
       "id" : "Bundle.entry:encuentro.request",
       "path" : "Bundle.entry.request",
       "short" : "PUT Encounter?identifier=[sistema DAU]|[ID DAU]"
+    },
+    {
+      "id" : "Bundle.entry:encuentro.request.method",
+      "path" : "Bundle.entry.request.method",
+      "patternCode" : "PUT"
     }]
   }
 }

@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia | *Version*:0.2.0 |
-| Draft as of 2026-09-24 | *Computable Name*:EncuentroUrgencia |
+| Draft as of 2026-10-08 | *Computable Name*:EncuentroUrgencia |
 
  
 Episodio de atención en una unidad de urgencia, desde la admisión hasta el alta o el abandono. Basado en EncounterCL de CL-Core. Es el recurso que la red usa para saber que el paciente estuvo en urgencia, cuándo y cómo terminó. 
@@ -17,7 +17,7 @@ Episodio de atención en una unidad de urgencia, desde la admisión hasta el alt
 **Usages:**
 
 * Derived from this Profile: [Encuentro de urgencia - estado en el abandono](StructureDefinition-encuentro-urgencia-abandono.md), [Encuentro de urgencia - estado en la admisión](StructureDefinition-encuentro-urgencia-admision.md) and [Encuentro de urgencia - estado en el alta](StructureDefinition-encuentro-urgencia-alta.md)
-* Refer to this Profile: [Diagnóstico de urgencia](StructureDefinition-diagnostico-urgencia.md), [Documento de la atención de urgencia](StructureDefinition-documento-urgencia.md) and [Indicación de medicamento al alta](StructureDefinition-indicacion-medicamento-urgencia.md)
+* Refer to this Profile: [Documento de la atención de urgencia](StructureDefinition-documento-urgencia.md) and [Indicación de medicamento al alta](StructureDefinition-indicacion-medicamento-urgencia.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/hl7.fhir.cl.minsal.urgencia.eventos|current/StructureDefinition/StructureDefinition-encuentro-urgencia.json)
 
@@ -42,7 +42,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
   "name" : "EncuentroUrgencia",
   "title" : "Encuentro de urgencia",
   "status" : "draft",
-  "date" : "2026-09-24T11:47:41-03:00",
+  "date" : "2026-10-08T00:02:21-03:00",
   "publisher" : "Unidad de Interoperabilidad - MINSAL",
   "contact" : [{
     "name" : "Unidad de Interoperabilidad - MINSAL",
@@ -90,6 +90,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
       "id" : "Encounter",
       "path" : "Encounter",
       "short" : "Episodio de atención de urgencia",
+      "definition" : "Episodio de atención en una unidad de urgencia. Se envía SIEMPRE COMPLETO en cada evento: el PUT condicional reemplaza el recurso entero, por lo que el alta y el abandono deben repetir todos los datos informados en la admisión (previsión, procedencia, medio de llegada, motivo de consulta, etc.). Un dato omitido en el alta se borra del repositorio.",
       "constraint" : [{
         "key" : "urg-enc-1",
         "severity" : "error",
@@ -103,7 +104,48 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
         "human" : "Un episodio finalizado debe informar el destino de egreso o el tipo de abandono.",
         "expression" : "status = 'finished' implies hospitalization.dischargeDisposition.exists()",
         "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"
+      },
+      {
+        "key" : "urg-enc-3",
+        "severity" : "error",
+        "human" : "La fecha y hora de término (alta o abandono) no puede ser anterior a la de admisión.",
+        "expression" : "period.end.exists() implies period.end >= period.start",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"
+      },
+      {
+        "key" : "urg-enc-4",
+        "severity" : "error",
+        "human" : "Solo los diagnósticos de egreso (DD) se informan con uso; las hipótesis del abandono van sin uso.",
+        "expression" : "diagnosis.use.exists() implies diagnosis.use.coding.all(code = 'DD')",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"
+      },
+      {
+        "key" : "urg-enc-5",
+        "severity" : "error",
+        "human" : "Las fechas de admisión, alta y abandono deben incluir hora (con zona horaria), no solo la fecha.",
+        "expression" : "period.start.toString().contains('T') and (period.end.exists() implies period.end.toString().contains('T'))",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"
+      },
+      {
+        "key" : "urg-enc-6",
+        "severity" : "error",
+        "human" : "El episodio debe tener exactamente un ID DAU, con sistema https://interoperabilidad.minsal.cl/fhir/sid/dau/[código DEIS del establecimiento].",
+        "expression" : "identifier.where(system.startsWith('https://interoperabilidad.minsal.cl/fhir/sid/dau/')).count() = 1",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"
+      },
+      {
+        "key" : "urg-enc-7",
+        "severity" : "error",
+        "human" : "Si la consulta se clasifica como abuso sexual (01), maltrato o violencia de género (02) o constatación de lesiones (03), el episodio debe marcarse como restringido (meta.security = R).",
+        "expression" : "extension.where(url = 'https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/clasificacion-consulta').value.ofType(CodeableConcept).coding.where(code = '01' or code = '02' or code = '03').exists() implies meta.security.where(system = 'http://terminology.hl7.org/CodeSystem/v3-Confidentiality' and code = 'R').exists()",
+        "source" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/encuentro-urgencia"
       }]
+    },
+    {
+      "id" : "Encounter.meta.security",
+      "path" : "Encounter.meta.security",
+      "short" : "R (restringido) si la consulta es por abuso sexual, violencia o constatación de lesiones",
+      "mustSupport" : true
     },
     {
       "id" : "Encounter.extension",
@@ -178,7 +220,7 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.identifier",
       "path" : "Encounter.identifier",
-      "short" : "ID DAU: identificador único del episodio en el establecimiento",
+      "short" : "ID DAU: sistema https://interoperabilidad.minsal.cl/fhir/sid/dau/[código DEIS]",
       "definition" : "Identificador único del episodio de urgencia (ID DAU del CMBD). Debe ser el mismo en los mensajes de admisión, alta y abandono: es la llave con que la red correlaciona los eventos.",
       "min" : 1
     },
@@ -199,7 +241,8 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.status",
       "path" : "Encounter.status",
-      "short" : "in-progress (admitido) | finished (alta o abandono) | entered-in-error",
+      "short" : "arrived (admitido) | finished (alta o abandono) | entered-in-error",
+      "definition" : "Estado del episodio. Esta versión informa solo dos momentos: la admisión (arrived: el paciente llegó y está en la unidad) y el cierre (finished: alta o abandono). No se informan los estados intermedios (categorizado, en atención).",
       "binding" : {
         "strength" : "required",
         "valueSet" : "https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/ValueSet/vs-estado-encuentro-urgencia"
@@ -236,7 +279,13 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.participant",
       "path" : "Encounter.participant",
-      "short" : "Profesional que da el alta o atiende"
+      "short" : "ATND: médico tratante (period.start = inicio de la atención médica) | DIS: profesional que da el alta"
+    },
+    {
+      "id" : "Encounter.participant.period",
+      "path" : "Encounter.participant.period",
+      "short" : "Para ATND, period.start = fecha y hora de inicio de la atención médica",
+      "mustSupport" : true
     },
     {
       "id" : "Encounter.participant.individual",
@@ -280,18 +329,21 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.diagnosis",
       "path" : "Encounter.diagnosis",
-      "short" : "Hipótesis diagnóstica (AD) y diagnóstico de egreso (DD)"
+      "short" : "Diagnóstico de egreso (alta) o hipótesis diagnóstica (abandono)"
     },
     {
       "id" : "Encounter.diagnosis.condition",
       "path" : "Encounter.diagnosis.condition",
-      "short" : "Referencia a un Diagnóstico de urgencia incluido en el mismo mensaje"
+      "short" : "Diagnóstico de urgencia incluido en el mismo Bundle",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/urgencia-eventos/StructureDefinition/diagnostico-urgencia"]
+      }]
     },
     {
       "id" : "Encounter.diagnosis.use",
       "path" : "Encounter.diagnosis.use",
-      "short" : "AD (hipótesis de ingreso) | DD (diagnóstico de egreso)",
-      "min" : 1,
+      "short" : "DD: diagnóstico de egreso (obligatorio en el alta, no se usa en el abandono)",
       "mustSupport" : true,
       "binding" : {
         "strength" : "required",
@@ -348,7 +400,11 @@ Other representations of profile: [CSV](StructureDefinition-encuentro-urgencia.c
     {
       "id" : "Encounter.hospitalization.destination",
       "path" : "Encounter.hospitalization.destination",
-      "short" : "Establecimiento de destino (traslado o derivación)",
+      "short" : "Establecimiento de destino: obligatorio en hospitalización (01), traslado (02) y derivación (04)",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorOrganizacional"]
+      }],
       "mustSupport" : true
     },
     {
