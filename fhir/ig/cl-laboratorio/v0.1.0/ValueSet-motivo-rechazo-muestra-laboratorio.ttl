@@ -1,0 +1,84 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-rechazo-muestra-laboratorio> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "motivo-rechazo-muestra-laboratorio"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores motivo-rechazo-muestra-laboratorio</b></p><a name=\"motivo-rechazo-muestra-laboratorio\"> </a><a name=\"hcmotivo-rechazo-muestra-laboratorio\"> </a><ul><li>Include these codes as defined in <a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v2-0490.html\"><code>http://terminology.hl7.org/CodeSystem/v2-0490</code></a><span title=\"Version is explicitly stated to be 3.0.0\"> version ?3.0.0</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td><td><b>Spanish (es)</b></td></tr><tr><td><a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v2-0490.html#v2-0490-QS\">QS</a></td><td>Quantity not sufficient</td><td>Quantity not sufficient</td><td>Cantidad insuficiente</td></tr><tr><td><a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v2-0490.html#v2-0490-RC\">RC</a></td><td>Clotting</td><td>Clotting</td><td>Muestra coagulada</td></tr><tr><td><a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v2-0490.html#v2-0490-RM\">RM</a></td><td>Labeling</td><td>Labeling</td><td>Muestra mal etiquetada</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-rechazo-muestra-laboratorio"] ;
+  fhir:ValueSet.version [ fhir:value "0.2.1"] ;
+  fhir:ValueSet.name [ fhir:value "VSMotivoRechazoMuestraLaboratorio"] ;
+  fhir:ValueSet.title [ fhir:value "Motivo de Rechazo de Muestra de Laboratorio"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-09-10T11:13:46-03:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Subconjunto del catálogo oficial HL7 v2 Tabla 0490 (Specimen Reject Reason) con los motivos de rechazo de muestra reconocidos por esta guía: cantidad insuficiente, coagulación y problema de etiquetado. Este ValueSet no define códigos propios; selecciona un subconjunto del CodeSystem externo `http://terminology.hl7.org/CodeSystem/v2-0490`, el mismo catálogo que usa HL7 v2 en el segmento SPM-21. Binding extensible: si en el futuro se identifica un motivo de rechazo no incluido aquí (por ejemplo hemólisis o contaminación), puede usarse cualquier otro código válido del mismo CodeSystem."] ;
+  fhir:ValueSet.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0490" ] ;
+       fhir:ValueSet.compose.include.version [ fhir:value "3.0.0" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "QS" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Quantity not sufficient" ] ;
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0 ;
+           fhir:ValueSet.compose.include.concept.designation.language [ fhir:value "es" ] ;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Cantidad insuficiente" ]
+         ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RC" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Clotting" ] ;
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0 ;
+           fhir:ValueSet.compose.include.concept.designation.language [ fhir:value "es" ] ;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Muestra coagulada" ]
+         ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "RM" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Labeling" ] ;
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0 ;
+           fhir:ValueSet.compose.include.concept.designation.language [ fhir:value "es" ] ;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Muestra mal etiquetada" ]
+         ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/ValueSet/motivo-rechazo-muestra-laboratorio.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

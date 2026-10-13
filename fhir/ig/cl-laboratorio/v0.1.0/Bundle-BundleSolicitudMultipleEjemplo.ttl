@@ -1,0 +1,393 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Bundle/BundleSolicitudMultipleEjemplo> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "BundleSolicitudMultipleEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalBundleSolicitudLaboratorio>
+     ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "transaction"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-08-28T10:00:00-04:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:11111111-1111-4111-8111-111111111111" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:11111111-1111-4111-8111-111111111111> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ServiceRequest" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:22222222-2222-4222-8222-222222222222" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:22222222-2222-4222-8222-222222222222> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ServiceRequest" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:33333333-3333-4333-8333-333333333333" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:33333333-3333-4333-8333-333333333333> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ServiceRequest" ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:44444444-4444-4444-8444-444444444444" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:44444444-4444-4444-8444-444444444444> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ServiceRequest" ]
+     ]
+  ], [
+     fhir:index 4 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:55555555-5555-4555-8555-555555555555" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:55555555-5555-4555-8555-555555555555> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ServiceRequest" ]
+     ]
+  ] .
+
+<urn:uuid:11111111-1111-4111-8111-111111111111> a fhir:ServiceRequest ;
+  fhir:Resource.id [ fhir:value "PrestacionHemogramaEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_PrestacionHemogramaEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio PrestacionHemogramaEjemplo</b></p><a name=\"PrestacionHemogramaEjemplo\"> </a><a name=\"hcPrestacionHemogramaEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestLab.html\">Solicitud de Laboratorio MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/SOL-MULTIPLE-001-HEM</p><p><b>requisition</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105</code>/SOL-MULTIPLE-001</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0301045}\">Hemograma</span></p><p><b>subject</b>: <a href=\"Patient-PacienteEjemplo.html\">Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-08-28 10:00:00-0400</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteEjemplo.html\">Practitioner María González </a></p><p><b>performer</b>: <a href=\"Organization-LaboratorioEjecutorEjemplo.html\">Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)</a></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PLAC" ] ;
+         fhir:Coding.display [ fhir:value "Placer Identifier" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/ordenes-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001-HEM" ]
+  ] ;
+  fhir:ServiceRequest.requisition [
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "LAB" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0301045" ] ;
+       fhir:Coding.display [ fhir:value "Hemograma" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Hemograma" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-08-28T10:00:00-04:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Practitioner/ProfesionalSolicitanteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Organization/LaboratorioEjecutorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjecutorEjemplo" ]
+  ] .
+
+<urn:uuid:22222222-2222-4222-8222-222222222222> a fhir:ServiceRequest ;
+  fhir:Resource.id [ fhir:value "PrestacionGlicemiaEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_PrestacionGlicemiaEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio PrestacionGlicemiaEjemplo</b></p><a name=\"PrestacionGlicemiaEjemplo\"> </a><a name=\"hcPrestacionGlicemiaEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestLab.html\">Solicitud de Laboratorio MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/SOL-MULTIPLE-001-GLU</p><p><b>requisition</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105</code>/SOL-MULTIPLE-001</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0302047}\">Glucosa (glicemia)</span></p><p><b>subject</b>: <a href=\"Patient-PacienteEjemplo.html\">Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-08-28 10:00:00-0400</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteEjemplo.html\">Practitioner María González </a></p><p><b>performer</b>: <a href=\"Organization-LaboratorioEjecutorEjemplo.html\">Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)</a></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PLAC" ] ;
+         fhir:Coding.display [ fhir:value "Placer Identifier" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/ordenes-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001-GLU" ]
+  ] ;
+  fhir:ServiceRequest.requisition [
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "LAB" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0302047" ] ;
+       fhir:Coding.display [ fhir:value "Glucosa (glicemia)" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Glucosa (glicemia)" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-08-28T10:00:00-04:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Practitioner/ProfesionalSolicitanteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Organization/LaboratorioEjecutorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjecutorEjemplo" ]
+  ] .
+
+<urn:uuid:33333333-3333-4333-8333-333333333333> a fhir:ServiceRequest ;
+  fhir:Resource.id [ fhir:value "PrestacionBilirrubinaEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_PrestacionBilirrubinaEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio PrestacionBilirrubinaEjemplo</b></p><a name=\"PrestacionBilirrubinaEjemplo\"> </a><a name=\"hcPrestacionBilirrubinaEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestLab.html\">Solicitud de Laboratorio MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/SOL-MULTIPLE-001-BIL</p><p><b>requisition</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105</code>/SOL-MULTIPLE-001</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0302012}\">Bilirrubina total</span></p><p><b>subject</b>: <a href=\"Patient-PacienteEjemplo.html\">Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-08-28 10:00:00-0400</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteEjemplo.html\">Practitioner María González </a></p><p><b>performer</b>: <a href=\"Organization-LaboratorioEjecutorEjemplo.html\">Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)</a></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PLAC" ] ;
+         fhir:Coding.display [ fhir:value "Placer Identifier" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/ordenes-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001-BIL" ]
+  ] ;
+  fhir:ServiceRequest.requisition [
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "LAB" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0302012" ] ;
+       fhir:Coding.display [ fhir:value "Bilirrubina total" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Bilirrubina total" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-08-28T10:00:00-04:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Practitioner/ProfesionalSolicitanteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Organization/LaboratorioEjecutorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjecutorEjemplo" ]
+  ] .
+
+<urn:uuid:44444444-4444-4444-8444-444444444444> a fhir:ServiceRequest ;
+  fhir:Resource.id [ fhir:value "PrestacionNitrogenoUreicoEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_PrestacionNitrogenoUreicoEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio PrestacionNitrogenoUreicoEjemplo</b></p><a name=\"PrestacionNitrogenoUreicoEjemplo\"> </a><a name=\"hcPrestacionNitrogenoUreicoEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestLab.html\">Solicitud de Laboratorio MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/SOL-MULTIPLE-001-NUR</p><p><b>requisition</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105</code>/SOL-MULTIPLE-001</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0302057}\">Nitrógeno ureico</span></p><p><b>subject</b>: <a href=\"Patient-PacienteEjemplo.html\">Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-08-28 10:00:00-0400</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteEjemplo.html\">Practitioner María González </a></p><p><b>performer</b>: <a href=\"Organization-LaboratorioEjecutorEjemplo.html\">Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)</a></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PLAC" ] ;
+         fhir:Coding.display [ fhir:value "Placer Identifier" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/ordenes-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001-NUR" ]
+  ] ;
+  fhir:ServiceRequest.requisition [
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "LAB" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0302057" ] ;
+       fhir:Coding.display [ fhir:value "Nitrógeno ureico" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Nitrógeno ureico" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-08-28T10:00:00-04:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Practitioner/ProfesionalSolicitanteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Organization/LaboratorioEjecutorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjecutorEjemplo" ]
+  ] .
+
+<urn:uuid:55555555-5555-4555-8555-555555555555> a fhir:ServiceRequest ;
+  fhir:Resource.id [ fhir:value "PrestacionColesterolTotalEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/StructureDefinition/MinsalServiceRequestLab>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ServiceRequest_PrestacionColesterolTotalEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: PeticiónServicio PrestacionColesterolTotalEjemplo</b></p><a name=\"PrestacionColesterolTotalEjemplo\"> </a><a name=\"hcPrestacionColesterolTotalEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-MinsalServiceRequestLab.html\">Solicitud de Laboratorio MINSAL</a></p></div><p><b>identifier</b>: Placer Identifier/SOL-MULTIPLE-001-COL</p><p><b>requisition</b>: <code>https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105</code>/SOL-MULTIPLE-001</p><p><b>status</b>: Active</p><p><b>intent</b>: Order</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0302067}\">Colesterol total</span></p><p><b>subject</b>: <a href=\"Patient-PacienteEjemplo.html\">Ana Pérez (official) Female, DoB: 1990-01-02 ( Run: 12345678-5 (use: official, ))</a></p><p><b>authoredOn</b>: 2026-08-28 10:00:00-0400</p><p><b>requester</b>: <a href=\"Practitioner-ProfesionalSolicitanteEjemplo.html\">Practitioner María González </a></p><p><b>performer</b>: <a href=\"Organization-LaboratorioEjecutorEjemplo.html\">Organization Laboratorio Clínico, Hospital Dr. César Garavagno Burotto (Talca)</a></p></div>"
+  ] ;
+  fhir:ServiceRequest.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PLAC" ] ;
+         fhir:Coding.display [ fhir:value "Placer Identifier" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/ordenes-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001-COL" ]
+  ] ;
+  fhir:ServiceRequest.requisition [
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/identificador/orden-grupo/116105" ] ;
+     fhir:Identifier.value [ fhir:value "SOL-MULTIPLE-001" ]
+  ] ;
+  fhir:ServiceRequest.status [ fhir:value "active"] ;
+  fhir:ServiceRequest.intent [ fhir:value "order"] ;
+  fhir:ServiceRequest.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "LAB" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:ServiceRequest.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0302067" ] ;
+       fhir:Coding.display [ fhir:value "Colesterol total" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "Colesterol total" ]
+  ] ;
+  fhir:ServiceRequest.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Patient/PacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.authoredOn [ fhir:value "2026-08-28T10:00:00-04:00"^^xsd:dateTime] ;
+  fhir:ServiceRequest.requester [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Practitioner/ProfesionalSolicitanteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalSolicitanteEjemplo" ]
+  ] ;
+  fhir:ServiceRequest.performer [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Organization/LaboratorioEjecutorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjecutorEjemplo" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Bundle/BundleSolicitudMultipleEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
