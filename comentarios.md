@@ -22,95 +22,26 @@ description: >-
 
 <section class="band">
   <div class="wrap fb-layout">
-    <form class="fb-form" id="fb-form" novalidate>
-      <fieldset class="fb-field">
-        <legend>Tipo de comentario <span class="fb-req" aria-hidden="true">*</span></legend>
-        <div class="fb-types">
-          {%- for t in site.data.feedback.types -%}
-          <label class="fb-type">
-            <input type="radio" name="tipo" value="{{ t.id }}" data-label="{{ t.label }}" required{% if forloop.first %} checked{% endif %}>
-            <span class="fb-type__box">
-              <span class="fb-type__icon fb-type__icon--{{ t.id }}" aria-hidden="true">{{ t.icon }}</span>
-              <b>{{ t.label }}</b>
-              <small>{{ t.hint }}</small>
-            </span>
-          </label>
-          {%- endfor -%}
-        </div>
-      </fieldset>
-
-      <div class="fb-row">
-        <div class="fb-field">
-          <label for="fb-guia">Guía de Implementación <span class="fb-req" aria-hidden="true">*</span></label>
-          <select id="fb-guia" name="guia" required>
-            <option value="">Selecciona una guía…</option>
-            {%- for g in site.data.feedback.guides -%}
-            <option value="{{ g.id }}">{{ g.label }}</option>
-            {%- endfor -%}
-          </select>
-        </div>
-        <div class="fb-field fb-field--sm">
-          <label for="fb-version">Versión</label>
-          <input id="fb-version" name="version" type="text" placeholder="Ej.: 0.9.6" autocomplete="off">
-        </div>
-      </div>
-
-      <div class="fb-field">
-        <label for="fb-resumen">Resumen <span class="fb-req" aria-hidden="true">*</span></label>
-        <input id="fb-resumen" name="resumen" type="text" required maxlength="120"
-               placeholder="Ej.: El ejemplo de MedicationRequest no valida contra el perfil">
-      </div>
-
-      <div class="fb-field">
-        <label for="fb-seccion">Página, perfil o recurso</label>
-        <input id="fb-seccion" name="seccion" type="text" autocomplete="off"
-               placeholder="URL de la página de la guía o nombre del perfil, ejemplo o ValueSet">
-      </div>
-
-      <div class="fb-field">
-        <label for="fb-descripcion">Descripción <span class="fb-req" aria-hidden="true">*</span></label>
-        <textarea id="fb-descripcion" name="descripcion" rows="7" required maxlength="5000"
-                  placeholder="Qué funciona o qué no, qué esperabas y qué ocurrió. Si aplica, incluye el mensaje del validador o un fragmento del recurso (sin datos reales)."></textarea>
-        <p class="fb-help"><span id="fb-count">0</span>/5000 caracteres</p>
-      </div>
-
-      <div class="fb-field">
-        <label for="fb-institucion">Institución o equipo <span class="fb-opt">(opcional)</span></label>
-        <input id="fb-institucion" name="institucion" type="text" autocomplete="organization"
-               placeholder="Ej.: Servicio de Salud, establecimiento, proveedor de software">
-      </div>
-
-      <label class="fb-check">
-        <input type="checkbox" name="sin_datos" required>
-        <span>Confirmo que el comentario <b>no incluye datos personales o clínicos de pacientes</b>, credenciales ni tokens.</span>
-      </label>
-
-      <!-- Campo trampa anti-bots: las personas no lo ven -->
-      <div class="fb-hp" aria-hidden="true">
-        <label>No completar <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-      </div>
-
-      {%- if fb.turnstile_sitekey != "" %}
-      <div class="cf-turnstile" data-sitekey="{{ fb.turnstile_sitekey }}" data-language="es"></div>
+    <div class="fb-embed">
+      {%- if fb.form_url != "" %}
+      <iframe id="fb-iframe" title="Formulario de comentarios sobre las Guías de Implementación"
+              src="{{ fb.form_url }}{% if fb.form_url contains '?' %}&amp;{% else %}?{% endif %}embed=true"
+              loading="lazy" allowfullscreen></iframe>
+      <p class="fb-note">
+        ¿No ves el formulario?
+        <a id="fb-direct" class="lnk" href="{{ fb.form_url }}" target="_blank" rel="noopener">Ábrelo en una pestaña nueva ↗</a>
+      </p>
+      {%- else %}
+      <p class="fb-note">El formulario aún no está configurado: falta definir <code>feedback.form_url</code> en <code>_config.yml</code>.</p>
       {%- endif %}
-
-      <p class="fb-error" id="fb-error" role="alert" hidden></p>
-
-      <div class="fb-actions">
-        <button type="submit" class="btn btn--primary"{% if fb.endpoint == "" %} disabled{% endif %}>Enviar comentario</button>
-      </div>
-      {%- if fb.endpoint == "" %}
-      <p class="fb-note">El envío aún no está habilitado: falta configurar <code>feedback.endpoint</code>.</p>
-      {%- endif %}
-      <p class="fb-status" id="fb-status" role="status" hidden></p>
-    </form>
+    </div>
 
     <aside class="fb-aside">
       <h2>Cómo funciona</h2>
       <ol>
-        <li>Completa el formulario. Si llegaste desde una guía, la guía, la versión y la página ya vienen seleccionadas.</li>
-        <li>Al enviarlo, tu comentario queda registrado y asignado al equipo responsable de la guía.</li>
-        <li>Recibes un <b>número de seguimiento</b>. Menciónalo si necesitas consultar por tu comentario.</li>
+        <li>Completa el formulario. Si llegaste desde una guía, la guía y la versión ya vienen marcadas.</li>
+        <li>Al enviarlo, tu comentario queda registrado con fecha y número correlativo.</li>
+        <li>El equipo responsable de la guía lo revisa y, si dejaste un correo, te contacta.</li>
       </ol>
       <p class="fb-note">
         No incluyas datos personales o clínicos de pacientes, credenciales ni tokens.
@@ -119,116 +50,66 @@ description: >-
   </div>
 </section>
 
+{%- if fb.form_url != "" and fb.prefill_url != "" %}
 <script>
+// Prellenado del Microsoft Form. prefill_url es una URL generada en Forms
+// ("Obtener URL rellenada previamente") con valores de ejemplo; aquí se
+// reemplazan por la guía, versión y página reales. Ver FORMULARIO-COMENTARIOS.md.
 (function () {
-  var form = document.getElementById('fb-form');
-  if (!form) return;
+  var PREFILL = {{ fb.prefill_url | jsonify }};
+  var SAMPLE = {{ fb.prefill_sample | jsonify }};
+  var GUIDES = {
+    {%- for g in site.data.feedback.guides %}
+    {{ g.id | jsonify }}: {{ g.label | jsonify }}{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  };
 
-  var endpoint = {{ fb.endpoint | default: "" | jsonify }};
-
-  var $ = function (id) { return document.getElementById(id); };
-  var guia = $('fb-guia'), version = $('fb-version'), seccion = $('fb-seccion');
-  var desc = $('fb-descripcion'), count = $('fb-count');
-  var errorBox = $('fb-error'), statusBox = $('fb-status');
-
-  // --- Prellenado: ?guia=snre&version=0.9.6&seccion=...&tipo=error ----------
-  // o, sin parámetros, desde la página de la guía de origen (/fhir/ig/<id>/<versión>/...).
-  function selectGuide(id) {
-    if (!id) return false;
-    var opt = guia.querySelector('option[value="' + id.replace(/"/g, '') + '"]');
-    if (opt) { guia.value = id; return true; }
-    return false;
-  }
+  // Contexto: ?guia=snre&version=0.9.6&seccion=... o la página de la guía de origen.
   var q = new URLSearchParams(window.location.search);
-  selectGuide(q.get('guia'));
-  if (q.get('version')) version.value = q.get('version');
-  if (q.get('seccion')) seccion.value = q.get('seccion');
-  if (q.get('tipo')) {
-    var r = form.querySelector('input[name="tipo"][value="' + q.get('tipo').replace(/"/g, '') + '"]');
-    if (r) r.checked = true;
-  }
-  if (!q.get('guia') && document.referrer) {
+  var ctx = { guia: q.get('guia'), version: q.get('version'), pagina: q.get('seccion') };
+  if (!ctx.guia && document.referrer) {
     try {
       var ref = new URL(document.referrer);
       var m = ref.pathname.match(/\/fhir\/ig\/([^\/]+)\/(?:v?(\d+\.\d+\.\d+[^\/]*)\/)?/);
-      if (m && selectGuide(m[1])) {
-        if (m[2] && !version.value) version.value = m[2];
-        if (!seccion.value) seccion.value = ref.href;
+      if (m) {
+        ctx.guia = m[1];
+        ctx.version = ctx.version || m[2];
+        ctx.pagina = ctx.pagina || ref.href;
       }
     } catch (e) { /* referrer inválido: se ignora */ }
   }
+  if (!GUIDES[ctx.guia]) return;
 
-  desc.addEventListener('input', function () { count.textContent = desc.value.length; });
+  var values = {};
+  values[SAMPLE.guia] = GUIDES[ctx.guia];
+  values[SAMPLE.version] = ctx.version || '';
+  values[SAMPLE.pagina] = ctx.pagina || '';
 
-  // --- Envío ---------------------------------------------------------------
-  function val(name) {
-    var el = form.elements[name];
-    return el ? String(el.value || '').trim() : '';
-  }
-  function payload() {
-    var r = form.querySelector('input[name="tipo"]:checked');
-    var ts = form.querySelector('[name="cf-turnstile-response"]');
-    return {
-      guia: guia.value,
-      tipo: r ? r.value : '',
-      version: val('version'),
-      resumen: val('resumen'),
-      seccion: val('seccion'),
-      descripcion: val('descripcion'),
-      institucion: val('institucion'),
-      sin_datos: form.elements['sin_datos'].checked,
-      website: val('website'),
-      turnstile: ts ? ts.value : ''
-    };
-  }
-
-  function sendApi(btn) {
-    btn.disabled = true;
-    var label = btn.textContent;
-    btn.textContent = 'Enviando…';
-    fetch(endpoint.replace(/\/$/, '') + '/issues', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload())
-    }).then(function (res) {
-      return res.json().catch(function () { return {}; }).then(function (out) {
-        if (!res.ok) throw new Error(out.error || 'No se pudo registrar el comentario.');
-        return out;
-      });
-    }).then(function (out) {
-      form.reset();
-      count.textContent = '0';
-      statusBox.textContent = out.number
-        ? '¡Gracias! Tu comentario quedó registrado con el número de seguimiento #' + out.number + '.'
-        : '¡Gracias! Tu comentario quedó registrado.';
-      statusBox.hidden = false;
-    }).catch(function (err) {
-      showError(err.message || 'No se pudo registrar el comentario. Intenta más tarde.');
-    }).then(function () {
-      btn.disabled = false;
-      btn.textContent = label;
-      if (window.turnstile) window.turnstile.reset();
-    });
-  }
-
-  function showError(msg) {
-    errorBox.textContent = msg;
-    errorBox.hidden = !msg;
-  }
-
-  form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    showError('');
-    statusBox.hidden = true;
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
+  var url = new URL(PREFILL);
+  var params = url.searchParams;
+  var updates = [];
+  params.forEach(function (raw, key) {
+    // Forms puede entregar el valor entre comillas; se respeta ese formato.
+    var quoted = /^".*"$/.test(raw);
+    var plain = quoted ? raw.slice(1, -1) : raw;
+    if (Object.prototype.hasOwnProperty.call(values, plain)) {
+      var v = values[plain];
+      updates.push([key, v === '' ? null : (quoted ? '"' + v + '"' : v)]);
     }
-    if (!endpoint) return;
-    sendApi(ev.submitter || form.querySelector('button[type="submit"]'));
   });
+  updates.forEach(function (u) { if (u[1] === null) params.delete(u[0]); else params.set(u[0], u[1]); });
+
+  // Espacios como %20 (no "+"), igual que los enlaces que genera Forms.
+  function build() {
+    var qs = [];
+    params.forEach(function (v, k) { qs.push(encodeURIComponent(k) + '=' + encodeURIComponent(v)); });
+    return url.origin + url.pathname + '?' + qs.join('&');
+  }
+  var direct = document.getElementById('fb-direct');
+  if (direct) direct.href = build();
+  params.set('embed', 'true');
+  var iframe = document.getElementById('fb-iframe');
+  if (iframe) iframe.src = build();
 })();
 </script>
-{%- if fb.turnstile_sitekey != "" %}
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 {%- endif %}

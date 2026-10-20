@@ -274,32 +274,26 @@ completa, pero varios campos **no se inventaron**:
 ## 6.3 Retroalimentación de la red sobre las Guías
 
 Canal para que la red reporte qué funciona y qué no de cada Guía de
-Implementación. **Todo ocurre por debajo:** la persona completa el formulario
-en el portal y recibe un número de seguimiento; nunca entra a GitHub.
-
-Internamente el formulario envía a un Cloudflare Worker (`feedback-api/`) que
-crea un **Issue de GitHub** como GitHub App (`minsal-feedback[bot]`),
-etiquetado `feedback-guia` + `guia:<id>` + `tipo:<id>`, para trazabilidad y
-seguimiento del equipo. El token nunca llega al navegador. Anti-spam: CORS,
-límite por IP, campo trampa, Turnstile opcional.
+Implementación. **Sin servicios nuevos ni backend:** `/comentarios.html`
+incrusta un **Microsoft Form** (MINSAL ya usa Forms para el acceso a Servicios
+Terminológicos). La persona no sale del portal ni necesita cuenta; las
+respuestas quedan en Forms/Excel con número correlativo para el seguimiento.
+Funciona igual en GitHub Pages, en otro servidor o en local.
 
 ```
-comentarios.md            página /comentarios.html (tipo, guía, versión, resumen,
-                          página/recurso, descripción, institución, confirmación
-                          sin datos de pacientes)
-_data/feedback.yml        guías (id = carpeta fhir/ig/<id>) y tipos
-_config.yml → feedback:   endpoint (URL del Worker), turnstile_sitekey
-feedback-api/             Worker + pruebas + README de despliegue
+comentarios.md              página: Form incrustado + prellenado de guía/versión/página
+_data/feedback.yml          guías (id = carpeta fhir/ig/<id>; label = opción exacta del Form)
+_config.yml → feedback:     form_url, prefill_url, prefill_sample
+FORMULARIO-COMENTARIOS.md   cómo crear el Form, conectarlo y hacer seguimiento (no se publica)
 ```
 
-- **Prellenado:** `?guia=snre&version=0.9.6&seccion=<url>&tipo=error`, o
-  automático si se llega desde una página `/fhir/ig/<guía>/<versión>/…`
-  (referrer). Las tarjetas de proyecto ya enlazan con guía y versión.
+- **Prellenado:** `?guia=snre&version=0.9.6&seccion=<url>`, o automático si se
+  llega desde una página `/fhir/ig/<guía>/<versión>/…` (referrer). Las tarjetas
+  de proyecto ya enlazan con guía y versión.
 - **Puntos de entrada:** tarjetas de Proyectos, Recursos (banda + enlace), pie
   del portal, índice `/fhir/ig/`.
-- **Para activarlo:** crear la GitHub App, desplegar el Worker
-  (`feedback-api/README.md`) y poner su URL en `feedback.endpoint`. Sin
-  endpoint, el botón de envío queda deshabilitado.
+- **Para activarlo:** crear el Form y pegar sus URLs en `_config.yml`
+  (`FORMULARIO-COMENTARIOS.md`). Sin `form_url` la página muestra un aviso.
 - **Pendiente (otro repo):** agregar en el pie/menú de cada IG un enlace a
   `/comentarios.html`; con el referrer la guía y versión se preseleccionan.
 

@@ -43,13 +43,19 @@ last_edit_time_format: "%d/%m/%Y"
 gh_edit_link: false
 
 # --- Retroalimentación de las Guías de Implementación (ver comentarios.md) ---
-# endpoint: URL del Worker (feedback-api/) que registra el comentario como Issue
-#           en GitHub mediante una GitHub App. El visitante nunca sale del portal.
-#           Vacío = el botón de envío queda deshabilitado.
-# turnstile_sitekey: clave pública de Cloudflare Turnstile (anti-spam). Vacío = sin captcha.
+# Microsoft Form incrustado. Pasos para crearlo: FORMULARIO-COMENTARIOS.md
+# form_url:       URL del formulario (forms.office.com/...). Vacío = aviso "no configurado".
+# prefill_url:    URL rellenada previamente generada en Forms con los valores de
+#                 prefill_sample. Vacío = sin prellenado de guía/versión/página.
+# prefill_sample: valores de ejemplo usados al generar prefill_url (guia debe ser
+#                 una opción exacta de la pregunta "Guía").
 feedback:
-  endpoint: ""
-  turnstile_sitekey: ""
+  form_url: ""
+  prefill_url: ""
+  prefill_sample:
+    guia: "Receta Electrónica (SNRE)"
+    version: "VERSION"
+    pagina: "PAGINA"
 
 # --- Callouts (bloques destacados en contenido) ---
 callouts_level: quiet
@@ -89,4 +95,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - fhir/
-  - feedback-api/
+  - FORMULARIO-COMENTARIOS.md
