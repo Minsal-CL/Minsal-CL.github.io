@@ -274,29 +274,22 @@ completa, pero varios campos **no se inventaron**:
 ## 6.3 Retroalimentación de la red sobre las Guías
 
 Canal para que la red reporte qué funciona y qué no de cada Guía de
-Implementación. Todo aterriza como **Issue de GitHub** (público, trazable,
-etiquetado `feedback-guia` + `guia:<id>` + `tipo:<id>`).
+Implementación. **Todo ocurre por debajo:** la persona completa el formulario
+en el portal y recibe un número de seguimiento; nunca entra a GitHub.
 
-- **Modo principal (`feedback.endpoint` definido):** el formulario envía a un
-  Cloudflare Worker (`feedback-api/`) que crea el Issue como GitHub App
-  (`minsal-feedback[bot]`). El visitante **no necesita cuenta GitHub** y recibe
-  el número y enlace del Issue para seguimiento. El token nunca llega al
-  navegador. Anti-spam: CORS, límite por IP, campo trampa, Turnstile opcional.
-  Puesta en marcha: `feedback-api/README.md`.
-- **Respaldo:** botón para crearlo con cuenta GitHub propia (Issue prellenado)
-  y, opcionalmente, por **correo**.
+Internamente el formulario envía a un Cloudflare Worker (`feedback-api/`) que
+crea un **Issue de GitHub** como GitHub App (`minsal-feedback[bot]`),
+etiquetado `feedback-guia` + `guia:<id>` + `tipo:<id>`, para trazabilidad y
+seguimiento del equipo. El token nunca llega al navegador. Anti-spam: CORS,
+límite por IP, campo trampa, Turnstile opcional.
 
 ```
-comentarios.md                           página /comentarios.html: formulario guiado
-                                         (tipo, guía, versión, resumen, página/recurso,
-                                         descripción, institución, confirmación sin datos
-                                         de pacientes) → abre Issue prellenado o mailto
-_data/feedback.yml                       guías (id = carpeta fhir/ig/<id>) y tipos
-.github/ISSUE_TEMPLATE/feedback-guia.yml Issue Form (etiqueta feedback-guia); los ids de
-                                         campo son los parámetros que prellena el portal
-.github/ISSUE_TEMPLATE/config.yml        enlace al formulario del portal
-_config.yml → feedback:                  repo, template, endpoint, turnstile_sitekey, email
-feedback-api/                            Worker (GitHub App) + pruebas + README de despliegue
+comentarios.md            página /comentarios.html (tipo, guía, versión, resumen,
+                          página/recurso, descripción, institución, confirmación
+                          sin datos de pacientes)
+_data/feedback.yml        guías (id = carpeta fhir/ig/<id>) y tipos
+_config.yml → feedback:   endpoint (URL del Worker), turnstile_sitekey
+feedback-api/             Worker + pruebas + README de despliegue
 ```
 
 - **Prellenado:** `?guia=snre&version=0.9.6&seccion=<url>&tipo=error`, o
@@ -304,13 +297,11 @@ feedback-api/                            Worker (GitHub App) + pruebas + README 
   (referrer). Las tarjetas de proyecto ya enlazan con guía y versión.
 - **Puntos de entrada:** tarjetas de Proyectos, Recursos (banda + enlace), pie
   del portal, índice `/fhir/ig/`.
-- **Requisitos para que funcione en producción:** crear la GitHub App y
-  desplegar el Worker (`feedback-api/README.md`) y poner su URL en
-  `feedback.endpoint`; el Issue Form del respaldo solo se activa en la rama
-  `main`; definir `feedback.email` si se quiere el canal por correo.
-- **Pendiente (otro repo):** agregar en el pie/menú de cada IG (IG Publisher,
-  repos de cada guía) un enlace a `/comentarios.html`; con el referrer la guía y
-  versión se preseleccionan solas.
+- **Para activarlo:** crear la GitHub App, desplegar el Worker
+  (`feedback-api/README.md`) y poner su URL en `feedback.endpoint`. Sin
+  endpoint, el botón de envío queda deshabilitado.
+- **Pendiente (otro repo):** agregar en el pie/menú de cada IG un enlace a
+  `/comentarios.html`; con el referrer la guía y versión se preseleccionan.
 
 ---
 

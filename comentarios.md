@@ -90,23 +90,18 @@ description: >-
         <label>No completar <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
       </div>
 
-      {%- if fb.endpoint != "" and fb.turnstile_sitekey != "" %}
+      {%- if fb.turnstile_sitekey != "" %}
       <div class="cf-turnstile" data-sitekey="{{ fb.turnstile_sitekey }}" data-language="es"></div>
       {%- endif %}
 
       <p class="fb-error" id="fb-error" role="alert" hidden></p>
 
       <div class="fb-actions">
-        {%- if fb.endpoint != "" %}
-        <button type="submit" class="btn btn--primary" data-channel="api">Enviar comentario</button>
-        <button type="submit" class="btn btn--ghost" data-channel="github">Crear con mi cuenta GitHub ↗</button>
-        {%- else %}
-        <button type="submit" class="btn btn--primary" data-channel="github">Continuar en GitHub ↗</button>
-        {%- endif %}
-        {%- if fb.email and fb.email != "" %}
-        <button type="submit" class="btn btn--ghost" data-channel="email">Enviar por correo</button>
-        {%- endif %}
+        <button type="submit" class="btn btn--primary"{% if fb.endpoint == "" %} disabled{% endif %}>Enviar comentario</button>
       </div>
+      {%- if fb.endpoint == "" %}
+      <p class="fb-note">El envío aún no está habilitado: falta configurar <code>feedback.endpoint</code>.</p>
+      {%- endif %}
       <p class="fb-status" id="fb-status" role="status" hidden></p>
     </form>
 
@@ -114,25 +109,12 @@ description: >-
       <h2>Cómo funciona</h2>
       <ol>
         <li>Completa el formulario. Si llegaste desde una guía, la guía, la versión y la página ya vienen seleccionadas.</li>
-        {%- if fb.endpoint != "" %}
-        <li>Al enviarlo se registra como Issue en
-          <a href="https://github.com/{{ fb.repo }}/issues?q=label%3Afeedback-guia" target="_blank" rel="noopener">{{ fb.repo }}</a>,
-          etiquetado por guía y tipo. <b>No necesitas cuenta GitHub.</b></li>
-        <li>Recibes el enlace y número del Issue: guárdalo para seguir su estado y la respuesta del equipo.</li>
-        {%- else %}
-        <li>Se abre GitHub con el comentario prellenado en el repositorio
-          <a href="https://github.com/{{ fb.repo }}/issues?q=label%3Afeedback-guia" target="_blank" rel="noopener">{{ fb.repo }}</a>.
-          Revisa y pulsa <b>Create</b>.</li>
-        <li>El equipo responsable lo revisa, lo etiqueta y responde en el mismo hilo. Puedes seguir su estado.</li>
-        {%- endif %}
+        <li>Al enviarlo, tu comentario queda registrado y asignado al equipo responsable de la guía.</li>
+        <li>Recibes un <b>número de seguimiento</b>. Menciónalo si necesitas consultar por tu comentario.</li>
       </ol>
       <p class="fb-note">
-        Los comentarios quedan <b>públicos</b> en GitHub.
-        {%- if fb.email and fb.email != "" %}
-        Si no tienes cuenta, usa <b>Enviar por correo</b> ({{ fb.email }}).
-        {%- endif %}
+        No incluyas datos personales o clínicos de pacientes, credenciales ni tokens.
       </p>
-      <p><a class="lnk" href="https://github.com/{{ fb.repo }}/issues?q=label%3Afeedback-guia" target="_blank" rel="noopener">Ver comentarios de la red ↗</a></p>
     </aside>
   </div>
 </section>
@@ -142,14 +124,7 @@ description: >-
   var form = document.getElementById('fb-form');
   if (!form) return;
 
-  var CFG = {
-    repo: {{ fb.repo | jsonify }},
-    template: {{ fb.template | jsonify }},
-    email: {{ fb.email | default: "" | jsonify }},
-    endpoint: {{ fb.endpoint | default: "" | jsonify }}
-  };
-  // Longitud máxima segura de URL para GitHub / clientes de correo.
-  var MAX_URL = 7500;
+  var endpoint = {{ fb.endpoint | default: "" | jsonify }};
 
   var $ = function (id) { return document.getElementById(id); };
   var guia = $('fb-guia'), version = $('fb-version'), seccion = $('fb-seccion');
@@ -190,49 +165,6 @@ description: >-
     var el = form.elements[name];
     return el ? String(el.value || '').trim() : '';
   }
-  function guideLabel() {
-    return guia.value ? guia.options[guia.selectedIndex].text : '';
-  }
-  function guideShort() {
-    var l = guideLabel(), m = l.match(/\(([^)]+)\)/);
-    return m ? m[1] : l;
-  }
-  function typeLabel() {
-    var r = form.querySelector('input[name="tipo"]:checked');
-    return r ? r.getAttribute('data-label') : '';
-  }
-  function title() {
-    return '[' + guideShort() + '] ' + typeLabel() + ': ' + val('resumen');
-  }
-
-  function githubUrl() {
-    var p = new URLSearchParams();
-    p.set('template', CFG.template);
-    p.set('title', title());
-    p.set('guia', guideLabel());
-    if (val('version')) p.set('version', val('version'));
-    p.set('tipo', typeLabel());
-    if (val('seccion')) p.set('seccion', val('seccion'));
-    p.set('descripcion', val('descripcion'));
-    if (val('institucion')) p.set('institucion', val('institucion'));
-    return 'https://github.com/' + CFG.repo + '/issues/new?' + p.toString();
-  }
-
-  function emailUrl() {
-    var body = [
-      'Guía: ' + guideLabel(),
-      'Versión: ' + (val('version') || '—'),
-      'Tipo: ' + typeLabel(),
-      'Página / recurso: ' + (val('seccion') || '—'),
-      'Institución / equipo: ' + (val('institucion') || '—'),
-      '',
-      val('descripcion')
-    ].join('\n');
-    return 'mailto:' + CFG.email +
-      '?subject=' + encodeURIComponent(title()) +
-      '&body=' + encodeURIComponent(body);
-  }
-
   function payload() {
     var r = form.querySelector('input[name="tipo"]:checked');
     var ts = form.querySelector('[name="cf-turnstile-response"]');
@@ -254,7 +186,7 @@ description: >-
     btn.disabled = true;
     var label = btn.textContent;
     btn.textContent = 'Enviando…';
-    fetch(CFG.endpoint.replace(/\/$/, '') + '/issues', {
+    fetch(endpoint.replace(/\/$/, '') + '/issues', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload())
@@ -266,21 +198,12 @@ description: >-
     }).then(function (out) {
       form.reset();
       count.textContent = '0';
-      statusBox.innerHTML = '';
-      statusBox.appendChild(document.createTextNode('¡Gracias! Tu comentario quedó registrado'));
-      if (out.url) {
-        statusBox.appendChild(document.createTextNode(' como '));
-        var a = document.createElement('a');
-        a.href = out.url; a.target = '_blank'; a.rel = 'noopener';
-        a.textContent = 'Issue #' + out.number;
-        statusBox.appendChild(a);
-        statusBox.appendChild(document.createTextNode('. Guarda el enlace para seguir su estado.'));
-      } else {
-        statusBox.appendChild(document.createTextNode('.'));
-      }
+      statusBox.textContent = out.number
+        ? '¡Gracias! Tu comentario quedó registrado con el número de seguimiento #' + out.number + '.'
+        : '¡Gracias! Tu comentario quedó registrado.';
       statusBox.hidden = false;
     }).catch(function (err) {
-      showError(err.message + ' Si persiste, usa «Crear con mi cuenta GitHub».');
+      showError(err.message || 'No se pudo registrar el comentario. Intenta más tarde.');
     }).then(function () {
       btn.disabled = false;
       btn.textContent = label;
@@ -301,29 +224,11 @@ description: >-
       form.reportValidity();
       return;
     }
-    var channel = (ev.submitter && ev.submitter.getAttribute('data-channel')) || (CFG.endpoint ? 'api' : 'github');
-    if (channel === 'api') {
-      sendApi(ev.submitter || form.querySelector('[data-channel="api"]'));
-      return;
-    }
-    var url = channel === 'email' ? emailUrl() : githubUrl();
-    if (url.length > MAX_URL) {
-      showError('La descripción es demasiado larga para enviarla prellenada. ' +
-        'Acórtala (por ejemplo, reemplaza recursos completos por el fragmento relevante) e inténtalo de nuevo.');
-      return;
-    }
-    if (channel === 'email') {
-      window.location.href = url;
-      statusBox.textContent = 'Se abrió tu cliente de correo con el mensaje prellenado. Revisa y envíalo.';
-    } else {
-      window.open(url, '_blank', 'noopener');
-      statusBox.textContent = 'Se abrió GitHub en una pestaña nueva con tu comentario prellenado. ' +
-        'Revisa los campos y pulsa «Create» para registrarlo.';
-    }
-    statusBox.hidden = false;
+    if (!endpoint) return;
+    sendApi(ev.submitter || form.querySelector('button[type="submit"]'));
   });
 })();
 </script>
-{%- if fb.endpoint != "" and fb.turnstile_sitekey != "" %}
+{%- if fb.turnstile_sitekey != "" %}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 {%- endif %}

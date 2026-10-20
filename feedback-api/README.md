@@ -2,7 +2,13 @@
 
 Cloudflare Worker que recibe el formulario de `/comentarios.html` y crea un
 Issue en `Minsal-CL/Minsal-CL.github.io` autenticado como **GitHub App**.
-El visitante no necesita cuenta GitHub; el token vive solo en el Worker.
+El visitante nunca sale del portal ni ve GitHub: recibe solo un número de
+seguimiento (el número del Issue). El token vive solo en el Worker.
+
+> **Repositorio privado (recomendado):** como el visitante no entra a GitHub,
+> los Issues pueden vivir en un repo privado (p. ej. `Minsal-CL/feedback-guias`)
+> para no exponer comentarios. Basta cambiar `GITHUB_REPO` en `wrangler.toml` e
+> instalar la App en ese repo.
 
 ```
 Portal (GitHub Pages) ──POST /issues──▶ Worker ──JWT──▶ GitHub App ──▶ Issue
@@ -69,8 +75,7 @@ feedback:
   turnstile_sitekey: "<site key>"   # vacío si no usas Turnstile
 ```
 
-Si `endpoint` está vacío, el formulario vuelve al modo anterior (abre GitHub
-prellenado y requiere cuenta).
+Si `endpoint` está vacío, el botón de envío queda deshabilitado.
 
 ## Desarrollo
 

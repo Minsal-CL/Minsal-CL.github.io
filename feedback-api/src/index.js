@@ -73,7 +73,7 @@ export default {
     try {
       const token = await installationToken(env);
       const issue = await createIssue(env.GITHUB_REPO, token, result.value);
-      return json({ ok: true, number: issue.number, url: issue.html_url }, 201, cors);
+      return json({ ok: true, number: issue.number }, 201, cors);
     } catch (err) {
       console.error(err);
       return json({ error: "No se pudo registrar el comentario. Intenta más tarde." }, 502, cors);

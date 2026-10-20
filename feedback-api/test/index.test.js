@@ -77,7 +77,7 @@ test("appJwt firma RS256 verificable con la clave pública", async () => {
 test("POST /issues crea el Issue con token de instalación", async () => {
   const res = await worker.fetch(req(VALID), ENV);
   assert.equal(res.status, 201);
-  assert.deepEqual(await res.json(), { ok: true, number: 42, url: "https://github.com/x/y/issues/42" });
+  assert.deepEqual(await res.json(), { ok: true, number: 42 });
   assert.equal(res.headers.get("Access-Control-Allow-Origin"), "https://interoperabilidad.minsal.cl");
   const issueCall = calls.find((c) => c.url.endsWith("/repos/Minsal-CL/Minsal-CL.github.io/issues"));
   assert.equal(issueCall.init.headers.Authorization, "Bearer inst-token");
