@@ -39,6 +39,19 @@ description: >-
   </div>
 </section>
 
+<section class="band next-band">
+  <div class="wrap wrap--narrow">
+    <p class="kicker">Retroalimentación</p>
+    <h2>¿Implementaste una guía? Cuéntanos cómo te fue</h2>
+    <p>
+      Reporta lo que funciona, errores, ambigüedades o sugerencias de cada Guía
+      de Implementación. Los comentarios quedan registrados y los revisa el
+      equipo responsable.
+    </p>
+    <a class="btn btn--primary" href="{{ '/comentarios.html' | relative_url }}">Comentar una guía</a>
+  </div>
+</section>
+
 <section class="band band--tint">
   <div class="wrap wrap--narrow">
     <h2>Documentación técnica navegable</h2>

@@ -271,6 +271,41 @@ completa, pero varios campos **no se inventaron**:
 
 ---
 
+## 6.3 Retroalimentación de la red sobre las Guías
+
+Canal para que la red reporte qué funciona y qué no de cada Guía de
+Implementación. El sitio es estático (GitHub Pages), así que no hay backend
+propio: el feedback aterriza como **Issue de GitHub** (público, trazable, con
+respuesta en el hilo) y, opcionalmente, por **correo** para quien no tiene
+cuenta GitHub.
+
+```
+comentarios.md                           página /comentarios.html: formulario guiado
+                                         (tipo, guía, versión, resumen, página/recurso,
+                                         descripción, institución, confirmación sin datos
+                                         de pacientes) → abre Issue prellenado o mailto
+_data/feedback.yml                       guías (id = carpeta fhir/ig/<id>) y tipos
+.github/ISSUE_TEMPLATE/feedback-guia.yml Issue Form (etiqueta feedback-guia); los ids de
+                                         campo son los parámetros que prellena el portal
+.github/ISSUE_TEMPLATE/config.yml        enlace al formulario del portal
+_config.yml → feedback:                  repo, template y email (vacío = sin botón correo)
+```
+
+- **Prellenado:** `?guia=snre&version=0.9.6&seccion=<url>&tipo=error`, o
+  automático si se llega desde una página `/fhir/ig/<guía>/<versión>/…`
+  (referrer). Las tarjetas de proyecto ya enlazan con guía y versión.
+- **Puntos de entrada:** tarjetas de Proyectos, Recursos (banda + enlace), pie
+  del portal, índice `/fhir/ig/`.
+- **Requisitos para que funcione en producción:** el Issue Form solo se activa
+  cuando está en la rama por defecto (`main`); crear la etiqueta
+  `feedback-guia` en el repo; definir `feedback.email` si se quiere el canal
+  por correo.
+- **Pendiente (otro repo):** agregar en el pie/menú de cada IG (IG Publisher,
+  repos de cada guía) un enlace a `/comentarios.html`; con el referrer la guía y
+  versión se preseleccionan solas.
+
+---
+
 ## 7. Cambios que **NO** se hicieron: requieren decisión
 
 Estos puntos afectan contenido o estructura institucional. Se documentan;
