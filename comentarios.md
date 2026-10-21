@@ -80,10 +80,12 @@ description: >-
   }
   if (!GUIDES[ctx.guia]) return;
 
+  // Claves en minúsculas: Forms conserva el texto tal como se escribió al
+  // generar la URL ("Version" o "VERSION" da igual).
   var values = {};
-  values[SAMPLE.guia] = GUIDES[ctx.guia];
-  values[SAMPLE.version] = ctx.version || '';
-  values[SAMPLE.pagina] = ctx.pagina || '';
+  values[SAMPLE.guia.toLowerCase()] = GUIDES[ctx.guia];
+  values[SAMPLE.version.toLowerCase()] = ctx.version || '';
+  values[SAMPLE.pagina.toLowerCase()] = ctx.pagina || '';
 
   var url = new URL(PREFILL);
   var params = url.searchParams;
@@ -91,7 +93,7 @@ description: >-
   params.forEach(function (raw, key) {
     // Forms puede entregar el valor entre comillas; se respeta ese formato.
     var quoted = /^".*"$/.test(raw);
-    var plain = quoted ? raw.slice(1, -1) : raw;
+    var plain = (quoted ? raw.slice(1, -1) : raw).toLowerCase();
     if (Object.prototype.hasOwnProperty.call(values, plain)) {
       var v = values[plain];
       updates.push([key, v === '' ? null : (quoted ? '"' + v + '"' : v)]);
