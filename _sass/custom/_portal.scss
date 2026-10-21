@@ -417,7 +417,7 @@ body.portal .portal-main { display: block; }
 .portal .pcard__meta .muted { color: var(--p-muted); font-weight: 400; }
 .portal .pcard__label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--p-muted); margin: 0 0 .4rem; }
 .portal .pcard__block { display: flex; flex-direction: column; gap: .4rem; }
-.portal .pcard__foot { margin-top: auto; padding-top: .5rem; }
+.portal .pcard__foot { margin-top: auto; padding-top: .5rem; display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; }
 
 .portal .progress { height: 6px; border-radius: 999px; background: var(--p-line); overflow: hidden; }
 .portal .progress span { display: block; height: 100%; background: var(--p-blue); border-radius: 999px; }
@@ -655,3 +655,48 @@ body.portal .portal-main { display: block; }
   border-radius: 5px;
   padding: .1rem .45rem;
 }
+
+// --- Comentarios sobre las Guías (comentarios.md, Microsoft Form incrustado) ---
+.portal .fb-layout { display: grid; gap: 2.5rem; grid-template-columns: minmax(0, 1fr) 20rem; align-items: start; }
+@media (max-width: 900px) { .portal .fb-layout { grid-template-columns: 1fr; } }
+.portal .fb-embed { min-width: 0; }
+.portal .fb-embed iframe {
+  display: block; width: 100%; height: 1500px; border: 1px solid var(--p-line);
+  border-radius: var(--p-radius); background: #fff;
+}
+.portal .fb-note { margin: .9rem 0 0; font-size: .88rem; color: var(--p-muted); }
+.portal .fb-aside {
+  position: sticky; top: 6rem;
+  padding: 1.5rem; border: 1px solid var(--p-line); border-radius: var(--p-radius); background: var(--p-tint);
+  font-size: .9rem;
+}
+@media (max-width: 900px) { .portal .fb-aside { position: static; } }
+.portal .fb-aside h2 { font-size: 1.05rem; margin-bottom: .75rem; }
+.portal .fb-aside ol { margin: 0 0 1rem; padding-left: 1.2rem; display: grid; gap: .6rem; }
+.portal .fb-aside .fb-note { margin: 0; }
+
+.portal .fb-band { background: linear-gradient(135deg, var(--p-blue-tint), #e6f4f6); border-block: 1px solid var(--p-line-soft); }
+.portal .fb-band__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 3rem; }
+.portal .fb-band__inner > div { max-width: 44rem; }
+.portal .fb-band h2 { font-size: var(--p-h2); margin-bottom: .6rem; }
+.portal .fb-band p:not(.kicker) { margin: 0; color: var(--p-body); }
+
+// Botón flotante "Comentar una guía" (portal y documentación técnica)
+.fb-fab {
+  position: fixed; right: clamp(1rem, 2.5vw, 1.75rem); bottom: clamp(1rem, 2.5vw, 1.75rem); z-index: 60;
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .75rem 1.1rem; border-radius: 999px;
+  background: #007c8e; color: #fff !important; text-decoration: none !important;
+  font: 600 .9rem/1 var(--mn-font-sans, "Inter", system-ui, sans-serif);
+  box-shadow: 0 6px 20px rgba(0, 80, 95, .28), 0 1px 3px rgba(0, 0, 0, .12);
+  transition: background-color .15s ease, transform .15s ease;
+}
+.fb-fab:hover { background: #00687a; transform: translateY(-2px); }
+.fb-fab:focus-visible { outline: 3px solid #0b4ea2; outline-offset: 3px; }
+.fb-fab svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; flex: none; }
+@media (max-width: 560px) {
+  .fb-fab { padding: .85rem; }
+  .fb-fab span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+@media print { .fb-fab { display: none; } }
+@media (prefers-reduced-motion: reduce) { .fb-fab { transition: none; } }

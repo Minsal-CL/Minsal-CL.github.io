@@ -271,6 +271,34 @@ completa, pero varios campos **no se inventaron**:
 
 ---
 
+## 6.3 Retroalimentación de la red sobre las Guías
+
+Canal para que la red reporte qué funciona y qué no de cada Guía de
+Implementación. **Sin servicios nuevos ni backend:** `/comentarios.html`
+incrusta un **Microsoft Form** (MINSAL ya usa Forms para el acceso a Servicios
+Terminológicos). La persona no sale del portal ni necesita cuenta; las
+respuestas quedan en Forms/Excel con número correlativo para el seguimiento.
+Funciona igual en GitHub Pages, en otro servidor o en local.
+
+```
+comentarios.md              página: Form incrustado + prellenado de guía/versión/página
+_data/feedback.yml          guías (id = carpeta fhir/ig/<id>; label = opción exacta del Form)
+_config.yml → feedback:     form_url, prefill_url, prefill_sample
+FORMULARIO-COMENTARIOS.md   cómo crear el Form, conectarlo y hacer seguimiento (no se publica)
+```
+
+- **Prellenado:** `?guia=snre&version=0.9.6&seccion=<url>`, o automático si se
+  llega desde una página `/fhir/ig/<guía>/<versión>/…` (referrer). Las tarjetas
+  de proyecto ya enlazan con guía y versión.
+- **Puntos de entrada:** tarjetas de Proyectos, Recursos (banda + enlace), pie
+  del portal, índice `/fhir/ig/`.
+- **Para activarlo:** crear el Form y pegar sus URLs en `_config.yml`
+  (`FORMULARIO-COMENTARIOS.md`). Sin `form_url` la página muestra un aviso.
+- **Pendiente (otro repo):** agregar en el pie/menú de cada IG un enlace a
+  `/comentarios.html`; con el referrer la guía y versión se preseleccionan.
+
+---
+
 ## 7. Cambios que **NO** se hicieron: requieren decisión
 
 Estos puntos afectan contenido o estructura institucional. Se documentan;

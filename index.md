@@ -104,6 +104,17 @@ description: >-
 
 
 
+<section class="band fb-band">
+  <div class="wrap fb-band__inner">
+    <div>
+      <p class="kicker">Tu experiencia cuenta</p>
+      <h2>¿Implementaste una Guía? Cuéntanos qué funciona y qué no</h2>
+      <p>Errores, ambigüedades, sugerencias o lo que funcionó bien: cada comentario lo revisa el equipo responsable de la guía.</p>
+    </div>
+    <a class="btn btn--primary" href="{{ '/comentarios.html' | relative_url }}">Comentar una guía</a>
+  </div>
+</section>
+
 <section class="band">
   <div class="wrap">
     <header class="sec-head">
