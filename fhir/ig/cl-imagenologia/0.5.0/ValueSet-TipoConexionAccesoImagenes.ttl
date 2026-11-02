@@ -1,0 +1,71 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ValueSet/TipoConexionAccesoImagenes> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "TipoConexionAccesoImagenes"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores TipoConexionAccesoImagenes</b></p><a name=\"TipoConexionAccesoImagenes\"> </a><a name=\"hcTipoConexionAccesoImagenes\"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Include these codes as defined in <a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-endpoint-connection-type.html\"><code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code></a><span title=\"Version is not explicitly stated, which means it is fixed to 2.1.1, the version found through the package references\"> versión ?2.1.1</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-endpoint-connection-type.html#endpoint-connection-type-ihe-iid\">ihe-iid</a></td><td>IHE IID</td><td>IHE Invoke Image Display (IID) - http://wiki.ihe.net/index.php/Invoke_Image_Display</td></tr><tr><td><a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-endpoint-connection-type.html#endpoint-connection-type-dicom-wado-rs\">dicom-wado-rs</a></td><td>DICOM WADO-RS</td><td>DICOMweb RESTful Image Retrieve - http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.5.html</td></tr><tr><td><a href=\"http://terminology.hl7.org/7.5.0/CodeSystem-endpoint-connection-type.html#endpoint-connection-type-dicom-qido-rs\">dicom-qido-rs</a></td><td>DICOM QIDO-RS</td><td>DICOMweb RESTful Image query - http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_6.7.html</td></tr></table></li><li>Include all codes defined in <a href=\"CodeSystem-MecanismoAccesoImagenes.html\"><code>https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/MecanismoAccesoImagenes</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> versión ?0.5.0</span></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ValueSet/TipoConexionAccesoImagenes"] ;
+  fhir:ValueSet.version [ fhir:value "0.5.0"] ;
+  fhir:ValueSet.name [ fhir:value "TipoConexionAccesoImagenes"] ;
+  fhir:ValueSet.title [ fhir:value "Tipo de conexión para acceso a imágenes"] ;
+  fhir:ValueSet.status [ fhir:value "draft"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-11-02T11:03:04-03:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Tipos de conexión admitidos en EndpointAccesoImagenesMinsal: IHE IID y los dos mecanismos locales para el acceso de pacientes, más los servicios DICOMweb de consulta y recuperación, que pueden registrarse para usos profesionales pero no constituyen acceso del paciente."] ;
+  fhir:ValueSet.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://terminology.hl7.org/CodeSystem/endpoint-connection-type" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "ihe-iid" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "IHE IID" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "dicom-wado-rs" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DICOM WADO-RS" ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "dicom-qido-rs" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DICOM QIDO-RS" ]
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/MecanismoAccesoImagenes" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ValueSet/TipoConexionAccesoImagenes.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

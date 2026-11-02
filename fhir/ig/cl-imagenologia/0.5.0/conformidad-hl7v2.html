@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Perfil de conformidad HL7 v2 - Guía de Implementación FHIR - Imagenología v0.5.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Imagenología</span>
+            <br/>
+            <span style="display:inline-block;">0.5.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Acceso a imágenes
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="acceso-imagenes.html">Caso de uso y modelo</a>
+      </li>
+      <li>
+        <a href="acceso-imagenes-proveedores.html">Integración de proveedores</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Mensajería HL7 v2
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="mapeo-v2-fhir.html">Mapeo a FHIR</a>
+      </li>
+      <li>
+        <a href="conformidad-hl7v2.html">Perfil de conformidad</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="decisiones-de-diseno.html">Decisiones de diseño</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Perfil de conformidad HL7 v2</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Imagenología - Local Development build (v0.5.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Perfil de conformidad HL7 v2</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#perfil-de-conformidad-hl7-v2" id="markdown-toc-perfil-de-conformidad-hl7-v2">Perfil de conformidad HL7 v2</a>    <ul>
+      <li><a href="#base-normativa" id="markdown-toc-base-normativa">Base normativa</a></li>
+      <li><a href="#mensajes-admitidos" id="markdown-toc-mensajes-admitidos">Mensajes admitidos</a></li>
+      <li><a href="#uso-de-los-campos" id="markdown-toc-uso-de-los-campos">Uso de los campos</a>        <ul>
+          <li><a href="#solicitud-ormo01--omgo19" id="markdown-toc-solicitud-ormo01--omgo19">Solicitud (<code class="language-plaintext highlighter-rouge">ORM^O01</code> / <code class="language-plaintext highlighter-rouge">OMG^O19</code>)</a></li>
+          <li><a href="#informe-orur01" id="markdown-toc-informe-orur01">Informe (<code class="language-plaintext highlighter-rouge">ORU^R01</code>)</a></li>
+        </ul>
+      </li>
+      <li><a href="#perfil-de-emisor" id="markdown-toc-perfil-de-emisor">Perfil de emisor</a></li>
+      <li><a href="#acuse" id="markdown-toc-acuse">Acuse</a></li>
+      <li><a href="#set-de-certificación" id="markdown-toc-set-de-certificación">Set de certificación</a>        <ul>
+          <li><a href="#informe" id="markdown-toc-informe">Informe</a></li>
+          <li><a href="#solicitud" id="markdown-toc-solicitud">Solicitud</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="perfil-de-conformidad-hl7-v2">Perfil de conformidad HL7 v2</h1>
+
+<p>Esta página es el <strong>anexo normativo</strong> de mensajería HL7 v2 de la guía (decisión D-002, adoptada el 2026-10-19). Fija lo que un establecimiento debe cumplir para tributar al Bus de Interoperabilidad por HL7 v2, y se verifica en la certificación antes de habilitar producción. El principio es que <strong>el MINSAL norma la entrada al Bus, no la interfaz de un producto</strong>: lo que un emisor transporte de otra forma se declara en su perfil de emisor y se aprueba en su acuerdo de integración.</p>
+
+<p>El detalle campo a campo de la transformación a FHIR está en <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>.</p>
+
+<h2 id="base-normativa">Base normativa</h2>
+
+<ul>
+  <li>Semántica de campos y estructura de tipos de datos: <strong>HL7 v2.5.1</strong>. Un emisor con otra versión declara en su perfil de emisor qué campos usa; la versión de <code class="language-plaintext highlighter-rouge">MSH-12</code> no se usa para inferir nada.</li>
+  <li>Codificación de caracteres: <code class="language-plaintext highlighter-rouge">MSH-18 = UNICODE UTF-8</code>.</li>
+  <li>Transporte: MLLP, con <code class="language-plaintext highlighter-rouge">\r</code> como separador de segmentos.</li>
+  <li>Fechas y horas: con offset horario; las fracciones de segundo, si vienen, tras un punto decimal.</li>
+</ul>
+
+<h2 id="mensajes-admitidos">Mensajes admitidos</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Proceso</th>
+      <th>Mensajes</th>
+      <th>Recurso que produce</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solicitud de examen</td>
+      <td><code class="language-plaintext highlighter-rouge">ORM^O01</code> y <code class="language-plaintext highlighter-rouge">OMG^O19</code>, equivalentes para todos los efectos de esta guía</td>
+      <td><code class="language-plaintext highlighter-rouge">MinsalServiceRequestImagen</code></td>
+    </tr>
+    <tr>
+      <td>Informe radiológico</td>
+      <td><code class="language-plaintext highlighter-rouge">ORU^R01</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InformeRadiologicoMinsal</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="uso-de-los-campos">Uso de los campos</h2>
+
+<p><strong>R</strong> requerido · <strong>RE</strong> requerido si el emisor dispone del dato · <strong>C</strong> condicional · <strong>X</strong> no debe enviarse. Un campo <strong>R</strong> que falta hace fallar la certificación. En producción, un informe al que le falta un campo <strong>R</strong> no se rechaza: queda en conciliación, porque el emisor no reintenta (D-007, D-026).</p>
+
+<h3 id="solicitud-ormo01--omgo19">Solicitud (<code class="language-plaintext highlighter-rouge">ORM^O01</code> / <code class="language-plaintext highlighter-rouge">OMG^O19</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Uso</th>
+      <th>Contenido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-4</code></td>
+      <td>R</td>
+      <td>Código DEIS del establecimiento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-7</code></td>
+      <td>R</td>
+      <td>Fecha y hora del mensaje, con offset</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-9</code></td>
+      <td>R</td>
+      <td><code class="language-plaintext highlighter-rouge">ORM^O01</code> u <code class="language-plaintext highlighter-rouge">OMG^O19</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10</code></td>
+      <td>R</td>
+      <td>Identificador único del mensaje</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-18</code></td>
+      <td>R</td>
+      <td><code class="language-plaintext highlighter-rouge">UNICODE UTF-8</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-3</code></td>
+      <td>R</td>
+      <td>RUN con dígito verificador válido, una sola vez</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-2</code></td>
+      <td>X</td>
+      <td>Retirado en v2.5; no duplicar el RUN</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-1</code></td>
+      <td>R</td>
+      <td>Control de la orden</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2</code></td>
+      <td>R</td>
+      <td>Número de orden del examen (<code class="language-plaintext highlighter-rouge">PLAC</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-4</code></td>
+      <td>RE</td>
+      <td>Número de solicitud que agrupa los exámenes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7.6</code></td>
+      <td>RE</td>
+      <td>Prioridad, tabla HL7 0485 (en <code class="language-plaintext highlighter-rouge">OMG^O19</code> v2.5 puede venir en <code class="language-plaintext highlighter-rouge">TQ1-9</code>, según el perfil de emisor)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-9</code></td>
+      <td>R</td>
+      <td>Fecha y hora de la solicitud</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-12</code></td>
+      <td>R</td>
+      <td>Profesional solicitante con RUN (D-006)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4</code></td>
+      <td>R</td>
+      <td>Código del examen, con el catálogo en el componente 3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-18</code></td>
+      <td>RE</td>
+      <td>Accession Number, cuando el solicitante lo asigna</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="informe-orur01">Informe (<code class="language-plaintext highlighter-rouge">ORU^R01</code>)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Uso</th>
+      <th>Contenido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-4</code></td>
+      <td>R</td>
+      <td>Código DEIS del establecimiento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-7</code></td>
+      <td>R</td>
+      <td>Fecha y hora del mensaje, con offset</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-9</code></td>
+      <td>R</td>
+      <td><code class="language-plaintext highlighter-rouge">ORU^R01</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-10</code></td>
+      <td>R</td>
+      <td>Identificador único del mensaje. Sin él, el mensaje no se puede trazar y se responde <code class="language-plaintext highlighter-rouge">AE</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MSH-18</code></td>
+      <td>R</td>
+      <td><code class="language-plaintext highlighter-rouge">UNICODE UTF-8</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-3</code></td>
+      <td>R</td>
+      <td>RUN con dígito verificador válido, una sola vez</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PID-2</code></td>
+      <td>X</td>
+      <td>Retirado en v2.5</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-2</code></td>
+      <td>RE</td>
+      <td>Número de orden del solicitante, para enlazar la solicitud</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-3</code> / <code class="language-plaintext highlighter-rouge">OBR-3</code></td>
+      <td>RE</td>
+      <td>Número de orden del ejecutante; clave de actualización cuando falta el Accession Number (D-025)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORC-7.4</code> / <code class="language-plaintext highlighter-rouge">ORC-7.5</code></td>
+      <td>C</td>
+      <td>Inicio y término del examen, cuando el perfil de emisor los declara como fuente de la fecha (D-024)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-7</code> / <code class="language-plaintext highlighter-rouge">OBR-8</code></td>
+      <td>C</td>
+      <td>Ídem, cuando el perfil de emisor los declara como fuente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-4</code></td>
+      <td>R</td>
+      <td>Código del examen, con el catálogo en el componente 3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-18</code></td>
+      <td>R</td>
+      <td>Accession Number (D-007)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-22</code></td>
+      <td>R</td>
+      <td>Fecha y hora de firma del informe (D-011)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-25</code></td>
+      <td>RE</td>
+      <td>Estado, consistente con <code class="language-plaintext highlighter-rouge">OBX-11</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBR-32</code></td>
+      <td>R</td>
+      <td>Radiólogo informante: RUN, apellido y nombre en el componente 1, separados por <code class="language-plaintext highlighter-rouge">&amp;</code> (D-011)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-2</code></td>
+      <td>R</td>
+      <td><code class="language-plaintext highlighter-rouge">ED</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-5</code></td>
+      <td>R</td>
+      <td>PDF en el componente 5, con <code class="language-plaintext highlighter-rouge">Base64</code> en el componente 4</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-11</code></td>
+      <td>R</td>
+      <td>Estado del informe: <code class="language-plaintext highlighter-rouge">P</code>, <code class="language-plaintext highlighter-rouge">F</code>, <code class="language-plaintext highlighter-rouge">C</code>, <code class="language-plaintext highlighter-rouge">A</code> o <code class="language-plaintext highlighter-rouge">D</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBX-14</code></td>
+      <td>RE</td>
+      <td>Fecha y hora de creación del informe</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>La fecha del examen debe venir en la fuente que declare el perfil de emisor: si no viene, el informe va a conciliación y el Bus nunca la reemplaza por la hora del mensaje ni la de proceso (D-024). <code class="language-plaintext highlighter-rouge">PV1-44</code> (admisión del episodio) sólo se admite de forma transitoria, con acuerdo escrito, en episodios ambulatorios de una sola atención.</p>
+
+<p>La estructura de los tipos compuestos (<code class="language-plaintext highlighter-rouge">MSH-4</code>, fechas, <code class="language-plaintext highlighter-rouge">PID-3</code>, <code class="language-plaintext highlighter-rouge">OBR-4</code>, <code class="language-plaintext highlighter-rouge">OBR-32</code>, <code class="language-plaintext highlighter-rouge">OBX-5</code>) y los errores observados están en <a href="mapeo-v2-fhir.html">Mapeo HL7 v2 a FHIR</a>, <em>Estructura de los tipos de datos compuestos</em>.</p>
+
+<h2 id="perfil-de-emisor">Perfil de emisor</h2>
+
+<p>Cada establecimiento declara en su acuerdo de integración, y se verifica en la certificación:</p>
+
+<ul>
+  <li>tipo de mensaje y versión del estándar que emite;</li>
+  <li>catálogo de códigos de examen (<code class="language-plaintext highlighter-rouge">OBR-4.3</code>) y su <code class="language-plaintext highlighter-rouge">system</code> (ver <a href="arquitectura.html">Arquitectura</a>, <em>Sistemas de identificadores por establecimiento</em>);</li>
+  <li>fuente de la fecha de realización del examen (D-024);</li>
+  <li>dónde transporta el Accession Number y el número de orden del ejecutante;</li>
+  <li>toda desviación de la tabla de uso de campos, con su plazo de corrección.</li>
+</ul>
+
+<p>Lo que no está declarado no se infiere del mensaje.</p>
+
+<h2 id="acuse">Acuse</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Situación</th>
+      <th><code class="language-plaintext highlighter-rouge">ACK</code></th>
+      <th>Qué pasa después</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>El mensaje se puede leer y trazar</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code>, en cuanto queda guardado</td>
+      <td>El Bus procesa; lo que falla va a conciliación auditada</td>
+    </tr>
+    <tr>
+      <td>El mensaje no se puede leer, no es un tipo admitido o no trae <code class="language-plaintext highlighter-rouge">MSH-10</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AE</code> / <code class="language-plaintext highlighter-rouge">AR</code></td>
+      <td>No se guarda; el emisor debe corregir y reenviar</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Detalle en <a href="arquitectura.html">Arquitectura</a>, <em>Transporte y acuse de recibo</em> (D-026).</p>
+
+<h2 id="set-de-certificación">Set de certificación</h2>
+
+<p>Los mensajes están en la carpeta <code class="language-plaintext highlighter-rouge">certificacion/</code> del repositorio de la guía, junto con el script que los genera y la tabla <code class="language-plaintext highlighter-rouge">casos.csv</code>. Son sintéticos: pacientes, profesionales y PDF son ficticios, y los pacientes <code class="language-plaintext highlighter-rouge">12345678-5</code> y <code class="language-plaintext highlighter-rouge">15432876-9</code> deben existir en el MPI del ambiente de certificación. El establecimiento usa los mismos casos con su propia mensajería; el set del Bus verifica que el resultado sea el esperado.</p>
+
+<h3 id="informe">Informe</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Caso</th>
+      <th>Qué prueba</th>
+      <th><code class="language-plaintext highlighter-rouge">ACK</code> esperado</th>
+      <th>Resultado esperado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-01</code></td>
+      <td>Informe final de TC, completo</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Publicado en final</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-02</code></td>
+      <td>Informe final de RM de otro paciente</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Publicado en final</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-03</code></td>
+      <td>Ciclo 1: preliminar</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Publicado en preliminary (versión 1)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-04</code></td>
+      <td>Ciclo 2: final del mismo Accession Number</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Mismo recurso en final (versión 2)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-05</code></td>
+      <td>Ciclo 3: corrección</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Mismo recurso en corrected (versión 3); el PDF reemplaza al anterior</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-06</code></td>
+      <td>Ciclo 4: addendum</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Mismo recurso en amended (versión 4); dos PDF en presentedForm</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-07</code></td>
+      <td>Preliminar que llega después del final</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>No se aplica: un informe firmado no vuelve a preliminar</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-08</code></td>
+      <td>Sin Accession Number, con número de orden del ejecutante</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Publicado; clave de actualización = número de orden del ejecutante</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-09</code></td>
+      <td>Sin Accession Number ni número de orden</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Conciliación: sin clave de actualización</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-10</code></td>
+      <td>RUN con dígito verificador inválido</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Conciliación, gestión manual; no da origen a alta</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-11</code></td>
+      <td>RUN válido ausente del MPI</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Conciliación; alta centralizada en MINSAL y reproceso</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-12</code></td>
+      <td>Sin fecha de realización del examen</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Conciliación; nunca la hora del mensaje</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-13</code></td>
+      <td>Radiólogo con identificador interno del RIS</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Conciliación: radiólogo sin RUN</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-14</code></td>
+      <td>PDF sin estructura ED (Base64 en el componente 1)</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Conciliación: OBX-5 no procesable</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-15</code></td>
+      <td>Código sin homologación a FONASA</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Conciliación: sin prestación FONASA</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-16</code></td>
+      <td>Eliminación sin informe previo</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Conciliación</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INF-17</code></td>
+      <td>Mensaje sin MSH-10</td>
+      <td><code class="language-plaintext highlighter-rouge">AE</code></td>
+      <td>No se guarda: el mensaje no se puede trazar</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="solicitud">Solicitud</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Caso</th>
+      <th>Qué prueba</th>
+      <th><code class="language-plaintext highlighter-rouge">ACK</code> esperado</th>
+      <th>Resultado esperado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SOL-01</code></td>
+      <td>ORM^O01 completo</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Publicado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SOL-02</code></td>
+      <td>OMG^O19 equivalente</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Publicado con el mismo resultado que SOL-01</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SOL-03</code></td>
+      <td>Reenvío de SOL-01</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Mismo ServiceRequest, sin duplicar</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SOL-04</code></td>
+      <td>Sin solicitante en ORC-12</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>No se publica (R2); el flujo HIS → RIS sigue</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SOL-05</code></td>
+      <td>Sin MSH-18</td>
+      <td><code class="language-plaintext highlighter-rouge">AA</code></td>
+      <td>Publicado con el charset del acuerdo y advertencia; no aprueba la certificación (D-002)</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.imagenologia#0.5.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Nov 2, 2026 11:03-0300">2026-11-02</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html">Historial de versiones</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

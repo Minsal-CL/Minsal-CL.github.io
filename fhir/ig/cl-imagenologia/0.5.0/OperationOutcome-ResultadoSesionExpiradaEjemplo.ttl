@@ -1,0 +1,30 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/OperationOutcome/ResultadoSesionExpiradaEjemplo> a fhir:OperationOutcome ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ResultadoSesionExpiradaEjemplo"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ResultadoOperación ResultadoSesionExpiradaEjemplo</b></p><a name=\"ResultadoSesionExpiradaEjemplo\"> </a><a name=\"hcResultadoSesionExpiradaEjemplo\"> </a><h3>Issues</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Severity</b></td><td><b>Code</b></td><td><b>Details</b></td></tr><tr><td style=\"display: none\">*</td><td>Error</td><td>Session Expired</td><td><span title=\"Codes:\">La sesión expiró. Inicie sesión nuevamente para ver las imágenes.</span></td></tr></table></div>"
+  ] ;
+  fhir:OperationOutcome.issue [
+     fhir:index 0 ;
+     fhir:OperationOutcome.issue.severity [ fhir:value "error" ] ;
+     fhir:OperationOutcome.issue.code [ fhir:value "expired" ] ;
+     fhir:OperationOutcome.issue.details [
+       fhir:CodeableConcept.text [ fhir:value "La sesión expiró. Inicie sesión nuevamente para ver las imágenes." ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/OperationOutcome/ResultadoSesionExpiradaEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

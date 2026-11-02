@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Integración de proveedores de imágenes - Guía de Implementación FHIR - Imagenología v0.5.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Imagenología</span>
+            <br/>
+            <span style="display:inline-block;">0.5.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Acceso a imágenes
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="acceso-imagenes.html">Caso de uso y modelo</a>
+      </li>
+      <li>
+        <a href="acceso-imagenes-proveedores.html">Integración de proveedores</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Mensajería HL7 v2
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="mapeo-v2-fhir.html">Mapeo a FHIR</a>
+      </li>
+      <li>
+        <a href="conformidad-hl7v2.html">Perfil de conformidad</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="decisiones-de-diseno.html">Decisiones de diseño</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Integración de proveedores de imágenes</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Imagenología - Local Development build (v0.5.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Integración de proveedores de imágenes</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#integración-de-proveedores-de-imágenes" id="markdown-toc-integración-de-proveedores-de-imágenes">Integración de proveedores de imágenes</a>    <ul>
+      <li><a href="#modalidades-de-integración" id="markdown-toc-modalidades-de-integración">Modalidades de integración</a>        <ul>
+          <li><a href="#modalidad-a--ihe-invoke-image-display-iid" id="markdown-toc-modalidad-a--ihe-invoke-image-display-iid">Modalidad A · IHE Invoke Image Display (IID)</a></li>
+          <li><a href="#modalidad-b--api-del-proveedor" id="markdown-toc-modalidad-b--api-del-proveedor">Modalidad B · API del proveedor</a></li>
+          <li><a href="#modalidad-c--portal-web-del-proveedor" id="markdown-toc-modalidad-c--portal-web-del-proveedor">Modalidad C · Portal web del proveedor</a></li>
+        </ul>
+      </li>
+      <li><a href="#reglas-comunes-a-todas-las-modalidades" id="markdown-toc-reglas-comunes-a-todas-las-modalidades">Reglas comunes a todas las modalidades</a></li>
+      <li><a href="#contrato-de-interoperabilidad" id="markdown-toc-contrato-de-interoperabilidad">Contrato de interoperabilidad</a>        <ul>
+          <li><a href="#información-que-entrega-el-proveedor" id="markdown-toc-información-que-entrega-el-proveedor">Información que entrega el proveedor</a></li>
+          <li><a href="#datos-persistentes-y-datos-transitorios" id="markdown-toc-datos-persistentes-y-datos-transitorios">Datos persistentes y datos transitorios</a></li>
+          <li><a href="#actualización-de-disponibilidad" id="markdown-toc-actualización-de-disponibilidad">Actualización de disponibilidad</a></li>
+          <li><a href="#registro-del-mecanismo-de-acceso" id="markdown-toc-registro-del-mecanismo-de-acceso">Registro del mecanismo de acceso</a></li>
+          <li><a href="#errores" id="markdown-toc-errores">Errores</a></li>
+        </ul>
+      </li>
+      <li><a href="#seguridad-y-privacidad" id="markdown-toc-seguridad-y-privacidad">Seguridad y privacidad</a>        <ul>
+          <li><a href="#responsabilidades" id="markdown-toc-responsabilidades">Responsabilidades</a></li>
+          <li><a href="#requisitos" id="markdown-toc-requisitos">Requisitos</a></li>
+          <li><a href="#asercion-de-acceso" id="markdown-toc-asercion-de-acceso">Aserción de acceso del servicio nacional</a></li>
+        </ul>
+      </li>
+      <li><a href="#niveles-de-conformidad" id="markdown-toc-niveles-de-conformidad">Niveles de conformidad</a>        <ul>
+          <li><a href="#criterios-verificables" id="markdown-toc-criterios-verificables">Criterios verificables</a></li>
+          <li><a href="#matriz-de-conformidad" id="markdown-toc-matriz-de-conformidad">Matriz de conformidad</a></li>
+        </ul>
+      </li>
+      <li><a href="#escenarios-de-prueba" id="markdown-toc-escenarios-de-prueba">Escenarios de prueba</a></li>
+      <li><a href="#referencias-normativas" id="markdown-toc-referencias-normativas">Referencias normativas</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="integración-de-proveedores-de-imágenes">Integración de proveedores de imágenes</h1>
+
+<p>Esta página define el contrato común que un proveedor RIS/PACS cumple para que sus pacientes vean, desde el Portal Ciudadano, las imágenes de sus estudios, con o sin informe. Para el caso de uso, los escenarios y el modelo FHIR, ver <a href="acceso-imagenes.html">Acceso a imágenes sin informe</a>.</p>
+
+<blockquote>
+  <p><strong>Estado.</strong> Incorporado en la versión 0.4.0 (D-020 y D-022, aprobadas por MINSAL). La guía fija los requisitos mínimos de la aserción de acceso; el servicio nacional de autorización publica su especificación técnica detallada. Esta guía no atribuye a ningún proveedor capacidades que no haya declarado y demostrado en la certificación.</p>
+</blockquote>
+
+<h2 id="modalidades-de-integración">Modalidades de integración</h2>
+
+<p>Cada proveedor implementa <strong>al menos una</strong> de tres modalidades y la declara registrando un <a href="StructureDefinition-EndpointAccesoImagenesMinsal.html">EndpointAccesoImagenesMinsal</a>. El <code class="language-plaintext highlighter-rouge">connectionType</code> del <code class="language-plaintext highlighter-rouge">Endpoint</code> identifica la modalidad, y el portal no necesita saber nada más de la tecnología del proveedor.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modalidad</th>
+      <th><code class="language-plaintext highlighter-rouge">Endpoint.connectionType</code></th>
+      <th>Experiencia del paciente</th>
+      <th>Nivel de conformidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>A</strong> · IHE Invoke Image Display (IID)</td>
+      <td><code class="language-plaintext highlighter-rouge">endpoint-connection-type#ihe-iid</code></td>
+      <td>El portal abre el visor del proveedor directamente en el estudio</td>
+      <td>Integrada</td>
+    </tr>
+    <tr>
+      <td><strong>B</strong> · API del proveedor</td>
+      <td><code class="language-plaintext highlighter-rouge">MecanismoAccesoImagenes#api-proveedor</code></td>
+      <td>El portal abre el visor del proveedor directamente en el estudio</td>
+      <td>Integrada</td>
+    </tr>
+    <tr>
+      <td><strong>C</strong> · Portal web del proveedor</td>
+      <td><code class="language-plaintext highlighter-rouge">MecanismoAccesoImagenes#portal-proveedor</code></td>
+      <td>El paciente va al portal del proveedor, se autentica y busca su estudio</td>
+      <td>Básica</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="modalidad-a--ihe-invoke-image-display-iid">Modalidad A · IHE Invoke Image Display (IID)</h3>
+
+<p>IHE IID define la transacción RAD-106 <em>Invoke Image Display</em>: una <strong>petición HTTP GET</strong> con la que un sistema invoca la presentación de imágenes en un visor, indicando en la URL el contexto (un paciente o una lista de estudios) y algunos parámetros de presentación. <strong>La fuente normativa de la sintaxis (ruta, nombres de parámetros, formato de los valores) es la transacción RAD-106 del IHE Radiology Technical Framework vigente</strong>; esta guía no la reproduce ni le agrega parámetros.</p>
+
+<p>Esta guía sólo agrega restricciones sobre el uso de IID:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Restricción</th>
+      <th>Motivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>La petición es siempre por estudio, nunca por paciente</td>
+      <td>Una petición por paciente obligaría a poner el identificador del paciente en la URL</td>
+    </tr>
+    <tr>
+      <td>El estudio se indica con su Study Instance UID, tomado de <code class="language-plaintext highlighter-rouge">ImagingStudy.identifier</code> (<code class="language-plaintext highlighter-rouge">urn:dicom:uid</code>, sin el prefijo <code class="language-plaintext highlighter-rouge">urn:oid:</code>); el Accession Number se usa sólo si el estudio no tiene UID</td>
+      <td>El UID es único a nivel global. El parámetro de Accession Number de IID no lleva el dominio que lo asigna, así que sólo es inequívoco dentro del visor de un único RIS</td>
+    </tr>
+    <tr>
+      <td>La invocación no lleva identificadores del paciente ni credenciales</td>
+      <td>Requisitos S-04 y S-05</td>
+    </tr>
+    <tr>
+      <td>Los parámetros opcionales de presentación se usan sólo si el proveedor declara soportarlos</td>
+      <td>Esta guía no atribuye capacidades no declaradas</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.address</code> es la URL de invocación IID completa sin parámetros (habitualmente terminada en <code class="language-plaintext highlighter-rouge">/IHEInvokeImageDisplay</code>)</td>
+      <td>Invariante <code class="language-plaintext highlighter-rouge">endpoint-acceso-https-sin-parametros</code></td>
+    </tr>
+    <tr>
+      <td>El visor ofrece visualización interactiva: navegar entre series e imágenes, y ajustar ventana, zoom y desplazamiento</td>
+      <td>Es una exigencia del actor <em>Image Display</em> de IID</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El cumplimiento de RAD-106 se verifica en la certificación, invocando el visor real del proveedor (prueba PT-06 y criterio CI-07). Ejemplo ilustrativo de invocación por estudio, sin credenciales:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET https://visor.example.org/IHEInvokeImageDisplay?requestType=STUDY&amp;studyUID=1.2.840.113619.2.55.3.604688119.868.1600000000.2
+</code></pre></div></div>
+
+<p><strong>Lo que IID no hace.</strong> IID <strong>no autentica al paciente, no autoriza el acceso y no define una federación de identidad</strong>: deja la autenticación, el control de acceso y la auditoría a los mecanismos con que se despliegue. IID contempla expresamente la invocación desde sistemas orientados al paciente (una PHR o un portal de pacientes), pero es <em>"capable of leveraging, but not dependent on, any particular choice of authentication, access control or audit trail protocols"</em>. Su uso en un portal de pacientes requiere, por lo tanto, agregarle un mecanismo de autorización a nivel de estudio. Por eso, en esta guía la modalidad A <strong>siempre</strong> va acompañada de uno de los dos mecanismos complementarios que admite la decisión D-022:</p>
+
+<ul>
+  <li>el visor del proveedor confía en el mismo proveedor de identidad OpenID Connect que el portal, y comprueba con el servicio nacional que la persona autenticada está autorizada para ese estudio; o</li>
+  <li>el servicio nacional entrega al visor, por un canal que no sea la URL, una aserción firmada de corta duración y con alcance al estudio.</li>
+</ul>
+
+<p>En la modalidad A, conocer el <code class="language-plaintext highlighter-rouge">studyUID</code> <strong>nunca</strong> debe bastar para ver las imágenes.</p>
+
+<h3 id="modalidad-b--api-del-proveedor">Modalidad B · API del proveedor</h3>
+
+<p>El proveedor publica una API documentada que el servicio nacional de autorización invoca <strong>servidor a servidor</strong> para abrir un estudio en su visor existente. Esta guía no fija la forma de la API: fija las propiedades que debe cumplir.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propiedad</th>
+      <th>Requisito</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Autenticación del cliente</td>
+      <td>El servicio nacional se autentica ante la API con TLS mutuo o con OAuth 2.0 <em>client credentials</em> con aserción de cliente firmada (<code class="language-plaintext highlighter-rouge">private_key_jwt</code>); nunca con claves estáticas en el navegador</td>
+    </tr>
+    <tr>
+      <td>Identificación del estudio</td>
+      <td>Study Instance UID o Accession Number con su dominio, tal como están en <code class="language-plaintext highlighter-rouge">ImagingStudy.identifier</code></td>
+    </tr>
+    <tr>
+      <td>Autorización</td>
+      <td>La solicitud lleva la aserción del servicio nacional sobre el paciente autorizado y el estudio; el proveedor verifica que el estudio pertenece a ese paciente en su propio registro</td>
+    </tr>
+    <tr>
+      <td>Resultado</td>
+      <td>Una apertura del visor <strong>de un solo uso</strong>, con vida corta (recomendado: 60 segundos o menos), válida sólo para ese estudio</td>
+    </tr>
+    <tr>
+      <td>Entrega al navegador</td>
+      <td>De preferencia por formulario <code class="language-plaintext highlighter-rouge">POST</code> autoenviado; si viaja en la URL, es un código opaco de un solo uso que el visor canjea de inmediato por una sesión y luego redirige a una URL limpia</td>
+    </tr>
+    <tr>
+      <td>Sesión del visor</td>
+      <td>Duración limitada (recomendado: 15 minutos de inactividad, 60 minutos en total), cookie <code class="language-plaintext highlighter-rouge">Secure</code>, <code class="language-plaintext highlighter-rouge">HttpOnly</code>, <code class="language-plaintext highlighter-rouge">SameSite</code>; revocable</td>
+    </tr>
+    <tr>
+      <td>Errores</td>
+      <td>Distingue al menos: estudio inexistente o no autorizado (respuesta indistinguible), estudio temporalmente no disponible, credenciales de cliente inválidas</td>
+    </tr>
+    <tr>
+      <td>Auditoría</td>
+      <td>Registra cada apertura con el identificador de correlación que envía el servicio nacional</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Una integración equivalente basada en el lanzamiento de aplicaciones SMART on FHIR se admite en esta modalidad si cumple las mismas propiedades.</p>
+
+<h3 id="modalidad-c--portal-web-del-proveedor">Modalidad C · Portal web del proveedor</h3>
+
+<p>El portal nacional muestra el estudio (metadatos del <code class="language-plaintext highlighter-rouge">ImagingStudy</code>) y un enlace a <code class="language-plaintext highlighter-rouge">Endpoint.address</code>, la dirección de entrada del portal del proveedor. Esa dirección no identifica al paciente ni al estudio. El paciente se autentica en el portal del proveedor y localiza su estudio, para lo cual el portal nacional le muestra la fecha, el examen y el Accession Number.</p>
+
+<p>Se admite como <strong>conformidad básica o transitoria</strong>, con estas limitaciones frente a la experiencia integrada:</p>
+
+<ul>
+  <li>el paciente se autentica dos veces, salvo que el proveedor use el mismo proveedor de identidad;</li>
+  <li>no hay apertura directa del estudio, y el paciente debe buscarlo;</li>
+  <li>el servicio nacional no puede auditar la visualización, sólo la derivación;</li>
+  <li>la experiencia, la accesibilidad y la seguridad dependen de cada proveedor;</li>
+  <li>el portal nacional no puede verificar que el portal del proveedor exponga sólo los estudios del paciente.</li>
+</ul>
+
+<p>Aun así, el proveedor garantiza el acceso seguro y la vinculación inequívoca con el estudio (criterios CB-01 a CB-08).</p>
+
+<h2 id="reglas-comunes-a-todas-las-modalidades">Reglas comunes a todas las modalidades</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Regla</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RC-01</td>
+      <td>El proveedor declara la modalidad que implementa registrando un <code class="language-plaintext highlighter-rouge">EndpointAccesoImagenesMinsal</code> por mecanismo.</td>
+    </tr>
+    <tr>
+      <td>RC-02</td>
+      <td>El acceso se restringe al estudio autorizado: una apertura o sesión para un estudio no da acceso a otros estudios ni a otros pacientes.</td>
+    </tr>
+    <tr>
+      <td>RC-03</td>
+      <td>Las imágenes permanecen en el PACS/VNA de origen y se presentan desde la infraestructura del proveedor.</td>
+    </tr>
+    <tr>
+      <td>RC-04</td>
+      <td>No se exponen credenciales permanentes en el navegador (claves de API, secretos de cliente, contraseñas de servicio).</td>
+    </tr>
+    <tr>
+      <td>RC-05</td>
+      <td>Las sesiones y aperturas tienen duración limitada y pueden revocarse.</td>
+    </tr>
+    <tr>
+      <td>RC-06</td>
+      <td>Todo acceso queda auditado por el servicio nacional y por el proveedor, con un identificador de correlación común.</td>
+    </tr>
+    <tr>
+      <td>RC-07</td>
+      <td>El mecanismo funciona con el informe pendiente: no depende de la existencia de <code class="language-plaintext highlighter-rouge">DiagnosticReport</code>.</td>
+    </tr>
+    <tr>
+      <td>RC-08</td>
+      <td>El portal no necesita conocer la tecnología interna del proveedor: sólo el <code class="language-plaintext highlighter-rouge">Endpoint</code> y los identificadores del estudio.</td>
+    </tr>
+    <tr>
+      <td>RC-09</td>
+      <td>Toda comunicación usa TLS 1.2 o superior.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="contrato-de-interoperabilidad">Contrato de interoperabilidad</h2>
+
+<h3 id="información-que-entrega-el-proveedor">Información que entrega el proveedor</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dato</th>
+      <th>Dónde</th>
+      <th>Obligatoriedad</th>
+      <th>Persistencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Paciente, resuelto mediante MPI</td>
+      <td><code class="language-plaintext highlighter-rouge">entry[paciente]</code> del evento → <code class="language-plaintext highlighter-rouge">ImagingStudy.subject</code></td>
+      <td>Obligatorio</td>
+      <td>Persistente (referencia)</td>
+    </tr>
+    <tr>
+      <td>Identificador inequívoco del estudio (Study Instance UID)</td>
+      <td><code class="language-plaintext highlighter-rouge">ImagingStudy.identifier</code> (<code class="language-plaintext highlighter-rouge">urn:dicom:uid</code>)</td>
+      <td>Obligatorio cuando existe; si no, el Accession Number</td>
+      <td>Persistente</td>
+    </tr>
+    <tr>
+      <td>Accession Number</td>
+      <td><code class="language-plaintext highlighter-rouge">ImagingStudy.identifier</code> (<code class="language-plaintext highlighter-rouge">ACSN</code>)</td>
+      <td>Obligatorio cuando el RIS lo asigna (D-007)</td>
+      <td>Persistente</td>
+    </tr>
+    <tr>
+      <td>Estado del estudio</td>
+      <td><code class="language-plaintext highlighter-rouge">ImagingStudy.status</code></td>
+      <td>Obligatorio</td>
+      <td>Persistente</td>
+    </tr>
+    <tr>
+      <td>Disponibilidad real de las imágenes</td>
+      <td><code class="language-plaintext highlighter-rouge">status = available</code> + <code class="language-plaintext highlighter-rouge">endpoint</code></td>
+      <td>Obligatorio</td>
+      <td>Persistente, actualizado por eventos</td>
+    </tr>
+    <tr>
+      <td>Procedimiento, modalidad, fecha</td>
+      <td><code class="language-plaintext highlighter-rouge">procedureCode</code>, <code class="language-plaintext highlighter-rouge">modality</code>, <code class="language-plaintext highlighter-rouge">started</code></td>
+      <td><em>Must Support</em></td>
+      <td>Persistente</td>
+    </tr>
+    <tr>
+      <td>Referencia al mecanismo de acceso</td>
+      <td><code class="language-plaintext highlighter-rouge">ImagingStudy.endpoint</code> → <code class="language-plaintext highlighter-rouge">EndpointAccesoImagenesMinsal</code></td>
+      <td>Obligatorio para declarar visualizable</td>
+      <td>Persistente</td>
+    </tr>
+    <tr>
+      <td>Modalidad de integración</td>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.connectionType</code></td>
+      <td>Obligatorio</td>
+      <td>Persistente (alta en certificación)</td>
+    </tr>
+    <tr>
+      <td>Contacto para incidentes</td>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.contact</code></td>
+      <td>Obligatorio</td>
+      <td>Persistente</td>
+    </tr>
+    <tr>
+      <td>Requisitos de autorización</td>
+      <td>Documento de integración del proveedor (protocolo soportado, formato de aserción aceptado)</td>
+      <td>Obligatorio</td>
+      <td>Fuera de FHIR</td>
+    </tr>
+    <tr>
+      <td>Procedimiento de actualización de disponibilidad</td>
+      <td>Evento <code class="language-plaintext highlighter-rouge">MinsalBundleEstudioImagenologia</code></td>
+      <td>Obligatorio</td>
+      <td>Fuera de FHIR (acuerdo)</td>
+    </tr>
+    <tr>
+      <td>Tratamiento de errores y auditoría</td>
+      <td>Documento de integración</td>
+      <td>Obligatorio</td>
+      <td>Fuera de FHIR</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="datos-persistentes-y-datos-transitorios">Datos persistentes y datos transitorios</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Persistentes (repositorio FHIR)</th>
+      <th>Transitorios (sólo durante la apertura)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ImagingStudy</code>: identificadores, estado, modalidad, procedimiento, fecha, referencia a <code class="language-plaintext highlighter-rouge">Endpoint</code></td>
+      <td>Aserción de acceso del servicio nacional</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint</code>: tipo de conexión, URL base, estado, contacto, responsable</td>
+      <td>Código de apertura de un solo uso (modalidad B)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DiagnosticReport</code>, cuando existe</td>
+      <td>Cookie de sesión del visor</td>
+    </tr>
+    <tr>
+      <td>Registros de auditoría (fuera del recurso clínico)</td>
+      <td>Parámetros IID de la invocación</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los tokens, códigos de apertura y aserciones <strong>nunca</strong> se almacenan en <code class="language-plaintext highlighter-rouge">ImagingStudy</code>, en <code class="language-plaintext highlighter-rouge">Endpoint</code> ni en URLs publicadas, y no aparecen en ningún ejemplo de esta guía.</p>
+
+<h3 id="actualización-de-disponibilidad">Actualización de disponibilidad</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Situación</th>
+      <th>Acción del proveedor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>El RIS asigna UID y Accession Number antes de adquirir imágenes</td>
+      <td>Puede enviar el evento con <code class="language-plaintext highlighter-rouge">status = registered</code>, sin <code class="language-plaintext highlighter-rouge">endpoint</code> (opcional)</td>
+    </tr>
+    <tr>
+      <td>El PACS/VNA confirma instancias</td>
+      <td>Envía el evento con <code class="language-plaintext highlighter-rouge">status = available</code> y <code class="language-plaintext highlighter-rouge">endpoint</code></td>
+    </tr>
+    <tr>
+      <td>Se agregan series o instancias</td>
+      <td>Envía un nuevo evento (nuevo <code class="language-plaintext highlighter-rouge">Bundle.identifier</code>), con los recuentos actualizados</td>
+    </tr>
+    <tr>
+      <td>Un estudio deja temporalmente de poder consultarse</td>
+      <td>Envía el estudio sin <code class="language-plaintext highlighter-rouge">endpoint</code>; al restablecerse, lo envía con <code class="language-plaintext highlighter-rouge">endpoint</code></td>
+    </tr>
+    <tr>
+      <td>Falla el mecanismo para todos los estudios</td>
+      <td>Avisa a la mesa de ayuda de MINSAL, que cambia <code class="language-plaintext highlighter-rouge">Endpoint.status</code> a <code class="language-plaintext highlighter-rouge">suspended</code> o <code class="language-plaintext highlighter-rouge">error</code>, y de vuelta a <code class="language-plaintext highlighter-rouge">active</code> al restablecerse (ver <a href="#registro-del-mecanismo-de-acceso">Registro del mecanismo de acceso</a>)</td>
+    </tr>
+    <tr>
+      <td>El estudio se retira por error</td>
+      <td>Envía el estudio con <code class="language-plaintext highlighter-rouge">status = entered-in-error</code></td>
+    </tr>
+    <tr>
+      <td>El examen no se realizó</td>
+      <td>Envía <code class="language-plaintext highlighter-rouge">status = cancelled</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-del-mecanismo-de-acceso">Registro del mecanismo de acceso</h3>
+
+<p>Los <code class="language-plaintext highlighter-rouge">EndpointAccesoImagenesMinsal</code> forman un <strong>registro administrado por MINSAL</strong>. Ningún proveedor escribe recursos <code class="language-plaintext highlighter-rouge">Endpoint</code> directamente en el Bus ni en el repositorio FHIR.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operación</th>
+      <th>Quién la solicita</th>
+      <th>Cómo</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alta</td>
+      <td>Proveedor</td>
+      <td>En la certificación, con el documento de integración (modalidad, URL base, contacto, mecanismo de autorización según D-022)</td>
+      <td>MINSAL valida el recurso contra el perfil, verifica la modalidad en las pruebas y lo publica con <code class="language-plaintext highlighter-rouge">status = active</code></td>
+    </tr>
+    <tr>
+      <td>Modificación de <code class="language-plaintext highlighter-rouge">address</code>, <code class="language-plaintext highlighter-rouge">connectionType</code> o <code class="language-plaintext highlighter-rouge">managingOrganization</code></td>
+      <td>Proveedor</td>
+      <td>Procedimiento de cambios de la integración</td>
+      <td>Requiere repetir las pruebas de la modalidad afectada antes de publicar el cambio</td>
+    </tr>
+    <tr>
+      <td>Modificación de <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">contact</code> o <code class="language-plaintext highlighter-rouge">period</code></td>
+      <td>Proveedor</td>
+      <td>Procedimiento de cambios de la integración</td>
+      <td>MINSAL valida y publica, sin nuevas pruebas</td>
+    </tr>
+    <tr>
+      <td>Suspensión o error (<code class="language-plaintext highlighter-rouge">suspended</code> / <code class="language-plaintext highlighter-rouge">error</code>)</td>
+      <td>Proveedor o MINSAL</td>
+      <td>Aviso a la mesa de ayuda de MINSAL</td>
+      <td>MINSAL cambia <code class="language-plaintext highlighter-rouge">Endpoint.status</code> en el tiempo de respuesta definido en el acuerdo de integración</td>
+    </tr>
+    <tr>
+      <td>Restablecimiento (<code class="language-plaintext highlighter-rouge">active</code>)</td>
+      <td>Proveedor</td>
+      <td>Aviso a la mesa de ayuda, una vez verificado el servicio</td>
+      <td>MINSAL vuelve <code class="language-plaintext highlighter-rouge">Endpoint.status</code> a <code class="language-plaintext highlighter-rouge">active</code></td>
+    </tr>
+    <tr>
+      <td>Baja (<code class="language-plaintext highlighter-rouge">off</code>)</td>
+      <td>Proveedor o MINSAL</td>
+      <td>Procedimiento de cambios, o decisión de MINSAL ante un incumplimiento de seguridad</td>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.status = off</code>; el recurso no se borra, para conservar la trazabilidad de los estudios que lo referencian</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>MINSAL puede suspender un mecanismo por su cuenta ante un incidente de seguridad o una indisponibilidad prolongada. Los cambios de <code class="language-plaintext highlighter-rouge">Endpoint</code> quedan auditados como cualquier otra escritura en el repositorio.</p>
+
+<h3 id="errores">Errores</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Situación</th>
+      <th><code class="language-plaintext highlighter-rouge">OperationOutcome.issue.code</code></th>
+      <th>Quién lo emite</th>
+      <th>Ejemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Paciente no resuelto (múltiples o ninguna coincidencia)</td>
+      <td><code class="language-plaintext highlighter-rouge">multiple-matches</code> / <code class="language-plaintext highlighter-rouge">not-found</code></td>
+      <td>Bus, al recibir el evento</td>
+      <td><a href="OperationOutcome-ResultadoPacienteNoResueltoEjemplo.html">ResultadoPacienteNoResueltoEjemplo</a></td>
+    </tr>
+    <tr>
+      <td>Evento no conforme</td>
+      <td><code class="language-plaintext highlighter-rouge">invalid</code> / <code class="language-plaintext highlighter-rouge">invariant</code></td>
+      <td>Bus</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Acceso denegado</td>
+      <td><code class="language-plaintext highlighter-rouge">forbidden</code></td>
+      <td>Servicio nacional</td>
+      <td><a href="OperationOutcome-ResultadoAccesoDenegadoEjemplo.html">ResultadoAccesoDenegadoEjemplo</a></td>
+    </tr>
+    <tr>
+      <td>Sesión o apertura expirada</td>
+      <td><code class="language-plaintext highlighter-rouge">expired</code></td>
+      <td>Servicio nacional o visor</td>
+      <td><a href="OperationOutcome-ResultadoSesionExpiradaEjemplo.html">ResultadoSesionExpiradaEjemplo</a></td>
+    </tr>
+    <tr>
+      <td>Imágenes temporalmente no disponibles</td>
+      <td><code class="language-plaintext highlighter-rouge">transient</code></td>
+      <td>Servicio nacional (a partir de la respuesta del proveedor)</td>
+      <td><a href="OperationOutcome-ResultadoImagenesNoDisponiblesEjemplo.html">ResultadoImagenesNoDisponiblesEjemplo</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>La interfaz entre el portal y el servicio nacional de autorización es interna de MINSAL. Esta guía describe su contrato funcional y recomienda <code class="language-plaintext highlighter-rouge">OperationOutcome</code> para los errores, pero <strong>no define una operación FHIR</strong> para ella.</p>
+
+<h2 id="seguridad-y-privacidad">Seguridad y privacidad</h2>
+
+<h3 id="responsabilidades">Responsabilidades</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Control</th>
+      <th>Portal Ciudadano</th>
+      <th>Servicio nacional de autorización</th>
+      <th>Proveedor de imágenes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Autenticación del paciente</td>
+      <td>Inicia la autenticación y mantiene la sesión</td>
+      <td>Exige una identidad autenticada y resuelta en el MPI</td>
+      <td>Confía en la aserción del servicio nacional o en el proveedor de identidad federado (A, B); autentica en su portal (C)</td>
+    </tr>
+    <tr>
+      <td>Autorización de acceso al estudio</td>
+      <td>No decide</td>
+      <td>Decide: pertenencia del estudio al paciente, representación, lista de retención (D-023), estado del mecanismo</td>
+      <td>Verifica que el estudio de la apertura corresponda al paciente de la aserción</td>
+    </tr>
+    <tr>
+      <td>Vinculación paciente–estudio</td>
+      <td>—</td>
+      <td>Usa <code class="language-plaintext highlighter-rouge">ImagingStudy.subject</code>, publicado sólo con resolución inequívoca</td>
+      <td>Mantiene el vínculo en su RIS/PACS y lo verifica</td>
+    </tr>
+    <tr>
+      <td>Sesión y expiración</td>
+      <td>Sesión del portal con expiración</td>
+      <td>Aserción de corta duración</td>
+      <td>Apertura de un solo uso y sesión de visor limitada</td>
+    </tr>
+    <tr>
+      <td>Revocación</td>
+      <td>Cierre de sesión</td>
+      <td>Deja de emitir aserciones; puede invalidar las vigentes</td>
+      <td>Invalida sesiones al revocarse la aserción o al cerrar el visor</td>
+    </tr>
+    <tr>
+      <td>Auditoría</td>
+      <td>Registra la acción del paciente</td>
+      <td>Registra cada decisión (concedido, denegado, expirado, no disponible)</td>
+      <td>Registra cada apertura y visualización</td>
+    </tr>
+    <tr>
+      <td>Transporte</td>
+      <td>HTTPS</td>
+      <td>HTTPS, TLS mutuo hacia proveedores</td>
+      <td>HTTPS</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requisitos">Requisitos</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Requisito</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S-01</td>
+      <td><strong>Autenticación del paciente</strong> con un mecanismo de nivel de garantía acordado por MINSAL. OpenID Connect es la opción recomendada para el portal; según D-022, no se exige que todos los proveedores lo soporten: la federación OpenID Connect es una de las opciones, junto con la aserción del servicio nacional y la sesión de un solo uso de la API.</td>
+    </tr>
+    <tr>
+      <td>S-02</td>
+      <td><strong>Autorización por estudio</strong>: el servicio nacional concede el acceso sólo si <code class="language-plaintext highlighter-rouge">ImagingStudy.subject</code> corresponde al paciente autenticado, y si la política de publicación lo permite. OAuth 2.0 es adecuado para el canal servidor a servidor con el proveedor.</td>
+    </tr>
+    <tr>
+      <td>S-03</td>
+      <td><strong>Protección frente a acceso directo</strong>: ningún identificador (UID, Accession Number, id de recurso) da acceso por sí mismo. Las respuestas a estudios ajenos e inexistentes son indistinguibles.</td>
+    </tr>
+    <tr>
+      <td>S-04</td>
+      <td><strong>Sin tokens en URLs persistentes</strong>: los tokens no se escriben en <code class="language-plaintext highlighter-rouge">ImagingStudy</code>, en <code class="language-plaintext highlighter-rouge">Endpoint</code>, en registros de aplicación ni en el historial del navegador. Si un código de un solo uso viaja en una URL, el visor lo canjea de inmediato y redirige a una URL limpia, con <code class="language-plaintext highlighter-rouge">Referrer-Policy: no-referrer</code>.</td>
+    </tr>
+    <tr>
+      <td>S-05</td>
+      <td><strong>Sin identificadores personales en URLs</strong>: el RUN y el identificador del paciente no viajan en URLs (por eso IID se usa sólo con peticiones por estudio).</td>
+    </tr>
+    <tr>
+      <td>S-06</td>
+      <td><strong>Sesiones limitadas y revocables</strong>, con expiración por inactividad y absoluta.</td>
+    </tr>
+    <tr>
+      <td>S-07</td>
+      <td><strong>Auditoría</strong> de cada consulta y apertura, con registro de quién, qué estudio, cuándo, desde qué sistema, resultado y motivo de rechazo. Se recomienda representarla con <code class="language-plaintext highlighter-rouge">AuditEvent</code> siguiendo los patrones de IHE Basic Audit Log Patterns (BALP). Esta versión no perfila <code class="language-plaintext highlighter-rouge">AuditEvent</code>.</td>
+    </tr>
+    <tr>
+      <td>S-08</td>
+      <td><strong>Transporte cifrado</strong> con TLS 1.2 o superior en todos los tramos; TLS mutuo o <code class="language-plaintext highlighter-rouge">private_key_jwt</code> entre el servicio nacional y el proveedor.</td>
+    </tr>
+    <tr>
+      <td>S-09</td>
+      <td><strong>Fallo seguro</strong>: ante un error de autorización, de identidad o de disponibilidad, se deniega el acceso y se informa al paciente sin exponer datos; nunca se abre el visor "en modo degradado".</td>
+    </tr>
+    <tr>
+      <td>S-10</td>
+      <td><strong>Minimización</strong>: los mensajes de error y los registros no incluyen datos clínicos ni demográficos más allá de lo necesario (igual que en la sección de seguridad de <a href="arquitectura.html">Arquitectura</a>).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="asercion-de-acceso">Aserción de acceso del servicio nacional</h3>
+
+<p>Cuando el proveedor usa la aserción del servicio nacional (modalidad A con aserción, o modalidad B), esta debe cumplir los siguientes requisitos mínimos (D-022, acción A-12). El emisor concreto, los nombres exactos de los <em>claims</em>, los algoritmos admitidos y la rotación de claves los publica el servicio nacional de autorización en su especificación técnica, que debe respetar estos mínimos.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Requisito</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AA-01</td>
+      <td>Es un JSON Web Token (RFC 7519) firmado (JWS, RFC 7515) con un algoritmo <strong>asimétrico</strong>. No se admiten tokens sin firma (<code class="language-plaintext highlighter-rouge">alg = none</code>) ni firmados con secreto compartido.</td>
+    </tr>
+    <tr>
+      <td>AA-02</td>
+      <td><code class="language-plaintext highlighter-rouge">iss</code> identifica al servicio nacional de autorización; el proveedor verifica la firma con las claves públicas que este publica.</td>
+    </tr>
+    <tr>
+      <td>AA-03</td>
+      <td><code class="language-plaintext highlighter-rouge">aud</code> identifica al proveedor destinatario; el proveedor rechaza una aserción emitida para otro.</td>
+    </tr>
+    <tr>
+      <td>AA-04</td>
+      <td><code class="language-plaintext highlighter-rouge">sub</code> es un <strong>seudónimo</strong> estable del paciente para la auditoría. Nunca es el RUN.</td>
+    </tr>
+    <tr>
+      <td>AA-05</td>
+      <td>Incluye el identificador del estudio autorizado (Study Instance UID o Accession Number con su dominio). El proveedor abre sólo ese estudio.</td>
+    </tr>
+    <tr>
+      <td>AA-06</td>
+      <td>Incluye el identificador del paciente en el dominio del proveedor, obtenido de las referencias cruzadas del MPI. Con él, el proveedor verifica en su propio registro que el estudio pertenece al paciente.</td>
+    </tr>
+    <tr>
+      <td>AA-07</td>
+      <td><code class="language-plaintext highlighter-rouge">iat</code> y <code class="language-plaintext highlighter-rouge">exp</code> con una vigencia de <strong>5 minutos o menos</strong>.</td>
+    </tr>
+    <tr>
+      <td>AA-08</td>
+      <td><code class="language-plaintext highlighter-rouge">jti</code> único: el proveedor la acepta <strong>una sola vez</strong> y rechaza su reutilización mientras no haya expirado.</td>
+    </tr>
+    <tr>
+      <td>AA-09</td>
+      <td>Incluye el identificador de correlación de la auditoría (RC-06).</td>
+    </tr>
+    <tr>
+      <td>AA-10</td>
+      <td>No contiene datos clínicos ni demográficos más allá de AA-04 a AA-06.</td>
+    </tr>
+    <tr>
+      <td>AA-11</td>
+      <td>Viaja servidor a servidor (modalidad B) o por un canal que no sea la URL, como un formulario <code class="language-plaintext highlighter-rouge">POST</code> autoenviado (modalidad A). Nunca se escribe en registros de aplicación.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El proveedor que no supere la verificación de cualquiera de AA-02 a AA-08 deniega el acceso y lo registra (S-09).</p>
+
+<h2 id="niveles-de-conformidad">Niveles de conformidad</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nivel</th>
+      <th>Definición</th>
+      <th>Modalidades</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Conformidad básica</strong></td>
+      <td>El paciente puede acceder de forma segura a sus imágenes a través del proveedor</td>
+      <td>C (o A/B sin apertura directa desde el portal)</td>
+    </tr>
+    <tr>
+      <td><strong>Conformidad integrada</strong></td>
+      <td>El portal identifica el estudio y abre directamente el visor del proveedor en ese estudio</td>
+      <td>A o B</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="criterios-verificables">Criterios verificables</h3>
+
+<p>Conformidad básica (CB):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Criterio</th>
+      <th>Verificación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CB-01</td>
+      <td>El proveedor tiene registrado, en el registro administrado por MINSAL, al menos un <code class="language-plaintext highlighter-rouge">EndpointAccesoImagenesMinsal</code> válido contra el perfil, con <code class="language-plaintext highlighter-rouge">contact</code></td>
+      <td>Validación del recurso</td>
+    </tr>
+    <tr>
+      <td>CB-02</td>
+      <td>Envía el evento de disponibilidad como <code class="language-plaintext highlighter-rouge">MinsalBundleEstudioImagenologia</code> válido, con actualización condicional</td>
+      <td>Validación + prueba PT-01</td>
+    </tr>
+    <tr>
+      <td>CB-03</td>
+      <td>Publica <code class="language-plaintext highlighter-rouge">available</code> sólo cuando el PACS/VNA tiene instancias del estudio</td>
+      <td>Prueba PT-03 (orden sin imágenes no produce <code class="language-plaintext highlighter-rouge">available</code>)</td>
+    </tr>
+    <tr>
+      <td>CB-04</td>
+      <td>El reenvío del mismo evento no duplica el estudio</td>
+      <td>Prueba PT-02</td>
+    </tr>
+    <tr>
+      <td>CB-05</td>
+      <td>Un evento atrasado no revierte un estado más reciente</td>
+      <td>Prueba PT-04</td>
+    </tr>
+    <tr>
+      <td>CB-06</td>
+      <td>El paciente accede a sus imágenes con el informe pendiente</td>
+      <td>Prueba PT-05</td>
+    </tr>
+    <tr>
+      <td>CB-07</td>
+      <td>El paciente no puede ver estudios de otro paciente aunque conozca su UID, Accession Number o URL</td>
+      <td>Prueba PT-08</td>
+    </tr>
+    <tr>
+      <td>CB-08</td>
+      <td>Ninguna URL, registro o recurso contiene credenciales permanentes ni identificadores personales</td>
+      <td>Inspección + prueba PT-11</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Conformidad integrada (CI), además de CB-01 a CB-08:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Criterio</th>
+      <th>Verificación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CI-01</td>
+      <td>El <code class="language-plaintext highlighter-rouge">Endpoint</code> declara <code class="language-plaintext highlighter-rouge">ihe-iid</code> o <code class="language-plaintext highlighter-rouge">api-proveedor</code></td>
+      <td>Validación del recurso</td>
+    </tr>
+    <tr>
+      <td>CI-02</td>
+      <td>Desde el portal, el visor abre directamente el estudio solicitado, sin búsqueda manual</td>
+      <td>Prueba PT-06</td>
+    </tr>
+    <tr>
+      <td>CI-03</td>
+      <td>La apertura es de un solo uso y expira en el plazo acordado</td>
+      <td>Pruebas PT-09 y PT-10</td>
+    </tr>
+    <tr>
+      <td>CI-04</td>
+      <td>El visor rechaza una apertura cuyo estudio no corresponde al paciente de la aserción</td>
+      <td>Prueba PT-08</td>
+    </tr>
+    <tr>
+      <td>CI-05</td>
+      <td>La sesión del visor expira y puede revocarse</td>
+      <td>Prueba PT-10</td>
+    </tr>
+    <tr>
+      <td>CI-06</td>
+      <td>La apertura queda registrada en ambos lados con el mismo identificador de correlación</td>
+      <td>Prueba PT-12</td>
+    </tr>
+    <tr>
+      <td>CI-07</td>
+      <td>Modalidad A: la invocación cumple RAD-106 del IHE Radiology Technical Framework vigente, es por estudio y no lleva identificadores del paciente</td>
+      <td>Inspección de la petición contra el visor real</td>
+    </tr>
+    <tr>
+      <td>CI-08</td>
+      <td>Si usa la aserción del servicio nacional, la valida según AA-01 a AA-11 y rechaza firma inválida, otra audiencia, aserción expirada o <code class="language-plaintext highlighter-rouge">jti</code> reutilizado</td>
+      <td>Prueba PT-18</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="matriz-de-conformidad">Matriz de conformidad</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Requisito</th>
+      <th>Modalidad A (IID)</th>
+      <th>Modalidad B (API)</th>
+      <th>Modalidad C (portal)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Evento de disponibilidad (CB-02 a CB-05)</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EndpointAccesoImagenesMinsal</code> registrado</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+    </tr>
+    <tr>
+      <td>Acceso con informe pendiente (CB-06)</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+    </tr>
+    <tr>
+      <td>Protección frente a acceso directo (CB-07)</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+    </tr>
+    <tr>
+      <td>Apertura directa del estudio (CI-02)</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>No aplica</td>
+    </tr>
+    <tr>
+      <td>Mecanismo de autorización complementario</td>
+      <td>Obligatorio (IID no lo provee)</td>
+      <td>Incluido en la API</td>
+      <td>Propio del portal del proveedor</td>
+    </tr>
+    <tr>
+      <td>Apertura de un solo uso (CI-03)</td>
+      <td>Obligatorio si usa aserción</td>
+      <td>Obligatorio</td>
+      <td>No aplica</td>
+    </tr>
+    <tr>
+      <td>Auditoría correlacionada (CI-06)</td>
+      <td>Obligatorio</td>
+      <td>Obligatorio</td>
+      <td>Sólo derivación (limitación)</td>
+    </tr>
+    <tr>
+      <td>Nivel alcanzado</td>
+      <td>Integrada</td>
+      <td>Integrada</td>
+      <td>Básica</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="escenarios-de-prueba">Escenarios de prueba</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Escenario</th>
+      <th>Pasos</th>
+      <th>Resultado esperado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PT-01</td>
+      <td>Disponibilidad sin informe (A)</td>
+      <td>Enviar el evento con <code class="language-plaintext highlighter-rouge">available</code> y <code class="language-plaintext highlighter-rouge">endpoint</code></td>
+      <td><code class="language-plaintext highlighter-rouge">201 Created</code>; el estudio aparece en el portal con "Ver imágenes" e "informe pendiente"</td>
+    </tr>
+    <tr>
+      <td>PT-02</td>
+      <td>Evento duplicado</td>
+      <td>Reenviar el mismo <code class="language-plaintext highlighter-rouge">Bundle</code> (mismo <code class="language-plaintext highlighter-rouge">identifier</code>)</td>
+      <td>Respuesta de éxito; un solo <code class="language-plaintext highlighter-rouge">ImagingStudy</code>; sin nueva versión</td>
+    </tr>
+    <tr>
+      <td>PT-03</td>
+      <td>Orden sin imágenes (C)</td>
+      <td>Registrar la orden y el examen sin enviar instancias</td>
+      <td>No hay <code class="language-plaintext highlighter-rouge">ImagingStudy</code> <code class="language-plaintext highlighter-rouge">available</code>; el portal no ofrece abrir imágenes</td>
+    </tr>
+    <tr>
+      <td>PT-04</td>
+      <td>Evento atrasado</td>
+      <td>Enviar un evento con <code class="language-plaintext highlighter-rouge">timestamp</code> anterior al último aplicado</td>
+      <td>El estado no cambia</td>
+    </tr>
+    <tr>
+      <td>PT-05</td>
+      <td>Informe posterior (B)</td>
+      <td>Con el estudio <code class="language-plaintext highlighter-rouge">available</code>, enviar el <code class="language-plaintext highlighter-rouge">ORU^R01</code></td>
+      <td>Se crea el <code class="language-plaintext highlighter-rouge">DiagnosticReport</code> que referencia el estudio existente; el <code class="language-plaintext highlighter-rouge">ImagingStudy</code> no cambia</td>
+    </tr>
+    <tr>
+      <td>PT-06</td>
+      <td>Apertura integrada</td>
+      <td>Pulsar "Ver imágenes"</td>
+      <td>El visor del proveedor abre el estudio correcto, con imágenes desde el PACS de origen</td>
+    </tr>
+    <tr>
+      <td>PT-07</td>
+      <td>Indisponibilidad (D)</td>
+      <td>Enviar el estudio sin <code class="language-plaintext highlighter-rouge">endpoint</code>, o poner el <code class="language-plaintext highlighter-rouge">Endpoint</code> en <code class="language-plaintext highlighter-rouge">suspended</code></td>
+      <td>El portal deja de ofrecer abrir el visor; el estado del estudio sigue <code class="language-plaintext highlighter-rouge">available</code></td>
+    </tr>
+    <tr>
+      <td>PT-08</td>
+      <td>Acceso a estudio ajeno (F)</td>
+      <td>Solicitar la apertura de un estudio de otro paciente, o manipular el UID en la invocación</td>
+      <td><code class="language-plaintext highlighter-rouge">forbidden</code>; el visor no muestra imágenes; el intento queda auditado</td>
+    </tr>
+    <tr>
+      <td>PT-09</td>
+      <td>Reutilización de apertura</td>
+      <td>Reutilizar un código o URL de apertura ya usado</td>
+      <td>Rechazo</td>
+    </tr>
+    <tr>
+      <td>PT-10</td>
+      <td>Expiración (F)</td>
+      <td>Esperar la expiración de la apertura o de la sesión</td>
+      <td><code class="language-plaintext highlighter-rouge">expired</code>; el portal pide autenticarse de nuevo</td>
+    </tr>
+    <tr>
+      <td>PT-11</td>
+      <td>Exposición de credenciales</td>
+      <td>Revisar URLs, historial del navegador, registros y recursos FHIR</td>
+      <td>No aparecen tokens, secretos ni RUN</td>
+    </tr>
+    <tr>
+      <td>PT-12</td>
+      <td>Auditoría</td>
+      <td>Abrir, denegar y expirar</td>
+      <td>Registros en el servicio nacional y en el proveedor, correlacionados</td>
+    </tr>
+    <tr>
+      <td>PT-13</td>
+      <td>Paciente no resuelto (E)</td>
+      <td>Enviar un evento cuyo paciente tiene coincidencias múltiples en el MPI</td>
+      <td><code class="language-plaintext highlighter-rouge">OperationOutcome</code> <code class="language-plaintext highlighter-rouge">multiple-matches</code>; el estudio no se publica; el evento queda en conciliación</td>
+    </tr>
+    <tr>
+      <td>PT-14</td>
+      <td>Modalidad C</td>
+      <td>Seguir el enlace al portal del proveedor</td>
+      <td>El paciente se autentica en el proveedor y encuentra el estudio por fecha y Accession Number</td>
+    </tr>
+    <tr>
+      <td>PT-15</td>
+      <td>Retención (D-023)</td>
+      <td>Publicar un estudio <code class="language-plaintext highlighter-rouge">available</code> cuya prestación está en la lista de retención, sin informe</td>
+      <td>El portal no ofrece abrir el visor; una apertura forzada responde <code class="language-plaintext highlighter-rouge">forbidden</code>. Al llegar el informe final, o a los 14 días corridos desde la primera publicación <code class="language-plaintext highlighter-rouge">available</code>, se ofrece con el aviso normado</td>
+    </tr>
+    <tr>
+      <td>PT-16</td>
+      <td>Informe preliminar (D-023)</td>
+      <td>Con el estudio <code class="language-plaintext highlighter-rouge">available</code>, enviar un <code class="language-plaintext highlighter-rouge">ORU^R01</code> con <code class="language-plaintext highlighter-rouge">OBX-11 = P</code></td>
+      <td>El portal sigue mostrando "informe pendiente" y no presenta el preliminar; las imágenes siguen accesibles</td>
+    </tr>
+    <tr>
+      <td>PT-17</td>
+      <td>Aviso normado (D-023)</td>
+      <td>Abrir un estudio sin informe</td>
+      <td>El portal muestra el texto mínimo obligatorio</td>
+    </tr>
+    <tr>
+      <td>PT-18</td>
+      <td>Aserción inválida</td>
+      <td>Presentar al proveedor aserciones con firma alterada, otra <code class="language-plaintext highlighter-rouge">aud</code>, vencidas, con <code class="language-plaintext highlighter-rouge">jti</code> repetido y con un estudio distinto del solicitado</td>
+      <td>Todas se rechazan y quedan auditadas</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="referencias-normativas">Referencias normativas</h2>
+
+<ul>
+  <li>HL7 FHIR R4 (4.0.1): <code class="language-plaintext highlighter-rouge">ImagingStudy</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code>, <code class="language-plaintext highlighter-rouge">DiagnosticReport</code>, <code class="language-plaintext highlighter-rouge">OperationOutcome</code>, <code class="language-plaintext highlighter-rouge">AuditEvent</code>; interacción <em>conditional update</em> y <code class="language-plaintext highlighter-rouge">Bundle</code> <code class="language-plaintext highlighter-rouge">transaction</code> (http.html).</li>
+  <li>HL7 Terminology: <code class="language-plaintext highlighter-rouge">endpoint-connection-type</code> (incluye <code class="language-plaintext highlighter-rouge">ihe-iid</code>, <code class="language-plaintext highlighter-rouge">dicom-wado-rs</code>, <code class="language-plaintext highlighter-rouge">dicom-qido-rs</code>) y <code class="language-plaintext highlighter-rouge">endpoint-payload-type</code>.</li>
+  <li>DICOM PS3.3 (atributos del estudio), PS3.4 (<em>Instance Availability Notification Service Class</em>) y PS3.18 (DICOMweb: WADO-RS, QIDO-RS).</li>
+  <li>IHE Radiology: <em>Invoke Image Display</em> (IID, RAD-106) y <em>Scheduled Workflow</em> (contexto de la notificación de disponibilidad). Material informativo: D. Clunie, <em>Invoke Image Display (IID)</em>, webinar IHE, 2013.</li>
+  <li>IHE IT Infrastructure: <em>Basic Audit Log Patterns</em> (BALP); <em>Internet User Authorization</em> (IUA) como referencia para la autorización basada en OAuth 2.0.</li>
+  <li>IETF: RFC 7519 (JWT), RFC 7515 (JWS), RFC 6749 (OAuth 2.0), RFC 7523 (aserciones JWT para autenticación de clientes), RFC 8705 (TLS mutuo en OAuth 2.0); OpenID Connect Core 1.0.</li>
+  <li>Guías nacionales: NID 0.4.9 (identidad y MPI) y CL-Core 1.9.4.</li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.imagenologia#0.5.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Nov 2, 2026 11:03-0300">2026-11-02</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html">Historial de versiones</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

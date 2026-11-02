@@ -1,0 +1,34 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/OperationOutcome/ResultadoPacienteNoResueltoEjemplo> a fhir:OperationOutcome ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "ResultadoPacienteNoResueltoEjemplo"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ResultadoOperación ResultadoPacienteNoResueltoEjemplo</b></p><a name=\"ResultadoPacienteNoResueltoEjemplo\"> </a><a name=\"hcResultadoPacienteNoResueltoEjemplo\"> </a><h3>Issues</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Severity</b></td><td><b>Code</b></td><td><b>Details</b></td><td><b>Expression</b></td></tr><tr><td style=\"display: none\">*</td><td>Error</td><td>Multiple Matches</td><td><span title=\"Codes:\">El paciente del estudio no se resolvió de forma inequívoca en el MPI. El estudio no se publica y el evento queda en conciliación.</span></td><td>Bundle.entry[1].resource</td></tr></table></div>"
+  ] ;
+  fhir:OperationOutcome.issue [
+     fhir:index 0 ;
+     fhir:OperationOutcome.issue.severity [ fhir:value "error" ] ;
+     fhir:OperationOutcome.issue.code [ fhir:value "multiple-matches" ] ;
+     fhir:OperationOutcome.issue.details [
+       fhir:CodeableConcept.text [ fhir:value "El paciente del estudio no se resolvió de forma inequívoca en el MPI. El estudio no se publica y el evento queda en conciliación." ]
+     ] ;
+     fhir:OperationOutcome.issue.expression [
+       fhir:value "Bundle.entry[1].resource" ;
+       fhir:index 0
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/OperationOutcome/ResultadoPacienteNoResueltoEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

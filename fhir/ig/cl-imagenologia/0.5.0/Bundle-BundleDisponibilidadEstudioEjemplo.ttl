@@ -1,0 +1,154 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Bundle/BundleDisponibilidadEstudioEjemplo> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "BundleDisponibilidadEstudioEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalBundleEstudioImagenologia" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalBundleEstudioImagenologia>
+     ]
+  ] ;
+  fhir:Bundle.identifier [
+     fhir:Identifier.system [ fhir:value "http://example.org/hospital-talca/eventos-disponibilidad" ] ;
+     fhir:Identifier.value [ fhir:value "EVT-20260902-000135-1" ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "transaction"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-09-02T12:31:00-04:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:a1a1a1a1-1111-4111-8111-111111111111" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:a1a1a1a1-1111-4111-8111-111111111111> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "PUT" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "ImagingStudy?identifier=urn:dicom:uid|urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.2" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "urn:uuid:b2b2b2b2-2222-4222-8222-222222222222" ] ;
+     fhir:Bundle.entry.resource <urn:uuid:b2b2b2b2-2222-4222-8222-222222222222> ;
+     fhir:Bundle.entry.request [
+       fhir:Bundle.entry.request.method [ fhir:value "POST" ] ;
+       fhir:Bundle.entry.request.url [ fhir:value "Patient" ]
+     ]
+  ] .
+
+<urn:uuid:a1a1a1a1-1111-4111-8111-111111111111> a fhir:ImagingStudy ;
+  fhir:Resource.id [ fhir:value "EstudioEventoDisponibilidadEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ImagingStudy_EstudioEventoDisponibilidadEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: EstudioImagen  / EstudioImagen EstudioEventoDisponibilidadEjemplo</b></p><a name=\"EstudioEventoDisponibilidadEjemplo\"> </a><a name=\"hcEstudioEventoDisponibilidadEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-EstudioImagenologicoMinsal.html\">Estudio Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Accession ID/20260902000135, <a href=\"http://terminology.hl7.org/6.5.0/NamingSystem-dui.html\" title=\"An OID issued under DICOM OID rules. DICOM OIDs are represented as plain OIDs, with a prefix of &quot;urn:oid:&quot;. See https://www.dicomstandard.org/\">DICOM Unique Id</a>/urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.2 (use: official)</p><p><b>status</b>: Available</p><p><b>modality</b>: <a href=\"http://hl7.org/fhir/R4/codesystem-dicom-dcim.html#dicom-dcim-MG\">DICOM: MG</a> (Mammography)</p><p><b>subject</b>: <a href=\"Bundle-BundleDisponibilidadEstudioEjemplo.html#urn-uuid-b2b2b2b2-2222-4222-8222-222222222222\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official))</a></p><p><b>started</b>: 2026-09-02 12:10:00-0400</p><p><b>endpoint</b>: <a href=\"Endpoint-EndpointIidVisorEjemplo.html\">Visor web de imágenes - Hospital de Talca (IHE IID (Endpoint Connection Type#ihe-iid)): https://visor.example.org/IHEInvokeImageDisplay</a></p><p><b>numberOfSeries</b>: 1</p><p><b>numberOfInstances</b>: 4</p><p><b>procedureCode</b>: <span title=\"Codes:{http://deis.minsal.cl/establecimientos/116105/imagenologia/procedimientos MAMOB}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0401010}\">MAMOGRAFIA BILATERAL</span></p><p><b>description</b>: MAMOGRAFIA BILATERAL</p></div>"
+  ] ;
+  fhir:ImagingStudy.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "ACSN" ] ;
+         fhir:Coding.display [ fhir:value "Accession ID" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "http://deis.minsal.cl/establecimientos/116105/imagenologia/accession-number" ] ;
+     fhir:Identifier.value [ fhir:value "20260902000135" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "urn:dicom:uid" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.2" ]
+  ] ;
+  fhir:ImagingStudy.status [ fhir:value "available"] ;
+  fhir:ImagingStudy.modality [
+     fhir:index 0 ;
+     fhir:Coding.system [ fhir:value "http://dicom.nema.org/resources/ontology/DCM" ] ;
+     fhir:Coding.code [ fhir:value "MG" ] ;
+     fhir:Coding.display [ fhir:value "Mammography" ]
+  ] ;
+  fhir:ImagingStudy.subject [
+     fhir:Reference.reference [ fhir:value "urn:uuid:b2b2b2b2-2222-4222-8222-222222222222" ]
+  ] ;
+  fhir:ImagingStudy.started [ fhir:value "2026-09-02T12:10:00-04:00"^^xsd:dateTime] ;
+  fhir:ImagingStudy.endpoint [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Endpoint/EndpointIidVisorEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Endpoint/EndpointIidVisorEjemplo" ]
+  ] ;
+  fhir:ImagingStudy.numberOfSeries [ fhir:value "1"^^xsd:nonNegativeInteger] ;
+  fhir:ImagingStudy.numberOfInstances [ fhir:value "4"^^xsd:nonNegativeInteger] ;
+  fhir:ImagingStudy.procedureCode [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://deis.minsal.cl/establecimientos/116105/imagenologia/procedimientos" ] ;
+       fhir:Coding.code [ fhir:value "MAMOB" ] ;
+       fhir:Coding.display [ fhir:value "MAMOGRAFIA BILATERAL" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0401010" ] ;
+       fhir:Coding.display [ fhir:value "Mamografía bilateral" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "MAMOGRAFIA BILATERAL" ]
+  ] ;
+  fhir:ImagingStudy.description [ fhir:value "MAMOGRAFIA BILATERAL"] .
+
+<urn:uuid:b2b2b2b2-2222-4222-8222-222222222222> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "PacienteEventoDisponibilidadEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/PacienteImagenologia" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/PacienteImagenologia>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_PacienteEventoDisponibilidadEjemplo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente PacienteEventoDisponibilidadEjemplo</b></p><a name=\"PacienteEventoDisponibilidadEjemplo\"> </a><a name=\"hcPacienteEventoDisponibilidadEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-PacienteImagenologia.html\">Paciente de Imagenología</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td colspan=\"3\">false</td></tr></table></div>"
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/paciente/identificador/run" ] ;
+     fhir:Identifier.value [ fhir:value "12345678-5" ]
+  ] ;
+  fhir:Patient.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [ fhir:value "Carmona" ] ;
+     fhir:HumanName.given [
+       fhir:value "María" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "female"] ;
+  fhir:Patient.birthDate [ fhir:value "1975-04-12"^^xsd:date] ;
+  fhir:Patient.deceasedBoolean [ fhir:value "false"^^xsd:boolean] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Bundle/BundleDisponibilidadEstudioEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

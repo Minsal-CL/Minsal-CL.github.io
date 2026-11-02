@@ -1,0 +1,60 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Endpoint/EndpointPortalProveedorEjemplo> a fhir:Endpoint ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EndpointPortalProveedorEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EndpointAccesoImagenesMinsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EndpointAccesoImagenesMinsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Endpoint EndpointPortalProveedorEjemplo</b></p><a name=\"EndpointPortalProveedorEjemplo\"> </a><a name=\"hcEndpointPortalProveedorEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-EndpointAccesoImagenesMinsal.html\">Endpoint de Acceso a Imágenes MINSAL</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Portal de pacientes - proveedor de ejemplo (Portal web del proveedor (Mecanismo de acceso a imágenes del proveedor#portal-proveedor)): https://portal.example.org/pacientes</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"The status of the endpoint\">Status:</td><td colspan=\"3\">Active</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The technical base address for connecting to this endpoint\">Address:</td><td colspan=\"3\"><a href=\"https://portal.example.org/pacientes\">https://portal.example.org/pacientes</a></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The protocol, profile or standard used to connect to the endpoint\">Connection Type:</td><td colspan=\"3\"><a href=\"CodeSystem-MecanismoAccesoImagenes.html#MecanismoAccesoImagenes-portal-proveedor\">Mecanismo de acceso a imágenes del proveedor: portal-proveedor</a> (Portal web del proveedor)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The type of content that may be used at this endpoint\">Payload Type:</td><td colspan=\"3\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/endpoint-payload-type none}\">None</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The mime types that can be sent to and/or received from the endpoint\">Mime Type:</td><td colspan=\"3\">text/html</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The organization that manages this endpoint\">Managed By:</td><td colspan=\"3\"><a href=\"Organization-EstablecimientoOrigenImagenEjemplo.html\">Hospital Dr. César Garavagno Burotto (Hospital de Talca) (Healthcare Provider) (http://deis.minsal.cl/establecimientos#116105)</a></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Contact details for a human to contact about the endpoint\">Contact Detail</td><td colspan=\"3\"><a href=\"tel:+56712000000\">+56 71 200 0000</a></td></tr></table></div>"
+  ] ;
+  fhir:Endpoint.status [ fhir:value "active"] ;
+  fhir:Endpoint.connectionType [
+     fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/CodeSystem/MecanismoAccesoImagenes" ] ;
+     fhir:Coding.code [ fhir:value "portal-proveedor" ] ;
+     fhir:Coding.display [ fhir:value "Portal web del proveedor" ]
+  ] ;
+  fhir:Endpoint.name [ fhir:value "Portal de pacientes - proveedor de ejemplo"] ;
+  fhir:Endpoint.managingOrganization [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Organization/EstablecimientoOrigenImagenEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Organization/EstablecimientoOrigenImagenEjemplo" ]
+  ] ;
+  fhir:Endpoint.contact [
+     fhir:index 0 ;
+     fhir:ContactPoint.system [ fhir:value "phone" ] ;
+     fhir:ContactPoint.value [ fhir:value "+56 71 200 0000" ] ;
+     fhir:ContactPoint.use [ fhir:value "work" ]
+  ] ;
+  fhir:Endpoint.payloadType [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/endpoint-payload-type" ] ;
+       fhir:Coding.code [ fhir:value "none" ] ;
+       fhir:Coding.display [ fhir:value "None" ]
+     ]
+  ] ;
+  fhir:Endpoint.payloadMimeType [
+     fhir:value "text/html" ;
+     fhir:index 0
+  ] ;
+  fhir:Endpoint.address [ fhir:value "https://portal.example.org/pacientes"] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Endpoint/EndpointPortalProveedorEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

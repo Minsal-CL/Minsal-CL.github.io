@@ -1,0 +1,73 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ImagingStudy/EstudioRmRegistradoSinImagenesEjemplo> a fhir:ImagingStudy ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EstudioRmRegistradoSinImagenesEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: EstudioImagen  / EstudioImagen EstudioRmRegistradoSinImagenesEjemplo</b></p><a name=\"EstudioRmRegistradoSinImagenesEjemplo\"> </a><a name=\"hcEstudioRmRegistradoSinImagenesEjemplo\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-EstudioImagenologicoMinsal.html\">Estudio Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Accession ID/20260903000210, <a href=\"http://terminology.hl7.org/6.5.0/NamingSystem-dui.html\" title=\"An OID issued under DICOM OID rules. DICOM OIDs are represented as plain OIDs, with a prefix of &quot;urn:oid:&quot;. See https://www.dicomstandard.org/\">DICOM Unique Id</a>/urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.3 (use: official)</p><p><b>status</b>: Registered</p><p><b>modality</b>: <a href=\"http://hl7.org/fhir/R4/codesystem-dicom-dcim.html#dicom-dcim-MR\">DICOM: MR</a> (Magnetic Resonance)</p><p><b>subject</b>: <a href=\"Patient-PacienteImagenologiaEjemplo.html\">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official))</a></p><p><b>procedureCode</b>: <span title=\"Codes:{http://deis.minsal.cl/establecimientos/116105/imagenologia/procedimientos RM01}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0405001}\">RM CEREBRO</span></p></div>"
+  ] ;
+  fhir:ImagingStudy.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "ACSN" ] ;
+         fhir:Coding.display [ fhir:value "Accession ID" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "http://deis.minsal.cl/establecimientos/116105/imagenologia/accession-number" ] ;
+     fhir:Identifier.value [ fhir:value "20260903000210" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "urn:dicom:uid" ] ;
+     fhir:Identifier.value [ fhir:value "urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.3" ]
+  ] ;
+  fhir:ImagingStudy.status [ fhir:value "registered"] ;
+  fhir:ImagingStudy.modality [
+     fhir:index 0 ;
+     fhir:Coding.system [ fhir:value "http://dicom.nema.org/resources/ontology/DCM" ] ;
+     fhir:Coding.code [ fhir:value "MR" ] ;
+     fhir:Coding.display [ fhir:value "Magnetic Resonance" ]
+  ] ;
+  fhir:ImagingStudy.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/Patient/PacienteImagenologiaEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteImagenologiaEjemplo" ]
+  ] ;
+  fhir:ImagingStudy.procedureCode [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://deis.minsal.cl/establecimientos/116105/imagenologia/procedimientos" ] ;
+       fhir:Coding.code [ fhir:value "RM01" ] ;
+       fhir:Coding.display [ fhir:value "RM CEREBRO" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa" ] ;
+       fhir:Coding.code [ fhir:value "0405001" ] ;
+       fhir:Coding.display [ fhir:value "Resonancia magnética cráneo encefálica" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "RM CEREBRO" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/ImagingStudy/EstudioRmRegistradoSinImagenesEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Artifacts Summary - Guía de Implementación FHIR - Imagenología v0.5.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"10"}
+    h3,h4,h5,h6{--heading-prefix:"10.0"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Imagenología</span>
+            <br/>
+            <span style="display:inline-block;">0.5.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura.html">Arquitectura</a>
+  </li>
+  <li>
+    <a href="casos-de-uso.html">Casos de uso</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Acceso a imágenes
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="acceso-imagenes.html">Caso de uso y modelo</a>
+      </li>
+      <li>
+        <a href="acceso-imagenes-proveedores.html">Integración de proveedores</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Mensajería HL7 v2
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="mapeo-v2-fhir.html">Mapeo a FHIR</a>
+      </li>
+      <li>
+        <a href="conformidad-hl7v2.html">Perfil de conformidad</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="decisiones-de-diseno.html">Decisiones de diseño</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Artifacts Summary</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Imagenología - Local Development build (v0.5.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Artifacts Summary</h2>
+  
+  
+  
+  <!--DO NOT EDIT THIS FILE - It is generated by https://github.com/HL7/ig-template-base/blob/master/scripts/createArtifactSummary.xslt and any changes made will be overwritten--><div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://hl7.org/fhir"
+     xmlns:html="http://www.w3.org/1999/xhtml"
+     class="markdown-toc">
+   <p>Contents:</p>
+   <ul>
+      <li>
+         <a href="#1">Structures: Resource Profiles</a>
+      </li>
+      <li>
+         <a href="#2">Terminology: Value Sets</a>
+      </li>
+      <li>
+         <a href="#3">Terminology: Code Systems</a>
+      </li>
+      <li>
+         <a href="#4">Terminology: Concept Maps</a>
+      </li>
+      <li>
+         <a href="#5">Example: Example Instances</a>
+      </li>
+   </ul>
+</div>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://hl7.org/fhir"
+     xmlns:html="http://www.w3.org/1999/xhtml">
+   <p>This page provides a list of the FHIR artifacts defined as part of this implementation guide.</p>
+   <a name="1"> </a>
+   <h3>Structures: Resource Profiles </h3>
+    <p>These define constraints on FHIR resources for systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalBundleEstudioImagenologia.html"
+                  title="StructureDefinition/MinsalBundleEstudioImagenologia">Bundle de Disponibilidad de Estudio Imagenológico MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para el evento de disponibilidad de un estudio imagenológico: informa que un estudio está registrado o que sus imágenes están disponibles en el PACS/VNA del proveedor, con o sin informe radiológico (D-017, D-019). El evento puede originarse en el RIS, en el PACS o en un adaptador de integración; el proveedor lo entrega al Bus como transacción FHIR. El estudio viaja como actualización condicional por identificador, de modo que reenviar el mismo evento no duplica el recurso. Incluye el paciente, que el Bus resuelve contra el MPI antes de publicar (D-001, D-012). No transporta imágenes ni credenciales.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalBundleInformeImagenologia.html"
+                  title="StructureDefinition/MinsalBundleInformeImagenologia">Bundle de Informe de Imagenología MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para el envío transaccional del informe radiológico y, cuando exista dato DICOM, del estudio imagenológico asociado. Exige exactamente una entrada InformeRadiologicoMinsal. Es el artefacto que sostiene la trazabilidad del flujo ORU^R01: identifier conserva el MSH-10 del mensaje de origen, que en esta interfaz es la única red de seguridad, porque el emisor no reintenta. Sigue el modelo de MinsalBundleResultadoLaboratorio.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalBundleSolicitudImagenologia.html"
+                  title="StructureDefinition/MinsalBundleSolicitudImagenologia">Bundle de Solicitud de Imagenología MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para el envío transaccional de uno o más exámenes imagenológicos que pertenecen a una misma orden. Exige al menos una entrada MinsalServiceRequestImagen y valida que todas las entradas de solicitud comparten el mismo requisition. El paciente es obligatorio y conforme al perfil de NID (decisión D-012): en el canal FHIR directo lo envía el establecimiento, y en el canal HL7 v2 el Bus lo reconstruye desde el MPI (D-001). En ambos casos el Bus lo resuelve contra el MPI antes de publicar. Profesional solicitante y establecimiento se incluyen como entradas opcionales, para quien decida enviarlos en vez de asumir su preexistencia. Sigue el modelo de MinsalBundleSolicitudLaboratorio.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-EndpointAccesoImagenesMinsal.html"
+                  title="StructureDefinition/EndpointAccesoImagenesMinsal">Endpoint de Acceso a Imágenes MINSAL</a>
+            </td>
+            <td>
+<p>Declaración, por parte de un proveedor RIS/PACS, del mecanismo mediante el cual un paciente accede a las imágenes de sus estudios en la infraestructura de origen: IHE Invoke Image Display (modalidad A), API del proveedor (modalidad B) o portal web del proveedor (modalidad C). El connectionType determina la modalidad y, con ella, el nivel de conformidad (D-020). El recurso describe la dirección del servicio; el contexto del estudio y los mecanismos de autenticación y autorización se resuelven en tiempo de ejecución y no se almacenan aquí. Un mismo Endpoint es referenciado por todos los estudios del proveedor que se acceden por ese mecanismo.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-EstudioImagenologicoMinsal.html"
+                  title="StructureDefinition/EstudioImagenologicoMinsal">Estudio Imagenológico MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar el estudio de imagen almacenado en el PACS/VNA del proveedor: transporta el Accession Number, el Study Instance UID, la modalidad DICOM, el estado del estudio y la referencia al mecanismo de acceso a las imágenes (endpoint). El recurso contiene sólo metadatos: las imágenes permanecen en el PACS/VNA de origen (D-021). El Bus crea este recurso sólo cuando dispone de dato DICOM real (D-008), ya sea porque llega un evento de disponibilidad (MinsalBundleEstudioImagenologia) o porque acompaña al informe. Su ciclo de vida es independiente del informe radiológico (D-017): un estudio puede estar disponible sin informe.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-InformeRadiologicoMinsal.html"
+                  title="StructureDefinition/InformeRadiologicoMinsal">Informe Radiológico MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar el informe radiológico generado por el RIS y recibido mediante HL7 v2 ORU^R01, incluyendo el informe en PDF codificado en Base64. Sigue el modelo de ResultadoDiagnosticoLaboratorio de la Guía de Implementación de Laboratorio Clínico, con dos divergencias documentadas que impone la interfaz ORU-Out v1.3: basedOn y performer son opcionales.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-OrganizacionParticipanteImagenologia.html"
+                  title="StructureDefinition/OrganizacionParticipanteImagenologia">Organización participante en el flujo de imagenología</a>
+            </td>
+            <td>
+<p>Perfil para representar establecimientos de origen, servicios ejecutantes de imagenología, unidades de radiología y otras organizaciones participantes en el intercambio de solicitudes e informes. Extiende MINSALPrestadorOrganizacional (NID), el núcleo normativo de MINSAL para prestadores institucionales, según la jerarquía normativa nacional (decisión D-016). Sus reglas son idénticas a las de OrganizacionParticipanteLaboratorio.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-PacienteImagenologia.html"
+                  title="StructureDefinition/PacienteImagenologia">Paciente de Imagenología</a>
+            </td>
+            <td>
+<p>Perfil de paciente utilizado en las solicitudes de examen imagenológico, los estudios de imagen y los informes radiológicos. Extiende MINSALPaciente (NID, Núcleo de Interoperabilidad de Datos), el núcleo normativo de identidad de MINSAL, según la jerarquía normativa nacional (decisión D-016). El recurso es una proyección del maestro del MPI (D-001): la identidad se resuelve contra el MPI antes de publicarse; ver la página Arquitectura.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalPractitionerImagenologia.html"
+                  title="StructureDefinition/MinsalPractitionerImagenologia">Profesional de Imagenología MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar al profesional solicitante del examen (ORC-12), al médico radiólogo que informa el estudio (OBR-32) y a cualquier otro profesional participante en el flujo imagenológico. Extiende MINSALPrestadorProfesional (NID), el núcleo normativo de MINSAL para prestadores individuales, según la jerarquía normativa nacional (decisión D-016). El RUN, la fecha de nacimiento y el título profesional quedan obligatorios por ese perfil, no por esta guía.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-MinsalServiceRequestImagen.html"
+                  title="StructureDefinition/MinsalServiceRequestImagen">Solicitud de Examen Imagenológico MINSAL</a>
+            </td>
+            <td>
+<p>Perfil para representar la solicitud de un examen imagenológico (TC, RM, mamografía y otros procedimientos) en el modelo canónico nacional FHIR R4. Corresponde al recurso focal de la solicitud recibida desde el HIS mediante HL7 v2 ORM^O01, o entregada directamente en FHIR. Cuando una orden agrupa varios exámenes se crea un ServiceRequest por examen, todos compartiendo el mismo par system+value en requisition. Sigue el modelo de MinsalServiceRequestLab de la Guía de Implementación de Laboratorio Clínico.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="2"> </a>
+   <h3>Terminology: Value Sets </h3>
+    <p>These define sets of codes used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-TipoConexionAccesoImagenes.html"
+                  title="ValueSet/TipoConexionAccesoImagenes">Tipo de conexión para acceso a imágenes</a>
+            </td>
+            <td>
+<p>Tipos de conexión admitidos en EndpointAccesoImagenesMinsal: IHE IID y los dos mecanismos locales para el acceso de pacientes, más los servicios DICOMweb de consulta y recuperación, que pueden registrarse para usos profesionales pero no constituyen acceso del paciente.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="3"> </a>
+   <h3>Terminology: Code Systems </h3>
+    <p>These define new code systems used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-EstadoSolicitudImagenHl7v2.html"
+                  title="CodeSystem/EstadoSolicitudImagenHl7v2">Estado de la solicitud de imagen en HL7 v2</a>
+            </td>
+            <td>
+<p>Valores de control de la orden que el HIS envía en ORC-1 y describe en ORC-25 del mensaje ORM^O01.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-EstadoInformeRadiologicoHl7v2.html"
+                  title="CodeSystem/EstadoInformeRadiologicoHl7v2">Estado del informe radiológico en HL7 v2</a>
+            </td>
+            <td>
+<p>Valores de estado del informe que el RIS envía en OBR-25 y OBX-11 del mensaje ORU^R01.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-MecanismoAccesoImagenes.html"
+                  title="CodeSystem/MecanismoAccesoImagenes">Mecanismo de acceso a imágenes del proveedor</a>
+            </td>
+            <td>
+<p>Tipos de conexión para el acceso del paciente a las imágenes que no tienen código en endpoint-connection-type de HL7: la API de visualización del proveedor (modalidad B) y el portal web del proveedor (modalidad C).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-PrioridadSolicitudImagenHl7v2.html"
+                  title="CodeSystem/PrioridadSolicitudImagenHl7v2">Prioridad de la solicitud de imagen en HL7 v2</a>
+            </td>
+            <td>
+<p>Valores de prioridad que el HIS envía en ORC-7.6 y OBR-27.6 del mensaje ORM^O01.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="4"> </a>
+   <h3>Terminology: Concept Maps </h3>
+    <p>These define transformations to convert between codes by systems conforming with this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ConceptMap-EstadoSolicitudImagenV2AFhir.html"
+                  title="ConceptMap/EstadoSolicitudImagenV2AFhir">Estado de la solicitud: HL7 v2 a FHIR</a>
+            </td>
+            <td>
+<p>Equivalencias entre el control de la orden enviado en ORC-1 / ORC-25 y los valores de ServiceRequest.status.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ConceptMap-EstadoInformeRadiologicoV2AFhir.html"
+                  title="ConceptMap/EstadoInformeRadiologicoV2AFhir">Estado del informe radiológico: HL7 v2 a FHIR</a>
+            </td>
+            <td>
+<p>Equivalencias entre los estados del informe enviados por el RIS en OBR-25 / OBX-11 y los valores de DiagnosticReport.status.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ConceptMap-PrioridadSolicitudImagenV2AFhir.html"
+                  title="ConceptMap/PrioridadSolicitudImagenV2AFhir">Prioridad de la solicitud: HL7 v2 a FHIR</a>
+            </td>
+            <td>
+<p>Equivalencias entre la prioridad enviada en ORC-7.6 / OBR-27.6 y los valores de ServiceRequest.priority.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="5"> </a>
+   <h3>Example: Example Instances </h3>
+    <p>These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Bundle-BundleInformeImagenEjemplo.html"
+                  title="Bundle/BundleInformeImagenEjemplo">Bundle de informe radiológico con estudio imagenológico</a>
+            </td>
+            <td>
+<p>Transacción FHIR que publica el informe radiológico de la TC de cerebro junto con el estudio imagenológico al que corresponde. Incluye el paciente ya resuelto contra el MPI, que el Bus publica con el id del maestro (PUT). Es el resultado de transformar un mensaje ORU^R01. El informe y el estudio viajan como actualización condicional por identificador (D-025): el mismo Bundle crea el informe la primera vez y lo actualiza con cada versión sucesiva (P, F, C, A, D) sin duplicarlo. identifier conserva el MSH-10.1 y timestamp el MSH-7.1, que son la cadena de trazabilidad entre el mensaje recibido y los recursos publicados. La invariante informe-estudio-referenciado exige que, si el Bundle trae el estudio, el informe lo referencie.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Bundle-BundleSolicitudImagenEjemplo.html"
+                  title="Bundle/BundleSolicitudImagenEjemplo">Bundle de solicitud con dos exámenes imagenológicos</a>
+            </td>
+            <td>
+<p>Transacción FHIR que crea o actualiza, con actualización condicional por identificador (D-025), los dos exámenes de una misma solicitud (número 134): una tomografía computada de cerebro y una mamografía bilateral. Ambos comparten el par system+value de requisition. El paciente viaja como entrada obligatoria (D-012), ya resuelto contra el MPI y publicado con el id del maestro (PUT). El profesional solicitante y el servicio ejecutante se asumen preexistentes en el servidor de destino. identifier conserva el identificador del mensaje HL7 v2 de origen (MSH-10.1).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Bundle-BundleSolicitudImagenFhirDirectoEjemplo.html"
+                  title="Bundle/BundleSolicitudImagenFhirDirectoEjemplo">Bundle de solicitud enviado directamente en FHIR por un RCE</a>
+            </td>
+            <td>
+<p>Transacción que un RCE con integración FHIR nativa envía al Bus (Caso de uso 1, UC1-a). Incluye el paciente completo conforme al perfil de NID (decisión D-012) y dos exámenes de la misma solicitud, enviados con actualización condicional por identificador (D-025), que comparten el par system+value de requisition. El paciente viaja como recurso nuevo con urn:uuid: el Bus lo resuelve contra el MPI antes de publicar y una búsqueda sin coincidencias no autoriza crearlo (D-001). Los exámenes llevan el código local y la prestación FONASA; si el emisor entrega solo el código local, el Bus agrega FONASA antes de validar (D-014). Los códigos FONASA son ilustrativos y deben confirmarse con el servicio terminológico.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ImagingStudy-EstudioMamografiaDisponibleSinInformeEjemplo.html"
+                  title="ImagingStudy/EstudioMamografiaDisponibleSinInformeEjemplo">Escenario A: estudio con imágenes disponibles e informe pendiente</a>
+            </td>
+            <td>
+<p>Mamografía bilateral realizada, con sus cuatro instancias almacenadas en el PACS del proveedor y sin informe radiológico emitido. status = available porque hay instancias asociadas; el estudio es visualizable porque referencia un mecanismo de acceso activo. La ausencia de informe se expresa por la ausencia de un InformeRadiologicoMinsal que referencie este estudio, no por un estado del estudio. procedureCode y basedOn permiten al portal mostrar de qué examen se trata.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ImagingStudy-EstudioRmRegistradoSinImagenesEjemplo.html"
+                  title="ImagingStudy/EstudioRmRegistradoSinImagenesEjemplo">Escenario C: estudio registrado, imágenes todavía no disponibles</a>
+            </td>
+            <td>
+<p>Resonancia magnética agendada en el RIS, que ya asignó el Accession Number y el Study Instance UID (los publica en la lista de trabajo de la modalidad), pero el PACS aún no tiene instancias. status = registered y sin endpoint: el portal puede informar que el examen está registrado, pero no ofrece abrir imágenes. Registrar el examen no implica que las imágenes se puedan consultar.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ImagingStudy-EstudioTcTemporalmenteNoDisponibleEjemplo.html"
+                  title="ImagingStudy/EstudioTcTemporalmenteNoDisponibleEjemplo">Escenario D: imágenes temporalmente no consultables</a>
+            </td>
+            <td>
+<p>Estudio cuyas imágenes estuvieron disponibles y hoy no pueden consultarse (por ejemplo, porque el proveedor las está migrando a otro archivo). status sigue en available, porque las instancias existen: volver a registered contradiría la semántica de FHIR R4. El proveedor retiró la referencia endpoint mientras dura la indisponibilidad y la repondrá con un nuevo evento cuando se restablezca (D-018).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="OperationOutcome-ResultadoImagenesNoDisponiblesEjemplo.html"
+                  title="OperationOutcome/ResultadoImagenesNoDisponiblesEjemplo">Escenario D: imágenes temporalmente no disponibles al abrir el visor</a>
+            </td>
+            <td>
+<p>Respuesta cuando el mecanismo de acceso del proveedor no responde o informa que el estudio no puede abrirse en este momento. Es un error transitorio: el estado del estudio no cambia y el paciente puede reintentar más tarde.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="OperationOutcome-ResultadoPacienteNoResueltoEjemplo.html"
+                  title="OperationOutcome/ResultadoPacienteNoResueltoEjemplo">Escenario E: estudio que no se vincula de forma inequívoca con el paciente</a>
+            </td>
+            <td>
+<p>Respuesta del Bus a un evento de disponibilidad cuyo paciente devuelve múltiples coincidencias en el MPI. El estudio no se publica y el evento queda en conciliación auditada; el paciente no lo ve en el portal hasta que la identidad se resuelva. La respuesta no repite datos personales del paciente.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="OperationOutcome-ResultadoAccesoDenegadoEjemplo.html"
+                  title="OperationOutcome/ResultadoAccesoDenegadoEjemplo">Escenario F: acceso denegado al abrir las imágenes</a>
+            </td>
+            <td>
+<p>Respuesta del servicio nacional de autorización cuando el paciente autenticado no está autorizado para el estudio solicitado (por ejemplo, el estudio pertenece a otra persona o la política de publicación lo retiene). El mensaje no revela si el estudio existe.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="OperationOutcome-ResultadoSesionExpiradaEjemplo.html"
+                  title="OperationOutcome/ResultadoSesionExpiradaEjemplo">Escenario F: sesión o apertura expirada</a>
+            </td>
+            <td>
+<p>Respuesta cuando la sesión del paciente en el portal, o la apertura de un solo uso del visor, expiró. El portal pide autenticarse de nuevo y genera una apertura nueva; nunca reutiliza la anterior.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Organization-EstablecimientoOrigenImagenEjemplo.html"
+                  title="Organization/EstablecimientoOrigenImagenEjemplo">Establecimiento de origen de ejemplo</a>
+            </td>
+            <td>
+<p>Establecimiento que origina la solicitud de examen imagenológico, identificado con un Código de Establecimiento DEIS real y vigente: 116105, Hospital Dr. César Garavagno Burotto (Hospital de Talca), Servicio de Salud del Maule. identifier.system usa http://deis.minsal.cl/establecimientos, el mismo URI adoptado por las guías de Laboratorio Clínico, Tiempos de Espera Quirúrgico y Urgencia.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ImagingStudy-EstudioTcCerebroEjemplo.html"
+                  title="ImagingStudy/EstudioTcCerebroEjemplo">Estudio: TC de cerebro</a>
+            </td>
+            <td>
+<p>Estudio de imagen realizado en el RIS/PACS. Se crea porque el Bus dispone del Study Instance UID DICOM; sin ese dato el estudio no se crea y la trazabilidad la sostiene el Accession Number del informe. Ilustra además el escenario B de acceso a imágenes: imágenes disponibles e informe emitido. El informe (InformeTcCerebroEjemplo) referencia este estudio; el estudio no cambia por la llegada del informe y sigue referenciando el mecanismo de acceso del proveedor.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Bundle-BundleDisponibilidadEstudioEjemplo.html"
+                  title="Bundle/BundleDisponibilidadEstudioEjemplo">Evento de disponibilidad: imágenes disponibles sin informe</a>
+            </td>
+            <td>
+<p>Transacción que el adaptador del proveedor envía al Bus cuando el PACS confirma que la mamografía tiene instancias almacenadas. El estudio viaja como actualización condicional por Study Instance UID: si el Bus recibe dos veces el mismo evento, el resultado es el mismo recurso. identifier es la clave de deduplicación del evento y timestamp su orden. El paciente viaja completo y como recurso nuevo con urn:uuid, conforme al perfil de NID (D-012): el emisor no conoce el identificador del maestro, y el Bus lo resuelve contra el MPI antes de publicar; sin coincidencia única el evento no se aplica (D-001, escenario E). El estudio no lleva basedOn porque el adaptador del proveedor no conoce el identificador de la solicitud en el repositorio nacional: el Bus la enlaza al resolver, igual que en el flujo del informe. La referencia al mecanismo de acceso sí es un identificador conocido por el proveedor, porque el Endpoint es parte del registro que administra MINSAL. No contiene imágenes, credenciales ni datos del informe.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="DiagnosticReport-InformeSinSolicitudEjemplo.html"
+                  title="DiagnosticReport/InformeSinSolicitudEjemplo">Informe radiológico sin solicitud previa</a>
+            </td>
+            <td>
+<p>Informe emitido por el RIS para un estudio que no tiene orden registrada en el Bus. Es el caso que justifica que basedOn sea opcional en esta guía: la interfaz de referencia ORU-Out v1.3 establece que el RIS envía todos los informes generados, no sólo los correspondientes a una orden del HIS. El informe se publica igual y el paciente accede a él.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="DiagnosticReport-InformeTcCerebroEjemplo.html"
+                  title="DiagnosticReport/InformeTcCerebroEjemplo">Informe radiológico: TC de cerebro</a>
+            </td>
+            <td>
+<p>Informe radiológico final recibido mediante ORU^R01, con el PDF del informe codificado en Base64 en presentedForm. Referencia la solicitud original y el estudio imagenológico, y declara la fecha de validación (OBR-22) exigida por la invariante informe-final-con-issued.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Endpoint-EndpointApiProveedorEjemplo.html"
+                  title="Endpoint/EndpointApiProveedorEjemplo">Mecanismo de acceso: API de visualización del proveedor (modalidad B)</a>
+            </td>
+            <td>
+<p>API documentada del proveedor que el servicio nacional de autorización invoca servidor a servidor para obtener una apertura de un solo uso del visor del proveedor. address es la URL base de la API; las credenciales de cliente y la aserción de acceso viajan en cada llamada y nunca se almacenan en el Endpoint.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Endpoint-EndpointPortalProveedorEjemplo.html"
+                  title="Endpoint/EndpointPortalProveedorEjemplo">Mecanismo de acceso: portal web del proveedor (modalidad C)</a>
+            </td>
+            <td>
+<p>Portal web del proveedor en el que el paciente se autentica y busca su estudio. Es la modalidad de conformidad básica: el portal nacional dirige al paciente a la dirección de entrada, que no identifica al paciente ni al estudio.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Endpoint-EndpointIidVisorEjemplo.html"
+                  title="Endpoint/EndpointIidVisorEjemplo">Mecanismo de acceso: visor del proveedor invocado con IHE IID (modalidad A)</a>
+            </td>
+            <td>
+<p>Visor web existente del proveedor, invocado mediante IHE Invoke Image Display. address es la URL de invocación IID, sin parámetros: el contexto del estudio (petición por estudio con su Study Instance UID, según RAD-106) se agrega en tiempo de ejecución. IID no autentica ni autoriza al paciente: el visor exige además la aserción de acceso del servicio nacional de autorización (D-022).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Practitioner-MedicoRadiologoEjemplo.html"
+                  title="Practitioner/MedicoRadiologoEjemplo">Médico radiólogo de ejemplo</a>
+            </td>
+            <td>
+<p>Profesional ficticio en su forma de recurso completo, conforme al set de datos obligatorio de MINSALPrestadorProfesional (NID), para el canal FHIR directo. Cuando el informe llega por HL7 v2 (OBR-32), el radiólogo se representa con referencia lógica por RUN y no con este recurso (D-027), como muestran los informes de ejemplo.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Patient-PacienteImagenologiaEjemplo.html"
+                  title="Patient/PacienteImagenologiaEjemplo">Paciente de ejemplo</a>
+            </td>
+            <td>
+<p>Ejemplo ficticio de un paciente utilizado para validar el perfil. Cumple el set de datos obligatorio de MINSALPaciente (NID): identificador con el tipo RUN del CodeSystem de NID, nombre, sexo registral, fecha de nacimiento y estado de fallecimiento. No incluye datos demográficos opcionales: el recurso es una proyección del maestro del MPI y el modelo canónico minimiza datos (D-001).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Practitioner-ProfesionalSolicitanteImagenEjemplo.html"
+                  title="Practitioner/ProfesionalSolicitanteImagenEjemplo">Profesional solicitante de ejemplo</a>
+            </td>
+            <td>
+<p>Profesional ficticio que solicita el examen imagenológico (ORC-12 del mensaje ORM^O01). Cumple el set de datos obligatorio de MINSALPrestadorProfesional (NID): RUN, nombre, fecha de nacimiento y título profesional, con el título tomado del CodeSystem de NID.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Organization-ServicioImagenologiaEjemplo.html"
+                  title="Organization/ServicioImagenologiaEjemplo">Servicio ejecutante de imagenología de ejemplo</a>
+            </td>
+            <td>
+<p>Servicio de imagenología interno del mismo establecimiento (116105, Hospital de Talca), que ejecuta el examen e informa el estudio. Corresponde al servicio ejecutante de ORC-2.2 y OBR-4.3. Como unidad interna no tiene código DEIS propio: se identifica en el dominio local del establecimiento y cuelga de él mediante partOf.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ServiceRequest-SolicitudTcCerebroEjemplo.html"
+                  title="ServiceRequest/SolicitudTcCerebroEjemplo">Solicitud: TC de cerebro</a>
+            </td>
+            <td>
+<p>Solicitud de tomografía computada de cerebro generada por el HIS y recibida mediante ORM^O01. El identificador corresponde al examen dentro de la solicitud (ORC-2.1 / OBR-2.1) y requisition al número de solicitud que agrupa los exámenes (ORC-4.1), con el system del establecimiento asignador.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ServiceRequest-SolicitudMamografiaBilateralEjemplo.html"
+                  title="ServiceRequest/SolicitudMamografiaBilateralEjemplo">Solicitud: mamografía bilateral</a>
+            </td>
+            <td>
+<p>Segundo examen de la misma solicitud 134. Comparte con el primero el par system+value de requisition, que es lo que la invariante solicitud-imagen-requisition-compartido verifica en el Bundle. El motivo del estudio llega en OBR-31.2 y se conserva como texto: el catálogo de motivos de mamografía diagnóstica no forma parte de esta versión de la guía.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Package hl7.fhir.cl.minsal.imagenologia#0.5.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Nov 2, 2026 11:03-0300">2026-11-02</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/history.html">Historial de versiones</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="BundleDisponibilidadEstudioEjemplo"/>
+  <meta>
+    <profile value="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/MinsalBundleEstudioImagenologia"/>
+  </meta>
+  <identifier>
+    <system value="http://example.org/hospital-talca/eventos-disponibilidad"/>
+    <value value="EVT-20260902-000135-1"/>
+  </identifier>
+  <type value="transaction"/>
+  <timestamp value="2026-09-02T12:31:00-04:00"/>
+  <entry>
+    <fullUrl value="urn:uuid:a1a1a1a1-1111-4111-8111-111111111111"/>
+    <resource>
+      <ImagingStudy>
+        <id value="EstudioEventoDisponibilidadEjemplo"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/EstudioImagenologicoMinsal"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="ImagingStudy_EstudioEventoDisponibilidadEjemplo"> </a><p class="res-header-id"><b>Generated Narrative: EstudioImagen  / EstudioImagen EstudioEventoDisponibilidadEjemplo</b></p><a name="EstudioEventoDisponibilidadEjemplo"> </a><a name="hcEstudioEventoDisponibilidadEjemplo"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-EstudioImagenologicoMinsal.html">Estudio Imagenológico MINSAL</a></p></div><p><b>identifier</b>: Accession ID/20260902000135, <a href="http://terminology.hl7.org/6.5.0/NamingSystem-dui.html" title="An OID issued under DICOM OID rules. DICOM OIDs are represented as plain OIDs, with a prefix of &quot;urn:oid:&quot;. See https://www.dicomstandard.org/">DICOM Unique Id</a>/urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.2 (use: official)</p><p><b>status</b>: Available</p><p><b>modality</b>: <a href="http://hl7.org/fhir/R4/codesystem-dicom-dcim.html#dicom-dcim-MG">DICOM: MG</a> (Mammography)</p><p><b>subject</b>: <a href="Bundle-BundleDisponibilidadEstudioEjemplo.html#urn-uuid-b2b2b2b2-2222-4222-8222-222222222222">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official))</a></p><p><b>started</b>: 2026-09-02 12:10:00-0400</p><p><b>endpoint</b>: <a href="Endpoint-EndpointIidVisorEjemplo.html">Visor web de imágenes - Hospital de Talca (IHE IID (Endpoint Connection Type#ihe-iid)): https://visor.example.org/IHEInvokeImageDisplay</a></p><p><b>numberOfSeries</b>: 1</p><p><b>numberOfInstances</b>: 4</p><p><b>procedureCode</b>: <span title="Codes:{http://deis.minsal.cl/establecimientos/116105/imagenologia/procedimientos MAMOB}, {https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa 0401010}">MAMOGRAFIA BILATERAL</span></p><p><b>description</b>: MAMOGRAFIA BILATERAL</p></div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+              <code value="ACSN"/>
+              <display value="Accession ID"/>
+            </coding>
+          </type>
+          <system value="http://deis.minsal.cl/establecimientos/116105/imagenologia/accession-number"/>
+          <value value="20260902000135"/>
+        </identifier>
+        <identifier>
+          <use value="official"/>
+          <system value="urn:dicom:uid"/>
+          <value value="urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.2"/>
+        </identifier>
+        <status value="available"/>
+        <modality>
+          <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+          <code value="MG"/>
+          <display value="Mammography"/>
+        </modality>
+        <subject>
+          <reference value="urn:uuid:b2b2b2b2-2222-4222-8222-222222222222"/>
+        </subject>
+        <started value="2026-09-02T12:10:00-04:00"/>
+        <endpoint>
+          <reference value="Endpoint/EndpointIidVisorEjemplo"/>
+        </endpoint>
+        <numberOfSeries value="1"/>
+        <numberOfInstances value="4"/>
+        <procedureCode>
+          <coding>
+            <system value="http://deis.minsal.cl/establecimientos/116105/imagenologia/procedimientos"/>
+            <code value="MAMOB"/>
+            <display value="MAMOGRAFIA BILATERAL"/>
+          </coding>
+          <coding>
+            <system value="https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/CodeSystem/CodigoPrestacionFonasa"/>
+            <code value="0401010"/>
+            <display value="Mamografía bilateral"/>
+          </coding>
+          <text value="MAMOGRAFIA BILATERAL"/>
+        </procedureCode>
+        <description value="MAMOGRAFIA BILATERAL"/>
+      </ImagingStudy>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="ImagingStudy?identifier=urn:dicom:uid|urn:oid:1.2.840.113619.2.55.3.604688119.868.1600000000.2"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:b2b2b2b2-2222-4222-8222-222222222222"/>
+    <resource>
+      <Patient>
+        <id value="PacienteEventoDisponibilidadEjemplo"/>
+        <meta>
+          <profile value="https://interoperabilidad.minsal.cl/fhir/ig/imagenologia/StructureDefinition/PacienteImagenologia"/>
+        </meta>
+        <text>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Patient_PacienteEventoDisponibilidadEjemplo"> </a><p class="res-header-id"><b>Generated Narrative: Paciente PacienteEventoDisponibilidadEjemplo</b></p><a name="PacienteEventoDisponibilidadEjemplo"> </a><a name="hcPacienteEventoDisponibilidadEjemplo"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Perfil: <a href="StructureDefinition-PacienteImagenologia.html">Paciente de Imagenología</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">María Carmona (official) Female, DoB: 1975-04-12 ( RUN: 12345678-5 (use: official))</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="Known status of Patient">Deceased:</td><td colspan="3">false</td></tr></table></div>
+        </text>
+        <identifier>
+          <use value="official"/>
+          <type>
+            <coding>
+              <system value="https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador"/>
+              <code value="1"/>
+              <display value="RUN"/>
+            </coding>
+          </type>
+          <system value="https://interoperabilidad.minsal.cl/fhir/ig/nid/paciente/identificador/run"/>
+          <value value="12345678-5"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Carmona"/>
+          <given value="María"/>
+        </name>
+        <gender value="female"/>
+        <birthDate value="1975-04-12"/>
+        <deceasedBoolean value="false"/>
+      </Patient>
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="Patient"/>
+    </request>
+  </entry>
+</Bundle>
