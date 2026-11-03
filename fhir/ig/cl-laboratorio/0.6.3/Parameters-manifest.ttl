@@ -1,0 +1,26 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Parameters/manifest> a fhir:Parameters ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "manifest"] ;
+  fhir:Parameters.parameter [
+     fhir:index 0 ;
+     fhir:Parameters.parameter.name [ fhir:value "system-version" ] ;
+     fhir:Parameters.parameter.valueCanonical [
+       fhir:value "http://snomed.info/sct|http://snomed.info/sct/900000000000207008" ;
+       fhir:link <http://snomed.info/sct|http://snomed.info/sct/900000000000207008>
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/laboratorio/Parameters/manifest.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
