@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Arquitectura y flujos - Guía de Implementación FHIR - Perfil MHD Nacional MINSAL v0.3.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Perfil MHD Nacional MINSAL</span>
+            <br/>
+            <span style="display:inline-block;">0.3.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura-y-flujos.html">Arquitectura y flujos</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Arquitectura y flujos</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Perfil MHD Nacional MINSAL - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/mhd/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Arquitectura y flujos</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h3 id="arquitectura-y-flujos">Arquitectura y flujos</h3>
+
+<p>Esta página describe el modelo de federación, los escenarios de origen del documento y las transacciones IHE sobre las que se apoya el perfil transversal de esta guía. No introduce restricciones nuevas al <code class="language-plaintext highlighter-rouge">DocumentReference</code>; documenta el comportamiento esperado de las transacciones de documentos (ITI-65/67/68, IHE MHD) y de identificación del paciente (ITI-83, IHE PIXm; ITI-78, IHE PDQm) para que las guías de dominio y los nodos consumidores lo implementen de forma consistente.</p>
+
+<h4 id="actores-y-transacciones">Actores y transacciones</h4>
+
+<p>Antes de entrar en el detalle de cada transacción, esta tabla resume quién hace qué. Los nombres de actor son los que definen IHE MHD (<code class="language-plaintext highlighter-rouge">ihe.iti.mhd#4.2.5</code>), IHE PIXm (<code class="language-plaintext highlighter-rouge">ihe.iti.pixm#3.1.0</code>) e IHE PDQm (<code class="language-plaintext highlighter-rouge">ihe.iti.pdqm#3.2.0</code>); en la segunda columna, el rol que cumple cada uno en nuestro modelo.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Actor IHE</th>
+      <th>Quién lo cumple en este modelo</th>
+      <th>Transacciones principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Document Source</td>
+      <td>Nodo custodio (Servicio de Salud, holding o proveedor con plataforma certificada)</td>
+      <td>ITI-65 (publica)</td>
+    </tr>
+    <tr>
+      <td>Document Recipient</td>
+      <td>Nodo central (índice nacional)</td>
+      <td>ITI-65 (recibe)</td>
+    </tr>
+    <tr>
+      <td>Document Responder</td>
+      <td>Nodo central (índice nacional)</td>
+      <td>ITI-67 (responde búsquedas) / ITI-68 (responde recuperación)</td>
+    </tr>
+    <tr>
+      <td>Document Consumer</td>
+      <td>Sistema consumidor (portal, EHR, aplicación clínica)</td>
+      <td>ITI-67 (busca) / ITI-68 (recupera)</td>
+    </tr>
+    <tr>
+      <td>Patient Identifier Cross-reference Consumer (PIXm)</td>
+      <td>Nodo custodio, nodo central y sistema consumidor</td>
+      <td>ITI-83 (consulta el identificador nacional a partir de uno local)</td>
+    </tr>
+    <tr>
+      <td>Patient Demographics Consumer (PDQm)</td>
+      <td>Nodo custodio (o el nodo central en el escenario C) y sistema consumidor</td>
+      <td>ITI-78 (busca al paciente y valida sus datos demográficos)</td>
+    </tr>
+    <tr>
+      <td>Patient Identifier Cross-reference Manager (PIXm) / Patient Demographics Supplier (PDQm)</td>
+      <td>Índice maestro de pacientes (MPI) nacional</td>
+      <td>ITI-83 / ITI-78 (responde)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El nodo central cumple dos roles IHE a la vez (Document Recipient y Document Responder), porque media tanto la publicación como la búsqueda/recuperación en la fase 1. Además, actúa como consumidor PIXm para verificar el paciente de cada publicación. Su <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> es <code class="language-plaintext highlighter-rouge">CapabilityStatementNodoCentralMhd</code> (ver <a href="artifacts.html">Perfiles</a>), que importa los <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> oficiales de esos roles en vez de redeclararlos.</p>
+
+<p>Cada sistema que publica o busca documentos se agrupa con un consumidor PIXm o PDQm, como prevé IHE MHD, para usar siempre el identificador del paciente en el dominio nacional. El sistema de identificación nacional del paciente (<code class="language-plaintext highlighter-rouge">system</code> del identificador) está pendiente de definición.</p>
+
+<h4 id="el-nodo-como-rol">El nodo como rol</h4>
+
+<p>Un nodo MHD no es necesariamente un establecimiento de salud individual. Son nodos los Servicios de Salud, los holdings y los proveedores con plataforma certificada para transformar y custodiar documentos FHIR. Un hospital o un centro de salud individual publica sus documentos a través del nodo de su Servicio, no directamente.</p>
+
+<p>El nodo aloja y publica el documento; la organización responsable es el establecimiento. Por eso <code class="language-plaintext highlighter-rouge">DocumentReference.custodian</code> identifica al establecimiento y no al nodo, como define FHIR para ese elemento. Un establecimiento puede cambiar de nodo (por ejemplo, de publicar a través del nodo central a operar con el nodo de su Servicio) sin que cambie el <code class="language-plaintext highlighter-rouge">custodian</code> de sus documentos.</p>
+
+<h4 id="escenarios-de-origen-del-documento">Escenarios de origen del documento</h4>
+
+<p>Un documento clínico puede llegar al índice nacional por tres vías distintas, según la capacidad técnica del establecimiento de origen. Las tres conviven desde el inicio: ningún nodo queda obligado a elegir una sola.</p>
+
+<ul>
+  <li><strong>Escenario A</strong>: quien origina el documento ya es un nodo (Servicio de Salud, holding o proveedor con plataforma certificada). Transforma a FHIR, custodia el documento y publica por sí mismo.</li>
+  <li><strong>Escenario B</strong>: el Servicio de Salud opera un kit de nodo que recibe HL7 v2 de sus establecimientos, transforma a FHIR y custodia.</li>
+  <li><strong>Escenario C</strong>: el establecimiento no es un nodo ni tiene uno disponible. Envía HL7 v2 directo al nodo central, que transforma y custodia en su nombre.</li>
+</ul>
+
+<p>En el escenario C, el <code class="language-plaintext highlighter-rouge">custodian</code> es el establecimiento y el nodo central opera por delegación. Cómo una corrección en HL7 v2 (por ejemplo, un ORU con resultado corregido) se convierte en un reemplazo con <code class="language-plaintext highlighter-rouge">relatesTo.code = replaces</code> está pendiente del perfil HL7 v2 de entrada, que esta guía no define.</p>
+
+<p>El nodo central es operado por MINSAL, aunque su infraestructura la provea un tercero bajo contrato. En el escenario C se separan dos roles que no deben confundirse:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rol</th>
+      <th>Quién lo cumple en el escenario C</th>
+      <th>Dónde se expresa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Organización responsable del documento</td>
+      <td>El establecimiento que lo originó</td>
+      <td><code class="language-plaintext highlighter-rouge">DocumentReference.custodian</code></td>
+    </tr>
+    <tr>
+      <td>Nodo que lo aloja y publica por delegación</td>
+      <td>MINSAL, a través del nodo central</td>
+      <td>Registro nacional de nodos y establecimientos (MINSAL es el nodo con autoridad sobre el establecimiento) y <code class="language-plaintext highlighter-rouge">SubmissionSet.sourceId</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Por eso, cuando un establecimiento del escenario C corrige un resultado, quien arma y envía el reemplazo es el nodo central, y la <a href="#regla-de-autorización">regla de autorización</a> lo acepta porque, según el registro, MINSAL tiene la autoridad vigente sobre ese establecimiento. El <code class="language-plaintext highlighter-rouge">custodian</code> no cambia a MINSAL en ningún caso: si el establecimiento pasa luego al escenario A o B, se actualiza el registro y sus documentos históricos conservan el mismo <code class="language-plaintext highlighter-rouge">custodian</code>.</p>
+
+<p>En este escenario MINSAL cumple dos funciones a la vez: opera el índice que autoriza los reemplazos y es el nodo que los solicita. La auditoría debe distinguir cuándo el nodo central actúa como nodo delegado de un establecimiento y cuándo como índice nacional.</p>
+
+<div class="mermaid">
+%%{init: {"theme":"base", "themeVariables": {"primaryColor":"#eaf2fb","primaryBorderColor":"#2b6cb0","primaryTextColor":"#1a202c","lineColor":"#5b7a99","fontFamily":"Segoe UI, Arial, sans-serif","fontSize":"15px"},"flowchart":{"useMaxWidth":true}}}%%
+flowchart LR
+    classDef origen fill:#eaf2fb,stroke:#2b6cb0,stroke-width:1px,color:#1a202c;
+    classDef central fill:#fff3e0,stroke:#c2720c,stroke-width:1px,color:#1a202c;
+
+    subgraph A["Escenario A: capacidad propia del nodo"]
+        A1[Plataforma propia del nodo] --&gt;|Transforma y custodia| A2[(Índice nacional)]
+    end
+    subgraph B["Escenario B: kit de nodo en el Servicio"]
+        B1[Sistema de origen] --&gt;|"HL7 v2"| B2[Kit de transformación en el Servicio]
+        B2 --&gt;|Transforma a FHIR, el Servicio custodia| B3[(Índice nacional)]
+    end
+    subgraph C["Escenario C: envío directo al nodo central"]
+        C1[Sistema de origen] --&gt;|"HL7 v2"| C2[Nodo central]
+        C2 --&gt;|Transforma a FHIR y custodia| C3[(Índice nacional)]
+    end
+
+    A ~~~ B
+    B ~~~ C
+
+    class A1,B1,B2,C1 origen
+    class A2,B3,C2,C3 central
+</div>
+<p style="text-align:center; color:#5b7a99; font-size:0.9em; margin-top:-10px;"><em>Figura: tres vías de origen posibles hacia el mismo índice nacional, según la capacidad técnica del establecimiento (celeste: lado del establecimiento o nodo custodio; naranjo: nodo central e índice nacional).</em></p>
+
+<p>En los tres escenarios, el paso final hacia el índice nacional es siempre la misma transacción IHE MHD: un ITI-65 (Provide Document Bundle). En el escenario C lo arma el nodo central en nombre del establecimiento. Esto es lo que permite que el perfil transversal de esta guía sea uno solo, independiente del escenario de origen.</p>
+
+<h4 id="modelo-de-contenido-pdf-embebido-y-bundle-atomizado">Modelo de contenido: PDF embebido y Bundle atomizado</h4>
+
+<p>El documento publicado puede tomar dos formas de contenido, según la capacidad del nodo de origen para estructurar el resultado. Ambas conviven desde el inicio con el mismo perfil, que solo las distingue en <code class="language-plaintext highlighter-rouge">hash</code> y <code class="language-plaintext highlighter-rouge">size</code> (ver más abajo): <code class="language-plaintext highlighter-rouge">content.attachment.contentType</code> no está fijado a un único valor.</p>
+
+<div class="mermaid">
+%%{init: {"theme":"base", "themeVariables": {"primaryColor":"#eaf2fb","primaryBorderColor":"#2b6cb0","primaryTextColor":"#1a202c","lineColor":"#5b7a99","fontFamily":"Segoe UI, Arial, sans-serif","fontSize":"15px"},"flowchart":{"useMaxWidth":true}}}%%
+flowchart TD
+    classDef doc fill:#eaf2fb,stroke:#2b6cb0,stroke-width:1px,color:#1a202c;
+    classDef decision fill:#fff3e0,stroke:#c2720c,stroke-width:1px,color:#1a202c;
+    classDef resultado fill:#eafaf1,stroke:#1b8a5a,stroke-width:1px,color:#1a202c;
+
+    DR["DocumentReference"] --&gt; CT{"content.attachment.contentType"}
+    CT --&gt;|"application/pdf"| PDF["PDF embebido o referenciado por URL"]
+    CT --&gt;|"application/fhir+json"| ATOM["Bundle FHIR de tipo document, atomizado (Composition + DiagnosticReport + Observation por resultado)"]
+
+    class DR doc
+    class CT decision
+    class PDF,ATOM resultado
+</div>
+<p style="text-align:center; color:#5b7a99; font-size:0.9em; margin-top:-10px;"><em>Figura: el tipo de contenido del documento define si viaja como PDF opaco o como Bundle FHIR atomizado; el perfil usa el mismo `DocumentReference` para ambos, y solo cambia la regla de `hash` y `size`.</em></p>
+
+<p>ITI-65 (sección 2:3.65.4.1.2.1) fija qué pasa con <code class="language-plaintext highlighter-rouge">content.attachment.hash</code> y <code class="language-plaintext highlighter-rouge">size</code> en cada forma: con un PDF, el nodo que publica informa ambos, calculados sobre el contenido que se recupera con ese <code class="language-plaintext highlighter-rouge">contentType</code>; con un Bundle documento FHIR, ambos deben faltar. El perfil lo valida con dos invariantes.</p>
+
+<p>El PDF embebido es la vía más simple para nodos que hoy solo producen un informe no estructurado. El Bundle atomizado permite, por ejemplo, que cada componente de un hemograma quede como un <code class="language-plaintext highlighter-rouge">Observation</code> con su propio código LOINC, unidad UCUM y rango de referencia, en vez de un único bloque de texto o imagen.</p>
+
+<h4 id="trazabilidad-hacia-la-solicitud-de-origen">Trazabilidad hacia la solicitud de origen</h4>
+
+<p>Un documento de resultado puede vincularse con el recurso que dio origen a su creación mediante <code class="language-plaintext highlighter-rouge">DocumentReference.context.related</code>. Esto es relevante, por ejemplo, cuando la solicitud llega codificada en un sistema distinto (como el arancel de prestaciones) del que usa el resultado (LOINC): varios códigos de resultado pueden trazarse hacia una única solicitud de origen.</p>
+
+<div class="mermaid">
+%%{init: {"theme":"base", "themeVariables": {"primaryColor":"#eaf2fb","primaryBorderColor":"#2b6cb0","primaryTextColor":"#1a202c","lineColor":"#5b7a99","fontFamily":"Segoe UI, Arial, sans-serif","fontSize":"15px"},"flowchart":{"useMaxWidth":true}}}%%
+flowchart LR
+    classDef solicitud fill:#fff3e0,stroke:#c2720c,stroke-width:1px,color:#1a202c;
+    classDef resultado fill:#eaf2fb,stroke:#2b6cb0,stroke-width:1px,color:#1a202c;
+
+    SR["Solicitud de origen (ServiceRequest, código de prestación)"] -. "context.related" .-&gt; DR["DocumentReference del resultado (uno o varios códigos LOINC)"]
+
+    class SR solicitud
+    class DR resultado
+</div>
+<p style="text-align:center; color:#5b7a99; font-size:0.9em; margin-top:-10px;"><em>Figura: vínculo opcional entre la solicitud de origen y el documento de resultado, vía `context.related`.</em></p>
+
+<p>Cada guía de dominio debe restringir <code class="language-plaintext highlighter-rouge">context.related</code> al perfil de <code class="language-plaintext highlighter-rouge">ServiceRequest</code> que corresponda a su dominio (por ejemplo, el de Laboratorio), en vez de dejarlo abierto a cualquier tipo de recurso, para que la trazabilidad sea consultable de forma confiable. El primer caso real es <code class="language-plaintext highlighter-rouge">MinsalDocumentReferenceLaboratorio</code> (<code class="language-plaintext highlighter-rouge">laboratorio-fhir</code>), que restringe <code class="language-plaintext highlighter-rouge">context.related</code> a <code class="language-plaintext highlighter-rouge">MinsalServiceRequestLab</code>.</p>
+
+<h4 id="transacciones-ihe-en-esta-guía">Transacciones IHE en esta guía</h4>
+
+<p>Cada transacción se describe con la misma estructura (Alcance, Actores, Mensaje), para que todas se lean igual independiente del orden en que se consulten. ITI-83 e ITI-78 no son transacciones de documentos, pero se describen aquí porque preceden a ITI-65 e ITI-67.</p>
+
+<h5 id="iti-83-mobile-patient-identifier-cross-reference-query-pixm">ITI-83 Mobile Patient Identifier Cross-reference Query (PIXm)</h5>
+
+<ul>
+  <li><strong>Alcance</strong>: obtener el identificador del paciente en el dominio nacional a partir de un identificador conocido (local del establecimiento, o el RUN).</li>
+  <li><strong>Actores</strong>: Patient Identifier Cross-reference Consumer (nodo custodio, nodo central o sistema consumidor) → Patient Identifier Cross-reference Manager (MPI nacional).</li>
+  <li><strong>Mensaje</strong>: <code class="language-plaintext highlighter-rouge">GET [base]/Patient/$ihe-pix?sourceIdentifier={system}|{valor}&amp;targetSystem={system nacional}</code>. La respuesta es un <code class="language-plaintext highlighter-rouge">Parameters</code> con <code class="language-plaintext highlighter-rouge">targetIdentifier</code> (el identificador nacional) y <code class="language-plaintext highlighter-rouge">targetId</code> (la referencia al <code class="language-plaintext highlighter-rouge">Patient</code> del MPI). Si el identificador de origen no existe en el MPI, la respuesta es 404. Si existe pero no tiene identificador en el dominio pedido, la respuesta es un <code class="language-plaintext highlighter-rouge">Parameters</code> vacío. Se registra con <code class="language-plaintext highlighter-rouge">IHE.PIXm.Query.Audit.Consumer</code>.</li>
+  <li><strong>Uso en esta guía</strong>: antes de ITI-65, el nodo custodio traduce el identificador local del paciente al nacional, y con él arma <code class="language-plaintext highlighter-rouge">DocumentReference.subject</code>. Al recibir el ITI-65, el nodo central consulta ITI-83 para verificar que el paciente existe en el MPI. ITI-83 confirma que el MPI conoce el identificador, pero no compara datos demográficos: para eso se usa ITI-78. Antes de ITI-67, el consumidor que conoce un identificador local lo traduce al nacional.</li>
+</ul>
+
+<h5 id="iti-78-mobile-patient-demographics-query-pdqm">ITI-78 Mobile Patient Demographics Query (PDQm)</h5>
+
+<ul>
+  <li><strong>Alcance</strong>: encontrar al paciente en el MPI cuando no se conoce un identificador que ITI-83 pueda traducir, y obtener sus datos demográficos para compararlos con los del sistema de origen.</li>
+  <li><strong>Actores</strong>: Patient Demographics Consumer (nodo custodio o sistema consumidor) → Patient Demographics Supplier (MPI nacional).</li>
+  <li><strong>Mensaje</strong>: búsqueda sobre <code class="language-plaintext highlighter-rouge">Patient</code> con <code class="language-plaintext highlighter-rouge">identifier</code>, o con datos demográficos (<code class="language-plaintext highlighter-rouge">family</code>, <code class="language-plaintext highlighter-rouge">given</code>, <code class="language-plaintext highlighter-rouge">birthdate</code>, <code class="language-plaintext highlighter-rouge">gender</code>). Igual que en ITI-67, el consumidor usa <code class="language-plaintext highlighter-rouge">POST [base]/Patient/_search</code>, para que los datos del paciente no queden en la URL. La respuesta es un <code class="language-plaintext highlighter-rouge">Bundle</code> de tipo <code class="language-plaintext highlighter-rouge">searchset</code> con los <code class="language-plaintext highlighter-rouge">Patient</code> que coinciden. Si hay más de un candidato, el sistema no elige por su cuenta: se resuelve con el usuario o se descarta. Se registra con <code class="language-plaintext highlighter-rouge">IHE.PDQm.Query.Audit.Consumer</code>.</li>
+  <li><strong>Uso en esta guía</strong>:
+    <ul>
+      <li><strong>Validación demográfica antes de ITI-65</strong>: el nodo custodio busca al paciente por su identificador nacional (<code class="language-plaintext highlighter-rouge">identifier</code>) y compara apellidos, nombres y fecha de nacimiento del <code class="language-plaintext highlighter-rouge">Patient</code> del MPI con los del sistema de origen. Si no coinciden, no publica y deriva el caso a revisión. Así se detecta un resultado asociado al paciente equivocado (identificador válido, pero datos de otra persona).</li>
+      <li><strong>Alternativa a ITI-83</strong>: antes de ITI-65 o ITI-67, cuando solo se tienen datos demográficos.</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="iti-65-provide-document-bundle">ITI-65 Provide Document Bundle</h5>
+
+<ul>
+  <li><strong>Alcance</strong>: el nodo custodio publica en una sola operación transaccional (<code class="language-plaintext highlighter-rouge">Bundle</code> tipo <code class="language-plaintext highlighter-rouge">transaction</code>, perfil <code class="language-plaintext highlighter-rouge">MinsalProvideBundleMhd</code>).</li>
+  <li><strong>Actores</strong>: Document Source (nodo custodio) → Document Recipient (nodo central).</li>
+  <li><strong>Antes de publicar</strong>: el nodo custodio obtiene el identificador nacional del paciente con ITI-83 (o ITI-78 si solo tiene datos demográficos) y valida la demografía con ITI-78: no basta con que el identificador exista. Al recibir el Bundle, el nodo central verifica el paciente con ITI-83; si el MPI no lo conoce, rechaza la publicación con un <code class="language-plaintext highlighter-rouge">OperationOutcome</code>.</li>
+  <li><strong>Mensaje</strong>: el Bundle lleva una <code class="language-plaintext highlighter-rouge">List</code> de tipo SubmissionSet (<code class="language-plaintext highlighter-rouge">MinsalSubmissionSetMhd</code>, cardinalidad 1..1, heredada de IHE) y cero o más <code class="language-plaintext highlighter-rouge">DocumentReference</code> (<code class="language-plaintext highlighter-rouge">MinsalDocumentReferenceMhd</code>). El contenido va en un <code class="language-plaintext highlighter-rouge">Binary</code> dentro del Bundle, o queda fuera y <code class="language-plaintext highlighter-rouge">content.attachment.url</code> apunta al nodo que lo custodia. Si quien origina el documento no puede armar el Bundle, envía HL7 v2 al nodo central (escenario C), y el central hace las consultas ITI-83 e ITI-78 y arma el ITI-65. La forma del envío simple está en el ejemplo oficial <code class="language-plaintext highlighter-rouge">ex-minimalProvideDocumentBundleSimple</code> de <code class="language-plaintext highlighter-rouge">ihe.iti.mhd</code> 4.2.5. La del reemplazo, en <code class="language-plaintext highlighter-rouge">ex-comprehensiveProvideDocumentBundleReplace</code>.</li>
+</ul>
+
+<h5 id="iti-67-find-document-references">ITI-67 Find Document References</h5>
+
+<ul>
+  <li><strong>Alcance</strong>: el consumidor busca documentos publicados que coincidan con criterios como paciente, tipo de documento o fecha.</li>
+  <li><strong>Actores</strong>: Document Consumer (sistema consumidor) → Document Responder (nodo central).</li>
+  <li><strong>Antes de buscar</strong>: el consumidor obtiene el identificador nacional del paciente con ITI-83 (si tiene un identificador local) o con ITI-78 (si solo tiene datos demográficos).</li>
+  <li><strong>Mensaje</strong>: búsqueda con <code class="language-plaintext highlighter-rouge">patient</code> o <code class="language-plaintext highlighter-rouge">patient.identifier</code> (identificador nacional), y con <code class="language-plaintext highlighter-rouge">status</code>. Para la atención, <code class="language-plaintext highlighter-rouge">status=current</code>. El índice no oculta los <code class="language-plaintext highlighter-rouge">superseded</code> si la búsqueda no los excluye. ITI-67 obliga al responder a aceptar GET y POST. El consumidor de esta red usa POST, para que el identificador del paciente no quede en la URL. La respuesta es un <code class="language-plaintext highlighter-rouge">Bundle</code> de <code class="language-plaintext highlighter-rouge">DocumentReference</code> de perfil <code class="language-plaintext highlighter-rouge">MinsalDocumentReferenceMhd</code>. En la fase 1, <code class="language-plaintext highlighter-rouge">content.attachment.url</code> apunta al endpoint de recuperación del nodo central.</li>
+</ul>
+
+<h5 id="iti-68-retrieve-document">ITI-68 Retrieve Document</h5>
+
+<ul>
+  <li><strong>Alcance</strong>: el consumidor recupera el contenido de un documento ya identificado por un ITI-67 previo.</li>
+  <li><strong>Actores</strong>: Document Consumer (sistema consumidor) → Document Responder (nodo central).</li>
+  <li><strong>Mensaje</strong>: <code class="language-plaintext highlighter-rouge">GET</code> sobre la URL entregada en <code class="language-plaintext highlighter-rouge">content.attachment.url</code>. En la fase 1 esa URL apunta al nodo central, que recupera el contenido desde quien lo custodia y lo entrega tras verificar <code class="language-plaintext highlighter-rouge">hash</code> y <code class="language-plaintext highlighter-rouge">size</code> (un Bundle documento FHIR no los lleva, por regla de ITI-65). Un documento <code class="language-plaintext highlighter-rouge">superseded</code>, o no disponible, se responde con 410 Gone. Si la política de privacidad del nodo central hace inaceptable el 410, responde 404. El consumidor debe tratar ambos códigos como "contenido no disponible". El documento deprecado sigue en el índice. ITI-68 no devuelve su contenido.</li>
+  <li><strong>Restricción nacional</strong>: la tabla 2:3.68.4.2.2-1 de ITI-68 sugiere 410 (o 404) para un documento deprecado, pero no lo exige. Esta guía lo hace obligatorio, para que una versión corregida no se lea como vigente. El acceso a versiones anteriores con fines médico-legales queda fuera de ITI-68.</li>
+</ul>
+
+<h4 id="recuperación-del-contenido-modelo-mediado-fase-1">Recuperación del contenido: modelo mediado (fase 1)</h4>
+
+<p>Para la fase 1, la recuperación del contenido de un documento está mediada por el nodo central: el consumidor siempre consulta y recupera a través del índice nacional, nunca directamente contra el nodo custodio. El índice reescribe <code class="language-plaintext highlighter-rouge">content.attachment.url</code> hacia su propio endpoint de recuperación al responder una búsqueda ITI-67, aunque el nodo custodio haya publicado originalmente su propia URL en el ITI-65.</p>
+
+<div class="mermaid">
+%%{init: {"theme":"base", "themeVariables": {"primaryColor":"#eaf2fb","primaryBorderColor":"#2b6cb0","primaryTextColor":"#1a202c","lineColor":"#5b7a99","fontFamily":"Segoe UI, Arial, sans-serif","fontSize":"14px","actorBkg":"#eaf2fb","actorBorder":"#2b6cb0","actorTextColor":"#1a202c","signalColor":"#5b7a99","signalTextColor":"#1a202c","noteBkgColor":"#fff3e0","noteBorderColor":"#c2720c"},"sequence":{"useMaxWidth":true}}}%%
+sequenceDiagram
+    participant Consumidor
+    participant Central as Nodo central (índice)
+    participant Custodio as Nodo custodio
+    participant MPI as MPI nacional
+
+    Custodio-&gt;&gt;MPI: ITI-83 PIXm (identificador local del paciente)
+    MPI--&gt;&gt;Custodio: Identificador nacional
+    Custodio-&gt;&gt;Central: ITI-65 Provide Document Bundle (DocumentReference con su URL real)
+    Central-&gt;&gt;MPI: ITI-83 PIXm (verifica el paciente)
+    MPI--&gt;&gt;Central: Paciente conocido
+    Central-&gt;&gt;Central: Registra metadatos, conserva la URL real internamente
+
+    Consumidor-&gt;&gt;MPI: ITI-83 PIXm o ITI-78 PDQm
+    MPI--&gt;&gt;Consumidor: Identificador nacional
+    Consumidor-&gt;&gt;Central: ITI-67 POST /DocumentReference/_search
+    Central--&gt;&gt;Consumidor: DocumentReference (URL reescrita al endpoint del central)
+
+    Consumidor-&gt;&gt;Central: ITI-68 GET (recuperación)
+    Central-&gt;&gt;Custodio: Recupera el documento con credencial propia del central
+    Custodio--&gt;&gt;Central: Documento + hash/size
+    Central-&gt;&gt;Central: Verifica hash/size, registra auditoría
+    Central--&gt;&gt;Consumidor: Documento
+</div>
+<p style="text-align:center; color:#5b7a99; font-size:0.9em; margin-top:-10px;"><em>Figura: el nodo central media toda publicación, búsqueda y recuperación en la fase 1; el consumidor nunca contacta al nodo custodio directamente. El custodio y el consumidor resuelven antes el identificador nacional del paciente en el MPI.</em></p>
+
+<p>El detalle de mensaje de cada transacción (ITI-83, ITI-78, ITI-65, ITI-67 e ITI-68) está en la sección "Transacciones IHE en esta guía", más arriba.</p>
+
+<h4 id="reemplazo-y-deprecación-de-un-documento">Reemplazo y deprecación de un documento</h4>
+
+<p>Un documento publicado nunca se borra del índice nacional: si hay que corregirlo, se publica una versión nueva y la anterior pasa a <code class="language-plaintext highlighter-rouge">status = superseded</code>. IHE MHD no admite <code class="language-plaintext highlighter-rouge">entered-in-error</code> en <code class="language-plaintext highlighter-rouge">DocumentReference.status</code> (su <code class="language-plaintext highlighter-rouge">ValueSet</code> <code class="language-plaintext highlighter-rouge">DocumentReferenceStats</code> solo tiene <code class="language-plaintext highlighter-rouge">current</code> y <code class="language-plaintext highlighter-rouge">superseded</code>). El documento deprecado sigue en el índice. ITI-68 responde 410. Una búsqueda de atención pide <code class="language-plaintext highlighter-rouge">status=current</code>, así que el deprecado no sale como vigente.</p>
+
+<p>El documento nuevo, el reemplazado y sus adendas son del mismo paciente (<code class="language-plaintext highlighter-rouge">subject</code>). Si el paciente no coincide, el índice rechaza la asociación. Un cambio de paciente se hace con un retiro y una publicación nueva, no con un reemplazo.</p>
+
+<p>Si el documento reemplazado tiene adendas (<code class="language-plaintext highlighter-rouge">relatesTo.code = appends</code>) o transformaciones, esas también pasan a <code class="language-plaintext highlighter-rouge">superseded</code> en la misma transacción. Es la regla XDS de la asociación RPLC (ITI TF-3 §4.2.2.2.3), que MHD mapea a <code class="language-plaintext highlighter-rouge">relatesTo</code>.</p>
+
+<p>Deprecar un documento sin publicar otro es una operación distinta. XDS la define en el suplemento Metadata Update (ITI-57), en estado Trial Implementation, no en el texto final de MHD. Esta guía no la adopta. El caso de un informe del paciente equivocado queda pendiente de una regla nacional explícita.</p>
+
+<p>El patrón oficial de IHE para esto (ver ejemplo <code class="language-plaintext highlighter-rouge">Bundle-ex-comprehensiveProvideDocumentBundleReplace</code> de <code class="language-plaintext highlighter-rouge">ihe.iti.mhd#4.2.5</code>) junta todo en una sola transacción atómica: el nodo custodio publica el <code class="language-plaintext highlighter-rouge">DocumentReference</code> nuevo con <code class="language-plaintext highlighter-rouge">relatesTo.code = replaces</code> apuntando al anterior, y en la misma transacción envía un <code class="language-plaintext highlighter-rouge">PATCH</code> (perfil <code class="language-plaintext highlighter-rouge">IHE.MHD.Patch.Parameters</code>) que cambia el <code class="language-plaintext highlighter-rouge">status</code> del anterior a <code class="language-plaintext highlighter-rouge">superseded</code>.</p>
+
+<h5 id="regla-de-autorización">Regla de autorización</h5>
+
+<p>Es una regla nacional; IHE MHD no define quién puede reemplazar. El nodo central solo acepta deprecar un documento si el nodo que lo solicita tiene la autoridad vigente sobre el <code class="language-plaintext highlighter-rouge">custodian</code> del documento, según un registro nacional de nodos y establecimientos:</p>
+
+<ol>
+  <li>Al recibir un <code class="language-plaintext highlighter-rouge">PATCH DocumentReference/{id}</code> (o una publicación nueva con <code class="language-plaintext highlighter-rouge">relatesTo.code = replaces</code> apuntando a <code class="language-plaintext highlighter-rouge">{id}</code>), el nodo central lee el <code class="language-plaintext highlighter-rouge">custodian</code> del documento ya indexado.</li>
+  <li>Consulta en el registro nacional qué nodo tiene hoy la autoridad sobre ese establecimiento, y lo compara con la identidad del emisor (la misma credencial de nodo con la que se autentican las publicaciones ITI-65).</li>
+  <li>Si no coinciden, rechaza la operación con <code class="language-plaintext highlighter-rouge">403</code> y registra igual el intento (ver Auditoría del reemplazo, más abajo): un nodo no puede deprecar documentos de un establecimiento sobre el que no tiene autoridad.</li>
+  <li>El <code class="language-plaintext highlighter-rouge">PATCH</code> solo se acepta con exactamente esta forma (<code class="language-plaintext highlighter-rouge">path: DocumentReference.status</code>, <code class="language-plaintext highlighter-rouge">value: superseded</code>); cualquier otra ruta u operación se rechaza, para no abrir una superficie de modificación genérica sobre el índice.</li>
+</ol>
+
+<p>Cuando un establecimiento cambia de nodo, se actualiza el registro, no los documentos. Los documentos históricos conservan su <code class="language-plaintext highlighter-rouge">custodian</code>, su <code class="language-plaintext highlighter-rouge">masterIdentifier</code> y su URL, y el nuevo nodo puede reemplazarlos desde que el registro le asigna la autoridad. Las validaciones de identificador y de URL contra el nodo que publica se aplican solo al documento nuevo.</p>
+
+<p>El registro nacional de nodos y establecimientos no existe todavía: es un elemento nuevo que MINSAL debe gobernar. Cada transferencia de autoridad debe quedar trazada: quién la autorizó, cuándo y por qué.</p>
+
+<h5 id="publicación-del-reemplazo">Publicación del reemplazo</h5>
+
+<p>El nodo custodio arma el Bundle ITI-65 completo y sigue el patrón oficial de IHE al pie de la letra: en la misma transacción viajan el <code class="language-plaintext highlighter-rouge">PATCH</code> sobre el documento anterior y el <code class="language-plaintext highlighter-rouge">POST</code> del documento nuevo con <code class="language-plaintext highlighter-rouge">relatesTo</code>. En el escenario C, quien arma ese Bundle es el nodo central.</p>
+
+<div class="mermaid">
+%%{init: {"theme":"base", "themeVariables": {"primaryColor":"#eaf2fb","primaryBorderColor":"#2b6cb0","primaryTextColor":"#1a202c","lineColor":"#5b7a99","fontFamily":"Segoe UI, Arial, sans-serif","fontSize":"14px","actorBkg":"#eaf2fb","actorBorder":"#2b6cb0","actorTextColor":"#1a202c","signalColor":"#5b7a99","signalTextColor":"#1a202c","noteBkgColor":"#fff3e0","noteBorderColor":"#c2720c"},"sequence":{"useMaxWidth":true}}}%%
+sequenceDiagram
+    participant Custodio as Nodo custodio
+    participant Central as Nodo central (índice)
+
+    Custodio-&gt;&gt;Central: PATCH DocumentReference/{id} (status: superseded) + POST nuevo DocumentReference (relatesTo replaces)
+    Central-&gt;&gt;Central: Consulta en el registro nacional qué nodo tiene autoridad sobre el custodian
+    alt emisor autorizado
+        Central-&gt;&gt;Central: Aplica el PATCH y registra el documento nuevo
+        Central--&gt;&gt;Custodio: 200 OK
+    else emisor sin autoridad sobre el custodian
+        Central--&gt;&gt;Custodio: 403 Forbidden
+    end
+    Central-&gt;&gt;Central: Registra AuditEvent (IHE.BasicAudit.Update) del intento, exitoso o rechazado
+</div>
+<p style="text-align:center; color:#5b7a99; font-size:0.9em; margin-top:-10px;"><em>Figura: el nodo central solo acepta deprecar un documento si quien lo solicita tiene la autoridad vigente sobre su `custodian`, y registra el intento en cualquier caso.</em></p>
+
+<h5 id="auditoría-del-reemplazo">Auditoría del reemplazo</h5>
+
+<p>El reemplazo que viaja dentro de ITI-65 se registra con el evento de esa transacción: <code class="language-plaintext highlighter-rouge">IHE.MHD.ProvideBundle.Audit.Recipient</code> (BALP, agrupado con ATNA). <code class="language-plaintext highlighter-rouge">IHE.BasicAudit.Update</code> queda para un PATCH que no forma parte de un Provide Bundle. En ambos, el resultado aceptado y el rechazado se distinguen por <code class="language-plaintext highlighter-rouge">AuditEvent.outcome</code>. El evento identifica al nodo que pidió el reemplazo, el documento que quedó <code class="language-plaintext highlighter-rouge">superseded</code> y el documento nuevo.</p>
+
+<h4 id="auditoría">Auditoría</h4>
+
+<p>En ambos modelos de recuperación, cada acceso queda registrado como un evento de auditoría conforme al patrón IHE BALP (Basic Audit Log Patterns), con el propósito de uso de la consulta y el nivel de confidencialidad del documento accedido. Las consultas al MPI también se registran: ITI-83 con <code class="language-plaintext highlighter-rouge">IHE.PIXm.Query.Audit.Consumer</code> e ITI-78 con <code class="language-plaintext highlighter-rouge">IHE.PDQm.Query.Audit.Consumer</code>, ambos basados en BALP.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Paquete hl7.fhir.cl.minsal.mhd#0.3.0 basado en <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generado el <span title="Mon, Nov 9, 2026 23:03-0300">2026-11-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Enlaces: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/mhd/history.html">Historial de versiones</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

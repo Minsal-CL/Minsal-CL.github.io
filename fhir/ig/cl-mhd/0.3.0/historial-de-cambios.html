@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Historial de cambios - Guía de Implementación FHIR - Perfil MHD Nacional MINSAL v0.3.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/hl7chile.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-HLBNC861DJ" async>
+</script>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+<div id="project-nav">
+    <a id="MINSAL-logo" no-external="true" href="http://minsal.cl">
+        <img height="71" alt="Visitar sitio MINSAL Chile" src="assets/images/minsal-logo.svg" />
+    </a>
+</div>
+<div id="family-nav">
+    <a id="hl7chile-logo" no-external="true" href="http://hl7chile.cl"><img height="71" alt="Visitar HL7 Chile" src="assets/images/hl7chile-logo.svg" /> </a>
+</div>
+<!--
+<div id="hl7-search">
+  <a id="hl7-search-lnk" no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+</div>
+-->
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Guía de Implementación FHIR - Perfil MHD Nacional MINSAL</span>
+            <br/>
+            <span style="display:inline-block;">0.3.0 - ci-build
+
+
+
+  <img alt="Chile flag" src="assets/images/chl.svg" height="16" title="Chile"/>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Inicio</a>
+  </li>
+  <li>
+    <a href="arquitectura-y-flujos.html">Arquitectura y flujos</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Perfiles</a>
+  </li>
+  <li>
+    <a href="historial-de-cambios.html">Historial de cambios</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Historial de cambios</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Guía de Implementación FHIR - Perfil MHD Nacional MINSAL - Local Development build (v0.3.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://interoperabilidad.minsal.cl/fhir/ig/mhd/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Historial de cambios</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h3 id="historial-de-cambios">Historial de cambios</h3>
+
+<h4 id="versión-030">Versión 0.3.0</h4>
+
+<h5 id="cambios-que-rompen-compatibilidad">Cambios que rompen compatibilidad</h5>
+
+<ul>
+  <li>Se elimina ITI-105 (Simplified Publish). La publicación se hace solo por ITI-65; en el escenario C el nodo central arma el Bundle en nombre del establecimiento. Se retiran el perfil <code class="language-plaintext highlighter-rouge">MinsalPublicacionDocumentoMhd</code>, el ejemplo <code class="language-plaintext highlighter-rouge">PublicacionInformeLaboratorioEjemploMhd</code> y la sección de ITI-105 en "Arquitectura y flujos". Las guías de dominio que heredaban de ese perfil deben dejar de hacerlo.</li>
+  <li><code class="language-plaintext highlighter-rouge">MinsalProvideBundleMhd</code> restringe sus entradas a los perfiles MINSAL: <code class="language-plaintext highlighter-rouge">SubmissionSet</code> a <code class="language-plaintext highlighter-rouge">MinsalSubmissionSetMhd</code> y <code class="language-plaintext highlighter-rouge">DocumentRefs</code> a <code class="language-plaintext highlighter-rouge">MinsalDocumentReferenceMhd</code>. Antes heredaba los perfiles de IHE, y un ITI-65 no se validaba contra las reglas nacionales.</li>
+  <li><code class="language-plaintext highlighter-rouge">custodian</code> pasa de 0..1 a 1..1 e identifica a la organización responsable del documento (el establecimiento), no al nodo que lo aloja, como define FHIR para ese elemento. Retoma #8.</li>
+  <li><code class="language-plaintext highlighter-rouge">content.attachment.hash</code> y <code class="language-plaintext highlighter-rouge">size</code> son obligatorios salvo que el contenido sea un Bundle documento FHIR, donde deben faltar (ITI-65, sección 2:3.65.4.1.2.1). Se validan con los invariantes <code class="language-plaintext highlighter-rouge">minsal-mhd-hash-size-1</code> y <code class="language-plaintext highlighter-rouge">minsal-mhd-hash-size-2</code>. Retoma #14.</li>
+  <li>La regla de autorización del reemplazo pasa a ser: el nodo central acepta el reemplazo solo del nodo que, según un registro nacional de nodos y establecimientos, tiene la autoridad vigente sobre el <code class="language-plaintext highlighter-rouge">custodian</code> del documento. Cuando un establecimiento cambia de nodo, se actualiza el registro y los documentos históricos conservan su <code class="language-plaintext highlighter-rouge">custodian</code>, su <code class="language-plaintext highlighter-rouge">masterIdentifier</code> y su URL. El registro no existe todavía y lo debe gobernar MINSAL.</li>
+</ul>
+
+<h5 id="arquitectura-y-flujos">Arquitectura y flujos</h5>
+
+<ul>
+  <li>Se agregan las consultas de identificación del paciente al MPI nacional: ITI-83 (PIXm) traduce un identificador local al nacional e ITI-78 (PDQm) busca por datos demográficos. El nodo custodio las usa antes de ITI-65 y el consumidor antes de ITI-67. Antes de ITI-65, el nodo custodio valida la demografía del paciente con ITI-78, porque ITI-83 solo confirma que el identificador existe. El nodo central verifica el paciente de cada ITI-65 con ITI-83 y rechaza la publicación si el MPI no lo conoce. Se actualizan la tabla de actores, el diagrama del modelo mediado y la sección de auditoría.</li>
+  <li>Se agregan las dependencias <code class="language-plaintext highlighter-rouge">ihe.iti.pixm</code> 3.1.0 e <code class="language-plaintext highlighter-rouge">ihe.iti.pdqm</code> 3.2.0. <code class="language-plaintext highlighter-rouge">CapabilityStatementNodoCentralMhd</code> importa <code class="language-plaintext highlighter-rouge">IHE.PIXm.Consumer</code>.</li>
+  <li>Los escenarios de origen se reordenan: A es quien ya es nodo y publica por sí mismo, B el kit de nodo en el Servicio y C el envío HL7 v2 directo al nodo central. Cada escenario lleva una descripción y el nodo central se pinta del lado central en el diagrama.</li>
+  <li>Escenario C: el <code class="language-plaintext highlighter-rouge">custodian</code> es el establecimiento y el nodo central opera por delegación. Queda pendiente cómo una corrección HL7 v2 se convierte en un reemplazo; lo define el perfil HL7 v2 de entrada.</li>
+  <li>Escenario C: se explicita que el nodo central es operado por MINSAL y se separan sus dos roles (organización responsable = establecimiento, <code class="language-plaintext highlighter-rouge">custodian</code>; nodo que aloja y publica por delegación = MINSAL, en el registro nacional y en <code class="language-plaintext highlighter-rouge">SubmissionSet.sourceId</code>). El reemplazo de un documento del escenario C lo solicita el nodo central y se autoriza porque MINSAL tiene la autoridad sobre el establecimiento. La auditoría debe distinguir al central como nodo delegado y como índice. Se agregan al README los pendientes de identidad de MINSAL como nodo, separación de funciones y figura legal.</li>
+  <li>ITI-68: la tabla 2:3.68.4.2.2-1 sugiere 410 (o 404) para un documento deprecado; esta guía lo hace obligatorio como restricción nacional. El consumidor trata 410 y 404 como contenido no disponible. Retoma #1.</li>
+</ul>
+
+<h5 id="idioma">Idioma</h5>
+
+<ul>
+  <li>La guía declara <code class="language-plaintext highlighter-rouge">language: es</code>.</li>
+  <li>Los elementos Must Support del perfil <code class="language-plaintext highlighter-rouge">MinsalDocumentReferenceMhd</code> tienen descripción corta en español.</li>
+  <li><code class="language-plaintext highlighter-rouge">MinsalProvideBundleMhd</code> y <code class="language-plaintext highlighter-rouge">MinsalSubmissionSetMhd</code> llevan título en español.</li>
+  <li>Los diagramas llevan tildes.</li>
+  <li>La plantilla traduce las etiquetas de las fichas de cada artefacto (URL oficial, versión, estado, nombre computable), las pestañas, la navegación y el pie de página.</li>
+</ul>
+
+<h5 id="correcciones">Correcciones</h5>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CapabilityStatementNodoCentralMhd</code> pasa a la versión 0.3.0 (seguía en 0.2.3).</li>
+  <li>Se corrigen textos desactualizados sobre la cantidad de perfiles: la guía tiene tres.</li>
+  <li>Los ejemplos de profesional y organizaciones llevan descripción.</li>
+  <li>Los ejemplos con PDF informan <code class="language-plaintext highlighter-rouge">hash</code> y <code class="language-plaintext highlighter-rouge">size</code>, calculados sobre un contenido de muestra. Se agrega <code class="language-plaintext highlighter-rouge">InformeLaboratorioAtomizadoEjemploMhd</code>, con contenido Bundle documento FHIR y sin <code class="language-plaintext highlighter-rouge">hash</code> ni <code class="language-plaintext highlighter-rouge">size</code>.</li>
+  <li>La plantilla cerraba dos veces el enlace "Historial de versiones" del pie de página, lo que dejaba HTML mal formado en todas las páginas.</li>
+</ul>
+
+<h4 id="versión-025">Versión 0.2.5</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">category</code> 1..1 queda como restricción de esta guía. En IHE MHD Minimal ese elemento es 0..1. El comentario del perfil lo decía al revés.</li>
+  <li><code class="language-plaintext highlighter-rouge">content.format</code> cita el ValueSet <code class="language-plaintext highlighter-rouge">formatcode</code> de IHE, binding <code class="language-plaintext highlighter-rouge">preferred</code>. El perfil transversal no aprieta esa fuerza.</li>
+  <li>ITI-68 responde 410 a un documento <code class="language-plaintext highlighter-rouge">superseded</code> (404 si la política de privacidad hace inaceptable el 410). El documento sigue en el índice.</li>
+  <li>ITI-67 exige <code class="language-plaintext highlighter-rouge">status</code> junto con el paciente. Para la atención se usa <code class="language-plaintext highlighter-rouge">status=current</code>. El índice acepta GET y POST. El consumidor usa POST.</li>
+  <li>El reemplazo dentro de ITI-65 se registra con <code class="language-plaintext highlighter-rouge">IHE.MHD.ProvideBundle.Audit.Recipient</code>. <code class="language-plaintext highlighter-rouge">IHE.BasicAudit.Update</code> queda para un PATCH fuera de ese Bundle.</li>
+  <li>Se agregan <code class="language-plaintext highlighter-rouge">MinsalProvideBundleMhd</code> y <code class="language-plaintext highlighter-rouge">MinsalSubmissionSetMhd</code>. ITI-65 lleva una lista SubmissionSet 1..1. La forma del envío es la del ejemplo oficial <code class="language-plaintext highlighter-rouge">ex-minimalProvideDocumentBundleSimple</code>.</li>
+  <li>En un reemplazo, el documento nuevo, el reemplazado y sus adendas son del mismo paciente. Las adendas y transformaciones del original pasan a <code class="language-plaintext highlighter-rouge">superseded</code> en la misma transacción.</li>
+  <li>ITI-105 queda para el origen que no custodia el PDF. Si el nodo ya lo custodia, ITI-65 publica la URL y el índice no guarda el contenido.</li>
+  <li>El retiro sin documento sucesor no se adopta. ITI-57, que lo define en XDS, está en Trial Implementation.</li>
+</ul>
+
+<h4 id="versión-024">Versión 0.2.4</h4>
+
+<ul>
+  <li>Se agrega la sección "Reemplazo y deprecación de un documento" en "Arquitectura y flujos": un documento publicado nunca se borra del índice, se publica una versión nueva con <code class="language-plaintext highlighter-rouge">relatesTo.code = replaces</code> y la anterior pasa a <code class="language-plaintext highlighter-rouge">status = superseded</code> mediante un <code class="language-plaintext highlighter-rouge">PATCH</code> (<code class="language-plaintext highlighter-rouge">IHE.MHD.Patch.Parameters</code>), siguiendo el patrón oficial de IHE MHD.</li>
+  <li>Se documenta la regla de autorización del reemplazo: el nodo central solo acepta deprecar un documento si el nodo que lo solicita es el mismo <code class="language-plaintext highlighter-rouge">custodian</code> del documento objetivo; cualquier otro caso se rechaza con <code class="language-plaintext highlighter-rouge">403</code>.</li>
+  <li>Se documenta la diferencia entre un nodo que publica con ITI-65 (arma el <code class="language-plaintext highlighter-rouge">PATCH</code> y el documento nuevo en la misma transacción) y uno que publica con ITI-105 (el nodo central aplica el <code class="language-plaintext highlighter-rouge">PATCH</code> por él cuando la publicación trae <code class="language-plaintext highlighter-rouge">relatesTo</code>).</li>
+  <li>Se agrega el registro del reemplazo, exitoso o rechazado, con el perfil <code class="language-plaintext highlighter-rouge">IHE.BasicAudit.Update</code> de IHE BALP.</li>
+  <li>Se agrega el ejemplo <code class="language-plaintext highlighter-rouge">InformeLaboratorioReemplazoEjemploMhd</code>, con <code class="language-plaintext highlighter-rouge">relatesTo.code = replaces</code> hacia el informe anterior. El cuerpo del <code class="language-plaintext highlighter-rouge">PATCH</code> no se republica como instancia propia: es el mismo que el ejemplo oficial <code class="language-plaintext highlighter-rouge">ex-patchParameters</code> de IHE MHD.</li>
+  <li>Se elimina la sección "Evolución futura: recuperación directa nodo a nodo".</li>
+  <li>Se declara la dependencia <code class="language-plaintext highlighter-rouge">hl7.fhir.uv.tools.r4</code> 1.3.0, que define la extensión de snapshot heredada en los identificadores de IHE MHD.</li>
+  <li>La página de inicio deja de usar la sección de pendientes y pasa a hablar de la guía, no de su repositorio de desarrollo.</li>
+  <li>La página de inicio incorpora las secciones de dependencias, análisis de versiones cruzadas, perfiles globales y declaración de propiedad intelectual.</li>
+</ul>
+
+<h4 id="versión-023">Versión 0.2.3</h4>
+
+<ul>
+  <li>Se agrega a "Arquitectura y flujos" la tabla "Actores y transacciones", que resume por cada actor IHE MHD (Document Source, Document Recipient, Document Responder, Document Consumer) quién lo cumple en este modelo y qué transacciones le corresponden.</li>
+  <li>Se agrega la sección "Transacciones IHE MHD en esta guía", con una sub-sección por transacción (ITI-65, ITI-105, ITI-67, ITI-68), cada una descrita con la misma estructura fija (Alcance, Actores, Mensaje) para que todas se lean de forma consistente.</li>
+  <li>Se elimina la descripción duplicada de ITI-67 que quedaba repetida dentro de "Recuperación del contenido: modelo mediado (fase 1)", remitiendo a la nueva sección de transacciones.</li>
+</ul>
+
+<h4 id="versión-022">Versión 0.2.2</h4>
+
+<ul>
+  <li>Se agrega <code class="language-plaintext highlighter-rouge">CapabilityStatementNodoCentralMhd</code>, el <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> del nodo central (índice nacional) para las transacciones IHE MHD de la fase 1. Importa (<code class="language-plaintext highlighter-rouge">imports</code>) los dos <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> oficiales de IHE MHD (<code class="language-plaintext highlighter-rouge">DocumentResponder</code>, <code class="language-plaintext highlighter-rouge">DocumentRecipient</code>) en vez de redefinir sus interacciones desde cero.</li>
+  <li>Se corrige la redacción de <code class="language-plaintext highlighter-rouge">index.md</code> para dejar explícito que los perfiles no tienen ninguna restricción de dominio (sin bindings ni tipos de referencia fijados a laboratorio/imagenología): laboratorio es el primer adoptante real, no el límite del alcance.</li>
+  <li>Laboratorio adopta formalmente estos perfiles (<code class="language-plaintext highlighter-rouge">MinsalDocumentReferenceLaboratorio</code>/<code class="language-plaintext highlighter-rouge">MinsalPublicacionDocumentoLaboratorio</code>, en <code class="language-plaintext highlighter-rouge">laboratorio-fhir</code> 0.7.0), confirmando en la práctica que el diseño transversal no requirió ningún cambio para el primer dominio real.</li>
+</ul>
+
+<h4 id="versión-021">Versión 0.2.1</h4>
+
+<ul>
+  <li>Se agrega la página "Arquitectura y flujos", con diagramas que documentan: los tres escenarios de origen del documento (envío directo al nodo central, kit de transformación en el Servicio, capacidad propia del nodo), el modelo de contenido (PDF embebido y Bundle FHIR atomizado, ambos soportados desde el inicio sin requerir cambios de perfil), el flujo de publicación y recuperación mediada por el nodo central (fase 1) con reescritura de <code class="language-plaintext highlighter-rouge">content.attachment.url</code>, la evolución futura hacia recuperación directa nodo a nodo, y la trazabilidad hacia la solicitud de origen mediante <code class="language-plaintext highlighter-rouge">context.related</code>.</li>
+  <li>Se agrega el ejemplo <code class="language-plaintext highlighter-rouge">SolicitudEjemploMhd</code> (<code class="language-plaintext highlighter-rouge">ServiceRequest</code> base, sin perfilar) y se enlaza desde <code class="language-plaintext highlighter-rouge">InformeLaboratorioEjemploMhd</code> mediante <code class="language-plaintext highlighter-rouge">context.related</code>, para ilustrar la trazabilidad de un resultado de laboratorio (codificado en LOINC) hacia su solicitud de origen (codificada con un código de prestación distinto).</li>
+  <li>Sin cambios de cardinalidad ni de perfil respecto de la versión 0.2.0.</li>
+</ul>
+
+<h4 id="versión-020">Versión 0.2.0</h4>
+
+<ul>
+  <li>Se agregan los dos primeros perfiles transversales de <code class="language-plaintext highlighter-rouge">DocumentReference</code> (IHE MHD):
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">MinsalDocumentReferenceMhd</code> (padre <code class="language-plaintext highlighter-rouge">IHE.MHD.Minimal.DocumentReference</code>): forma almacenada y consultable del documento, recuperable por <code class="language-plaintext highlighter-rouge">content.attachment.url</code> (transacciones ITI-67/ITI-68).</li>
+      <li><code class="language-plaintext highlighter-rouge">MinsalPublicacionDocumentoMhd</code> (padre <code class="language-plaintext highlighter-rouge">IHE.MHD.SimplifiedPublish.DocumentReference</code>): forma de publicación simplificada (ITI-105), con el contenido inline en <code class="language-plaintext highlighter-rouge">content.attachment.data</code> más <code class="language-plaintext highlighter-rouge">hash</code> y <code class="language-plaintext highlighter-rouge">size</code>.</li>
+    </ul>
+  </li>
+  <li>Se agregan ejemplos orientados a los dos dominios objetivo del portafolio (laboratorio e imagenología), no a IPS: <code class="language-plaintext highlighter-rouge">InformeLaboratorioEjemploMhd</code>, <code class="language-plaintext highlighter-rouge">InformeImagenologiaEjemploMhd</code> (forma almacenada) y <code class="language-plaintext highlighter-rouge">PublicacionInformeLaboratorioEjemploMhd</code> (publicación simplificada).</li>
+  <li>Códigos de <code class="language-plaintext highlighter-rouge">type</code>/<code class="language-plaintext highlighter-rouge">category</code> verificados antes de fijarlos: LOINC <code class="language-plaintext highlighter-rouge">11502-2</code> (Laboratory report) + <code class="language-plaintext highlighter-rouge">v2-0074#LAB</code> para laboratorio; LOINC <code class="language-plaintext highlighter-rouge">18748-4</code> (Diagnostic imaging study) + <code class="language-plaintext highlighter-rouge">v2-0074#RAD</code> para imagenología.</li>
+  <li><code class="language-plaintext highlighter-rouge">content.format</code> documentado con el código IHE <code class="language-plaintext highlighter-rouge">urn:ihe:iti:xds:2017:mimeTypeSufficient</code> (formato genérico cuando el <code class="language-plaintext highlighter-rouge">mimeType</code> basta para identificar el contenido, ej. un PDF simple), fijado por valor en los ejemplos; no se declara un binding de ValueSet en el perfil porque el CodeSystem de formatCode de IHE no tiene, en el paquete disponible, un ValueSet publicado que lo envuelva.</li>
+</ul>
+
+<h4 id="versión-010">Versión 0.1.0</h4>
+
+<ul>
+  <li>Esqueleto inicial del repositorio. Sin perfiles aún.</li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://interoperabilidad.minsal.cl">Unidad de Interoperabilidad - MINSAL</a>.  Paquete hl7.fhir.cl.minsal.mhd#0.3.0 basado en <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generado el <span title="Mon, Nov 9, 2026 23:03-0300">2026-11-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+             Enlaces: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Tabla de contenidos</a> |
+<a style="color: var(--footer-hyperlink-text-color)" href="qa.html">Reporte QA</a> |
+<a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="https://interoperabilidad.minsal.cl/fhir/ig/mhd/history.html">Historial de versiones</a>
+
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,94 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/mhd/DocumentReference/InformeLaboratorioAtomizadoEjemploMhd> a fhir:DocumentReference ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "InformeLaboratorioAtomizadoEjemploMhd"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/mhd/StructureDefinition/MinsalDocumentReferenceMhd" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mhd/StructureDefinition/MinsalDocumentReferenceMhd>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ReferenciaDocumento InformeLaboratorioAtomizadoEjemploMhd</b></p><a name=\"InformeLaboratorioAtomizadoEjemploMhd\"> </a><a name=\"hcInformeLaboratorioAtomizadoEjemploMhd\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-MinsalDocumentReferenceMhd.html\">Referencia documental MINSAL (IHE MHD, forma almacenada)</a></p></div><p><b>masterIdentifier</b>: Identifier type for XDS UniqueId/INF-LAB-EJEMPLO-003</p><p><b>status</b>: Current</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 11502-2}\">Reporte de laboratorio: Paciente:Punto temporal:Tipo:Documento:</span></p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}\">Laboratory</span></p><p><b>subject</b>: <a href=\"Patient-PacienteEjemploMhd.html\">Paciente Ejemplo  Unknown, DoB Unknown ( https://ejemplo.cl/rut#12345678-5)</a></p><p><b>date</b>: 2026-11-04 10:00:00-0300</p><p><b>author</b>: <a href=\"Practitioner-ProfesionalEjemploMhd.html\">Ejemplo Profesional (https://ejemplo.cl/run-profesional#11111111-1)</a></p><p><b>custodian</b>: <a href=\"Organization-LaboratorioEjemploMhd.html\">Laboratorio Clínico de Ejemplo</a></p><blockquote><p><b>content</b></p><h3>Attachments</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ContentType</b></td><td><b>Language</b></td><td><b>Url</b></td><td><b>Title</b></td><td><b>Creation</b></td></tr><tr><td style=\"display: none\">*</td><td>application/fhir+json</td><td>Español (Chile)</td><td><a href=\"https://bus.minsal.cl/fhir/Bundle/informe-lab-atomizado-ejemplo-003\">https://bus.minsal.cl/fhir/Bundle/informe-lab-atomizado-ejemplo-003</a></td><td>Informe de laboratorio atomizado (ejemplo)</td><td>2026-11-04 09:45:00-0300</td></tr></table></blockquote><h3>Contexts</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Period</b></td><td><b>Related</b></td></tr><tr><td style=\"display: none\">*</td><td>2026-11-04 09:30:00-0300 --&gt; (ongoing)</td><td><a href=\"ServiceRequest-SolicitudEjemploMhd.html\">ServiceRequest Hemograma (código de prestación FONASA de la solicitud; no se fija un `system`/código concreto en este ejemplo transversal, ya que el arancel vigente lo define la guía de dominio de Laboratorio, no este repo)</a></td></tr></table></div>"
+  ] ;
+  fhir:DocumentReference.masterIdentifier [
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://profiles.ihe.net/ITI/MHD/CodeSystem/IHE.MHD.MHDIdentifierType" ] ;
+         fhir:Coding.code [ fhir:value "uniqueId" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://ejemplo.cl/informes-laboratorio" ] ;
+     fhir:Identifier.value [ fhir:value "INF-LAB-EJEMPLO-003" ]
+  ] ;
+  fhir:DocumentReference.status [ fhir:value "current"] ;
+  fhir:DocumentReference.type [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:11502-2 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "11502-2" ] ;
+       fhir:Coding.display [ fhir:value "Reporte de laboratorio: Paciente:Punto temporal:Tipo:Documento:" ]
+     ]
+  ] ;
+  fhir:DocumentReference.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "LAB" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ]
+  ] ;
+  fhir:DocumentReference.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mhd/Patient/PacienteEjemploMhd> ;
+     fhir:Reference.reference [ fhir:value "Patient/PacienteEjemploMhd" ]
+  ] ;
+  fhir:DocumentReference.date [ fhir:value "2026-11-04T10:00:00-03:00"^^xsd:dateTime] ;
+  fhir:DocumentReference.author [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mhd/Practitioner/ProfesionalEjemploMhd> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/ProfesionalEjemploMhd" ]
+  ] ;
+  fhir:DocumentReference.custodian [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mhd/Organization/LaboratorioEjemploMhd> ;
+     fhir:Reference.reference [ fhir:value "Organization/LaboratorioEjemploMhd" ]
+  ] ;
+  fhir:DocumentReference.content [
+     fhir:index 0 ;
+     fhir:DocumentReference.content.attachment [
+       fhir:Attachment.contentType [ fhir:value "application/fhir+json" ] ;
+       fhir:Attachment.language [ fhir:value "es-CL" ] ;
+       fhir:Attachment.url [ fhir:value "https://bus.minsal.cl/fhir/Bundle/informe-lab-atomizado-ejemplo-003" ] ;
+       fhir:Attachment.title [ fhir:value "Informe de laboratorio atomizado (ejemplo)" ] ;
+       fhir:Attachment.creation [ fhir:value "2026-11-04T09:45:00-03:00"^^xsd:dateTime ]
+     ]
+  ] ;
+  fhir:DocumentReference.context [
+     fhir:DocumentReference.context.period [
+       fhir:Period.start [ fhir:value "2026-11-04T09:30:00-03:00"^^xsd:dateTime ]
+     ] ;
+     fhir:DocumentReference.context.related [
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/mhd/ServiceRequest/SolicitudEjemploMhd> ;
+       fhir:Reference.reference [ fhir:value "ServiceRequest/SolicitudEjemploMhd" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/mhd/DocumentReference/InformeLaboratorioAtomizadoEjemploMhd.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
