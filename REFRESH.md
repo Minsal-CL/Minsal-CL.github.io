@@ -333,6 +333,19 @@ _plugins/portal_gob.rb           tras renderizar: íconos en tarjetas, arte en
 
 ---
 
+
+### 6.5 Norma Técnica N.° 231 — tablas CSV
+
+- Página `norma-tecnica-231.md` (layout `portal`): tablas de codificación
+  agrupadas por tema, descarga individual en CSV, buscador y un `.zip` con
+  todas. Enlazada desde Recursos (`_data/resources.yml`) y el pie (Técnico).
+- Archivos en `assets/nt231/v<versión>/`, copiados sin modificar el contenido;
+  solo se quitaron tildes de los nombres (`química` → `quimica`,
+  `instrucción` → `instruccion`) para URLs seguras.
+- Listado en `_data/nt231.yml` (etiqueta, archivo, n.° de códigos, separador).
+  Para una nueva versión: copiar los CSV a una carpeta nueva, regenerar el
+  `.zip`, actualizar `version`, `zip` y las filas del YAML.
+
 ## 7. Cambios que **NO** se hicieron: requieren decisión
 
 Estos puntos afectan contenido o estructura institucional. Se documentan;
