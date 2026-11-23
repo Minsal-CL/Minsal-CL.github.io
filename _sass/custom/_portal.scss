@@ -700,3 +700,9 @@ body.portal .portal-main { display: block; }
 }
 @media print { .fb-fab { display: none; } }
 @media (prefers-reduced-motion: reduce) { .fb-fab { transition: none; } }
+
+// portal-gob.css: .hero--home .hero-split (2 columnas) gana a la regla móvil de
+// .hero-split por especificidad; en pantallas chicas la portada va en una columna.
+@media (max-width: 54rem) {
+  .portal .hero--home .hero-split { grid-template-columns: 1fr; }
+}

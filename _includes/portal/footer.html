@@ -1,17 +1,26 @@
-<footer class="pfoot">
-  <div class="pfoot__inner">
-    <div class="pfoot__brand">
-      <img src="{{ site.logo | relative_url }}" alt="" width="34" height="34">
-      <p><b>Interoperabilidad en Salud</b><br>Ministerio de Salud de Chile</p>
+{%- assign ext = 'target="_blank" rel="noopener"' -%}
+<footer class="pfoot gob-foot">
+  <div class="gob-stripe" aria-hidden="true"></div>
+  <div class="gob-foot__inner">
+    <div class="gob-foot__brand">
+      <a href="https://www.minsal.cl" {{ ext }} class="gob-foot__logo">
+        <img src="{{ '/assets/images/logo-minsal-gob.png' | relative_url }}" alt="Ministerio de Salud — Gobierno de Chile" width="300" height="63">
+      </a>
+      <p class="gob-foot__unit"><b>Unidad de Interoperabilidad</b><br>Departamento de Transformación Digital</p>
+      <ul class="gob-foot__contact">
+        <li>{% include portal/ico.html name="map-pin" %}<a href="https://maps.app.goo.gl/NetTm9sHzKyjwEA76" {{ ext }}>Enrique Mac Iver 541, Santiago, Chile</a></li>
+        <li>{% include portal/ico.html name="phone" %}<span>Mesa central: <a href="tel:+56225740100">(+56 2) 2 5740 100</a></span></li>
+      </ul>
     </div>
 
-    <nav class="pfoot__cols" aria-label="Pie de página">
+    <nav class="gob-foot__cols" aria-label="Pie de página">
       <div>
         <h3>El portal</h3>
         <ul>
           <li><a href="{{ '/que-hacemos.html' | relative_url }}">Qué hacemos</a></li>
           <li><a href="{{ '/arquitectura.html' | relative_url }}">Arquitectura</a></li>
           <li><a href="{{ '/componentes.html' | relative_url }}">Componentes</a></li>
+          <li><a href="{{ '/receta-trazabilidad/' | relative_url }}">Receta y Trazabilidad</a></li>
           <li><a href="{{ '/proyectos.html' | relative_url }}">Proyectos</a></li>
         </ul>
       </div>
@@ -19,25 +28,54 @@
         <h3>Técnico</h3>
         <ul>
           <li><a href="{{ '/recursos.html' | relative_url }}">Recursos</a></li>
-          <li><a href="{{ '/arquitectura.html' | relative_url }}">Arquitectura</a></li>
-          <li><a href="https://interoperabilidad.minsal.cl/fhir/ig" target="_blank" rel="noopener">Guías de Implementación (FHIR IG)</a></li>
-          <li><a href="https://forms.office.com/r/E7AaQWZMUc" target="_blank" rel="noopener">Acceso a Servicios Terminológicos</a></li>
+          <li><a href="https://interoperabilidad.minsal.cl/fhir/ig" {{ ext }}>Guías de Implementación FHIR</a></li>
+          <li><a href="https://forms.office.com/r/E7AaQWZMUc" {{ ext }}>Acceso a Servicios Terminológicos</a></li>
           <li><a href="{{ '/comentarios.html' | relative_url }}">Comentar una guía</a></li>
         </ul>
       </div>
       <div>
-        <h3>Institucional</h3>
+        <h3>Transparencia</h3>
         <ul>
-          <li><a href="https://minsal.cl" target="_blank" rel="noopener">minsal.cl</a></li>
-          <li><a href="https://www.gob.cl" target="_blank" rel="noopener">gob.cl</a></li>
+          <li><a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=AO001" {{ ext }}>Transparencia activa</a></li>
+          <li><a href="https://transparencia.redsalud.gob.cl/transparencia/public/ssp/solicitud_informacion.html" {{ ext }}>Solicitud de información</a></li>
+          <li><a href="https://www.leylobby.gob.cl/instituciones/AO001" {{ ext }}>Ley de Lobby</a></li>
+          <li><a href="https://oirs.minsal.cl/" {{ ext }}>OIRS</a></li>
+          <li><a href="https://www.minsal.cl/politicas_de_privacidad_para_aprobacion_y_revision/" {{ ext }}>Políticas de privacidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Instituciones relacionadas</h3>
+        <ul>
+          <li><a href="https://www.minsal.cl" {{ ext }}>Ministerio de Salud</a></li>
+          <li><a href="https://nuevo.fonasa.gob.cl/" {{ ext }}>FONASA</a></li>
+          <li><a href="https://www.superdesalud.gob.cl/" {{ ext }}>Superintendencia de Salud</a></li>
+          <li><a href="https://www.ispch.cl/" {{ ext }}>Instituto de Salud Pública</a></li>
+          <li><a href="https://www.cenabast.cl/" {{ ext }}>CENABAST</a></li>
         </ul>
       </div>
     </nav>
   </div>
+
+  <div class="gob-foot__band">
+    <div class="gob-foot__band-inner">
+      <a class="gob-foot__sr" href="https://saludresponde.minsal.cl/" {{ ext }}>
+        {% include portal/ico.html name="phone" %}<span>Salud Responde<b>600 360 7777</b></span>
+      </a>
+      <div class="gob-foot__social">
+        <span>Síguenos</span>
+        <ul>
+          {%- for s in site.data.portal_social %}
+          <li><a href="{{ s.url }}" {{ ext }} aria-label="{{ s.label }} del Ministerio de Salud">{% include portal/ico.html name=s.icon %}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="pfoot__legal">
     <div>
-      <p>Ministerio de Salud de Chile — Departamento de Transformación Digital. Contenido bajo licencia MIT.</p>
-      <a href="#top">{{ site.back_to_top_text | default: 'Volver arriba' }}</a>
+      <p>© {{ site.time | date: '%Y' }} Gobierno de Chile · Ministerio de Salud. Contenido bajo licencia MIT.</p>
+      <a href="#top">Volver arriba ↑</a>
     </div>
   </div>
 </footer>

@@ -1,0 +1,24 @@
+{%- comment -%}
+Ilustración de la portada: un núcleo nacional conectado a seis tipos de actores.
+Nodos: [ícono, etiqueta, x, y] dentro de un viewBox de 420x400.
+{%- endcomment -%}
+{%- assign nodes = "building,Hospitales,60,40|stethoscope,APS,300,40|flask,Laboratorios,20,170|pill,Farmacias,340,170|user-heart,Usuarios,60,300|file-medical,Registros,300,300" | split: "|" -%}
+<div class="hero-art" aria-hidden="true">
+  <svg viewBox="0 0 420 400" class="hero-art__svg">
+    <circle cx="200" cy="190" r="150" class="ha-ring"/>
+    <circle cx="200" cy="190" r="100" class="ha-ring ha-ring--2"/>
+    {%- for n in nodes -%}
+      {%- assign f = n | split: "," -%}
+      {%- assign x = f[2] | plus: 0 -%}{%- assign y = f[3] | plus: 0 -%}
+      <line x1="200" y1="190" x2="{{ x | plus: 30 }}" y2="{{ y | plus: 30 }}" class="ha-link" style="--d:{{ forloop.index0 | times: 0.35 }}s"/>
+    {%- endfor -%}
+    {%- for n in nodes -%}
+      {%- assign f = n | split: "," -%}
+      {%- assign x = f[2] | plus: 0 -%}{%- assign y = f[3] | plus: 0 -%}
+      <g class="ha-node"><rect x="{{ x }}" y="{{ y }}" width="60" height="60" rx="16"/><use href="#i-{{ f[0] }}" x="{{ x | plus: 16 }}" y="{{ y | plus: 13 }}" width="28" height="28"/><text x="{{ x | plus: 30 }}" y="{{ y | plus: 78 }}">{{ f[1] }}</text></g>
+    {%- endfor -%}
+    <g class="ha-core"><circle cx="200" cy="190" r="52"/>
+      <use href="#i-network" x="180" y="160" width="40" height="40"/>
+      <text x="200" y="216">Red nacional</text></g>
+  </svg>
+</div>

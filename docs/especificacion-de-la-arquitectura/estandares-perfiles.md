@@ -84,7 +84,7 @@ El Ministerio deberá revisar, al menos cada dos años, los estándares definido
 <li>Realizar los procesos de adopción con la gradualidad necesaria que permita a los prestadores de salud adecuarse a los cambios y su correcta implementación.</li>
 </ol>
 
-Esta necesidad de integración rápida entre sistemas responde a uno de los fundamentos de la Arquitectura Nacional de Interoperabilidad: que la información clínica de una persona esté disponible donde se atienda, sin importar dónde se generó. Ese argumento se desarrolla en [¿Por qué existe la Arquitectura?]({{ '/arquitectura.html#por-que-existe' | relative_url }}).
+Esta necesidad de integración rápida entre sistemas responde a uno de los fundamentos de la Arquitectura Nacional de Interoperabilidad: que la información clínica de un usuario esté disponible donde se atienda, sin importar dónde se generó. Ese argumento se desarrolla en [¿Por qué existe la Arquitectura?]({{ '/arquitectura.html#por-que-existe' | relative_url }}).
 
 ### Estándares Sintácticos
 

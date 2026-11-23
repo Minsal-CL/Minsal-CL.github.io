@@ -56,7 +56,7 @@ breadcrumbs:
       <dd>Autorización que otorga el ISP a un producto farmacéutico para poder comercializarse en Chile.</dd>
 
       <dt>HCC (Historia Clínica Compartida)</dt>
-      <dd>Componente que permite que el equipo tratante autorizado acceda al historial clínico de una persona, sin importar en qué establecimiento se generó cada registro.</dd>
+      <dd>Componente que permite que el equipo tratante autorizado acceda al historial clínico de un usuario, sin importar en qué establecimiento se generó cada registro.</dd>
     </dl>
   </div>
 </section>

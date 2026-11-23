@@ -13,7 +13,7 @@ description: >-
     <h2>La Arquitectura Nacional de Interoperabilidad</h2>
     <p class="page">
       Un marco de acuerdo mínimo para que la información de salud pueda
-      intercambiarse de forma segura entre instituciones, con la persona como
+      intercambiarse de forma segura entre instituciones, con los usuarios como
       eje central.
     </p>
   </div>
@@ -38,8 +38,8 @@ description: >-
     <div class="step" id="por-que-existe">
       <p class="step__n">¿Por qué existe?</p>
       <p>
-        Porque cada vez que una persona se atiende en cualquier lugar de Chile,
-        el equipo tratante y la propia persona deberían tener acceso a la
+        Porque cada vez que un usuario se atiende en cualquier lugar de Chile,
+        el equipo tratante y el propio usuario deberían tener acceso a la
         información relevante de su historial, sin importar dónde se registró:
         otros establecimientos, aseguradores, laboratorios, imágenes o
         dispositivos clínicos.
@@ -61,7 +61,7 @@ description: >-
     <div class="cap-grid">
       <div class="cap">
         <h3>Paciente como eje</h3>
-        <p>La identidad unívoca de la persona y su derecho de acceso a su propia información ordenan todo el diseño.</p>
+        <p>La identidad unívoca del usuario y su derecho de acceso a su propia información ordenan todo el diseño.</p>
       </div>
       <div class="cap">
         <h3>Información en el punto de atención</h3>
@@ -181,7 +181,7 @@ description: >-
         <div class="cap-row__mark">6</div>
         <div class="cap-row__body">
           <h3>2023 · MPI / Maestro de Pacientes</h3>
-          <p class="cap-row__detail">Base para la identificación unívoca y la correlación de personas entre distintos sistemas y establecimientos.</p>
+          <p class="cap-row__detail">Base para la identificación unívoca y la correlación de usuarios entre distintos sistemas y establecimientos.</p>
         </div>
       </li>
       <li class="cap-row">
@@ -202,14 +202,14 @@ description: >-
         <div class="cap-row__mark">9</div>
         <div class="cap-row__body">
           <h3>2025 · Sistema Nacional de Receta Electrónica</h3>
-          <p class="cap-row__detail">La interoperabilidad se traduce en un servicio nacional visible para personas, prescriptores y dispensadores.</p>
+          <p class="cap-row__detail">La interoperabilidad se traduce en un servicio nacional visible para usuarios, prescriptores y dispensadores.</p>
         </div>
       </li>
       <li class="cap-row" id="hcc">
         <div class="cap-row__mark">10</div>
         <div class="cap-row__body">
           <h3>2026+ · HCC + Receta + Trazabilidad</h3>
-          <p class="cap-row__detail">Consolidación de una capacidad nacional para compartir información clínica y farmacológica, centrada en las personas. Ver <a href="{{ '/receta-trazabilidad/' | relative_url }}">Receta Nacional y Trazabilidad de Medicamentos →</a></p>
+          <p class="cap-row__detail">Consolidación de una capacidad nacional para compartir información clínica y farmacológica, centrada en los usuarios. Ver <a href="{{ '/receta-trazabilidad/' | relative_url }}">Receta Nacional y Trazabilidad de Medicamentos →</a></p>
         </div>
       </li>
     </ol>

@@ -1,7 +1,7 @@
 ---
 layout: portal
 title: Directorio de Prestadores
-description: Registro interoperable de personas que participan en la atención de salud.
+description: Registro interoperable de profesionales que participan en la atención de salud.
 ---
 
 <section class="page-hero">
@@ -9,7 +9,7 @@ description: Registro interoperable de personas que participan en la atención d
     <p class="hero__eyebrow">Componentes de la arquitectura</p>
     <h1>Directorio de Prestadores de Salud</h1>
     <p class="page-hero__lead">
-      El Directorio de Prestadores de Salud permite identificar de manera confiable a las personas que participan en la atención, junto con sus roles y datos necesarios para el intercambio de información.
+      El Directorio de Prestadores de Salud permite identificar de manera confiable a los profesionales que participan en la atención, junto con sus roles y datos necesarios para el intercambio de información.
     </p>
   </div>
 </section>
@@ -36,7 +36,7 @@ description: Registro interoperable de personas que participan en la atención d
     </header>
     <div class="cap-grid">
       <div class="cap">
-        <h3>Personas</h3>
+        <h3>Profesionales</h3>
         <p>Identificación y atributos necesarios para reconocer a los profesionales de salud.</p>
       </div>
       <div class="cap">

@@ -3,23 +3,32 @@ layout: portal
 title: Portal de Interoperabilidad en Salud
 nav_exclude: true
 description: >-
-  Hacemos posible que la información de salud acompañe a las personas, sin
+  Hacemos posible que la información de salud acompañe a los usuarios, sin
   importar dónde se atiendan. Portal de Interoperabilidad del Ministerio de
   Salud de Chile.
 ---
 
-<section class="hero">
-  <div class="wrap">
+<section class="hero hero--art hero--home">
+  <div class="wrap hero-split"><div class="hero-split__text">
     <p class="hero__eyebrow">Ministerio de Salud · Chile</p>
     <h2>Interoperabilidad para conectar la salud de Chile</h2>
     <p class="page">
-      Hacemos posible que la información de salud pueda acompañar a las
-      personas, sin importar dónde se atiendan.
+      Hacemos posible que la información de salud pueda acompañar a
+      los usuarios, sin importar dónde se atiendan.
     </p>
     <div class="hero__actions">
       <a class="btn btn--primary" href="{{ '/que-hacemos.html' | relative_url }}">Conocer qué hacemos</a>
       <a class="btn btn--ghost" href="{{ '/arquitectura.html' | relative_url }}">Explorar la arquitectura</a>
     </div>
+  </div>{% include portal/hero_art.html %}</div>
+</section>
+
+<section class="stats" aria-label="El ecosistema en cifras">
+  <div class="wrap stats__grid">
+    <div class="stat"><span class="ico-tile">{% include portal/ico.html name="layers" %}</span><b>5</b><span>componentes nacionales comunes</span></div>
+    <div class="stat"><span class="ico-tile ico-tile--teal">{% include portal/ico.html name="book-check" %}</span><b>7</b><span>estándares internacionales adoptados</span></div>
+    <div class="stat"><span class="ico-tile ico-tile--red">{% include portal/ico.html name="network" %}</span><b>7</b><span>tipos de actores conectados a la red</span></div>
+    <div class="stat"><span class="ico-tile ico-tile--gold">{% include portal/ico.html name="target" %}</span><b>3</b><span>proyectos priorizados en 2026</span></div>
   </div>
 </section>
 
@@ -67,7 +76,7 @@ description: >-
       <p class="kicker">Cómo lo hacemos</p>
       <h2>El ecosistema de interoperabilidad</h2>
       <p class="sec-intro">
-        Las personas se atienden en muchos sistemas distintos. Una arquitectura
+        Los usuarios se atienden en muchos sistemas distintos. Una arquitectura
         nacional —con componentes comunes y estándares compartidos— los conecta,
         y sobre ella se construyen los proyectos por proceso clínico.
       </p>
@@ -90,7 +99,7 @@ description: >-
       </div>
       <div class="doc-card">
         <span class="doc-card__label">Historia clínica compartida</span>
-        <strong>Información clínica disponible donde se atiende la persona</strong>
+        <strong>Información clínica disponible donde se atiende el usuario</strong>
         <span>Da acceso a un resumen clínico interoperable entre establecimientos, favoreciendo la continuidad del cuidado y decisiones basadas en información completa.</span>
       </div>
       <div class="doc-card">

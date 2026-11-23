@@ -45,7 +45,7 @@ description: Directorio de establecimientos de salud, con identificación única
       </div>
     </div>
     <p class="disclaimer">
-      El MFR complementa al <a href="{{ '/docs/componentes-de-la-arquitectura/hpd.html' | relative_url }}">Directorio de Prestadores de Salud</a>: mientras ese registro identifica a las personas que prestan atención, el MFR identifica a las instituciones y establecimientos donde se presta.
+      El MFR complementa al <a href="{{ '/docs/componentes-de-la-arquitectura/hpd.html' | relative_url }}">Directorio de Prestadores de Salud</a>: mientras ese registro identifica a los profesionales que prestan atención, el MFR identifica a las instituciones y establecimientos donde se presta.
     </p>
   </div>
 </section>

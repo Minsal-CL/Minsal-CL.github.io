@@ -38,8 +38,8 @@ description: >-
     <h2>Cómo se relacionan</h2>
     <p>
       Un mismo componente sirve a varios proyectos. Por ejemplo, el
-      <strong>Índice Maestro de Pacientes</strong> es la base para identificar a
-      la persona en la Receta Electrónica, en Tiempos de Espera y en cualquier
+      <strong>Índice Maestro de Pacientes</strong> es la base para identificar
+      al usuario en la Receta Electrónica, en Tiempos de Espera y en cualquier
       proceso clínico interoperable. Por eso los cambios en un componente se
       coordinan a nivel nacional y no proyecto por proyecto.
     </p>

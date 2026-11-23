@@ -6,7 +6,7 @@ mermaid: true
 description: >-
   Segunda línea estratégica de la Estrategia Nacional de Interoperabilidad:
   enlazar de forma confiable lo recetado con lo dispensado y conocer el
-  origen de cada medicamento que recibe una persona.
+  origen de cada medicamento que recibe un usuario.
 ---
 
 <section class="hero">
@@ -16,8 +16,8 @@ description: >-
     <p class="page">
       La segunda línea estratégica de la Estrategia Nacional de
       Interoperabilidad. Conecta la prescripción y la dispensación de
-      medicamentos, y reconstruye el origen de cada lote que llega a una
-      persona.
+      medicamentos, y reconstruye el origen de cada lote que llega a un
+      usuario.
     </p>
   </div>
 </section>

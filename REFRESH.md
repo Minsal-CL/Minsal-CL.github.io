@@ -299,6 +299,40 @@ FORMULARIO-COMENTARIOS.md   cómo crear el Form, conectarlo y hacer seguimiento 
 
 ---
 
+## 6.4 Capa institucional Gobierno de Chile (rediseño v2)
+
+Port al sistema Jekyll del rediseño entregado como sitio estático
+(`portal-interoperabilidad-v2`, generado con `tools/rediseno.py`). Ahora se
+genera en cada build; no hace falta post-procesar el HTML.
+
+```
+assets/css/portal-gob.css        estilos de la capa Gobierno (copiado tal cual)
+assets/js/portal-gob.js          controles A−/A+/Contraste (localStorage)
+assets/images/logo-minsal-gob.png logo institucional
+_data/icons.yml                  íconos (SVG), palabras clave -> ícono, ícono fijo por página
+_data/portal_social.yml          redes sociales del pie
+_includes/portal/icon_sprite.html sprite <symbol id="i-..."> (layout portal)
+_includes/portal/ico.html        {% include portal/ico.html name="pill" %}
+_includes/portal/hero_art.html   ilustración "Red nacional" de la portada
+_includes/portal/nav.html        barra superior de Gobierno + menú (sin logo cuadrado)
+_includes/portal/footer.html     pie de Gobierno (contacto, transparencia, redes)
+_plugins/portal_gob.rb           tras renderizar: íconos en tarjetas, arte en
+                                 encabezados y bandas CTA (port de rediseno.py)
+```
+
+- **Íconos automáticos:** el plugin elige el ícono por palabra clave del título
+  (primera coincidencia en `_data/icons.yml → keywords`). Contenido nuevo con
+  las mismas clases (`.cap`, `.route`, `.doc-card`, `.ccard`, `.pcard`, `.res`,
+  `.cap-row`, `.step__n`) recibe ícono sin tocar plantillas. Se agregó la
+  palabra clave `usuario` (antes solo `persona`).
+- **Textos:** "persona(s)" → "usuario(s)" y prestadores → "profesionales",
+  como en el rediseño, corrigiendo concordancias ("a un usuario", "y el usuario",
+  "identificar al usuario", "acompañar a los usuarios", "centrado en ellos").
+- Requiere build con plugins (`bundle exec jekyll build`, como en
+  `.github/workflows/pages.yml`); el build "clásico" de GitHub Pages los ignora.
+
+---
+
 ## 7. Cambios que **NO** se hicieron: requieren decisión
 
 Estos puntos afectan contenido o estructura institucional. Se documentan;

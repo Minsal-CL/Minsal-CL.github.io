@@ -17,7 +17,7 @@ breadcrumbs:
     <h2>Trazabilidad de Medicamentos</h2>
     <p class="page">
       Reconstruir, en la mayor medida posible, la traza completa de un
-      medicamento: desde su registro sanitario hasta la persona que lo
+      medicamento: desde su registro sanitario hasta el usuario que lo
       recibió, pasando por cada lote y cada tramo de la cadena de
       abastecimiento.
     </p>
@@ -49,8 +49,8 @@ breadcrumbs:
       <h2>Del origen del lote al paciente</h2>
       <p class="sec-intro">
         Qué lote recibió cada paciente y de dónde proviene: origen y cadena
-        de custodia desde el ISP y el abastecimiento hasta la farmacia y la
-        persona.
+        de custodia desde el ISP y el abastecimiento hasta la farmacia y el
+        usuario.
       </p>
     </header>
     <div class="diagram">

@@ -1,7 +1,7 @@
 ---
 layout: portal
 title: Índice Maestro de Pacientes
-description: Identificación consistente de personas para intercambiar información clínica de forma segura entre sistemas.
+description: Identificación consistente de usuarios para intercambiar información clínica de forma segura entre sistemas.
 ---
 
 <section class="page-hero">
@@ -9,7 +9,7 @@ description: Identificación consistente de personas para intercambiar informaci
     <p class="hero__eyebrow">Componentes de la arquitectura</p>
     <h1>Índice Maestro de Pacientes</h1>
     <p class="page-hero__lead">
-      El EMPI (<em>Enterprise Master Patient Index</em>) permite reconocer de forma consistente a una misma persona entre organizaciones y sistemas de salud. Mantiene la coherencia de sus identificadores y datos demográficos para que la información clínica pueda asociarse y compartirse de manera confiable.
+      El EMPI (<em>Enterprise Master Patient Index</em>) permite reconocer de forma consistente a un mismo usuario entre organizaciones y sistemas de salud. Mantiene la coherencia de sus identificadores y datos demográficos para que la información clínica pueda asociarse y compartirse de manera confiable.
     </p>
   </div>
 </section>
@@ -37,7 +37,7 @@ description: Identificación consistente de personas para intercambiar informaci
     <div class="cap-grid">
       <div class="cap">
         <h3>Interoperabilidad</h3>
-        <p>Permite correlacionar registros provenientes de distintos establecimientos y aplicaciones, asociando la información con la persona correcta.</p>
+        <p>Permite correlacionar registros provenientes de distintos establecimientos y aplicaciones, asociando la información con el usuario correcto.</p>
       </div>
       <div class="cap">
         <h3>Seguridad</h3>

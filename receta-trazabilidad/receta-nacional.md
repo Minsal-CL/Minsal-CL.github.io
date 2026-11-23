@@ -75,7 +75,7 @@ breadcrumbs:
       </div>
       <div class="cap">
         <h3>Paciente</h3>
-        <p>Persona para quien se prescribe y a quien se entrega el medicamento.</p>
+        <p>Usuario para quien se prescribe y a quien se entrega el medicamento.</p>
       </div>
       <div class="cap">
         <h3>MINSAL / ISP</h3>
@@ -126,7 +126,7 @@ sequenceDiagram
       <h2>Un mismo hilo de información</h2>
     </header>
     <p>
-      La receta y su dispensación forman parte del historial de la persona.
+      La receta y su dispensación forman parte del historial del usuario.
       Al quedar registradas con el mismo modelo que usa la Historia Clínica
       Compartida (HCC), cualquier equipo tratante autorizado puede ver qué se
       recetó y qué se dispensó, sin depender del establecimiento donde
@@ -150,7 +150,7 @@ sequenceDiagram
       <li><code>MedicationRequest</code>: la prescripción emitida por el profesional.</li>
       <li><code>MedicationDispense</code>: la dispensación registrada por la farmacia, enlazada a la prescripción mediante el elemento <code>authorizingPrescription</code>.</li>
       <li><code>Medication</code>: el producto farmacéutico prescrito o dispensado.</li>
-      <li><code>Patient</code>: la persona para quien se prescribe.</li>
+      <li><code>Patient</code>: el usuario para quien se prescribe.</li>
       <li><code>Practitioner</code>: el profesional que prescribe o dispensa.</li>
       <li><code>Organization</code>: el establecimiento o farmacia que interviene.</li>
     </ul>

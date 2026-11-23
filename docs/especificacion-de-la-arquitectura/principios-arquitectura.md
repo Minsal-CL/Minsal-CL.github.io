@@ -46,7 +46,7 @@ breadcrumbs:
 	<div class="doc-card">
 		<span class="doc-card__label">03</span>
 		<strong>Privacidad</strong>
-		<span>El derecho fundamental de una persona a controlar su información personal y decidir cómo se recopila, utiliza, almacena y comparte, incorporado desde el inicio del diseño y desarrollo de sistemas y tecnologías: consentimiento, acceso a la información personal y transparencia en su uso.</span>
+		<span>El derecho fundamental de cada usuario a controlar su información personal y decidir cómo se recopila, utiliza, almacena y comparte, incorporado desde el inicio del diseño y desarrollo de sistemas y tecnologías: consentimiento, acceso a la información personal y transparencia en su uso.</span>
 	</div>
 	<div class="doc-card">
 		<span class="doc-card__label">04</span>
@@ -86,7 +86,7 @@ breadcrumbs:
 	<div class="doc-card">
 		<span class="doc-card__label">11</span>
 		<strong>Confidencialidad</strong>
-		<span>Proteger la información sensible o privada de manera que solo las personas o entidades autorizadas tengan acceso a ella.</span>
+		<span>Proteger la información sensible o privada de manera que solo los usuarios o entidades autorizadas tengan acceso a ella.</span>
 	</div>
 </div>
 

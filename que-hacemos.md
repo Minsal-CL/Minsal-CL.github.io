@@ -3,16 +3,16 @@ layout: portal
 title: Qué hacemos
 nav_exclude: true
 description: >-
-  Conectamos sistemas, ponemos a la persona al centro, construimos capacidades
+  Conectamos sistemas, ponemos a los usuarios al centro, construimos capacidades
   nacionales y definimos estándares para la salud de Chile.
 ---
 
 <section class="hero">
   <div class="wrap">
     <p class="hero__eyebrow">Qué hacemos</p>
-    <h2 class="page">Que la información de salud llegue donde se necesita, en el momento que se necesista y a quien lo necesita</h2>
+    <h2 class="page">Que la información de salud llegue donde se necesita, en el momento que se necesita y a quien lo necesita</h2>
     <p class="page">
-      El Ministerio de Salud impulsa una estrategia de interoperabilidad para todo el sector: un sistema más integrado, donde el flujo de información a la persona como eje central de la atención.
+      El Ministerio de Salud impulsa una estrategia de interoperabilidad para todo el sector: un sistema más integrado, donde el usuario es el eje central de la atención y guía el flujo de información.
     </p>
   </div>
 </section>
@@ -105,12 +105,12 @@ description: >-
 <section class="band">
   <div class="wrap">
     <header class="sec-head">
-      <p class="kicker">Las personas primero</p>
-      <h2>Lo técnico es un habilitante; el cambio ocurre cuando las personas adoptan, confían y usan</h2>
+      <p class="kicker">Los usuarios primero</p>
+      <h2>Lo técnico es un habilitante; el cambio ocurre cuando los usuarios adoptan, confían y usan</h2>
       <p class="sec-intro">
-        En estos proyectos, el objetivo no es mover datos: es que las personas
+        En estos proyectos, el objetivo no es mover datos: es que los usuarios
         adopten, confíen y usen las capacidades construidas para un cuidado
-        más continuo, seguro y centrado en ellas.
+        más continuo, seguro y centrado en ellos.
       </p>
     </header>
     <div class="cap-grid">
@@ -128,7 +128,7 @@ description: >-
       </div>
       <div class="cap">
         <h3>4 · Confianza y colaboración</h3>
-        <p>La interoperabilidad requiere acuerdos entre personas, instituciones y equipos.</p>
+        <p>La interoperabilidad requiere acuerdos entre usuarios, instituciones y equipos.</p>
       </div>
       <div class="cap">
         <h3>5 · Impacto en la atención</h3>
