@@ -1,0 +1,64 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSIdentificadorPrestador> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "VSIdentificadorPrestador"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores VSIdentificadorPrestador</b></p><a name=\"VSIdentificadorPrestador\"> </a><a name=\"hcVSIdentificadorPrestador\"> </a><ul><li>Include these codes as defined in <a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/CodeSystem-CSTipoIdentificador.html\"><code>https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador</code></a><span title=\"Version is not explicitly stated, which means it is fixed to 1.9.4, the version found through the package references\"> versión ?1.9.4</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/CodeSystem-CSTipoIdentificador.html#CSTipoIdentificador-01\">01</a></td><td>RUN</td><td>Rol Único Nacional</td></tr><tr><td><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/CodeSystem-CSTipoIdentificador.html#CSTipoIdentificador-13\">13</a></td><td>RNPI</td><td>Registro Nacional de Prestadores Individuales</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSIdentificadorPrestador"] ;
+  fhir:ValueSet.version [ fhir:value "0.5.0"] ;
+  fhir:ValueSet.name [ fhir:value "VSIdentificadorPrestador"] ;
+  fhir:ValueSet.title [ fhir:value "Identificador del Prestador"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2023-01-15"^^xsd:date] ;
+  fhir:ValueSet.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Identificador del Prestador Profesional o Administrativo"] ;
+  fhir:ValueSet.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "01" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RUN" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "13" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RNPI" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSIdentificadorPrestador.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

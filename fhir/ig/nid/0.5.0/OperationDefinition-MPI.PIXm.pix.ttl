@@ -1,0 +1,114 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationDefinition/MPI.PIXm.pix> a fhir:OperationDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "MPI.PIXm.pix"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: DefinicionDeOperacion MPI.PIXm.pix</b></p><a name=\"MPI.PIXm.pix\"> </a><a name=\"hcMPI.PIXm.pix\"> </a><p>URL: [base]/Patient/$ihe-pix</p><h3>Parameters</h3><table class=\"grid\"><tr><td><b>Use</b></td><td><b>Nombre</b></td><td><b>Scope</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Documentation</b></td></tr><tr><td>IN</td><td>sourceIdentifier</td><td/><td>1..1</td><td><a href=\"http://hl7.org/fhir/R4/datatypes.html#string\">string</a><br/>(<a href=\"https://hl7.org/fhir/R4/search.html#token\">token</a>)</td><td/><td><div><p>El parámetro de búsqueda del identificador del Paciente que será utilizado por el Administrador de Referencia Cruzada de Identificadores de Pacientes para encontrar identificadores cruzados asociados con el Recurso Paciente.</p>\n</div></td></tr><tr><td>IN</td><td>targetSystem</td><td/><td>0..1</td><td><a href=\"http://hl7.org/fhir/R4/datatypes.html#string\">string</a><br/>(<a href=\"https://hl7.org/fhir/R4/search.html#uri\">uri</a>)</td><td/><td><div><p>La Autoridad Asignadora de Identificadores del Paciente objetivo de la cual se deben seleccionar los identificadores devueltos.</p>\n</div></td></tr><tr><td>IN</td><td>_format</td><td/><td>0..1</td><td><a href=\"http://hl7.org/fhir/R4/datatypes.html#string\">string</a><br/>(<a href=\"https://hl7.org/fhir/R4/search.html#token\">token</a>)</td><td/><td><div><p>El formato solicitado de la respuesta.</p>\n</div></td></tr><tr><td>OUT</td><td>targetIdentifier</td><td/><td>0..*</td><td><a href=\"http://hl7.org/fhir/R4/datatypes.html#Identifier\">Identifier</a></td><td/><td><div><p>El identificador encontrado.</p>\n</div></td></tr><tr><td>OUT</td><td>targetId</td><td/><td>0..*</td><td><a href=\"http://hl7.org/fhir/R4/references.html#Reference\">Reference</a></td><td/><td><div><p>La URL del Recurso Paciente.</p>\n</div></td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm" ] ;
+     fhir:Extension.valueInteger [ fhir:value "1"^^xsd:integer ]
+  ], [
+     fhir:index 1 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.valueCode [ fhir:value "draft" ]
+  ] ;
+  fhir:OperationDefinition.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationDefinition/MPI.PIXm.pix"] ;
+  fhir:OperationDefinition.version [ fhir:value "0.5.0"] ;
+  fhir:OperationDefinition.name [ fhir:value "MPI_PIXM_pix"] ;
+  fhir:OperationDefinition.title [ fhir:value "Operación para Obtener Identificadores Correspondientes"] ;
+  fhir:OperationDefinition.status [ fhir:value "draft"] ;
+  fhir:OperationDefinition.kind [ fhir:value "operation"] ;
+  fhir:OperationDefinition.date [ fhir:value "2024-08-27"^^xsd:date] ;
+  fhir:OperationDefinition.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:OperationDefinition.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.description [ fhir:value "Operación compatible con la [$ihe-pix](https://profiles.ihe.net/ITI/PIXm/OperationDefinition-IHE.PIXm.pix.html) para obtener los identificadores correspondientes de cada recurso paciente\n  * Input: sourceIdentifier, targetSystem, and _format\n  * Output: targetIdentifier, targetId"] ;
+  fhir:OperationDefinition.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:OperationDefinition.code [ fhir:value "ihe-pix"] ;
+  fhir:OperationDefinition.base [
+     fhir:value "https://profiles.ihe.net/ITI/PIXm/OperationDefinition/IHE.PIXm.pix" ;
+     fhir:link <https://profiles.ihe.net/ITI/PIXm/OperationDefinition/IHE.PIXm.pix>
+  ] ;
+  fhir:OperationDefinition.resource [
+     fhir:value "Patient" ;
+     fhir:index 0
+  ] ;
+  fhir:OperationDefinition.system [ fhir:value "false"^^xsd:boolean] ;
+  fhir:OperationDefinition.type [ fhir:value "true"^^xsd:boolean] ;
+  fhir:OperationDefinition.instance [ fhir:value "false"^^xsd:boolean] ;
+  fhir:OperationDefinition.parameter [
+     fhir:index 0 ;
+     fhir:OperationDefinition.parameter.name [ fhir:value "sourceIdentifier" ] ;
+     fhir:OperationDefinition.parameter.use [ fhir:value "in" ] ;
+     fhir:OperationDefinition.parameter.min [ fhir:value "1"^^xsd:integer ] ;
+     fhir:OperationDefinition.parameter.max [ fhir:value "1" ] ;
+     fhir:OperationDefinition.parameter.documentation [ fhir:value "El parámetro de búsqueda del identificador del Paciente que será utilizado por el Administrador de Referencia Cruzada de Identificadores de Pacientes para encontrar identificadores cruzados asociados con el Recurso Paciente." ] ;
+     fhir:OperationDefinition.parameter.type [ fhir:value "string" ] ;
+     fhir:OperationDefinition.parameter.searchType [ fhir:value "token" ]
+  ], [
+     fhir:index 1 ;
+     fhir:OperationDefinition.parameter.name [ fhir:value "targetSystem" ] ;
+     fhir:OperationDefinition.parameter.use [ fhir:value "in" ] ;
+     fhir:OperationDefinition.parameter.min [ fhir:value "0"^^xsd:integer ] ;
+     fhir:OperationDefinition.parameter.max [ fhir:value "1" ] ;
+     fhir:OperationDefinition.parameter.documentation [ fhir:value "La Autoridad Asignadora de Identificadores del Paciente objetivo de la cual se deben seleccionar los identificadores devueltos." ] ;
+     fhir:OperationDefinition.parameter.type [ fhir:value "string" ] ;
+     fhir:OperationDefinition.parameter.searchType [ fhir:value "uri" ]
+  ], [
+     fhir:index 2 ;
+     fhir:OperationDefinition.parameter.name [ fhir:value "_format" ] ;
+     fhir:OperationDefinition.parameter.use [ fhir:value "in" ] ;
+     fhir:OperationDefinition.parameter.min [ fhir:value "0"^^xsd:integer ] ;
+     fhir:OperationDefinition.parameter.max [ fhir:value "1" ] ;
+     fhir:OperationDefinition.parameter.documentation [ fhir:value "El formato solicitado de la respuesta." ] ;
+     fhir:OperationDefinition.parameter.type [ fhir:value "string" ] ;
+     fhir:OperationDefinition.parameter.searchType [ fhir:value "token" ]
+  ], [
+     fhir:index 3 ;
+     fhir:OperationDefinition.parameter.name [ fhir:value "targetIdentifier" ] ;
+     fhir:OperationDefinition.parameter.use [ fhir:value "out" ] ;
+     fhir:OperationDefinition.parameter.min [ fhir:value "0"^^xsd:integer ] ;
+     fhir:OperationDefinition.parameter.max [ fhir:value "*" ] ;
+     fhir:OperationDefinition.parameter.documentation [ fhir:value "El identificador encontrado." ] ;
+     fhir:OperationDefinition.parameter.type [ fhir:value "Identifier" ]
+  ], [
+     fhir:index 4 ;
+     fhir:OperationDefinition.parameter.name [ fhir:value "targetId" ] ;
+     fhir:OperationDefinition.parameter.use [ fhir:value "out" ] ;
+     fhir:OperationDefinition.parameter.min [ fhir:value "0"^^xsd:integer ] ;
+     fhir:OperationDefinition.parameter.max [ fhir:value "*" ] ;
+     fhir:OperationDefinition.parameter.documentation [ fhir:value "La URL del Recurso Paciente." ] ;
+     fhir:OperationDefinition.parameter.type [ fhir:value "Reference" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationDefinition/MPI.PIXm.pix.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

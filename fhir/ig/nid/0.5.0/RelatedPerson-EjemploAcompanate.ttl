@@ -1,0 +1,61 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/RelatedPerson/EjemploAcompanate> a fhir:RelatedPerson ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EjemploAcompanate"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALAcompanante" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALAcompanante>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: PersonaRelacionada EjemploAcompanate</b></p><a name=\"EjemploAcompanate\"> </a><a name=\"hcEjemploAcompanate\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-MINSALAcompanante.html\">MINSAL Acompañante</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Pedro Castilla (official) - Emergency Contact</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"The period during which this record applies\">Valid Period:</td><td colspan=\"3\">2024-01-23 16:30:00-0300 --&gt; 2024-01-23 18:00:00-0300</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The patient this person is related to\">Patient:</td><td colspan=\"3\"><a href=\"Patient-MinsalPacienteEjemplo.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( RUN: 16182522-0 (use: official))</a></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"The nature of the relationship between the patient and the related person\">Relationship:</td><td colspan=\"3\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0131 C}\">Emergency Contact</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Related Person\">Contact Detail</td><td colspan=\"3\"><a href=\"tel:+56987654321\">+56987654321</a></td></tr></table></div>"
+  ] ;
+  fhir:RelatedPerson.patient [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/MinsalPacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/MinsalPacienteEjemplo" ]
+  ] ;
+  fhir:RelatedPerson.relationship [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0131" ] ;
+       fhir:Coding.code [ fhir:value "C" ] ;
+       fhir:Coding.display [ fhir:value "Emergency Contact" ]
+     ]
+  ] ;
+  fhir:RelatedPerson.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [ fhir:value "Castilla" ] ;
+     fhir:HumanName.given [
+       fhir:value "Pedro" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:RelatedPerson.telecom [
+     fhir:index 0 ;
+     fhir:ContactPoint.system [ fhir:value "phone" ] ;
+     fhir:ContactPoint.value [ fhir:value "+56987654321" ] ;
+     fhir:ContactPoint.use [ fhir:value "mobile" ]
+  ] ;
+  fhir:RelatedPerson.period [
+     fhir:Period.start [ fhir:value "2024-01-23T16:30:00-03:00"^^xsd:dateTime ] ;
+     fhir:Period.end [ fhir:value "2024-01-23T18:00:00-03:00"^^xsd:dateTime ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/RelatedPerson/EjemploAcompanate.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

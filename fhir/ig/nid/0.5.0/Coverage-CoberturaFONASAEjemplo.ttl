@@ -1,0 +1,76 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Coverage/CoberturaFONASAEjemplo> a fhir:Coverage ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "CoberturaFONASAEjemplo"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALCobertura" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALCobertura>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Cobertura CoberturaFONASAEjemplo</b></p><a name=\"CoberturaFONASAEjemplo\"> </a><a name=\"hcCoberturaFONASAEjemplo\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-MINSALCobertura.html\">MINSAL Cobertura de Salud del Paciente</a></p></div><p><b>status</b>: Active</p><p><b>type</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-PrevisiondeSalud-CS 1}\">FONASA</span></p><p><b>policyHolder</b>: <a href=\"Patient-MinsalPacienteEjemplo.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( RUN: 16182522-0 (use: official))</a></p><p><b>beneficiary</b>: <a href=\"Patient-MinsalPacienteEjemplo.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( RUN: 16182522-0 (use: official))</a></p><p><b>period</b>: 2024-01-12 --&gt; (ongoing)</p><p><b>payor</b>: <a href=\"Organization-FONASA.html\">Fondo Nacional De Salud (61603000-0)</a></p><h3>Classes</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Value</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSClasesDeCobertura 1}\">Tramos de FONASA</span></td><td><code>Valor de la Clase: </code><a href=\"https://interoperabilidad.minsal.cl/fhir/ig/eis/0.2.1/CodeSystem-eis-tramos-fonasa-cs.html#eis-tramos-fonasa-cs-A\">Tramos FONASA: A</a> (Tramo A)</td></tr></table></div>"
+  ] ;
+  fhir:Coverage.status [ fhir:value "active"] ;
+  fhir:Coverage.type [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-PrevisiondeSalud-CS" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "FONASA" ]
+     ]
+  ] ;
+  fhir:Coverage.policyHolder [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/MinsalPacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/MinsalPacienteEjemplo" ]
+  ] ;
+  fhir:Coverage.beneficiary [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/MinsalPacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/MinsalPacienteEjemplo" ]
+  ] ;
+  fhir:Coverage.period [
+     fhir:Period.start [ fhir:value "2024-01-12"^^xsd:date ]
+  ] ;
+  fhir:Coverage.payor [
+     fhir:index 0 ;
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Organization/FONASA> ;
+     fhir:Reference.reference [ fhir:value "Organization/FONASA" ]
+  ] ;
+  fhir:Coverage.class [
+     fhir:index 0 ;
+     fhir:Coverage.class.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSClasesDeCobertura" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "Tramos de FONASA" ]
+       ]
+     ] ;
+     fhir:Coverage.class.value [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/ValorDeLaClase" ] ;
+         fhir:Extension.valueCoding [
+           fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-tramos-fonasa-cs" ] ;
+           fhir:Coding.code [ fhir:value "A" ] ;
+           fhir:Coding.display [ fhir:value "Tramo A" ]
+         ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Coverage/CoberturaFONASAEjemplo.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

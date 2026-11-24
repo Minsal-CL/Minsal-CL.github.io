@@ -1,0 +1,320 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaMatch> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EjemploBusquedaMatch"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch>
+     ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "searchset"] ;
+  fhir:Bundle.total [ fhir:value "1"^^xsd:nonNegativeInteger] ;
+  fhir:Bundle.link [
+     fhir:index 0 ;
+     fhir:Bundle.link.relation [ fhir:value "self" ] ;
+     fhir:Bundle.link.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/$match" ]
+  ] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/AC1696435881599" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/AC1696435881599> ;
+     fhir:Bundle.entry.search [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/match-grade" ] ;
+         fhir:Extension.valueCode [ fhir:value "probable" ]
+       ] ;
+       fhir:Bundle.entry.search.mode [ fhir:value "match" ] ;
+       fhir:Bundle.entry.search.score [ fhir:value "0.7"^^xsd:decimal ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/AC1696435881599> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "AC1696435881599"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_AC1696435881599\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Paciente AC1696435881599</b></p><a name=\"AC1696435881599\"> </a><a name=\"hcAC1696435881599\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-MINSALPaciente.html\">MINSAL Paciente</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Andres Martinez (official) Male, DoB: 1981-11-10 ( RUN: 12216373-3 (use: official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td>true</td><td style=\"background-color: #f3f5da\" title=\"Known status of Patient\">Deceased:</td><td>false</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Known Marital status of Patient\">Marital Status:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-EstadoCivil-CS 1}\">Soltero/a</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Patient\">Contact Detail</td><td colspan=\"3\"><ul><li><a href=\"tel:+5694332547\">+5694332547</a></li><li>Calle Los Cedros 1234, Casa 15 La Florida Metropolitana de Santiago Chile (home)</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Sexo Biologico del paciente\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-SexoBiologico.html\">Sexo Biologico del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-SexoBiologico-CS 1}\">Masculino</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"País de origen del paciente\"><a href=\"StructureDefinition-PaisOrigenMPI.html\">País de origen del paciente</a></td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs 32}\">Argentina</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Extensión para describir si el paciente pertenece algún pueblo originario\">Pueblos Originarios:</td><td colspan=\"3\"><ul><li>pertenece: false</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Esta extensión incluye códigos de países\"><a href=\"https://hl7chile.cl/fhir/ig/clcore/1.9.4/StructureDefinition-CodigoPaises.html\">Código de Países</a></td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs 152}\">Chile</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Sexo registral del paciente según el Registro Civil, con los códigos de EIS 0.2.0.\"><a href=\"StructureDefinition-SexoRegistral.html\">Sexo Registral</a></td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-SexoRegistral-CS M}\">Masculino</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Religión\"><a href=\"StructureDefinition-Religion.html\">Religión</a></td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-religion-cs 9}\">Ninguna</span></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"An individual's personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what that identity is. #xA; In the case where the gender identity is communicated by a third party, for example, if a spouse indicates the gender identity of their partner on an intake form, a Provenance resource can be used with a Provenance.target referring to the Patient, with a targetElement extension identifying the gender identity extension as the target element within the Patient resource.  When exchanging this concept, refer to the guidance in the [Gender Harmony Implementation Guide](http://hl7.org/xprod/ig/uv/gender-harmony/).\">Individual Gender Identity:</td><td colspan=\"3\"><ul><li>value: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-identidadgenero-cs 1}\">Masculino</span></li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Pueblos Afrodescendiente\"><a href=\"StructureDefinition-PueblosAfrodescendiente.html\">Pueblos Afrodescendiente</a></td><td colspan=\"3\">false</td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index 0 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/SexoRegistral" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-SexoRegistral-CS" ] ;
+         fhir:Coding.code [ fhir:value "M" ] ;
+         fhir:Coding.display [ fhir:value "Masculino" ]
+       ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "value" ] ;
+       fhir:Extension.valueCodeableConcept [
+         fhir:CodeableConcept.coding [
+           fhir:index 0 ;
+           fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-identidadgenero-cs" ] ;
+           fhir:Coding.code [ fhir:value "1" ] ;
+           fhir:Coding.display [ fhir:value "Masculino" ]
+         ]
+       ]
+     ] ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/individual-genderIdentity" ]
+  ], [
+     fhir:index 2 ;
+     fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SexoBiologico" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-SexoBiologico-CS" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "Hombre" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "Masculino" ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs" ] ;
+         fhir:Coding.code [ fhir:value "152" ] ;
+         fhir:Coding.display [ fhir:value "Chile" ]
+       ]
+     ]
+  ], [
+     fhir:index 4 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PaisOrigenMPI" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs" ] ;
+         fhir:Coding.code [ fhir:value "32" ] ;
+         fhir:Coding.display [ fhir:value "Argentina" ]
+       ]
+     ]
+  ], [
+     fhir:index 5 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/Religion" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-religion-cs" ] ;
+         fhir:Coding.code [ fhir:value "9" ] ;
+         fhir:Coding.display [ fhir:value "Ninguna" ]
+       ]
+     ]
+  ], [
+     fhir:index 6 ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PueblosAfrodescendiente" ] ;
+     fhir:Extension.valueBoolean [ fhir:value "false"^^xsd:boolean ]
+  ], [
+     fhir:index 7 ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "pertenece" ] ;
+       fhir:Extension.valueBoolean [ fhir:value "false"^^xsd:boolean ]
+     ] ;
+     fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PueblosOriginariosMPI" ]
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ] ;
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-tipo-identificador-cs" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.value [ fhir:value "12216373-3" ]
+  ] ;
+  fhir:Patient.active [ fhir:value "true"^^xsd:boolean] ;
+  fhir:Patient.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [
+       fhir:value "Martinez" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "rochefort" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "Andres" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Patient.telecom [
+     fhir:index 0 ;
+     fhir:ContactPoint.system [ fhir:value "phone" ] ;
+     fhir:ContactPoint.value [ fhir:value "+5694332547" ] ;
+     fhir:ContactPoint.use [ fhir:value "mobile" ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "male"] ;
+  fhir:Patient.birthDate [ fhir:value "1981-11-10"^^xsd:date] ;
+  fhir:Patient.deceasedBoolean [ fhir:value "false"^^xsd:boolean] ;
+  fhir:Patient.address [
+     fhir:index 0 ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/SituacionCalle" ] ;
+       fhir:Extension.valueBoolean [ fhir:value "false"^^xsd:boolean ]
+     ] ;
+     fhir:Address.use [ fhir:value "home" ] ;
+     fhir:Address.line [
+       fhir:value "Calle Los Cedros 1234, Casa 15" ;
+       fhir:index 0
+     ] ;
+     fhir:Address.city [
+       fhir:value "La Florida" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ComunasCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodComunasCL" ] ;
+             fhir:Coding.code [ fhir:value "13110" ] ;
+             fhir:Coding.display [ fhir:value "La Florida" ]
+           ]
+         ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-comunas" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-comunas-cs" ] ;
+             fhir:Coding.code [ fhir:value "13110" ] ;
+             fhir:Coding.display [ fhir:value "La Florida" ]
+           ]
+         ]
+       ]
+     ] ;
+     fhir:Address.district [
+       fhir:value "Santiago" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/ProvinciasCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodProvinciasCL" ] ;
+             fhir:Coding.code [ fhir:value "131" ] ;
+             fhir:Coding.display [ fhir:value "Santiago" ]
+           ]
+         ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-provincias" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-provincias-cs" ] ;
+             fhir:Coding.code [ fhir:value "131" ] ;
+             fhir:Coding.display [ fhir:value "Santiago" ]
+           ]
+         ]
+       ]
+     ] ;
+     fhir:Address.state [
+       fhir:value "Metropolitana de Santiago" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL" ] ;
+             fhir:Coding.code [ fhir:value "13" ] ;
+             fhir:Coding.display [ fhir:value "Metropolitana de Santiago" ]
+           ]
+         ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-regiones" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-regiones-cs" ] ;
+             fhir:Coding.code [ fhir:value "13" ] ;
+             fhir:Coding.display [ fhir:value "Metropolitana de Santiago" ]
+           ]
+         ]
+       ]
+     ] ;
+     fhir:Address.country [
+       fhir:value "Chile" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/StructureDefinition/eis-paises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ]
+     ]
+  ] ;
+  fhir:Patient.maritalStatus [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-EstadoCivil-CS" ] ;
+       fhir:Coding.code [ fhir:value "1" ] ;
+       fhir:Coding.display [ fhir:value "Soltero/a" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaMatch.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

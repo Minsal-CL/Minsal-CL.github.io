@@ -1,0 +1,56 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/nid-actividad-autorizada-vs> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "nid-actividad-autorizada-vs"] ;
+  fhir:Resource.language [ fhir:value "es"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xml:lang=\"es\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"es\"><p class=\"res-header-id\"><b>Generated Narrative: ConjuntoValores / ConjuntoDeValores nid-actividad-autorizada-vs</b></p><a name=\"nid-actividad-autorizada-vs\"> </a><a name=\"hcnid-actividad-autorizada-vs\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es</p></div><ul><li>Include all codes defined in <a href=\"CodeSystem-nid-actividad-autorizada-cs.html\"><code>https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-actividad-autorizada-cs</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> versión ?0.5.0</span></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/nid-actividad-autorizada-vs"] ;
+  fhir:ValueSet.version [ fhir:value "0.5.0"] ;
+  fhir:ValueSet.name [ fhir:value "MINSALActividadAutorizadaVS"] ;
+  fhir:ValueSet.title [ fhir:value "Instalaciones o actividades autorizadas"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-11-24T16:26:52-03:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Alcances admitidos en una resolución sanitaria."] ;
+  fhir:ValueSet.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-actividad-autorizada-cs" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/nid-actividad-autorizada-vs.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

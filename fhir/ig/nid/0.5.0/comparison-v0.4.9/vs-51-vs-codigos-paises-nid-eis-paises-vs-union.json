@@ -1,0 +1,32 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "59da90b2-5e19-451f-af16-465b53510a9a-146",
+  "url" : "http://hl7.org/fhir/comparison/ValueSet/59da90b2-5e19-451f-af16-465b53510a9a-146",
+  "name" : "UnionVSCodigosPaisesNIDAndPaisesVS",
+  "title" : "Union of Códigos de Países para NID And Códigos de países para asignar país de origen a los pacientes",
+  "status" : "active",
+  "date" : "2026-11-24T16:27:30-03:00",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "CL",
+      "display" : "Chile"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "filter" : [{
+        "property" : "code",
+        "op" : "regex",
+        "value" : "[0-9]{3}"
+      }]
+    },
+    {
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/cs-pais-desconocido"
+    },
+    {
+      "system" : "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs"
+    }]
+  }
+}

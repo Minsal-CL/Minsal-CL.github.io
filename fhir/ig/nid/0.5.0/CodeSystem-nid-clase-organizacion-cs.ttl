@@ -1,0 +1,69 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-clase-organizacion-cs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "nid-clase-organizacion-cs"] ;
+  fhir:Resource.language [ fhir:value "es"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xml:lang=\"es\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"es\"><p class=\"res-header-id\"><b>Generated Narrative: SistemaDeCodigos nid-clase-organizacion-cs</b></p><a name=\"nid-clase-organizacion-cs\"> </a><a name=\"hcnid-clase-organizacion-cs\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: es</p></div><p>This case-sensitive code system <code>https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-clase-organizacion-cs</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">entidad-juridica<a name=\"nid-clase-organizacion-cs-entidad-juridica\"> </a></td><td>Entidad jurídica</td><td>Persona jurídica o institución administradora, identificada por su RUT. Puede ser responsable de uno o más establecimientos o recintos.</td></tr><tr><td style=\"white-space:nowrap\">establecimiento-asistencial<a name=\"nid-clase-organizacion-cs-establecimiento-asistencial\"> </a></td><td>Establecimiento asistencial</td><td>Establecimiento de salud identificado por su código DEIS, sea una clínica completa, un SAPU o una unidad más pequeña con código propio.</td></tr><tr><td style=\"white-space:nowrap\">autoridad-sanitaria<a name=\"nid-clase-organizacion-cs-autoridad-sanitaria\"> </a></td><td>Autoridad sanitaria</td><td>Organismo que emite autorizaciones sanitarias, como una SEREMI de Salud o el Instituto de Salud Pública.</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-clase-organizacion-cs"] ;
+  fhir:CodeSystem.version [ fhir:value "0.5.0"] ;
+  fhir:CodeSystem.name [ fhir:value "MINSALClaseOrganizacionCS"] ;
+  fhir:CodeSystem.title [ fhir:value "Clase de organización"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-11-24T16:26:52-03:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Distingue qué representa una Organization en el directorio: la entidad jurídica, el establecimiento asistencial identificado por DEIS o la autoridad sanitaria que emite resoluciones. La jerarquía administrativa DEIS, la jurídica y la física son independientes."] ;
+  fhir:CodeSystem.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "3"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "entidad-juridica" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Entidad jurídica" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Persona jurídica o institución administradora, identificada por su RUT. Puede ser responsable de uno o más establecimientos o recintos." ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "establecimiento-asistencial" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Establecimiento asistencial" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Establecimiento de salud identificado por su código DEIS, sea una clínica completa, un SAPU o una unidad más pequeña con código propio." ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "autoridad-sanitaria" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Autoridad sanitaria" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Organismo que emite autorizaciones sanitarias, como una SEREMI de Salud o el Instituto de Salud Pública." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-clase-organizacion-cs.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

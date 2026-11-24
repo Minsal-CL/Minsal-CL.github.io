@@ -1,0 +1,61 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Observation/EjemploOcupacion> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EjemploOcupacion"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALOcupacion" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALOcupacion>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observación EjemploOcupacion</b></p><a name=\"EjemploOcupacion\"> </a><a name=\"hcEjemploOcupacion\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-MINSALOcupacion.html\">MINSAL Ocupación</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoObservacion 04}\">Ocupación</span></p><p><b>subject</b>: <a href=\"Patient-MinsalPacienteEjemplo.html\">Javiera Castilla (official) Female, DoB: 1995-12-12 ( RUN: 16182522-0 (use: official))</a></p><p><b>effective</b>: 2021-03-08 --&gt; (ongoing)</p><p><b>value</b>: <span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-OcupacionesDesagregadas-CS 2147}\">Ingenieros biomédicos</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "social-history" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoObservacion" ] ;
+       fhir:Coding.code [ fhir:value "04" ] ;
+       fhir:Coding.display [ fhir:value "Ocupación" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/MinsalPacienteEjemplo> ;
+     fhir:Reference.reference [ fhir:value "Patient/MinsalPacienteEjemplo" ]
+  ] ;
+  fhir:Observation.effectivePeriod [
+     fhir:Period.start [ fhir:value "2021-03-08"^^xsd:date ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-OcupacionesDesagregadas-CS" ] ;
+       fhir:Coding.code [ fhir:value "2147" ] ;
+       fhir:Coding.display [ fhir:value "Ingenieros biomédicos" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Observation/EjemploOcupacion.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

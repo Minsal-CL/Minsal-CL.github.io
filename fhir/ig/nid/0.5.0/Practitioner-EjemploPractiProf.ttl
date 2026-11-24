@@ -1,0 +1,153 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Practitioner/EjemploPractiProf> a fhir:Practitioner ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EjemploPractiProf"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Practicante / Profesional EjemploPractiProf</b></p><a name=\"EjemploPractiProf\"> </a><a name=\"hcEjemploPractiProf\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-MINSALPrestadorProfesional.html\">Prestador Profesional</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">María Gonzalez (Rol Único Nacional: 19949350-7 (use: official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td>true</td><td style=\"background-color: #f3f5da\" title=\"Administrative gender\">Gender:</td><td>Female</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Date of birth\">Date of Birth:</td><td colspan=\"3\">1991-04-01</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Other Id (see the one above)\">Other Id:</td><td colspan=\"3\">Registro Nacional de Prestadores Individuales/1234543 (use: secondary)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Certification, licensure, or training pertaining to the provision of care\">Qualification:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-titulo-profesional-cs 1}\">MÉDICO CIRUJANO</span><ul><li>Identifier: cert</li><li>Valid Period: 2007-11-01 --&gt; (ongoing)</li><li>Issued By: Universidad de Chile</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Certification, licensure, or training pertaining to the provision of care\">Qualification:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-EspecialidadesySubespecialidadesMedicas-CS 30}\">MEDICINA INTERNA</span><ul><li>Identifier: esp</li><li>Valid Period: 2010-11-01 --&gt; (ongoing)</li><li>Issued By: Pontificia Universidad Católica de Chile</li></ul></td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Certification, licensure, or training pertaining to the provision of care\">Qualification:</td><td colspan=\"3\"><span title=\"Codes:{https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-EspecialidadesySubespecialidadesMedicas-CS 23}\">HEMATOLOGÍA</span><ul><li>Identifier: subesp</li><li>Valid Period: 2014-11-01 --&gt; (ongoing)</li><li>Issued By: Universidad de Valparaíso</li></ul></td></tr></table></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "01" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "Rol Único Nacional" ]
+     ] ;
+     fhir:Identifier.value [ fhir:value "19949350-7" ] ;
+     fhir:Identifier.assigner [
+       fhir:Reference.display [ fhir:value "Republica de Chile" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Identifier.use [ fhir:value "secondary" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "13" ] ;
+         fhir:Coding.display [ fhir:value "RNPI" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "Registro Nacional de Prestadores Individuales" ]
+     ] ;
+     fhir:Identifier.value [ fhir:value "1234543" ] ;
+     fhir:Identifier.assigner [
+       fhir:Reference.display [ fhir:value "Intendencia de prestadores individuales - Superintendencia de Salud" ]
+     ]
+  ] ;
+  fhir:Practitioner.active [ fhir:value "true"^^xsd:boolean] ;
+  fhir:Practitioner.name [
+     fhir:index 0 ;
+     fhir:HumanName.family [
+       fhir:value "Gonzalez" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "Gutierrez" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "María" ;
+       fhir:index 0
+     ] ;
+     fhir:HumanName.prefix [
+       fhir:value "Dra" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Practitioner.gender [ fhir:value "female"] ;
+  fhir:Practitioner.birthDate [ fhir:value "1991-04-01"^^xsd:date] ;
+  fhir:Practitioner.qualification [
+     fhir:index 0 ;
+     fhir:Practitioner.qualification.identifier [
+       fhir:index 0 ;
+       fhir:Identifier.value [ fhir:value "cert" ]
+     ] ;
+     fhir:Practitioner.qualification.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-titulo-profesional-cs" ] ;
+         fhir:Coding.code [ fhir:value "1" ] ;
+         fhir:Coding.display [ fhir:value "Médico/as Cirujano/as" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "MÉDICO CIRUJANO" ]
+     ] ;
+     fhir:Practitioner.qualification.period [
+       fhir:Period.start [ fhir:value "2007-11-01"^^xsd:date ]
+     ] ;
+     fhir:Practitioner.qualification.issuer [
+       fhir:Reference.display [ fhir:value "Universidad de Chile" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:Practitioner.qualification.identifier [
+       fhir:index 0 ;
+       fhir:Identifier.value [ fhir:value "esp" ]
+     ] ;
+     fhir:Practitioner.qualification.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-EspecialidadesySubespecialidadesMedicas-CS" ] ;
+         fhir:Coding.code [ fhir:value "30" ] ;
+         fhir:Coding.display [ fhir:value "Medicina Interna" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "MEDICINA INTERNA" ]
+     ] ;
+     fhir:Practitioner.qualification.period [
+       fhir:Period.start [ fhir:value "2010-11-01"^^xsd:date ]
+     ] ;
+     fhir:Practitioner.qualification.issuer [
+       fhir:Reference.display [ fhir:value "Pontificia Universidad Católica de Chile" ]
+     ]
+  ], [
+     fhir:index 2 ;
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/Mencion" ] ;
+       fhir:Extension.valueString [ fhir:value "Linfoma" ]
+     ] ;
+     fhir:Practitioner.qualification.identifier [
+       fhir:index 0 ;
+       fhir:Identifier.value [ fhir:value "subesp" ]
+     ] ;
+     fhir:Practitioner.qualification.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-EspecialidadesySubespecialidadesMedicas-CS" ] ;
+         fhir:Coding.code [ fhir:value "23" ] ;
+         fhir:Coding.display [ fhir:value "Hematología" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "HEMATOLOGÍA" ]
+     ] ;
+     fhir:Practitioner.qualification.period [
+       fhir:Period.start [ fhir:value "2014-11-01"^^xsd:date ]
+     ] ;
+     fhir:Practitioner.qualification.issuer [
+       fhir:Reference.display [ fhir:value "Universidad de Valparaíso" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Practitioner/EjemploPractiProf.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

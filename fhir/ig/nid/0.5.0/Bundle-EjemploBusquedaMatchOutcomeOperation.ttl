@@ -1,0 +1,54 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaMatchOutcomeOperation> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EjemploBusquedaMatchOutcomeOperation"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch>
+     ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "searchset"] ;
+  fhir:Bundle.link [
+     fhir:index 0 ;
+     fhir:Bundle.link.relation [ fhir:value "self" ] ;
+     fhir:Bundle.link.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/$match" ]
+  ] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationOutcome/OperationOutcomeFalloMatch" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationOutcome/OperationOutcomeFalloMatch> ;
+     fhir:Bundle.entry.search [
+       fhir:Bundle.entry.search.mode [ fhir:value "outcome" ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationOutcome/OperationOutcomeFalloMatch> a fhir:OperationOutcome ;
+  fhir:Resource.id [ fhir:value "OperationOutcomeFalloMatch"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"OperationOutcome_OperationOutcomeFalloMatch\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ResultadoOperación OperationOutcomeFalloMatch</b></p><a name=\"OperationOutcomeFalloMatch\"> </a><a name=\"hcOperationOutcomeFalloMatch\"> </a><h3>Issues</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Severity</b></td><td><b>Code</b></td><td><b>Details</b></td></tr><tr><td style=\"display: none\">*</td><td>Error</td><td>Timeout</td><td><span title=\"Codes:\">La búsqueda ha expirado debido a un timeout en el servidor.</span></td></tr></table></div>"
+  ] ;
+  fhir:OperationOutcome.issue [
+     fhir:index 0 ;
+     fhir:OperationOutcome.issue.severity [ fhir:value "error" ] ;
+     fhir:OperationOutcome.issue.code [ fhir:value "timeout" ] ;
+     fhir:OperationOutcome.issue.details [
+       fhir:CodeableConcept.text [ fhir:value "La búsqueda ha expirado debido a un timeout en el servidor." ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaMatchOutcomeOperation.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

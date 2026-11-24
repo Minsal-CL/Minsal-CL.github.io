@@ -1,0 +1,129 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaAdm> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "EjemploBusquedaAdm"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchProfHPD" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchProfHPD>
+     ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "searchset"] ;
+  fhir:Bundle.total [ fhir:value "1"^^xsd:nonNegativeInteger] ;
+  fhir:Bundle.link [
+     fhir:index 0 ;
+     fhir:Bundle.link.relation [ fhir:value "self" ] ;
+     fhir:Bundle.link.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/Practitioner?_profile=StructureDefinition/MINSALPractitionerAdministrativo&identifier=90000000-6&birthdate=1980-01-01&given=Caludio&family=Parra" ]
+  ] ;
+  fhir:Bundle.entry [
+     fhir:index 0 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/Practitioner/EjemploPractiAdmin" ] ;
+     fhir:Bundle.entry.resource <https://interoperabilidad.minsal.cl/fhir/ig/nid/Practitioner/EjemploPractiAdmin> ;
+     fhir:Bundle.entry.search [
+       fhir:Bundle.entry.search.mode [ fhir:value "match" ]
+     ]
+  ] .
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Practitioner/EjemploPractiAdmin> a fhir:Practitioner ;
+  fhir:Resource.id [ fhir:value "EjemploPractiAdmin"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPractitionerAdministrativo" ;
+       fhir:index 0 ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPractitionerAdministrativo>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_EjemploPractiAdmin\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practicante / Profesional EjemploPractiAdmin</b></p><a name=\"EjemploPractiAdmin\"> </a><a name=\"hcEjemploPractiAdmin\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Perfil: <a href=\"StructureDefinition-MINSALPractitionerAdministrativo.html\">Prestador Administrativo</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Caludio Parra (official) (RUN: 90000000-6 (use: official))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td>true</td><td style=\"background-color: #f3f5da\" title=\"Administrative gender\">Gender:</td><td>Male</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Date of birth\">Date of Birth:</td><td colspan=\"3\">1980-01-01</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Ways to contact the Practitioner\">Contact Detail</td><td colspan=\"3\">null (work)</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"Certification, licensure, or training pertaining to the provision of care\">Qualification:</td><td colspan=\"3\"><span title=\"Codes:\">Secretario</span><ul><li>Identifier: cert</li></ul></td></tr></table></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index 0 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/CodeSystem/eis-paises-cs" ] ;
+             fhir:Coding.code [ fhir:value "152" ] ;
+             fhir:Coding.display [ fhir:value "Chile" ]
+           ]
+         ]
+       ] ;
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSTipoIdentificador" ] ;
+         fhir:Coding.code [ fhir:value "01" ] ;
+         fhir:Coding.display [ fhir:value "RUN" ]
+       ]
+     ] ;
+     fhir:Identifier.value [ fhir:value "90000000-6" ] ;
+     fhir:Identifier.assigner [
+       fhir:Reference.display [ fhir:value "Republica de Chile" ]
+     ]
+  ] ;
+  fhir:Practitioner.active [ fhir:value "true"^^xsd:boolean] ;
+  fhir:Practitioner.name [
+     fhir:index 0 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.family [
+       fhir:value "Parra" ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido" ] ;
+         fhir:Extension.valueString [ fhir:value "Sandoval" ]
+       ]
+     ] ;
+     fhir:HumanName.given [
+       fhir:value "Caludio" ;
+       fhir:index 0
+     ]
+  ] ;
+  fhir:Practitioner.address [
+     fhir:index 0 ;
+     fhir:Address.use [ fhir:value "work" ] ;
+     fhir:Address.state [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/RegionesCl" ] ;
+         fhir:Extension.valueCodeableConcept [
+           fhir:CodeableConcept.coding [
+             fhir:index 0 ;
+             fhir:Coding.system [ fhir:value "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CSCodRegionCL" ] ;
+             fhir:Coding.code [ fhir:value "13" ] ;
+             fhir:Coding.display [ fhir:value "Metropolitana de Santiago" ]
+           ]
+         ]
+       ]
+     ]
+  ] ;
+  fhir:Practitioner.gender [ fhir:value "male"] ;
+  fhir:Practitioner.birthDate [ fhir:value "1980-01-01"^^xsd:date] ;
+  fhir:Practitioner.qualification [
+     fhir:index 0 ;
+     fhir:Practitioner.qualification.identifier [
+       fhir:index 0 ;
+       fhir:Identifier.value [ fhir:value "cert" ]
+     ] ;
+     fhir:Practitioner.qualification.code [
+       fhir:CodeableConcept.text [ fhir:value "Secretario" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaAdm.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

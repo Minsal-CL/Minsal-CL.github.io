@@ -1,0 +1,2490 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid> a fhir:ImplementationGuide ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "hl7.fhir.cl.minsal.nid"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: GuiaDeImplementacion hl7.fhir.cl.minsal.nid</b></p><a name=\"hl7.fhir.cl.minsal.nid\"> </a><a name=\"hchl7.fhir.cl.minsal.nid\"> </a><h2>MinsalNucleoInteroperabilidadDatos</h2><p>The official URL for this implementation guide is: </p><pre>https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid</pre><div><p>Núcleo de Interoperabilidad de Datos del Ministerio de Salud de Chile</p>\n</div></div>"
+  ] ;
+  fhir:ImplementationGuide.url [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid"] ;
+  fhir:ImplementationGuide.version [ fhir:value "0.5.0"] ;
+  fhir:ImplementationGuide.name [ fhir:value "MinsalNucleoInteroperabilidadDatos"] ;
+  fhir:ImplementationGuide.title [ fhir:value "Núcleo de Interoperabilidad de Datos (NID) - MINSAL"] ;
+  fhir:ImplementationGuide.status [ fhir:value "draft"] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-11-24T16:26:52-03:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.publisher [ fhir:value "Unidad de Interoperabilidad - MINSAL"] ;
+  fhir:ImplementationGuide.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Unidad de Interoperabilidad - MINSAL" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://interoperabilidad.minsal.cl" ]
+     ]
+  ] ;
+  fhir:ImplementationGuide.description [ fhir:value "Núcleo de Interoperabilidad de Datos del Ministerio de Salud de Chile"] ;
+  fhir:ImplementationGuide.jurisdiction [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "urn:iso:std:iso:3166" ] ;
+       fhir:Coding.code [ fhir:value "CL" ] ;
+       fhir:Coding.display [ fhir:value "Chile" ]
+     ]
+  ] ;
+  fhir:ImplementationGuide.packageId [ fhir:value "hl7.fhir.cl.minsal.nid"] ;
+  fhir:ImplementationGuide.license [ fhir:value "CC0-1.0"] ;
+  fhir:ImplementationGuide.fhirVersion [
+     fhir:value "4.0.1" ;
+     fhir:index 0
+  ] ;
+  fhir:ImplementationGuide.dependsOn [
+     fhir:index 0 ;
+     fhir:Element.id [ fhir:value "hl7_fhir_cl_clcore" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore" ;
+       fhir:link <https://hl7chile.cl/fhir/ig/clcore/ImplementationGuide/hl7.fhir.cl.clcore>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.fhir.cl.clcore" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "1.9.4" ]
+  ], [
+     fhir:index 1 ;
+     fhir:Element.id [ fhir:value "EstandaresdeInformaciondeSalud" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/eis/ImplementationGuide/hl7.fhir.cl.minsal.eis" ;
+       fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/eis/ImplementationGuide/hl7.fhir.cl.minsal.eis>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.fhir.cl.minsal.eis" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "0.2.1" ]
+  ], [
+     fhir:index 2 ;
+     fhir:Element.id [ fhir:value "hl7_terminology_r4" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "http://terminology.hl7.org/ImplementationGuide/hl7.terminology" ;
+       fhir:link <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.terminology.r4" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "7.3.0" ]
+  ], [
+     fhir:index 3 ;
+     fhir:Element.id [ fhir:value "hl7_fhir_uv_extensions_r4" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions" ;
+       fhir:link <http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "hl7.fhir.uv.extensions.r4" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "5.3.0" ]
+  ], [
+     fhir:index 4 ;
+     fhir:Element.id [ fhir:value "IHE_PIXm" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "https://profiles.ihe.net/ITI/PIXm/ImplementationGuide/ihe.iti.pixm" ;
+       fhir:link <https://profiles.ihe.net/ITI/PIXm/ImplementationGuide/ihe.iti.pixm>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "ihe.iti.pixm" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "3.1.0" ]
+  ], [
+     fhir:index 5 ;
+     fhir:Element.id [ fhir:value "IHE_PDQm" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "https://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm" ;
+       fhir:link <https://profiles.ihe.net/ITI/PDQm/ImplementationGuide/ihe.iti.pdqm>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "ihe.iti.pdqm" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "3.2.0" ]
+  ] ;
+  fhir:ImplementationGuide.definition [
+     fhir:Element.extension [
+       fhir:index 0 ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency" ] ;
+       fhir:Extension.valueCode [ fhir:value "hl7.fhir.uv.tools.r4#1.3.0" ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "copyrightyear" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "2023+" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "releaselabel" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "draft" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "pin-canonicals" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "pin-multiples" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "autoload-resources" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 5 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template/liquid" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 6 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "input/liquid" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 7 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-qa" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "temp/qa" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-temp" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "temp/pages" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 9 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-output" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "output" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 10 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-suppressed-warnings" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "input/ignoreWarnings.txt" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "path-history" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/history.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "template-html" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template-page.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "template-md" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "template-page-md.html" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-contact" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-context" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-copyright" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-jurisdiction" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-license" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 19 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-publisher" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 20 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-version" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 21 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "apply-wg" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 22 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "active-tables" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 23 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "fmm-definition" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "http://hl7.org/fhir/versions.html#maturity" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 24 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "propagate-status" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 25 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "excludelogbinaryformat" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ], [
+       fhir:index 26 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "code" ] ;
+         fhir:Extension.valueCode [ fhir:value "tabbed-snapshots" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Extension.url [ fhir:value "value" ] ;
+         fhir:Extension.valueString [ fhir:value "true" ]
+       ] ;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
+     ] ;
+     fhir:ImplementationGuide.definition.resource [
+       fhir:index 0 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "RelatedPerson" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/RelatedPerson/EjemploAcompanate> ;
+         fhir:Reference.reference [ fhir:value "RelatedPerson/EjemploAcompanate" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Acompañante de un Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Padre de una paciente dentro del Maestro Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALAcompanante" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALAcompanante>
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/NID.IHE.HPD.Manager> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/NID.IHE.HPD.Manager" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Administrador del Directorio de Proveedores de Atención Médica" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El CapabilityStatement del administador del directorio de proveedores de atención médica debe cumplir con las siguientes especificiones normadas.\n\n* Uso de FHIR R4\n* Uso **PUEDE** devolver el recurso en JSON o XML\n* **DEBE** Soportar Perfil \\\"Prestador Administrativo\\\", \\\"Prestador Individual\\\" y \\\"Prestador Organizacional\\\"\n* Los parámetros de búsquedas de los Perfiles Practitioner **DEBEN** ser:\n  * _id\n  * identifier\n  * family\n  * given\n  * identifier\n* Los parámetros de búsquedas del Perfil Organization **DEBEN** ser:\n  * _id\n  * identifier\n  * name" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 2 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PIXm.PDQm.Manager> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/MPI.IHE.PIXm.PDQm.Manager" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Administrador del Indice Maestro Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El CapabilityStatement del administador del Indice Maestro Paciente debe cumplir con las siguientes especificiones normadas.\n\n* Uso de FHIR R4\n* Uso **PUEDE** devolver el recurso en JSON o XML\n* **DEBE** Soportar Perfil MINSAL Paciente\n* **DEBE** Soportar los perfiles MPI MINSAL que permiten completar con la información normativa requerida. \n* Los parámetros de búsquedas **DEBEN** ser:\n  * _id\n  * active\n  * family\n  * given\n  * identifier\n  * segundo-apellido\n  * segundo-apellido:exact\n* **DEBE** soportar los _revinclude que permitan traer la información adicional requerida.\n* **DEBE** soportar el uso de la operación [$ihe-pix](https://profiles.ihe.net/ITI/PIXm/OperationDefinition/IHE.PIXm.pix) descrita en está guía.\n* **DEBE** soportar el uso de la operación [$match](OperationDefinition-MPI.PDQm.match.html) descrita en está guía." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 3 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Group" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Group/AgrupacionMarcas> ;
+         fhir:Reference.reference [ fhir:value "Group/AgrupacionMarcas" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Agrupacion Marcas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Agrupación de pacientes que están con la condición de TEA" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALAgrupacionPorMarcas" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALAgrupacionPorMarcas>
+       ]
+     ], [
+       fhir:index 4 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "SearchParameter" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/SearchParameter/mpi-paciente-segundoApellido> ;
+         fhir:Reference.reference [ fhir:value "SearchParameter/mpi-paciente-segundoApellido" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Busqueda Paciente por Segundo Apellido" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Regresa los pacientes que cumplan con el criterio de segundo apellido." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 5 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VScalificacionPrevisional> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VScalificacionPrevisional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Calificación Previsional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Calificación Previsional" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 6 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CScalificacionPrevisional> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CScalificacionPrevisional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Calificación Previsional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Calificación Previsional" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 7 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSClasesDeCobertura> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSClasesDeCobertura" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clase de Cobertura de Salud" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Permitira definir los distintos tipos de clases requeridos para la cobertura. Los tramos de FONASA, Planes de Isapre, Otras leyes previsionales, Leyes de priorización y de reparación." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 8 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSClasesDeCobertura> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSClasesDeCobertura" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clase de Cobertura de Salud" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Permitira definir los distintos tipos de clases requeridos para la cobertura. Los tramos de FONASA, Planes de Isapre, Otras leyes previsionales, Leyes de priorización y de reparación." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 9 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-clase-organizacion-cs> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/nid-clase-organizacion-cs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clase de organización" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Distingue qué representa una Organization en el directorio: la entidad jurídica, el establecimiento asistencial identificado por DEIS o la autoridad sanitaria que emite resoluciones. La jerarquía administrativa DEIS, la jurídica y la física son independientes." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 10 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/nid-clase-organizacion-vs> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/nid-clase-organizacion-vs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Clases de organización" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clases admitidas en `Organization.type` para distinguir entidad jurídica, establecimiento asistencial y autoridad sanitaria." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 11 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSComponenteDiscapacidad> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSComponenteDiscapacidad" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Componentes de Observación de Discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Diferenciación entre los componentes de la observación de discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 12 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSComponenteDiscapacidad> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSComponenteDiscapacidad" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Componentes de Observación de Discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Diferenciación entre los componentes de la observación de discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 13 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/NID.IHE.HPD.Consumer> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/NID.IHE.HPD.Consumer" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Consumidor del Directorio de Proveedores de Atención Médica" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El CapabilityStatement de los requisitos del consumidor del directorio de proveedores de atención médica expresa los requisitos que pueden ser utilizados mientras se cumple con la normativa. Este CapabilityStatement implementa la Opción de Búsqueda de Profesionales.\n* Uso de FHIR R4\n* Uso **PUEDE** traer el recurso en JSON o XML\n* Soportar Perfiles de Prestador Administrativo, Prestador Profesional y Prestador Institucional\n* Los parámetros de búsquedas de los Perfiles Practitioner **PUEDEN** ser:\n  * _id\n  * identifier\n  * family\n  * given\n  * identifier\n* Los parámetros de búsquedas del Perfil Organization **PUEDEN** ser:\n  * _id\n  * identifier\n  * name\n  * type" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 14 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "NamingSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/NamingSystem/ns-deis> ;
+         fhir:Reference.reference [ fhir:value "NamingSystem/ns-deis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Código DEIS de establecimiento" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código del establecimiento asistencial en el Departamento de Estadísticas e Información de Salud. Identifica una Organization de clase establecimiento asistencial." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 15 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "NamingSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/NamingSystem/ns-midas> ;
+         fhir:Reference.reference [ fhir:value "NamingSystem/ns-midas" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Código MIDAS de local" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código del local de dispensación en MIDAS. Identifica una Location." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 16 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "NamingSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/NamingSystem/ns-safis> ;
+         fhir:Reference.reference [ fhir:value "NamingSystem/ns-safis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Código SAFIS de establecimiento farmacéutico" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Identificador del establecimiento farmacéutico en SAFIS del Instituto de Salud Pública. Identifica una Location." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 17 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/vs-codigos-paises-nid> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/vs-codigos-paises-nid" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Códigos de Países para NID" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "códigos de países según norma ISO 3166-1, para uso en NID (Identificador Nacional de Paciente)" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 18 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:complex-type" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/NIDAddress> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/NIDAddress" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Dirección del Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Dirección especificada para el paciente Minsal. Cumple la dirección de CL Core y la de EIS 0.2.0 (eis-direccion): la comuna, la provincia, la región y el país se codifican con ambas extensiones." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 19 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Coverage" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Coverage/CoberturaFONASAEjemplo> ;
+         fhir:Reference.reference [ fhir:value "Coverage/CoberturaFONASAEjemplo" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ejemplo de Cobertura FONASA" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo de la cobertura FONASA de un paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALCobertura" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALCobertura>
+       ]
+     ], [
+       fhir:index 20 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/EjemploPacienteBusqueda> ;
+         fhir:Reference.reference [ fhir:value "Patient/EjemploPacienteBusqueda" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ejemplo de Paciente para Busqueda" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Este un ejemplo del recurso \"MINSAL Paciente Busqueda\", el cual es útilizado para buscar pacientes dentro del MPI utilizando la operación [$match](OperationDefinition-MPI.PDQm.match.html)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPacienteBusqueda" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPacienteBusqueda>
+       ]
+     ], [
+       fhir:index 21 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusqueda> ;
+         fhir:Reference.reference [ fhir:value "Bundle/EjemploBusqueda" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ejemplo de una Busqueda" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo del resultado de una busqueda de paciente según los parámetros de run, nacimiento y nombre" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPI" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPI>
+       ]
+     ], [
+       fhir:index 22 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaMatch> ;
+         fhir:Reference.reference [ fhir:value "Bundle/EjemploBusquedaMatch" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ejemplo de una Busqueda Match" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo del resultado de una busqueda de paciente según el parámetro de busqueda de una operación [$match](OperationDefinition-MPI.PDQm.match.html)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch>
+       ]
+     ], [
+       fhir:index 23 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaMatchOutcomeOperation> ;
+         fhir:Reference.reference [ fhir:value "Bundle/EjemploBusquedaMatchOutcomeOperation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ejemplo de una Busqueda Match con OperationOutcome" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo del resultado de una busqueda de paciente según el parámetro de busqueda de una operación [$match](OperationDefinition-MPI.PDQm.match.html), el cual entrego un OperationOutcome por timeout." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch>
+       ]
+     ], [
+       fhir:index 24 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaAdm> ;
+         fhir:Reference.reference [ fhir:value "Bundle/EjemploBusquedaAdm" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ejemplo de una Búsqueda de Prestador Administrativo" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo del resultado de una búsqueda de administrativo según los parámetros de run, nacimiento y nombre" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchProfHPD" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchProfHPD>
+       ]
+     ], [
+       fhir:index 25 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaOrg> ;
+         fhir:Reference.reference [ fhir:value "Bundle/EjemploBusquedaOrg" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ejemplo de una Búsqueda de Prestador Institucional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo del resultado de una búsqueda de una organización según los parametros de código deis y nombre" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchINSHPD" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchINSHPD>
+       ]
+     ], [
+       fhir:index 26 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Bundle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Bundle/EjemploBusquedaProf> ;
+         fhir:Reference.reference [ fhir:value "Bundle/EjemploBusquedaProf" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ejemplo de una Búsqueda de Prestador Profesional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo del resultado de una búsqueda de profesional según los parametros de run, nacimiento y nombre" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchProfHPD" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchProfHPD>
+       ]
+     ], [
+       fhir:index 27 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSEspecialidadesEIS> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSEspecialidadesEIS" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades de EIS" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Reúne los catálogos de especialidades que EIS publica por separado: médicas, odontológicas, farmacéuticas, bioquímicas y de enfermería." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 28 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSEspecialidadFarma> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSEspecialidadFarma" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades Farmaceúticas o Química Farmaceúticas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades Farmaceúticas o Química Farmaceúticas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 29 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadFarma> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSEspecialidadFarma" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades Farmaceúticas o Química Farmaceúticas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades Farmaceúticas o Química Farmaceúticas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 30 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSEspecialidadMed> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSEspecialidadMed" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades Médicas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades Médicas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 31 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadMed> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSEspecialidadMed" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades Médicas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades Médicas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 32 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSEspecialidadOdont> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSEspecialidadOdont" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades Odontológicas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades Odontológicas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 33 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadOdont> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSEspecialidadOdont" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades Odontológicas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades Odontológicas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 34 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSEspecialidadBioqca> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSEspecialidadBioqca" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades y Subespecialidades Bioquímicas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades y Subespecialidades Bioquímicas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 35 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEspecialidadBioqca> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSEspecialidadBioqca" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Especialidades y Subespecialidades Bioquímicas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Especialidades y Subespecialidades Bioquímicas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 36 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/nid-establecimiento-madre-deis> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/nid-establecimiento-madre-deis" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Establecimiento madre DEIS" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código DEIS del establecimiento madre, tal como lo registra el DEIS. Conserva la relación administrativa aunque no se exprese con `Organization.partOf`, que solo se usa cuando hay pertenencia organizacional." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 37 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSEstadoCivil> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSEstadoCivil" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado Civil" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estado Civil" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 38 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSEstadoCivil> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSEstadoCivil" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado Civil" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estado Civil" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 39 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/nid-resolucion-estado> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/nid-resolucion-estado" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado de la resolución" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Situación vigente de la resolución sanitaria." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 40 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-estado-resolucion-cs> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/nid-estado-resolucion-cs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estado de la resolución sanitaria" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Situación vigente de una resolución sanitaria." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 41 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/nid-estado-resolucion-vs> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/nid-estado-resolucion-vs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Estados de la resolución sanitaria" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estados admitidos para una resolución sanitaria." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 42 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Organization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Organization/FONASA> ;
+         fhir:Reference.reference [ fhir:value "Organization/FONASA" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "FONASA" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Información del Fondo Nacional de Salud" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 43 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSGrupoMarcas> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSGrupoMarcas" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Grupo Marcas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Diferenciación entre los posibles grupos dentro del MPI" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 44 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSGrupoMarcas> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSGrupoMarcas" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Grupo Marcas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Diferenciación entre los posibles grupos dentro del MPI" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 45 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Organization" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Organization/OrganizationLEEjemplo> ;
+         fhir:Reference.reference [ fhir:value "Organization/OrganizationLEEjemplo" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Hospital de Ejemplo" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo de un prestador institucional" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorOrganizacional" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorOrganizacional>
+       ]
+     ], [
+       fhir:index 46 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSIdentidadDeGenero> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSIdentidadDeGenero" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Identidad De Género" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Identidad De Género" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 47 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSIdentidadDeGenero> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSIdentidadDeGenero" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Identidad De Género" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Identidad De Género" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 48 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSIdentificadorPrestador> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSIdentificadorPrestador" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Identificador del Prestador" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Identificador del Prestador Profesional o Administrativo" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 49 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PDQm.Search.Cliente.Match> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/MPI.IHE.PDQm.Search.Cliente.Match" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Indice Maestro Paciente: \"Cliente Buscador de Datos Demográficos (PDQm) con implementación de Match\"" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El CapabilityStatement de los requisitos del Actor Consumidor de Demografía del Indice Maestro Paciente(cliente) expresa los requisitos que pueden ser utilizados mientras se cumple con la normativa. Este CapabilityStatement implementa la Opción de Búsqueda de Pacientes mediante la operación Match.\n\n* Uso de FHIR R4\n* Uso **PUEDE** traer el recurso en JSON o XML\n* Los parámetros de entrada y salida deben ser conforme a los perfiles MPI Paciente\n* Invoca la operación $match en un endpoint FHIR" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 50 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PDQm.Search.Cliente> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/MPI.IHE.PDQm.Search.Cliente" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Indice Maestro Paciente: \"Cliente Buscador de Datos Demográficos (PDQm)\"" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El CapabilityStatement de los requisitos del Actor Consumidor de Demografía del Indice Maestro Paciente(cliente) expresa los requisitos que pueden ser utilizados mientras se cumple con la normativa. Este CapabilityStatement implementa la Opción de Búsqueda de Pacientes.\n\n* Uso de FHIR R4\n* Uso **PUEDE** traer el recurso en JSON o XML\n* Soportar Perfil MINSAL Paciente\n* Soportar los perfiles MPI MINSAL que permiten completar con la información normativa requerida. \n* Los parámetros de búsquedas **PUEDEN** ser:\n  * _id\n  * active\n  * family\n  * given\n  * identifier\n  * segundo-apellido\n* **PUEDE** soportar los _revinclude que permitan traer la información adicional requerida." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 51 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PIXm.Buscador> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/MPI.IHE.PIXm.Buscador" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Indice Maestro Paciente: \"Cliente Buscador PIXm\"" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El CapabilityStatement del Actor Cliente Buscador MPI expresa los requisitos que pueden ser utilizados mientras se cumple con la normativa.\n\n* Uso de FHIR R4\n* Uso de estructura JSON o XML\n* Uso de la operación [$ihe-pix](https://profiles.ihe.net/ITI/PIXm/OperationDefinition/IHE.PIXm.pix)" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 52 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/MPI.IHE.PIXm.Origen> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/MPI.IHE.PIXm.Origen" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Indice Maestro Paciente: \"Cliente de Origen PIXm\"" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El CapabilityStatement del Actor Cliente de Origen del MPI expresa los requisitos que pueden ser utilizados mientras se cumple con la normativa.\n\n* Uso de FHIR R4\n* Uso de estructura JSON o XML\n* Uso condicional para actualizar Paciente\n* Soportar Perfil MINSAL Paciente\n* Soportar los perfiles MPI MINSAL que permiten completar con la información normativa requerida." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 53 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/nid-actividad-autorizada-vs> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/nid-actividad-autorizada-vs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Instalaciones o actividades autorizadas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Alcances admitidos en una resolución sanitaria." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 54 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/nid-resolucion-alcance> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/nid-resolucion-alcance" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Instalación o actividad autorizada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Qué instalación o actividad autoriza la resolución sanitaria." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 55 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-actividad-autorizada-cs> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/nid-actividad-autorizada-cs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Instalación o actividad autorizada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Alcance de una resolución sanitaria: qué instalación o actividad autoriza. Lista preliminar, sujeta a revisión con las SEREMI y el ISP." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 56 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSLeyPrevisionales> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSLeyPrevisionales" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Leyes Previsionales" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código asociados a Leyes Previsonales que modifican o eximen los montos de copagos de las prestaciones específica, señaladas en la ley respectiva" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 57 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSLeyPrevisionales> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSLeyPrevisionales" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Leyes Previsionales" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código asociados a Leyes Previsonales que modifican o eximen los montos de copagos de las prestaciones específica, señaladas en la ley respectiva" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 58 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSLeyReparacion> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSLeyReparacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Leyes Reparación" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código asociados a Leyes de Reparación que modifican o eximen los montos de copagos de las prestaciones específica, señaladas en la ley respectiva" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 59 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSLeyReparacion> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSLeyReparacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Leyes Reparación" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código asociados a Leyes de Reparación que modifican o eximen los montos de copagos de las prestaciones específica, señaladas en la ley respectiva" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 60 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ConceptMap" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ConceptMap/MPIMaritalStatusMap> ;
+         fhir:Reference.reference [ fhir:value "ConceptMap/MPIMaritalStatusMap" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mapeo de estados civiles entre el ValueSet DEIS y el ValueSet MaritalStatus de FHIR" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Mapeo de estados civiles entre el ValueSet DEIS y el ValueSet MaritalStatus de FHIR, necesario para interoperar con otros sistemas que utilizan el estándar FHIR." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 61 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSSistemasComunicacion> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSSistemasComunicacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Medios de Comunicación con el Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Este es un filtro del \"system\" del telecom del paciente solo para que se ocupen los indicados por normativa" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 62 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/Mencion> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/Mencion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Mención profesional añadida al título profesional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Mención profesional obtenida junto con el título, dato que se agrega en texto lible" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 63 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALAcompanante> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALAcompanante" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Acompañante" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Información sobre una persona que participa en la atención a un paciente, pero que no es el destinatario de la asistencia sanitaria ni tiene una responsabilidad formal en el proceso asistencial." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 64 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALAgrupacionPorMarcas> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALAgrupacionPorMarcas" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Agrupación por marcas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Agrupación por marcas" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 65 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPI> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/BundleSearchMPI" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Bundle Resultado Consulta: Pacientes" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Bundle resultado de una busqueda de un recurso paciente mediante parámetros" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 66 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchINSHPD> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/BundleSearchINSHPD" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Bundle Resultado Consulta: Prestadores Institucinales" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Bundle resultado de una busqueda de un recurso \"Organization\" mediante parametros" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 67 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchProfHPD> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/BundleSearchProfHPD" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Bundle Resultado Consulta: Prestadores Profesional y Administrativos" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Bundle resultado de una busqueda de un recurso \\\"Practitioner\\\" mediante parámetros.\nSe debe incluir el Parámetro de \\\"_profile\\\" e incluir la url canonica del perfil [Prestador Administrativo](StructureDefinition-MINSALPractitionerAdministrativo.html) o [Prestador Profesional](StructureDefinition-MINSALPrestadorProfesional.html), esto permite especificar la busqueda según cada tipo de profesional." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 68 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/BundleSearchMPIMatch> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/BundleSearchMPIMatch" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Bundle Resultado Operación Match" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Bundle resultado de una busqueda de un recurso paciente mediante la operación [$match](OperationDefinition-MPI.PDQm.match.html)" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 69 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALCobertura> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALCobertura" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Cobertura de Salud del Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Recurso para almacenar la cobertura del paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 70 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALLocalizacion> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALLocalizacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Localización" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Lugar físico u operacional: sede o edificio, dependencia interna con relevancia interoperable o regulatoria, o local farmacéutico (MIDAS o SAFIS). El establecimiento asistencial con código DEIS no es una localización: es una MINSAL Organización, y sus sedes y dependencias se relacionan con él mediante `managingOrganization`. Varios identificadores oficiales solo si representan el mismo lugar y la misma granularidad. Un lugar contenido en otro es otra localización, relacionada con `partOf`." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 71 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALNivelEducacional> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALNivelEducacional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Nivel Educacional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Nivel Educacional como dato estadistico para el ingreso de un paciente en el sistema." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 72 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALOcupacion> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALOcupacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Ocupación" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ocupación laboral de un paciente, como dato estadistico requerido para el ingreso del paciente al sistema." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 73 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALOrganizacion> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALOrganizacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Organización" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Organización del directorio: entidad jurídica (RUT), establecimiento asistencial (código DEIS) o autoridad sanitaria. `type` declara cuál de ellas es. La jerarquía administrativa DEIS, la jurídica y la física son independientes: las dos primeras se expresan con `partOf` entre organizaciones, y la física con MINSAL Localización." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 74 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALPaciente" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Paciente definido para el Registro Maestro de Pacientes" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 75 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPacienteBusqueda> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALPacienteBusqueda" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Paciente Busqueda" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Paciente definido para la busqueda dentro del \"Indice Maestro de Pacientes\". Este es utilizado en la operación $match como parámetro de entrada." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 76 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/ParametrosEntradaPDQmMpi> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ParametrosEntradaPDQmMpi" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Parámetros Entrada $match PDQM" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Estos son los parámetros de entrada para la operación [$match](OperationDefinition-MPI.PDQm.match.html) del PDQm" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 77 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALResolucionSanitaria> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALResolucionSanitaria" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Resolución Sanitaria" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Resolución de la autoridad sanitaria que autoriza instalaciones o actividades en ubicaciones determinadas. Se relaciona con las MINSAL Localización autorizadas, no con el establecimiento completo: un mismo establecimiento puede tener una resolución para su pabellón y otra para su laboratorio. FHIR R4 no tiene un recurso para autorizaciones, por eso se usa Basic." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 78 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALRolProfesional> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALRolProfesional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Rol Profesional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Rol que cumple un prestador en una institución. Es el mínimo común de las guías de MINSAL: cada guía agrega sus funciones en `code` y puede exigir más, como el profesional o el recinto." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 79 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALSituacionDiscapacidad> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALSituacionDiscapacidad" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MINSAL Situacion Discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Describe de manera simplificada la situacion de discapacidad de un paciente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 80 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "OperationDefinition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationDefinition/MPI.PDQm.match> ;
+         fhir:Reference.reference [ fhir:value "OperationDefinition/MPI.PDQm.match" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "MPI PDQm $Match" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Operación compatible con la operación [$match](http://hl7.org/fhir/R4/patient-operation-match.html) del estandar y la del operación [$match](https://profiles.ihe.net/ITI/PDQm/OperationDefinition-PDQmMatch.html) del PDQm. Los únicos cambios son restringir los parámetros de entrada para usar el perfil de [Paciente MPI Busqueda](./StructureDefinition-MINSALPacienteBusqueda.html) para el perfil de Entrada de $match y restringir los parámetros de salida para usar el perfil de [Paciente MPI](./StructureDefinition-MINSALPaciente.html) cuya respuesta es el [MINSAL Bundle Resultado Operación Match](./StructureDefinition-BundleSearchMPIMatch.html)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 81 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Observation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Observation/EjemploNivelEducacional> ;
+         fhir:Reference.reference [ fhir:value "Observation/EjemploNivelEducacional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Nivel Educacional de un Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Nivel Educacional de un Paciente registrado como dato estadistico en un recinto de salud, requerido en el ingreso de él en el sistema." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALNivelEducacional" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALNivelEducacional>
+       ]
+     ], [
+       fhir:index 82 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSNivelEducacionalDesc> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSNivelEducacionalDesc" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Nivel Educacional Descripción" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Codificación del Nivel Educacional para diferenciar entre los componenetes de la observación" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 83 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSNivelEducacionalDesc> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSNivelEducacionalDesc" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Nivel Educacional Descripción" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Codificación del Nivel Educacional para diferenciar entre los componenetes de la observación" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 84 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSOcupacionesDet> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSOcupacionesDet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ocupaciones Detalladas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código asociados a el detalle de las ocupaciones de un paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 85 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSOcupacionesDet> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSOcupacionesDet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ocupaciones Detalladas" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código asociados a el detalle de las ocupaciones de un paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 86 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Observation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Observation/EjemploOcupacion> ;
+         fhir:Reference.reference [ fhir:value "Observation/EjemploOcupacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ocupación de un Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo del trabajo que cumple como dato estadistico requerido al momento de realizar el ingreso a la atención." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALOcupacion" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALOcupacion>
+       ]
+     ], [
+       fhir:index 87 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "OperationDefinition" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/OperationDefinition/MPI.PIXm.pix> ;
+         fhir:Reference.reference [ fhir:value "OperationDefinition/MPI.PIXm.pix" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Operación para Obtener Identificadores Correspondientes" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Operación compatible con la [$ihe-pix](https://profiles.ihe.net/ITI/PIXm/OperationDefinition-IHE.PIXm.pix.html) para obtener los identificadores correspondientes de cada recurso paciente\n  * Input: sourceIdentifier, targetSystem, and _format\n  * Output: targetIdentifier, targetId" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 88 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CapabilityStatement" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CapabilityStatement/NID.IHE.HPD.Source> ;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/NID.IHE.HPD.Source" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Origen del Directorio de Proveedores de Atención Médica" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "El CapabilityStatement del origen del directorio de proveedores de atención médica debe cumplir con las siguientes especificiones normadas.\n\n* Uso de FHIR R4\n* Uso de estructura JSON o XML\n* Uso condicional del Perfil \\\"Prestador Administrativo\\\", \\\"Prestador Individual\\\" y \\\"Prestador Organizacional\\\"" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 89 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSOrigenDiscapacidad> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSOrigenDiscapacidad" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Origen Discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Origen Discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 90 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSOrigenDiscapacidad> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSOrigenDiscapacidad" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Origen Discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Origen Discapacidad" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 91 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/MinsalPacienteEjemplo> ;
+         fhir:Reference.reference [ fhir:value "Patient/MinsalPacienteEjemplo" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente Ejemplo MPI" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo de un paciente dentro del Indice Maestro del Paciente." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente>
+       ]
+     ], [
+       fhir:index 92 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Patient" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Patient/DuplicadoMPIPaciente> ;
+         fhir:Reference.reference [ fhir:value "Patient/DuplicadoMPIPaciente" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Paciente Ejemplo MPI Duplicado" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Este paciente se encuentra duplicado pero con información adicional y que no existe en otro sistema." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPaciente>
+       ]
+     ], [
+       fhir:index 93 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Parameters" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Parameters/ParametroEntradaIhe-PDQm> ;
+         fhir:Reference.reference [ fhir:value "Parameters/ParametroEntradaIhe-PDQm" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Parametros de entrada para la operación $match" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo de un recurso Parameter que sirve para realizar la busqueda de un paciente dentro del MPI con la operación [$match](OperationDefinition-MPI.PDQm.match.html)." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/ParametrosEntradaPDQmMpi" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/ParametrosEntradaPDQmMpi>
+       ]
+     ], [
+       fhir:index 94 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PaisOrigenMPI> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/PaisOrigenMPI" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "País de origen del paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "País de origen del paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 95 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/cs-pais-desconocido> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/cs-pais-desconocido" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "País Desconocido" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código para país desconocido" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 96 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPractitionerAdministrativo> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALPractitionerAdministrativo" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestador Administrativo" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestador Administrativo definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 97 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorOrganizacional> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALPrestadorOrganizacional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestador Institucional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Establecimiento asistencial identificado por su código DEIS, sea una clínica completa, un SAPU o una unidad más pequeña con código propio. Puede formar parte de una entidad jurídica distinta (`partOf`) y conservar el código de su establecimiento madre DEIS. Sus sedes y dependencias físicas son MINSAL Localización." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 98 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:resource" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/MINSALPrestadorProfesional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Prestador Profesional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Prestador Profesional Individual definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 99 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSPrevision> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSPrevision" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Previsión" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Previsión" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 100 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSPrevision> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSPrevision" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Previsión" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Previsión" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 101 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Practitioner/EjemploPractiAdmin> ;
+         fhir:Reference.reference [ fhir:value "Practitioner/EjemploPractiAdmin" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional Administrativo de Ejemplo" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo de un profesional que es administrativo" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPractitionerAdministrativo" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPractitionerAdministrativo>
+       ]
+     ], [
+       fhir:index 102 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Practitioner" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Practitioner/EjemploPractiProf> ;
+         fhir:Reference.reference [ fhir:value "Practitioner/EjemploPractiProf" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Profesional de Salud de Ejemplo" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Ejemplo de un profesional que entrega servicios de salud" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALPrestadorProfesional>
+       ]
+     ], [
+       fhir:index 103 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PueblosAfrodescendiente> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/PueblosAfrodescendiente" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pueblos Afrodescendiente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pueblos Afrodescendiente" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 104 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/PueblosOriginariosMPI> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/PueblosOriginariosMPI" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pueblos Originarios" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Extensión para describir si el paciente pertenece algún pueblo originario" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 105 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/PueblosOriginariosVS> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/PueblosOriginariosVS" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pueblos Originarios de Chile" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pueblos Originarios de Chile" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 106 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/PuebloOriginarioCS> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/PuebloOriginarioCS" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Pueblos Originarios de Chile" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Pueblos Originarios de Chile" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 107 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/Religion> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/Religion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Religión" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Religión" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 108 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSReligion> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSReligion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Religión" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Religión" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 109 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSReligion> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSReligion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Religión" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Religión" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 110 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "NamingSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/NamingSystem/ns-rut> ;
+         fhir:Reference.reference [ fhir:value "NamingSystem/ns-rut" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "RUT (Rol Único Tributario)" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Rol Único Tributario de una entidad jurídica. Formato: dígitos y guion con dígito verificador sin puntos." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 111 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/SexoRegistral> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/SexoRegistral" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Sexo Registral" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Sexo registral del paciente según el Registro Civil, con los códigos de EIS 0.2.0." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 112 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/SituacionCalle> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/SituacionCalle" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Situacion Calle" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Situacion Calle" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 113 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "Observation" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/Observation/EjemploSituacionDiscapacidad> ;
+         fhir:Reference.reference [ fhir:value "Observation/EjemploSituacionDiscapacidad" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Situacion Discapacidad de un Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Describe de manera simplificada la situacion de discapacidad de un paciente. En este caso una visual" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleCanonical [
+         fhir:value "https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALSituacionDiscapacidad" ;
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/MINSALSituacionDiscapacidad>
+       ]
+     ], [
+       fhir:index 114 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-tipo-autorizacion-sanitaria-cs> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/nid-tipo-autorizacion-sanitaria-cs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de autorización sanitaria" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Clase de acto administrativo que se representa con el perfil MINSAL Resolución Sanitaria." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 115 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSTipoObservacion> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSTipoObservacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de Observacion" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Codificación para identificar las distintas observaciones existentes dentro del MPI" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 116 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/nid-tipo-recinto-cs> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/nid-tipo-recinto-cs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo de recinto" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipo físico u operacional de una Location. Abstrae las categorías de MIDAS y SAFIS sin copiarlas. Los tipos de establecimiento asistencial (hospital, CESFAM, SAPU y otros) no van aquí: se informan en Organization.type con el catálogo de EIS." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 117 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSTipoIdentificador> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSTipoIdentificador" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo Identificador" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipo Identificador" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 118 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoIdentificador> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSTipoIdentificador" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo Identificador" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipo Identificador" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 119 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTipoObservacion> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSTipoObservacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipo Observacion" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Codificación para identificar las distintas observaciones existentes dentro del MPI" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 120 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSTiposIdentificadorPaciente> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSTiposIdentificadorPaciente" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipos de Identificadores de Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipos de Identificadores de Paciente" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 121 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/nid-tipo-recinto-vs> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/nid-tipo-recinto-vs" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tipos de recinto" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tipos admitidos en `Location.type`." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 122 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSTramosFONASA> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSTramosFONASA" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tramos de FONASA" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tramos de FONASA" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 123 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTramosFONASA> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSTramosFONASA" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Tramos de FONASA" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Tramos de FONASA" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 124 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSTituloProfesional> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSTituloProfesional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Título Profesional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Título del Prestador Profesional" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 125 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSTituloProfesional> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSTituloProfesional" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Título Profesional" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Título del Prestador Profesional" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 126 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/nid-resolucion-ubicacion> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/nid-resolucion-ubicacion" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Ubicación autorizada" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Lugar físico o dependencia cubierto por la resolución sanitaria." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 127 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/ValorDeLaClase> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/ValorDeLaClase" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Valor de la Clase" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Da el valor de class del Coverage, de manera codificada" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 128 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSValoracionDesempeno> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSValoracionDesempeno" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Valoracion Desempeno" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Valoracion Desempeno" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 129 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSValoracionDesempeno> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSValoracionDesempeno" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Valoracion Desempeño" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Valoracion Desempeño" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 130 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "StructureDefinition:extension" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/StructureDefinition/nid-resolucion-vigencia> ;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/nid-resolucion-vigencia" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Vigencia de la resolución" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Período durante el cual la resolución produce efectos. Sin fecha de término, rige hasta que la autoridad la modifique." ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 131 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "ValueSet" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/ValueSet/VSUNivelAprob> ;
+         fhir:Reference.reference [ fhir:value "ValueSet/VSUNivelAprob" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Último nivel aprobado" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código del último nivel aprobado" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 132 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://interoperabilidad.minsal.cl/fhir/ig/nid/CodeSystem/CSUNivelAprob> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CSUNivelAprob" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "Último nivel aprobado" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Código del último nivel aprobado" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ] ;
+     fhir:ImplementationGuide.definition.page [
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+         fhir:Extension.valueUrl [ fhir:value "toc.html" ]
+       ] ;
+       fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "toc.html" ] ;
+       fhir:ImplementationGuide.definition.page.title [ fhir:value "Table of Contents" ] ;
+       fhir:ImplementationGuide.definition.page.generation [ fhir:value "html" ] ;
+       fhir:ImplementationGuide.definition.page.page [
+         fhir:index 0 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "index.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "index.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Inicio" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 1 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "negocioMPI.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "negocioMPI.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Especificaciones de Negocio \"Índice Maestro de Pacientes\"" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 2 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "negocioHPD.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "negocioHPD.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Especificaciones de Negocio \"Directorio de Proveedores de Atención Médica\"" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 3 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "transaccionesBusquedasMPI.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaccionesBusquedasMPI.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Casos de Uso y Transacciones \"Índice Maestro de Pacientes\"" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 4 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "transaccionesBusquedasHPD.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "transaccionesBusquedasHPD.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Casos de Uso y Transacciones \"Directorio de Proveedores de Atención Médica\"" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 5 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "artifacts.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "artifacts.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Artefactos Generados" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "html" ]
+       ], [
+         fhir:index 6 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "changes.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "changes.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Historial de Cambios" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ]
+     ] ;
+     fhir:ImplementationGuide.definition.parameter [
+       fhir:index 0 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/capabilities" ]
+     ], [
+       fhir:index 1 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/examples" ]
+     ], [
+       fhir:index 2 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/extensions" ]
+     ], [
+       fhir:index 3 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/models" ]
+     ], [
+       fhir:index 4 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/operations" ]
+     ], [
+       fhir:index 5 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/profiles" ]
+     ], [
+       fhir:index 6 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/resources" ]
+     ], [
+       fhir:index 7 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/vocabulary" ]
+     ], [
+       fhir:index 8 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/maps" ]
+     ], [
+       fhir:index 9 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/testing" ]
+     ], [
+       fhir:index 10 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/history" ]
+     ], [
+       fhir:index 11 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-resource" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "fsh-generated/resources" ]
+     ], [
+       fhir:index 12 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-pages" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "template/config" ]
+     ], [
+       fhir:index 13 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-pages" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input/images" ]
+     ], [
+       fhir:index 14 ;
+       fhir:ImplementationGuide.definition.parameter.code [ fhir:value "path-tx-cache" ] ;
+       fhir:ImplementationGuide.definition.parameter.value [ fhir:value "input-cache/txcache" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://interoperabilidad.minsal.cl/fhir/ig/nid/ImplementationGuide/hl7.fhir.cl.minsal.nid.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+
